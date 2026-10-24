@@ -79,17 +79,36 @@ The user supplied these two readings in the requested order. They are
 consistent with the nominal pad labels. No loaded test, SPI signal-level
 measurement, or adapter-output measurement is established by these readings.
 
+USER-SUPPLIED BARE IDLE SIGNAL MEASUREMENTS (2026-10-24, America/New_York)
+Task: P-01-BARE-SIGNALS
+Following the requested idle DC-voltage test, black on labeled GND, socket
+empty and adapter/clips/routers detached, no flashrom command running:
+- Labeled CS pad: 5.19 V DC.
+- Labeled MOSI pad: 5.182 V DC.
+- Labeled CLK pad: 5.182 V DC.
+User supplied three readings in the requested order. Approximately 5.18 V
+is present on these bare signal pads in this measured state, despite the
+separate 3.3 V supply pad reading 3.322 V. Do not connect these directly to
+the 1.8 V router flash. The meter does not establish switching peaks or
+adapter behavior. The actual adapter must translate both power and signals.
+
 NEXT
-With the bare programmer still alone, meter in DC-voltage mode and black on
-labeled GND, record idle CS, MOSI, and CLK pad voltages one at a time. Keep
-flashrom idle and socket empty, with adapter/clips/targets detached. Low or
-floating readings do not identify the driven-high voltage; the meter cannot
-validate switching peaks or timing. Unplug USB before repositioning hardware
-or changing connections. Adapter input/output/socket mapping and 1.8 V
-power/signal checks remain pending; map unpowered before fitting the adapter.
+Unplug USB and retain detached adapter/clips/routers. With programmer underside
+BIOS 25 SPI text upright, temporarily call the four socket solder joints above
+it T1-T4 from left to right and the four below B1-B4 from left to right.
+These are position labels, not IC pin numbers. Confirm the labeled supply pads
+have decayed to approximately zero V DC relative to labeled GND, then refresh
+tips-together resistance baseline. In resistance mode, black on labeled GND,
+scan the eight BIOS-area socket solder joints and record near-baseline paths
+and their positions. Do not include separate EEPROM/24-I2C joints. No adapter
+insertion or router connection is requested; socket and adapter mapping and
+1.8 V output/translated signal verification remain pending.
 
 PRIMARY REFERENCES
 flashrom v1.8.0 CH341A driver:
 https://raw.githubusercontent.com/flashrom/flashrom/v1.8.0/programmers/ch341a_spi.c
 libusb Darwin backend (reference for entitlement/detach behavior):
 https://raw.githubusercontent.com/libusb/libusb/master/libusb/os/darwin_usb.c
+
+Additional primary reference, consistent with observed bare signal levels:
+https://raw.githubusercontent.com/flashrom/flashrom/main/doc/supported_hw/supported_prog/ch341ab.rst
