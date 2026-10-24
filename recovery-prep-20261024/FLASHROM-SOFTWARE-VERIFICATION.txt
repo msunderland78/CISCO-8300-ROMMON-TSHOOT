@@ -1,0 +1,32 @@
+FLASHROM SOFTWARE VERIFICATION - 2026-10-24, America/New_York
+Task: P-02-SOFTWARE
+
+The user reported successful installation and supplied flashrom --version output.
+The following offline CLI checks were then independently executed on the local
+Mac. No programmer, router, serial port, or flash chip was accessed.
+
+1. flashrom --version
+
+flashrom v1.8.0 on Darwin 27.0.0 (arm64)
+flashrom is free software, get the source code at https://flashrom.org
+
+2. flashrom --help
+
+The supported programmer list includes ch341a_spi.
+
+3. flashrom -L
+
+Matching supported-chip entry:
+Micron                       MT25QU256                            PREW            32768  SPI
+
+Result: software installation and compiled-in support confirmed.
+32768 KiB corresponds to the identified family's 32 MiB main array.
+
+Not established by these checks: communication with an actual CH341A,
+programmer/adapter electrical compatibility, 1.8 V power and signal levels,
+in-circuit access, bank mapping, chip identification, or valid physical reads.
+The user still reports awaiting delivery and having only the multimeter.
+
+Next step after delivery: identify/photograph the programmer and adapter,
+check USB communication with no target attached, then complete the P-01
+electrical checks before connecting any router.

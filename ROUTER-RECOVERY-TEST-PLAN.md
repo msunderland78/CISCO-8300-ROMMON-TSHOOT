@@ -32,7 +32,7 @@ Do not assume that the other C8235s share C8235-A's board revision, flash parts,
 - [x] Inventory all 300 pre-existing workspace files, including subfolders: [inventory](recovery-prep-20261024/WORKSPACE-INVENTORY.txt).
 - [x] Rehash the C8375 original restore image and both original full-chip source reads; all match the recorded original SHA-256.
 - [x] Record the user's clarification: three C8235-G2s, one C8375-G2, one C8300-1N1S.
-- [x] Check local software availability: Homebrew present; `flashrom` not installed at the planning inspection.
+- [x] Check local software availability: Homebrew present; `flashrom` was absent at the initial inspection and was subsequently installed and verified under P-02 below.
 - [ ] Tie tracking IDs to physical labels and chassis serials.
 
 ## 2. Equipment and connection rules
@@ -163,9 +163,12 @@ Some CH341A boards drive signals near 5 V despite a lower socket supply; see [of
 
 ### P-02 — Prepare software
 
-- [ ] Install `flashrom` if still absent.
-- [ ] Save version and supported-chip information.
-- [ ] Verify the installed build supports `ch341a_spi` and the full 32 MiB Micron part.
+- [x] Install `flashrom`: user completed installation; local version check confirms **v1.8.0 on Darwin 27.0.0 (arm64)**.
+- [x] Save version and supported-chip information: [offline software verification](recovery-prep-20261024/FLASHROM-SOFTWARE-VERIFICATION.txt).
+- [x] Verify the installed build lists `ch341a_spi` and **Micron MT25QU256, 32768 KiB, SPI**.
+- [ ] After delivery, check communication with the actual programmer with no router or flash chip connected. This hardware step has not been performed.
+
+**P-02 software result: passed on October 24, 2026.** The user supplied successful version output, and local `--version`, `--help`, and `-L` checks confirmed installation and compiled-in support. These offline checks do not establish USB communication, adapter voltage/logic levels, in-circuit access, or physical chip identification. The user still reports waiting for equipment; P-01 and router/programmer operations remain pending.
 
 These preparation commands do not access a router:
 
@@ -379,6 +382,7 @@ End state: power, cables, battery, assembly, terminal ownership
 | --- | --- | --- | --- | --- | --- | --- |
 | 2026-10-24 | PREP-01 | Workspace | Inventory and context review | 300 pre-existing files inventoried; three requested contexts read | Use this file for tracking | Inventory and context links above |
 | 2026-10-24 | PREP-02 | C8375-A saved artifacts | Rehash original restore image and both original source reads | All three match `72fc3f…45107` | Original restore reference available; physical target still unknown | Full hash in section 6 |
+| 2026-10-24 | P-02-SOFTWARE | Mac workstation | User installation followed by offline version/help/supported-chip checks | flashrom v1.8.0, Darwin 27.0.0 arm64; `ch341a_spi` and MT25QU256 listed | Software ready; actual programmer detection and P-01 electrical checks pending | [Software verification](recovery-prep-20261024/FLASHROM-SOFTWARE-VERIFICATION.txt) |
 | Pending | | | | | | |
 
 ### Decisions and unresolved questions
@@ -424,3 +428,4 @@ After boot recovery, define and log an observation duration, reset/reboot behavi
 | Date | Update |
 | --- | --- |
 | 2026-10-24 | Created the Markdown tracking plan from reviewed recovery histories and the initial bench worksheet. Added five-device register, task IDs, per-chip mapping tables, acquisition/restoration criteria, C8300 console isolation, and append-only result templates. No new bench tests performed. |
+| 2026-10-24 | Recorded successful flashrom v1.8.0 installation and offline confirmation of CH341A/Micron support. Marked the software preparation items complete; actual USB/programmer communication and electrical validation remain pending. |
