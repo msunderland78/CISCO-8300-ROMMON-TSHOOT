@@ -69,11 +69,24 @@ was performed as part of these probes.
 If a later run actually fails to open/claim/transfer, reassess that specific
 error rather than treating every detach warning as fatal or universally benign.
 
+USER-SUPPLIED BARE SUPPLY MEASUREMENTS (2026-10-24, America/New_York)
+Task: P-01-BARE-SUPPLY
+Following the requested DC-voltage test with socket empty, adapter/clips/routers
+detached, black on labeled GND:
+- Labeled 3.3 V pad: 3.322 V DC.
+- Labeled 5 V pad: 5.195 V DC.
+The user supplied these two readings in the requested order. They are
+consistent with the nominal pad labels. No loaded test, SPI signal-level
+measurement, or adapter-output measurement is established by these readings.
+
 NEXT
-With the black programmer still alone, meter in DC-voltage mode, measure its
-labeled 3.3 V and 5 V pads relative to its labeled GND pad. Keep socket empty
-and adapter/clips/targets detached. These readings have not yet been reported.
-Adapter input/output/socket mapping and 1.8 V power/signal checks remain pending.
+With the bare programmer still alone, meter in DC-voltage mode and black on
+labeled GND, record idle CS, MOSI, and CLK pad voltages one at a time. Keep
+flashrom idle and socket empty, with adapter/clips/targets detached. Low or
+floating readings do not identify the driven-high voltage; the meter cannot
+validate switching peaks or timing. Unplug USB before repositioning hardware
+or changing connections. Adapter input/output/socket mapping and 1.8 V
+power/signal checks remain pending; map unpowered before fitting the adapter.
 
 PRIMARY REFERENCES
 flashrom v1.8.0 CH341A driver:
