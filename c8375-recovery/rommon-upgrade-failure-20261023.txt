@@ -1,0 +1,15 @@
+Detected a secure upgrade request.
+################
+
+Performing Integrity Check ...
+Performing Signature Verification of OS image...
+
+	Platform   Name: mirabile
+	Current Version: SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Release
+	Update  Version: v17.18(3r).s2.cp
+
+%ERROR: Locate BIOS protection protocol failed
+StartImage returned 8
+Unable to start package Status = 8
+%ERROR% Failed to launch upgrade
+Continuing with current ROMMON version ...

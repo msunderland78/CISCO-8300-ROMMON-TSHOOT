@@ -1,0 +1,33 @@
+C8375-E-G2 / chassis FDO2742M0FK - ORIGINAL FLASH RESTORE SET
+2026-10-23
+
+This is an exact, unmodified 32 MiB read of the original active SPI flash.
+Two independent device reads matched; USB-to-Mac copies also matched.
+Source identified by Linux as /dev/mtd0 (spi0.0), 33,554,432 bytes.
+Original firmware: SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Release, development.
+
+This full chip dump is NOT a flashmon upgrade package. It contains unique
+board data and environment; keep it private and use only for this chassis.
+The physical chip/bank mapping must be established from the actual board.
+Do not confuse spi0.1 with a golden ROMMON bank.
+
+Before external programming, identify the exact physical chip/package and
+verify programmer voltage, signal levels and pin mapping against its datasheet.
+Remove router power, console and USB connections before attaching a programmer.
+Read the actual chip twice and preserve both original programmer dumps first.
+Compare those dumps with the saved images to establish the correct target.
+Only then restore the original chip contents and verify a complete readback.
+
+The saved dump was taken while manual ROMMON boot (0x1820) was selected.
+It may stop at a ROMMON prompt after restoration. Known prior working settings:
+ USER_BOOT_PARAM=maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init
+ BOOT=bootflash:packages.conf,12;
+ normal automatic boot register=0x1822 (115200 console)
+Set/sync those through ROMMON after restoration if needed; do not substitute
+an arbitrary generic configuration register.
+
+The newer 17.18(3r).s2.cp firmware was programmed and verified but did not boot
+on this board: no console startup, blinking red status, fans maximum after cold
+power cycle. Do not reflash that image as the next recovery step.
+The original IOS XE install and saved SSH configuration reside on internal eMMC;
+this restore set concerns SPI boot firmware, not an eMMC erase or factory reset.

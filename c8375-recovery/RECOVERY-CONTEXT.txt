@@ -1,0 +1,373 @@
+C8375-E-G2 candidate -- separate recovery task -- 2026-10-23
+User reports ~8GB RAM, empty DDR5 slot, IOS XE 26.2.1 boot error.
+Device powered off at task start, connected by native USB console.
+Mac port observed: /dev/cu.usbmodem4101; no other process held it.
+Physical model, board revision, total physical DRAM and boot failure are not yet verified.
+C8235 task remains separate; user says flash programmer is ordered/in transit.
+
+Read ../C8235-G2-RECOVERY-CONTEXT.txt for history of the OTHER router.
+Do not apply its SoC1 image or experimental hybrid to this device.
+
+Staged original SoC2 ROMMON set on CISCO FILES:
+ /C8375-E-G2-ROMMON-17.18-3r/
+Version: 17.18(3r).s2.cp; all eight files verified against source manifest.
+USB 26.2.1 IOS image also verified against original extraction manifest.
+See usb-staging-notes.txt and usb-staging-SHA256SUMS.txt.
+
+Cisco 26.2 release notes: C8375 minimum ROMMON 17.15(3.2r).s2.cp,
+recommended 17.18(3r).s2.cp. Hardware guide lists single 16GB DDR5 default,
+32GB upgrade. This alone does not establish generic UDIMM compatibility or
+whether reported 8GB is total physical memory versus an IOS memory partition.
+
+Next: capture full cold boot using serial_console.py (115200 8N1 initial).
+No flash, factory reset, memory purchase or hardware alteration done in this task.
+
+COLD BOOT CAPTURE -- 2026-10-23
+Raw log: console-logs/20261023-100652-console.log
+Board: mirabile-crestone r3; CN10616 B0 (MV-CN10616-B0-AAP), 16 cores.
+DRAM init: DMC2 8 GB/ch, 1Rx8 UDIMM, 32-bit data, 4-bit ECC;
+8 GB total reported at 4800 MT/s. ROMMON main memory 8256512 Kbytes.
+ROMMON SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Release DEVELOPMENT SOFTWARE,
+compiled September 21 2023. Current image: Boot ROM1.
+SCP reports SPI0.CS0 (Primary image0); do not equate ROM1 label with golden.
+ROMMON initially stops: ERROR: ChipGuard Validation of CPU UUID failed.
+This is distinct from the C8235 TPM manufacturing-status halt.
+showmon -v: PID C8375-E-G2, PCA FDO27380KFQ, chassis FDO2742M0FK,
+VID V01, board version 5, CPLD 43 (2.B) dated 08/27/24.
+Board Serial unknown in EBF is not proof chassis/PCA cookies are absent.
+Development ROMMON/old board revision suggest early development hardware;
+production status is not definitively established from this alone.
+Environment: USER_BOOT_PARAM=maxcpus=24 failure_shell;
+DEVICE_MANAGED_MODE=autonomous; SCRATCH_BOOT=0; TFTP_BLKSIZE=64000.
+No environment changes have been made.
+Internal bootflash contains a Feb 4 2025 SSA development IOS image,
+SDK112310-UEFI-SoC2-SB-v11.2.7_RSA4K.img (16580608 bytes), and
+SDK112312-Prod-SoC2-v17.15.1_13d-cp-RSA2K.pkg (5753916 bytes).
+These are valuable potential recovery sources: do not delete or overwrite.
+USB recognized as usb0:, copied SoC2 folder present.
+flashmon help confirms primary 1/p and golden 2/g, but no flash performed.
+Issued manual boot of usb0:/c8kg2be-universalk9.26.02.01.SPA.bin to
+capture exact IOS boot failure. Outcome pending.
+
+26.2.1 MANUAL BOOT RESULT
+ROMMON reads USB image and performs integrity/signature verification, then
+prints %ERROR% Booting an incompatible image for this platform.
+It nevertheless enters Linux 6.6.95. EFI reports failed fs_proto / initrd
+loading, but proceeds using the configured DTB and Cisco package parameters.
+Kernel sees ~8GB physical address range. Existing maxcpus=24 is passed on.
+At "smp: Bringing up secondary CPUs ..." firmware halts with
+"Unhandled Exception in EL3." elr_el3=0xB5F08C, esr_el3=0xBE000011,
+x19=x20=0x10. No IOS CLI or failure shell reached.
+No new ROMMON/environment writes, flash or key provisioning performed.
+Possible old BL31/UEFI/kernel or CPU topology incompatibility; not proven.
+The maxcpus=24 versus 16 hardware cores mismatch is a diagnostic lead,
+not an established root cause. Next test after physical power cycle:
+inspect assignment syntax, preserve original USER_BOOT_PARAM, temporarily
+try maxcpus=1 failure_shell (do not sync environment), retry same image.
+Single CPU is diagnostic only and may prevent normal IOS/dataplane startup.
+If feasible, recover copies of original internal development IOS/ROMMON
+artifacts to USB/Mac before any firmware change.
+Router currently appears halted in EL3; physical power cycle needed.
+Console bridge still active and logging.
+
+SECOND COLD BOOT / SINGLE CPU TEST -- 2026-10-23
+Second boot adds two early init errors not seen on first capture:
+ ERROR: MDC: ECC double bit failure, Row 0x33e, Chain 1, Hub 8, Node 0
+ ERROR: MDC: ECC double bit failure, Row 0xe64, Chain 1, Hub 8, Node 0
+These MDC reports have not been mapped to a physical component; do not
+assume they identify the replaceable DDR5 DIMM. Boot continued to ROMMON.
+help set documents set <variable-name> <value>.
+Unquoted multiword value retained only maxcpus=1; corrected using quotes.
+Verified set output now USER_BOOT_PARAM=maxcpus=1 failure_shell.
+Original value was maxcpus=24 failure_shell. No sync issued.
+Booting same verified USB 26.2.1 image with single CPU for diagnosis.
+Outcome pending. No ROMMON firmware update performed.
+
+SINGLE CPU TEST RESULT
+Kernel confirms maxcpus=1 failure_shell in command line. It passes the prior
+EL3 halt: "smp: Brought up 1 node, 1 CPU" / "Total of 1 processors activated."
+Kernel proceeds through device setup, devtmpfs, SMBIOS, SDEI, UART discovery.
+It still enumerates 24 possible CPU slots from firmware/DT; maxcpus controls
+online CPU count, not that topology table.
+Last output: ttyAMA0 at 0x87e028000000; ttyAMA1 at 0x87e029000000;
+console [ttyAMA1] enabled; bootconsole [pl11] disabled.
+The early console used 0x87e028000000, so UART handoff may explain silence.
+No proof of IOS running. A carriage return produced no immediate output.
+Next diagnostic boot: retain maxcpus=1 and add keep_bootcon to preserve early
+console output; consider console=ttyAMA0,115200n8 if needed. Verify parameters.
+Follow-up normal multicore test should use maxcpus=16 if topology is valid;
+single CPU alone does not distinguish invalid core16+ from any secondary-core
+startup failure. Do not conclude maxcpus=24 alone is proven root cause.
+Located older local 17.15.6 boot capture from October 22 with same Crestone
+r3 and same EL3 pc=0xB5F08C at secondary CPU startup, also maxcpus=24.
+Copied this historical evidence into this task's folder; identity beyond board
+and boot signature not independently checked from its content.
+
+CORRECTION -- SINGLE CPU BOOT DID CONTINUE
+User reported fans slowing and green LEDs and correctly questioned proposed
+power cycle. No additional power cycle occurred. After more waiting, console
+output resumed with IOS XE 26.02.1 release banner and "System booted in
+AUTONOMOUS mode". Prior suspected UART handoff failure was NOT established.
+Early console silence was not proof of a hang. Allow more boot time.
+IOS reports PID C8375-E-G2, chassis FDO2742M0FK, 8388608K physical RAM,
+4x2.5GE, 2x10GE, bootflash ~20.6GB and USB ~60GB.
+Existing startup configuration parsing includes invalid commands for Vlan1,
+TenGigabitEthernet0/1/0-3 and switchport; no config edits made.
+Still running maxcpus=1 diagnostic boot; full routing/dataplane health and
+CLI access pending verification. No firmware flash and no sync performed.
+
+IOS CLI REACHED / DATAPLANE FAILED
+Enabled Router# prompt reached without password. terminal length 0 set for
+this session only. show platform: RP active, forwarding initially init,
+built-in 4M-2xSFP+ booting, P0 PSU unknown/incompatible, P1 empty, fan OK.
+show platform software status control-processor brief reports ~7.9GB RAM,
+~3.48GB used (44%), one CPU fully loaded. No proof 8GB is sufficient for
+full forwarding; it is sufficient to reach the IOS control plane in this test.
+No running/startup configuration changed or saved by assistant.
+Copied from internal bootflash into usb0:/C8375-ORIGINAL-BACKUPS/:
+ SDK112310-UEFI-SoC2-SB-v11.2.7_RSA4K.img -- 16,580,608 bytes; copy complete.
+ SDK112312-Prod-SoC2-v17.15.1_13d-cp-RSA2K.pkg -- 5,753,916 bytes; copy complete.
+These are pre-existing files, NOT dumps of the currently installed flash.
+Destination/source checksums not yet verified.
+Requested copy of internal Feb2025 development IOS into same USB folder as
+original-development-ios.SSA.bin; destination confirmation sent, but no copy
+completion observed. Do not treat as a valid backup until verified.
+Forwarding qfp_ucode_mirabile was held down, rc134, then critical process
+failure and F0/cc offline. Last prints ERROR: SDEI dispatch failed: -1.
+No manual power cycle or reload done after user's request to hold off.
+Watching for automatic restart. Single CPU may explain forwarding failure,
+but root cause remains unproven. Next multicore diagnostic should limit
+maxcpus to16 and preserve early console via keep_bootcon before reflashing.
+
+SINGLE CPU -- KERNEL PANIC / KDUMP
+Subsequent output shows kernel crash at uptime ~234 seconds in
+edac-poller / octeontx_edac_device_wq; pc __memcpy_fromio+0x50/0x98,
+lr octeontx_edac_wq_handler+0xbc/0x2b0, level3 translation fault at
+ffff80008512e000, while reading mapped firmware RAS records.
+Preceding MDC CE log has many 0xA5A5 uninitialized-looking fields;
+this may indicate firmware/driver RAS record incompatibility but is not
+proved, nor is this direct proof of failed replaceable DRAM.
+Crash kernel running and saving full core; estimated vmcore 8158224KB,
+~16061784KB bootflash space available. Reports automatic reboot within
+20 minutes, watchdog countdown. Do not interrupt core write unnecessarily.
+Development IOS backup did not show copy progress/completion before panic.
+Both small original ROMMON backups finished copying but remain unverified.
+
+AUTOMATIC REBOOT / 16 CPU TEST
+Kdump completed in 157 seconds. Core saved internally:
+/misc/scratch/core/kernel.rp_RP-MIRABILE_0_19700101000010.core.gz
+Reported size 1,749,903,412 bytes (before tracekey append).
+Text dmesg filename kernel.rp_RP-MIRABILE_0_19700101000010.txt.
+Automatic software reboot observed, RST_LBOOT CHIP_SOFT; no user power cycle.
+Returned to ROMMON with original USER_BOOT_PARAM=maxcpus=24 failure_shell,
+confirming prior maxcpus=1 change was not persistent across reboot.
+Set and verified temporary USER_BOOT_PARAM=maxcpus=16 failure_shell keep_bootcon.
+No sync. Booting same USB 26.2.1 image to test 16 cores and keep early output.
+
+USER BOARD CLARIFICATION / 16 CORE INITIAL RESULT
+User confirms only ONE DDR5 slot, and it is EMPTY. With 8GB initialized,
+onboard memory is a reasonable hypothesis, not yet physically verified.
+Do not assume production C8375 single-DIMM memory layout matches this board.
+16 CPU test confirms all CPU0-15 online: "Total of 16 processors activated."
+No EL3 crash at secondary startup. This strongly supports invalid core16+
+startup under the old maxcpus=24 / 24-entry firmware topology as the cause
+of the first EL3 fault. IOS/dataplane startup still pending in this test.
+keep_bootcon retains much more kernel/systemd output; full raw capture saved.
+
+16 CPU BOOT -- IOS / BACKUP PROGRESS
+Reached enabled IOS prompt. show platform shows F0 ok, active; built-in
+4M-2xSFP+ subsequently online. P0 PSU still unknown/incompatible, P1 empty.
+Copied original Feb2025 internal development IOS successfully to:
+usb0:/C8375-ORIGINAL-BACKUPS/original-development-ios.SSA.bin
+1000259196 bytes copied in65.804seconds. This preserves a file, not installed
+SPI firmware. Full checksum verification still pending.
+verify /md5 internal SDK112310...RSA4K.img completed:
+a8b9efb975c1213525fe33bd37dc871f.
+Issued verify /md5 USB copy of same file, but no command echo/result yet.
+CLI stopped responding around10:27:35 Mac time; Linux journald heartbeat
+continues at least once. No 16-core stability conclusion yet; watch further.
+No sync or firmware flash performed.
+
+CONSOLE RECONNECT
+Closed old bridge cleanly and reopened nativeUSB console without rebooting.
+New bridge exec session96722, log console-logs/20261023-102849-console.log.
+Carriage returns do not elicit prompt. Tried XON (Ctrl-Q) + CR to resume any
+accidentally paused console. No result yet. Router not manually power cycled.
+
+LATEST USER OBSERVATION / NEXT PHYSICAL STEP
+User reports fans slow and LEDs green during 16CPU boot after CLI silence.
+Kernel journald heartbeat still emitted after nativeUSB console reconnect;
+no repeated reboot or second panic observed yet. IOS prompt unresponsive.
+Do not conclude total system hang or full routing health from LEDs alone.
+Proposed next least invasive step: keep power and thumbdrive connected,
+switch console to existing USB-to-RJ45 serial cable from C8235 task, unplug
+native USB console at router so RJ45 input can be used. Await physical change.
+Native console capture remains active (session96722). No new flash/sync.
+
+RJ45 CONSOLE SUCCESS -- 2026-10-23 10:33
+Native USB was unplugged; existing FTDI USB-RJ45 adapter connected.
+Opened /dev/cu.usbserial-AL00F7EQ at115200 8N1; immediate Router# response.
+New script rj45_serial_console.py; active session73906;
+log console-logs/20261023-103319-console.log.
+At ~9min uptime show platform: all CPU/FP/module slotsOK, F0ok active,
+4M-2xSFP+ OK. QFP datapath statistics respond, ~0%load and counters changing;
+not yet an external forwarding/traffic test. CPU0-15 all present.
+Control processor Healthy; memory4529164/7904548KB used(57%), free3375384KB.
+Therefore silence during16CPU test was nativeUSB console path, not totalhang.
+No reboot or new kernelpanic observed since16CPUboot.
+PSU P0 remains unknown/incompatible and P1empty, fanP2OK; investigate later.
+Verified source and USB copies have matching MD5:
+ SDK112310-UEFI-SoC2-SB-v11.2.7_RSA4K.img: a8b9efb975c1213525fe33bd37dc871f
+ SDK112312-Prod-SoC2-v17.15.1_13d-cp-RSA2K.pkg: d947e04256c496a7d881c7baf1778ec8
+Development IOS backup checksum verification in progress.
+Next: preserve corrected16CPU parameter across reboot (avoid keep_bootcon
+in final environment) and boot26.2 from internalstorage if feasible.
+No ROMMON flash needed to reach this working16core state.
+
+Verified developmentIOS original and USBbackup bothMD5 e245f58d04438feb8bbbb08c9b7d409c.
+show bootvar: noBOOT, configregister0x1820 (manual ROMMON boot).
+Copying verified USB26.2.1 image to internalbootflash; will checksum before selecting.
+Local original26.2.1 MD5: f25a1154427adbbad4a1993e0969d08c
+
+USER REQUIREMENT -- INSTALL MODE
+User explicitly requires INSTALL mode, not final bundle mode.
+The .bin copy to internal bootflash is installer staging only.
+Intended final boot target packages.conf with package install committed.
+Persist16CPU before installer activation/reload; do not flashROMMON.
+
+PRE-INSTALL PERSISTENCE RESTART
+Copied USB26.2.1 into internalbootflash;1048008916bytes;MD5verified
+f25a1154427adbbad4a1993e0969d08c matches localoriginal.
+Copied originalstartupconfig to USBbackups/original-startup-config.txt,
+2436bytes. Contains deviceconfiguration; do not publish contents/credentials.
+Issued normalIOSreload and confirmed. No configuration-save prompt shown.
+Will save USER_BOOT_PARAM=maxcpus=16 failure_shell viaROMMONsync,
+setnormalboot configregister, then bootstagedimage to run initialone-step
+install add file ... activate commit conversion to installmode.
+No primary/goldenROMMON firmware write planned.
+
+PERSISTED CPU / NORMAL BOOT FLAG
+AtROMMON set USER_BOOT_PARAM "maxcpus=16 failure_shell", sync.
+Removed diagnostickeep_bootcon. setoutputverified16CPUvalue.
+confreg showed0x1820: breakenabled, console115200, bootROMmonitor.
+Changed ONLY lowbootfield to2: confreg0x1822. Interactive confreg summary
+confirms breakenabled, console115200, bootimage specified by bootcommands.
+Answeredn to interactivechangequestions and sync afternewregistervalue.
+0x1822 chosen to preserve115200, ratherthan changingbaud with generic0x2102.
+Booting stagedinternal26.2.1 BIN once to run one-step installmodeconversion.
+Finalintentpackages.conf, not bundlemode. NoROMMONfirmware flashed.
+CPUparameterpersistenceacrossnextreloadwillbeverified.
+
+IMPORTANT NEW FAILURE BEFORE INSTALL
+Internal26.2.1 bundle boot with16CPU, withoutkeep_bootcon, panicked at
+kerneluptime53.3seconds in sameedac-poller octeontx_edac_device_wq /
+__memcpy_fromio+0x50/0x98 as previoussingleCPU panic.
+Faultvaddrffff800084742000, readstartffff800084741f08, remainingcopy0x370;
+x5A5A5... uninitialized-looking. cpu10. Thus16CPUfix doesNOTsolveEDACfault.
+Previous16CPU+keep_bootconboot was up>20min, so this can be timing-sensitive.
+Kdump running; will autorebootafterwrite. 13.3GBfree beforedump, enoughfor
+predicted~1.7GBcompressedcore. InstallerNOTstartedyet.
+Next: investigateoldfirmwareRAS/EDACrecordABI, a reversible kernelparameter
+experiment if exactinitfunctionidentified, or originaldevelopmentIOSbaseline.
+Do notcallrouterfullyrecovered or recommendspecificRAMfromthisfaultalone.
+
+EDAC DIAGNOSTIC PLAN
+Confirmed octeontx_edac_init exactname exists in original26.2.1BIN at
+offset23194340, and initcall_blacklist bootparameter support strings present
+at offsets21629284/30339051. kernel-edac-symbols.txt saves relevantnames.
+Marvell officialpatchpostedbyVasylGomonovych identifieslate_initcall
+(octeontx_edac_init) anderrorreportingworkqueue seen incrash.
+Linux6.6docs support initcall_blacklist=comma-separatedfunctionnames.
+Plan reversibleUNSAVEDparameter test:
+maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init
+This disables OS EDAC error-reportingdriver initialization; not a hardware
+RAMrepair and not proofmemoryisfaultfree. DoNOTsilentlytreatasproductionfix.
+ArmedBtrigger forMarvellbootmenu afterdump toretainbootcontrol.
+
+NORMAL BOOT FALLBACK OBSERVED
+Second dumpcompleted166sec, compressedcore2325885277bytes;
+filenamekernel.rp_RP-MIRABILE_0_19700101000007.core.gz.
+Afterautomaticreboot, BtriggerenteredMarvellmenu. SelectedN.
+Withnormal0x1822andnoBOOTvariable,ROMMONreportedno validBOOTimage,
+thenfallbackscannedinternalflashandbootedexistingFeb2025developmentIOS.
+AserialBREAKsentwhileimageverificationwasinprogressdidNOTabortloading.
+ThisisnotyettheplannedEDACblacklisttest. NoimagechangesorROMMONwrites.
+Developmentkernelconfirmed16CPUsactivated, showingmaxcpus16persisted.
+AwaitingoldIOSprompttoreturntocontrolledmanualROMMONbefore26.2diagnostic.
+
+DEVELOPMENT IOS BASELINE / RETURN TO MANUAL
+ExistingdevelopmentIOSbooted fully (17.18.20250204:011211) with16CPU;
+F0online, networkmoduleonline. NoEDACpanicobservedinbriefbaseline.
+EnabledCLI, configuredconfig-register0x1820only; showbootvarverifiednext
+reload1820. Reloaded, declinedsaveofrunningconfig, thenconfirmedreload.
+Originalstartupconfigurationnotreplaced. ExistingpendingROMMONprompttrigger
+willqueryenvironment. NeedtemporaryEDACblacklist26.2bootnext.
+
+EDAC BLACKLIST TEST ACTUALLY STARTED
+AtmanualROMMONverifiedpersistedbase maxcpus16failure_shell afterreload.
+SetUNSAVED USER_BOOT_PARAM="maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init".
+Verifiedfullvaluevia set. No syncforthisblacklisttest.
+Bootingverifiedinternal26.2.1BIN. InstallerstillNOTstarted.
+Finalinstallmodeconversionstillrequiredafterstablebaseline.
+
+EDAC BLACKLIST SUCCESS TO CLI / INSTALL START
+Rawkernelconfirmed"blacklisting initcall octeontx_edac_init";
+16CPUsactivated. Reached26.2.1enabledCLI without53secEDACpanic.
+F0okactive, builtinnetworkmoduleonline. Stabilitybeyondinitialbootstilltesting.
+showinstallsummaryIMG C26.02.01.0.263 whilebundleboot (summaryaloneNOTproof
+ofinstallmode; finalshowversionSystemimage andbootvarmustbechecked).
+Issued one-stepconversion:
+install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit
+Resultpending;manualregister0x1820retainedforcontrolledinstallerreboot.
+EDACblackliststillunsaved; nextmanualROMMONmustsaveitifusedforinstalltest.
+UserhasspareEthernetpatchcableforfinaltwoportVRFforwardingtest.
+
+INSTALL CONVERSION COMPLETED / REBOOT PENDING FINAL SETTINGS
+One-stepinstallAddpassed26.02.01.0.263. Activationconfirmed y.
+Activatepassed, ACTIVATE_POSTCHECKandCommitpassed.
+"SUCCESS: install_add_activate_commit" at routerMay29 18:52:28.
+Installerbuilt/savedconfigurationduringactivation; originalstartupwasalready
+backeduptoUSBbeforethis. NoROMMONflashcommandissued.
+Automaticinstallerreloadobserved. WaitingmanualROMMONtoverifyBOOTpackage
+path, persisttestedEDACworkaroundalongwith16CPU, setnormalbootfieldand
+resettoverifyautomaticpackages.confboot. Finalmodeverificationstillpending.
+
+FINAL BOOT PARAMETER PERSISTENCE / AUTOMATIC INSTALL BOOT TEST
+PostinstallerROMMONshowsBOOT=bootflash:packages.conf,12;.
+Verifiedpackages.conf8405bytesand14extracted26.2.1PKGsinbootflash.
+Persistedvia setandsync:
+USER_BOOT_PARAM=maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init
+Setconfigregister0x1822(normalboot,115200consolepreserved) andsync.
+ThisEDACdriverdisableisaworkaroundforobserveddriver/oldfirmwarepanic,
+notanunderlyinghardware/firmwarerepair. OSerrorreportinglimitedwhileactive.
+IssuedROMMONresettoverifyunattendedBOOTpackages.confandpersistedparameters.
+NoROMMONprimary/goldenfirmwarewriteperformed.
+
+AUTOMATIC INSTALL BOOT INITIAL PROOF
+Afterreset, withoutmanualbootcommand,ROMMONreadpackages.conffromBOOTvar.
+Newearlyinitreport: MDC ECCsinglebitfailureRow0xee9Chain1Hub8Node0.
+Thisisadditionalunresolvedhardware/firmwareerrorevidence; OSdriverblacklist
+mustnotbepresentedasfixingunderlyingECCcondition.
+Installerfinalbootstillinprogress;willcheckrunningSystemimageandcommit.
+
+INSTALL MODE / PHYSICAL PACKET TEST PASSED
+showversionSystemimage="bootflash:packages.conf";register0x1822.
+InstallsummaryIMG C26.02.01.0.263;autoabortinactive.
+Automaticpackages.confbootandpersisted16CPU+EDACblacklistverified.
+Userconnectedpatchcabledata0/0/0to0/0/1. Bothup/upat2500Mbpsfullduplex.
+SeparateRECOVERY-A/BVRFsbrokeinternallocal-route shortcuts;ARPineachVRF
+resolvedtheotherport'sphysicalMAC(e80a.b995.77a0/.77a1).
+Initial5x100byteping4/5,likelyfirstARPresolution;steadytests:
+1000x1500bytesAtoB1000/1000, min/avg/max1/1/4ms.
+1000x1500bytesBtoA1000/1000, min/avg/max1/1/4ms.
+Aftercounterrefreshbothports2015RXand2015TX,3031756bytesRX/TXeach,
+0inputerrors,0CRC,0outputerrors,0drops. Oneinterfaceresetfromstartup.
+Thisisaphysicaltwo-portpacketexchange,notfullratedtransitthroughputtest.
+CleanedALLtemporarytestconfig: removedtestIPs,VRFassociationsandRECOVERY-A/B.
+Verifiedbothinterfaceconfigsbacktoexactoriginal74bytes:noipaddress,
+negotiationauto. showvrfonlyMgmt-intf. DidNOTsavetemporarytestconfig.
+FinalhealthCPU0-15present,controlHealthy,memory4560360/7904544KBused58%,
+free3344184KB42%;CPUtemperature36C,allreportedsensorsNormal,power36W,
+fans~5280-5520RPM. P0PSUidentity/incompatibilitystillunresolved.
+
+Raw inventory has blank PSU PID/VID/serial. User asked for visible PSU label; response pending. Raw inventory also describes ram as 16GB,Cisco,Onboard Memory despite actual8GB boot/OS detection; do not treat that descriptor as physical capacity proof. Consolidated root C8375-E-G2-RECOVERY-CONTEXT.txt is the current handoff.

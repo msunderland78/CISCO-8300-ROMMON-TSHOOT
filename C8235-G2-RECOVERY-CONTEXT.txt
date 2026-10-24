@@ -1,0 +1,467 @@
+C8235-G2 / ARATA PROTOTYPE ROUTER — RECOVERY CONTEXT
+Updated: 2026-10-23, America/New_York
+Workspace: /Users/games/Documents/SOFTWARE
+
+START HERE
+This is the consolidated handoff for this conversation through the purchase
+recommendations. It supersedes older status summaries where they differ.
+Detailed reports, photos, original firmware, extracted files and raw console
+logs remain in the folders indexed below. This is a technical summary, not a
+verbatim copy of every chat message or every unsuccessful web search.
+
+CURRENT OUTCOME AND NEXT STEP
+- Router is NOT recovered. The primary ROMMON flash operation completed,
+  but the release firmware now halts before Cisco ROMMON at a TPM
+  manufacturing-status error. IOS XE is no longer reached by that boot path.
+- Only the original extracted SoC1 release image was successfully flashed.
+  The experimental hybrid was NEVER programmed: Kermit rejected its size
+  before data transfer or flash erase.
+- The golden ROM was not deliberately written. Its contents, physical chip
+  assignment and ability to boot have NOT been verified. There is no saved
+  full dump of the device's original primary development ROMMON.
+- J2900 is NOT a verified ROM selector. No jumper was fitted. Its nearer-
+  battery pin's function remains unknown despite the resistance tests below.
+- Hardware is disassembled for access: user reports the board mounts upside
+  down in the case and had to be removed for measurements. Tests were
+  requested with all external power/cables disconnected and coin-cell removed.
+  Reconfirm physical condition and battery placement when resuming; do not
+  assume it has since been reassembled or powered.
+- User has a Fluke 111 with ordinary pointed probes, no mini-grabber leads.
+  A powered J2900 voltage measurement was proposed but NOT performed because
+  mounting/cooling and probe access made it impractical.
+- Latest discussion concerns obtaining a CH341A programmer, 1.8 V adapter,
+  SOIC-16 clip and jumper wires. No purchase, delivery or new programmer
+  connection has been confirmed.
+- Intended next hardware step after equipment arrives: verify adapter power
+  AND signal levels, verify every connection against the Micron datasheet,
+  attempt read-only full dumps of BOTH flash chips, repeat reads and compare
+  hashes, then inspect the dumps before deciding any write. In-circuit access
+  is not guaranteed; electrical isolation or chip removal might be required.
+
+USER INTENT / WORKING CONTEXT
+The user describes this as a scrap/test device and explicitly authorized
+experimental attempts to recover it, including repeated boot/upgrade attempts.
+They authorized work/extraction in this folder and copying recovery files to
+their USB drive. They dislike repeated approval requests. Their typed
+--approval-policy "never" did not change actual execution permissions.
+Authorization to attempt recovery is not evidence that a particular image,
+pinout, strap or electrical connection has been validated.
+
+DEVICE IDENTIFICATION
+- User calls it a C8235-G2. Console identifies preproduction hardware:
+  board mirabile-arata r2; Marvell CN10208C A0 / Pass A0 alt package;
+  SKU MV-CN10208C-A0-HF240AG-xxxx-SCP; 16 GB DDR5.
+- Original IOS XE identifies C8230X-8M2X, board ID FGL2835L42B.
+- Physical sticker: SYSTEM U58L372T47 LF_0555; H/W 055; SCH Rev P2B;
+  BOM 33; Version P2B; Platform Arata PIM sku; PID C8230-8TM2X;
+  ROMMON, FPGA and S/W fields marked TBD.
+- PCB silkscreen: U58L372T47 REV:05 GP; 309.0247.055.
+- PCB barcode serial visible in photos: FOC28292GX9. Do not confuse this
+  board barcode with the console processor/chassis ID.
+- Older notes in /Users/games/Documents/AI/ROUTER describe similar A0 test
+  hardware but include a different serial FGL2835LBHU; do not assume they
+  document this exact physical unit.
+
+IMAGE EXTRACTION AND USB PREPARATION — COMPLETED
+Original image:
+  c8kg2be-universalk9.26.02.01.SPA.bin
+  Size: 1,048,008,916 bytes
+  SHA256: 0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456
+  Original image was not modified.
+
+Extraction chain:
+  IOS image -> LZO SquashFS at byte 74,021,076
+  -> c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+  -> nested SquashFS at byte 4,096
+  -> /firmware/host/firmware_mirabile_soc1.pkg and soc2.pkg
+  -> ISO9660 at byte 1,080 (SoC1), 1,084 (SoC2)
+  -> bsdtar, including Rock Ridge/zisofs decoding, to obtain ROMMON files.
+Tools used included unsquashfs, Python and bsdtar; squashfs was installed.
+
+SoC1 / ARATA release:
+  Package: ROMMON-extracted/soc1/firmware_mirabile_soc1.pkg (5,684,280 bytes)
+  Raw: mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin (13,697,024 = 0xD10000 bytes)
+  Capsule: mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin (13,722,320 bytes)
+  Version from capsule: 17.18(4.1r).s1.cp
+  Raw MD5: df061f0d6323e904f44836425798223e
+  Raw SHA1: 34bd2fda5b8ed15ce20c7ca5db6d7d37ab943e18
+  Raw SHA256: a84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e
+
+SoC2 release, retained for analysis, not an approved whole-image substitute:
+  Package: ROMMON-extracted/soc2/firmware_mirabile_soc2.pkg (5,813,308 bytes)
+  Raw: mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin (16,580,608 bytes)
+  Capsule version: 17.18(3r).s2.cp
+  Raw SHA256: cfcf1ae38c2886e9d28138d3428636c2c8345b903bbef522f8e9ebfb363ff985
+
+All eight included vendor MD5/SHA1 checks matched the extracted payloads.
+ROMMON-extracted/SHA256SUMS.txt records delivered-file hashes. Checksum and
+extraction consistency were verified; Cisco RSA signatures were not
+independently cryptographically authenticated.
+Cisco 26.2 release notes recommend the recovered SoC1 version for C8235-G2;
+this does not establish compatibility with this particular prototype's TPM state.
+
+Copied SoC1 package/raw/capsule/checksums and instructions to the user's USB
+drive CISCO FILES, folder C8235-G2-ROMMON-17.18-4.1r. The full 26.2 IOS image
+was already on USB and its hash was checked. USB was moved from the Mac to
+the router, where the user identified it as usb0:. Local staging copy was
+/private/tmp/c8235-rommon-usb; do not depend on temporary storage surviving.
+
+ORIGINAL BOOT / IOS XE TEST — OBSERVED
+Original bootstrap:
+  SDK112312-SoC1-SB-v12.1.22 DEVELOPMENT SOFTWARE
+  NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY
+  Bootstrap compiled July 16, 2024; boot-stub version July 17, 2024.
+  Current image running: Boot ROM0.
+
+Booted usb0:/c8kg2be-universalk9.26.02.01.SPA.bin from original ROMMON.
+IOS XE reported that a manual ROMMON upgrade was required, and both primary
+and backup NVRAM initialization failed. User reported the device was unstable
+and stayed up only briefly. Initial setup was exited without saving; a temporary
+enable secret was entered for setup, but not saved. Do not reuse or publish it.
+A subsequent Username prompt appeared; default cisco/cisco did not work.
+cpp_cp_svr on fp_0_0 faulted with rc=139 and the router rebooted.
+
+SUCCESSFUL PRIMARY FLASH WRITE — THE ONLY COMPLETED FIRMWARE WRITE
+Original ROMMON help documented flashmon selectors 1/p (primary), 2/g (golden).
+Command used, followed by y confirmation:
+  flashmon usb0:/C8235-G2-ROMMON-17.18-4.1r/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin 1
+Updater reported 100% OK and "spi: successfully programmed BIOS firmware".
+It programmed 0x00000000–0x00D0FFFF and explicitly preserved:
+  monitor environment 0x01F30000–0x01F4FFFF
+  board manufacturing data 0x00FD0000–0x00FFFFFF
+  uncovered area 0x00D10000–0x01FFFFFF
+This was programming completion, NOT a successful recovery or proof that
+the new Cisco ROMMON can start on the device.
+
+POST-WRITE BOOT FAILURE — OBSERVED
+  Boot-stub version 2026-04-01 03:34:36
+  EBF 11.23.12 / SoC1v11rBuild, built 2026-04-01 03:33:20
+  BL2/BL31 v2.4(release):1d04daf3 (Marvell-11.23.12), built 2026-03-31
+Memory initialization and BL31 complete, followed by:
+  Fatal error found on TPM secure device while accessing manufacturing status, cannot boot the system!
+No newer Cisco ROMMON prompt/version or IOS XE prompt was reached.
+This does not by itself distinguish TPM hardware/bus failure, incompatible
+firmware/state, or absent/incompatible Cisco manufacturing/NV provisioning.
+
+LOW-LEVEL CONSOLE AND RECOVERY MENU TESTS
+Serial: /dev/cu.usbserial-AL00F7EQ, 115200 8N1, no flow control.
+SecureCRT and the Python console bridge must not own the port simultaneously.
+Bridge: c8235_serial_console.py; accepts newline-delimited JSON:
+  {"send":"B"}                  (menu character, no automatic CR)
+  {"send":"showmon -v\r"}       (command + CR, only if at Cisco ROMMON)
+  {"break":true}
+  {"close":true}
+  {"expect_send":{"pattern":"Press 'B' within 10 seconds for boot menu","send":"B"}}
+The bridge logs incoming bytes and TX actions under router-console-logs/.
+Its exec sessions from Oct 22 were closed; do not assume an old session ID
+is live. Last software handoff reconnected SecureCRT after verifying Boot
+Options. Later hardware disassembly supersedes that as a current power state.
+
+Press uppercase B at the 10-second Marvell boot prompt to enter Boot Options:
+  1 Primary Boot Device; 2 Secondary Boot Device; N Boot Normally;
+  S Setup; D DRAM Diagnostics; K Burn boot flash using Kermit;
+  U Change baud/flow; R Reboot.
+Actual banner is "Boot: SPI0_CS0,REMOTE, using SPI0_CS0".
+Option 2 produced no further output and required a power cycle.
+IMPORTANT CORRECTION: secondary here is REMOTE, not proof of golden-ROM boot.
+The golden ROM was NOT tested by that option.
+
+Setup, Chip Features, SCP configuration, security status, DRAM diagnostics
+and PCIe/EP-ROM menus were inspected. No Setup changes were saved.
+Some exit choices reboot (Setup X and exiting DRAM diagnostics); automatic
+B triggering was used to return to the recovery menu.
+No complete DRAM stress/margin pass was performed. Inspecting the DRAM menu
+is not evidence that the memory is fault-free.
+PCIe EP-ROM write functions were investigated but not invoked; they appeared
+to target a bounded fixed script/TIM area, not a general firmware-offset write.
+
+Read-only Boot-ROM security status:
+  lifecycle provision; secure boot enabled and locked;
+  encrypted/measured boot disabled and locked; KAK0 unprovisioned,
+  KAK1/2/3 provisioned; UDS/RKEK unprovisioned; UUID locked;
+  EHSM not panicked; debug/JTAG not reported permanently/finally disabled.
+Marvell secure boot and the old Cisco "NON-Secure" development banner refer
+to different layers; do not infer arbitrary patched firmware will be accepted.
+No security fuse writes, lifecycle changes, key provisioning, TPM clear,
+manufacturing edits, factory reset or golden-ROM write were performed.
+The recessed reset button was discussed; no demonstrated way to repair this
+pre-ROMMON TPM halt using configuration/password reset was found or tested.
+
+OTHER SOFTWARE / REVERSE-ENGINEERING INVESTIGATION
+- Inspected local 26.1.1 and NAS 17.15.6 main package listings; did not find
+  the embedded /firmware/host ROMMON packages present in 26.2.1. A 17.15.5
+  image was located but not fully investigated. These are not recovery images.
+  The local 26.1 source was /Users/games/Documents/AI/ROUTER/
+  c8kg2be-universalk9.26.01.01.SPA.bin; NAS images were under /Volumes/FTP.
+  Reconfirm availability and exact paths before accessing either on resume.
+- Inspected generic ROM upgrade shell scripts and G2 CPLD kernel modules.
+  Generic bank-control register bits were NOT established as valid for this
+  board and were not written.
+- Read public Marvell documentation and Gateworks bdk-newport source
+  (sdk-10.1.1.0-newport). /boot forwards to the current boot device; /dev/n0.mem0
+  does not give an arbitrary address via a filename suffix. SPI all-FF holes
+  are not a demonstrated sparse/preserve mechanism. No working arbitrary
+  flash-offset read/write or golden-bank selection method was found.
+- Extracted actual mirabile-arata-r2 EBF and Linux DTBs, saved under
+  experimental-recovery/board-data/ as .dtb and decoded .dtb.txt.
+  SPI0 controller 0x804000000000: CS0 boot flash, CS1 TPM.
+  SPI1 controller 0x805000000000: CS0 Cisco FPGA.
+  Linux DTB lists U-Boot env offset 0x01E20000, efivar offset 0x00F30000.
+  These DTB offsets are separate observations from flashmon's protected
+  ranges above; do not merge them into an assumed validated full flash map.
+  SPI0 CS1 is NOT a spare/golden flash. Golden bank selection is still unknown.
+- Disassembled boot-stage logic using Capstone in an isolated temporary venv.
+  New SoC1 Cisco loader has the TPM manufacturing-status halt path. Older
+  SoC2 Cisco loader lacks that path and branches onward to UEFI, but its
+  compatibility with this SoC1 prototype was not proven.
+
+EXPERIMENTAL HYBRID / KERMIT — CREATED, REJECTED, NEVER FLASHED
+Files: experimental-recovery/manifest.json and
+  soc1-experimental-older-signed-loader.bin
+Original SoC1 init/BL2/BL31/UEFI and other board-specific bytes retained.
+Only 0xA60000–0xA80FFF (length 0x21000) was replaced with the original
+SoC2 cisco-bootstub TIM header plus its older 128 KiB payload.
+Full raw size: 13,697,024 bytes.
+Hybrid SHA256:
+  28c1e916e875f042bd73582ffdff788137b84f44576a61a1e4e038f5a293bb7c
+The donor TIM/signature blocks were retained intact. Matching signing-key
+blocks and payload hashes were examined; RSA signature validation was not
+independently performed. This is unsupported and unproven experimental data,
+not a generally valid SoC1 update and not a tested TPM repair.
+
+Downloaded official OpenKermit 11.0.514 macOS ARM64, verified archive SHA256
+27b996f213df2e9509ec41c125d5d180c5d2a5a42264f95a365a8ca2b5615d1a.
+Entered Boot Options K, closed Python bridge, ran Kermit with
+experimental-recovery/send-hybrid.ksc. Receiver immediately rejected file:
+  Cannot accept file that is bigger than my receive buffer.
+Transaction log: elapsed 0 seconds, effective rate 0, failed before transfer.
+
+Static receiver analysis indicated a 0x200000 (2 MiB) input limit. It expects LZMA
+FORMAT_ALONE with a real uncompressed-size header; unknown-size FF header
+was unsuitable. It checks the first 64 KiB CRC (0xDEAB7E4E for FF-filled
+prefix), skips that prefix and programs linearly from flash offset 0x10000
+in 128 KiB chunks. No supported offset or sparse update mode was found.
+Consequently, sending a tiny loader or an arbitrarily sparse/truncated image
+is NOT a validated way to update just 0xA60000. These format/write-path
+conclusions came from static analysis; no accepted recovery transfer validated
+the whole decode/program sequence on this device.
+
+Compression trials included lc/lp/pb combinations, 16 MiB dictionary, deeper
+match search, alternate padding/truncation trials and official LZMA SDK 26.05:
+  initial hybrid .bin.lzma: 2,186,318 bytes
+  best liblzma/XZ result: 2,180,098 bytes
+    lc=1, lp=2, pb=2, dict=16777216, nice_len=273, depth=256
+  best SDK result: 2,176,859 bytes (79,707 bytes too large)
+Decompression of final candidates reproduced the hybrid hash exactly.
+No successful further transfer or flash write followed the original flashmon.
+Auxiliary *-payload.bin and expanded UEFI files are exploratory analysis
+outputs, not independently approved flash inputs. Use complete original
+firmware/checksums as the source of truth.
+
+BOARD PHOTOS AND CORRECTED COMPONENT IDENTIFICATIONS
+Original photos retained under board-photos/:
+  IMG_1237, IMG_1239, IMG_1241, IMG_1242, IMG_1243,
+  IMG_1244, IMG_1245, IMG_1246.jpeg
+inspection/ contains crops/resizes/rotations of actual pixels for reading
+markings. No generative reconstruction was used.
+
+  U2900 and U2901: Micron RW170 -> MT25QU256ABA8ESF-0SIT.
+    32 MiB / 256 Mbit SPI NOR, 1.8 V nominal (1.7–2.0 V), SOIC-16/SOP2
+    wide/300-mil body. Primary/golden order is unknown.
+    Official Micron decoder JSON retained in
+    board-photos/micron-RW170-decoder-result.json.
+  U5600: Infineon SLB9672 SPI TPM 2.0, visible AU20 31 / 00H2330.
+    Package marking does not establish its installed TPM firmware revision.
+  U2903 / U2904: PI3CH480QE four-channel 2:1 signal mux/demux.
+    Datasheet pin 1 Select, pin 15 active-low Enable, pin 8 GND, pin 16 VCC.
+    Actual board routing/role not mapped.
+  J2900: two-pin header. Farther-from-battery pin has measured ground
+    continuity. Nearer pin remains unidentified.
+  J2901: nearby 2x4/eight-pin header; function/pinout not established.
+  J4400: visible 20-pin header; no verified debug pinout.
+  SW6000 underside: unpopulated switch footprint; function unknown.
+
+EARLIER PHOTO MISREADS: U2800/U2801 and RN170 were provisional incorrect
+readings. Correct references are U2900/U2901 and RW170. Do not use the old
+labels to select components. The RN170 Trenz-PCN search was an early lead;
+the retained official Micron RW170 decoder supersedes it for identification.
+
+ALL USER MULTIMETER TESTS / RESULTS
+Meter: Fluke 111. Its dial has a dedicated continuity/beeper position;
+resistance mode (Ohms) was used for numeric results. Black lead COM, red V/Ohm.
+Readings were user-reported, not independently instrument-logged.
+
+  1. Across J2900's two pins: approximately 4.49 kOhm.
+  2. J2900 farther from battery -> USB metal shell: approximately 2 Ohm.
+  3. J2900 nearer battery -> USB metal shell: approximately 4.9 kOhm.
+  4. J2900 farther from battery -> U2903 pin 8: approximately 0.2 Ohm.
+  5. J2900 nearer battery -> U2903 pin 1: approximately 6.5 kOhm.
+     User explicitly said probe tips were large and contact was difficult,
+     so this small-leg reading is uncertain.
+  6. J2900 nearer battery -> each J2901 pin: OL except the pins the user
+     described as bottom-left and bottom-right, both in the kOhm range.
+     Exact kOhm values and numbered pin identities were not provided.
+
+Interpretation: ground connection is supported; no direct low-resistance
+connection to mux Select or J2901 was demonstrated. Resistance through other
+components does not establish a usable ROM selector. No strap was bridged.
+Proposed powered DC-voltage test across J2900 was NOT completed. Ordinary
+probes could not practically reach the header after normal upside-down
+mounting/cooling, and user has no insulated clip leads. No powered fine-pin
+probing, chip removal, programmer read/write or soldering was performed.
+
+PURCHASE DISCUSSION — RECOMMENDATIONS, NOT ORDERS OR VERIFIED HARDWARE
+Requirements for the identified Micron chips:
+  - Suitable SPI programmer/software for a full 32 MiB MT25QU256 device.
+  - Genuine 1.8 V power AND signal-level translation; a supply regulator
+    alone does not establish safe logic levels.
+  - Actual 16-pin SOIC/SOP wide-body/300-mil clip, 1.27 mm IC lead pitch,
+    with accessible wiring/breakout. Not just a solder-on conversion plate.
+  - Correct custom mapping between 16-pin flash and the programmer's 8-pin
+    SPI interface; numbering is not one-to-one. No final harness pinout has
+    been delivered or tested yet. Confirm against the actual adapter and
+    Micron datasheet after delivery, including reset/hold/write-protect needs.
+
+Reviewed listing 1 — insufficient as supplied:
+  WWZMDiB CH341A programmer + SOIC8 clip + SOP8/SOP16 conversion plates
+  https://www.amazon.com/dp/B0BYSRSZPC/
+  Seller explicitly states 3.3 V/5 V switching only. Supplied clip is 8-pin.
+  The SOP16 conversion plate is a solder-pad adapter, not a 16-pin clamp.
+  Not recommended as a complete ready-to-connect kit for these chips.
+
+Amazon search wording provided to user:
+  CH341A programmer kit 1.8V level shifter adapter SOIC16 SOP16 300mil wide body test clip
+
+Reviewed listing 2 — latest proposed programmer base kit:
+  ACEIRMC CH341A + advertised 1.8 V adapter + SOIC8 clip/adapters
+  https://www.amazon.com/dp/B07V2M5MVH/
+  Seller lists a separate 1.8 V adapter and shows it in product photos.
+  Still only includes an 8-pin clip; not complete for this router by itself.
+  Adapter design/output levels and quality were NOT bench-verified; voltage
+  and connection checks are still required before attaching to either chip.
+
+Latest proposed extra clip:
+  ACEIRMC SOP16 clip + cable + adapter/breakout board
+  https://www.amazon.com/dp/B07WCB2PZ2/
+  Select option exactly: "SOP16 Clip+Cable+Adapter Board".
+  Listing advertises SOIC/SOP16, 25-series in-circuit use, 150–300 mil support;
+  photo shows a 16-contact clip and 16-pin breakout, not a complete direct
+  DIP8 SPI wiring conversion. Fit and individual pin continuity must be
+  verified on arrival. Listing's 2.54 mm pitch wording concerns the breakout
+  or is ambiguous; the actual chip has 1.27 mm lead pitch.
+
+Additional recommended wiring:
+  2.54 mm female-to-male Dupont jumper wires, preferably a set with spares.
+  No specific wire-product listing was selected.
+
+Other researched clip candidates were NOT recommended:
+  WINGONEER B01CYA9BTY had unclear/inconsistent width/pitch specifications.
+  B07ZCZPWHL was a clip-only variant; the linked B07WCB2PZ2 option includes
+  cable/breakout. Do not substitute a variant without rechecking contents.
+
+Software checks already made:
+  Official flashrom source includes CH341A/B SPI support and MT25QU256
+  (32 MiB, 1.7–2.0 V, marked tested probe/read/erase/write in source).
+  Homebrew distributes flashrom for macOS. No programmer was connected or
+  flashrom hardware probing performed during this purchase discussion.
+  Some older black CH341 boards drive near-5 V logic even with a 3.3 V
+  socket supply; official flashrom documentation describes this fault.
+  Do not treat a jumper label or Amazon description as measured output.
+  Proposed first operation remains read-only repeated backups, not erase/write.
+
+Listings were reviewed during the 2026-10-22 session. Prices, seller contents,
+stock, variants and shipping were not guaranteed. No order was placed by the
+assistant and the user has not confirmed ordering any item.
+
+RESUME CHECKLIST
+1. Read this file, then the detailed reports/logs as needed. Do not repeat
+   the original flash attempt expecting it to resolve the same TPM halt.
+2. Confirm what equipment actually arrived, with actual photos/markings.
+3. Keep router external power/USB/console disconnected during programmer
+   attachment; confirm board supply/isolation and physical clip clearance.
+4. Verify programmer/adapter power and logic levels and map the 16-pin clip
+   to the correct SPI signals. Never apply the standard SOIC8 pin numbers
+   directly to SOIC16. Do not guess from cable colors or red paint marks.
+5. Attempt full 32 MiB reads of each physical flash separately, label them
+   U2900 and U2901, retain immutable originals, repeat and compare hashes.
+   Do not claim stable data from all-FF/all-00 output or inconsistent reads.
+6. Inspect dumps to determine which contains old development vs new release
+   stages and preserve board-specific manufacturing/environment/NVRAM data.
+   Golden contents and chip/bank correspondence remain to be established.
+7. Only then choose a justified restore/loader experiment. The existing
+   hybrid remains untested; having a programmer does not prove it will work.
+
+EVIDENCE / ARTIFACT INDEX (paths relative to this folder unless absolute)
+  ROMMON-extracted/README.txt — extraction-only historical report, hashes,
+    versions and original upgrade references. Its original statement that no
+    router was flashed refers to the extraction stage, not the later session.
+  ROMMON-extracted/SHA256SUMS.txt — delivered extraction hashes.
+  router-console-logs/20261022-ROMMON-recovery-status.txt — historical flash,
+    boot and low-level recovery report, with corrections and handoff.
+  router-console-logs/20261022-ROMMON-recovery-readable.txt — readable combined
+    console transcript; temporary setup secret redacted. NUL/control characters
+    were cleaned during this audit. Raw logs can contain the temporary setup secret.
+  router-console-logs/*-console.log — original serial evidence.
+  router-console-logs/20261022-hybrid-kermit-transfer.log — immediate size rejection.
+    The corresponding Kermit session log is empty; not evidence of a write.
+  board-photos/board-inspection-notes.txt — detailed markings/measurement history.
+  board-photos/*.jpeg — all eight source board photos, copied from temporary
+    attachment paths into persistent workspace storage.
+  board-photos/inspection/ — non-generative inspection crops.
+  board-photos/micron-RW170-decoder-result.json — official part-code response.
+  purchase-research/ — saved relevant listing excerpts/photos/source links.
+  research-evidence/ — persistent BDK reference sources, official Kermit/SDK
+    archives and patched encoder source; avoids relying on temporary files.
+  experimental-recovery/manifest.json — unsupported hybrid construction details.
+  experimental-recovery/send-hybrid.ksc — historic rejected-transfer script;
+    do not run automatically on resume.
+  experimental-recovery/board-data/ — extracted ARATA r2 DTBs and decoded text.
+  c8kg2be-26.02.01-extracted/ — original internal packages, scripts, listings,
+    board platform evidence and CPLD modules; full firmware directory trees.
+  c8kg2be-26.01.01-inspection/ and c8kg2be-17.15.06-inspection/ — other image research.
+  /Users/games/Documents/AI/ROUTER/C8235-G2-ISSUE.md
+  /Users/games/Documents/AI/ROUTER/MATSUNDE C8230X-8M2X Capture.md
+    — older related notes; physical serial differs, so identity is uncertain.
+
+PRIMARY REFERENCE LINKS
+  Cisco 26.2 release notes:
+  https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html
+  Cisco reset/password recovery behavior:
+  https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/software-config-guide/secure-8200-series-scg/console_telnet_ssh_handling.html
+  Micron exact part:
+  https://www.micron.com/products/storage/nor-flash/serial-nor/part-catalog/part-detail/mt25qu256aba8esf-0sit
+  Micron datasheet (manufacturer document hosted by Mouser):
+  https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf
+  Official Micron RW170 marking decoder API used:
+  https://www.micron.com/content/micron/us/en/sales-support/design-tools/fbga-parts-decoder/_jcr_content.products.json/getpartbyfbgacode/-/-/-/en_US/-/-/RW170
+  Infineon SLB9672 datasheet:
+  https://www.infineon.com/assets/row/public/documents/30/49/infineon-slb9672-tpm20-spi-fw16.xx-ds-rev1-3-2024-11-18-datasheet-en.pdf
+  PI3CH480 manufacturer / datasheet:
+  https://www.diodes.com/part/view/PI3CH480
+  https://www.mouser.com/datasheet/2/322/PI3CH480-348795.pdf
+  Fluke-authored 110/111/112 manual, hosted by ManualsLib:
+  https://www.manualslib.com/manual/624856/Fluke-110.html?page=6
+  flashrom official CH341 documentation / chip source:
+  https://raw.githubusercontent.com/flashrom/flashrom/refs/heads/main/doc/supported_hw/supported_prog/ch341ab.rst
+  https://raw.githubusercontent.com/flashrom/flashrom/main/flashchips/micron.c
+  macOS Homebrew package:
+  https://formulae.brew.sh/formula/flashrom
+  Marvell boot-device / firmware references:
+  https://marvellembeddedprocessors.github.io/dao/guides/nvmeof-dao-release/howtoguides/pcie_config.html
+  https://marvellembeddedprocessors.github.io/dao/guides/nvmeof-dao-release/gsg/firmware.html
+  Public BDK source used for filesystem/recovery investigation:
+  https://github.com/Gateworks/bdk-newport/tree/sdk-10.1.1.0-newport
+
+Scope of this audit: consolidated known conversation facts and checked local
+artifact presence/content. No router commands, new flash writes, electrical
+measurements, purchases or hardware changes were performed during this audit.
+
+AUDIT VERIFICATION, 2026-10-23
+  Confirmed all eight source board photos and the key evidence files exist.
+  Verified all 16 entries in ROMMON-extracted/SHA256SUMS.txt.
+  Rechecked the original 1,048,008,916-byte IOS image SHA256.
+  Rechecked the experimental raw image SHA256 and exact SDK decompression.
+  Rechecked the retained official OpenKermit archive SHA256.
+  All integrity checks passed. These are file-integrity checks, not additional
+  hardware tests or validation of the experimental firmware's compatibility.
+  Older report versions are preserved in research-evidence/context-audit-backups/.

@@ -1,0 +1,5 @@
+Native flashmon wrote recommended payload correctly but failed verification after also writing beyond payload end.
+Restored only extra ranges 0x1001000-0x1F2FFFF and 0x1F50000-0x1FFFFFF from original backup using native flash_erase and dd.
+Final complete 32MiB flash readback exactly matches new payload plus original preserved data and current environment.
+Verified final SHA256: 68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b
+Boot compatibility has not yet been tested at time of this file.

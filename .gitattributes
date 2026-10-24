@@ -1,0 +1,13 @@
+# Preserve exact bytes for hashes, firmware, original captures, and evidence.
+* -text
+*.bin binary
+*.pkg binary
+*.img binary
+*.dtb binary
+*.efi binary
+*.lzma binary
+*.7z binary
+*.gz binary
+*.jpeg binary
+*.jpg binary
+*.png binary

@@ -1,0 +1,379 @@
+
+[TX 2026-10-22T19:18:27.745948] b'S'
+S
+
+
+=================================
+Setup
+=================================
+B) Board Manufacturing Data
+C) Chip Features
+D) DRAM Options
+P) PCIe Configuration
+W) Power Options
+E) Ethernet configuration
+F) Restore factory defaults
+S) Save Settings and Exit
+X) Exit Setup, discarding changes
+
+Choice: 
+[TX 2026-10-22T19:18:41.005013] b'C'
+C
+
+
+=================================
+Setup - Chip
+=================================
+D) Delay for Boot Menu (10 s)
+T) ATF Timestamp (0)
+W) Watchdog Timeout (0 ms)
+G) APA Watchdog Timeout (0 ms)
+C) Reset Counters to persist (0)
+K) Skip TIM version processing (0)
+M) SCP Configuration
+E) EBF Tracing Level
+A) ATF Tracing Level
+V) ATF Verbosity Level
+P) Provision security and keys
+F) Fuse Configuration
+Q) Return to main menu
+
+Choice: 
+[TX 2026-10-22T19:18:48.122059] b'P'
+P
+
+WARNING: Provisioning performs permanent changes to the SoC by burning fuses.
+WARNING: If the permanently burn stage fails there is currently no way to recover.
+To provision:
+  1. Move to provisioning mode (permanent until deploy mode)
+  2. Select the secure boot option.
+  3. Configure the Root Key Encryption Key (RKEK) even if not used.
+  4. Configure the secure boot settings (TIM setting highly recommended)
+  4. Permanently Burn settings into hardware.
+The current provisioning state is: Provision
+
+=================================
+Provision keys
+=================================
+B) Set boot mode (non-secure)
+U) Configure debug ports
+O) OEM Block settings
+Z) Print status registers
+Q) Quit
+
+Choice: 
+[TX 2026-10-22T19:19:00.822534] b'Z'
+Z
+
+LCS debug port status register: 0x2a800001
+Lifecycle state: provision
+eHSM debugging is not perminently disabled
+JTAG debugging is not permanently disabled
+MCP JTAG is not permenently disabled
+AP debugging is not permenently disabled
+AP NIDEN is not permenently disabled
+AP SPIDEN is not permenently disabled
+AP SPNPIDEN is not permenently disabled
+eHSM is not final disabled
+JTAG debugging is not final disabled
+MCP JTAG is not final disabled
+AP debugging is not final disabled
+AP NIDEN is not final disabled
+AP SPIDEN is not final disabled
+AP SPNPIDEN is not final disabled
+Boot ROM status register: 0x800f9
+Secure boot is enabled
+Encrypted boot is disabled
+Measured boot is disabled
+Secure boot is locked
+Encrypted boot is locked
+Measured boot is locked
+DSA scheme is PKCS PSS SHA256 4K
+AES scheme is Unprovisioned
+DICE scheme is Unprovisioned
+Boot ROM reserved is 0x1
+
+Root of trust status register: 0x4007040
+ECP is enabled
+FIPS mode is disabled
+L0 FW AES key read is enabled
+UDS read is enabled
+RKEK read is enabled
+RKEK is unlocked
+UUID is locked
+PUF is disabled
+eHSM self test is enabled
+Auth command mode is false
+KAK 0 binding digest is unprovisioned
+KAK 1 binding digest is provisioned
+KAK 2 binding digest is provisioned
+KAK 3 binding digest is provisioned
+L0 FW AES key 0 is unprovisioned
+L0 FW AES key 1 is unprovisioned
+L0 FW AES key 2 is unprovisioned
+L0 FW AES key 3 is unprovisioned
+UDS is unprovisioned
+RKEK is unprovisioned
+EHSM is not in a panicked state
+EBG startup health test passed
+EBG startup health test finished
+EBG continuous health test passed
+
+Chain of trust status register: 0xc
+PIE has not been loaded
+Key manifest has been loaded
+Key manifest is locked
+UDS is unlocked
+SOC is not injecting noise
+PIE is unlocked
+IROM is not in panick state
+The current provisioning state is: Provision
+
+=================================
+Provision keys
+=================================
+B) Set boot mode (non-secure)
+U) Configure debug ports
+O) OEM Block settings
+Z) Print status registers
+Q) Quit
+
+Choice: 
+[TX 2026-10-22T19:19:40.285539] b'Q'
+Q
+
+
+=================================
+Setup - Chip
+=================================
+D) Delay for Boot Menu (10 s)
+T) ATF Timestamp (0)
+W) Watchdog Timeout (0 ms)
+G) APA Watchdog Timeout (0 ms)
+C) Reset Counters to persist (0)
+K) Skip TIM version processing (0)
+M) SCP Configuration
+E) EBF Tracing Level
+A) ATF Tracing Level
+V) ATF Verbosity Level
+P) Provision security and keys
+F) Fuse Configuration
+Q) Return to main menu
+
+Choice: 
+[TX 2026-10-22T19:19:57.144848] b'M'
+M
+
+menu_scp_conf
+
+=================================
+Setup - SCP Configuration
+=================================
+1) Failsafe boot timeout (then reboot from secondary) (60 S)
+2) MCP disable (0)
+3) Force next boot to use secondary flash (0)
+4) SCP fail timeout (VRM problem) (10 S)
+5) SCP fail action (0)
+6) SCP safe mode (1)
+7) MCP TWSI Target bus (-1)
+8) MCP TWSI Target address (0x000000000077)
+9) SCP NMI GPIO (-1)
+Q) Return to main menu
+
+Choice: 
+[TX 2026-10-22T19:20:54.777830] b'Q'
+Q
+
+
+=================================
+Setup - Chip
+=================================
+D) Delay for Boot Menu (10 s)
+T) ATF Timestamp (0)
+W) Watchdog Timeout (0 ms)
+G) APA Watchdog Timeout (0 ms)
+C) Reset Counters to persist (0)
+K) Skip TIM version processing (0)
+M) SCP Configuration
+E) EBF Tracing Level
+A) ATF Tracing Level
+V) ATF Verbosity Level
+P) Provision security and keys
+F) Fuse Configuration
+Q) Return to main menu
+
+Choice: 
+[TX 2026-10-22T19:21:14.177450] b'Q'
+Q
+
+
+=================================
+Setup
+=================================
+B) Board Manufacturing Data
+C) Chip Features
+D) DRAM Options
+P) PCIe Configuration
+W) Power Options
+E) Ethernet configuration
+F) Restore factory defaults
+S) Save Settings and Exit
+X) Exit Setup, discarding changes
+
+Choice: 
+[TX 2026-10-22T19:21:31.055874] b'X'
+X
+
+Rebooting�=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2026-04-01 03:34:36
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/SoC1v11rBuild/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 01 Apr 2026 03:33:20 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+[AUTO TX] b'B'
+
+
+=================================
+Boot Options
+=================================
+1) Boot from Primary Boot Device
+2) Boot from Secondary Boot Device
+N) Boot Normally
+S) Enter Setup
+D) Enter DRAM Diagnostics
+K) Burn boot flash using Kermit
+U) Change baud rate and flow control
+R) Reboot
+
+Choice: 
+[TX 2026-10-22T19:21:53.457479] b'D'
+D
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+
+=================================
+DRAM Diagnostics
+=================================
+M) Margining Test
+T) Memory Tests
+I) Inject ECC error
+R) Read MR Register
+S) Test SRE/SRX
+D) Read PHY D-MEM Registers
+H) Page Ping-Pong test
+E) MCT Encryption Check
+X) Read PHY CSR
+G) mBIST mBIST-mPPR diagnistic
+Q) Quit and Reboot
+
+Choice: 
+[TX 2026-10-22T19:22:02.406645] b'T'
+T
+
+Initializing DRAM first...
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+Memory configuration successful: 16 GB, 4800 MT/s, DDR5
+
+=================================
+Memory Tests
+=================================
+M) Bring-up all cores
+R) Repeat the test
+S) Starting address
+L) Test length
+V) Verbosity Flags
+0) Marching Rows
+1) Random Data
+2) Random XOR (32 Burst)
+3) Random XOR (224 Burst)
+4) Fast Scan
+5) Address Bus
+6) Pseudo Random
+7) Marching Pattern
+8) READ Only
+9) WRITE Only
+A) Pseudo Random (1 burst)
+B) Marching Pattern (1 burst)
+G) Group test
+W) Inject Write CRC errors
+X) Inject Read CRC errors
+Q) Return to main menu
+
+Choice: 
+[TX 2026-10-22T19:22:58.223434] b'Q'
+Q
+
+
+=================================
+DRAM Diagnostics
+=================================
+M) Margining Test
+T) Memory Tests
+I) Inject ECC error
+R) Read MR Register
+S) Test SRE/SRX
+D) Read PHY D-MEM Registers
+H) Page Ping-Pong test
+E) MCT Encryption Check
+X) Read PHY CSR
+G) mBIST mBIST-mPPR diagnistic
+Q) Quit and Reboot
+
+Choice: 
+[TX 2026-10-22T19:26:35.030485] b'Q'
+Q
+
+Rebooting=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2026-04-01 03:34:36
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/SoC1v11rBuild/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 01 Apr 2026 03:33:20 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+[AUTO TX] b'B'
+
+
+=================================
+Boot Options
+=================================
+1) Boot from Primary Boot Device
+2) Boot from Secondary Boot Device
+N) Boot Normally
+S) Enter Setup
+D) Enter DRAM Diagnostics
+K) Burn boot flash using Kermit
+U) Change baud rate and flow control
+R) Reboot
+
+Choice: 
+[TX 2026-10-22T19:27:06.157712] b'K'
+K
+
+
+Please start Kermit file transfer

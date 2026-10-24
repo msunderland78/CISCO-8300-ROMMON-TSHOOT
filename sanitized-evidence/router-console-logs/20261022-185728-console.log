@@ -1,0 +1,620 @@
+
+[TX 2026-10-22T18:58:10.719118] b'\r'
+
+rommon 1 > 
+[TX 2026-10-22T18:58:21.057727] b'help\r'
+help
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+alias               set and/or display command aliases
+boot                boot up an external process
+confreg             configuration register utility
+dev                 display the device table
+dir                 list files in a file system
+flashmon            flash a monitor firmware onto the SPI
+fpgaread            read register of fpga at offset 
+fpgawrite           write a value in to fpga register at offset 
+help                monitor built-in command(s) help
+history             display monitor command history
+meminfo             display main memory information
+repeat              repeat a monitor command
+reset               system reset
+set                 display the monitor environment
+shell               launch UEFI Shell application
+showmon             display currently selected ROM monitor
+sync                write monitor environment to NVRAM
+tpmdevkeytest       TPM dev public key basic test 
+tpmx509devkeytest   TPM dev public key basic test 
+tpmx509relkeytest   TPM dev public key basic test 
+tpminfo             display TPM board information after init
+tpmtest             TPM basic test 
+tpmtestidprom       TPM eeprom read test 
+unalias             unset an alias
+unset               unset a variable from the monitor environment
+rommon 2 > 
+[TX 2026-10-22T18:58:32.409754] b'help flashmon\r'
+help flashmon
+ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+usage:
+	flashmon <path-to-file> <ROM-select>
+name:
+	flashmon
+argument(s):
+	path-to-file: path to the BIOS ROM file.
+		path must be specified in the format <device>:<path-to-file>
+		path-to-file must be the absolute path to the file starting at / (root-directory)
+	ROM-select: SPI ROM to select for flash write operation
+		1/p: write to the Primary SPI ROM
+		2/g: write to the Golden SPI ROM
+rommon 3 > 
+[TX 2026-10-22T18:58:55.769494] b'showmon -v\r'
+showmon -v
+
+System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE
+Copyright (c) 1994-2024 by cisco Systems, Inc.
+Compiled Tue Jul 16 18:38:18 2024 by rmaladi
+
+
+!!! NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY !!!
+Boot ROM0
+
+Last reset cause: LocalSoft
+SoC1 platform with 16661504 Kbytes of main memory
+
+rommon 4 > 
+[TX 2026-10-22T18:59:16.322755] b'dir usb0:\r'
+dir usb0:
+
+0   0         drw-     .Spotlight-V100
+0   4948992   -rw-     Dektop.tar
+0   0         drw-     System Volume Information
+0   22753940  -rw-     ASR1K-fpga_prog.16.0.1.xe.bin
+0   41059376  -rw-     asr1000-rommon.173-1r.SPA.pkg
+0   806762283 -rw-     asr1001x-universalk9.17.09.04a.SPA.bin
+0   808941081 -rw-     asr1001x-universalk9.17.09.05a.SPA.bin
+0   97434576  -rw-     c800-universalk9-mz.SPA.159-3.M7.bin
+0   2571280   -rw-     C1100-rommon-1612-1r-SPA.pkg
+0   687933004 -rw-     c1100-universalk9.17.09.05a.SPA.bin
+0   702164136 -rw-     c1100-universalk9.17.12.06.SPA.bin
+0   734336448 -rw-     c1100-universalk9.17.15.04.SPA.bin
+0   482611915 -rw-     cat3k_caa-universalk9.16.12.11.SPA.bin
+0   1258131142-rw-     cat9k_iosxe.17.09.05.SPA.bin
+0   469062171 -rw-     cat9k_lite_iosxe.17.12.03.SPA.bin
+0   765829965 -rw-     isr4300-universalk9.17.09.05a.SPA.bin
+0   526809432 -rw-     ISR-AP1100AC-ME-8-10-196-0.zip
+0   6399795   -rw-     pp-adv-asr1k-179.1a-46-68.0.0.pack.zip
+0   6399805   -rw-     pp-adv-isr1100-179.1a-46-68.0.0.pack.zip
+0   6399805   -rw-     pp-adv-isr4000-179.1a-46-68.0.0.pack.zip
+0   0         drw-     OLD 9K
+0   0         drw-     OLD 43-42
+0   0         drw-     OLD 3850
+0   3994572   -rw-     isr4400_rommon_1612_2r_SPA.pkg
+0   4096      -rw-     ._isr4400_rommon_1612_2r_SPA.pkg
+0   589726873 -rw-     isr4400-universalk9.16.09.08.SPA.bin
+0   4096      -rw-     ._isr4400-universalk9.16.09.08.SPA.bin
+0   784796767 -rw-     isr4400-universalk9.17.12.05a.SPA.bin
+0   4096      -rw-     ._isr4400-universalk9.17.12.05a.SPA.bin
+0   3130875   -rw-     pp-adv-isr4000-1712.1a-49-74.0.0.pack
+0   4096      -rw-     ._pp-adv-isr4000-1712.1a-49-74.0.0.pack
+0   6289281   -rw-     pp-adv-isr4000-1712.1a-49-74.0.0.pack.zip
+0   4096      -rw-     ._pp-adv-isr4000-1712.1a-49-74.0.0.pack.zip
+0   9612      -rw-     4451X.lic
+0   4096      -rw-     ._4451X.lic
+0   784979863 -rw-     isr4400-universalk9.17.12.06.SPA.bin
+0   4096      -rw-     ._isr4400-universalk9.17.12.06.SPA.bin
+0   998827008 -rw-     VOIP.tar
+0   30063616  -rw-     ie5000-universalk9-mz.152-8.E8.bin
+0   4096      -rw-     ._ie5000-universalk9-mz.152-8.E8.bin
+0   1061005477-rw-     c8000be-universalk9.17.18.03a.SPA.bin
+0   4096      -rw-     ._c8000be-universalk9.17.18.03a.SPA.bin
+0   1006461092-rw-     c8kg2be-universalk9.17.18.03a.SPA.bin
+0   4096      -rw-     ._c8kg2be-universalk9.17.18.03a.SPA.bin
+0   1021811068-rw-     c8kg2be-universalk9.26.01.01.SPA.bin
+0   4096      -rw-     ._c8kg2be-universalk9.26.01.01.SPA.bin
+0   503546    -rw-     crashinfo_20240227-173232-UTC
+0   480977    -rw-     crashinfo_20240227-173231-UTC
+0   475049    -rw-     crashinfo_20240227-173234-UTC
+0   476728    -rw-     crashinfo_20240227-173233-UTC
+0   32768     -rw-     FSCK0000.REC
+0   0         drw-     .Trashes
+0   490100    -rw-     crashinfo_20240227-173230-UTC
+0   1284238569-rw-     cat9k_iosxe.17.15.06.SPA.bin
+0   504057659 -rw-     cat9k_lite_iosxe.17.15.06.SPA.bin
+0   4096      -rw-     ._cat9k_iosxe.17.15.06.SPA.bin
+0   4096      -rw-     ._cat9k_lite_iosxe.17.15.06.SPA.bin
+0   1035122820-rw-     c8000be-universalk9.17.15.06.SPA.bin
+0   954113032 -rw-     c8kg2be-universalk9.17.15.05.SPA.bin
+0   4096      -rw-     ._c8000be-universalk9.17.15.06.SPA.bin
+0   4096      -rw-     ._c8kg2be-universalk9.17.15.05.SPA.bin
+0   954189596 -rw-     c8kg2be-universalk9.17.15.06.SPA.bin
+0   4096      -rw-     ._c8kg2be-universalk9.17.15.06.SPA.bin
+0   1048008916-rw-     c8kg2be-universalk9.26.02.01.SPA.bin
+0   4096      -rw-     ._c8kg2be-universalk9.26.02.01.SPA.bin
+0   0         drw-     C8235-G2-ROMMON-17.18-4.1r
+0   4096      -rw-     ._C8235-G2-ROMMON-17.18-4.1r
+rommon 5 > 
+[TX 2026-10-22T18:59:24.977617] b'boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin\r'
+boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin
+boot: reading file c8kg2be-universalk9.26.02.01.SPA.bin
+########################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+
+network: failed to parse subnet for IPv0
+EFI stub: Booting Linux Kernel...
+EFI stub: EFI_RNG_PROTOCOL unavailable
+EFI stub: Using DTB from configuration table
+EFI stub: Exiting boot services...
+This platform requires a rommon update but it must be done manually
+Detected old ROMMON version SDK112312-SoC1-SB-v12.1.22, manual upgrade required
+May 29 18:48:52.199: %SYS-4-ROUTER_RUNNING_BUNDLE_BOOT_MODE: R0/0: Warning: Booting with bundle mode will be deprecated in the near future. Migration to install mode is required.
+May 29 18:48:52.820: %BOOT-5-OPMODE_LOG: R0/0: binos: System booted in AUTONOMOUS mode
+
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           Cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+
+
+This software version supports only Smart Licensing as the software licensing mechanism.
+
+
+Please read the following carefully before proceeding. By downloading,
+installing, and/or using any Cisco software product, application, feature,
+license, or license key (collectively, the "Software"), you accept and
+agree to the following terms. If you do not agree, do not proceed and do not
+use this Software.
+
+This Software and its use are governed by Cisco's General Terms and any 
+relevant supplemental terms found at
+https://www.cisco.com/site/us/en/about/legal/contract-experience/index.html.
+If you have a negotiated agreement with Cisco that includes this Software, the
+terms of that agreement apply as well. In the event of a conflict, the order 
+of precedence stated in your negotiated agreement controls.
+
+Cisco Software is licensed on a term and/or subscription-basis. The license to
+the Software is valid only for the duration of the specified term, or in the
+case of a subscription-based license, only so long as all required subscription
+payments are current and fully paid-up. While Cisco may provide you
+licensing-related alerts, it is your sole responsibility to monitor your usage.
+Using Cisco Software without a valid license is not permitted and may result in
+fees charged to your account. Cisco reserves the right to terminate access to,
+or restrict the functionality of, any Cisco Software, or any features thereof,
+that are being used without a valid license.
+
+
+% Failed to initialize nvram
+% Failed to initialize backup nvram
+cisco C8230X-8M2X (1RU) processor with 7788651K/6147K bytes of memory.
+Processor board ID FGL2835L42B
+Router operating mode: Autonomous
+1 Virtual Ethernet interface
+8 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+16777216K bytes of physical memory.
+20249599K bytes of flash memory at bootflash:.
+60062720K bytes of USB flash at usb0:.
+
+ WARNING: Command has been added to the configuration using a type 0 password. However, recommended to migrate to strong type-6 encryption
+[TX 2026-10-22T19:00:45.704408] b'\r'
+
+
+ WARNING: ** NOTICE **  The H.323 protocol is no longer supported from IOS-XE release 17.6.1. Please consider using SIP for multimedia applications.
+
+No startup-config, starting autoinstall/pnp/ztp...
+
+Autoinstall will terminate if any input is detected on console
+
+[TX 2026-10-22T19:00:53.950033] b'\r'
+
+Autoinstall trying DHCPv4 on Service-Engine0/4/0
+
+
+
+         --- System Configuration Dialog ---
+
+Would you like to enter the initial configuration dialog? [yes/no]: 
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: 
+% Please answer 'yes' or 'no'.
+Would you like to enter the initial configuration dialog? [yes/no]: 
+Autoinstall trying DHCPv6 on Service-Engine0/4/0
+
+[TX 2026-10-22T19:01:07.238967] b'no\r'
+no
+
+  The enable secret is a password used to protect
+  access to privileged EXEC and configuration modes.
+  This password, after entered, becomes encrypted in
+  the configuration.
+  -------------------------------------------------
+  secret should be of minimum 10 characters and maximum 32 characters with
+  at least 1 upper case, 1 lower case, 1 digit and
+  should not be [cisco]
+  -------------------------------------------------
+  Enter enable secret: 
+[TX 2026-10-22T19:01:17.434299] b'\x03'
+
+% Invalid input.Please try again
+
+
+  The enable secret is a password used to protect
+  access to privileged EXEC and configuration modes.
+  This password, after entered, becomes encrypted in
+  the configuration.
+  -------------------------------------------------
+  secret should be of minimum 10 characters and maximum 32 characters with
+  at least 1 upper case, 1 lower case, 1 digit and
+  should not be [cisco]
+  -------------------------------------------------
+  Enter enable secret: 
+[TX 2026-10-22T19:01:30.541653] b'[REDACTED]\r'
+*******************
+  Confirm enable secret: 
+[TX 2026-10-22T19:01:37.006334] b'[REDACTED]\r'
+*******************
+
+The following configuration command script was created:
+
+enable secret 9 [REDACTED]
+!
+end
+
+
+[0] Go to the IOS command prompt without saving this config.
+[1] Return back to the setup without saving this config.
+[2] Save this configuration to nvram and exit.
+
+Enter your selection [2]: 
+[TX 2026-10-22T19:01:42.124931] b'0\r'
+0
+[TX 2026-10-22T19:02:01.241862] b'\r'
+
+[TX SERIAL BREAK]
+
+
+Username: 
+[TX 2026-10-22T19:03:31.955685] b'[REDACTED]\r'
+cisco
+Password: 
+[TX 2026-10-22T19:03:39.036264] b'[REDACTED]\r'
+
+Login incorrect
+
+Username: 
+[TX 2026-10-22T19:04:33.068762] b'root\r'
+root
+Password: May 29 18:53:47.917: %PMAN-5-EXITACTION: F0/0: pvp: Process manager is exiting: Critical process cpp_cp_svr fault on fp_0_0 (rc=139)
+May 29 18:53:54.349: %PMAN-5-EXITACTION: R0/0: pvp: Process manager is exiting: reload fru action requested
+
+
+
+=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2024-07-17 01:44:08
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+PCIe0: LTSSM DETECT_QUIET, Link Errors Detected During Training
+PCIe1: Link active, 1 lanes, speed gen3
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+DRAM: 16 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.0C 20240622-0651 00000000
+npc_mkex-cn10xx.fw   version: 01.0E.00 20240501-0640 00000000
+uefi.bin             version: 0B.17.0C 20240622-0651 00000000
+bl31.bin             version: 0B.17.0C 20240622-0651 00000000
+bl2.bin              version: 0B.17.0C 20240622-0651 00000000
+gserp-cn10xx.fw      version: 01.01.0C 20240501-0640 00000000
+gserm-cn10xx.fw      version: 01.01.0A 20240501-0640 00000000
+init.bin             version: 0B.17.0C 20240622-0651 00000000
+ecp_bl1.bin          version: 0C.17.0C 20240501-0638 00000000
+mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000
+scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000
+rom-script0.fw       version: 0B.17.0C 20240622-0651 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL2: Built : 18:42:08, Jul 16 2024
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x3f9ffffff (16272MB)
+NOTICE:  LMT Memory Region: 0x3fa000000 to 0x3feffffff (80MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x3ff000000 to 0x3ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL31: Built : 18:42:53, Jul 16 2024
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+
+SecureBoot: BL34: running keyphase-cisco-bootstub version
+SecureBoot: ...D01.00
+SecureBoot: BL34: call SpiNorInit
+SecureBoot: Dual/Octal mode not supported in UEFI. Use x1
+SecureBoot: BL34: Call LDWM verifier
+ ...flash initialization
+ ...verify bootloader
+ ...load verification map from flash
+ ......vmap.flashaddr=====0x00b50000
+ ......vmap.platform_id===0x4c445731
+ ...load image data
+ ......flashload_bootimage_seg0:
+ .........seg_addr========0x00601000
+ .........seg_size========0x00280000
+ .........mem_addr========0x04000000
+ ...code signing results:
+ ......return_code========0x00000000
+ ......key_index==========0x00000002
+ ......key_type===========0x00000002
+ ...bootloader image verified successfully
+  
+Board Identifier: mirabile-arata, Revision: r2, Serial Number: unknown
+
+System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE
+Copyright (c) 1994-2024 by cisco Systems, Inc.
+Compiled Tue Jul 16 18:38:18 2024 by rmaladi
+
+
+!!! NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY !!!
+Boot ROM0
+
+Last reset cause: LocalSoft
+SoC1 platform with 16661504 Kbytes of main memory
+
+Soc UUID: 13 FF FF 78 86 52 04 83 8A BF FF 48 
+UUID Len: 0xC
+rommon 1 >  =======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2024-07-17 01:44:08
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+PCIe0: LTSSM DETECT_QUIET, Link Errors Detected During Training
+PCIe1: Link active, 1 lanes, speed gen3
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+DRAM: 16 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.0C 20240622-0651 00000000
+npc_mkex-cn10xx.fw   version: 01.0E.00 20240501-0640 00000000
+uefi.bin             version: 0B.17.0C 20240622-0651 00000000
+bl31.bin             version: 0B.17.0C 20240622-0651 00000000
+bl2.bin              version: 0B.17.0C 20240622-0651 00000000
+gserp-cn10xx.fw      version: 01.01.0C 20240501-0640 00000000
+gserm-cn10xx.fw      version: 01.01.0A 20240501-0640 00000000
+init.bin             version: 0B.17.0C 20240622-0651 00000000
+ecp_bl1.bin          version: 0C.17.0C 20240501-0638 00000000
+mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000
+scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000
+rom-script0.fw       version: 0B.17.0C 20240622-0651 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL2: Built : 18:42:08, Jul 16 2024
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x3f9ffffff (16272MB)
+NOTICE:  LMT Memory Region: 0x3fa000000 to 0x3feffffff (80MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x3ff000000 to 0x3ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL31: Built : 18:42:53, Jul 16 2024
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+
+SecureBoot: BL34: running keyphase-cisco-bootstub version
+SecureBoot: ...D01.00
+SecureBoot: BL34: call SpiNorInit
+SecureBoot: Dual/Octal mode not supported in UEFI. Use x1
+SecureBoot: BL34: Call LDWM verifier
+ ...flash initialization
+ ...verify bootloader
+ ...load verification map from flash
+ ......vmap.flashaddr=====0x00b50000
+ ......vmap.platform_id===0x4c445731
+ ...load image data
+ ......flashload_bootimage_seg0:
+ .........seg_addr========0x00601000
+ .........seg_size========0x00280000
+ .........mem_addr========0x04000000
+ ...code signing results:
+ ......return_code========0x00000000
+ ......key_index==========0x00000002
+ ......key_type===========0x00000002
+ ...bootloader image verified successfully
+  
+Board Identifier: mirabile-arata, Revision: r2, Serial Number: unknown
+
+System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE
+Copyright (c) 1994-2024 by cisco Systems, Inc.
+Compiled Tue Jul 16 18:38:18 2024 by rmaladi
+
+
+!!! NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY !!!
+Boot ROM0
+
+Last reset cause: PowerOn
+SoC1 platform with 16661504 Kbytes of main memory
+
+Soc UUID: 13 FF FF 78 86 52 04 83 8A BF FF 48 
+UUID Len: 0xC
+rommon 1 > 
+[TX 2026-10-22T19:07:33.697366] b'set\r'
+set
+PS1=rommon ! > 
+MAC_ADDR=0A:70:40:00:00:21
+DEVICE_MANAGED_MODE=autonomous
+CRYPTO_BI_THPUT=250000
+THRPUT=
+RET_2_RCALTS=
+BSI=0
+RANDOM_NUM=1188139746
+rommon 2 > 
+[TX 2026-10-22T19:07:41.943196] b'dir usb0:/C8235-G2-ROMMON-17.18-4.1r\r'
+dir usb0:/C8235-G2-ROMMON-17.18-4.1r
+
+0   1792      -rw-     READ-ME-FIRST.txt
+0   4096      -rw-     ._READ-ME-FIRST.txt
+0   971       -rw-     SHA256SUMS.txt
+0   4096      -rw-     ._SHA256SUMS.txt
+0   5684280   -rw-     firmware_mirabile_soc1.pkg
+0   4096      -rw-     ._firmware_mirabile_soc1.pkg
+0   13697024  -rw-     mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin
+0   4096      -rw-     ._mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin
+0   57        -rw-     mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.md5
+0   4096      -rw-     ._mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.md5
+0   65        -rw-     mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.sha1
+0   4096      -rw-     ._mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.sha1
+0   13722320  -rw-     mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin
+0   4096      -rw-     ._mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin
+0   58        -rw-     mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.md5
+0   4096      -rw-     ._mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.md5
+0   66        -rw-     mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.sha1
+0   4096      -rw-     ._mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.sha1
+0   748       -rw-     package-info.txt
+0   4096      -rw-     ._package-info.txt
+rommon 3 > 
+[TX 2026-10-22T19:08:15.120873] b'flashmon usb0:/C8235-G2-ROMMON-17.18-4.1r/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin 1\r'
+flashmon usb0:/C8235-G2-ROMMON-17.18-4.1r/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin 1
+monitor: reading file mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin
+(Success)
+monitor: programming mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin to SPI flash
+
+
++ - - - - - - - - - - - - - - - - - - - - - - - - - - -+
+|                 W  A  R  N  I  N  G                  |
+|                                                      |
+| The requested firmware operation is NOT reversible , |
+| and it can render the system unusable or unbootable. |
+| Once started, the operation MUST NOT be interrupted. |
++ - - - - - - - - - - - - - - - - - - - - - - - - - - -+
+
+Are you sure you want to proceed? y/n : 
+[TX 2026-10-22T19:08:33.682472] b'y\r'
+y
+spi: flash region blk number(0 - 0x1FFF), blk size = 4096
+spi: protecting monitor environment [0x01F30000 - 0x01F4FFFF]
+spi: protecting board manufacturing data [0x00FD0000 - 0x00FFFFFF]
+spi: proecting the rommon image uncovered area [0x00D10000 - 0x01FFFFFF]
+Erase & Program 0x00000000 - 0x00D0FFFF ...   0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99%100% DONE!
+Verifying 0x00000000 - 0x00D0FFFF ...   0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  0%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  1%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  2%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  3%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  4%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  5%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  6%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  7%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  8%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9%  9% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 10% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 11% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 12% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 13% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 14% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 15% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 16% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 17% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 18% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 19% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 20% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 21% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 22% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 23% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 24% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 25% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 26% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 27% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 28% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 29% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 30% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 31% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 32% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 33% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 34% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 35% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 36% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 37% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 38% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 39% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 40% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 41% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 42% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 43% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 44% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 45% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 46% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 47% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 48% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 49% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 50% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 51% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 52% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 53% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 54% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 55% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 56% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 57% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 58% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 59% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 60% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 61% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 62% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 63% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 64% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 65% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 66% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 67% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 68% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 69% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 70% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 71% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 72% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 73% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 74% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 75% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 76% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 77% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 78% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 79% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 80% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 81% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 82% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 83% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 84% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 85% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 86% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 87% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 88% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 89% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 90% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 91% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 92% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 93% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 94% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 95% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 96% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 97% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 98% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99% 99%100% OK!
+spi: successfully programmed BIOS firmware
+rommon 4 > 
+[TX 2026-10-22T19:09:55.752967] b'reset\r'
+reset
+
+Resetting .......
+
+
+=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2026-04-01 03:34:36
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/SoC1v11rBuild/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 01 Apr 2026 03:33:20 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/SoC1v11rBuild/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 01 Apr 2026 03:33:20 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+PCIe0: LTSSM DETECT_QUIET, Link Errors Detected During Training
+PCIe1: Link active, 1 lanes, speed gen3
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+DRAM: 16 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.0C 20260319-0231 00000000
+npc_mkex-cn10xx.fw   version: 01.10.00 20230803-1808 00000000
+uefi.bin             version: 0B.17.0C 20260319-0231 00000000
+bl31.bin             version: 0B.17.0C 20260319-0231 00000000
+bl2.bin              version: 0B.17.0C 20260319-0231 00000000
+gserp-cn10xx.fw      version: 01.01.0C 20240112-0137 00000000
+gserm-cn10xx.fw      version: 01.01.10 20250314-0020 00000000
+init.bin             version: 0B.17.0C 20260319-0231 00000000
+ecp_bl1.bin          version: 0C.17.0C 20250519-0548 00000000
+mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000
+scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000
+rom-script0.fw       version: 0B.17.0C 20260319-0231 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):1d04daf3 (Marvell-11.23.12)
+NOTICE:  BL2: Built : 20:32:38, Mar 31 2026
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x3faffffff (16288MB)
+NOTICE:  LMT Memory Region: 0x3fb000000 to 0x3feffffff (64MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x3ff000000 to 0x3ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):1d04daf3 (Marvell-11.23.12)
+NOTICE:  BL31: Built : 20:33:20, Mar 31 2026
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+
+ Fatal error found on TPM secure device while accessing manufacturing status, cannot boot the system!
+ 

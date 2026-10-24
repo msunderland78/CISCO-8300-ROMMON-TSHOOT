@@ -1,0 +1,130 @@
+CONTEXT AUDIT UPDATE (2026-10-23): Read ../C8235-G2-RECOVERY-CONTEXT.txt
+for the consolidated current status, all measurement results and purchase
+recommendations. This file retains historical stage-specific notes; later
+corrections and current physical/equipment status are consolidated there.
+
+C8235-G2 / Arata prototype board photo inspection — 2026-10-22
+
+Photos retained as IMG_1237, IMG_1239, IMG_1241, IMG_1242, IMG_1243,
+IMG_1244, IMG_1245 and IMG_1246.jpeg.
+Inspection crops in inspection/ are for reading actual pixels, with no generative
+reconstruction. No hardware or console configuration was changed in this step.
+
+Observed board sticker (IMG_1242, and IMG_1239):
+  SYSTEM U58L372T47 LF_0555
+  H/W 055; SCH Rev P2B; BOM 33
+  Rommon TBD; FPGA TBD; S/W TBD; Version P2B
+  Platform Arata PIM sku
+  PID C8230-8TM2X
+PCB silkscreen (IMG_1241): U58L372T47 REV:05 GP, 309.0247.055
+
+ROM devices (corrected after sharper IMG_1244/1246):
+  U2900 and U2901: matching 16-lead wide-body packages immediately to the
+  right of the coin-cell battery in IMG_1246. The earlier provisional
+  U2800/U2801 labels were misread from the blurred initial photo.
+  Both carry RW170 as their lower marking (not RN170); upper marking 3TA15.
+  Official Micron public marking-decoder query returned:
+    RW170 -> MT25QU256ABA8ESF-0SIT, SLC 256M X4 SOIC.
+  Original JSON response saved as micron-RW170-decoder-result.json.
+  Manufacturer datasheet: 256 Mbit / 32 MiB SPI NOR; 1.8 V nominal,
+  1.7-2.0 V operating range; 16-pin SOP2/SO16 wide-body package.
+  In-circuit JEDEC ID and actual supply voltage have not yet been measured.
+  Primary/golden assignment remains UNCONFIRMED. Matching capacities agree
+  with flashmon's 32 MiB device boundaries. Read and preserve complete dumps
+  from both devices before writing; retain board manufacturing/NVRAM data.
+  Programming requires verified 1.8 V power AND logic signaling compatibility.
+
+TPM physically identified:
+  U5600, Infineon SLB9672, package marking AU20 31 / 00H2330.
+  This is an SPI TPM 2.0 device. Supported by manufacturer's SLB9672 data.
+  Physical identity does not establish whether the current boot error is an
+  electrical fault, TPM state/firmware incompatibility, or Cisco NV provisioning.
+  No TPM clearing, replacement, reset-pin manipulation or provisioning done.
+
+Potential flash routing / selection:
+  U2903 and U2904 markings PI3CH / 480QE / ZBY6G.
+  Manufacturer confirms PI3CH480QE is a 4-channel 2:1 signal mux/demux.
+  Datasheet: pin 1 Select (S), pin 15 active-low Enable, pin 8 GND, pin 16 VCC.
+  Their placement beside the flashes suggests possible flash routing, but
+  PCB net connections and actual function are NOT established by the photo.
+  J2900 is a populated 2-pin header by the board corner; J2901 is a nearby
+  populated 2x4 header. J2900 is a candidate selector/control connection only.
+  Do not bridge J2900 based solely on its reference number or proximity.
+  Verify ground, supply and continuity to mux select/enable nets first.
+
+Headers and switches:
+  Numerous populated headers are present, including J4400 (20 pins visible
+  in IMG_1243), plus smaller headers around the battery and likely flashes.
+  No ROM0/ROM1/GOLDEN selector has been positively identified. Header pinout
+  and voltage are unknown; pin count/appearance alone is insufficient.
+  Underside SW6000 is an unpopulated switch footprint in IMG_1237. Its
+  function is unconfirmed and is not evidence of a recovery-ROM selector.
+  TPM package identified in the follow-up photos as U5600 / SLB9672.
+
+Next evidence needed:
+  Follow-up close-ups now provide sufficient markings for the flash/TPM/mux
+  components. The user has a Fluke 111 and supplied the measurements below.
+  Powered voltage checks were not feasible with existing probes and mounting.
+  Current next step is the programmer/clip plan in the consolidated context file.
+  Trace bank-selection/debug/programming connections only after identifying
+  components and ground/supply nets. A verified 1.8 V-capable programmer could
+  read both candidate flash devices without the serial receiver's 2 MiB limit;
+  in-circuit loading/isolation and actual JEDEC IDs still require checking.
+
+Sources:
+  Trenz PCN, page 2, RN170 chip photo mapped to MT25QU256ABA8ESF-0SIT:
+  https://www.trenz-electronic.de/trenzdownloads/Trenz_Electronic/PCIe_Cards/TEF1001/PCN/PCN-20210521%20TEF1001-02%20Flash%20Change-v4-05_27_2021.pdf
+  Micron official part page:
+  https://in.micron.com/products/storage/nor-flash/serial-nor/part-catalog/part-detail/mt25qu256aba8esf-0sit
+  Micron manufacturer datasheet, hosted by authorized distributor Mouser:
+  https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf
+
+Verified supplemental sources, 2026-10-22:
+  Micron official RW170 decoder (successful HTTP 200 JSON):
+  https://www.micron.com/content/micron/us/en/sales-support/design-tools/fbga-parts-decoder/_jcr_content.products.json/getpartbyfbgacode/-/-/-/en_US/-/-/RW170
+  Infineon official SLB9672 datasheet:
+  https://www.infineon.com/assets/row/public/documents/30/49/infineon-slb9672-tpm20-spi-fw16.xx-ds-rev1-3-2024-11-18-datasheet-en.pdf
+  Diodes official PI3CH480 product page:
+  https://www.diodes.com/part/view/PI3CH480
+  Manufacturer PI3CH480 datasheet hosted by Mouser:
+  https://www.mouser.com/datasheet/2/322/PI3CH480-348795.pdf
+
+User multimeter observations (Fluke 111, resistance mode):
+  J2900 across two pins: approximately 4.49 kOhm.
+  J2900 pin farther from battery -> USB port metal shell: approximately 2 Ohm.
+  J2900 pin nearer battery -> USB port metal shell: approximately 4.9 kOhm.
+  Inference: farther pin is likely shield/ground, nearer is a resistor-connected
+  signal/control candidate. USB shield-to-circuit-ground identity is not yet
+  independently verified. These readings do not prove a ROM bank selector.
+  Next proposed measurement: nearer J2900 pin -> U2903 PI3CH480 pin 1 (Select).
+
+Further user measurements, Fluke 111:
+  J2900 farther-from-battery pin -> U2903 pin 8 (GND): 0.2 Ohm.
+  J2900 nearer-battery pin -> U2903 pin 1 (S): approximately 6.5 kOhm.
+  User reports probe tips are large relative to the IC leads and contact is
+  uncertain. Ground connection is supported; direct Select connection is not
+  demonstrated. Do not infer that J2900 is a ROM bank selector.
+  Proposed next test uses only large J2900 header pins: DC voltage across
+  header, after normal board mounting/cooling and coin-cell restoration,
+  with jumper absent. Meter must be in DC voltage mode before applying power.
+
+Further equipment/access constraints and measurements:
+  Board mounts upside down in chassis. User removed it for unpowered tests.
+  User has only ordinary pointed Fluke probes; no insulated grabber leads.
+  Powered header measurement has NOT been performed; do not power bare board
+  without restored mounting/cooling.
+  J2900 nearer-battery pin -> J2901 eight header pins: user reports OL for
+  all except the bottom-left and bottom-right pins, which measure in kOhms
+  (exact values not supplied). No low-resistance direct connection found.
+  J2900 remains unidentified; do not infer or bridge a ROM-select strap.
+  Further electrical mapping needs fine probes and/or insulated micrograbber
+  connections for measurement after safe reassembly. A separate hardware
+  recovery route is read-only full backups of both U2900/U2901 using verified
+  1.8 V power/logic SPI programming equipment with suitable SOIC-16 access.
+  No jumpers, powered pin manipulations, or flash writes occurred in these tests.
+
+Purchase discussion is now consolidated in ../C8235-G2-RECOVERY-CONTEXT.txt
+and ../purchase-research/. Latest proposed combination: B07V2M5MVH base kit
+(advertised 1.8 V adapter), B07WCB2PZ2 SOP16 Clip+Cable+Adapter Board option,
+and generic 2.54 mm female-to-male Dupont jumpers. No order/arrival confirmed;
+actual voltage levels, fit and wiring remain unverified.

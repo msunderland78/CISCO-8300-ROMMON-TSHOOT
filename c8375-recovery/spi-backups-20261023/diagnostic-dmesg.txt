@@ -1,0 +1,1486 @@
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd490]
+[    0.000000] Linux version 6.6.95 (oe-user@oe-host) (aarch64-iosxe-linux-gcc (GCC) 13.4.0, GNU ld (GNU Binutils) 2.42.0.20240723) #1 SMP Fri Jul 10 18:12:40 UTC 2026
+[    0.000000] KASLR enabled
+[    0.000000] Machine model: Marvell CN106XX board
+[    0.000000] earlycon: pl11 at MMIO 0x000087e028000000 (options '')
+[    0.000000] printk: bootconsole [pl11] enabled
+[    0.000000] Cisco Package: start=0x00000000
+[    0.000000] Cisco Package: size=0x00000000
+[    0.000000] efi: EFI v2.8 by EDK II
+[    0.000000] efi: SMBIOS=0xffff0000 SMBIOS 3.0=0x1f63e0000 ACPI 2.0=0x1f6890018 MEMATTR=0x1f70eb018 RNG=0x1f689e818 MEMRESERVE=0x1d50dff98 
+[    0.000000] random: crng init done
+[    0.000000] pkg not found or empty
+[    0.000000]  - disabling package support
+[    0.000000] OF: reserved mem: 0x0000000020060000..0x000000002007c0ff (112 KiB) nomap non-reusable pci-console-nexus
+[    0.000000] OF: reserved mem: 0x00000001f8f00000..0x00000001f8ffffff (1024 KiB) nomap non-reusable ghes-hest@00000001f8f00000
+[    0.000000] OF: reserved mem: 0x00000001fe000000..0x00000001feffffff (16384 KiB) nomap non-reusable ramoops@1fe000000
+[    0.000000] OF: reserved mem: 0x00000001ff000000..0x00000001ffffffff (16384 KiB) map non-reusable user-def@1ff000000
+[    0.000000] NUMA: NODE_DATA [mem 0x1f6ed1300-0x1f6ed3fff]
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000004000000-0x00000000ffffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   [mem 0x0000000100000000-0x00000001f7efffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000004000000-0x000000002005ffff]
+[    0.000000]   node   0: [mem 0x0000000020060000-0x000000002007bfff]
+[    0.000000]   node   0: [mem 0x000000002007d000-0x00000000fffdffff]
+[    0.000000]   node   0: [mem 0x00000000fffe0000-0x00000000ffffffff]
+[    0.000000]   node   0: [mem 0x0000000100000000-0x00000001d508ffff]
+[    0.000000]   node   0: [mem 0x00000001d5090000-0x00000001d50cffff]
+[    0.000000]   node   0: [mem 0x00000001d50d0000-0x00000001f5baffff]
+[    0.000000]   node   0: [mem 0x00000001f5bb0000-0x00000001f5ccffff]
+[    0.000000]   node   0: [mem 0x00000001f5cd0000-0x00000001f5ceffff]
+[    0.000000]   node   0: [mem 0x00000001f5cf0000-0x00000001f5d4ffff]
+[    0.000000]   node   0: [mem 0x00000001f5d50000-0x00000001f5e0ffff]
+[    0.000000]   node   0: [mem 0x00000001f5e10000-0x00000001f5ffffff]
+[    0.000000]   node   0: [mem 0x00000001f6000000-0x00000001f600ffff]
+[    0.000000]   node   0: [mem 0x00000001f6010000-0x00000001f63bffff]
+[    0.000000]   node   0: [mem 0x00000001f63c0000-0x00000001f63c8fff]
+[    0.000000]   node   0: [mem 0x00000001f63c9000-0x00000001f63c9fff]
+[    0.000000]   node   0: [mem 0x00000001f63ca000-0x00000001f63cffff]
+[    0.000000]   node   0: [mem 0x00000001f63d0000-0x00000001f63effff]
+[    0.000000]   node   0: [mem 0x00000001f63f0000-0x00000001f684ffff]
+[    0.000000]   node   0: [mem 0x00000001f6850000-0x00000001f688ffff]
+[    0.000000]   node   0: [mem 0x00000001f6890000-0x00000001f70effff]
+[    0.000000]   node   0: [mem 0x00000001f70f0000-0x00000001f70fffff]
+[    0.000000]   node   0: [mem 0x00000001f7100000-0x00000001f7efffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000004000000-0x00000001f7efffff]
+[    0.000000] On node 0, zone DMA: 16384 pages in unavailable ranges
+[    0.000000] On node 0, zone DMA: 1 pages in unavailable ranges
+[    0.000000] On node 0, zone Normal: 256 pages in unavailable ranges
+[    0.000000] crashkernel reserved: 0x00000000fbe00000 - 0x00000000ffe00000 (64 MB)
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: Trusted OS resident on physical CPU 0x0
+[    0.000000] psci: SMC Calling Convention v1.2
+[    0.000000] percpu: Embedded 32 pages/cpu s93608 r8192 d29272 u131072
+[    0.000000] pcpu-alloc: s93608 r8192 d29272 u131072 alloc=32*4096
+[    0.000000] pcpu-alloc: [0] 00 [0] 01 [0] 02 [0] 03 [0] 04 [0] 05 [0] 06 [0] 07 
+[    0.000000] pcpu-alloc: [0] 08 [0] 09 [0] 10 [0] 11 [0] 12 [0] 13 [0] 14 [0] 15 
+[    0.000000] pcpu-alloc: [0] 16 [0] 17 [0] 18 [0] 19 [0] 20 [0] 21 [0] 22 [0] 23 
+[    0.000000] Detected PIPT I-cache on CPU0
+[    0.000000] CPU features: detected: Address authentication (architected QARMA5 algorithm)
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] CPU features: detected: Virtualization Host Extensions
+[    0.000000] CPU features: detected: Hardware dirty bit management
+[    0.000000] CPU features: detected: Spectre-v4
+[    0.000000] CPU features: detected: Spectre-BHB
+[    0.000000] CPU features: detected: ARM erratum 2067961 or 2054223
+[    0.000000] CPU features: detected: SSBS not fully self-synchronizing
+[    0.000000] alternatives: applying boot alternatives
+[    0.000000] Kernel command line: cpuidle.off=1 crashkernel=64M audit=1 swiotlb=8192  loglevel=7 earlycon=pl011,0x87e028000000 debug rootwait rw coherent_pool=16M net.ifnames=0 bootloader=uefi systemd.show_status=1 cgroup_init_debug=1 max_loop=64 rvu_af.mkex_profile=custom2_mkex_x4 rvu_af.kpu_profile=custom2_kpu_vlan_exdsa pci=hpmemsize=128M,hpbussize=6,realloc  console=ttyAMA1,115200n8  board=crestone maxcpus=1 rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0 bdinfo_start=0x1D5090018 bdinfo_size=0x3AC70 initrd=0x1D2759888,0x21B76E3 pkg_start=0x0 pkg_size=0x0 SR_BOOT=bootflash:packages.conf  
+[    0.000000] audit: enabled (after initialization)
+[    0.000000] Unknown kernel command line parameters "-c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0 bootloader=uefi cgroup_init_debug=1 board=crestone bdinfo_start=0x1D5090018 bdinfo_size=0x3AC70 SR_BOOT=bootflash:packages.conf", will be passed to user space.
+[    0.000000] printk: log_buf_len individual max cpu contribution: 8192 bytes
+[    0.000000] printk: log_buf_len total cpu_extra contributions: 188416 bytes
+[    0.000000] printk: log_buf_len min size: 65536 bytes
+[    0.000000] printk: log_buf_len: 262144 bytes
+[    0.000000] printk: early log buf free: 59760(91%)
+[    0.000000] Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.000000] Fallback order for Node 0: 0 
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 2015747
+[    0.000000] Policy zone: Normal
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] software IO TLB: area num 32.
+[    0.000000] software IO TLB: mapped [mem 0x00000000fae00000-0x00000000fbe00000] (16MB)
+[    0.000000] Memory: 7862852K/8190972K available (21056K kernel code, 2576K rwdata, 6728K rodata, 7168K init, 3272K bss, 328120K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=24, Nodes=1
+[    0.000000] kmemleak: Kernel memory leak detector disabled
+[    0.000000] ftrace: allocating 67615 entries in 265 pages
+[    0.000000] ftrace: allocated 265 pages with 3 groups
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU event tracing is enabled.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=96 to nr_cpu_ids=24.
+[    0.000000] 	Rude variant of Tasks RCU enabled.
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=24
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GIC: enabling workaround for GICv3: ARM64 erratum 2941627
+[    0.000000] GICv3: 512 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: GICv3 features: 48 PPIs, DirectLPI
+[    0.000000] GICv3: GICv4 features: DirectLPI RVPEID Valid+Dirty 
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x0000801000200000
+[    0.000000] ITS [mem 0x801000040000-0x80100007ffff]
+[    0.000000] ITS@0x0000801000040000: Single VMOVP capable
+[    0.000000] ITS@0x0000801000040000: Using GICv4.1 mode 00000000 00000001
+[    0.000000] ITS@0x0000801000040000: allocated 8192 Devices @100250000 (indirect, esz 8, psz 64K, shr 1)
+[    0.000000] ITS@0x0000801000040000: allocated 32768 Interrupt Collections @100260000 (flat, esz 2, psz 64K, shr 1)
+[    0.000000] ITS@0x0000801000040000: allocated 8192 Virtual CPUs @100270000 (flat, esz 8, psz 64K, shr 1)
+[    0.000000] GICv3: using LPI property table @0x0000000100280000
+[    0.000000] ITS: Using DirectLPI for VPE invalidation
+[    0.000000] ITS: Enabling GICv4 support
+[    0.000000] GICv3: CPU0: using allocated LPI pending table @0x0000000100290000
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] arch_timer: cp15 timer(s) running at 1000.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0x1fffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+[    0.000000] sched_clock: 61 bits at 1000MHz, resolution 1ns, wraps every 4398046511103ns
+[    0.007141] Console: colour dummy device 80x25
+[    0.010409] Calibrating delay loop (skipped), value calculated using timer frequency.. 2000.00 BogoMIPS (lpj=4000000)
+[    0.019964] pid_max: default: 32768 minimum: 301
+[    0.023424] LSM: initializing lsm=capability,yama,selinux,integrity
+[    0.028550] Yama: becoming mindful.
+[    0.030786] SELinux:  Initializing.
+[    0.033113] Mount-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.039549] Mountpoint-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.046635] Syspage size 3832 bytes, 300 task entries
+[    0.050478] crankshaft_ngsw_x86 platform, dual iosd is enabled and number of app instance:3
+[    0.057706] Default profile mem_size is 6606848 for IOSD Instance
+[    0.062616] Default profile mem_size is 6606848 for App instance 0
+
+[    0.067793] crankshaft_fed_app1 profile mem_size is 6606848 for App instance 1
+
+[    0.074044] Default profile mem_size is 6606848 for App instance 2
+
+[    0.081367] RCU Tasks Rude: Setting shift to 5 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=24.
+[    0.089512] RCU Tasks Trace: Setting shift to 5 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=24.
+[    0.097754] rcu: Hierarchical SRCU implementation.
+[    0.101323] rcu: 	Max phase no-delay instances is 1000.
+[    0.105477] Platform MSI: gic-its@801000040000 domain created
+[    0.110071] PCI/MSI: /interrupt-controller@801000000000/gic-its@801000040000 domain created
+[    0.117319] Remapping and enabling EFI services.
+[    0.121022] smp: Bringing up secondary CPUs ...
+[    0.124336] smp: Brought up 1 node, 1 CPU
+[    0.127104] SMP: Total of 1 processors activated.
+[    0.130587] CPU features: detected: Branch Target Identification
+[    0.135411] CPU features: detected: 32-bit EL0 Support
+[    0.139337] CPU features: detected: ARMv8.4 Translation Table Level
+[    0.144425] CPU features: detected: Instruction cache invalidation not required for I/D coherence
+[    0.152187] CPU features: detected: Data cache clean to the PoU not required for I/D coherence
+[    0.159679] CPU features: detected: Common not Private translations
+[    0.164761] CPU features: detected: CRC32 instructions
+[    0.168683] CPU features: detected: Data cache clean to Point of Deep Persistence
+[    0.175016] CPU features: detected: Data cache clean to Point of Persistence
+[    0.180908] CPU features: detected: Data independent timing control (DIT)
+[    0.186530] CPU features: detected: E0PD
+[    0.189209] CPU features: detected: Enhanced Virtualization Traps
+[    0.194115] CPU features: detected: Generic authentication (architected QARMA5 algorithm)
+[    0.201165] CPU features: detected: RCpc load-acquire (LDAPR)
+[    0.205716] CPU features: detected: LSE atomic instructions
+[    0.210091] CPU features: detected: Privileged Access Never
+[    0.214464] CPU features: detected: RAS Extension Support
+[    0.218661] CPU features: detected: Random Number Generator
+[    0.223036] CPU features: detected: Speculation barrier (SB)
+[    0.227494] CPU features: detected: Stage-2 Force Write-Back
+[    0.231956] CPU features: detected: TLB range maintenance instructions
+[    0.237308] CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+[    0.243110] CPU features: detected: Scalable Vector Extension
+[    0.247665] CPU features: detected CPU0: Activity Monitors Unit (AMU)
+[    0.252948] SVE: maximum available vector length 16 bytes per vector
+[    0.258128] SVE: default vector length 16 bytes per vector
+[    0.262416] CPU: All CPU(s) started at EL2
+[    0.265272] alternatives: applying system-wide alternatives
+[    0.272073] devtmpfs: initialized
+[    0.275977] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.284638] futex hash table entries: 8192 (order: 7, 524288 bytes, linear)
+[    0.290586] pinctrl core: initialized pinctrl subsystem
+[    0.294705] SMBIOS 3.3.0 present.
+[    0.296761] DMI: Marvell mirabile-crestone/mirabile-crestone, BIOS 8dbebce8 2023-09-21
+[    0.303668] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.308819] DMA: preallocated 16384 KiB GFP_KERNEL pool for atomic allocations
+[    0.315220] DMA: preallocated 16384 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.322321] DMA: preallocated 16384 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.329294] audit: initializing netlink subsys (enabled)
+[    0.333509] thermal_sys: Registered thermal governor 'step_wise'
+[    0.333563] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.344003] audit: type=2000 audit(0.212:1): state=initialized audit_enabled=1 res=1
+[    0.350608] ASID allocator initialised with 65536 entries
+[    0.354843] Serial: AMBA PL011 UART driver
+[    0.369313] pstore: Using crash dump compression: deflate
+[    0.373509] printk: console [ramoops-1] enabled
+[    0.376982] pstore: Registered ramoops as persistent store backend
+[    0.381981] ramoops: using 0x1000000@0x1fe000000, ecc: 0
+[    0.386285] sdei: SDEIv1.0 (0x0) detected in firmware.
+[    0.391772] /soc@0/ete0: Fixed dependency cycle(s) with /soc@0/etf0@87a004010000
+[    0.398043] /soc@0/etf0@87a004010000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.404738] /soc@0/etf0@87a004010000: Fixed dependency cycle(s) with /soc@0/ete0
+[    0.411002] /soc@0/ete1: Fixed dependency cycle(s) with /soc@0/etf1@87a004110000
+[    0.417264] /soc@0/etf1@87a004110000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.423962] /soc@0/etf1@87a004110000: Fixed dependency cycle(s) with /soc@0/ete1
+[    0.430228] /soc@0/ete2: Fixed dependency cycle(s) with /soc@0/etf2@87a004210000
+[    0.436496] /soc@0/etf2@87a004210000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.443188] /soc@0/etf2@87a004210000: Fixed dependency cycle(s) with /soc@0/ete2
+[    0.449460] /soc@0/ete3: Fixed dependency cycle(s) with /soc@0/etf3@87a004310000
+[    0.455721] /soc@0/etf3@87a004310000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.462414] /soc@0/etf3@87a004310000: Fixed dependency cycle(s) with /soc@0/ete3
+[    0.468680] /soc@0/ete4: Fixed dependency cycle(s) with /soc@0/etf4@87a004410000
+[    0.474939] /soc@0/etf4@87a004410000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.481633] /soc@0/etf4@87a004410000: Fixed dependency cycle(s) with /soc@0/ete4
+[    0.487896] /soc@0/ete5: Fixed dependency cycle(s) with /soc@0/etf5@87a004510000
+[    0.494158] /soc@0/etf5@87a004510000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.500853] /soc@0/etf5@87a004510000: Fixed dependency cycle(s) with /soc@0/ete5
+[    0.507121] /soc@0/ete6: Fixed dependency cycle(s) with /soc@0/etf6@87a004610000
+[    0.513394] /soc@0/etf6@87a004610000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.520089] /soc@0/etf6@87a004610000: Fixed dependency cycle(s) with /soc@0/ete6
+[    0.526351] /soc@0/ete7: Fixed dependency cycle(s) with /soc@0/etf7@87a004710000
+[    0.532616] /soc@0/etf7@87a004710000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.539310] /soc@0/etf7@87a004710000: Fixed dependency cycle(s) with /soc@0/ete7
+[    0.545575] /soc@0/ete8: Fixed dependency cycle(s) with /soc@0/etf8@87a004810000
+[    0.551842] /soc@0/etf8@87a004810000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.558538] /soc@0/etf8@87a004810000: Fixed dependency cycle(s) with /soc@0/ete8
+[    0.564801] /soc@0/ete9: Fixed dependency cycle(s) with /soc@0/etf9@87a004910000
+[    0.571066] /soc@0/etf9@87a004910000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.577759] /soc@0/etf9@87a004910000: Fixed dependency cycle(s) with /soc@0/ete9
+[    0.584031] /soc@0/ete10: Fixed dependency cycle(s) with /soc@0/etf10@87a004a10000
+[    0.590475] /soc@0/etf10@87a004a10000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.597260] /soc@0/etf10@87a004a10000: Fixed dependency cycle(s) with /soc@0/ete10
+[    0.603702] /soc@0/ete11: Fixed dependency cycle(s) with /soc@0/etf11@87a004b10000
+[    0.610140] /soc@0/etf11@87a004b10000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.616921] /soc@0/etf11@87a004b10000: Fixed dependency cycle(s) with /soc@0/ete11
+[    0.623366] /soc@0/ete12: Fixed dependency cycle(s) with /soc@0/etf12@87a004c10000
+[    0.629808] /soc@0/etf12@87a004c10000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.636590] /soc@0/etf12@87a004c10000: Fixed dependency cycle(s) with /soc@0/ete12
+[    0.643035] /soc@0/ete13: Fixed dependency cycle(s) with /soc@0/etf13@87a004d10000
+[    0.649478] /soc@0/etf13@87a004d10000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.656261] /soc@0/etf13@87a004d10000: Fixed dependency cycle(s) with /soc@0/ete13
+[    0.662704] /soc@0/ete14: Fixed dependency cycle(s) with /soc@0/etf14@87a004e10000
+[    0.669140] /soc@0/etf14@87a004e10000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.675920] /soc@0/etf14@87a004e10000: Fixed dependency cycle(s) with /soc@0/ete14
+[    0.682364] /soc@0/ete15: Fixed dependency cycle(s) with /soc@0/etf15@87a004f10000
+[    0.688805] /soc@0/etf15@87a004f10000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.695580] /soc@0/etf15@87a004f10000: Fixed dependency cycle(s) with /soc@0/ete15
+[    0.702015] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf15@87a004f10000
+[    0.708797] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf14@87a004e10000
+[    0.715580] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf13@87a004d10000
+[    0.722368] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf12@87a004c10000
+[    0.729152] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf11@87a004b10000
+[    0.735935] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf10@87a004a10000
+[    0.742720] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf9@87a004910000
+[    0.749413] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf8@87a004810000
+[    0.756107] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf7@87a004710000
+[    0.762800] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf6@87a004610000
+[    0.769496] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf5@87a004510000
+[    0.776194] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf4@87a004410000
+[    0.782889] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf3@87a004310000
+[    0.789584] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf2@87a004210000
+[    0.796281] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf1@87a004110000
+[    0.802976] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf0@87a004010000
+[    0.809667] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/sh_etf@87a100050000
+[    0.816548] /soc@0/sh_etf@87a100050000: Fixed dependency cycle(s) with /soc@0/sh_etr@87a100060000
+[    0.824324] /soc@0/sh_etf@87a100050000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.831214] /soc@0/sh_etr@87a100060000: Fixed dependency cycle(s) with /soc@0/sh_etf@87a100050000
+[    0.839223] 87e028000000.serial: ttyAMA0 at MMIO 0x87e028000000 (irq = 14, base_baud = 0) is a PL011 rev3
+[    0.848660] 87e029000000.serial: ttyAMA1 at MMIO 0x87e029000000 (irq = 15, base_baud = 0) is a PL011 rev3
+[    0.857145] printk: console [ttyAMA1] enabled
+[    0.863315] printk: bootconsole [pl11] disabled
+[    0.870027] 87e02a000000.serial: ttyAMA2 at MMIO 0x87e02a000000 (irq = 16, base_baud = 0) is a PL011 rev3
+[    0.878464] 87e02b000000.serial: ttyAMA3 at MMIO 0x87e02b000000 (irq = 17, base_baud = 0) is a PL011 rev3
+[    0.886896] 87e02c000000.serial: ttyAMA4 at MMIO 0x87e02c000000 (irq = 18, base_baud = 0) is a PL011 rev3
+[    0.895335] 87e02d000000.serial: ttyAMA5 at MMIO 0x87e02d000000 (irq = 19, base_baud = 0) is a PL011 rev3
+[    0.903760] 87e02e000000.serial: ttyAMA6 at MMIO 0x87e02e000000 (irq = 20, base_baud = 0) is a PL011 rev3
+[    0.912184] 87e02f000000.serial: ttyAMA7 at MMIO 0x87e02f000000 (irq = 21, base_baud = 0) is a PL011 rev3
+[    0.920718] /soc@0/ete0: Fixed dependency cycle(s) with /soc@0/etf0@87a004010000
+[    0.926894] /soc@0/ete0: Fixed dependency cycle(s) with /soc@0/etf0@87a004010000
+[    0.933008] /soc@0/etf0@87a004010000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    0.939530] /soc@0/etf0@87a004010000: Fixed dependency cycle(s) with /soc@0/ete0
+[    0.945744] /soc@0/ete1: Fixed dependency cycle(s) with /soc@0/etf1@87a004110000
+[    0.951918] /soc@0/ete2: Fixed dependency cycle(s) with /soc@0/etf2@87a004210000
+[    0.958092] /soc@0/ete3: Fixed dependency cycle(s) with /soc@0/etf3@87a004310000
+[    0.964269] /soc@0/ete4: Fixed dependency cycle(s) with /soc@0/etf4@87a004410000
+[    0.970452] /soc@0/ete5: Fixed dependency cycle(s) with /soc@0/etf5@87a004510000
+[    0.976639] /soc@0/ete6: Fixed dependency cycle(s) with /soc@0/etf6@87a004610000
+[    0.982835] /soc@0/ete7: Fixed dependency cycle(s) with /soc@0/etf7@87a004710000
+[    0.989036] /soc@0/ete8: Fixed dependency cycle(s) with /soc@0/etf8@87a004810000
+[    0.995247] /soc@0/ete9: Fixed dependency cycle(s) with /soc@0/etf9@87a004910000
+[    1.001469] /soc@0/ete10: Fixed dependency cycle(s) with /soc@0/etf10@87a004a10000
+[    1.007874] /soc@0/ete11: Fixed dependency cycle(s) with /soc@0/etf11@87a004b10000
+[    1.014290] /soc@0/ete12: Fixed dependency cycle(s) with /soc@0/etf12@87a004c10000
+[    1.020719] /soc@0/ete13: Fixed dependency cycle(s) with /soc@0/etf13@87a004d10000
+[    1.027160] /soc@0/ete14: Fixed dependency cycle(s) with /soc@0/etf14@87a004e10000
+[    1.033616] /soc@0/ete15: Fixed dependency cycle(s) with /soc@0/etf15@87a004f10000
+[    1.040105] /soc@0/etf0@87a004010000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    1.046638] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf15@87a004f10000
+[    1.053248] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf14@87a004e10000
+[    1.059857] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf13@87a004d10000
+[    1.066466] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf12@87a004c10000
+[    1.073077] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf11@87a004b10000
+[    1.079685] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf10@87a004a10000
+[    1.086296] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf9@87a004910000
+[    1.092820] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf8@87a004810000
+[    1.099343] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf7@87a004710000
+[    1.105865] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf6@87a004610000
+[    1.112386] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf5@87a004510000
+[    1.118910] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf4@87a004410000
+[    1.125432] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf3@87a004310000
+[    1.131954] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf2@87a004210000
+[    1.138477] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf1@87a004110000
+[    1.144999] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/etf0@87a004010000
+[    1.151528] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/sh_etf@87a100050000
+[    1.158287] /soc@0/st_funnel: Fixed dependency cycle(s) with /soc@0/sh_etf@87a100050000
+[    1.164992] /soc@0/sh_etf@87a100050000: Fixed dependency cycle(s) with /soc@0/sh_etr@87a100060000
+[    1.172565] /soc@0/sh_etf@87a100050000: Fixed dependency cycle(s) with /soc@0/st_funnel
+[    1.179309] /soc@0/sh_etf@87a100050000: Fixed dependency cycle(s) with /soc@0/sh_etr@87a100060000
+[    1.186898] /soc@0/sh_etr@87a100060000: Fixed dependency cycle(s) with /soc@0/sh_etf@87a100050000
+[    1.195609] Modules: 2G module region forced by RANDOMIZE_MODULE_REGION_FULL
+[    1.201353] Modules: 0 pages in range for non-PLT usage
+[    1.201354] Modules: 514032 pages in range for PLT usage
+[    1.209474] HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+[    1.218957] HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+[    1.223916] HugeTLB: registered 32.0 MiB page size, pre-allocated 0 pages
+[    1.229394] HugeTLB: 0 KiB vmemmap can be freed for a 32.0 MiB page
+[    1.234352] HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
+[    1.239830] HugeTLB: 0 KiB vmemmap can be freed for a 2.00 MiB page
+[    1.244787] HugeTLB: registered 64.0 KiB page size, pre-allocated 0 pages
+[    1.250265] HugeTLB: 0 KiB vmemmap can be freed for a 64.0 KiB page
+[    1.351243] raid6: neonx8   gen() 12862 MB/s
+[    1.419255] raid6: neonx4   gen() 12689 MB/s
+[    1.487267] raid6: neonx2   gen() 11924 MB/s
+[    1.555278] raid6: neonx1   gen() 10711 MB/s
+[    1.623291] raid6: int64x8  gen()  8116 MB/s
+[    1.691302] raid6: int64x4  gen()  7900 MB/s
+[    1.759316] raid6: int64x2  gen()  6596 MB/s
+[    1.827328] raid6: int64x1  gen()  5258 MB/s
+[    1.830286] raid6: using algorithm neonx8 gen() 12862 MB/s
+[    1.902473] raid6: .... xor() 10032 MB/s, rmw enabled
+[    1.906215] raid6: using neon recovery algorithm
+[    1.909574] ACPI: Interpreter disabled.
+[    1.921246] iommu: Default domain type: Passthrough
+[    1.924870] SCSI subsystem initialized
+[    1.927344] libata version 3.00 loaded.
+[    1.929913] usbcore: registered new interface driver usbfs
+[    1.934095] usbcore: registered new interface driver hub
+[    1.938112] usbcore: registered new device driver usb
+[    1.941955] pps_core: LinuxPPS API ver. 1 registered
+[    1.945610] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    1.953434] PTP clock support registered
+[    1.956142] EDAC MC: Ver: 3.0.0
+[    1.957992] EDAC DEBUG: edac_mc_sysfs_init: device mc created
+[    1.962462] scmi_core: SCMI protocol bus registered
+[    1.966063] efivars: Registered efivars operations
+[    1.969793] vgaarb: loaded
+[    1.971273] clocksource: Switched to clocksource arch_sys_counter
+[    1.976151] VFS: Disk quotas dquot_6.6.0
+[    1.978769] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    1.984385] pnp: PnP ACPI: disabled
+[    1.988077] NET: Registered PF_INET protocol family
+[    1.991708] IP idents hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    1.999316] tcp_listen_portaddr_hash hash table entries: 4096 (order: 4, 65536 bytes, linear)
+[    2.006545] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    2.012983] TCP established hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    2.019636] TCP bind hash table entries: 65536 (order: 9, 2097152 bytes, linear)
+[    2.026044] TCP: Hash tables configured (established 65536 bind 65536)
+[    2.031300] UDP hash table entries: 4096 (order: 5, 131072 bytes, linear)
+[    2.036789] UDP-Lite hash table entries: 4096 (order: 5, 131072 bytes, linear)
+[    2.042756] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    2.047211] RPC: Registered named UNIX socket transport module.
+[    2.051822] RPC: Registered udp transport module.
+[    2.055217] RPC: Registered tcp transport module.
+[    2.058613] RPC: Registered tcp-with-tls transport module.
+[    2.062789] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    2.067921] NET: Registered PF_XDP protocol family
+[    2.071404] PCI: CLS 0 bytes, default 64
+[    2.074089] Trying to unpack rootfs image as initramfs...
+               initrd_start 0xffff0001d2759888 initrd_end 0xffff0001d4910f6b size 35354339
+[    2.091382] kvm [1]: IPA Size Limit: 48 bits
+[    2.094348] kvm [1]: GICv4 support disabled
+[    2.097227] kvm [1]: GICv3: no GICV resource entry
+[    2.100712] kvm [1]: disabling GICv2 emulation
+[    2.103854] kvm [1]: GIC system register CPU interface enabled
+[    2.108385] kvm [1]: vgic interrupt IRQ9
+[    2.111002] kvm [1]: VHE mode initialized successfully
+[    2.119699] Initialise system trusted keyrings
+[    2.127316] workingset: timestamp_bits=42 max_order=21 bucket_order=0
+[    2.132583] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    2.147464] jffs2: version 2.2. (NAND) \xc2\xa9 2001-2006 Red Hat, Inc.
+[    2.159362] SGI XFS with security attributes, no debug enabled
+[    2.171384] 9p: Installing v9fs 9p2000 file system support
+[    2.185452] NET: Registered PF_ALG protocol family
+[    2.188935] xor: measuring software checksum speed
+[    2.192566]    8regs           : 21871 MB/sec
+[    2.195780]    32regs          : 19956 MB/sec
+[    2.199028]    arm64_neon      : 16374 MB/sec
+[    2.202075] xor: using function: 8regs (21871 MB/sec)
+[    2.205820] async_tx: api initialized (async)
+[    2.208869] Key type asymmetric registered
+[    2.211656] Asymmetric key parser 'x509' registered
+[    2.215233] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 244)
+[    2.243335] io scheduler mq-deadline registered
+[    2.246558] io scheduler kyber registered
+[    2.249279] io scheduler bfq registered
+[    2.256326] pci-host-generic 878000000000.pci: host bridge /soc@0/pci@878000000000 ranges:
+[    2.263301] pci-host-generic 878000000000.pci:      MEM 0x802000000000..0x80f0008fffff -> 0x802000000000
+[    2.271482] pci-host-generic 878000000000.pci:      MEM 0x828000000000..0x8281001fffff -> 0x828000000000
+[    2.279661] pci-host-generic 878000000000.pci:      MEM 0x82c000000000..0x82c0001fffff -> 0x82c000000000
+[    2.287841] pci-host-generic 878000000000.pci:      MEM 0x86d000000000..0x86d0000fffff -> 0x86d000000000
+[    2.296020] pci-host-generic 878000000000.pci:      MEM 0x86e000000000..0x86e22fffffff -> 0x86e000000000
+[    2.304198] pci-host-generic 878000000000.pci:      MEM 0x87e002000000..0x87e027ffffff -> 0x87e002000000
+[    2.312377] pci-host-generic 878000000000.pci:      MEM 0x87e03c000000..0x87e0525fffff -> 0x87e03c000000
+[    2.320554] pci-host-generic 878000000000.pci:      MEM 0x87e087000000..0x87e0fcffffff -> 0x87e087000000
+[    2.328728] pci-host-generic 878000000000.pci:      MEM 0x87e100000000..0x87e10bffffff -> 0x87e100000000
+[    2.337041] pci-host-generic 878000000000.pci: Memory resource size exceeds max for 32 bits
+[    2.344084] pci-host-generic 878000000000.pci: Memory resource size exceeds max for 32 bits
+[    2.351125] pci-host-generic 878000000000.pci: Memory resource size exceeds max for 32 bits
+[    2.358191] pci-host-generic 878000000000.pci: ECAM at [mem 0x878000000000-0x87800fffffff] for [bus 00-ff]
+[    2.366603] pci-host-generic 878000000000.pci: PCI host bridge to bus 0000:00
+[    2.372431] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    2.376607] pci_bus 0000:00: root bus resource [mem 0x802000000000-0x80f0008fffff]
+[    2.382868] pci_bus 0000:00: root bus resource [mem 0x828000000000-0x8281001fffff]
+[    2.389128] pci_bus 0000:00: root bus resource [mem 0x82c000000000-0x82c0001fffff]
+[    2.395388] pci_bus 0000:00: root bus resource [mem 0x86d000000000-0x86d0000fffff]
+[    2.401648] pci_bus 0000:00: root bus resource [mem 0x86e000000000-0x86e22fffffff]
+[    2.407908] pci_bus 0000:00: root bus resource [mem 0x87e002000000-0x87e027ffffff]
+[    2.414168] pci_bus 0000:00: root bus resource [mem 0x87e03c000000-0x87e0525fffff]
+[    2.420432] pci_bus 0000:00: root bus resource [mem 0x87e087000000-0x87e0fcffffff]
+[    2.426693] pci_bus 0000:00: root bus resource [mem 0x87e100000000-0x87e10bffffff]
+[    2.432991] pci 0000:00:01.0: [177d:a002] type 01 class 0x060401
+[    2.437834] pci 0000:00:03.0: [177d:a062] type 00 class 0x088000
+[    2.442555] pci 0000:00:03.0: BAR 0: [mem 0x830000000000-0x8300001fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.452273] pci 0000:00:05.0: [177d:a017] type 00 class 0x088000
+[    2.456990] pci 0000:00:05.0: BAR 0: [mem 0x802000000000-0x8020000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.466642] pci 0000:00:05.0: BAR 4: [mem 0x80200f000000-0x80200f0fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.476376] pci 0000:00:08.0: [177d:a09e] type 00 class 0x088000
+[    2.481092] pci 0000:00:08.0: BAR 0: [mem 0x807000000000-0x80700000ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.490742] pci 0000:00:08.0: BAR 4: [mem 0x807000f00000-0x807000ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.500461] pci 0000:00:0a.0: [177d:a09d] type 00 class 0x088000
+[    2.505180] pci 0000:00:0a.0: BAR 0: [mem 0x87a400000000-0x87a47fffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.514829] pci 0000:00:0a.0: BAR 4: [mem 0x87a480000000-0x87a4ffffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.524548] pci 0000:00:0c.0: [177d:a002] type 01 class 0x060401
+[    2.529305] pci 0000:00:0d.0: [177d:a002] type 01 class 0x060401
+[    2.534063] pci 0000:00:0e.0: [177d:a002] type 01 class 0x060401
+[    2.538822] pci 0000:00:0f.0: [177d:a002] type 01 class 0x060401
+[    2.543573] pci 0000:00:10.0: [177d:a092] type 00 class 0x088000
+[    2.548291] pci 0000:00:10.0: BAR 0: [mem 0x828000000000-0x82803fffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.557942] pci 0000:00:10.0: BAR 4: [mem 0x828100000000-0x8281000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.567639] pci 0000:00:11.0: [177d:a00a] type 00 class 0x088000
+[    2.572355] pci 0000:00:11.0: BAR 0: [mem 0x803000000000-0x80300000ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.582005] pci 0000:00:11.0: BAR 4: [mem 0x803000f00000-0x803000ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.591743] pci 0000:00:14.0: [177d:a002] type 01 class 0x060401
+[    2.596605] pci 0000:00:1a.0: [177d:a068] type 00 class 0x088000
+[    2.601324] pci 0000:00:1a.0: BAR 0: [mem 0x86d000000000-0x86d0000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.611032] pci 0000:00:1c.0: [177d:a067] type 00 class 0x088000
+[    2.615751] pci 0000:00:1c.0: BAR 0: [mem 0x82c000000000-0x82c0000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.625400] pci 0000:00:1c.0: BAR 4: [mem 0x82c000100000-0x82c0001fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.635112] pci 0000:00:1d.0: [177d:a067] type 00 class 0x088000
+[    2.639827] pci 0000:00:1d.0: BAR 0: [mem 0x82d000000000-0x82d0000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.649478] pci 0000:00:1d.0: BAR 4: [mem 0x82d000100000-0x82d0001fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.659171] pci 0000:00:1e.0: [177d:a067] type 00 class 0x088000
+[    2.663890] pci 0000:00:1e.0: BAR 0: [mem 0x82e000000000-0x82e0000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.673539] pci 0000:00:1e.0: BAR 4: [mem 0x82e000100000-0x82e0001fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.683295] pci 0000:01:00.0: [177d:a075] type 00 class 0x088000
+[    2.688011] pci 0000:01:00.0: BAR 0: [mem 0x87e0fc000000-0x87e0fc03ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.697660] pci 0000:01:00.0: BAR 4: [mem 0x87e0fcf00000-0x87e0fcffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.707361] pci 0000:01:01.3: [177d:a02b] type 00 class 0x0c8000
+[    2.712080] pci 0000:01:01.3: BAR 0: [mem 0x87e005000000-0x87e0050fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.721793] pci 0000:01:01.7: [177d:a035] type 00 class 0x088000
+[    2.726511] pci 0000:01:01.7: BAR 0: [mem 0x87e001000000-0x87e0010fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.736162] pci 0000:01:01.7: BAR 2: [mem 0x800000000000-0x8000ffffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.745812] pci 0000:01:01.7: BAR 4: [mem 0x87e001f00000-0x87e001ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.755507] pci 0000:01:0a.0: [177d:a094] type 00 class 0x088000
+[    2.760226] pci 0000:01:0a.0: BAR 0: [mem 0x87e120000000-0x87e1200fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.769874] pci 0000:01:0a.0: BAR 4: [mem 0x87e120f00000-0x87e120ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.779578] pci 0000:01:0a.1: [177d:a094] type 00 class 0x088000
+[    2.784295] pci 0000:01:0a.1: BAR 0: [mem 0x87e121000000-0x87e1210fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.793944] pci 0000:01:0a.1: BAR 4: [mem 0x87e121f00000-0x87e121ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.803640] pci 0000:01:0a.2: [177d:a094] type 00 class 0x088000
+[    2.808358] pci 0000:01:0a.2: BAR 0: [mem 0x87e122000000-0x87e1220fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.818010] pci 0000:01:0a.2: BAR 4: [mem 0x87e122f00000-0x87e122ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.827712] pci 0000:01:0c.0: [177d:a073] type 00 class 0x088000
+[    2.832427] pci 0000:01:0c.0: BAR 0: [mem 0x87e010000000-0x87e0100fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.842077] pci 0000:01:0c.0: BAR 2: [mem 0x87e1bf000000-0x87e1bfffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.851728] pci 0000:01:0c.0: BAR 4: [mem 0x87e010100000-0x87e0101fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.861436] pci 0000:01:0f.0: [177d:a061] type 00 class 0x088000
+[    2.866149] pci 0000:01:0f.0: BAR 0: [mem 0x87e018000000-0x87e01800ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.875856] pci 0000:01:10.0: [177d:a060] type 00 class 0x028000
+[    2.880571] pci 0000:01:10.0: BAR 0: [mem 0x87e0e0000000-0x87e0e07fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.890223] pci 0000:01:10.0: BAR 4: [mem 0x87e0e0800000-0x87e0e0ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.899920] pci 0000:01:10.1: [177d:a060] type 00 class 0x028000
+[    2.904640] pci 0000:01:10.1: BAR 0: [mem 0x87e0e1000000-0x87e0e17fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.914289] pci 0000:01:10.1: BAR 4: [mem 0x87e0e1800000-0x87e0e1ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.923995] pci 0000:01:10.2: [177d:a060] type 00 class 0x028000
+[    2.928709] pci 0000:01:10.2: BAR 0: [mem 0x87e0e2000000-0x87e0e27fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.938361] pci 0000:01:10.2: BAR 4: [mem 0x87e0e2800000-0x87e0e2ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.948059] pci 0000:01:14.0: [177d:a097] type 00 class 0x088000
+[    2.952777] pci 0000:01:14.0: BAR 0: [mem 0x87e140000000-0x87e1400fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.962473] pci 0000:01:14.1: [177d:a097] type 00 class 0x088000
+[    2.967192] pci 0000:01:14.1: BAR 0: [mem 0x87e141000000-0x87e1410fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.976893] pci 0000:01:14.2: [177d:a097] type 00 class 0x088000
+[    2.981611] pci 0000:01:14.2: BAR 0: [mem 0x87e142000000-0x87e1420fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    2.991313] pci 0000:01:14.3: [177d:a097] type 00 class 0x088000
+[    2.996033] pci 0000:01:14.3: BAR 0: [mem 0x87e143000000-0x87e1430fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.005737] pci 0000:01:14.4: [177d:a097] type 00 class 0x088000
+[    3.010456] pci 0000:01:14.4: BAR 0: [mem 0x87e144000000-0x87e1440fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.020157] pci 0000:01:18.0: [177d:a012] type 00 class 0x0c8000
+[    3.024875] pci 0000:01:18.0: BAR 0: [mem 0x87e100000000-0x87e10000ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.034526] pci 0000:01:18.0: BAR 4: [mem 0x87e100f00000-0x87e100ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.044246] pci 0000:01:18.1: [177d:a012] type 00 class 0x0c8000
+[    3.048965] pci 0000:01:18.1: BAR 0: [mem 0x87e101000000-0x87e10100ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.058616] pci 0000:01:18.1: BAR 4: [mem 0x87e101f00000-0x87e101ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.068328] pci 0000:01:18.3: [177d:a012] type 00 class 0x0c8000
+[    3.073043] pci 0000:01:18.3: BAR 0: [mem 0x87e103000000-0x87e10300ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.082694] pci 0000:01:18.3: BAR 4: [mem 0x87e103f00000-0x87e103ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.092412] pci 0000:01:18.4: [177d:a012] type 00 class 0x0c8000
+[    3.097130] pci 0000:01:18.4: BAR 0: [mem 0x87e104000000-0x87e10400ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.106779] pci 0000:01:18.4: BAR 4: [mem 0x87e104f00000-0x87e104ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.116496] pci 0000:01:18.5: [177d:a012] type 00 class 0x0c8000
+[    3.121210] pci 0000:01:18.5: BAR 0: [mem 0x87e105000000-0x87e10500ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.130861] pci 0000:01:18.5: BAR 4: [mem 0x87e105f00000-0x87e105ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.140576] pci 0000:01:18.6: [177d:a012] type 00 class 0x0c8000
+[    3.145294] pci 0000:01:18.6: BAR 0: [mem 0x87e106000000-0x87e10600ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.154943] pci 0000:01:18.6: BAR 4: [mem 0x87e106f00000-0x87e106ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.164650] pci 0000:01:18.7: [177d:a012] type 00 class 0x0c8000
+[    3.169366] pci 0000:01:18.7: BAR 0: [mem 0x87e107000000-0x87e10700ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.179015] pci 0000:01:18.7: BAR 4: [mem 0x87e107f00000-0x87e107ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.188711] pci 0000:01:19.0: [177d:a012] type 00 class 0x0c8000
+[    3.193427] pci 0000:01:19.0: BAR 0: [mem 0x87e108000000-0x87e10800ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.203078] pci 0000:01:19.0: BAR 4: [mem 0x87e108f00000-0x87e108ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.212783] pci 0000:01:19.1: [177d:a012] type 00 class 0x0c8000
+[    3.217498] pci 0000:01:19.1: BAR 0: [mem 0x87e109000000-0x87e10900ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.227148] pci 0000:01:19.1: BAR 4: [mem 0x87e109f00000-0x87e109ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.236844] pci 0000:01:19.2: [177d:a012] type 00 class 0x0c8000
+[    3.241558] pci 0000:01:19.2: BAR 0: [mem 0x87e10a000000-0x87e10a00ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.251209] pci 0000:01:19.2: BAR 4: [mem 0x87e10af00000-0x87e10affffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.260911] pci 0000:01:19.3: [177d:a012] type 00 class 0x0c8000
+[    3.265625] pci 0000:01:19.3: BAR 0: [mem 0x87e10b000000-0x87e10b00ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.275275] pci 0000:01:19.3: BAR 4: [mem 0x87e10bf00000-0x87e10bffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.284985] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+[    3.290313] pci 0000:02:00.0: [177d:a075] type 00 class 0x088000
+[    3.295032] pci 0000:02:00.0: BAR 0: [mem 0x87e0f9000000-0x87e0f903ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.304730] pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 02
+[    3.310060] pci 0000:03:00.0: [177d:a075] type 00 class 0x088000
+[    3.314774] pci 0000:03:00.0: BAR 0: [mem 0x87e0fa000000-0x87e0fa03ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.324476] pci_bus 0000:03: busn_res: [bus 03-ff] end is updated to 03
+[    3.329800] pci 0000:04:00.0: [177d:a075] type 00 class 0x088000
+[    3.334519] pci 0000:04:00.0: BAR 0: [mem 0x87e0fb000000-0x87e0fb03ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.344219] pci_bus 0000:04: busn_res: [bus 04-ff] end is updated to 04
+[    3.349544] pci 0000:05:00.0: [177d:a098] type 00 class 0x120000
+[    3.354260] pci 0000:05:00.0: BAR 0: [mem 0x87e00f000000-0x87e00f0fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.363910] pci 0000:05:00.0: VF BAR 0: [mem 0x80f000800000-0x80f0008fffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    3.373840] pci 0000:05:00.0: VF(n) BAR0 space: [mem 0x80f000800000-0x80f0008fffff 64bit] (contains BAR0 for 1 VFs)
+[    3.383022] pci_bus 0000:05: busn_res: [bus 05-ff] end is updated to 05
+[    3.388353] pci 0000:06:00.0: [177d:a080] type 00 class 0x088000
+[    3.393072] pci 0000:06:00.0: BAR 0: [mem 0x86e000000000-0x86e0ffffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.402722] pci 0000:06:00.0: BAR 4: [mem 0x86e100000000-0x86e1000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    3.412372] pci 0000:06:00.0: VF BAR 0: [mem 0x86e200000000-0x86e2000fffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    3.422281] pci 0000:06:00.0: VF BAR 4: [mem 0x86e210000000-0x86e2100fffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    3.726744] Freeing initrd memory: 34520K
+[    4.463277] pci 0000:06:00.0: VF(n) BAR0 space: [mem 0x86e200000000-0x86e201ffffff 64bit] (contains BAR0 for 32 VFs)
+[    4.472497] pci 0000:06:00.0: VF(n) BAR4 space: [mem 0x86e210000000-0x86e211ffffff 64bit] (contains BAR4 for 32 VFs)
+[    4.481839] pci_bus 0000:06: busn_res: [bus 06-ff] end is updated to 06
+[    4.487182] pci 0000:00:01.0: PCI bridge to [bus 01]
+[    4.490844] pci 0000:00:0c.0: PCI bridge to [bus 02]
+[    4.494502] pci 0000:00:0d.0: PCI bridge to [bus 03]
+[    4.498160] pci 0000:00:0e.0: PCI bridge to [bus 04]
+[    4.501817] pci 0000:00:0f.0: PCI bridge to [bus 05]
+[    4.505474] pci 0000:00:14.0: PCI bridge to [bus 06]
+[    4.509336] pci-host-generic 878020000000.pci: host bridge /soc@0/pci@878020000000 ranges:
+[    4.516305] pci-host-generic 878020000000.pci:      MEM 0x840000000000..0x85f4ffffffff -> 0x840000000000
+[    4.524483] pci-host-generic 878020000000.pci:      MEM 0x01f9000000..0x01fd5fffff -> 0x01f9000000
+[    4.532204] pci-host-generic 878020000000.pci: Memory resource size exceeds max for 32 bits
+[    4.539280] pci-host-generic 878020000000.pci: ECAM at [mem 0x878020000000-0x87802fffffff] for [bus 00-ff]
+[    4.547652] pci-host-generic 878020000000.pci: PCI host bridge to bus 0002:00
+[    4.553479] pci_bus 0002:00: root bus resource [bus 00-ff]
+[    4.557657] pci_bus 0002:00: root bus resource [mem 0x840000000000-0x85f4ffffffff]
+[    4.563918] pci_bus 0002:00: root bus resource [mem 0x1f9000000-0x1fd5fffff]
+[    4.569669] pci 0002:00:00.0: [177d:a002] type 01 class 0x060401
+[    4.574430] pci 0002:00:01.0: [177d:a002] type 01 class 0x060401
+[    4.579193] pci 0002:00:02.0: [177d:a002] type 01 class 0x060401
+[    4.583953] pci 0002:00:03.0: [177d:a002] type 01 class 0x060401
+[    4.588706] pci 0002:00:04.0: [177d:a002] type 01 class 0x060401
+[    4.593464] pci 0002:00:05.0: [177d:a002] type 01 class 0x060401
+[    4.598217] pci 0002:00:06.0: [177d:a002] type 01 class 0x060401
+[    4.602979] pci 0002:00:07.0: [177d:a002] type 01 class 0x060401
+[    4.607734] pci 0002:00:08.0: [177d:a002] type 01 class 0x060401
+[    4.612484] pci 0002:00:09.0: [177d:a002] type 01 class 0x060401
+[    4.617237] pci 0002:00:0a.0: [177d:a002] type 01 class 0x060401
+[    4.621997] pci 0002:00:0b.0: [177d:a002] type 01 class 0x060401
+[    4.626745] pci 0002:00:0c.0: [177d:a002] type 01 class 0x060401
+[    4.631500] pci 0002:00:0d.0: [177d:a002] type 01 class 0x060401
+[    4.636260] pci 0002:00:0e.0: [177d:a002] type 01 class 0x060401
+[    4.641015] pci 0002:00:0f.0: [177d:a002] type 01 class 0x060401
+[    4.645773] pci 0002:00:10.0: [177d:a002] type 01 class 0x060401
+[    4.650528] pci 0002:00:11.0: [177d:a002] type 01 class 0x060401
+[    4.655286] pci 0002:00:12.0: [177d:a002] type 01 class 0x060401
+[    4.660044] pci 0002:00:13.0: [177d:a002] type 01 class 0x060401
+[    4.664800] pci 0002:00:14.0: [177d:a002] type 01 class 0x060401
+[    4.669553] pci 0002:00:15.0: [177d:a002] type 01 class 0x060401
+[    4.674321] pci 0002:00:16.0: [177d:a002] type 01 class 0x060401
+[    4.679072] pci 0002:00:17.0: [177d:a002] type 01 class 0x060401
+[    4.683827] pci 0002:00:18.0: [177d:a002] type 01 class 0x060401
+[    4.688587] pci 0002:00:19.0: [177d:a002] type 01 class 0x060401
+[    4.693333] pci 0002:00:1a.0: [177d:a002] type 01 class 0x060401
+[    4.698088] pci 0002:00:1b.0: [177d:a002] type 01 class 0x060401
+[    4.702848] pci 0002:00:1c.0: [177d:a002] type 01 class 0x060401
+[    4.707602] pci 0002:00:1d.0: [177d:a002] type 01 class 0x060401
+[    4.712359] pci 0002:00:1e.0: [177d:a002] type 01 class 0x060401
+[    4.717116] pci 0002:00:1f.0: [177d:a002] type 01 class 0x060401
+[    4.721931] pci 0002:01:00.0: [177d:a065] type 00 class 0x020000
+[    4.726651] pci 0002:01:00.0: BAR 0: [mem 0x840000000000-0x8401ffffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    4.736302] pci 0002:01:00.0: BAR 2: [mem 0x840200000000-0x840201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    4.745951] pci 0002:01:00.0: BAR 4: [mem 0x1f9000000-0x1f93fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    4.755079] pci 0002:01:00.0: VF BAR 2: [mem 0x840202000000-0x840203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    4.764989] pci 0002:01:00.0: VF BAR 4: [mem 0x1f9400000-0x1f943ffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    4.774396] pci 0002:01:00.0: VF(n) BAR2 space: [mem 0x840202000000-0x840241ffffff 64bit] (contains BAR2 for 32 VFs)
+[    4.783609] pci 0002:01:00.0: VF(n) BAR4 space: [mem 0x1f9400000-0x1f9bfffff 64bit] (contains BAR4 for 32 VFs)
+[    4.792373] pci_bus 0002:01: busn_res: [bus 01-ff] end is updated to 01
+[    4.797699] pci 0002:02:00.0: [177d:a063] type 00 class 0x020000
+[    4.802416] pci 0002:02:00.0: BAR 2: [mem 0x841200000000-0x841201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    4.812066] pci 0002:02:00.0: BAR 4: [mem 0x1f9c00000-0x1f9cfffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    4.821194] pci 0002:02:00.0: VF BAR 2: [mem 0x841202000000-0x841203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    4.831103] pci 0002:02:00.0: VF BAR 4: [mem 0x1f9d00000-0x1f9d3ffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    4.840518] pci 0002:02:00.0: VF(n) BAR2 space: [mem 0x841202000000-0x841211ffffff 64bit] (contains BAR2 for 8 VFs)
+[    4.849644] pci 0002:02:00.0: VF(n) BAR4 space: [mem 0x1f9d00000-0x1f9efffff 64bit] (contains BAR4 for 8 VFs)
+[    4.858301] pci_bus 0002:02: busn_res: [bus 02-ff] end is updated to 02
+[    4.863627] pci 0002:03:00.0: [177d:a063] type 00 class 0x020000
+[    4.868342] pci 0002:03:00.0: BAR 2: [mem 0x842200000000-0x842201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    4.877993] pci 0002:03:00.0: BAR 4: [mem 0x1f9f00000-0x1f9ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    4.887123] pci 0002:03:00.0: VF BAR 2: [mem 0x842202000000-0x842203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    4.897033] pci 0002:03:00.0: VF BAR 4: [mem 0x1fa000000-0x1fa03ffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    4.906445] pci 0002:03:00.0: VF(n) BAR2 space: [mem 0x842202000000-0x842211ffffff 64bit] (contains BAR2 for 8 VFs)
+[    4.915574] pci 0002:03:00.0: VF(n) BAR4 space: [mem 0x1fa000000-0x1fa1fffff 64bit] (contains BAR4 for 8 VFs)
+[    4.924229] pci_bus 0002:03: busn_res: [bus 03-ff] end is updated to 03
+[    4.929559] pci 0002:04:00.0: [177d:a063] type 00 class 0x020000
+[    4.934277] pci 0002:04:00.0: BAR 2: [mem 0x843200000000-0x843201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    4.943928] pci 0002:04:00.0: BAR 4: [mem 0x1fa200000-0x1fa2fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    4.953058] pci 0002:04:00.0: VF BAR 2: [mem 0x843202000000-0x843203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    4.962968] pci 0002:04:00.0: VF BAR 4: [mem 0x1fa300000-0x1fa33ffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    4.972380] pci 0002:04:00.0: VF(n) BAR2 space: [mem 0x843202000000-0x843211ffffff 64bit] (contains BAR2 for 8 VFs)
+[    4.981506] pci 0002:04:00.0: VF(n) BAR4 space: [mem 0x1fa300000-0x1fa4fffff 64bit] (contains BAR4 for 8 VFs)
+[    4.990160] pci_bus 0002:04: busn_res: [bus 04-ff] end is updated to 04
+[    4.995492] pci 0002:05:00.0: [177d:a063] type 00 class 0x020000
+[    5.000211] pci 0002:05:00.0: BAR 2: [mem 0x844200000000-0x844201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.009860] pci 0002:05:00.0: BAR 4: [mem 0x1fa500000-0x1fa5fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.018988] pci 0002:05:00.0: VF BAR 2: [mem 0x844202000000-0x844203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.028898] pci 0002:05:00.0: VF BAR 4: [mem 0x1fa600000-0x1fa63ffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.038307] pci 0002:05:00.0: VF(n) BAR2 space: [mem 0x844202000000-0x844211ffffff 64bit] (contains BAR2 for 8 VFs)
+[    5.047435] pci 0002:05:00.0: VF(n) BAR4 space: [mem 0x1fa600000-0x1fa7fffff 64bit] (contains BAR4 for 8 VFs)
+[    5.056092] pci_bus 0002:05: busn_res: [bus 05-ff] end is updated to 05
+[    5.061422] pci 0002:06:00.0: [177d:a063] type 00 class 0x020000
+[    5.066139] pci 0002:06:00.0: BAR 2: [mem 0x845200000000-0x845201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.075789] pci 0002:06:00.0: BAR 4: [mem 0x1fa800000-0x1fa8fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.084917] pci 0002:06:00.0: VF BAR 2: [mem 0x845202000000-0x845203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.094827] pci 0002:06:00.0: VF BAR 4: [mem 0x1fa900000-0x1fa93ffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.104240] pci 0002:06:00.0: VF(n) BAR2 space: [mem 0x845202000000-0x845211ffffff 64bit] (contains BAR2 for 8 VFs)
+[    5.113367] pci 0002:06:00.0: VF(n) BAR4 space: [mem 0x1fa900000-0x1faafffff 64bit] (contains BAR4 for 8 VFs)
+[    5.122021] pci_bus 0002:06: busn_res: [bus 06-ff] end is updated to 06
+[    5.127345] pci 0002:07:00.0: [177d:a063] type 00 class 0x020000
+[    5.132061] pci 0002:07:00.0: BAR 2: [mem 0x846200000000-0x846201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.141713] pci 0002:07:00.0: BAR 4: [mem 0x1fab00000-0x1fabfffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.150840] pci 0002:07:00.0: VF BAR 2: [mem 0x846202000000-0x846203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.160751] pci 0002:07:00.0: VF BAR 4: [mem 0x1fac00000-0x1fac3ffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.170165] pci 0002:07:00.0: VF(n) BAR2 space: [mem 0x846202000000-0x846211ffffff 64bit] (contains BAR2 for 8 VFs)
+[    5.179292] pci 0002:07:00.0: VF(n) BAR4 space: [mem 0x1fac00000-0x1fadfffff 64bit] (contains BAR4 for 8 VFs)
+[    5.187947] pci_bus 0002:07: busn_res: [bus 07-ff] end is updated to 07
+[    5.193273] pci 0002:08:00.0: [177d:a0f9] type 00 class 0x088000
+[    5.197988] pci 0002:08:00.0: BAR 2: [mem 0x847200000000-0x847201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.207638] pci 0002:08:00.0: BAR 4: [mem 0x1fae00000-0x1fae7ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.216767] pci 0002:08:00.0: VF BAR 2: [mem 0x847202000000-0x847203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.226725] pci_bus 0002:08: busn_res: [bus 08-ff] end is updated to 08
+[    5.232055] pci 0002:09:00.0: [177d:a0f9] type 00 class 0x088000
+[    5.236776] pci 0002:09:00.0: BAR 2: [mem 0x848200000000-0x848201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.246425] pci 0002:09:00.0: BAR 4: [mem 0x1fae80000-0x1faefffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.255553] pci 0002:09:00.0: VF BAR 2: [mem 0x848202000000-0x848203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.265512] pci_bus 0002:09: busn_res: [bus 09-ff] end is updated to 09
+[    5.270836] pci 0002:0a:00.0: [177d:a0f9] type 00 class 0x088000
+[    5.275557] pci 0002:0a:00.0: BAR 2: [mem 0x849200000000-0x849201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.285206] pci 0002:0a:00.0: BAR 4: [mem 0x1faf00000-0x1faf7ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.294333] pci 0002:0a:00.0: VF BAR 2: [mem 0x849202000000-0x849203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.304298] pci_bus 0002:0a: busn_res: [bus 0a-ff] end is updated to 0a
+[    5.309622] pci 0002:0b:00.0: [177d:a0f9] type 00 class 0x088000
+[    5.314340] pci 0002:0b:00.0: BAR 2: [mem 0x84a200000000-0x84a201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.323991] pci 0002:0b:00.0: BAR 4: [mem 0x1faf80000-0x1faffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.333120] pci 0002:0b:00.0: VF BAR 2: [mem 0x84a202000000-0x84a203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.343088] pci_bus 0002:0b: busn_res: [bus 0b-ff] end is updated to 0b
+[    5.348411] pci 0002:0c:00.0: [177d:a0f9] type 00 class 0x088000
+[    5.353128] pci 0002:0c:00.0: BAR 2: [mem 0x84b200000000-0x84b201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.362779] pci 0002:0c:00.0: BAR 4: [mem 0x1fb000000-0x1fb07ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.371908] pci 0002:0c:00.0: VF BAR 2: [mem 0x84b202000000-0x84b203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.381877] pci_bus 0002:0c: busn_res: [bus 0c-ff] end is updated to 0c
+[    5.387203] pci 0002:0d:00.0: [177d:a0f9] type 00 class 0x088000
+[    5.391922] pci 0002:0d:00.0: BAR 2: [mem 0x84c200000000-0x84c201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.401571] pci 0002:0d:00.0: BAR 4: [mem 0x1fb080000-0x1fb0fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.410699] pci 0002:0d:00.0: VF BAR 2: [mem 0x84c202000000-0x84c203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.420673] pci_bus 0002:0d: busn_res: [bus 0d-ff] end is updated to 0d
+[    5.425998] pci 0002:0e:00.0: [177d:a0f9] type 00 class 0x088000
+[    5.430718] pci 0002:0e:00.0: BAR 2: [mem 0x84d200000000-0x84d201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.440367] pci 0002:0e:00.0: BAR 4: [mem 0x1fb100000-0x1fb17ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.449495] pci 0002:0e:00.0: VF BAR 2: [mem 0x84d202000000-0x84d203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.459460] pci_bus 0002:0e: busn_res: [bus 0e-ff] end is updated to 0e
+[    5.464787] pci 0002:0f:00.0: [177d:a0f9] type 00 class 0x088000
+[    5.469502] pci 0002:0f:00.0: BAR 2: [mem 0x84e200000000-0x84e201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.479152] pci 0002:0f:00.0: BAR 4: [mem 0x1fb180000-0x1fb1fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.488279] pci 0002:0f:00.0: VF BAR 2: [mem 0x84e202000000-0x84e203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.498249] pci_bus 0002:0f: busn_res: [bus 0f-ff] end is updated to 0f
+[    5.503576] pci 0002:10:00.0: [177d:a0f9] type 00 class 0x088000
+[    5.508292] pci 0002:10:00.0: BAR 2: [mem 0x84f200000000-0x84f201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.517941] pci 0002:10:00.0: BAR 4: [mem 0x1fb200000-0x1fb27ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.527070] pci 0002:10:00.0: VF BAR 2: [mem 0x84f202000000-0x84f203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.537033] pci_bus 0002:10: busn_res: [bus 10-ff] end is updated to 10
+[    5.542362] pci 0002:11:00.0: [177d:a0f0] type 00 class 0x088000
+[    5.547076] pci 0002:11:00.0: BAR 2: [mem 0x850200000000-0x850201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.556725] pci 0002:11:00.0: BAR 4: [mem 0x1fb280000-0x1fb2fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.565855] pci 0002:11:00.0: VF BAR 2: [mem 0x850202000000-0x850203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.575816] pci_bus 0002:11: busn_res: [bus 11-ff] end is updated to 11
+[    5.581148] pci 0002:12:00.0: [177d:a0f0] type 00 class 0x088000
+[    5.585869] pci 0002:12:00.0: BAR 2: [mem 0x851200000000-0x851201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.595518] pci 0002:12:00.0: BAR 4: [mem 0x1fb300000-0x1fb37ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.604646] pci 0002:12:00.0: VF BAR 2: [mem 0x851202000000-0x851203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.614604] pci_bus 0002:12: busn_res: [bus 12-ff] end is updated to 12
+[    5.619929] pci 0002:13:00.0: [177d:a0f0] type 00 class 0x088000
+[    5.624649] pci 0002:13:00.0: BAR 2: [mem 0x852200000000-0x852201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.634299] pci 0002:13:00.0: BAR 4: [mem 0x1fb380000-0x1fb3fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.643426] pci 0002:13:00.0: VF BAR 2: [mem 0x852202000000-0x852203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.653391] pci_bus 0002:13: busn_res: [bus 13-ff] end is updated to 13
+[    5.658716] pci 0002:14:00.0: [177d:a0f0] type 00 class 0x088000
+[    5.663434] pci 0002:14:00.0: BAR 2: [mem 0x853200000000-0x853201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.673085] pci 0002:14:00.0: BAR 4: [mem 0x1fb400000-0x1fb47ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.682214] pci 0002:14:00.0: VF BAR 2: [mem 0x853202000000-0x853203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.692183] pci_bus 0002:14: busn_res: [bus 14-ff] end is updated to 14
+[    5.697507] pci 0002:15:00.0: [177d:a0f0] type 00 class 0x088000
+[    5.702227] pci 0002:15:00.0: BAR 2: [mem 0x854200000000-0x854201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.711876] pci 0002:15:00.0: BAR 4: [mem 0x1fb480000-0x1fb4fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.721004] pci 0002:15:00.0: VF BAR 2: [mem 0x854202000000-0x854203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.730976] pci_bus 0002:15: busn_res: [bus 15-ff] end is updated to 15
+[    5.736302] pci 0002:16:00.0: [177d:a0f0] type 00 class 0x088000
+[    5.741021] pci 0002:16:00.0: BAR 2: [mem 0x855200000000-0x855201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.750670] pci 0002:16:00.0: BAR 4: [mem 0x1fb500000-0x1fb57ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.759798] pci 0002:16:00.0: VF BAR 2: [mem 0x855202000000-0x855203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.769774] pci_bus 0002:16: busn_res: [bus 16-ff] end is updated to 16
+[    5.775101] pci 0002:17:00.0: [177d:a0f0] type 00 class 0x088000
+[    5.779821] pci 0002:17:00.0: BAR 2: [mem 0x856200000000-0x856201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.789470] pci 0002:17:00.0: BAR 4: [mem 0x1fb580000-0x1fb5fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.798599] pci 0002:17:00.0: VF BAR 2: [mem 0x856202000000-0x856203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.808564] pci_bus 0002:17: busn_res: [bus 17-ff] end is updated to 17
+[    5.813893] pci 0002:18:00.0: [177d:a0f0] type 00 class 0x088000
+[    5.818607] pci 0002:18:00.0: BAR 2: [mem 0x857200000000-0x857201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.828256] pci 0002:18:00.0: BAR 4: [mem 0x1fb600000-0x1fb67ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.837384] pci 0002:18:00.0: VF BAR 2: [mem 0x857202000000-0x857203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.847343] pci_bus 0002:18: busn_res: [bus 18-ff] end is updated to 18
+[    5.852669] pci 0002:19:00.0: [177d:a0f0] type 00 class 0x088000
+[    5.857387] pci 0002:19:00.0: BAR 2: [mem 0x858200000000-0x858201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.867037] pci 0002:19:00.0: BAR 4: [mem 0x1fb680000-0x1fb6fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.876164] pci 0002:19:00.0: VF BAR 2: [mem 0x858202000000-0x858203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.886124] pci_bus 0002:19: busn_res: [bus 19-ff] end is updated to 19
+[    5.891450] pci 0002:1a:00.0: [177d:a0fb] type 00 class 0x088000
+[    5.896169] pci 0002:1a:00.0: BAR 2: [mem 0x859200000000-0x859201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.905819] pci 0002:1a:00.0: BAR 4: [mem 0x1fb700000-0x1fb77ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.914947] pci 0002:1a:00.0: VF BAR 2: [mem 0x859202000000-0x859203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.924916] pci_bus 0002:1a: busn_res: [bus 1a-ff] end is updated to 1a
+[    5.930239] pci 0002:1b:00.0: [177d:a0fb] type 00 class 0x088000
+[    5.934958] pci 0002:1b:00.0: BAR 2: [mem 0x85a200000000-0x85a201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.944608] pci 0002:1b:00.0: BAR 4: [mem 0x1fb780000-0x1fb7fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.953736] pci 0002:1b:00.0: VF BAR 2: [mem 0x85a202000000-0x85a203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    5.963705] pci_bus 0002:1b: busn_res: [bus 1b-ff] end is updated to 1b
+[    5.969029] pci 0002:1c:00.0: [177d:a0fb] type 00 class 0x088000
+[    5.973750] pci 0002:1c:00.0: BAR 2: [mem 0x85b200000000-0x85b201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.983399] pci 0002:1c:00.0: BAR 4: [mem 0x1fb800000-0x1fb87ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    5.992527] pci 0002:1c:00.0: VF BAR 2: [mem 0x85b202000000-0x85b203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    6.002498] pci_bus 0002:1c: busn_res: [bus 1c-ff] end is updated to 1c
+[    6.007824] pci 0002:1d:00.0: [177d:a0f0] type 00 class 0x088000
+[    6.012544] pci 0002:1d:00.0: BAR 2: [mem 0x85c200000000-0x85c201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    6.022192] pci 0002:1d:00.0: BAR 4: [mem 0x1fb880000-0x1fb97ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    6.031320] pci 0002:1d:00.0: VF BAR 2: [mem 0x85c202000000-0x85c203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    6.041230] pci 0002:1d:00.0: VF BAR 4: [mem 0x1fb980000-0x1fb9bffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    6.050642] pci 0002:1d:00.0: VF(n) BAR2 space: [mem 0x85c202000000-0x85c211ffffff 64bit] (contains BAR2 for 8 VFs)
+[    6.059771] pci 0002:1d:00.0: VF(n) BAR4 space: [mem 0x1fb980000-0x1fbb7ffff 64bit] (contains BAR4 for 8 VFs)
+[    6.068420] pci_bus 0002:1d: busn_res: [bus 1d-ff] end is updated to 1d
+[    6.073747] pci 0002:1e:00.0: [177d:a0f9] type 00 class 0x088000
+[    6.078466] pci 0002:1e:00.0: BAR 2: [mem 0x85d200000000-0x85d201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    6.088117] pci 0002:1e:00.0: BAR 4: [mem 0x1fbb80000-0x1fbc7ffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    6.097247] pci 0002:1e:00.0: VF BAR 2: [mem 0x85d202000000-0x85d203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    6.107159] pci 0002:1e:00.0: VF BAR 4: [mem 0x1fbc80000-0x1fbcbffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    6.116567] pci 0002:1e:00.0: VF(n) BAR2 space: [mem 0x85d202000000-0x85d209ffffff 64bit] (contains BAR2 for 4 VFs)
+[    6.125693] pci 0002:1e:00.0: VF(n) BAR4 space: [mem 0x1fbc80000-0x1fbd7ffff 64bit] (contains BAR4 for 4 VFs)
+[    6.134348] pci_bus 0002:1e: busn_res: [bus 1e-ff] end is updated to 1e
+[    6.139673] pci 0002:1f:00.0: [177d:a0fb] type 00 class 0x088000
+[    6.144392] pci 0002:1f:00.0: BAR 2: [mem 0x85e200000000-0x85e201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    6.154041] pci 0002:1f:00.0: BAR 4: [mem 0x1fbd80000-0x1fbdfffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    6.163169] pci 0002:1f:00.0: VF BAR 2: [mem 0x85e202000000-0x85e203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    6.173136] pci_bus 0002:1f: busn_res: [bus 1f-ff] end is updated to 1f
+[    6.178468] pci 0002:20:00.0: [177d:a0f2] type 00 class 0x108000
+[    6.183189] pci 0002:20:00.0: BAR 2: [mem 0x85f200000000-0x85f201ffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    6.192838] pci 0002:20:00.0: BAR 4: [mem 0x1fbe00000-0x1fc5fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    6.201966] pci 0002:20:00.0: VF BAR 2: [mem 0x85f202000000-0x85f203ffffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    6.211876] pci 0002:20:00.0: VF BAR 4: [mem 0x1fc600000-0x1fc63ffff 64bit] (from Enhanced Allocation, properties 0x4)
+[    6.221289] pci 0002:20:00.0: VF(n) BAR2 space: [mem 0x85f202000000-0x85f281ffffff 64bit] (contains BAR2 for 64 VFs)
+[    6.230504] pci 0002:20:00.0: VF(n) BAR4 space: [mem 0x1fc600000-0x1fd5fffff 64bit] (contains BAR4 for 64 VFs)
+[    6.239284] pci_bus 0002:20: busn_res: [bus 20-ff] end is updated to 20
+[    6.244601] pci 0002:00:00.0: PCI bridge to [bus 01]
+[    6.248259] pci 0002:00:01.0: PCI bridge to [bus 02]
+[    6.251916] pci 0002:00:02.0: PCI bridge to [bus 03]
+[    6.255572] pci 0002:00:03.0: PCI bridge to [bus 04]
+[    6.259227] pci 0002:00:04.0: PCI bridge to [bus 05]
+[    6.262883] pci 0002:00:05.0: PCI bridge to [bus 06]
+[    6.266539] pci 0002:00:06.0: PCI bridge to [bus 07]
+[    6.270197] pci 0002:00:07.0: PCI bridge to [bus 08]
+[    6.273855] pci 0002:00:08.0: PCI bridge to [bus 09]
+[    6.277511] pci 0002:00:09.0: PCI bridge to [bus 0a]
+[    6.281167] pci 0002:00:0a.0: PCI bridge to [bus 0b]
+[    6.284823] pci 0002:00:0b.0: PCI bridge to [bus 0c]
+[    6.288480] pci 0002:00:0c.0: PCI bridge to [bus 0d]
+[    6.292136] pci 0002:00:0d.0: PCI bridge to [bus 0e]
+[    6.295793] pci 0002:00:0e.0: PCI bridge to [bus 0f]
+[    6.299450] pci 0002:00:0f.0: PCI bridge to [bus 10]
+[    6.303105] pci 0002:00:10.0: PCI bridge to [bus 11]
+[    6.306762] pci 0002:00:11.0: PCI bridge to [bus 12]
+[    6.310418] pci 0002:00:12.0: PCI bridge to [bus 13]
+[    6.314075] pci 0002:00:13.0: PCI bridge to [bus 14]
+[    6.317732] pci 0002:00:14.0: PCI bridge to [bus 15]
+[    6.321390] pci 0002:00:15.0: PCI bridge to [bus 16]
+[    6.325049] pci 0002:00:16.0: PCI bridge to [bus 17]
+[    6.328706] pci 0002:00:17.0: PCI bridge to [bus 18]
+[    6.332364] pci 0002:00:18.0: PCI bridge to [bus 19]
+[    6.336021] pci 0002:00:19.0: PCI bridge to [bus 1a]
+[    6.339677] pci 0002:00:1a.0: PCI bridge to [bus 1b]
+[    6.343335] pci 0002:00:1b.0: PCI bridge to [bus 1c]
+[    6.346990] pci 0002:00:1c.0: PCI bridge to [bus 1d]
+[    6.350648] pci 0002:00:1d.0: PCI bridge to [bus 1e]
+[    6.354305] pci 0002:00:1e.0: PCI bridge to [bus 1f]
+[    6.357962] pci 0002:00:1f.0: PCI bridge to [bus 20]
+[    6.361861] pci-host-generic 878030000000.pci: host bridge /soc@0/pci@878030000000 ranges:
+[    6.368827] pci-host-generic 878030000000.pci:       IO 0x886000000000..0x8860000fffff -> 0x0000000000
+[    6.376831] pci-host-generic 878030000000.pci:      MEM 0x882001000000..0x882fffffffff -> 0x0001000000
+[    6.384835] pci-host-generic 878030000000.pci:      MEM 0x884000000000..0x884fffffffff -> 0x1000000000
+[    6.392839] pci-host-generic 878030000000.pci:      MEM 0x8e0e00000000..0x8e0e000fffff -> 0x8e0e00000000
+[    6.401074] pci-host-generic 878030000000.pci: Memory resource size exceeds max for 32 bits
+[    6.408140] pci-host-generic 878030000000.pci: ECAM at [mem 0x878030000000-0x87803fffffff] for [bus 00-ff]
+[    6.416505] pci-host-generic 878030000000.pci: PCI host bridge to bus 0003:00
+[    6.422331] pci_bus 0003:00: root bus resource [bus 00-ff]
+[    6.426508] pci_bus 0003:00: root bus resource [io  0x0000-0xfffff]
+[    6.431468] pci_bus 0003:00: root bus resource [mem 0x882001000000-0x882fffffffff] (bus address [0x01000000-0xfffffffff])
+[    6.441116] pci_bus 0003:00: root bus resource [mem 0x884000000000-0x884fffffffff pref] (bus address [0x1000000000-0x1fffffffff])
+[    6.451458] pci_bus 0003:00: root bus resource [mem 0x8e0e00000000-0x8e0e000fffff]
+[    6.457726] pci 0003:00:00.0: [177d:a02d] type 01 class 0x060400
+[    6.462445] pci 0003:00:00.0: BAR 0: [mem 0x8e0e00000000-0x8e0e000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    6.472785] pci 0003:01:00.0: [12d8:b304] type 01 class 0x060400
+[    6.477606] pci 0003:01:00.0: supports D1 D2
+[    6.480565] pci 0003:01:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    6.485927] pci 0003:01:00.0: 4.000 Gb/s available PCIe bandwidth, limited by 5.0 GT/s PCIe x1 link at 0003:00:00.0 (capable of 8.000 Gb/s with 5.0 GT/s PCIe x2 link)
+[    6.511378] pci 0003:02:01.0: [12d8:b304] type 01 class 0x060400
+[    6.516203] pci 0003:02:01.0: supports D1 D2
+[    6.519163] pci 0003:02:01.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    6.524611] pci 0003:02:02.0: [12d8:b304] type 01 class 0x060400
+[    6.529434] pci 0003:02:02.0: supports D1 D2
+[    6.532395] pci 0003:02:02.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    6.538393] pci 0003:03:00.0: [1137:01ec] type 00 class 0xff0000
+[    6.543107] pci 0003:03:00.0: reg 0x10: [mem 0x882001100000-0x8820011fffff]
+[    6.548767] pci 0003:03:00.0: reg 0x14: [mem 0x882001210000-0x88200121ffff]
+[    6.554426] pci 0003:03:00.0: reg 0x18: [mem 0x882001200000-0x88200120ffff]
+[    6.560115] pci 0003:03:00.0: enabling Extended Tags
+[    6.563860] pci 0003:03:00.0: PME# supported from D0 D3hot
+[    6.568090] pci 0003:03:00.0: 2.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x1 link at 0003:02:01.0 (capable of 8.000 Gb/s with 2.5 GT/s PCIe x4 link)
+[    6.591290] pci_bus 0003:03: busn_res: [bus 03-ff] end is updated to 03
+[    6.596688] pci 0003:04:00.0: [8086:157b] type 00 class 0x020000
+[    6.601403] pci 0003:04:00.0: reg 0x10: [mem 0x882001000000-0x88200101ffff]
+[    6.607071] pci 0003:04:00.0: reg 0x18: [io  0x0000-0x001f]
+[    6.611341] pci 0003:04:00.0: reg 0x1c: [mem 0x882001020000-0x882001023fff]
+[    6.617141] pci 0003:04:00.0: PME# supported from D0 D3hot D3cold
+[    6.631288] pci_bus 0003:04: busn_res: [bus 04-ff] end is updated to 04
+[    6.636593] pci_bus 0003:02: busn_res: [bus 02-ff] end is updated to 04
+[    6.641901] pci_bus 0003:01: busn_res: [bus 01-ff] end is updated to 04
+[    6.647211] pci 0003:00:00.0: BAR 14: assigned [mem 0x882001000000-0x8820012fffff]
+[    6.653473] pci 0003:00:00.0: BAR 13: assigned [io  0x1000-0x1fff]
+[    6.658344] pci 0003:01:00.0: BAR 14: assigned [mem 0x882001000000-0x8820012fffff]
+[    6.664606] pci 0003:01:00.0: BAR 13: assigned [io  0x1000-0x1fff]
+[    6.669477] pci 0003:02:01.0: BAR 14: assigned [mem 0x882001000000-0x8820011fffff]
+[    6.675738] pci 0003:02:02.0: BAR 14: assigned [mem 0x882001200000-0x8820012fffff]
+[    6.681998] pci 0003:02:02.0: BAR 13: assigned [io  0x1000-0x1fff]
+[    6.686870] pci 0003:03:00.0: BAR 0: assigned [mem 0x882001000000-0x8820010fffff]
+[    6.693046] pci 0003:03:00.0: BAR 1: assigned [mem 0x882001100000-0x88200110ffff]
+[    6.699223] pci 0003:03:00.0: BAR 2: assigned [mem 0x882001110000-0x88200111ffff]
+[    6.705399] pci 0003:02:01.0: PCI bridge to [bus 03]
+[    6.709055] pci 0003:02:01.0:   bridge window [mem 0x882001000000-0x8820011fffff]
+[    6.715229] pci 0003:04:00.0: BAR 0: assigned [mem 0x882001200000-0x88200121ffff]
+[    6.721407] pci 0003:04:00.0: BAR 3: assigned [mem 0x882001220000-0x882001223fff]
+[    6.727582] pci 0003:04:00.0: BAR 2: assigned [io  0x1000-0x101f]
+[    6.732369] pci 0003:02:02.0: PCI bridge to [bus 04]
+[    6.736026] pci 0003:02:02.0:   bridge window [io  0x1000-0x1fff]
+[    6.740811] pci 0003:02:02.0:   bridge window [mem 0x882001200000-0x8820012fffff]
+[    6.746988] pci 0003:01:00.0: PCI bridge to [bus 02-04]
+[    6.750904] pci 0003:01:00.0:   bridge window [io  0x1000-0x1fff]
+[    6.755688] pci 0003:01:00.0:   bridge window [mem 0x882001000000-0x8820012fffff]
+[    6.761863] pci 0003:00:00.0: PCI bridge to [bus 01-04]
+[    6.765779] pci 0003:00:00.0:   bridge window [io  0x1000-0x1fff]
+[    6.770563] pci 0003:00:00.0:   bridge window [mem 0x882001000000-0x8820012fffff]
+[    6.776786] pci-host-generic 878040000000.pci: host bridge /soc@0/pci@878040000000 ranges:
+[    6.783753] pci-host-generic 878040000000.pci:       IO 0x88e000000000..0x88e0000fffff -> 0x0000000000
+[    6.791757] pci-host-generic 878040000000.pci:      MEM 0x88a001000000..0x88afffffffff -> 0x0001000000
+[    6.799763] pci-host-generic 878040000000.pci:      MEM 0x88c000000000..0x88cfffffffff -> 0x1000000000
+[    6.807764] pci-host-generic 878040000000.pci:      MEM 0x8e1e00000000..0x8e1e000fffff -> 0x8e1e00000000
+[    6.815995] pci-host-generic 878040000000.pci: Memory resource size exceeds max for 32 bits
+[    6.823059] pci-host-generic 878040000000.pci: ECAM at [mem 0x878040000000-0x87804fffffff] for [bus 00-ff]
+[    6.831423] pci-host-generic 878040000000.pci: PCI host bridge to bus 0004:00
+[    6.837250] pci_bus 0004:00: root bus resource [bus 00-ff]
+[    6.841428] pci_bus 0004:00: root bus resource [io  0x100000-0x1fffff] (bus address [0x0000-0xfffff])
+[    6.849340] pci_bus 0004:00: root bus resource [mem 0x88a001000000-0x88afffffffff] (bus address [0x01000000-0xfffffffff])
+[    6.858988] pci_bus 0004:00: root bus resource [mem 0x88c000000000-0x88cfffffffff pref] (bus address [0x1000000000-0x1fffffffff])
+[    6.869331] pci_bus 0004:00: root bus resource [mem 0x8e1e00000000-0x8e1e000fffff]
+[    6.875599] pci 0004:00:00.0: [177d:a02d] type 01 class 0x060400
+[    6.880302] pci 0004:00:00.0: reg 0x38: [mem 0x88a0fffff800-0x88a0ffffffff pref]
+[    6.886404] pci 0004:00:00.0: BAR 0: [mem 0x8e1e00000000-0x8e1e000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    6.896697] pci_bus 0004:01: busn_res: [bus 01-ff] end is updated to 10
+[    6.902006] pci 0004:00:00.0: BAR 14: assigned [mem 0x88a001000000-0x88a008ffffff]
+[    6.908267] pci 0004:00:00.0: BAR 15: assigned [mem 0x88c000000000-0x88c007ffffff 64bit pref]
+[    6.915484] pci 0004:00:00.0: BAR 13: assigned [io  0x100000-0x100fff]
+[    6.920703] pci 0004:00:00.0: BAR 6: assigned [mem 0x88a009000000-0x88a0090007ff pref]
+[    6.927312] pci 0004:00:00.0: PCI bridge to [bus 01-10]
+[    6.931228] pci 0004:00:00.0:   bridge window [io  0x100000-0x100fff]
+[    6.936359] pci 0004:00:00.0:   bridge window [mem 0x88a001000000-0x88a008ffffff]
+[    6.942533] pci 0004:00:00.0:   bridge window [mem 0x88c000000000-0x88c007ffffff 64bit pref]
+[    6.949687] pci-host-generic 878050000000.pci: host bridge /soc@0/pci@878050000000 ranges:
+[    6.956653] pci-host-generic 878050000000.pci:       IO 0x896000000000..0x8960000fffff -> 0x0000000000
+[    6.964661] pci-host-generic 878050000000.pci:      MEM 0x892001000000..0x892fffffffff -> 0x0001000000
+[    6.972665] pci-host-generic 878050000000.pci:      MEM 0x894000000000..0x894fffffffff -> 0x1000000000
+[    6.980667] pci-host-generic 878050000000.pci:      MEM 0x8e2e00000000..0x8e2e000fffff -> 0x8e2e00000000
+[    6.988897] pci-host-generic 878050000000.pci: Memory resource size exceeds max for 32 bits
+[    6.995962] pci-host-generic 878050000000.pci: ECAM at [mem 0x878050000000-0x87805fffffff] for [bus 00-ff]
+[    7.004327] pci-host-generic 878050000000.pci: PCI host bridge to bus 0005:00
+[    7.010153] pci_bus 0005:00: root bus resource [bus 00-ff]
+[    7.014329] pci_bus 0005:00: root bus resource [io  0x200000-0x2fffff] (bus address [0x0000-0xfffff])
+[    7.022240] pci_bus 0005:00: root bus resource [mem 0x892001000000-0x892fffffffff] (bus address [0x01000000-0xfffffffff])
+[    7.031890] pci_bus 0005:00: root bus resource [mem 0x894000000000-0x894fffffffff pref] (bus address [0x1000000000-0x1fffffffff])
+[    7.042232] pci_bus 0005:00: root bus resource [mem 0x8e2e00000000-0x8e2e000fffff]
+[    7.048500] pci 0005:00:00.0: [177d:a02d] type 01 class 0x060400
+[    7.053203] pci 0005:00:00.0: reg 0x38: [mem 0x8920fffff800-0x8920ffffffff pref]
+[    7.059307] pci 0005:00:00.0: BAR 0: [mem 0x8e2e00000000-0x8e2e000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    7.069600] pci_bus 0005:01: busn_res: [bus 01-ff] end is updated to 06
+[    7.074909] pci 0005:00:00.0: BAR 14: assigned [mem 0x892001000000-0x892008ffffff]
+[    7.081171] pci 0005:00:00.0: BAR 15: assigned [mem 0x894000000000-0x894007ffffff 64bit pref]
+[    7.088387] pci 0005:00:00.0: BAR 13: assigned [io  0x200000-0x200fff]
+[    7.093605] pci 0005:00:00.0: BAR 6: assigned [mem 0x892009000000-0x8920090007ff pref]
+[    7.100214] pci 0005:00:00.0: PCI bridge to [bus 01-06]
+[    7.104129] pci 0005:00:00.0:   bridge window [io  0x200000-0x200fff]
+[    7.109262] pci 0005:00:00.0:   bridge window [mem 0x892001000000-0x892008ffffff]
+[    7.115436] pci 0005:00:00.0:   bridge window [mem 0x894000000000-0x894007ffffff 64bit pref]
+[    7.122593] pci-host-generic 878060000000.pci: host bridge /soc@0/pci@878060000000 ranges:
+[    7.129558] pci-host-generic 878060000000.pci:       IO 0x89e000000000..0x89e0000fffff -> 0x0000000000
+[    7.137562] pci-host-generic 878060000000.pci:      MEM 0x89a001000000..0x89afffffffff -> 0x0001000000
+[    7.145565] pci-host-generic 878060000000.pci:      MEM 0x89c000000000..0x89cfffffffff -> 0x1000000000
+[    7.153565] pci-host-generic 878060000000.pci:      MEM 0x8e3e00000000..0x8e3e000fffff -> 0x8e3e00000000
+[    7.161794] pci-host-generic 878060000000.pci: Memory resource size exceeds max for 32 bits
+[    7.168860] pci-host-generic 878060000000.pci: ECAM at [mem 0x878060000000-0x87806fffffff] for [bus 00-ff]
+[    7.177224] pci-host-generic 878060000000.pci: PCI host bridge to bus 0006:00
+[    7.183050] pci_bus 0006:00: root bus resource [bus 00-ff]
+[    7.187227] pci_bus 0006:00: root bus resource [io  0x300000-0x3fffff] (bus address [0x0000-0xfffff])
+[    7.195138] pci_bus 0006:00: root bus resource [mem 0x89a001000000-0x89afffffffff] (bus address [0x01000000-0xfffffffff])
+[    7.204787] pci_bus 0006:00: root bus resource [mem 0x89c000000000-0x89cfffffffff pref] (bus address [0x1000000000-0x1fffffffff])
+[    7.215130] pci_bus 0006:00: root bus resource [mem 0x8e3e00000000-0x8e3e000fffff]
+[    7.221397] pci 0006:00:00.0: [177d:a02d] type 01 class 0x060400
+[    7.226101] pci 0006:00:00.0: reg 0x38: [mem 0x89a0fffff800-0x89a0ffffffff pref]
+[    7.232203] pci 0006:00:00.0: BAR 0: [mem 0x8e3e00000000-0x8e3e000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    7.242490] pci_bus 0006:01: busn_res: [bus 01-ff] end is updated to 10
+[    7.247799] pci 0006:00:00.0: BAR 14: assigned [mem 0x89a001000000-0x89a008ffffff]
+[    7.254060] pci 0006:00:00.0: BAR 15: assigned [mem 0x89c000000000-0x89c007ffffff 64bit pref]
+[    7.261276] pci 0006:00:00.0: BAR 13: assigned [io  0x300000-0x300fff]
+[    7.266495] pci 0006:00:00.0: BAR 6: assigned [mem 0x89a009000000-0x89a0090007ff pref]
+[    7.273105] pci 0006:00:00.0: PCI bridge to [bus 01-10]
+[    7.277021] pci 0006:00:00.0:   bridge window [io  0x300000-0x300fff]
+[    7.282153] pci 0006:00:00.0:   bridge window [mem 0x89a001000000-0x89a008ffffff]
+[    7.288326] pci 0006:00:00.0:   bridge window [mem 0x89c000000000-0x89c007ffffff 64bit pref]
+[    7.295479] pci-host-generic 878070000000.pci: host bridge /soc@0/pci@878070000000 ranges:
+[    7.302446] pci-host-generic 878070000000.pci:       IO 0x8a6000000000..0x8a60000fffff -> 0x0000000000
+[    7.310452] pci-host-generic 878070000000.pci:      MEM 0x8a2001000000..0x8a2fffffffff -> 0x0001000000
+[    7.318455] pci-host-generic 878070000000.pci:      MEM 0x8a4000000000..0x8a4fffffffff -> 0x1000000000
+[    7.326455] pci-host-generic 878070000000.pci:      MEM 0x8e4e00000000..0x8e4e000fffff -> 0x8e4e00000000
+[    7.334681] pci-host-generic 878070000000.pci: Memory resource size exceeds max for 32 bits
+[    7.341747] pci-host-generic 878070000000.pci: ECAM at [mem 0x878070000000-0x87807fffffff] for [bus 00-ff]
+[    7.350112] pci-host-generic 878070000000.pci: PCI host bridge to bus 0007:00
+[    7.355939] pci_bus 0007:00: root bus resource [bus 00-ff]
+[    7.360116] pci_bus 0007:00: root bus resource [io  0x400000-0x4fffff] (bus address [0x0000-0xfffff])
+[    7.368026] pci_bus 0007:00: root bus resource [mem 0x8a2001000000-0x8a2fffffffff] (bus address [0x01000000-0xfffffffff])
+[    7.377676] pci_bus 0007:00: root bus resource [mem 0x8a4000000000-0x8a4fffffffff pref] (bus address [0x1000000000-0x1fffffffff])
+[    7.388019] pci_bus 0007:00: root bus resource [mem 0x8e4e00000000-0x8e4e000fffff]
+[    7.394286] pci 0007:00:00.0: [177d:a02d] type 01 class 0x060400
+[    7.398990] pci 0007:00:00.0: reg 0x38: [mem 0x8a20fffff800-0x8a20ffffffff pref]
+[    7.405091] pci 0007:00:00.0: BAR 0: [mem 0x8e4e00000000-0x8e4e000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    7.415380] pci_bus 0007:01: busn_res: [bus 01-ff] end is updated to 10
+[    7.420689] pci 0007:00:00.0: BAR 14: assigned [mem 0x8a2001000000-0x8a2008ffffff]
+[    7.426950] pci 0007:00:00.0: BAR 15: assigned [mem 0x8a4000000000-0x8a4007ffffff 64bit pref]
+[    7.434166] pci 0007:00:00.0: BAR 13: assigned [io  0x400000-0x400fff]
+[    7.439384] pci 0007:00:00.0: BAR 6: assigned [mem 0x8a2009000000-0x8a20090007ff pref]
+[    7.445992] pci 0007:00:00.0: PCI bridge to [bus 01-10]
+[    7.449909] pci 0007:00:00.0:   bridge window [io  0x400000-0x400fff]
+[    7.455040] pci 0007:00:00.0:   bridge window [mem 0x8a2001000000-0x8a2008ffffff]
+[    7.461215] pci 0007:00:00.0:   bridge window [mem 0x8a4000000000-0x8a4007ffffff 64bit pref]
+[    7.468368] pci-host-generic 878080000000.pci: host bridge /soc@0/pci@878080000000 ranges:
+[    7.475333] pci-host-generic 878080000000.pci:       IO 0x8ae000000000..0x8ae0000fffff -> 0x0000000000
+[    7.483339] pci-host-generic 878080000000.pci:      MEM 0x8aa001000000..0x8aafffffffff -> 0x0001000000
+[    7.491342] pci-host-generic 878080000000.pci:      MEM 0x8ac000000000..0x8acfffffffff -> 0x1000000000
+[    7.499343] pci-host-generic 878080000000.pci:      MEM 0x8e5e00000000..0x8e5e000fffff -> 0x8e5e00000000
+[    7.507570] pci-host-generic 878080000000.pci: Memory resource size exceeds max for 32 bits
+[    7.514634] pci-host-generic 878080000000.pci: ECAM at [mem 0x878080000000-0x87808fffffff] for [bus 00-ff]
+[    7.522998] pci-host-generic 878080000000.pci: PCI host bridge to bus 0008:00
+[    7.528825] pci_bus 0008:00: root bus resource [bus 00-ff]
+[    7.533001] pci_bus 0008:00: root bus resource [io  0x500000-0x5fffff] (bus address [0x0000-0xfffff])
+[    7.540913] pci_bus 0008:00: root bus resource [mem 0x8aa001000000-0x8aafffffffff] (bus address [0x01000000-0xfffffffff])
+[    7.550561] pci_bus 0008:00: root bus resource [mem 0x8ac000000000-0x8acfffffffff pref] (bus address [0x1000000000-0x1fffffffff])
+[    7.560904] pci_bus 0008:00: root bus resource [mem 0x8e5e00000000-0x8e5e000fffff]
+[    7.567170] pci 0008:00:00.0: [177d:a02d] type 01 class 0x060400
+[    7.571874] pci 0008:00:00.0: reg 0x38: [mem 0x8aa0fffff800-0x8aa0ffffffff pref]
+[    7.577973] pci 0008:00:00.0: BAR 0: [mem 0x8e5e00000000-0x8e5e000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    7.588249] pci 0008:01:00.0: [11ab:981c] type 00 class 0x020000
+[    7.592964] pci 0008:01:00.0: reg 0x10: [mem 0x8aa001400000-0x8aa0014fffff 64bit]
+[    7.599145] pci 0008:01:00.0: reg 0x18: [mem 0x8aa001000000-0x8aa0013fffff 64bit]
+[    7.605406] pci 0008:01:00.0: supports D1
+[    7.608105] pci 0008:01:00.0: PME# supported from D0 D1 D3hot D3cold
+[    7.613191] pci 0008:01:00.0: 4.000 Gb/s available PCIe bandwidth, limited by 5.0 GT/s PCIe x1 link at 0008:00:00.0 (capable of 7.876 Gb/s with 8.0 GT/s PCIe x1 link)
+[    7.626810] pci_bus 0008:01: busn_res: [bus 01-ff] end is updated to 06
+[    7.632118] pci 0008:00:00.0: BAR 14: assigned [mem 0x8aa001000000-0x8aa008ffffff]
+[    7.638380] pci 0008:00:00.0: BAR 15: assigned [mem 0x8ac000000000-0x8ac007ffffff 64bit pref]
+[    7.645597] pci 0008:00:00.0: BAR 13: assigned [io  0x500000-0x500fff]
+[    7.650815] pci 0008:00:00.0: BAR 6: assigned [mem 0x8aa009000000-0x8aa0090007ff pref]
+[    7.657424] pci 0008:01:00.0: BAR 2: assigned [mem 0x8aa001000000-0x8aa0013fffff 64bit]
+[    7.664123] pci 0008:01:00.0: BAR 0: assigned [mem 0x8aa001400000-0x8aa0014fffff 64bit]
+[    7.670825] pci 0008:00:00.0: PCI bridge to [bus 01-06]
+[    7.674741] pci 0008:00:00.0:   bridge window [io  0x500000-0x500fff]
+[    7.679873] pci 0008:00:00.0:   bridge window [mem 0x8aa001000000-0x8aa008ffffff]
+[    7.686046] pci 0008:00:00.0:   bridge window [mem 0x8ac000000000-0x8ac007ffffff 64bit pref]
+[    7.693210] pci-host-generic 878010000000.pci: host bridge /soc@0/pci@878010000000 ranges:
+[    7.700175] pci-host-generic 878010000000.pci:      MEM 0x868000000000..0x869fffffffff -> 0x868000000000
+[    7.708354] pci-host-generic 878010000000.pci:      MEM 0x87e0fe9c0000..0x87e0fe9cffff -> 0x87e0fe9c0000
+[    7.716532] pci-host-generic 878010000000.pci:      MEM 0x8e0000000000..0x8e003fffffff -> 0x8e0000000000
+[    7.724709] pci-host-generic 878010000000.pci:      MEM 0x8e1000000000..0x8e103fffffff -> 0x8e1000000000
+[    7.732886] pci-host-generic 878010000000.pci:      MEM 0x8e2000000000..0x8e203fffffff -> 0x8e2000000000
+[    7.741064] pci-host-generic 878010000000.pci:      MEM 0x8e3000000000..0x8e303fffffff -> 0x8e3000000000
+[    7.749242] pci-host-generic 878010000000.pci:      MEM 0x8e4000000000..0x8e403fffffff -> 0x8e4000000000
+[    7.757419] pci-host-generic 878010000000.pci:      MEM 0x8e5000000000..0x8e503fffffff -> 0x8e5000000000
+[    7.765597] pci-host-generic 878010000000.pci:      MEM 0x8e0f00000000..0x8e0f000fffff -> 0x8e0f00000000
+[    7.773774] pci-host-generic 878010000000.pci:      MEM 0x8e1f00000000..0x8e1f000fffff -> 0x8e1f00000000
+[    7.781952] pci-host-generic 878010000000.pci:      MEM 0x8e2f00000000..0x8e2f000fffff -> 0x8e2f00000000
+[    7.790130] pci-host-generic 878010000000.pci:      MEM 0x8e3f00000000..0x8e3f000fffff -> 0x8e3f00000000
+[    7.798309] pci-host-generic 878010000000.pci:      MEM 0x8e4f00000000..0x8e4f000fffff -> 0x8e4f00000000
+[    7.806484] pci-host-generic 878010000000.pci:      MEM 0x8e5f00000000..0x8e5f000fffff -> 0x8e5f00000000
+[    7.814834] pci-host-generic 878010000000.pci: Memory resource size exceeds max for 32 bits
+[    7.821899] pci-host-generic 878010000000.pci: ECAM at [mem 0x878010000000-0x87801fffffff] for [bus 00-ff]
+[    7.830264] pci-host-generic 878010000000.pci: PCI host bridge to bus 0001:00
+[    7.836091] pci_bus 0001:00: root bus resource [bus 00-ff]
+[    7.840268] pci_bus 0001:00: root bus resource [mem 0x868000000000-0x869fffffffff]
+[    7.846529] pci_bus 0001:00: root bus resource [mem 0x87e0fe9c0000-0x87e0fe9cffff]
+[    7.852789] pci_bus 0001:00: root bus resource [mem 0x8e0000000000-0x8e003fffffff]
+[    7.859051] pci_bus 0001:00: root bus resource [mem 0x8e1000000000-0x8e103fffffff]
+[    7.865311] pci_bus 0001:00: root bus resource [mem 0x8e2000000000-0x8e203fffffff]
+[    7.871571] pci_bus 0001:00: root bus resource [mem 0x8e3000000000-0x8e303fffffff]
+[    7.877832] pci_bus 0001:00: root bus resource [mem 0x8e4000000000-0x8e403fffffff]
+[    7.884092] pci_bus 0001:00: root bus resource [mem 0x8e5000000000-0x8e503fffffff]
+[    7.890354] pci_bus 0001:00: root bus resource [mem 0x8e0f00000000-0x8e0f000fffff]
+[    7.896614] pci_bus 0001:00: root bus resource [mem 0x8e1f00000000-0x8e1f000fffff]
+[    7.902876] pci_bus 0001:00: root bus resource [mem 0x8e2f00000000-0x8e2f000fffff]
+[    7.909135] pci_bus 0001:00: root bus resource [mem 0x8e3f00000000-0x8e3f000fffff]
+[    7.915396] pci_bus 0001:00: root bus resource [mem 0x8e4f00000000-0x8e4f000fffff]
+[    7.921656] pci_bus 0001:00: root bus resource [mem 0x8e5f00000000-0x8e5f000fffff]
+[    7.928147] pci 0001:00:0c.0: [177d:a01b] type 00 class 0x0c0330
+[    7.932863] pci 0001:00:0c.0: BAR 0: [mem 0x868000000000-0x8680001fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    7.942513] pci 0001:00:0c.0: BAR 4: [mem 0x868000200000-0x8680002fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    7.952207] pci 0001:00:0d.0: [177d:a01b] type 00 class 0x0c0330
+[    7.956926] pci 0001:00:0d.0: BAR 0: [mem 0x869000000000-0x8690001fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    7.966575] pci 0001:00:0d.0: BAR 4: [mem 0x869000200000-0x8690002fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    7.976327] pci 0001:00:11.0: [177d:a06c] type 00 class 0x088000
+[    7.981049] pci 0001:00:11.0: BAR 0: [mem 0x8e1000000000-0x8e103fffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    7.990698] pci 0001:00:11.0: BAR 4: [mem 0x8e1f00000000-0x8e1f000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    8.000390] pci 0001:00:12.0: [177d:a06c] type 00 class 0x088000
+[    8.005110] pci 0001:00:12.0: BAR 0: [mem 0x8e2000000000-0x8e203fffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    8.014759] pci 0001:00:12.0: BAR 4: [mem 0x8e2f00000000-0x8e2f000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    8.024454] pci 0001:00:13.0: [177d:a06c] type 00 class 0x088000
+[    8.029173] pci 0001:00:13.0: BAR 0: [mem 0x8e3000000000-0x8e303fffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    8.038823] pci 0001:00:13.0: BAR 4: [mem 0x8e3f00000000-0x8e3f000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    8.048516] pci 0001:00:14.0: [177d:a06c] type 00 class 0x088000
+[    8.053236] pci 0001:00:14.0: BAR 0: [mem 0x8e4000000000-0x8e403fffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    8.062886] pci 0001:00:14.0: BAR 4: [mem 0x8e4f00000000-0x8e4f000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    8.072579] pci 0001:00:15.0: [177d:a06c] type 00 class 0x088000
+[    8.077300] pci 0001:00:15.0: BAR 0: [mem 0x8e5000000000-0x8e503fffffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    8.086949] pci 0001:00:15.0: BAR 4: [mem 0x8e5f00000000-0x8e5f000fffff 64bit] (from Enhanced Allocation, properties 0x0)
+[    8.097834] octeontx2-dpi: Marvell OcteonTX2 DPI-DMA Driver
+[    8.102692] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    8.108427] arm-smmu-v3 830000000000.smmu: ias 52-bit, oas 52-bit (features 0x001cd78d)
+[    8.115588] arm-smmu-v3 830000000000.smmu: allocated 524288 entries for cmdq
+[    8.122245] arm-smmu-v3 830000000000.smmu: allocated 524288 entries for evtq
+[    8.128474] brd: module loaded
+[    8.142343] loop: module loaded
+[    8.144348] megaraid cmm: 2.20.2.7 (Release Date: Sun Jul 16 00:01:03 EST 2006)
+[    8.150368] megaraid: 2.20.5.1 (Release Date: Thu Nov 16 15:32:35 EST 2006)
+[    8.156050] megasas: 07.725.01.00-rc1
+[    8.158435] mpt3sas version 43.100.00.00 loaded
+[    8.162270] cadence-xspi-cn10xx 804000000000.spi: Adding to iommu group 0
+[    8.167823] cadence-xspi-cn10xx 804000000000.spi: XFER register base not found, set it
+[    8.174434] cadence-xspi-cn10xx 804000000000.spi: FW does not support memory lock
+[    8.190659] cadence-xspi-cn10xx 804000000000.spi: PHY configuration
+[    8.195620] cadence-xspi-cn10xx 804000000000.spi:    * xspi_dll_phy_ctrl: 01000707
+[    8.201882] cadence-xspi-cn10xx 804000000000.spi:    * phy_dq_timing: 00000101
+[    8.207796] cadence-xspi-cn10xx 804000000000.spi:    * phy_dqs_timing: 00700404
+[    8.213799] cadence-xspi-cn10xx 804000000000.spi:    * phy_gate_loopback_ctrl: 00200030
+[    8.220495] cadence-xspi-cn10xx 804000000000.spi:    * phy_dll_slave_ctrl: 0000ff01
+[    8.227613] spi-nor spi0.0: mt25qu256a (32768 Kbytes)
+[    8.232245] spi-nor spi0.1: spi-nor-generic (4096 Kbytes)
+[    8.236644] cadence-xspi-cn10xx 804000000000.spi: Successfully registered SPI host
+[    8.242932] cadence-xspi-cn10xx 805000000000.spi: Adding to iommu group 1
+[    8.248476] cadence-xspi-cn10xx 805000000000.spi: XFER register base not found, set it
+[    8.255087] cadence-xspi-cn10xx 805000000000.spi: FW does not support memory lock
+[    8.271307] cadence-xspi-cn10xx 805000000000.spi: PHY configuration
+[    8.276266] cadence-xspi-cn10xx 805000000000.spi:    * xspi_dll_phy_ctrl: 01000707
+[    8.282528] cadence-xspi-cn10xx 805000000000.spi:    * phy_dq_timing: 00000101
+[    8.288442] cadence-xspi-cn10xx 805000000000.spi:    * phy_dqs_timing: 00700404
+[    8.294444] cadence-xspi-cn10xx 805000000000.spi:    * phy_gate_loopback_ctrl: 00200030
+[    8.301140] cadence-xspi-cn10xx 805000000000.spi:    * phy_dll_slave_ctrl: 0000ff01
+[    8.307531] cadence-xspi-cn10xx 805000000000.spi: Successfully registered SPI host
+[    8.314469] mdio_thunder 0000:01:01.3: Adding to iommu group 2
+[    8.319175] mdio_bus 87e005003800: MDIO device at address 4 is missing.
+[    8.324527] mdio_bus 87e005003800: MDIO device at address 5 is missing.
+[    8.329877] mdio_bus 87e005003800: MDIO device at address 6 is missing.
+[    8.335225] mdio_bus 87e005003800: MDIO device at address 7 is missing.
+[    8.340575] mdio_bus 87e005003800: MDIO device at address 8 is missing.
+[    8.345926] mdio_bus 87e005003800: MDIO device at address 9 is missing.
+[    8.351276] mdio_bus 87e005003800: MDIO device at address 10 is missing.
+[    8.356716] mdio_bus 87e005003800: MDIO device at address 11 is missing.
+[    8.362109] mdio_thunder 0000:01:01.3: Added bus at 87e005003800
+[    8.366867] mdio_thunder 0000:01:01.3: Added bus at 87e005003880
+[    8.371565] mdio_thunder 0000:01:01.3: Couldn't translate address for "mdio0_uio"
+[    8.377820] tun: Universal TUN/TAP device driver, 1.6
+[    8.381747] thunder_xcv, ver 1.0
+[    8.383696] thunder_bgx, ver 1.0
+[    8.385636] nicpf, ver 1.0
+[    8.387055] nicvf, ver 1.0
+[    8.388478] octeontx-fpa, ver 1.0
+[    8.390506] octeontx-fpavf, ver 1.0
+[    8.392709] octeontx-rst, ver 1.0
+[    8.394736] octeontx-sso, ver 1.0
+[    8.396774] octeontx-ssow, ver 1.0
+[    8.398889] octeontx-pko, ver 1.0
+[    8.400918] octeontx-lbk, ver 1.0
+[    8.402948] octeontx-tim, ver 1.0
+[    8.404978] octeontx-pki, ver 1.0
+[    8.407004] octeontx-dpi, ver 1.0
+[    8.409035] octeontx-sli, ver 0.1
+[    8.411062] octeontx, ver 1.0, MBOX IF ver 1.1.3
+[    8.414454] e100: Intel(R) PRO/100 Network Driver
+[    8.417850] e100: Copyright(c) 1999-2006 Intel Corporation
+[    8.422060] e1000: Intel(R) PRO/1000 Network Driver
+[    8.425628] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    8.430096] e1000e: Intel(R) PRO/1000 Network Driver
+[    8.433750] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    8.438400] Intel(R) 2.5G Ethernet Linux Driver
+[    8.441621] Copyright(c) 2018 Intel Corporation.
+[    8.444954] Intel(R) Ethernet Switch Host Interface Driver
+[    8.449129] Copyright(c) 2013 - 2019 Intel Corporation.
+[    8.453193] sky2: driver version 1.30
+[    8.455581] octeontx2-bphy-netdev: Marvell OcteonTX2 BPHY Ethernet Driver
+[    8.461109] cnf20k_cpri: cnf20K_cpri_driver
+[    8.464264] PPP generic driver version 2.4.2
+[    8.467263] PPP MPPE Compression module registered
+[    8.470788] VFIO - User Level meta-driver version: 0.3
+[    8.475154] xhci_hcd 0001:00:0c.0: Adding to iommu group 3
+[    8.479429] xhci_hcd 0001:00:0c.0: xHCI Host Controller
+[    8.483351] xhci_hcd 0001:00:0c.0: new USB bus registered, assigned bus number 1
+[    8.489515] xhci_hcd 0001:00:0c.0: hcc params 0x0110ffc5 hci version 0x110 quirks 0x0000000000000010
+[    8.497448] xhci_hcd 0001:00:0c.0: xHCI Host Controller
+[    8.501366] xhci_hcd 0001:00:0c.0: new USB bus registered, assigned bus number 2
+[    8.507454] xhci_hcd 0001:00:0c.0: Host supports USB 3.1 Enhanced SuperSpeed
+[    8.513328] hub 1-0:1.0: USB hub found
+[    8.515780] hub 1-0:1.0: 1 port detected
+[    8.518454] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    8.525319] hub 2-0:1.0: USB hub found
+[    8.527772] hub 2-0:1.0: 1 port detected
+[    8.530473] xhci_hcd 0001:00:0d.0: Adding to iommu group 4
+[    8.534680] xhci_hcd 0001:00:0d.0: xHCI Host Controller
+[    8.538601] xhci_hcd 0001:00:0d.0: new USB bus registered, assigned bus number 3
+[    8.544759] xhci_hcd 0001:00:0d.0: hcc params 0x0110ffc5 hci version 0x110 quirks 0x0000000000000010
+[    8.552681] xhci_hcd 0001:00:0d.0: xHCI Host Controller
+[    8.556598] xhci_hcd 0001:00:0d.0: new USB bus registered, assigned bus number 4
+[    8.562687] xhci_hcd 0001:00:0d.0: Host supports USB 3.1 Enhanced SuperSpeed
+[    8.568533] hub 3-0:1.0: USB hub found
+[    8.570977] hub 3-0:1.0: 1 port detected
+[    8.573650] usb usb4: We don't know the algorithms for LPM for this host, disabling LPM.
+[    8.580515] hub 4-0:1.0: USB hub found
+[    8.582957] hub 4-0:1.0: 1 port detected
+[    8.585690] usbcore: registered new interface driver usb-storage
+[    8.590826] i2c_dev: i2c /dev entries driver
+[    8.594118] i2c-thunderx 0000:01:18.0: Adding to iommu group 5
+[    8.598827] i2c-thunderx 0000:01:18.0: Probed. Set system clock to 100000000
+[    8.604574] i2c-thunderx 0000:01:18.0: SMBUS alert not active on this bus
+[    8.610142] i2c-thunderx 0000:01:18.1: Adding to iommu group 5
+[    8.614829] i2c-thunderx 0000:01:18.1: Probed. Set system clock to 100000000
+[    8.620578] i2c-thunderx 0000:01:18.1: SMBUS alert not active on this bus
+[    8.626151] i2c-thunderx 0000:01:18.3: Adding to iommu group 5
+[    8.630905] at24 3-0050: supply vcc not found, using dummy regulator
+[    8.666510] i2c-thunderx 0000:01:18.3: Probed. Set system clock to 100000000
+[    8.672257] i2c-thunderx 0000:01:18.3: SMBUS alert not active on this bus
+[    8.677900] i2c-thunderx 0000:01:18.4: Adding to iommu group 5
+[    8.682635] at24 4-0050: supply vcc not found, using dummy regulator
+[    8.792594] i2c i2c-4: SCL is stuck low, exit recovery
+[    8.803277] usb 1-1: new high-speed USB device number 2 using xhci_hcd
+[    8.901316] i2c i2c-4: SCL is stuck low, exit recovery
+[    8.961175] hub 1-1:1.0: USB hub found
+[    8.963664] hub 1-1:1.0: 5 ports detected
+[    9.010043] i2c i2c-4: SCL is stuck low, exit recovery
+[    9.083290] usb 2-1: new SuperSpeed USB device number 2 using xhci_hcd
+[    9.113174] hub 2-1:1.0: USB hub found
+[    9.115626] hub 2-1:1.0: 4 ports detected
+[    9.118771] i2c i2c-4: SCL is stuck low, exit recovery
+[    9.227494] i2c i2c-4: SCL is stuck low, exit recovery
+[    9.259271] usb 1-1.5: new high-speed USB device number 3 using xhci_hcd
+[    9.336216] i2c i2c-4: SCL is stuck low, exit recovery
+[    9.443300] usb 2-1.2: new SuperSpeed USB device number 3 using xhci_hcd
+[    9.448713] i2c i2c-4: SCL is stuck low, exit recovery
+[    9.468153] usb-storage 2-1.2:1.0: USB Mass Storage device detected
+[    9.473171] scsi host0: usb-storage 2-1.2:1.0
+[    9.557436] i2c i2c-4: SCL is stuck low, exit recovery
+[    9.666157] i2c i2c-4: SCL is stuck low, exit recovery
+[    9.774878] i2c i2c-4: SCL is stuck low, exit recovery
+[    9.883600] i2c i2c-4: SCL is stuck low, exit recovery
+[    9.992325] i2c i2c-4: SCL is stuck low, exit recovery
+[    9.997763] i2c-thunderx 0000:01:18.4: Probed. Set system clock to 100000000
+[   10.003510] i2c-thunderx 0000:01:18.4: SMBUS alert not active on this bus
+[   10.009064] i2c-thunderx 0000:01:18.5: Adding to iommu group 5
+[   10.013792] at24 5-0050: supply vcc not found, using dummy regulator
+[   10.123740] i2c i2c-5: SCL is stuck low, exit recovery
+[   10.232464] i2c i2c-5: SCL is stuck low, exit recovery
+[   10.341189] i2c i2c-5: SCL is stuck low, exit recovery
+[   10.449910] i2c i2c-5: SCL is stuck low, exit recovery
+[   10.479914] scsi 0:0:0:0: Direct-Access     SanDisk  Ultra USB 3.0    1.00 PQ: 0 ANSI: 6
+[   10.487433] sd 0:0:0:0: [sda] 120127488 512-byte logical blocks: (61.5 GB/57.3 GiB)
+[   10.494252] sd 0:0:0:0: [sda] Write Protect is off
+[   10.497736] sd 0:0:0:0: [sda] Mode Sense: 43 00 00 00
+[   10.501755] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[   10.512353]  sda: sda1
+[   10.513440] sd 0:0:0:0: [sda] Attached SCSI removable disk
+[   10.558634] i2c i2c-5: SCL is stuck low, exit recovery
+[   10.667360] i2c i2c-5: SCL is stuck low, exit recovery
+[   10.777585] i2c i2c-5: SCL is stuck low, exit recovery
+[   10.886309] i2c i2c-5: SCL is stuck low, exit recovery
+[   10.995032] i2c i2c-5: SCL is stuck low, exit recovery
+[   11.103755] i2c i2c-5: SCL is stuck low, exit recovery
+[   11.212477] i2c i2c-5: SCL is stuck low, exit recovery
+[   11.321202] i2c i2c-5: SCL is stuck low, exit recovery
+[   11.326640] i2c-thunderx 0000:01:18.5: Probed. Set system clock to 100000000
+[   11.332388] i2c-thunderx 0000:01:18.5: SMBUS alert not active on this bus
+[   11.337943] i2c-thunderx 0000:01:18.6: Adding to iommu group 5
+[   11.342627] i2c-thunderx 0000:01:18.6: Probed. Set system clock to 100000000
+[   11.348375] i2c-thunderx 0000:01:18.6: SMBUS alert not active on this bus
+[   11.353926] i2c-thunderx 0000:01:18.7: Adding to iommu group 5
+[   11.358595] i2c-thunderx 0000:01:18.7: Probed. Set system clock to 100000000
+[   11.364339] i2c-thunderx 0000:01:18.7: SMBUS alert not active on this bus
+[   11.369989] i2c-thunderx 0000:01:19.0: Adding to iommu group 6
+[   11.374657] i2c-thunderx 0000:01:19.0: Probed. Set system clock to 100000000
+[   11.380400] i2c-thunderx 0000:01:19.0: SMBUS alert not active on this bus
+[   11.385939] i2c-thunderx 0000:01:19.1: Adding to iommu group 6
+[   11.390600] i2c-thunderx 0000:01:19.1: Probed. Set system clock to 100000000
+[   11.396342] i2c-thunderx 0000:01:19.1: SMBUS alert not active on this bus
+[   11.401882] i2c-thunderx 0000:01:19.2: Adding to iommu group 6
+[   11.406543] i2c-thunderx 0000:01:19.2: Probed. Set system clock to 100000000
+[   11.412285] i2c-thunderx 0000:01:19.2: SMBUS alert not active on this bus
+[   11.417822] i2c-thunderx 0000:01:19.3: Adding to iommu group 6
+[   11.422482] i2c-thunderx 0000:01:19.3: Probed. Set system clock to 100000000
+[   11.428224] i2c-thunderx 0000:01:19.3: SMBUS alert not active on this bus
+[   11.434016] gti-wdt 802000040000.watchdog: Watchdog enabled (timeout=15 sec)
+[   11.439881] device-mapper: ioctl: 4.48.0-ioctl (2023-03-01) initialised: dm-devel@redhat.com
+[   11.447254] sdhci: Secure Digital Host Controller Interface driver
+[   11.452132] sdhci: Copyright(c) Pierre Ossman
+[   11.455224] Synopsys Designware Multimedia Card Interface Driver
+[   11.460017] sdhci-pltfm: SDHCI platform and OF driver helper
+[   11.464560] pstore: backend 'ramoops' already in use: ignoring 'efi_pstore'
+[   11.470250] sdhci-cdns 824000000000.sdhci: Adding to iommu group 7
+[   11.475195] sdhci_cdns_sd6_get_delay_params: Get Tuning params: Start[16], Step[6], Iterations[40].
+[   11.482937] sdhci_cdns_sd6_get_delay_params: Selected Tuning params: Start[16], Step[6], Iterations[40].
+[   11.491201] SMCCC: SOC_ID: ID = jep106:0369:00b9 Revision = 0x00000008
+[   11.496549] rvu_cptpf 0002:20:00.0: Adding to iommu group 8
+[   11.500854] rvu_cptpf 0002:20:00.0: AF is not initialized, deferring probe
+[   11.506635] usbcore: registered new interface driver usbhid
+[   11.510904] usbhid: USB HID core driver
+[   11.513533] mvl-mhu 0000:00:1c.0: Adding to iommu group 9
+[   11.517836] mvl-mhu 0000:00:1d.0: Adding to iommu group 10
+[   11.522070] mvl-mhu 0000:00:1e.0: Adding to iommu group 11
+[   11.526455] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[   11.533043]  cs_system_cfg: CoreSight Configuration manager initialised
+[   11.538491] mmc0: SDHCI controller on 824000000000.sdhci [824000000000.sdhci] using ADMA 64-bit
+[   11.546127] coresight-tmc 87a100060000.sh_etr: Adding to iommu group 12
+[   11.551508] coresight-tmc 87a100060000.sh_etr: Detected dma mask 52bits
+[   11.557172] CSCFG registered ete0
+[   11.557173] coresight ete0: CPU0: ete v1.0 initialized
+[   11.563386] optee: probing for conduit method.
+[   11.566521] optee: api uid mismatch
+[   11.568699] optee: probe of firmware:optee failed with error -22
+[   11.573879] NET: Registered PF_INET6 protocol family
+[   11.578008] Segment Routing with IPv6
+[   11.580373] In-situ OAM (IOAM) with IPv6
+[   11.583003] NET: Registered PF_PACKET protocol family
+[   11.586760] Bridge firewalling registered
+[   11.589477] 8021q: 802.1Q VLAN Support v1.8
+[   11.592365] 9pnet: Installing 9P2000 support
+[   11.595332] mpls_gso: MPLS GSO support
+[   11.599899] registered taskstats version 1
+[   11.602798] Loading compiled-in X.509 certificates
+[   11.608330] Loaded X.509 cert 'Cisco: IOSXE: 7a316e220815ec92795290ad5f4050f916619dbc'
+[   11.617344] Btrfs loaded, zoned=no, fsverity=no
+[   11.620895] mvmdio-uio: bus 0 added at mdio0
+[   11.623865] mvmdio-uio: bus 1 added at mdio1
+[   11.626982] pcieport 0000:00:01.0: Adding to iommu group 13
+[   11.631347] pcieport 0000:00:0c.0: Adding to iommu group 14
+[   11.635716] pcieport 0000:00:0d.0: Adding to iommu group 15
+[   11.640059] pcieport 0000:00:0e.0: Adding to iommu group 16
+[   11.644403] pcieport 0000:00:0f.0: Adding to iommu group 17
+[   11.648754] gpio_thunderx 0000:00:11.0: Adding to iommu group 18
+[   11.654304] gpio_thunderx 0000:00:11.0: ThunderX GPIO: 76 lines with base 512.
+[   11.660224] gpio_thunderx 0000:00:11.0: Set GPIO pin 61 CFG register to 6
+[   11.665775] pcieport 0000:00:14.0: Adding to iommu group 19
+[   11.670127] pcieport 0002:00:00.0: Adding to iommu group 20
+[   11.674482] pcieport 0002:00:01.0: Adding to iommu group 21
+[   11.678823] pcieport 0002:00:02.0: Adding to iommu group 22
+[   11.683163] pcieport 0002:00:03.0: Adding to iommu group 23
+[   11.687502] pcieport 0002:00:04.0: Adding to iommu group 24
+[   11.691836] pcieport 0002:00:05.0: Adding to iommu group 25
+[   11.696179] pcieport 0002:00:06.0: Adding to iommu group 26
+[   11.700521] pcieport 0002:00:07.0: Adding to iommu group 27
+[   11.704863] pcieport 0002:00:08.0: Adding to iommu group 28
+[   11.709220] pcieport 0002:00:09.0: Adding to iommu group 29
+[   11.713560] pcieport 0002:00:0a.0: Adding to iommu group 30
+[   11.717900] pcieport 0002:00:0b.0: Adding to iommu group 31
+[   11.722237] pcieport 0002:00:0c.0: Adding to iommu group 32
+[   11.726569] pcieport 0002:00:0d.0: Adding to iommu group 33
+[   11.730914] pcieport 0002:00:0e.0: Adding to iommu group 34
+[   11.735251] pcieport 0002:00:0f.0: Adding to iommu group 35
+[   11.739594] pcieport 0002:00:10.0: Adding to iommu group 36
+[   11.743930] pcieport 0002:00:11.0: Adding to iommu group 37
+[   11.748270] pcieport 0002:00:12.0: Adding to iommu group 38
+[   11.752611] pcieport 0002:00:13.0: Adding to iommu group 39
+[   11.756963] pcieport 0002:00:14.0: Adding to iommu group 40
+[   11.761307] pcieport 0002:00:15.0: Adding to iommu group 41
+[   11.765672] pcieport 0002:00:16.0: Adding to iommu group 42
+[   11.770257] pcieport 0002:00:17.0: Adding to iommu group 43
+[   11.774660] pcieport 0002:00:18.0: Adding to iommu group 44
+[   11.779059] pcieport 0002:00:19.0: Adding to iommu group 45
+[   11.783465] pcieport 0002:00:1a.0: Adding to iommu group 46
+[   11.787869] pcieport 0002:00:1b.0: Adding to iommu group 47
+[   11.792269] pcieport 0002:00:1c.0: Adding to iommu group 48
+[   11.796672] pcieport 0002:00:1d.0: Adding to iommu group 49
+[   11.801073] pcieport 0002:00:1e.0: Adding to iommu group 50
+[   11.805471] pcieport 0002:00:1f.0: Adding to iommu group 51
+[   11.809874] pcieport 0003:00:00.0: Adding to iommu group 52
+[   11.814337] pcieport 0003:00:00.0: PME: Signaling with IRQ 122
+[   11.819117] pcieport 0003:00:00.0: AER: enabled with IRQ 122
+[   11.823638] pcieport 0003:01:00.0: Adding to iommu group 53
+[   11.828228] pcieport 0003:02:01.0: Adding to iommu group 54
+[   11.832780] pcieport 0003:02:02.0: Adding to iommu group 55
+[   11.837321] pcieport 0004:00:00.0: Adding to iommu group 56
+[   11.841601] pcieport 0004:00:00.0: enabling device (0500 -> 0503)
+[   11.846440] pcieport 0004:00:00.0: PME: Signaling with IRQ 127
+[   11.851014] pcieport 0004:00:00.0: AER: enabled with IRQ 126
+[   11.855384] pcieport 0004:00:00.0: pciehp: Slot #1 AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug+ Surprise+ Interlock- NoCompl+ IbPresDis- LLActRep+
+[   11.867701] pcieport 0005:00:00.0: Adding to iommu group 57
+[   11.871986] pcieport 0005:00:00.0: enabling device (0500 -> 0503)
+[   11.876828] pcieport 0005:00:00.0: PME: Signaling with IRQ 130
+[   11.881397] pcieport 0005:00:00.0: AER: enabled with IRQ 129
+[   11.885762] pcieport 0005:00:00.0: pciehp: Slot #2 AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug+ Surprise+ Interlock- NoCompl+ IbPresDis- LLActRep+
+[   11.898054] pcieport 0006:00:00.0: Adding to iommu group 58
+[   11.902337] pcieport 0006:00:00.0: enabling device (0500 -> 0503)
+[   11.907181] pcieport 0006:00:00.0: PME: Signaling with IRQ 133
+[   11.911752] pcieport 0006:00:00.0: AER: enabled with IRQ 132
+[   11.916120] pcieport 0006:00:00.0: pciehp: Slot #3 AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug+ Surprise+ Interlock- NoCompl+ IbPresDis- LLActRep+
+[   11.928407] pcieport 0007:00:00.0: Adding to iommu group 59
+[   11.932692] pcieport 0007:00:00.0: enabling device (0500 -> 0503)
+[   11.937535] pcieport 0007:00:00.0: PME: Signaling with IRQ 136
+[   11.942103] pcieport 0007:00:00.0: AER: enabled with IRQ 135
+[   11.946470] pcieport 0007:00:00.0: pciehp: Slot #4 AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug+ Surprise+ Interlock- NoCompl+ IbPresDis- LLActRep+
+[   11.958758] pcieport 0008:00:00.0: Adding to iommu group 60
+[   11.963095] pcieport 0008:00:00.0: PME: Signaling with IRQ 139
+[   11.967663] pcieport 0008:00:00.0: AER: enabled with IRQ 138
+[   11.972028] pcieport 0008:00:00.0: pciehp: Slot #5 AttnBtn- PwrCtrl- MRL- AttnInd- PwrInd- HotPlug+ Surprise+ Interlock- NoCompl+ IbPresDis- LLActRep+
+[   11.984307] octeon-pem 0001:00:11.0: Adding to iommu group 61
+[   11.988946] octeon-pem 0001:00:11.0: PEM1 probed
+[   11.992316] octeon-pem 0001:00:12.0: Adding to iommu group 62
+[   11.997033] octeon-pem 0001:00:12.0: PEM2 probed
+[   12.000402] octeon-pem 0001:00:13.0: Adding to iommu group 63
+[   12.005017] octeon-pem 0001:00:13.0: PEM3 probed
+[   12.008384] octeon-pem 0001:00:14.0: Adding to iommu group 64
+[   12.012998] octeon-pem 0001:00:14.0: PEM4 probed
+[   12.016366] octeon-pem 0001:00:15.0: Adding to iommu group 65
+[   12.020977] octeon-pem 0001:00:15.0: PEM5 probed
+[   12.024344] octeontx2-dpi 0000:06:00.0: Adding to iommu group 66
+[   12.030634] cn10k_rng 0000:05:00.0: Adding to iommu group 67
+[   12.037229] arm-scmi firmware:scmi: SCMI Notifications - Core Enabled.
+[   12.042714] arm-scmi firmware:scmi: Malformed reply - real_sz:6  calc_sz:8  (loop_num_ret:6)
+[   12.049844] arm-scmi firmware:scmi: SCMI Protocol v1.0 'Marvell:Marvell' Firmware version 0x1
+[   12.057317] arm-scmi firmware:scmi: SCMI protocol 19 not implemented
+[   12.062362] arm-scmi firmware:scmi: SCMI protocol 20 not implemented
+[   12.067408] arm-scmi firmware:scmi: SCMI protocol 21 not implemented
+[   12.072528] rvu_cptpf 0002:20:00.0: AF is not initialized, deferring probe
+[   12.078188] rvu_cptpf 0002:20:00.0: AF is not initialized, deferring probe
+[   12.083892] EDAC octeontx: old firmware detected will use ghes record old format
+[   12.089985] EDAC octeontx: rec version:0
+[   12.092611] EDAC octeontx: mdc 0x40000000: 0x1f8f07000/0x1600
+[   12.097054] EDAC octeontx: dss 0x40000001: 0x1f8f08600/0x1600
+[   12.101498] EDAC octeontx: tad 0x40000002: 0x1f8f09c00/0x1600
+[   12.105941] EDAC octeontx: core0 0x40000003: 0x1f8f0b200/0x1600
+[   12.110557] EDAC octeontx: core1 0x40000004: 0x1f8f0c800/0x1600
+[   12.115176] EDAC octeontx: core2 0x40000005: 0x1f8f0de00/0x1600
+[   12.119792] EDAC octeontx: core3 0x40000006: 0x1f8f0f400/0x1600
+[   12.124409] EDAC octeontx: core4 0x40000007: 0x1f8f10a00/0x1600
+[   12.129025] EDAC octeontx: core5 0x40000008: 0x1f8f12000/0x1600
+[   12.133641] EDAC octeontx: core6 0x40000009: 0x1f8f13600/0x1600
+[   12.138256] EDAC octeontx: core7 0x4000000a: 0x1f8f14c00/0x1600
+[   12.142875] EDAC octeontx: core8 0x4000000b: 0x1f8f16200/0x1600
+[   12.147491] EDAC octeontx: core9 0x4000000c: 0x1f8f17800/0x1600
+[   12.152107] EDAC octeontx: core10 0x4000000d: 0x1f8f18e00/0x1600
+[   12.156810] EDAC octeontx: core11 0x4000000e: 0x1f8f1a400/0x1600
+[   12.161512] EDAC octeontx: core12 0x4000000f: 0x1f8f1ba00/0x1600
+[   12.166241] EDAC octeontx: core13 0x40000010: 0x1f8f1d000/0x1600
+[   12.170945] EDAC octeontx: core14 0x40000011: 0x1f8f1e600/0x1600
+[   12.175649] EDAC octeontx: core15 0x40000012: 0x1f8f1fc00/0x1600
+[   12.180351] EDAC octeontx: core16 0x40000013: 0x1f8f21200/0x1600
+[   12.185054] EDAC octeontx: core17 0x40000014: 0x1f8f22800/0x1600
+[   12.189757] EDAC octeontx: core18 0x40000015: 0x1f8f23e00/0x1600
+[   12.194460] EDAC octeontx: core19 0x40000016: 0x1f8f25400/0x1600
+[   12.199163] EDAC octeontx: core20 0x40000017: 0x1f8f26a00/0x1600
+[   12.203866] EDAC octeontx: core21 0x40000018: 0x1f8f28000/0x1600
+[   12.208571] EDAC octeontx: core22 0x40000019: 0x1f8f29600/0x1600
+[   12.213274] EDAC octeontx: core23 0x4000001a: 0x1f8f2ac00/0x1600
+[   12.218055] EDAC DEBUG: edac_mc_add_mc_with_groups: 
+[   12.221718] EDAC DEBUG: edac_create_sysfs_mci_device: device mc0 created
+[   12.227115] EDAC MC0: Giving out device to module dss_edac controller dss: DEV dss (INTERRUPT)
+[   12.234430] EDAC octeontx: Register dss 0/0/43
+[   12.237638] EDAC DEBUG: edac_device_register_sysfs_main_kobj: 
+[   12.242167] EDAC DEBUG: edac_device_add_device: 
+[   12.245474] EDAC DEBUG: find_edac_device_by_dev: 
+[   12.248867] EDAC DEBUG: edac_device_create_sysfs: idx=1
+[   12.252782] EDAC DEBUG: edac_device_create_instances: 
+[   12.256612] EDAC DEVICE1: Giving out device to module tad_edac controller tad: DEV tad (INTERRUPT)
+[   12.264267] EDAC octeontx: Register tad 0/0/43
+[   12.267468] EDAC DEBUG: edac_device_register_sysfs_main_kobj: 
+[   12.271993] EDAC DEBUG: edac_device_add_device: 
+[   12.275300] EDAC DEBUG: find_edac_device_by_dev: 
+[   12.278692] EDAC DEBUG: edac_device_create_sysfs: idx=2
+[   12.282609] EDAC DEBUG: edac_device_create_instances: 
+[   12.286489] EDAC DEVICE2: Giving out device to module cpu_edac controller core: DEV core (INTERRUPT)
+[   12.294435] EDAC octeontx: Register 24 core
+[   12.297379] gic_edac gic_edac: Unable find ghes
+[   12.300666] ea_edac ea_edac: Unable find ghes
+[   12.303776] EDAC DEBUG: edac_device_register_sysfs_main_kobj: 
+[   12.308304] EDAC DEBUG: edac_device_add_device: 
+[   12.311611] EDAC DEBUG: find_edac_device_by_dev: 
+[   12.315004] EDAC DEBUG: edac_device_create_sysfs: idx=3
+[   12.318920] EDAC DEBUG: edac_device_create_instances: 
+[   12.322750] EDAC DEVICE3: Giving out device to module mdc_edac controller mdc: DEV mdc (INTERRUPT)
+[   12.330405] EDAC octeontx: Register mdc 0/0/43
+[   12.333641] clk: Disabling unused clocks
+[   12.336369] rvu_cptpf 0002:20:00.0: AF is not initialized, deferring probe
+[   12.342076] uart-pl011 87e029000000.serial: no DMA platform data
+[   12.348485] Freeing unused kernel memory: 7168K
+[   12.364773] Checked W+X mappings: passed, no W+X pages found
+[   12.369134] Run /bin/sh as init process
+[   12.371659]   with arguments:
+[   12.373315]     /bin/sh
+[   12.374449]     -c
+[   12.375150]     mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0
+[   12.381844]   with environment:
+[   12.383676]     HOME=/
+[   12.384723]     TERM=linux
+[   12.386118]     bootloader=uefi
+[   12.387948]     cgroup_init_debug=1
+[   12.390125]     board=crestone
+[   12.391868]     bdinfo_start=0x1D5090018
+[   12.394478]     bdinfo_size=0x3AC70
+[   12.396657]     SR_BOOT=bootflash:packages.conf
+[   12.401325] sdhci_cdns_sd6_execute_tuning: Tuning Midpoint value = 193
+[   12.409006] uart-pl011 87e028000000.serial: no DMA platform data
+[   12.413798] mmc0: new HS200 MMC card at address 0001
+[   12.417650] mmcblk0: mmc0:0001 G1M15M 19.8 GiB
+[   12.423177]  mmcblk0: p1 p2 p3 p4 < p5 p6 p7 p8 >
+[   12.426835] mmcblk0boot0: mmc0:0001 G1M15M 31.5 MiB
+[   12.430782] mmcblk0boot1: mmc0:0001 G1M15M 31.5 MiB
+[   12.434686] mmcblk0rpmb: mmc0:0001 G1M15M 4.00 MiB, chardev (239:0)
+[   12.439792] rvu_cptpf 0002:20:00.0: AF is not initialized, deferring probe
+[   22.479344] rvu_cptpf 0002:20:00.0: AF is not initialized, deferring probe
+[   22.484954] pci 0002:20:00.0: deferred probe pending

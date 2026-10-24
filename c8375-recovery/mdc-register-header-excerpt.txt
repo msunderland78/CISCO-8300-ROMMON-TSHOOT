@@ -1,0 +1,367 @@
+#ifndef __BDK_CSRS_MDC_H__
+#define __BDK_CSRS_MDC_H__
+/* This file is auto-generated. Do not edit */
+
+/***********************license start***********************************
+* Copyright (C) 2019 Marvell International Ltd.
+* SPDX-License-Identifier: BSD-3-Clause
+* https://spdx.org/licenses
+***********************license end**************************************/
+
+
+/**
+ * @file
+ *
+ * Configuration and status register (CSR) address and type definitions for
+ * OcteonTX MDC.
+ *
+ * This file is auto generated. Do not edit.
+ *
+ */
+
+/**
+ * Enumeration mdc_bar_e
+ *
+ * MDC Base Address Register Enumeration
+ * Enumerates the base address registers.
+ */
+#define BDK_MDC_BAR_E_MDC_PF_BAR0 (0x87e010000000ll)
+#define BDK_MDC_BAR_E_MDC_PF_BAR0_SIZE 0x100000ull
+#define BDK_MDC_BAR_E_MDC_PF_BAR2 (0x87e008000000ll)
+#define BDK_MDC_BAR_E_MDC_PF_BAR2_SIZE 0x1000000ull
+#define BDK_MDC_BAR_E_MDC_PF_BAR4 (0x87e010100000ll)
+#define BDK_MDC_BAR_E_MDC_PF_BAR4_SIZE 0x100000ull
+
+/**
+ * Enumeration mdc_int_vec_e
+ *
+ * MDC Interrupt Source Enumeration
+ * Enumerates the different MDC-generated interrupts.
+ */
+#define BDK_MDC_INT_VEC_E_MDC_ECC_ERR (0)
+
+/**
+ * Enumeration mdc_ras_uet_e
+ *
+ * MDC RAS Uncorrected Error Type Enumeration
+ * Enumerates the uncorrected error types in MDC_RAS_ROM(). See also RAS_UET_E of which
+ * this enumeration is a superset.
+ */
+#define BDK_MDC_RAS_UET_E_NOUC (4)
+#define BDK_MDC_RAS_UET_E_UC (0)
+#define BDK_MDC_RAS_UET_E_UEO (2)
+#define BDK_MDC_RAS_UET_E_UER (3)
+#define BDK_MDC_RAS_UET_E_UEU (1)
+
+/**
+ * Structure mdc_ras_entry_s
+ *
+ * MDN RAS Entry Structure
+ * This structure describes the leaf node data returned from MDC_RAS_ROM().
+ */
+union bdk_mdc_ras_entry_s
+{
+    uint64_t u;
+    struct bdk_mdc_ras_entry_s_s
+    {
+#if __BYTE_ORDER == __BIG_ENDIAN /* Word 0 - Big Endian */
+        uint64_t ras_id                : 32; /**< [ 63: 32] RAM identifier. Program-determined (non-human-readable hash) unique identifier
+                                                                 for this given RAM. Software typically uses this to indicate in an error record
+                                                                 which memory is reporting the error. Software may also use this value to
+                                                                 initiate special error handing routines, e.g. on a SBE determine the [RAS_ID] is
+                                                                 the LLC cache data, and thus initiate a LLC cache scrub.
+
+                                                                 If a memory in a future passes or products have the same function, but a
+                                                                 different size, the [RAS_ID] should remain the same.  Memories with the same
+                                                                 [RAS_ID] will typically have the same value for all MDC_RAS_ENTRY_S fields. */
+        uint64_t ras_serr              : 8;  /**< [ 31: 24] Type of errors, and ARM RAS error record type. Enumerated by
+                                                                 RAS_SERR_E. Software, if/when creating a ARM RAS error record, typically should
+                                                                 mark the record's error type (SERR) using this value.
+
+                                                                 Typically RAMs use either RAS_SERR_E::SRAM_DATA or RAS_SERR_E::REG_CTL. */
+        uint64_t ras_uet               : 3;  /**< [ 23: 21] ARM RAS uncorrected error type. Enumerated by MDC_RAS_UET_E. If a uncorrectable
+                                                                 error occurs in this memory, the uncorrected error type. Software, if/when
+                                                                 creating a ARM RAS error record, typically should mark the record's uncorrected
+                                                                 error field (UE) using this value. */
+        uint64_t ras_transient         : 1;  /**< [ 20: 20] Transient. This indicates that software, if/when creating a ARM RAS error record,
+                                                                 typically should mark the record's corrected error field (CE) as persistent
+                                                                 versus transient.
+                                                                 0 = Persistent. If a soft error occurs in this memory, multiple soft errors may
+                                                                 be seen until some action is taken, e.g. a software scrub. Typically memories
+                                                                 containing configuration data work this way.
+                                                                 1 = Transient. If a soft error occurs in this memory, it will generally be seen
+                                                                 only once then self-correct. Software never needs to take any action on single
+                                                                 bit errors to clean up. e.g. a RAM that has a hardware scrubber or is a FIFO. */
+        uint64_t ras_poison            : 2;  /**< [ 19: 18] Poison propagation.
+                                                                 0x0 = None. This memory does not support poisoning.
+                                                                 0x1 = Deferred. If a DBE occurs in this memory, the block sends out poison to
+                                                                 the consumer and does not otherwise consume the data. This indicates software,
+                                                                 if/when creating a ARM RAS error record, typically would mark the record's
+                                                                 deferred error field (DE) as true.
+                                                                 0x2 = Consumed. This memory is reporting it received a poison and is propagating
+                                                                 it. This indicates software, if/when creating a ARM RAS error record, typically
+                                                                 would mark the record's deferred error field (DE) as true, and the poison (PN)
+                                                                 field as true. */
+        uint64_t reserved_0_17         : 18;
+#else /* Word 0 - Little Endian */
+        uint64_t reserved_0_17         : 18;
+        uint64_t ras_poison            : 2;  /**< [ 19: 18] Poison propagation.
+                                                                 0x0 = None. This memory does not support poisoning.
+                                                                 0x1 = Deferred. If a DBE occurs in this memory, the block sends out poison to
+                                                                 the consumer and does not otherwise consume the data. This indicates software,
+                                                                 if/when creating a ARM RAS error record, typically would mark the record's
+                                                                 deferred error field (DE) as true.
+                                                                 0x2 = Consumed. This memory is reporting it received a poison and is propagating
+                                                                 it. This indicates software, if/when creating a ARM RAS error record, typically
+                                                                 would mark the record's deferred error field (DE) as true, and the poison (PN)
+                                                                 field as true. */
+        uint64_t ras_transient         : 1;  /**< [ 20: 20] Transient. This indicates that software, if/when creating a ARM RAS error record,
+                                                                 typically should mark the record's corrected error field (CE) as persistent
+                                                                 versus transient.
+                                                                 0 = Persistent. If a soft error occurs in this memory, multiple soft errors may
+                                                                 be seen until some action is taken, e.g. a software scrub. Typically memories
+                                                                 containing configuration data work this way.
+                                                                 1 = Transient. If a soft error occurs in this memory, it will generally be seen
+                                                                 only once then self-correct. Software never needs to take any action on single
+                                                                 bit errors to clean up. e.g. a RAM that has a hardware scrubber or is a FIFO. */
+        uint64_t ras_uet               : 3;  /**< [ 23: 21] ARM RAS uncorrected error type. Enumerated by MDC_RAS_UET_E. If a uncorrectable
+                                                                 error occurs in this memory, the uncorrected error type. Software, if/when
+                                                                 creating a ARM RAS error record, typically should mark the record's uncorrected
+                                                                 error field (UE) using this value. */
+        uint64_t ras_serr              : 8;  /**< [ 31: 24] Type of errors, and ARM RAS error record type. Enumerated by
+                                                                 RAS_SERR_E. Software, if/when creating a ARM RAS error record, typically should
+                                                                 mark the record's error type (SERR) using this value.
+
+                                                                 Typically RAMs use either RAS_SERR_E::SRAM_DATA or RAS_SERR_E::REG_CTL. */
+        uint64_t ras_id                : 32; /**< [ 63: 32] RAM identifier. Program-determined (non-human-readable hash) unique identifier
+                                                                 for this given RAM. Software typically uses this to indicate in an error record
+                                                                 which memory is reporting the error. Software may also use this value to
+                                                                 initiate special error handing routines, e.g. on a SBE determine the [RAS_ID] is
+                                                                 the LLC cache data, and thus initiate a LLC cache scrub.
+
+                                                                 If a memory in a future passes or products have the same function, but a
+                                                                 different size, the [RAS_ID] should remain the same.  Memories with the same
+                                                                 [RAS_ID] will typically have the same value for all MDC_RAS_ENTRY_S fields. */
+#endif /* Word 0 - End */
+    } s;
+    /* struct bdk_mdc_ras_entry_s_s cn9; */
+    /* struct bdk_mdc_ras_entry_s_s cn96xxp1; */
+    struct bdk_mdc_ras_entry_s_cn96xxp3
+    {
+#if __BYTE_ORDER == __BIG_ENDIAN /* Word 0 - Big Endian */
+        uint64_t ras_id                : 32; /**< [ 63: 32] RAM identifier. Program-determined (non-human-readable hash) unique identifier
+                                                                 for this given RAM. Software typically uses this to indicate in an error record
+                                                                 which memory is reporting the error. Software may also use this value to
+                                                                 initiate special error handing routines, e.g. on a SBE determine the [RAS_ID] is
+                                                                 the LLC cache data, and thus initiate a LLC cache scrub.
+
+                                                                 If a memory in a future passes or products have the same function, but a
+                                                                 different size, the [RAS_ID] should remain the same.  Memories with the same
+                                                                 [RAS_ID] will typically have the same value for all MDC_RAS_ENTRY_S fields. */
+        uint64_t ras_serr              : 8;  /**< [ 31: 24] Type of errors, and Arm RAS error record type. Enumerated by
+                                                                 RAS_SERR_E. Software, if/when creating a Arm RAS error record, typically should
+                                                                 mark the record's error type (SERR) using this value.
+
+                                                                 Typically RAMs use either RAS_SERR_E::SRAM_DATA or RAS_SERR_E::REG_CTL. */
+        uint64_t ras_uet               : 3;  /**< [ 23: 21] Arm RAS uncorrected error type. Enumerated by MDC_RAS_UET_E. If a uncorrectable
+                                                                 error occurs in this memory, the uncorrected error type. Software, if/when
+                                                                 creating a Arm RAS error record, typically should mark the record's uncorrected
+                                                                 error field (UE) using this value. */
+        uint64_t ras_transient         : 1;  /**< [ 20: 20] Transient. This indicates that software, if/when creating a Arm RAS error record,
+                                                                 typically should mark the record's corrected error field (CE) as persistent
+                                                                 versus transient.
+                                                                 0 = Persistent. If a soft error occurs in this memory, multiple soft errors may
+                                                                 be seen until some action is taken, e.g. a software scrub. Typically memories
+                                                                 containing configuration data work this way.
+                                                                 1 = Transient. If a soft error occurs in this memory, it will generally be seen
+                                                                 only once then self-correct. Software never needs to take any action on single
+                                                                 bit errors to clean up. e.g. a RAM that has a hardware scrubber or is a FIFO. */
+        uint64_t ras_poison            : 2;  /**< [ 19: 18] Poison propagation.
+                                                                 0x0 = None. This memory does not support poisoning.
+                                                                 0x1 = Deferred. If a DBE occurs in this memory, the block sends out poison to
+                                                                 the consumer and does not otherwise consume the data. This indicates software,
+                                                                 if/when creating a Arm RAS error record, typically would mark the record's
+                                                                 deferred error field (DE) as true.
+                                                                 0x2 = Consumed. This memory is reporting it received a poison and is propagating
+                                                                 it. This indicates software, if/when creating a Arm RAS error record, typically
+                                                                 would mark the record's deferred error field (DE) as true, and the poison (PN)
+                                                                 field as true. */
+        uint64_t reserved_0_17         : 18;
+#else /* Word 0 - Little Endian */
+        uint64_t reserved_0_17         : 18;
+        uint64_t ras_poison            : 2;  /**< [ 19: 18] Poison propagation.
+                                                                 0x0 = None. This memory does not support poisoning.
+                                                                 0x1 = Deferred. If a DBE occurs in this memory, the block sends out poison to
+                                                                 the consumer and does not otherwise consume the data. This indicates software,
+                                                                 if/when creating a Arm RAS error record, typically would mark the record's
+                                                                 deferred error field (DE) as true.
+                                                                 0x2 = Consumed. This memory is reporting it received a poison and is propagating
+                                                                 it. This indicates software, if/when creating a Arm RAS error record, typically
+                                                                 would mark the record's deferred error field (DE) as true, and the poison (PN)
+                                                                 field as true. */
+        uint64_t ras_transient         : 1;  /**< [ 20: 20] Transient. This indicates that software, if/when creating a Arm RAS error record,
+                                                                 typically should mark the record's corrected error field (CE) as persistent
+                                                                 versus transient.
+                                                                 0 = Persistent. If a soft error occurs in this memory, multiple soft errors may
+                                                                 be seen until some action is taken, e.g. a software scrub. Typically memories
+                                                                 containing configuration data work this way.
+                                                                 1 = Transient. If a soft error occurs in this memory, it will generally be seen
+                                                                 only once then self-correct. Software never needs to take any action on single
+                                                                 bit errors to clean up. e.g. a RAM that has a hardware scrubber or is a FIFO. */
+        uint64_t ras_uet               : 3;  /**< [ 23: 21] Arm RAS uncorrected error type. Enumerated by MDC_RAS_UET_E. If a uncorrectable
+                                                                 error occurs in this memory, the uncorrected error type. Software, if/when
+                                                                 creating a Arm RAS error record, typically should mark the record's uncorrected
+                                                                 error field (UE) using this value. */
+        uint64_t ras_serr              : 8;  /**< [ 31: 24] Type of errors, and Arm RAS error record type. Enumerated by
+                                                                 RAS_SERR_E. Software, if/when creating a Arm RAS error record, typically should
+                                                                 mark the record's error type (SERR) using this value.
+
+                                                                 Typically RAMs use either RAS_SERR_E::SRAM_DATA or RAS_SERR_E::REG_CTL. */
+        uint64_t ras_id                : 32; /**< [ 63: 32] RAM identifier. Program-determined (non-human-readable hash) unique identifier
+                                                                 for this given RAM. Software typically uses this to indicate in an error record
+                                                                 which memory is reporting the error. Software may also use this value to
+                                                                 initiate special error handing routines, e.g. on a SBE determine the [RAS_ID] is
+                                                                 the LLC cache data, and thus initiate a LLC cache scrub.
+
+                                                                 If a memory in a future passes or products have the same function, but a
+                                                                 different size, the [RAS_ID] should remain the same.  Memories with the same
+                                                                 [RAS_ID] will typically have the same value for all MDC_RAS_ENTRY_S fields. */
+#endif /* Word 0 - End */
+    } cn96xxp3;
+    /* struct bdk_mdc_ras_entry_s_cn96xxp3 cn98xx; */
+    /* struct bdk_mdc_ras_entry_s_cn96xxp3 cnf95xx; */
+    /* struct bdk_mdc_ras_entry_s_cn96xxp3 loki; */
+};
+
+/**
+ * Register (RSL) mdc_active_pc
+ *
+ * MDC Active Cycles Register
+ */
+union bdk_mdc_active_pc
+{
+    uint64_t u;
+    struct bdk_mdc_active_pc_s
+    {
+#if __BYTE_ORDER == __BIG_ENDIAN /* Word 0 - Big Endian */
+        uint64_t act_cyc               : 64; /**< [ 63:  0](R/W/H) Counts every coprocessor-clock cycle that the conditional clocks are active. */
+#else /* Word 0 - Little Endian */
+        uint64_t act_cyc               : 64; /**< [ 63:  0](R/W/H) Counts every coprocessor-clock cycle that the conditional clocks are active. */
+#endif /* Word 0 - End */
+    } s;
+    /* struct bdk_mdc_active_pc_s cn; */
+};
+typedef union bdk_mdc_active_pc bdk_mdc_active_pc_t;
+
+#define BDK_MDC_ACTIVE_PC BDK_MDC_ACTIVE_PC_FUNC()
+static inline uint64_t BDK_MDC_ACTIVE_PC_FUNC(void) __attribute__ ((pure, always_inline));
+static inline uint64_t BDK_MDC_ACTIVE_PC_FUNC(void)
+{
+    if (bdk_is_model(OCTEONTX_CN9XXX))
+        return 0x87e0100000e8ll;
+    __bdk_csr_fatal("MDC_ACTIVE_PC", 0, 0, 0, 0, 0, 0, 0);
+}
+
+#define typedef_BDK_MDC_ACTIVE_PC bdk_mdc_active_pc_t
+#define bustype_BDK_MDC_ACTIVE_PC BDK_CSR_TYPE_RSL
+#define basename_BDK_MDC_ACTIVE_PC "MDC_ACTIVE_PC"
+#define device_bar_BDK_MDC_ACTIVE_PC 0x0 /* PF_BAR0 */
+#define busnum_BDK_MDC_ACTIVE_PC 0
+#define arguments_BDK_MDC_ACTIVE_PC -1,-1,-1,-1
+
+/**
+ * Register (RSL) mdc_bist_config
+ *
+ * MDC Configuration Register
+ */
+union bdk_mdc_bist_config
+{
+    uint64_t u;
+    struct bdk_mdc_bist_config_s
+    {
+#if __BYTE_ORDER == __BIG_ENDIAN /* Word 0 - Big Endian */
+        uint64_t reserved_27_63        : 37;
+        uint64_t clock_gating_enable   : 1;  /**< [ 26: 26](R/W) When clear, force conditional clocks on. Clear for diagnostic use only.
+                                                                 Internal:
+                                                                 clock_forcer attribute not used as state is inverted versus other blocks. */
+        uint64_t mdc_broadcast         : 1;  /**< [ 25: 25](R/W) This field is used in conjunction with [MDH_START_RATIO], [MDN_START_RATIO],
+                                                                 and [STAGGER_PERIOD] to control BIST start staggering. The field
+                                                                 specifies whether or not a given BIST start command is transmitted to
+                                                                 all serial chains simultaneously or not.
+                                                                   0 = BIST start commands sent to one chain at a time.
+                                                                   1 = BIST start commands sent to all chains simultaneously. */
+        uint64_t mdh_start_ratio       : 3;  /**< [ 24: 22](R/W) This field is used in conjunction with [MDC_BROADCAST], [MDN_START_RATIO],
+                                                                 and [STAGGER_PERIOD] to control BIST start staggering.  The field effectively
+                                                                 specifies how many MDHs participates in a given BIST start command. Valid
+                                                                 values are 0 through 7.  The MDC programs MDN_BIST_ADDR_MASK[MDH_START_RATIO]
+                                                                 of all MDN's with this value prior to starting BIST.
+                                                                   0x0 = All MDHs participate - 1 hub loop.
+                                                                   0x1 = Every 2nd MDH participates - 2 hub loops.
+                                                                   0x2 = Every 4th MDH participates - 4 hub loops.
+                                                                   ...
+                                                                   0x7 = Every 128th MDH participates - 128 hub loops. */
+        uint64_t mdn_start_ratio       : 4;  /**< [ 21: 18](R/W) This field is used in conjuction with [MDC_BROADCAST], [MDH_START_RATIO],
+                                                                 and [STAGGER_PERIOD] to control BIST start staggering.  The field effectively
+                                                                 specifies how many MDNs participate in a given BIST start command.  The
+                                                                 value is formatted as the reciprocal of a base two exponent
+                                                                 (1/2^[MDN_START_RATIO]).  Valid values are 0 through 10.  The MDC programs
+                                                                 MDN_BIST_ADDR_MASK[MDN_START_RATIO] of all MDN's with this value prior
+                                                                 to starting BIST.
+                                                                   0x0 = All MDNs participate - 1 node loop.
+                                                                   0x1 = Every 2nd MDN participates - 2 node loops.
+                                                                   0x2 = Every 4th MDN participates - 4 node loops.
+                                                                   ...
+                                                                   0xA = Every 1024th MDN participates - 1024 node loops. */
+        uint64_t bisr_soft_disable_xor : 1;  /**< [ 17: 17](R/W) For diagnostic use only.
+                                                                 Internal:
+                                                                 This value is XORed with the FUS_FUSE_NUM_E::BISR_FUSED_ONLY fuse bit to
+                                                                 override its setting. When the FUS_FUSE_NUM_E::BISR_FUSED_ONLY fuse is blown,
+                                                                 only repairs that are blown into fuses are used and soft repairs are
+                                                                 disallowed. Overriding the fuse allows soft repairs to be used again. */
+        uint64_t stagger_disable       : 1;  /**< [ 16: 16](R/W) BIST stagger disable. Disables the BIST stagger period and starts BIST
+                                                                 via a broadcast write to all BIST state machines. For diagnostic use only. */
+        uint64_t stagger_period        : 16; /**< [ 15:  0](R/W) When BIST start staggering is enabled, a BIST start command is
+                                                                 periodically transmitted down 1 or more MDC serial chains through 1 or
+                                                                 more MDHs (hubs) to start BIST on 1 or more MDNs (nodes).  The total
+                                                                 number of start commands transmitted and the number of MDNs that start
+                                                                 BIST upon each command is a controlled by the settings of [MDC_BROADCAST],
+                                                                 [MDH_START_RATIO] and [MDN_START_RATIO].  At one extreme only a single BIST
+                                                                 start command is sent to start all MDNs simultaneously.  At the other
+                                                                 extreme a BIST start command is sent to each MDN individually to start
+                                                                 BIST sequentially.  The MDC root state machine loops upon chain (outer),
+                                                                 hub (middle) and node (inner) IDs when send the BIST start commands.
+
+                                                                 This field specifies the number of clocks between BIST start commands.
+                                                                 Increasing the value reduces the number of memories executing BIST
+                                                                 simultaneously thus reducing peak power consumption at the expense of
+                                                                 lengthening the overall time it takes to run BIST.  Decreasing the value
+                                                                 has the opposite effect of reducing the overall BIST run time while
+                                                                 increasing power consumption. */
+#else /* Word 0 - Little Endian */
+        uint64_t stagger_period        : 16; /**< [ 15:  0](R/W) When BIST start staggering is enabled, a BIST start command is
+                                                                 periodically transmitted down 1 or more MDC serial chains through 1 or
+                                                                 more MDHs (hubs) to start BIST on 1 or more MDNs (nodes).  The total
+                                                                 number of start commands transmitted and the number of MDNs that start
+                                                                 BIST upon each command is a controlled by the settings of [MDC_BROADCAST],
+                                                                 [MDH_START_RATIO] and [MDN_START_RATIO].  At one extreme only a single BIST
+                                                                 start command is sent to start all MDNs simultaneously.  At the other
+                                                                 extreme a BIST start command is sent to each MDN individually to start
+                                                                 BIST sequentially.  The MDC root state machine loops upon chain (outer),
+                                                                 hub (middle) and node (inner) IDs when send the BIST start commands.
+
+                                                                 This field specifies the number of clocks between BIST start commands.
+                                                                 Increasing the value reduces the number of memories executing BIST
+                                                                 simultaneously thus reducing peak power consumption at the expense of
+                                                                 lengthening the overall time it takes to run BIST.  Decreasing the value
+                                                                 has the opposite effect of reducing the overall BIST run time while
+                                                                 increasing power consumption. */
+        uint64_t stagger_disable       : 1;  /**< [ 16: 16](R/W) BIST stagger disable. Disables the BIST stagger period and starts BIST
+                                                                 via a broadcast write to all BIST state machines. For diagnostic use only. */
+        uint64_t bisr_soft_disable_xor : 1;  /**< [ 17: 17](R/W) For diagnostic use only.
+                                                                 Internal:
+                                                                 This value is XORed with the FUS_FUSE_NUM_E::BISR_FUSED_ONLY fuse bit to
+                                                                 override its setting. When the FUS_FUSE_NUM_E::BISR_FUSED_ONLY fuse is blown,
+                                                                 only repairs that are blown into fuses are used and soft repairs are
+                                                                 disallowed. Overriding the fuse allows soft repairs to be used again. */
+        uint64_t mdn_start_ratio       : 4;  /**< [ 21: 18](R/W) This field is used in conjuction with [MDC_BROADCAST], [MDH_START_RATIO],
+                                                                 and [STAGG

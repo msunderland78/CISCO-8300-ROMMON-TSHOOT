@@ -1,0 +1,225 @@
+
+!
+! Last configuration change at 20:36:47 UTC Thu May 29 2025
+!
+version 26.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+platform resource data-plane-heavy
+!
+hostname CAT3875-G2
+!
+boot-start-marker
+boot system bootflash:packages.conf
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+no aaa new-model
+!
+ip domain name sunderdesign.top
+!
+!
+!
+!
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-1897751160
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1897751160
+ revocation-check none
+ rsakeypair TP-self-signed-1897751160
+ hash sha512
+!
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+ hash sha512
+!
+!
+crypto pki certificate chain TP-self-signed-1897751160
+ certificate self-signed 01 nvram:IOS-Self-Sig#2.cer
+crypto pki certificate chain SLA-TrustPoint
+ certificate ca 01 nvram:CiscoLicensi#1CA.cer
+!
+!
+!
+!
+!
+!
+!
+!
+!
+diagnostic bootup level minimal
+!
+license udi pid C8375-E-G2 sn FDO2742M0FK
+memory free low-watermark processor 63128
+!
+spanning-tree extend system-id
+!
+!
+username matt privilege 15 secret [REDACTED]
+username admin privilege 15 secret [REDACTED]
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface TwoGigabitEthernet0/0/0
+ no ip address
+ negotiation auto
+!
+interface TwoGigabitEthernet0/0/1
+ no ip address
+ negotiation auto
+!
+interface TwoGigabitEthernet0/0/2
+ no ip address
+ negotiation auto
+!
+interface TwoGigabitEthernet0/0/3
+ no ip address
+ negotiation auto
+!
+interface TenGigabitEthernet0/0/4
+ no ip address
+ negotiation auto
+!
+interface TenGigabitEthernet0/0/5
+ no ip address
+ negotiation auto
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ ip address 192.168.4.62 255.255.255.0
+ negotiation auto
+!
+ip rcmd domain-lookup
+ip forward-protocol nd
+ip forward-protocol udp
+ip forward-protocol udp tftp
+ip telnet tos C0
+ip telnet comport enable
+ip telnet comport flow level 16
+ip telnet comport receive window 4128
+ip telnet comport disconnect delay 0
+ip tftp arp-glean
+ip tftp blocksize 512
+ip ftp passive
+no ip http server
+ip http secure-server
+!
+ip route vrf Mgmt-intf 0.0.0.0 0.0.0.0 GigabitEthernet0 192.168.4.1
+ip ssh bulk-mode 131072
+ip ssh stricthostkeycheck accept-new
+!
+!
+!
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ activation-character 13
+ logging synchronous
+ stopbits 1
+ speed 115200
+line aux 0
+ activation-character 13
+line vty 0 4
+ exec-timeout 120 0
+ privilege level 15
+ activation-character 13
+ logging synchronous
+ login local
+ transport input ssh
+line vty 5 97
+ exec-timeout 120 0
+ privilege level 15
+ activation-character 13
+ logging synchronous
+ login local
+ transport input ssh
+!
+!
+!
+!
+!
+!
+!
+end

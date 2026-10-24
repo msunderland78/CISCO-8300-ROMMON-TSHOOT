@@ -1,0 +1,5 @@
+original TIM at 0x10000: total=0x940, signed-length-field=0x82c, difference=0x114, word9=0x0
+original TIM at 0x20000: total=0x420, signed-length-field=0x30c, difference=0x114, word9=0x0
+recommended TIM at 0x10000: total=0x870, signed-length-field=0x65c, difference=0x214, word9=0x402
+recommended TIM at 0x20000: total=0x720, signed-length-field=0x50c, difference=0x214, word9=0x402
+Different TIM/signature structures are a compatibility lead, not a proven cause of the boot failure. No fuse or key state was changed or inferred from these headers alone.

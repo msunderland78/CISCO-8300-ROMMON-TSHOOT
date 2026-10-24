@@ -1,0 +1,451 @@
+LATEST STATE -- NEW ROMMON DOES NOT BOOT (2026-10-23 ~15:52)
+User coldpowercycled. Reports blinkingREDstatus,otherLEDsgreen,fansMAX.
+NoSCPorROMMONoutputaftersoftorcoldboot,beyondbriefpowernoise.
+CiscoindicatorguidecallsblinkingREDhardwareintegrityfailure.
+Thusrecommendedimagepayloadwasprogrammedandfullflashverified,butBOOTFAILED.
+DoNOTclaimroutercurrentlyrunningIOSorROMMONprompt. Itisnot.
+TolduserpowerOFFandmoveCISCO FILES USBtoMacforlocalbackupandrestorepreparation;
+awaitingconnectedreply/volume. Originaltwoidentical32MiBSPIbackupsandverified
+newfullimageareonUSB C8375-SPI-BACKUP-20261023/.
+No additionalflashwritespossiblethroughcurrentlysilentconsoleyet.
+ProgrammerorderedforotherC8235arrivesindays; compatibilitywiththischip/package
+mustbeconfirmedbeforeusing.Donotassumegoldenbankselectionorjumperpinout.
+Captureexec27665stillactive115200,log20261023-153046-console.log.
+
+CURRENT STATE OVERRIDE -- POST-PROGRAM RESET
+The repaired/new primary flash was fully verified (68c695...fe88b), then Linux
+busybox reboot-f sent. NO console output observed after softrestart so far.
+Asked user coldpowercycle(unplug10sec)andreplybackon; awaitingaction/response.
+Captureexec27665active115200.RJ45log20261023-153046-console.log.
+DoNOTclaimupgradebootedsuccessfully.Originaltwo32MiBbackupsstillonUSB.
+
+CURRENT STATE OVERRIDE -- 2026-10-23 ~15:47 LOCAL
+Primary SPI now contains recommended17.18(3r).s2.cp payload, full32MiB
+readback VERIFIED SHA25668c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b.
+NativeflashmonCRCfailedonlyafterwritingextraareasbeyondpayload; repairedthese
+usingoriginalbackupunderLinux. Detailsatend. NewROMMONBOOTNOTYETTESTED.
+Activeconsoleexec27665,1152008N1,log20261023-153046-console.log.
+CurrentlyLinuxinitrdshelloldfirmwarestillRAM;unmountingUSBthenreboot-fnext.
+Originaltwoidentical32MiBbackupsareonUSB C8375-SPI-BACKUP-20261023/.
+Thisoverridesearliercurrent-stateparagraphsbelow; chronologyretained.
+
+C8375-E-G2 / CRESTONE ROUTER -- RECOVERY CONTEXT
+Updated: 2026-10-23, America/New_York
+Workspace: /Users/games/Documents/SOFTWARE
+This is separate from the C8235 recovery. This summary supersedes tentative
+conclusions in c8375-recovery/RECOVERY-CONTEXT.txt; that file retains the history.
+
+CURRENT RESULT
+- IOS XE 26.2.1 is installed, activated and committed in INSTALL MODE.
+- Automatic boot from internal bootflash:packages.conf was observed after reset.
+  IOS show version confirms System image file "bootflash:packages.conf".
+  show install summary: IMG C 26.02.01.0.263; auto abort timer inactive.
+- All 16 physical CPUs activate. Forwarding processor F0 and built-in network
+  module are OK. A physical two-port packet test passed, described below.
+- This remains an experimental recovery. An OS EDAC reporting driver is disabled
+  to avoid a repeatable panic with this old firmware. Underlying compatibility
+  and early MDC ECC reports are unresolved. Memory is NOT proven fault-free.
+- A supported ROMMON upgrade attempt was staged, but FAILED during boot with
+  "Locate BIOS protection protocol failed". ROMMON remains v9.2.1 development.
+  The staging script copied ROMMON environment/key data between banks; no
+  successful new ROMMON firmware installation has been observed.
+- PSU P0 is unknown/incompatible in IOS. Its PID/VID/serial are blank even in
+  show inventory raw. User has been asked for its externally visible part number;
+  leave the supply installed. Temperatures and measured rails report Normal.
+
+USER INTENT AND HARDWARE QUESTIONS
+User wants this scrap/test router usable and is open to recovery experiments.
+User explicitly requires INSTALL MODE, not final bundle mode.
+User reports the ONLY DDR5 DIMM SLOT is EMPTY and the router reports about 8 GB.
+Do not recommend a generic 16 GB UDIMM without identifying the physical memory
+layout and module compatibility. No RAM purchase occurred in this task.
+Raw IOS inventory says "16GB,Cisco,Onboard Memory", while firmware and IOS both
+measure/report 8 GB. That description alone does not prove 16 GB is physically
+installed, nor that half the RAM is faulty. Board inspection remains needed.
+The other C8235 router is unchanged; user says its flash programmer is ordered
+and will arrive in a few days. Read its separate recovery context for that task.
+
+LIVE CONSOLE AND LOGS
+Native USB console became unresponsive while the kernel and IOS kept running.
+User swapped to the FTDI USB-to-RJ45 console cable and unplugged native USB.
+Current port: /dev/cu.usbserial-AL00F7EQ, 115200 8N1, no flow control.
+Bridge: c8375-recovery/rj45_serial_console.py
+Console RELEASED to user for configuration; exec 34548 closed cleanly.
+Do not reopen until user returns console control.
+Raw RJ45 log now: c8375-recovery/console-logs/20261023-111440-console.log
+Earlier RJ45 log: c8375-recovery/console-logs/20261023-103319-console.log
+Earlier native USB logs: 20261023-100652-console.log and 20261023-102849-console.log.
+Readable versions are in the same directory. Capture remains active at Router#.
+Do not let SecureCRT and the bridge own the port simultaneously.
+Bridge accepts newline-delimited JSON, for example:
+ {"send":"show platform\r"}
+ {"break":true}
+ {"close":true}
+ {"expect_send":{"pattern":"rommon 1 > ","send":"set\r"}}
+Wait for command completion/prompt before sending another command, particularly
+ROMMON directory listings. Console paging is disabled for the current IOS session.
+
+DEVICE IDENTITY
+- EBF: mirabile-crestone r3; CN10616 B0, MV-CN10616-B0-AAP, 16 AP cores.
+- Existing ROMMON: SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Release DEVELOPMENT SOFTWARE,
+  compiled September 21, 2023. It reports Current image running: Boot ROM1.
+- SCP reports SPI0.CS0 (Primary image0). Do not infer golden-bank identity from
+  the ROMMON "Boot ROM1" label; physical bank/chip mapping is not established.
+- PID C8375-E-G2; chassis FDO2742M0FK; PCA FDO27380KFQ; VID V01;
+  board version 5; CPLD 2408272B (2.B), dated 08/27/24.
+- EBF board serial is unknown, but chassis/PCA cookies are readable.
+- Development ROMMON, board revision and memory discrepancy suggest an early
+  development unit. Production status has not been definitively established.
+- DRAM initialization: DMC2 8 GB/ch, 1Rx8 UDIMM, 32-bit data, 4-bit ECC;
+  total 8 GB, DDR5 at 4800 MT/s. IOS physical memory: 8388608K.
+
+FAULTS AND DIAGNOSTIC RESULTS
+Original saved USER_BOOT_PARAM was "maxcpus=24 failure_shell".
+26.2.1 and a historical 17.15.6 capture both crash in EL3 during secondary CPU
+startup. maxcpus=1 bypassed that crash and reached IOS, but forwarding failed.
+maxcpus=16 activates CPU0-15 and avoids the EL3 startup crash. The firmware/DT
+still lists 24 possible CPU slots; the cap limits the actual startup count.
+
+A 16-CPU boot with keep_bootcon stayed up over 20 minutes with responding QFP
+statistics. However, a later 16-CPU boot without keep_bootcon panicked at about
+53 seconds in edac-poller / octeontx_edac_device_wq ->
+octeontx_edac_wq_handler -> __memcpy_fromio+0x50/0x98. A prior single-CPU boot
+had the same EDAC panic at about 234 seconds. Reads run beyond a mapped firmware
+RAS ring; several record fields have A5A5-looking values. A driver/old-firmware
+record-format incompatibility is suspected, not proven as the sole cause.
+
+The original 26.2.1 kernel contains octeontx_edac_init and supports the Linux
+initcall_blacklist parameter. Boot logs confirm "blacklisting initcall
+octeontx_edac_init". This prevents that OS EDAC reporting driver from starting.
+It is a workaround, not hardware repair or evidence that ECC faults disappeared.
+Do not silently re-enable it without expecting the previous panic to return.
+
+Early firmware intermittently reports MDC single/double-bit ECC errors, Chain 1,
+Hub 8, Node 0, at different rows. Exact physical memory/block is not mapped.
+These reports must not automatically be attributed to the replaceable DIMM.
+A Marvell-authored MDC register-header excerpt is saved locally for investigation;
+it is from an older public BDK and is not an exact CN10616 board mapping.
+
+ChipGuard CPU UUID validation still fails in this development ROMMON, but normal
+automatic boot proceeds. No ChipGuard keys, TPM state, security fuses, lifecycle
+or manufacturing data were changed. PSU P0 incompatibility is also unresolved.
+
+PERSISTENT BOOT SETTINGS -- VERIFIED AFTER RESET
+USER_BOOT_PARAM=maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init
+BOOT=bootflash:packages.conf,12;
+Configuration register: 0x1822
+ROMMON confreg confirms normal boot, 115200 console, break enabled. The original
+0x1820 selected manual ROMMON boot. Only its low boot field was changed, preserving
+baud, instead of blindly replacing the whole register with generic 0x2102.
+Settings were written using ROMMON set/confreg/sync and survived reset.
+Automatic install-mode startup was tested after reset, not a final cold power cycle.
+
+INSTALLATION AND PRESERVED FILES
+Original source: c8kg2be-universalk9.26.02.01.SPA.bin, 1,048,008,916 bytes.
+USB original SHA256 was verified against the local extraction manifest:
+0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456
+Copied to internal bootflash; its MD5 matched the local original:
+f25a1154427adbbad4a1993e0969d08c
+
+Conversion command completed successfully:
+ install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit
+Add, Activate and Commit/postcheck passed. Installer saved the configuration.
+packages.conf is 8405 bytes; expanded 26.2.1 packages are on bootflash.
+No install cleanup or deletion of original images/kernel dumps was performed.
+The existing Feb 2025 development IOS was briefly booted as an automatic fallback
+when normal boot was enabled before a BOOT target existed. It reached IOS with
+16 CPUs and F0 online. It remains preserved as a fallback file, not the final image.
+
+USB "CISCO FILES" IS CURRENTLY ON ROUTER AS usb0:
+C8375-E-G2-ROMMON-17.18-3r/ contains the original extracted SoC2 ROMMON package,
+raw image, capsule and checksums, copied and verified from the local manifest.
+The original source set remains on USB; its packaged form was later attempted
+but failed at BIOS protection protocol lookup (see latest attempt). It contains no experimental hybrid/SoC1 image.
+Cisco recommends this SoC2 version for production C8375-E-G2 with IOS XE 26.2.1;
+that alone does not validate this prototype's firmware/security-state compatibility.
+
+C8375-ORIGINAL-BACKUPS/ contains files copied from internal bootflash:
+ SDK112310-UEFI-SoC2-SB-v11.2.7_RSA4K.img -- 16,580,608 bytes
+ MD5 a8b9efb975c1213525fe33bd37dc871f
+ SDK112312-Prod-SoC2-v17.15.1_13d-cp-RSA2K.pkg -- 5,753,916 bytes
+ MD5 d947e04256c496a7d881c7baf1778ec8
+ original-development-ios.SSA.bin -- 1,000,259,196 bytes
+ MD5 e245f58d04438feb8bbbb08c9b7d409c
+ original-startup-config.txt -- 2436 bytes, saved before installer configuration save
+All three firmware/IOS backup MD5 values matched source and USB copies.
+The config backup may contain credentials: do not publish its contents.
+These backed-up files are NOT dumps of the currently installed v9.2.1 SPI firmware.
+No full primary/golden flash-chip dumps exist for this router yet.
+
+Two compressed kernel dumps remain under bootflash core, about 1.75 GB and
+2.33 GB, with corresponding dmesg text. Names and details are in the chronological
+context. The installed image/packages and preserved originals still fit on storage.
+
+PHYSICAL TWO-PORT TEST -- PASSED AND CLEANED
+User connected a patch cable between DATA ports 0/0/0 and 0/0/1.
+Both negotiated 2500 Mbps full duplex. Separate RECOVERY-A and RECOVERY-B VRFs
+with 198.18.83.1/30 and .2/30 forced packet exchange through the physical cable.
+ARP in each VRF resolved the opposite port's actual MAC, e80a.b995.77a0/.77a1.
+Results: 1000/1000 successful 1500-byte pings in each direction, RTT 1/1/4 ms.
+An initial short 5-ping test lost one packet during likely initial ARP resolution;
+both longer tests had zero loss. After counters refreshed, each port had 2015 RX
+and 2015 TX packets, 3,031,756 bytes in each direction, no input/CRC/output errors
+and no drops. This tests physical port packet exchange, not rated transit throughput.
+
+ALL temporary test IPs, VRF associations and RECOVERY-A/B VRFs were removed.
+Both interfaces were verified back to their original 74-byte configurations:
+ interface TwoGigabitEthernet0/0/0 (and /1)
+  no ip address
+  negotiation auto
+Neither was originally shut down. show vrf now contains only Mgmt-intf on Gi0.
+Temporary test configuration was never written to startup. User can remove the
+loop cable; console and power remain connected.
+
+LATEST HEALTH / LIMITATIONS
+Control processor Healthy, CPUs 0-15 present. About 4.56/7.90 GB used (58%),
+3.34 GB free (42%). All reported sensors Normal: CPU 36 C, chassis power 36 W,
+fans approximately 5280-5520 RPM, measured voltage rails Normal.
+P0 PSU identification/incompatibility, ChipGuard UUID validation and intermittent
+MDC ECC reports remain unresolved. OS EDAC driver bypass remains active.
+No long burn-in, full DRAM diagnostics, external transit traffic/throughput,
+all-port test, module/PoE test, or final cold power cycle has been completed.
+Do not label this fully repaired/production-ready based on the current bench test.
+
+NEXT WORK
+- Await user's externally visible PSU model/part number; inventory cannot identify it.
+- Establish board memory layout before any UDIMM purchase; raw inventory's 16 GB
+  description conflicts with actual 8 GB detection and the user's empty-slot report.
+- Consider physical board identification, controlled memory diagnostics and read-only
+  full flash backups before a release-ROMMON experiment. The recommended firmware upgrade failed during boot; see latest attempt. Keep the other router's SoC1/hybrid files separate.
+- Additional stability/traffic tests should target the unresolved concerns above.
+
+EVIDENCE
+c8375-recovery/RECOVERY-CONTEXT.txt -- detailed chronology, including failed tests
+c8375-recovery/console-logs/ -- raw and readable captures
+c8375-recovery/kernel-edac-symbols.txt -- exact initialization-function evidence
+c8375-recovery/usb-backup-MD5SUMS.txt -- verified backup-file hashes
+c8375-recovery/usb-staging-* -- extracted SoC2 staging notes/checksums
+c8375-recovery/mdc-register-header-excerpt.txt -- older public Marvell BDK excerpt
+https://lists.openwall.net/linux-kernel/2024/07/31/710
+https://www.kernel.org/doc/html/v6.6/admin-guide/kernel-parameters.html
+https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html
+
+FAN CYCLING FOLLOW-UP (2026-10-23 about 11:15 local)
+User reports repeated fan ramp up/down. Reconnected console capture after old
+exec process was unavailable. No reset or break sent. Samples show CPU 34-35 C,
+inlets 27/25 C, outlets 25/28 C, board 27 C; all normal, no environmental
+threshold alarms. Chassis fan RPM samples 5280-5520, all normal; measured power
+34-36 W and rails normal. IOS filtered log only showed startup fan insertion
+and missing PSU bay 1 alarm, no fan-failure or thermal alerts. P0 remains
+Unknown/incompatible, P1 empty, P2 C8300-FAN-1R OK. Control processor Healthy,
+57% RAM used, CPUs online. Have not captured a large RPM surge in these
+snapshots, and PSU fan telemetry is unavailable. Cause remains unconfirmed.
+Asked user whether sound originates in PSU vs chassis and ramp frequency.
+Cisco environment guide says displayed sensors update every 60 seconds, so
+short surges may be missed. No fan speed override or configuration change made.
+
+RECOMMENDED ROMMON UPGRADE ATTEMPT -- 2026-10-23 ~11:27 local
+User explicitly authorized flashing Cisco recommended 17.18(3r).s2.cp.
+Cisco 26.2 notes prescribe upgrade rom-monitor filename bootflash:<pkg> all,
+then reload. Current console exec 34548, raw 20261023-111440-console.log.
+Copied exact original SoC2 raw image to bootflash:rommon-17.18-3r-soc2.bin,
+MD5 82c750449cd0ed8609296f2e89ef6ddf matched vendor/local. CLI rejected raw
+file as corrupt/not a valid package; no reported programming at this step.
+Copied original firmware_mirabile_soc2.pkg to bootflash:rommon-17.18-3r-soc2.pkg,
+MD5 a0856bd81efaa8f2f08e8cec2f2e8b55 matched local original.
+Command upgrade rom-monitor filename bootflash:rommon-17.18-3r-soc2.pkg all
+accepted package, said single ROMMON, Booted/Selected 1, secure upgrade at
+reload. It copied environment (128KB + 64KB +64KB) and switched ROM0 to write
+verified environment, then back ROM1. Said ROMMON upgrade complete, restart RP.
+This was STAGING SUCCESS ONLY, NOT PROOF FIRMWARE UPDATED.
+Sent reload, declined saving modified running config (temporary packet-test
+configs had already been cleaned; no intended new configuration), confirmed.
+Boot still old firmware, provisioning security state, 16 cores/8GB. Detected
+secure upgrade request, entered integrity/signature verification, identified:
+ Current Version: SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Release
+ Update Version: v17.18(3r).s2.cp
+then failed exactly:
+ %ERROR: Locate BIOS protection protocol failed
+ StartImage returned 8
+ Unable to start package Status = 8
+ %ERROR% Failed to launch upgrade
+ Continuing with current ROMMON version ...
+Continued ChipGuard UUID failure then normal bootflash:packages.conf boot.
+16 CPUs online and EDAC blacklist confirmed on kernel command line.
+Boot later says old ROMMON manual upgrade required. Awaiting full IOS startup.
+No manual SPI writes or protection/security changes were performed.
+Inspection of exact IOS upgrade script shows capsule path selected based on
+current ROMMON capability bits; failed LocateProtocol suggests old dev firmware
+lacks required BIOS protection interface. Cause inferred, not fully established.
+No relevant exact-error Cisco public documentation found in web search.
+Do not retry same package/reload expecting a different result without new evidence.
+
+POST-ATTEMPT CHECKS
+IOS 26.2.1 returned to Router#; show version confirms bootflash:packages.conf,
+last reload Reload Command. show rom-monitor R0 confirms old v9.2.1 development
+still installed. F0/R0 active OK; built-in 4M-2xSFP+ still booting at initial
+1m22s check. P0 incompatible unchanged. bootflash:EFI/UpdateCapsule/ does not
+exist after failed attempt (no manual cleanup performed). No second reload done.
+
+Built-in 4M-2xSFP+ module subsequently came ONLINE at IOS clock18:50:14.602.
+show install summary confirms IMG C26.02.01.0.263, auto abort timer inactive.
+
+User requested console access for configuration. Sent bridge close action,
+process exited 0 and serial port released. Capture stopped. Console settings
+remain /dev/cu.usbserial-AL00F7EQ, 115200 8N1, no flow control. User may now
+change configuration; inspect current state before further changes on resume.
+
+RESUMED FOR RAW ROMMON BACKUP / UPGRADE -- 2026-10-23 15:17 local
+User returned console, configured SSH. Hostname now CAT3875-G2. No credentials
+requested or printed. Serial bridge exec62070, log20261023-151731-console.log.
+Saved current run config to USB C8375-ORIGINAL-BACKUPS/
+ pre-rommon-current-running-20261023.txt (6984 bytes)
+and prior startup to pre-rommon-startup-20261023.txt (3209 bytes), then copied
+running to startup successfully to preserve user's SSH setup. Original earlier
+startup remains separately backed up. Modern IOS system shell denied without
+Cisco consent-token. No token bypass/key modifications attempted.
+Changed confreg to0x1820 in IOS, reload declined saving (SSH config already saved),
+entered ROMMON, restored confreg0x1822 and sync while stable USER_BOOT_PARAM
+remained maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init.
+For temporary diagnostic boot only (NO sync after adding parameter):
+ set USER_BOOT_PARAM "maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init rdinit=/bin/sh"
+ boot bootflash:packages.conf
+Kernel starts16CPUs, EDAC bypass. BUT serial drops at console handoff: default
+console=ttyAMA1 selects disconnected nativeUSB; RJ45 is earlycon ttyAMA0.
+Likely diagnostic shell running but inaccessible on current UART. Need correct
+next diagnostic boot to add console=ttyAMA0,115200n8 as LAST console parameter.
+Asked user to powercycle once; temporary rdinit not synced, expected to return
+normal IOS automatically withsaved0x1822. Capture active, awaiting reply/boot.
+A too-late B character duringEBF prompt just buffered intoROMMON; noEBFmenu used.
+ROMMON help has flashmon but no documentedflashread; builtin shell UEFI exists.
+Linux initrd inspected OFFLINE directly from original26.2.1bin gzip offset38665384.
+Contains /bin symlink/usr/bin, bash, busybox, dd, mount, kmod; init symlink systemd.
+KernelCONFIG_MTD_SPI_NOR=y, CADENCE_XSPI=y, USB_STORAGE=y, XHCI=y, VFAT_FS=y.
+Thus rdinit shell should permit MTDread and USBdump if UART corrected.
+Need mount proc/sys/dev, inspect /proc/mtd andblockdevices before ANYflashread.
+Do NOT confuse SPI0.CS1 4MBTPM withROM backup. SPI0.CS0 32MBflash seen inoldlogs.
+No new firmware programming attempted this resumed session. Rawflashbackups
+still NOT completed as ofthis entry. Pendingpowercycle is purely UARTrecovery.
+
+RAW SPI BACKUP SUCCESS -- 2026-10-23 ~15:32 local
+User powercycled after first diagnostic console issue; normal IOS boot returned
+with savedSSH config intact. Sent IOSconfreg0x1820,reload toROMMON again.
+ROMMON input line limit <160 bytes (122-bytecommand accepted). Accepted UNSAVED:
+ set USER_BOOT_PARAM "maxcpus=1 rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0"
+Booted bootflash:packages.conf. This uses Linux initramfs shell directly; no
+installedIOSshell consent-token changes. failure_shell MUST be omitted here:
+it would become an init argv and sh would try to open it as a script.
+Opening ttyAMA0 reset its baud to9600, causing NUL output at115200. Closedbridge,
+enhanced rj45_serial_console.py to accept initialbaudargument and JSONbaudaction,
+opened at9600 (exec27665), got sh-5.0#. stty115200 then JSONbaud115200 restored.
+Current rawlog20261023-153046-console.log, earlier20261023-151731-console.log.
+Mounted devtmpfs automatically fromtemporarycommand; made/mounted proc andsysfs.
+/proc/mtd: mtd0 0x02000000 erasesize0x1000 spi0.0; mtd1 0x00400000 spi0.1.
+DID NOT READ mtd1 (not established ROMMON bank, possibly TPM; avoid).
+blkid identified USB/dev/sda1 labelCISCO FILES UUID4480-1609,vfat.
+Mounted USB/mnt/usb, made C8375-SPI-BACKUP-20261023/.
+Two INDEPENDENT reads:
+ dd if=/dev/mtd0 of=/mnt/usb/C8375-SPI-BACKUP-20261023/current-spi0-cs0-32MiB-read1.bin bs=65536
+ dd if=/dev/mtd0 of=/mnt/usb/C8375-SPI-BACKUP-20261023/current-spi0-cs0-32MiB-read2.bin bs=65536
+Each512records,33554432bytes,11.46seconds. BothSHA256identical:
+72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107
+Saved SHA256SUMS.txt, README.txt, mtd-layout.txt, diagnostic-boot-command-line.txt,
+original-runtime.dtb copiedfrom/sys/firmware/fdt, anddiagnostic-dmesg.txt.
+These are full activeSPI0CS0 reads; physicalgoldenbankmappingunconfirmed.
+Rawdumpsmayincludeuniquedevicedata, doNOTpublish. Notflashmonupgradeimages.
+Verified USB17.18SoC2raw SHA256again matchescfcf1ae38c2886e9d28138d3428636c2c8345b903bbef522f8e9ebfb363ff985.
+sync andUSBumount completedcleanly. Sent busybox reboot -f toreturnROMMON;
+confregcurrently0x1820, needrestore0x1822 beforefinalnormalboot.
+No newROMMONprogrammingyet. Next: nativeflashmonoriginalSoC2rawtoPRIMARYONLY.
+
+NATIVE PRIMARY FLASH IN PROGRESS -- 2026-10-23 ~15:35 local
+After cleanUSBumount, busybox reboot -f returnedROMMON1 withconfreg0x1820.
+Restored stable USER_BOOT_PARAM "maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init",
+confreg0x1822, sync BEFOREprogramming. helpflashmon reconfirmed1/p primary2/g golden.
+UserauthorizedROMMONupgrade; entered:
+ flashmon usb0:/C8375-E-G2-ROMMON-17.18-3r/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin 1
+then yconfirmation. File readsuccess, primaryErase&Program inprogress.
+DoNOTinterruptpower/reset/serialwritewhileprogramming. GoldenNOTtargeted.
+Updaterprintedmonitorenvironmentprotect1F30000-1F4FFFF, manufacturingprotect
+FD0000-0002FFFF (backwards/nonsensicalendpointASPRINTED; doNOTreinterpretasverifiedmap),
+uncoveredareaprotectFD0000-1FFEFFF. Programmingrange00000000-00FCFFFF.
+Await100%successandprompt BEFOREreset. Captureexec27665,115200baudnow.
+
+NATIVE FLASH FAILED VERIFICATION -- DO NOT ASSUME FULLY VALID FLASH
+Programmingcompleted three ranges:
+00000000-00FCFFFF;01001000-01F2FFFF;01F50000-01FFFFFF.
+Despite declared uncoveredarea protection, upperrangeswerewritten too.
+Verify00000000-00FCFFFFreportedOK;01001000-01F2FFFFreportedFAIL at73%overall:
+ spi: failed to program BIOS firmware (CRC Error)
+ monitor: failed to burn BIOS!
+ReturnedROMMON6stillrunningoldfirmwareinRAM. DID NOT RESET.
+InsteadsettemporaryoneCPUdiagnosticshellagain, bootedpackages.confWITHOUTreset,
+shellUARTagain9600->stty115200->host115200. Mountedproc/sysfs/USB.
+Nowreading32MBpostwrite toUSB after-native-flash-crc-failure.bin.
+Needcomparefirst253x64KBwithnewimage SHA cfcf..., andcheckprotectedmanufacturing
+andENVandupperrangesagainstoriginal. Oldupdaterappears to mishandle uncovered
+area; doNOTretryblindlyorresetuntilreadbackassessed.
+Installedmonopkgcontains/usr/sbin/flash_erase ifexactMTDrecoveryneeded; initrd
+busyboxdoesNOThaveflash_erase. CanmountinternalbootflashROandmonopkgsquashfs
+loopoffset4096RO toaccessnativeARMutility. No LinuxMTDwritesattemptedyet.
+
+POSTWRITE READBACK AND CONTROLLED REPAIR -- 2026-10-23 ~15:42 local
+BooteddiagnosticLinuxWITHOUTresetusingoldROMMONstillRAM, recoveredRJ459600->115200.
+Read/dev/mtd0full32MBtoUSBafter-native-flash-crc-failure.bin(11.47s).
+Readbackfirst253x65536bytes SHA256EXACTnewSoC2cfcf1ae38c2886e9d28138d3428636c2c8345b903bbef522f8e9ebfb363ff985.
+Manufacturing/protectedgap0xFD0000-0x1000FFF(49x4096)hashmatchesorigandpost:
+f468c51fcf71e7817b399ef276649550fe15a0ee0dd915900301d9ddf44de2a7.
+Upper0x1001000-0x1F2FFFF(3887x4096)origSHAf92453e134d61f3ce925cd36a3363618ebd3105e7458f1af7cf9bd86f45a3409,
+postSHAde2fdaf0d231a492bbeb59c02139c040121b0139178dd1b150ae4f240808f0aa.
+Tail0x1F50000-0x1FFFFFF(176x4096)origSHAf7eee45125ebfc99b2de05a1a81476d44595d20ee71d13d106907f8c1aa9eff2,
+postSHA79f7d054f5b5c066997524ae9da5c83a78f5dcd8dea6dc1fc4b6ad936cd75e2a.
+ThusvalidnewpayloadfirstFD0000,butunexpectedupperwritesneedrepairbeforeboot.
+Mounted/proc,/sys,USB/mnt/usb. SetRAMONLYEDACpolling600000ms onthese3paths
+/sys/devices/system/edac/{cpu,mdc,llc}/poll_msec; allreadback600000. Avoidedunbind
+becauseMarvellremovehandlerunregistersdeviceinsidecallback,unverifiedsafe.
+Mountedinternal/dev/mmcblk0p1 at/mnt/bootflash RO,noload; installedmonopkgmounted
+squashfsRO,loop,offset4096 at/mnt/mono. Nativeflash_eraseutilityavailablethere;
+helpconfirms MTD_DEVICE start-offset block-count. /proc/mtd0erasesize4096.
+ReverifiedoriginalUSBfullbackupSHA72fc...5107. BuiltRAM/tmp/expected-spi.bin:
+- copyoriginal32MBbackup
+- overlayEXACToriginalSoC2raw16,580,608bytesat0 (ddbs65536convnotrunc)
+- overlayCURRENTpostwriteenvironment0x1F30000-0x1F4FFFF(32x4096)frompostdump
+Thispreservesoriginalmanufacturing/alluncoveredbytesbutkeepscurrentstableenv.
+Expected32MBhash68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b.
+Copiedcandidatefullimage toUSB C8375-SPI-BACKUP-20261023/candidate-17.18-3r-with-preserved-data.bin.
+Userinformedunexpectedbeyondfilewrites,restoreextraareasfrombackupthenfullverify.
+CurrentlyRUNNINGfirstrepaircommand;DONOTRESET:
+ /mnt/mono/usr/sbin/flash_erase -q /dev/mtd0 0x1001000 3887 && dd if=/tmp/expected-spi.bin of=/dev/mtd0 bs=4096 skip=4097 seek=4097 count=3887 conv=notrunc
+Nextwaitforcompletion/prompt,thenrestoretailrange0x1F50000count176withsameexpectedsource
+skip/seek8016. ThenreadWHOLE32MBandhashcompareEXPECTED68c...88b BEFOREanyreset.
+KernelEDACpollpostponed10minutesfrom~15:41; re-postponeifneededwhenprompt.
+Noresetafterflashyet;stilloldfirmwareloadedRAM. Consoleexec27665baud115200.
+
+CONTROLLED REPAIR COMPLETED AND VERIFIED -- 2026-10-23 ~15:47
+flash_erase-q0x1001000count3887completedwithoutreportederrors; ddexpectedfile
+skip/seek4097count3887wrote15,921,152bytesin26.09sec. Tailflash_erase-q0x1F50000
+count176then ddskip/seek8016count176wrote720896bytesin1.18sec. Mainfirmware
+0-FCFFFF, manufacturingFD0000-1000FFF andenvironment1F30000-1F4FFFFNOTwritten
+bytheseLinuxrepaircommands. Read/dev/mtd0WHOLE32MiBtoUSBverified-17.18-3r-readback.bin.
+ReadbackSHA256EXACTexpected68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b.
+Savedverified-17.18-3r-SHA256SUMS.txtandprogramming-and-repair-notes.txtonUSB.
+Syncdone;umountmonopkgRO,bootflashRO,USBsent;awaitpromptthenreboot-f.
+NEWROMMONbootcompatibilitySTILLUNTESTED.Nogolden-targetedcommandwasissued;
+backupandrepairpertainedactiveSPI0CS0full32MB (physicalbankmappingunconfirmed).
+
+NEW FIRMWARE FIRST RESET -- SILENT SO FAR
+USB,internalROmountsallunmountedcleanly. busybox reboot -f sentafterfullflash
+readbackverified. Unlikeoldfirmware, noSCPorROMMONoutputyet. Waitedmultiplepolls;
+askedusercoldpowercycle10sec disconnected toresetflashdevicehardwarestate.
+Readoriginalupgradeimagefirst64KiBallFF,next0x10000beginsTIMheaderHMIT. SoC1
+imagealsosameformat; thisaloneNOTevidencethatfirst64KiBshouldbedifferent.
+NoRSA/fuse/securitystatechangeattempted.Noverifiedgoldenbankselectionprocedure.
+CiscoresetbuttondocumentationdescribesIOSgolden.bin/configrecovery,NOTSPIgolden
+bankselection; donotconfusethem orrecommendbuttonasfirmwarebankfixwithoutproof.
+TargetedMacARPlookupknownchassisMACprefixdidnotfindentry;noSSHIPknownfromuser.
+
+USER CONFIRMED COLD POWER CYCLE -- 2026-10-23 ~15:50 local
+User saidbackon. CaptureonlybriefT/NULnoise, noSCPorROMMONbannerseen yet.
+Checked9600withEnter(noresponse), restored115200withEnter. Awaitingfullcoldboot
+anduserLED/fan/SSHreachabilityplusSSH-IPanswer. No reboot/power-cycle loops requested.
+DoNOTclaimfailureatconsolealoneifSSH/LEDsindicateboot; verifyreachabilityfirst.

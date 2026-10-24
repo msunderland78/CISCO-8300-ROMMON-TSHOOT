@@ -1,0 +1,26 @@
+set modem type direct
+set carrier-watch off
+set exit hangup off
+set exit warning off
+set line /dev/cu.usbserial-AL00F7EQ
+if fail exit 1 Serial port open failed
+set speed 115200
+set flow-control none
+set parity none
+set file type binary
+set file names literal
+set file display brief
+set send packet-length 1024
+set window-size 1
+set block-check 3
+set retry-limit 20
+set input echo on
+log session /Users/games/Documents/SOFTWARE/router-console-logs/20261022-hybrid-kermit-console.log
+log transactions /Users/games/Documents/SOFTWARE/router-console-logs/20261022-hybrid-kermit-transfer.log
+send /Users/games/Documents/SOFTWARE/experimental-recovery/soc1-experimental-older-signed-loader.bin.lzma recovery.lzma
+if fail exit 1 Kermit transfer failed
+echo KERMIT_TRANSFER_COMPLETE
+input 300 {Choice:}
+if fail exit 2 Timed out waiting for recovery menu after transfer
+echo RECOVERY_MENU_RETURNED
+exit 0

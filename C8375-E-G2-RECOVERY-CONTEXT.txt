@@ -1,0 +1,208 @@
+C8375-E-G2 / CRESTONE RECOVERY CONTEXT
+Updated 2026-10-23, America/New_York
+Workspace /Users/games/Documents/SOFTWARE
+Separate from C8235-G2. Read this current summary before older chronology.
+
+CURRENT STATE -- ROUTER DOES NOT BOOT AFTER RECOMMENDED ROMMON EXPERIMENT
+- Original development ROMMON was successfully backed up with TWO independent
+  complete 32 MiB SPI reads. Both hashes match. Copies now verified on USB AND Mac.
+- Cisco-recommended 17.18(3r).s2.cp payload was programmed to the primary target.
+  Native updater mishandled regions beyond the image and failed CRC there.
+  Those extra regions were restored from original backup under Linux, and the
+  entire resulting 32 MiB flash was read back and VERIFIED against expected image.
+- Despite valid flash contents, soft restart and user-confirmed cold power cycle
+  produced no normal SCP/ROMMON/IOS output. User reports blinking RED STATUS LED,
+  other LEDs solid green, fans MAX. Cisco documents blinking red as hardware
+  integrity failure. Exact failing stage/cause is not established.
+- This is NOT a successful ROMMON upgrade or currently working IOS router.
+- User was told to power router OFF and move USB to Mac. USB is now on Mac.
+  Do not ask repeated power cycles without a new, evidence-based recovery step.
+- Serial bridge closed cleanly at end. Capture is STOPPED and port released.
+- Next practical step: identify physical flash/chip/bank and use programmer to
+  restore exact original SPI dump. Programmer ordered for separate C8235 arrives
+  in days. Confirm compatibility, chip package, voltage and pin mapping first.
+  A software restoration through the currently silent console is unavailable.
+- No fuse, TPM provisioning, secure-boot key/lifecycle changes were attempted.
+  No explicit golden-ROM-targeting command was issued. Physical bank mapping is
+  unconfirmed; do NOT claim golden bank contents/status solely from ROM labels.
+
+USER INTENT
+User wants usable router, is open to recovery experiments, explicitly authorized
+recommended ROMMON flashing and later asked for full backup and another attempt.
+User requires INSTALL MODE, not bundle mode. User configured SSH in a console
+handoff; hostname now CAT3875-G2. We did not configure credentials. User's current
+running config was backed up and saved to startup before maintenance.
+User believes fan cycling is ROMMON-related; this was not confirmed. PSU P0 also
+reported Unknown/incompatible before flash. Do not attribute cycling conclusively.
+Only DDR5 slot is EMPTY, according to user. Actual detected memory 8 GiB.
+Do not recommend buying a generic DIMM based on inventory text alone.
+
+ORIGINAL / PRE-FLASH WORKING STATE
+- IOS XE 26.2.1 activated and committed in INSTALL MODE; packages.conf on internal
+  bootflash, show install summary IMG C 26.02.01.0.263, abort timer inactive.
+- 16 CPUs, F0 active, built-in 4M-2xSFP+ module OK. Native USB console stopped
+  responding while IOS kept running; FTDI-to-RJ45 restored prompt.
+- 2-port physical cable test passed 1000/1000 1500-byte pings each direction,
+  2500 Mbps full duplex, no CRC/input/output errors or drops. Not a rated transit
+  throughput benchmark. All temporary VRFs/IPs removed, not saved.
+- CPU 34-36 C, all measured rails/temperatures Normal, fans about 5280-5520 RPM
+  in snapshots. User heard rapid loud ramps not captured by those snapshots.
+  P0 incompatible; P1 empty; fan assembly P2 C8300-FAN-1R OK. PSU label unknown.
+- Original maxcpus=24 led to EL3 exception. maxcpus=16 avoided startup failure.
+- Linux EDAC driver crashed repeatedly in octeontx_edac_wq_handler/memcpy_fromio
+  reading firmware RAS ring. Blacklisting octeontx_edac_init prevented panic.
+  This was a reporting-driver bypass, NOT proof RAM/hardware fault-free.
+- Early firmware sometimes reported MDC single/double-bit ECC, chain1/hub8/node0.
+  Exact physical block unknown; do not equate it with replaceable DIMM failure.
+- ChipGuard CPU UUID validation failed but original firmware proceeded to boot.
+
+KNOWN PREVIOUS WORKING BOOT SETTINGS
+USER_BOOT_PARAM=maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init
+BOOT=bootflash:packages.conf,12;
+Automatic boot configuration register=0x1822 (115200 console)
+Manual ROMMON configuration register=0x1820
+ROMMON set syntax requires quoted multiword value:
+ set USER_BOOT_PARAM "maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init"
+ confreg 0x1822
+ sync
+The original backup was captured with manual 0x1820 selected. After external
+restoration it may stop at ROMMON; restore known automatic settings there.
+Do not blindly use generic 0x2102, which may change baud.
+
+HARDWARE IDENTITY
+EBF mirabile-crestone r3; CN10616 B0, SKU MV-CN10616-B0-AAP, 16 cores.
+Original ROMMON SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Release DEVELOPMENT SOFTWARE,
+compiled Sep21 2023. ROMMON said Boot ROM1; SCP said SPI0.CS0 Primary image0.
+PID C8375-E-G2 VID V01, chassis FDO2742M0FK, PCA FDO27380KFQ, board version5.
+CPLD 2408272B / 2.B dated Aug27 2024. EBF board serial unknown.
+DRAM DMC2 8 GB/ch 1Rx8 UDIMM 32-bit data/4-bit ECC, total8GB DDR5 4800MT/s.
+Raw inventory descriptor said 16GB Onboard Memory, contradicting actual8GB.
+Early development hardware is suspected, not definitively proven.
+Linux SPI0.0 identified mt25qu256a 32MiB; spi0.1 generic4MiB NOT established
+as golden ROMMON. Do not read/program an assumed second chip without mapping.
+
+BACKUPS AND RESTORE ARTIFACTS -- AVAILABLE ON MAC AND USB
+USB mounted /Volumes/CISCO FILES.
+Original capture folder: C8375-SPI-BACKUP-20261023/
+Local copy: c8375-recovery/spi-backups-20261023/ (private permissions)
+ current-spi0-cs0-32MiB-read1.bin
+ current-spi0-cs0-32MiB-read2.bin
+Each 33,554,432 bytes, both SHA256:
+72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107
+These are exact unmodified full active SPI reads, NOT flashmon upgrade packages.
+They may contain unique device data; do not publish or expose them.
+Metadata includes original-runtime.dtb, dmesg, /proc/mtd, hashes, notes.
+
+READY ORIGINAL RESTORE SET:
+Mac: c8375-recovery/restore-original-20261023/
+USB: C8375-RESTORE-ORIGINAL-20261023/
+ C8375-FDO2742M0FK-ORIGINAL-SPI-32MiB.bin (same exact72fc...5107)
+ SHA256SUMS.txt
+ RESTORE-NOTES.txt
+Mac and USB restore image both independently verified after copy.
+Restoration has NOT been attempted/tested with external programmer yet.
+
+Other useful captured images (all copied to Mac and verified against USB):
+ after-native-flash-crc-failure.bin SHA256117ac567acd7dd08826d5af717dea9afdf2965099e03fb5119fa851beb73c2ca
+ candidate-17.18-3r-with-preserved-data.bin
+ verified-17.18-3r-readback.bin
+Last two both SHA25668c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b.
+They represent the NEW firmware which did NOT boot. Do not use them for the
+next restore. offline-comparison.json proves exact Cisco payload and unchanged
+outside-payload data except known environment changes. First64KiB was allFF in
+both original and new image, so that is NOT evidence of an accidentally erased
+original boot header. TIM headers/signature structures differ; cause unproven.
+
+PREEXISTING STAGED FILES PRESERVED FROM ROUTER
+USB C8375-ORIGINAL-BACKUPS/ includes:
+ SDK112310-UEFI-SoC2-SB-v11.2.7_RSA4K.img, MD5 a8b9efb975c1213525fe33bd37dc871f
+ SDK112312-Prod-SoC2-v17.15.1_13d-cp-RSA2K.pkg, MD5 d947e04256c496a7d881c7baf1778ec8
+ original-development-ios.SSA.bin, MD5 e245f58d04438feb8bbbb08c9b7d409c
+ original-startup-config.txt (2436 bytes, before installer)
+ pre-rommon-current-running-20261023.txt (6984 bytes, user's SSH setup)
+ pre-rommon-startup-20261023.txt (3209 bytes, before saving current run)
+Both staged firmware files and three config backups also copied locally to
+c8375-recovery/original-staged-firmware/ with private permissions.
+Configs may contain credentials: never print/publish them.
+These staged firmware files were not the original installed ROMMON dump and
+were NOT flashed in this session. They may be future intermediate-version leads.
+
+RECOMMENDED FIRMWARE SOURCE / INITIAL SUPPORTED ATTEMPT
+Cisco26.2 matrix: C8375 min17.15(3.2r).s2.cp, recommended17.18(3r).s2.cp.
+Source exact original embedded SoC2 from c8kg2be-universalk9.26.02.01.SPA.bin.
+USB C8375-E-G2-ROMMON-17.18-3r/; local ROMMON-extracted/soc2/.
+Raw mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin: 16,580,608 bytes (0xFD0000),
+SHA256cfcf1ae38c2886e9d28138d3428636c2c8345b903bbef522f8e9ebfb363ff985.
+Original firmware_mirabile_soc2.pkg MD5a0856bd81efaa8f2f08e8cec2f2e8b55.
+IOS upgrade rom-monitor filename raw all rejected raw as invalid package.
+Packaged form accepted and staged, copied ROMMON environment between banks.
+After reload old firmware recognized target17.18(3r) but failed:
+ %ERROR: Locate BIOS protection protocol failed
+ StartImage returned8; Failed to launch upgrade; Continuing current ROMMON.
+IOS returned successfully with old firmware at that point.
+
+LATEST NATIVE FLASH AND REPAIR -- EXACT METHOD, NOT RECOMMENDATION TO REPEAT
+Full original backups made before this write.
+ flashmon usb0:/C8375-E-G2-ROMMON-17.18-3r/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin 1
+1/p is documented primary,2/g golden. y confirmed. Programming ranges:
+ 0x00000000-0x00FCFFFF
+ 0x01001000-0x01F2FFFF
+ 0x01F50000-0x01FFFFFF
+Updater claimed uncovered-area protection but wrote beyond payload end anyway.
+It verified first range OK, second FAIL, reported CRC Error. No reset followed.
+Booted diagnostic Linux from still-running old firmware in RAM. Full postwrite
+readback proved first0xFD0000 exactly matched new payload, protected manufacturing
+0xFD0000-0x1000FFF matched original, upper uncovered regions were altered.
+Built expected32MiB image from original dump + new payload at0 + current
+postwrite environment0x1F30000-0x1F4FFFF. Hash68c...88b.
+Mounted installed mono pkg squashfs RO,loop,offset4096 to access nativeflash_erase.
+Repaired ONLY extra regions with flash_erase then dd from expected RAM image:
+ /mnt/mono/usr/sbin/flash_erase -q /dev/mtd0 0x1001000 3887
+ dd if=/tmp/expected-spi.bin of=/dev/mtd0 bs=4096 skip=4097 seek=4097 count=3887 conv=notrunc
+ /mnt/mono/usr/sbin/flash_erase -q /dev/mtd0 0x1f50000 176
+ dd if=/tmp/expected-spi.bin of=/dev/mtd0 bs=4096 skip=8016 seek=8016 count=176 conv=notrunc
+Full final32MiB device readback matched expected68c...88b exactly. Synced and
+unmounted all mounted filesystems cleanly, then busybox reboot-f. Result: silent
+boot, red flashing STATUS after cold cycle. Original complete restore dump exists.
+
+DIAGNOSTIC LINUX ACCESS METHOD (ONLY IF ORIGINAL ROMMON CAN RUN AGAIN)
+Modern IOS system shell requires Cisco consent token; did not modify/bypass token.
+Instead used original signed installed IOS initrd and temporary UNSAVED ROMMON:
+ set USER_BOOT_PARAM "maxcpus=1 rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0"
+ boot bootflash:packages.conf
+ROMMON command input limit accepted122bytes, rejected160bytes. No sync after
+this temporary parameter. Omit failure_shell: bare flags become init argv.
+Default kernel console ttyAMA1 is disconnected nativeUSB. Shell explicitly
+redirected to RJ45 ttyAMA0. Opening that tty set9600baud: change Mac bridge to9600,
+get sh-5.0#, stty115200, change bridgeback115200. Do not powercycle unnecessarily.
+Make/mount /proc and /sys; devtmpfs already mounted. USB/dev/sda1 labelCISCO FILES,
+UUID4480-1609 vfat. /dev/mtd0=spi0.0 size33554432 erase4096; do not assume mtd1.
+Read via dd if=/dev/mtd0 of=<USBfile> bs65536 (11.46sec), two reads matched.
+For longer diagnostic work, RAM-only EDAC poll_msec set600000 on
+/sys/devices/system/edac/{cpu,mdc,llc}/poll_msec to defer buggy polling.
+Did not unbind drivers because remove-handler safety uncertain.
+Internal eMMC /dev/mmcblk0p1 was mounted ro,noload at/mnt/bootflash; mono pkg
+mounted squashfs ro,loop,offset4096 at/mnt/mono. Never erased eMMC.
+
+CONSOLE / EVIDENCE
+/dev/cu.usbserial-AL00F7EQ,1152008N1,no flow control. Capture now CLOSED.
+c8375-recovery/rj45_serial_console.py now supports optional initial baud argv
+and JSON {"baud":9600}, as well as {"send":"...\r"},{"break":true},{"close":true}.
+Last session27665closed; logs20261023-151731-console.log and153046-console.log.
+Older logs100652,102849,103319,111440 retained. Native USB old portusbmodem4101.
+c8375-recovery/native-flash-failure-20261023.txt: compact exact failure.
+c8375-recovery/context-history-through-20261023-rommon-attempt.txt: full chronology.
+c8375-recovery/RECOVERY-CONTEXT.txt: earlier chronological notes.
+Do not re-read all old captures unless needed; this summary supersedes them.
+
+SOURCES
+Cisco26.2 ROMMON matrix/procedure:
+https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html
+Cisco8300 hardware LED meanings:
+https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/hardware_installation-guide/secure-8300-series-hig/m-overview.pdf
+Marvell EDAC driver:
+https://lists.openwall.net/linux-kernel/2024/07/31/710
+Linux init main.c, serial-console docs and kernelparameters were inspected for
+initrd diagnostic access. No exact public Cisco BIOS-protection-error fix found.
+Cisco reset-button golden.bin means IOS/config recovery, NOT demonstrated SPI
+bank selection. Do not confuse those meanings.

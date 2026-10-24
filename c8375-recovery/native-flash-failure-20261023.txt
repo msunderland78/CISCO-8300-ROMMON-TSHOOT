@@ -1,0 +1,20 @@
+spi: flash region blk number(0 - 0x1FFF), blk size = 4096
+spi: protecting monitor environment
+region [0x01F30000 - 0x01F4FFFF]
+spi: protecting board manufacturing data
+region [0x00FD0000 - 0x0002FFFF]
+spi: proecting the rommon image uncovered area
+region [0x00FD0000 - 0x01FFEFFF]
+Erase & Program 0x00000000 - 0x00FCFFFF ...   0% DONE!
+Erase & Program 0x01001000 - 0x01F2FFFF ...  49% DONE!
+Erase & Program 0x01F50000 - 0x01FFFFFF ...  97% DONE!
+Verifying 0x00000000 - 0x00FCFFFF ...   0% OK!
+Verifying 0x01001000 - 0x01F2FFFF ...  49% FAIL!
+spi: failed to program BIOS firmware (CRC Error)
+monitor: failed to burn BIOS! usb0:C8375-E-G2-ROMMON-17.18-3r/mirabile_soc2_uefi
+64_rel_ios_upgrade_SPA.bin
+rommon 6 > 
+[TX 2026-10-23T15:38:15.452005] b'set USER_BOOT_PARAM "maxcpus=1 rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0"\r'
+set USER_BOOT_PARAM "maxcpus=1 rdinit=/bin/sh -c mount${IFS}-tdevtmpf
+s${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0"
+rommon 7 > 

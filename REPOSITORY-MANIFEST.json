@@ -1,0 +1,1715 @@
+{
+  "excluded_local_files": [
+    {
+      "bytes": 10244,
+      "path": ".DS_Store",
+      "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
+    },
+    {
+      "bytes": 6148,
+      "path": "ROMMON-extracted/.DS_Store",
+      "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
+    },
+    {
+      "bytes": 6148,
+      "path": "board-photos/.DS_Store",
+      "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
+    },
+    {
+      "bytes": 8196,
+      "path": "c8375-recovery/.DS_Store",
+      "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
+    },
+    {
+      "bytes": 378868,
+      "path": "c8375-recovery/console-logs/20261023-100652-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 373320,
+      "path": "c8375-recovery/console-logs/20261023-100652-readable.txt",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 247,
+      "path": "c8375-recovery/console-logs/20261023-102849-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 244,
+      "path": "c8375-recovery/console-logs/20261023-102849-readable.txt",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 315980,
+      "path": "c8375-recovery/console-logs/20261023-103319-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 311112,
+      "path": "c8375-recovery/console-logs/20261023-103319-readable.txt",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 0,
+      "path": "c8375-recovery/console-logs/20261023-111437-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 72867,
+      "path": "c8375-recovery/console-logs/20261023-111440-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 101423,
+      "path": "c8375-recovery/console-logs/20261023-151731-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 156993,
+      "path": "c8375-recovery/console-logs/20261023-153046-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 87489,
+      "path": "c8375-recovery/console-logs/20261023-boot-readable.txt",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 17870,
+      "path": "c8375-recovery/historical-17.15.6-boot-2026-10-22.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 2436,
+      "path": "c8375-recovery/original-staged-firmware/original-startup-config.txt",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 6984,
+      "path": "c8375-recovery/original-staged-firmware/pre-rommon-current-running-20261023.txt",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 3209,
+      "path": "c8375-recovery/original-staged-firmware/pre-rommon-startup-20261023.txt",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 33554432,
+      "path": "c8375-recovery/spi-backups-20261023/after-native-flash-crc-failure.bin",
+      "reason": "intermediate failed-write dump contains detected credential material; exact original retained locally"
+    },
+    {
+      "bytes": 892178432,
+      "path": "c8kg2be-17.15.06-inspection/c8kg2be-mono-universalk9.17.15.06.SPA.pkg",
+      "reason": "full IOS-XE image or large mono package"
+    },
+    {
+      "bytes": 942952448,
+      "path": "c8kg2be-26.01.01-inspection/c8kg2be-mono-universalk9.26.01.01.SPA.pkg",
+      "reason": "full IOS-XE image or large mono package"
+    },
+    {
+      "bytes": 6148,
+      "path": "c8kg2be-26.02.01-extracted/.DS_Store",
+      "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
+    },
+    {
+      "bytes": 6148,
+      "path": "c8kg2be-26.02.01-extracted/mono/.DS_Store",
+      "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
+    },
+    {
+      "bytes": 6148,
+      "path": "c8kg2be-26.02.01-extracted/mono/firmware/.DS_Store",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 5684280,
+      "path": "c8kg2be-26.02.01-extracted/mono/firmware/host/firmware_mirabile_soc1.pkg",
+      "reason": "full IOS-XE image or large mono package"
+    },
+    {
+      "bytes": 5813308,
+      "path": "c8kg2be-26.02.01-extracted/mono/firmware/host/firmware_mirabile_soc2.pkg",
+      "reason": "full IOS-XE image or large mono package"
+    },
+    {
+      "bytes": 6148,
+      "path": "c8kg2be-26.02.01-extracted/mono/usr/.DS_Store",
+      "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
+    },
+    {
+      "bytes": 6148,
+      "path": "c8kg2be-26.02.01-extracted/mono/usr/binos/.DS_Store",
+      "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
+    },
+    {
+      "bytes": 962338816,
+      "path": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+      "reason": "full IOS-XE image or large mono package"
+    },
+    {
+      "bytes": 6148,
+      "path": "c8kg2be-26.02.01-extracted/rommon/.DS_Store",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 5683200,
+      "path": "c8kg2be-26.02.01-extracted/rommon/firmware_mirabile_soc1.iso",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 5812224,
+      "path": "c8kg2be-26.02.01-extracted/rommon/firmware_mirabile_soc2.iso",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 6148,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/.DS_Store",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 748,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/.pkginfo",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 6148,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/.DS_Store",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 6148,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/.DS_Store",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 6148,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/.DS_Store",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13722320,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA/capsule.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13697024,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA/latest.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13697024,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 57,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 65,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13722320,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 58,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 66,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13722320,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA_E/capsule.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13697024,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA_E/latest.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13697024,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA_E/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 57,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA_E/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 65,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA_E/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13722320,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA_E/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 58,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA_E/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 66,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/ARATA_E/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13722320,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/SHASTA/capsule.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13697024,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/SHASTA/latest.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13697024,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/SHASTA/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 57,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/SHASTA/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 65,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/SHASTA/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13722320,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/SHASTA/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 58,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/SHASTA/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 66,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/SHASTA/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13722320,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/WHITNEY/capsule.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13697024,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/WHITNEY/latest.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13697024,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/WHITNEY/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 57,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/WHITNEY/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 65,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/WHITNEY/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 13722320,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/WHITNEY/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 58,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/WHITNEY/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 66,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc1/rommon/esg/RP/WHITNEY/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 730,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/.pkginfo",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16605904,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/CRESTONE/capsule.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16580608,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/CRESTONE/latest.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16580608,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/CRESTONE/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 57,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/CRESTONE/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 65,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/CRESTONE/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16605904,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/CRESTONE/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 58,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/CRESTONE/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 66,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/CRESTONE/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16605904,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/WILSON/capsule.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16580608,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/WILSON/latest.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16580608,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/WILSON/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 57,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/WILSON/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 65,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/WILSON/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16605904,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/WILSON/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 58,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/WILSON/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 66,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/esg/RP/WILSON/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16605904,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/BENDER/capsule.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16580608,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/BENDER/latest.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16580608,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/BENDER/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 57,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/BENDER/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 65,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/BENDER/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16605904,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/BENDER/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 58,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/BENDER/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 66,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/BENDER/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16605904,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/FRY/capsule.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16580608,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/FRY/latest.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16580608,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/FRY/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 57,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/FRY/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 65,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/FRY/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 16605904,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/FRY/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 58,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/FRY/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 66,
+      "path": "c8kg2be-26.02.01-extracted/rommon/soc2/rommon/mcp/RP/FRY/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "reason": "redundant ROMMON extraction; canonical files in ROMMON-extracted/"
+    },
+    {
+      "bytes": 1048008916,
+      "path": "c8kg2be-universalk9.26.02.01.SPA.bin",
+      "reason": "full IOS-XE image or large mono package"
+    },
+    {
+      "bytes": 773527,
+      "path": "purchase-research/B01CYA9BTY-listing-snapshot.html",
+      "reason": "raw shopping-page capture; excerpts retained"
+    },
+    {
+      "bytes": 1069799,
+      "path": "purchase-research/B07V2M5MVH-listing-snapshot.html",
+      "reason": "raw shopping-page capture; excerpts retained"
+    },
+    {
+      "bytes": 1200055,
+      "path": "purchase-research/B07WCB2PZ2-listing-snapshot.html",
+      "reason": "raw shopping-page capture; excerpts retained"
+    },
+    {
+      "bytes": 1080049,
+      "path": "purchase-research/B0BYSRSZPC-listing-snapshot.html",
+      "reason": "raw shopping-page capture; excerpts retained"
+    },
+    {
+      "bytes": 80321,
+      "path": "router-console-logs/20261022-185728-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 3966,
+      "path": "router-console-logs/20261022-191128-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 9110,
+      "path": "router-console-logs/20261022-191815-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 5158,
+      "path": "router-console-logs/20261022-192806-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 70646,
+      "path": "router-console-logs/20261022-ROMMON-recovery-readable.txt",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 0,
+      "path": "router-console-logs/20261022-hybrid-kermit-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 601,
+      "path": "router-console-logs/20261022-hybrid-kermit-transfer.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    }
+  ],
+  "included": [
+    {
+      "bytes": 229,
+      "path": ".gitattributes",
+      "sha256": "8cd5776bdf5d55a395c56fafb9150b6517d3cea4df6d311fd64fe74bf7f1e924"
+    },
+    {
+      "bytes": 63,
+      "path": ".githooks/pre-commit",
+      "sha256": "b16112fef49ef54dbeb58ecd78d977fe7d66dd3102ffb59a18321d571bf4afeb"
+    },
+    {
+      "bytes": 138,
+      "path": ".githooks/pre-push",
+      "sha256": "8561a441643ae1808077c06b7a189e8e12f5b59c33abb57247df9a60630f8170"
+    },
+    {
+      "bytes": 450,
+      "path": ".github/workflows/repository-check.yml",
+      "sha256": "50101efaa64d10b65422b748d38827f5929f6252a3340436e5a0a3e8807f2b3d"
+    },
+    {
+      "bytes": 1218,
+      "path": ".gitignore",
+      "sha256": "9fde1bf4c9a6f4018a5e58f151100d9eab76e6e0ad1859c7665f0ace31ff7798"
+    },
+    {
+      "bytes": 1882,
+      "path": "AGENTS.md",
+      "sha256": "ae3d8c03a5f5e306ad892b0cc1e5b596505b7b30bff5d128b90178bd38fdfcfa"
+    },
+    {
+      "bytes": 28062,
+      "path": "C8235-G2-RECOVERY-CONTEXT.txt",
+      "sha256": "26ec32134f435604038892a213895b1534a8395585fa2b8d94ec04d4096fd3c2"
+    },
+    {
+      "bytes": 13235,
+      "path": "C8375-E-G2-RECOVERY-CONTEXT.txt",
+      "sha256": "dfb30c0fdb7f612d6eeddd9900a5dc9e7792424e6d5f1ced632d67350dfe8fec"
+    },
+    {
+      "bytes": 42009,
+      "path": "C8375-G2-RECOVERY-CONTEXT.md",
+      "sha256": "2ecb53c02c715f2c4fad45a7d5ed51bf8dc6a574bffce64f9324c22c2948dd35"
+    },
+    {
+      "bytes": 7085,
+      "path": "README.md",
+      "sha256": "cfbfeab2f74aad5a0f16f5cb32adcb869ee0c2411c85f21708928781667f79ad"
+    },
+    {
+      "bytes": 3934,
+      "path": "ROMMON-extracted/README.txt",
+      "sha256": "acc1d130f38781e9b46e4273c80e2aacc7d026de79a770c2b454cdbaee4f750b"
+    },
+    {
+      "bytes": 1854,
+      "path": "ROMMON-extracted/SHA256SUMS.txt",
+      "sha256": "ffbd7166607e9bb5437d547b5162de9a7ee38d17c8d9c5d88a49833103895a89"
+    },
+    {
+      "bytes": 3983,
+      "path": "ROMMON-extracted/manifest.json",
+      "sha256": "5231d9223dbdd833a5cd51a3461664d1497b70504777282e2ff8d07bd68b665f"
+    },
+    {
+      "bytes": 5684280,
+      "path": "ROMMON-extracted/soc1/firmware_mirabile_soc1.pkg",
+      "sha256": "688cefcc295866076ab9edafa04f4a773cb8d8140fc2d79af2f950b662c55eb0"
+    },
+    {
+      "bytes": 13697024,
+      "path": "ROMMON-extracted/soc1/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin",
+      "sha256": "a84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e"
+    },
+    {
+      "bytes": 57,
+      "path": "ROMMON-extracted/soc1/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "sha256": "1845486978226023e0c3bc48655ccf2d35d017f7497c6e94b80c5d69c37ef97b"
+    },
+    {
+      "bytes": 65,
+      "path": "ROMMON-extracted/soc1/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "sha256": "dd9ef3faf0612900ed86b5208b06a67ac4e8d7cad7a2444a6892048794442aae"
+    },
+    {
+      "bytes": 13722320,
+      "path": "ROMMON-extracted/soc1/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin",
+      "sha256": "d29b954345740d97f8e59f60ad23673eaddaa8f24c17a05c18ae2cec33953771"
+    },
+    {
+      "bytes": 58,
+      "path": "ROMMON-extracted/soc1/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "sha256": "46b53d3d72a40e0cd5dd6edf55c6d2937de5ecd6c47dcc8541e3c1607c856775"
+    },
+    {
+      "bytes": 66,
+      "path": "ROMMON-extracted/soc1/mirabile_soc1_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "sha256": "ede19d55e1517446a1e652779ae29f8e1795035485ae8767eb45970028824bb2"
+    },
+    {
+      "bytes": 748,
+      "path": "ROMMON-extracted/soc1/package-info.txt",
+      "sha256": "9d19f8119081833345d20ba885f3a9d54711307637102700e1b4958b07a6e888"
+    },
+    {
+      "bytes": 5813308,
+      "path": "ROMMON-extracted/soc2/firmware_mirabile_soc2.pkg",
+      "sha256": "10643860f5e5b76fa43a002456a506bb2f7b24cfa2ac111f4f149f13ddb9baf5"
+    },
+    {
+      "bytes": 16580608,
+      "path": "ROMMON-extracted/soc2/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin",
+      "sha256": "cfcf1ae38c2886e9d28138d3428636c2c8345b903bbef522f8e9ebfb363ff985"
+    },
+    {
+      "bytes": 57,
+      "path": "ROMMON-extracted/soc2/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "sha256": "3e3a5dd7262abecdde971945ee3984568dc6dfd8ec10a3c39c24bf85aa1b9fe9"
+    },
+    {
+      "bytes": 65,
+      "path": "ROMMON-extracted/soc2/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "sha256": "9278b5037d6bf8ab55bdbc94d16473ea261464fd8ddb5f2dba4ce66ab71b9f08"
+    },
+    {
+      "bytes": 16605904,
+      "path": "ROMMON-extracted/soc2/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin",
+      "sha256": "2c9d7bbc41f8b932fd7acf9ece8f430ede997cfe854540fd9f962f5a62ee2b73"
+    },
+    {
+      "bytes": 58,
+      "path": "ROMMON-extracted/soc2/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "sha256": "314d55132f31b8674eb48801e59be62aed26cddb4270442e48eb2184b907e31d"
+    },
+    {
+      "bytes": 66,
+      "path": "ROMMON-extracted/soc2/mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "sha256": "a68e4289837b4966ca915ece5d7902f70e3805d4c16e1fa64edda90a5d9a5b74"
+    },
+    {
+      "bytes": 730,
+      "path": "ROMMON-extracted/soc2/package-info.txt",
+      "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
+    },
+    {
+      "bytes": 32556,
+      "path": "ROUTER-RECOVERY-TEST-PLAN.md",
+      "sha256": "7ead949165175704b826629400bf8e6c70bc6be3a07e734e2380b8b7235d3477"
+    },
+    {
+      "bytes": 6850655,
+      "path": "board-photos/IMG_1237.jpeg",
+      "sha256": "1c157273adeb9776ecca6da56d379238c5305d6b122bcfd1aecf0ae89d95b50d"
+    },
+    {
+      "bytes": 4209568,
+      "path": "board-photos/IMG_1239.jpeg",
+      "sha256": "2c68f6911195ea167b15652a8f7e6376f49148324b95dca27ecca4c5ee1fb214"
+    },
+    {
+      "bytes": 3147138,
+      "path": "board-photos/IMG_1241.jpeg",
+      "sha256": "6a2669cc3e615fcdabf17b77df846c3b17c78e6161e08041457eaca0552c68e0"
+    },
+    {
+      "bytes": 3639737,
+      "path": "board-photos/IMG_1242.jpeg",
+      "sha256": "0ba1838447755fd8f257b26b5a585e2e640bae918bc8b60eda6e80ba237bb926"
+    },
+    {
+      "bytes": 3546370,
+      "path": "board-photos/IMG_1243.jpeg",
+      "sha256": "33f02ceb3252c7b41a42615bb956124ac220e2c1be664fe4ff494832df8e84aa"
+    },
+    {
+      "bytes": 3400269,
+      "path": "board-photos/IMG_1244.jpeg",
+      "sha256": "9fed80aefbb68c3cc251ed46dd7cbf087eeb70bcb3b2f3f207ec2ca31985722f"
+    },
+    {
+      "bytes": 2550419,
+      "path": "board-photos/IMG_1245.jpeg",
+      "sha256": "07b41cb9a818feb01d1c5e2547e0d37dd8b938faad73ba321a1893965d5888e8"
+    },
+    {
+      "bytes": 3274781,
+      "path": "board-photos/IMG_1246.jpeg",
+      "sha256": "12b8eca0cb112330064b869d5ebba6b8fc2d2ae8f9226102e99d35d7bbafc37c"
+    },
+    {
+      "bytes": 7911,
+      "path": "board-photos/board-inspection-notes.txt",
+      "sha256": "bcc2b7af2f931e3495d30805613193baef00936c105feaac60dec79e441a610d"
+    },
+    {
+      "bytes": 8636360,
+      "path": "board-photos/inspection/IMG_1237-bl.png",
+      "sha256": "17968b9b25775959d7df7966219dea693a7872edea8c9e7567d3efcdfa94f601"
+    },
+    {
+      "bytes": 7469148,
+      "path": "board-photos/inspection/IMG_1237-br.png",
+      "sha256": "9d70d9166155a937a28cf090f0a5b2c00672160bb6ed109f5b2a42afda238c35"
+    },
+    {
+      "bytes": 6477489,
+      "path": "board-photos/inspection/IMG_1237-tl.png",
+      "sha256": "9b0bce95256f960a445f2d4aa0a0fc5474cda8f49c340bdca8910fce253626cb"
+    },
+    {
+      "bytes": 7514306,
+      "path": "board-photos/inspection/IMG_1237-tr.png",
+      "sha256": "6a9ddf58a3e6217b4d46345210606ae2d5ee6184704f3037a8ebd3a1a24c3676"
+    },
+    {
+      "bytes": 3600021,
+      "path": "board-photos/inspection/IMG_1239-bl.png",
+      "sha256": "5cbdaa15094ea16fa6444e86f3ae4a26312b2bb9426150f91152b7b2f67a2680"
+    },
+    {
+      "bytes": 4222615,
+      "path": "board-photos/inspection/IMG_1239-br.png",
+      "sha256": "36e35d89efe619113b2fa748330c5005264ef2bc3233c610b16604e7c442648a"
+    },
+    {
+      "bytes": 4393379,
+      "path": "board-photos/inspection/IMG_1239-tl.png",
+      "sha256": "1da45bb40eb2b8479fe01e9060e972ab9f6cd44c1e00a9fffb604f413b57aff8"
+    },
+    {
+      "bytes": 4240585,
+      "path": "board-photos/inspection/IMG_1239-tr.png",
+      "sha256": "8eed5770a2753c5ef32567ebd093b1d49b95512014208ead98449e448b0f441f"
+    },
+    {
+      "bytes": 1311096,
+      "path": "board-photos/inspection/IMG_1244-mux.png",
+      "sha256": "b61fd09bbcfee41b16a037f85db3d73a2720b34b272e896344658c29757abacf"
+    },
+    {
+      "bytes": 5212736,
+      "path": "board-photos/inspection/IMG_1245-headers.png",
+      "sha256": "1882f5a737cee89cdd32dd97623eaae965749f02c5204b1e9c10c1ae9aca2d9a"
+    },
+    {
+      "bytes": 965768,
+      "path": "board-photos/inspection/IMG_1246-flash.png",
+      "sha256": "a0db47184435b45d451ae8136abcad30d41158f160de43e6fb75ded6da4a95e3"
+    },
+    {
+      "bytes": 369244,
+      "path": "board-photos/inspection/IMG_1246-tpm.png",
+      "sha256": "7060b7c35c7937f572397108a930a55b598539d90ce37dd174b05f02761129cc"
+    },
+    {
+      "bytes": 1427257,
+      "path": "board-photos/inspection/header-labels.png",
+      "sha256": "db0b91c863403921e4782aec3ab9596637c01c8aa7ac3baf3bc8494eec3270c4"
+    },
+    {
+      "bytes": 359528,
+      "path": "board-photos/inspection/headers-soc-left.png",
+      "sha256": "b4c9f0013a8bb5bbd692a73f026127c49f9a77f76ae1c692ad6b32d1edaa3b32"
+    },
+    {
+      "bytes": 1010878,
+      "path": "board-photos/inspection/headers-top-left.png",
+      "sha256": "fd42ed7f119123c8f0cce69c934aaa0106acb79e40813cbffba40742221092c4"
+    },
+    {
+      "bytes": 997460,
+      "path": "board-photos/inspection/j4400.png",
+      "sha256": "e479c003221da8fa53f314f7decf5621c29ffcd82563d5a86205d9a4c8a72be2"
+    },
+    {
+      "bytes": 639948,
+      "path": "board-photos/inspection/suspected-flash.png",
+      "sha256": "b6a05da845cc9a90614ff982e07b683afc23984c559f3651c65b2dbf887184e5"
+    },
+    {
+      "bytes": 319,
+      "path": "board-photos/micron-RW170-decoder-result.json",
+      "sha256": "b3449fde6e72c571de6260f5758fb03a448ef7f7278d2130187a0acba691af9b"
+    },
+    {
+      "bytes": 2942,
+      "path": "c8235_serial_console.py",
+      "sha256": "b956ba64ffee87007fc6dff503cd9a35445721114d9c0368b20ef24c0b1615d9"
+    },
+    {
+      "bytes": 22807,
+      "path": "c8375-recovery/RECOVERY-CONTEXT.txt",
+      "sha256": "1272e968e39dc06e0a8c1ae91a1bb1140b4c4f0b1b76b2fc1788448a05d39883"
+    },
+    {
+      "bytes": 172399,
+      "path": "c8375-recovery/board-photos/IMG_1260-spi-pair-inspection.jpg",
+      "sha256": "010c4b7a8f6bc5538049cf1e302a1ed7ab78b4b1f1d707e27257dda5d2215346"
+    },
+    {
+      "bytes": 3723290,
+      "path": "c8375-recovery/board-photos/IMG_1260.jpeg",
+      "sha256": "e12acd4c48def4f58a078a27bfc1cd684c5e786bf9e5cbf1a10fb41154116ed7"
+    },
+    {
+      "bytes": 319,
+      "path": "c8375-recovery/board-photos/micron-RW170-decoder-result.json",
+      "sha256": "b3449fde6e72c571de6260f5758fb03a448ef7f7278d2130187a0acba691af9b"
+    },
+    {
+      "bytes": 29788,
+      "path": "c8375-recovery/context-history-through-20261023-rommon-attempt.txt",
+      "sha256": "2d5f05440ac477e025eea037a409369d49414833e1b849dc1feae2b4721f96f4"
+    },
+    {
+      "bytes": 723520,
+      "path": "c8375-recovery/initrd-evidence/busybox",
+      "sha256": "c35e5181054c7077272434f7f788184a1c810ac8cb452244ea8b42dfec75b4e7"
+    },
+    {
+      "bytes": 32607,
+      "path": "c8375-recovery/initrd-evidence/file-list.txt",
+      "sha256": "8780d400113e7d9ca2f68593e3720cafa44097ce66a53813d3f9df9ba8aa7ddd"
+    },
+    {
+      "bytes": 23,
+      "path": "c8375-recovery/initrd-evidence/init",
+      "sha256": "bcc5a82c691cc115c198a1d09bc5a151cb8904ec71819bd8e7254845a075b9ed"
+    },
+    {
+      "bytes": 181321,
+      "path": "c8375-recovery/initrd-evidence/kernel-config.txt",
+      "sha256": "dbe7201385995a76bddfd73259f5d9ff34cdbf1fd09e1495574c16fe8a93fd39"
+    },
+    {
+      "bytes": 38587,
+      "path": "c8375-recovery/initrd-evidence/linux-v6.6-main.c",
+      "sha256": "c81e14e12af6758462fc07bb32b04417fdd5a6ccfa69eb98a9bd5bdc5e9bb1af"
+    },
+    {
+      "bytes": 13,
+      "path": "c8375-recovery/initrd-evidence/listing-summary.txt",
+      "sha256": "13ef7a8b6d657f4f2c11314fd3b05032739418061f2b4fd102642ffdf55a8009"
+    },
+    {
+      "bytes": 115,
+      "path": "c8375-recovery/kernel-edac-symbols.txt",
+      "sha256": "d23f5f7905e36ec100835e586f9effaf48e614c9dd957d8b414477959d4a46cd"
+    },
+    {
+      "bytes": 32768,
+      "path": "c8375-recovery/mdc-register-header-excerpt.txt",
+      "sha256": "52d82cb5e8f44b548176c9f758e7c8dc3eda65c29216cd776f767e1035596ee9"
+    },
+    {
+      "bytes": 1021,
+      "path": "c8375-recovery/native-flash-failure-20261023.txt",
+      "sha256": "26a60703a68a4f794b0ec7af6efac2dac02bd720c2ff9b390eb669489b77b52e"
+    },
+    {
+      "bytes": 16580608,
+      "path": "c8375-recovery/original-staged-firmware/SDK112310-UEFI-SoC2-SB-v11.2.7_RSA4K.img",
+      "sha256": "5fba35fb4006cea0baf77a120b80830cfbe6bf392cf7fed1e4ae1f69b91549e5"
+    },
+    {
+      "bytes": 5753916,
+      "path": "c8375-recovery/original-staged-firmware/SDK112312-Prod-SoC2-v17.15.1_13d-cp-RSA2K.pkg",
+      "sha256": "19eee4479d00c588b7775ab2c5234f01131cd8ea89ad1a095843317897660538"
+    },
+    {
+      "bytes": 33554432,
+      "path": "c8375-recovery/restore-original-20261023/C8375-FDO2742M0FK-ORIGINAL-SPI-32MiB.bin",
+      "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107"
+    },
+    {
+      "bytes": 1935,
+      "path": "c8375-recovery/restore-original-20261023/RESTORE-NOTES.txt",
+      "sha256": "43237959ebec717a3ce055f699f19d2746a2553fc2aa176823ac48b199fafc7f"
+    },
+    {
+      "bytes": 107,
+      "path": "c8375-recovery/restore-original-20261023/SHA256SUMS.txt",
+      "sha256": "1b4fcff7896198b87f3e3bcfaefa630df1a4b2a27328240e136d5d0c3c85c5da"
+    },
+    {
+      "bytes": 3394,
+      "path": "c8375-recovery/rj45_serial_console.py",
+      "sha256": "dea82fbb9dd7d917a410f59e1fa157b15758aa0dbc778499fb7714178848c75e"
+    },
+    {
+      "bytes": 436,
+      "path": "c8375-recovery/rommon-upgrade-failure-20261023.txt",
+      "sha256": "fcb701965911cb3399977de665a60cc085f04e373a2ce84e6b8d8505c9931488"
+    },
+    {
+      "bytes": 2958,
+      "path": "c8375-recovery/serial_console.py",
+      "sha256": "76dfa4ed53503695dac6d003007b49e36d333073915b0a947f4c7c57ffe3be08"
+    },
+    {
+      "bytes": 576,
+      "path": "c8375-recovery/spi-backups-20261023/README.txt",
+      "sha256": "6fd6bbcfd1339d600fbb77334fda1f146aa961997689141cc60c2e28f1f2b5ff"
+    },
+    {
+      "bytes": 268,
+      "path": "c8375-recovery/spi-backups-20261023/SHA256SUMS.txt",
+      "sha256": "cedde419c20178d21b00528f21c01782acd0510fdb4f84701413df4575f67f20"
+    },
+    {
+      "bytes": 136,
+      "path": "c8375-recovery/spi-backups-20261023/after-native-flash-crc-failure.sha256",
+      "sha256": "d948c3c65902301988a86f4dc14f6effdb70517a1aa4c9ca2bf35980c4b3d025"
+    },
+    {
+      "bytes": 33554432,
+      "path": "c8375-recovery/spi-backups-20261023/candidate-17.18-3r-with-preserved-data.bin",
+      "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b"
+    },
+    {
+      "bytes": 33554432,
+      "path": "c8375-recovery/spi-backups-20261023/current-spi0-cs0-32MiB-read1.bin",
+      "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107"
+    },
+    {
+      "bytes": 33554432,
+      "path": "c8375-recovery/spi-backups-20261023/current-spi0-cs0-32MiB-read2.bin",
+      "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107"
+    },
+    {
+      "bytes": 607,
+      "path": "c8375-recovery/spi-backups-20261023/diagnostic-boot-command-line.txt",
+      "sha256": "3e850c8857bbe69a0f763cb3d3974c53ccaf4b61927159005f38197f872fb013"
+    },
+    {
+      "bytes": 120620,
+      "path": "c8375-recovery/spi-backups-20261023/diagnostic-dmesg.txt",
+      "sha256": "a5844f990408fe9cc962138a653673234a3b4bf327314c21be5278a6242a966f"
+    },
+    {
+      "bytes": 97,
+      "path": "c8375-recovery/spi-backups-20261023/mtd-layout.txt",
+      "sha256": "84061e264047929db8478a6ac0d600854156ca508c746b5452120faf76052530"
+    },
+    {
+      "bytes": 1563,
+      "path": "c8375-recovery/spi-backups-20261023/offline-comparison.json",
+      "sha256": "9034e7e9486820c55431e17c566ecb7087f95cb004cc48eaafa798d8151e6816"
+    },
+    {
+      "bytes": 98073,
+      "path": "c8375-recovery/spi-backups-20261023/original-runtime.dtb",
+      "sha256": "748e44aad0b765c0dd1b0daa0d27e2b669db87e64feffdf128050078b51f3331"
+    },
+    {
+      "bytes": 511,
+      "path": "c8375-recovery/spi-backups-20261023/programming-and-repair-notes.txt",
+      "sha256": "b0488fcb24f99bf879619b62bb0910ae6c6f85168c2a38125fe00e5c510c18e2"
+    },
+    {
+      "bytes": 554,
+      "path": "c8375-recovery/spi-backups-20261023/tim-header-comparison.txt",
+      "sha256": "4cac1d8b695467c35665dd2bca817dcb568297860f408504eeb30e7b8d82e172"
+    },
+    {
+      "bytes": 220,
+      "path": "c8375-recovery/spi-backups-20261023/verified-17.18-3r-SHA256SUMS.txt",
+      "sha256": "031b6b50889ffcf42d2c065918b7670039f28f725553193b29f38844a6b82b0f"
+    },
+    {
+      "bytes": 33554432,
+      "path": "c8375-recovery/spi-backups-20261023/verified-17.18-3r-readback.bin",
+      "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b"
+    },
+    {
+      "bytes": 69528,
+      "path": "c8375-recovery/upgrade-script-evidence/usr/binos/bin/flashutil",
+      "sha256": "27151e78d997b9efacd9f0930686c16475dda530c900ebcdfe1f6057edd8ad2c"
+    },
+    {
+      "bytes": 1485,
+      "path": "c8375-recovery/upgrade-script-evidence/usr/binos/conf/cyan_api.sh",
+      "sha256": "25d19163ce33a333d83f06f2239caf85c2dd2787fc812aab86e8e70dc6c7003d"
+    },
+    {
+      "bytes": 250,
+      "path": "c8375-recovery/upgrade-script-evidence/usr/binos/conf/hwutil-combined.sh",
+      "sha256": "52277032f0e9a02429ef51347434a05fa5e8d037a1f113dac8b38fbc903bb7d6"
+    },
+    {
+      "bytes": 2714,
+      "path": "c8375-recovery/upgrade-script-evidence/usr/binos/conf/hwutil.sh",
+      "sha256": "4242634e2a1d3e5257bf73899e2ab0034e1949f5b77e89d81e459751fd93cb3a"
+    },
+    {
+      "bytes": 8783,
+      "path": "c8375-recovery/upgrade-script-evidence/usr/binos/conf/mcp_script_defs.sh",
+      "sha256": "f0dc5a914c08a40efc5ec79c22c41618342f2cd4b9c7fc8b7614ae2d3780173c"
+    },
+    {
+      "bytes": 5783,
+      "path": "c8375-recovery/upgrade-script-evidence/usr/binos/conf/mcp_upgrade_rommon_ppc.sh",
+      "sha256": "f768d66ead28a2d4bf8ad7701d4eef928496166227ccfdf9c0c5bb50e9353fb5"
+    },
+    {
+      "bytes": 8549,
+      "path": "c8375-recovery/upgrade-script-evidence/usr/binos/conf/mcp_upgrade_rommon_x86.sh",
+      "sha256": "0fb1feb52caec1eee40ee657473cfc241ec98a7655ebe1d74527f7fb9c3db960"
+    },
+    {
+      "bytes": 222,
+      "path": "c8375-recovery/usb-backup-MD5SUMS.txt",
+      "sha256": "c85156e6e6d0a81de3665dc091a8a42145f84b12c244fede07c1a37131816aa6"
+    },
+    {
+      "bytes": 887,
+      "path": "c8375-recovery/usb-staging-SHA256SUMS.txt",
+      "sha256": "86639af3179f37d843b10938aa30a1e8baa6f148bc371731475520e0717dd840"
+    },
+    {
+      "bytes": 1376,
+      "path": "c8375-recovery/usb-staging-notes.txt",
+      "sha256": "527c0de754506405d66b9c5f5d943867cf8cfd9563989206100525ce85494bf0"
+    },
+    {
+      "bytes": 3764837,
+      "path": "c8kg2be-17.15.06-inspection/file-list.txt",
+      "sha256": "723bf0e02e54aa9556c29bbd2a6e6a9c3e0b760b3ffc2b35213b16a84e93b15a"
+    },
+    {
+      "bytes": 3871844,
+      "path": "c8kg2be-26.01.01-inspection/file-list.txt",
+      "sha256": "deee1d535ba4ba2a5b8beba0578dc5c8e81408d9b9b66883ab2191638dbf2e56"
+    },
+    {
+      "bytes": 113768,
+      "path": "c8kg2be-26.02.01-extracted/driver-evidence/usr/binos/conf/chasutils.sh",
+      "sha256": "f54f656097abd0d50c1893d30522880c7687ac10603d43fe0f44acd64c17a93a"
+    },
+    {
+      "bytes": 260455,
+      "path": "c8kg2be-26.02.01-extracted/driver-evidence/usr/lib/modules/6.6.95/extra/cpld/cpld_mirabile/cpldmirabile.ko",
+      "sha256": "fb9f69b76b1d1692105095528f375a3a9340e7bf88dad6c56a9006b5ad256aa8"
+    },
+    {
+      "bytes": 247471,
+      "path": "c8kg2be-26.02.01-extracted/driver-evidence/usr/lib/modules/6.6.95/extra/cpld/cpld_mirabile/cpldmirabilevirt.ko",
+      "sha256": "d78a402cc3ec02a811f7bd2dd9cdc9c35a54ea3a5e7d3f8aa12ea29cd1fb2246"
+    },
+    {
+      "bytes": 236967,
+      "path": "c8kg2be-26.02.01-extracted/driver-evidence/usr/lib/modules/6.6.95/extra/cpld/cpld_mirabile/iocomp/cpldmirabile_iocomp.ko",
+      "sha256": "29815a9fc61b1cad6fa46fd3b8a7807b8486869108a06c84355fc50aa0aa21ad"
+    },
+    {
+      "bytes": 13901,
+      "path": "c8kg2be-26.02.01-extracted/mono/usr/binos/conf/firmware_autoupgrade.sh",
+      "sha256": "f472bfd5e60b72ab63dbed33898c819ac9f45870d183618cf197db1d723f01da"
+    },
+    {
+      "bytes": 19125,
+      "path": "c8kg2be-26.02.01-extracted/mono/usr/binos/conf/mcp_upgrade_rommon.sh",
+      "sha256": "dbe894c0eceda6da1009fea9101c48a9ba71772965af4dd8c3b09897627a0b44"
+    },
+    {
+      "bytes": 14030,
+      "path": "c8kg2be-26.02.01-extracted/mono/usr/binos/conf/mcp_upgrade_rommon_cmds.sh",
+      "sha256": "b84f3ba039a4a0adfc6371741d39a7b7192168b27ba560889dbfa3a611e9ac8f"
+    },
+    {
+      "bytes": 6411,
+      "path": "c8kg2be-26.02.01-extracted/mono/usr/binos/conf/mcp_upgrade_rommon_helper.sh",
+      "sha256": "2fd77e0ae8d47892848c19d0633a85f7d0106643d885b4e078ebc70e943b15de"
+    },
+    {
+      "bytes": 42682,
+      "path": "c8kg2be-26.02.01-extracted/mono/usr/binos/conf/ovld_upgrade_rommon.sh",
+      "sha256": "ea961f4d2984ae3367b8b5b5da38ec7538c359a6fbfe28f1f65415e492a56cab"
+    },
+    {
+      "bytes": 3909619,
+      "path": "c8kg2be-26.02.01-extracted/mono-file-list.txt",
+      "sha256": "7f3414618fa6d34692e5cc11bfe0a3df054868db9dcbab32b3a8f5f66683bcf8"
+    },
+    {
+      "bytes": 669,
+      "path": "c8kg2be-26.02.01-extracted/packages/.pkginfo",
+      "sha256": "bc14f511c05f91cf25589e14c6059011c0a661bd291613d2a579d1bc302e4429"
+    },
+    {
+      "bytes": 7400,
+      "path": "c8kg2be-26.02.01-extracted/packages/packages.conf",
+      "sha256": "be04b335c6200b70f1e3dc07fcb5750f87e72a854b49836dc9536e66e3eb1ec1"
+    },
+    {
+      "bytes": 12032,
+      "path": "c8kg2be-26.02.01-extracted/platform-evidence/lua/cyan/arata.lua",
+      "sha256": "c62f7c8df8bc53c774a89c0f1f7d1b2bd618f2770f0d82af5b23e4926794cd9b"
+    },
+    {
+      "bytes": 11657,
+      "path": "c8kg2be-26.02.01-extracted/platform-evidence/lua/cyan/arata_e.lua",
+      "sha256": "bd6b7a6c523eeabc2f15683b5489dfda7d632bf021db1b71264e0cc071227d16"
+    },
+    {
+      "bytes": 12725,
+      "path": "c8kg2be-26.02.01-extracted/platform-evidence/lua/cyan/crestone.lua",
+      "sha256": "2b47c4305f33d1cebcd28d93fd8eeab2db2c1da389ac463b526bdb0c3e644a47"
+    },
+    {
+      "bytes": 12554,
+      "path": "c8kg2be-26.02.01-extracted/platform-evidence/lua/cyan/whitney.lua",
+      "sha256": "2009b803b73fb6a0859b40bc543567442b85134178d3ebf6165d985ce97c0f39"
+    },
+    {
+      "bytes": 12421,
+      "path": "c8kg2be-26.02.01-extracted/platform-evidence/lua/cyan/wilson.lua",
+      "sha256": "43e6f558e2b604ee002e3b1951b41c97e0c541fb4655d67c5f10e34fe9a200b3"
+    },
+    {
+      "bytes": 68344,
+      "path": "c8kg2be-26.02.01-extracted/platform-evidence/usr/binos/lib64/libcpa_sb_rp_base_data_arata.so",
+      "sha256": "80dcd5c94329161573657e0bbf2ac899e398387b7d93dd7187c83df7c1b7e462"
+    },
+    {
+      "bytes": 68352,
+      "path": "c8kg2be-26.02.01-extracted/platform-evidence/usr/binos/lib64/libcpa_sb_rp_base_data_arata_e.so",
+      "sha256": "2024e9c3de1756efc9e83e4f04a84a3819ad5bda9e54f3c09bf1445559ea3b9b"
+    },
+    {
+      "bytes": 68360,
+      "path": "c8kg2be-26.02.01-extracted/platform-evidence/usr/binos/lib64/libcpa_sb_rp_base_data_crestone.so",
+      "sha256": "71629cfd307ff04b9de8aa9bed50eabdf9f8522e1d68ed863a776459a545cc6c"
+    },
+    {
+      "bytes": 68352,
+      "path": "c8kg2be-26.02.01-extracted/platform-evidence/usr/binos/lib64/libcpa_sb_rp_base_data_whitney.so",
+      "sha256": "b0901eb84a7dff4f67052b8d9d9fb476aa15b861a279afe856798a7e0ae01097"
+    },
+    {
+      "bytes": 68352,
+      "path": "c8kg2be-26.02.01-extracted/platform-evidence/usr/binos/lib64/libcpa_sb_rp_base_data_wilson.so",
+      "sha256": "614b27d9a2c58f723755024da73fe405f5ce3cfe8350be0360a394ec20076d03"
+    },
+    {
+      "bytes": 55589,
+      "path": "experimental-recovery/board-data/mirabile-arata-r2-linux.dtb",
+      "sha256": "dff6ea8417ccbef0689fb02d27bb33b966807f4c3416ff3a90edb77339ee3333"
+    },
+    {
+      "bytes": 98048,
+      "path": "experimental-recovery/board-data/mirabile-arata-r2-linux.dtb.txt",
+      "sha256": "71bbe626ec2979dbd4a486ef977d655d6235c21f59a4c33cbfc72131c30cc234"
+    },
+    {
+      "bytes": 5690,
+      "path": "experimental-recovery/board-data/mirabile-arata-r2.dtb",
+      "sha256": "f6fdc7be8b16acaaa292797e88e113b4dd7d77e83fc972718fe30230072acc0c"
+    },
+    {
+      "bytes": 6119,
+      "path": "experimental-recovery/board-data/mirabile-arata-r2.dtb.txt",
+      "sha256": "8a63e68c3fa4bf8e9b23375302db8e3f4926e67a03b92a37aa41b6ed1954a9e6"
+    },
+    {
+      "bytes": 80,
+      "path": "experimental-recovery/compression-settings.json",
+      "sha256": "caeadb209b4e8101d17cacf8f00b05f4391c4d6defa53f4b913aa6253beb2084"
+    },
+    {
+      "bytes": 542,
+      "path": "experimental-recovery/manifest.json",
+      "sha256": "91b11b2b1f3b0639fbda809c01729e120580334319af64ad46024009e9c68f1f"
+    },
+    {
+      "bytes": 896,
+      "path": "experimental-recovery/send-hybrid.ksc",
+      "sha256": "5b150d7ec14aba991f129a760c8ef4f73b251519f395f6f4ff626ff7dc82b1eb"
+    },
+    {
+      "bytes": 147460,
+      "path": "experimental-recovery/soc1-00040000-payload.bin",
+      "sha256": "406e6758938ee23fc3a1985dbb8e0d3f31f830f90f340dfe7ab5b228c9d65f16"
+    },
+    {
+      "bytes": 55136,
+      "path": "experimental-recovery/soc1-000a0000-payload.bin",
+      "sha256": "3bc413959629ec868e2740f865fa690e22e952e1bb66a915711bd247ad9c23c6"
+    },
+    {
+      "bytes": 102024,
+      "path": "experimental-recovery/soc1-000d0000-payload.bin",
+      "sha256": "50dec59681235fac6afa7379e54f7fee5907ed96517cc56d5073fbcd8c4839fb"
+    },
+    {
+      "bytes": 2674760,
+      "path": "experimental-recovery/soc1-00100000-payload.bin",
+      "sha256": "3414ee5bf96ec6e4f4a539d4cbf35abadb4f82764e1aaf727406156a55671236"
+    },
+    {
+      "bytes": 131072,
+      "path": "experimental-recovery/soc1-00460000-payload.bin",
+      "sha256": "58d348f5bad18ac7171b45725e5058a754644031f0d1677e2e299c5d89399489"
+    },
+    {
+      "bytes": 131072,
+      "path": "experimental-recovery/soc1-00490000-payload.bin",
+      "sha256": "e59064cfbd8522ccaaef78f218bb0d15c2db02d40fa624486c24edf4181def5b"
+    },
+    {
+      "bytes": 208400,
+      "path": "experimental-recovery/soc1-004c0000-payload.bin",
+      "sha256": "3c2e06b7b1ac33b0c9930a6b99f5955f38419730728aabed3820ca99d40af635"
+    },
+    {
+      "bytes": 639056,
+      "path": "experimental-recovery/soc1-00540000-payload.bin",
+      "sha256": "9a6be4916ca96e276ed10cb61305750ce62810f2f6b1d9760b998a550c353a89"
+    },
+    {
+      "bytes": 2621440,
+      "path": "experimental-recovery/soc1-00600000-payload.bin",
+      "sha256": "e815670a3a989891952e4976e243b4e47379c3bc02c76357113a42c95a0a0a28"
+    },
+    {
+      "bytes": 95984,
+      "path": "experimental-recovery/soc1-00a00000-payload.bin",
+      "sha256": "a78e9c0439f852cd869c01e27ddd8bacc98fd0fe89e2343e41ff3f0f0132c3c8"
+    },
+    {
+      "bytes": 1048576,
+      "path": "experimental-recovery/soc1-00a60000-payload.bin",
+      "sha256": "2945ab704e8e72c3e4b53ac58ad66e6c7e01e3a058b5b1428c6a64f869cdee62"
+    },
+    {
+      "bytes": 13697024,
+      "path": "experimental-recovery/soc1-experimental-older-signed-loader.bin",
+      "sha256": "28c1e916e875f042bd73582ffdff788137b84f44576a61a1e4e038f5a293bb7c"
+    },
+    {
+      "bytes": 2186318,
+      "path": "experimental-recovery/soc1-experimental-older-signed-loader.bin.lzma",
+      "sha256": "4f1274c829598bb6d1fe89e59aa0b4b6fdc0da7fa54da5b98ef0e839d744ef4b"
+    },
+    {
+      "bytes": 2186624,
+      "path": "experimental-recovery/soc1-experimental-older-signed-loader.max.lzma",
+      "sha256": "b2f9a63b4a3548f0a89662c463a4d019a7fee719b01804043b25eafa79588676"
+    },
+    {
+      "bytes": 2203085,
+      "path": "experimental-recovery/soc1-experimental-older-signed-loader.pb0.lzma",
+      "sha256": "ee3c6b544b24baf431e92dd9569213b370402f079a0c8035eb35f33426ccfaf9"
+    },
+    {
+      "bytes": 2180098,
+      "path": "experimental-recovery/soc1-experimental-optimized.bin.lzma",
+      "sha256": "1375435755ac368ef8a417da42648fee9db9b71a803f1aab496b1f6dd695fb6c"
+    },
+    {
+      "bytes": 2176859,
+      "path": "experimental-recovery/soc1-experimental-sdk.bin.lzma",
+      "sha256": "a604ed7b2cbbb9e8813590d15c2c098f8f47728786e33b27f3c62825b10a20bd"
+    },
+    {
+      "bytes": 13697024,
+      "path": "experimental-recovery/soc1-original-17.18-4.1r.bin",
+      "sha256": "a84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e"
+    },
+    {
+      "bytes": 2219661,
+      "path": "experimental-recovery/soc1-original-17.18-4.1r.bin.lzma",
+      "sha256": "51540f3ae92d0bdaabc25d7920e34131d88d9694ec3766178067586891be6a2d"
+    },
+    {
+      "bytes": 712704,
+      "path": "experimental-recovery/soc1-rommon-shell.efi",
+      "sha256": "39090c0137b4df340262dfad3f0d5e67da79f550c6e61d91c9c5bc7431a23408"
+    },
+    {
+      "bytes": 7066896,
+      "path": "experimental-recovery/soc1-uefi-expanded.bin",
+      "sha256": "ae31dc0ed8237dde871c37358134c410300106066530638167f624c2272fb849"
+    },
+    {
+      "bytes": 148076,
+      "path": "experimental-recovery/soc2-00040000-payload.bin",
+      "sha256": "c78047bd2fe4f911e123ac84bc82e7bf6fddaf3829ff558cc48e3b47b0818f74"
+    },
+    {
+      "bytes": 55136,
+      "path": "experimental-recovery/soc2-000a0000-payload.bin",
+      "sha256": "3bc413959629ec868e2740f865fa690e22e952e1bb66a915711bd247ad9c23c6"
+    },
+    {
+      "bytes": 102024,
+      "path": "experimental-recovery/soc2-000d0000-payload.bin",
+      "sha256": "db902e8f90b51f5b11c47fdf3f7e9b507ea138f52a0f0fbb7783817e48680160"
+    },
+    {
+      "bytes": 2664480,
+      "path": "experimental-recovery/soc2-00100000-payload.bin",
+      "sha256": "1c46102ffc39c0c2d44bdb82a3b0cfe222050bb2ec300021afd0d41ee5f23824"
+    },
+    {
+      "bytes": 131072,
+      "path": "experimental-recovery/soc2-00460000-payload.bin",
+      "sha256": "58d348f5bad18ac7171b45725e5058a754644031f0d1677e2e299c5d89399489"
+    },
+    {
+      "bytes": 131072,
+      "path": "experimental-recovery/soc2-00490000-payload.bin",
+      "sha256": "e59064cfbd8522ccaaef78f218bb0d15c2db02d40fa624486c24edf4181def5b"
+    },
+    {
+      "bytes": 208400,
+      "path": "experimental-recovery/soc2-004c0000-payload.bin",
+      "sha256": "5bc4bc54490fd3766254c969aac82d6906a4f0784745bd348a0781efc5d8f348"
+    },
+    {
+      "bytes": 757208,
+      "path": "experimental-recovery/soc2-00540000-payload.bin",
+      "sha256": "f0f2c22fc6625510283751a9aa1f3955453de0bcc92b9b32679b4d52193e5a56"
+    },
+    {
+      "bytes": 2621440,
+      "path": "experimental-recovery/soc2-00600000-payload.bin",
+      "sha256": "db81eda125d26f31250cd88439852f59e32474840e44c265855bb5e2062a648b"
+    },
+    {
+      "bytes": 95984,
+      "path": "experimental-recovery/soc2-00a00000-payload.bin",
+      "sha256": "a78e9c0439f852cd869c01e27ddd8bacc98fd0fe89e2343e41ff3f0f0132c3c8"
+    },
+    {
+      "bytes": 131072,
+      "path": "experimental-recovery/soc2-00a60000-payload.bin",
+      "sha256": "260e05c834b60a97b6b5735f52cec757a96f2d370dee88ac74ea9227d4dfc5e9"
+    },
+    {
+      "bytes": 7086992,
+      "path": "experimental-recovery/soc2-uefi-expanded.bin",
+      "sha256": "87965c508fccf17ed321cbe190aa0c17845f74ce9fd345c5d279286eea826a72"
+    },
+    {
+      "bytes": 641,
+      "path": "purchase-research/B01CYA9BTY-listing-excerpts.txt",
+      "sha256": "35ae77591549eaa54166b9c312851a7ba9d9d0a316250b88bc495cb07003d0a0"
+    },
+    {
+      "bytes": 1321,
+      "path": "purchase-research/B07V2M5MVH-listing-excerpts.txt",
+      "sha256": "53cfc0423ab6317b70f0c58496869f2e285f3c62d1a9538155ad3a4efa5b0788"
+    },
+    {
+      "bytes": 84736,
+      "path": "purchase-research/B07V2M5MVH-product-photo.jpg",
+      "sha256": "d0c0647637272d1dd90b2e01d0120034515c40c2846bf462250fb5e0a05e61de"
+    },
+    {
+      "bytes": 960,
+      "path": "purchase-research/B07WCB2PZ2-listing-excerpts.txt",
+      "sha256": "c8b8bc6b7e9b0ad6bff9524aca6a40b979b33d8a7df6a82a8a1e61e09235b3c9"
+    },
+    {
+      "bytes": 75212,
+      "path": "purchase-research/B07WCB2PZ2-product-photo.jpg",
+      "sha256": "6aba4f3bf8dd5454ceee1527b4878b280836ac75bb10bfd18811bbea7600c57a"
+    },
+    {
+      "bytes": 877,
+      "path": "purchase-research/B0BYSRSZPC-listing-excerpts.txt",
+      "sha256": "0d1ffa14f6fc4084a030221802043636ca0779b4b7a544c9451a7fb47f226986"
+    },
+    {
+      "bytes": 218016,
+      "path": "purchase-research/B0BYSRSZPC-product-photo.jpg",
+      "sha256": "4f913c2e053dc6f0ab86fffe4429111138722a97b0f74997daa1760ebd024185"
+    },
+    {
+      "bytes": 963,
+      "path": "purchase-research/README.txt",
+      "sha256": "7d1055127811d44ea39e76e8dbab3dd7fd373d3cf6163d3efad62f1cc5aa228d"
+    },
+    {
+      "bytes": 13136,
+      "path": "recovery-prep-20261024/TODAY-BENCH-PLAN.txt",
+      "sha256": "e6b95f5fa1ebcbad2c3574637f4a0638bdb1b66d8ce9385cccdc50e12b35cef2"
+    },
+    {
+      "bytes": 23915,
+      "path": "recovery-prep-20261024/WORKSPACE-INVENTORY.txt",
+      "sha256": "3248be9884893d0259246a9609e4c5f3aa04dce5b784437771dd53f4ebdb16c1"
+    },
+    {
+      "bytes": 7470,
+      "path": "research-evidence/LzmaUtil-recovery-settings.c",
+      "sha256": "3cd8338dbc695cdb6f6c97c071c844d0dd123538aa9c96f9e0f4fa4be3e324ec"
+    },
+    {
+      "bytes": 1438,
+      "path": "research-evidence/README.txt",
+      "sha256": "b1f477166a19f09c44a66c729a8a5c166a8263004f867c27b2b29ef504a380bc"
+    },
+    {
+      "bytes": 7494,
+      "path": "research-evidence/c8235-bdk-fs-boot.c",
+      "sha256": "f61dfe05223a9ebb8ea5732fb835ef0c401475c09e4bfa9c6aaf95be468b4c1e"
+    },
+    {
+      "bytes": 11693,
+      "path": "research-evidence/c8235-bdk-fs-dev.c",
+      "sha256": "50b0313b63e7060816cfd2dd757e9852622c574d2d6acb105f9efc4e657ffe8c"
+    },
+    {
+      "bytes": 1335,
+      "path": "research-evidence/c8235-bdk-fs-mem.c",
+      "sha256": "ce842add0f1a368effd446d271ff73cd26ba0ec960ae200b9c1dac9d2536dfff"
+    },
+    {
+      "bytes": 14538,
+      "path": "research-evidence/c8235-bdk-fs-mpi.c",
+      "sha256": "9294247967cf11eae176df755a6bc63bd461d5a6be0b9821143659995a3cbfb1"
+    },
+    {
+      "bytes": 12770,
+      "path": "research-evidence/c8235-bdk-search.json",
+      "sha256": "10d1396de9d746afffe63bdbcdc55c8ef66684ba54db131fa39eec1f4cdc0ba1"
+    },
+    {
+      "bytes": 2327892,
+      "path": "research-evidence/c8235-bdk-tree.json",
+      "sha256": "a07baa3577cc14a4ea8d2095e7263b2943459686557bb1679de4f19e347e59ad"
+    },
+    {
+      "bytes": 22309,
+      "path": "research-evidence/c8235-ckermit-release.json",
+      "sha256": "1e241ba0cb3fd7c2fbcf76b6832c1ed22b785689c91350f701e2673c33e45e21"
+    },
+    {
+      "bytes": 1121,
+      "path": "research-evidence/ckermit-SHA256SUMS",
+      "sha256": "99045a299eecdd0fc043070fa641a4ad8a216c435b06cd172cdb68e176f2874f"
+    },
+    {
+      "bytes": 1589322,
+      "path": "research-evidence/ckermit-macos-arm64-11.0.514.tar.gz",
+      "sha256": "27b996f213df2e9509ec41c125d5d180c5d2a5a42264f95a365a8ca2b5615d1a"
+    },
+    {
+      "bytes": 3638,
+      "path": "research-evidence/context-audit-backups/ROMMON-extracted--README.txt",
+      "sha256": "73615cf13df10ab174af6f385e40583596ec692496f4f45e6f2b0daf24b99f45"
+    },
+    {
+      "bytes": 7198,
+      "path": "research-evidence/context-audit-backups/board-photos--board-inspection-notes.txt",
+      "sha256": "1fac0c306c7262b09c49b46f58cfa74263945c8257b0906d28c5e9e3c8645c8d"
+    },
+    {
+      "bytes": 7607,
+      "path": "research-evidence/context-audit-backups/router-console-logs--20261022-ROMMON-recovery-status.txt",
+      "sha256": "91f34a0e2f337cc0f911208350c0f38b647971ad2635e0efb7a3cec2f7079670"
+    },
+    {
+      "bytes": 1786350,
+      "path": "research-evidence/lzma2605.7z",
+      "sha256": "668fda469b7f584f246008cf28359c66ef98d65fafb3b22a52672eebe6970c28"
+    },
+    {
+      "bytes": 8364,
+      "path": "router-console-logs/20261022-ROMMON-recovery-status.txt",
+      "sha256": "9fe0b1e43680d78c2d8e03f1e60b52ebe254296630a724cea8c1367b6f96e598"
+    },
+    {
+      "bytes": 1248,
+      "path": "sanitized-evidence/README.md",
+      "sha256": "dc081780e833a35e4dce89e10af4a02d065ab4a4e0f23c139a9a61c058e64428"
+    },
+    {
+      "bytes": 378868,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-100652-console.log",
+      "sha256": "04f8336fb4ea7722450e7b774352487c7a13308e04597d99617638786fd9f82e"
+    },
+    {
+      "bytes": 373320,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-100652-readable.txt",
+      "sha256": "da1356f538c98bdb13e603b5c9ddbe62801853e9bd71749d9bcf615b4bca11f6"
+    },
+    {
+      "bytes": 247,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-102849-console.log",
+      "sha256": "67864cd96321b6728d063590b701714113d5718c7aaea22f17dccb86a7628190"
+    },
+    {
+      "bytes": 244,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-102849-readable.txt",
+      "sha256": "ce4bfca299b06fcde177a077543d57800524da624a0e4c70f0644dd8d47af25d"
+    },
+    {
+      "bytes": 315980,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-103319-console.log",
+      "sha256": "578d87a2c87a514f14fe8fe25e977a120e658772fb3c9f18fb354fe369b0a6f3"
+    },
+    {
+      "bytes": 311112,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-103319-readable.txt",
+      "sha256": "83e92cb77e96d5bdb48dbc36b50f8ce180a8ce3404f283434bc1bd2b70e9e39f"
+    },
+    {
+      "bytes": 0,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-111437-console.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 72867,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-111440-console.log",
+      "sha256": "793674818e706d3edab6a4ce427e616c12595584326da66eee262acf88c4b24f"
+    },
+    {
+      "bytes": 101423,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-151731-console.log",
+      "sha256": "02a16061464b586a3b4c6917e8e01af99e049ee3437b9a7a0c34a19c69e064c9"
+    },
+    {
+      "bytes": 156997,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-153046-console.log",
+      "sha256": "01db2046cebe4d6ca4af531a985ab34a9ec0ac114b38ef175a62fb3a21614afb"
+    },
+    {
+      "bytes": 87489,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-boot-readable.txt",
+      "sha256": "5aee6542fae7fbe8595c328c01498f6807523735695b4e4f429fe91a7868ac71"
+    },
+    {
+      "bytes": 17870,
+      "path": "sanitized-evidence/c8375-recovery/historical-17.15.6-boot-2026-10-22.log",
+      "sha256": "d26c4dd7bc3a1d887165ace6c70c018371b695355bbe9e52b480c3b6ad028a79"
+    },
+    {
+      "bytes": 2436,
+      "path": "sanitized-evidence/c8375-recovery/original-staged-firmware/original-startup-config.txt",
+      "sha256": "ac1e7ac9715bf58d49ec1b5828759fd182ff646b12d9dc76263453cd5c40c0f5"
+    },
+    {
+      "bytes": 6878,
+      "path": "sanitized-evidence/c8375-recovery/original-staged-firmware/pre-rommon-current-running-20261023.txt",
+      "sha256": "92d3b615124692531a9d10150ea2c005858c66526c326f2e3fd1ca147be0e782"
+    },
+    {
+      "bytes": 3103,
+      "path": "sanitized-evidence/c8375-recovery/original-staged-firmware/pre-rommon-startup-20261023.txt",
+      "sha256": "a60bf6972a1c44fc512784d2a07dc3ab95c80bdbbc63394a67b521fdbb235d25"
+    },
+    {
+      "bytes": 80262,
+      "path": "sanitized-evidence/router-console-logs/20261022-185728-console.log",
+      "sha256": "b5545972f9aaeef073e9abdf8836e182b39bd805273fc4478588f4de78ab6e23"
+    },
+    {
+      "bytes": 3968,
+      "path": "sanitized-evidence/router-console-logs/20261022-191128-console.log",
+      "sha256": "147331540ebdfa06a2f4eb7ac233b8839b1e29a6de79f77f964779b2f23ed568"
+    },
+    {
+      "bytes": 9112,
+      "path": "sanitized-evidence/router-console-logs/20261022-191815-console.log",
+      "sha256": "ef587d7c4187c980c3d5843aa263fd77cfa2cb98807141f6de35955d9b50eb6d"
+    },
+    {
+      "bytes": 5158,
+      "path": "sanitized-evidence/router-console-logs/20261022-192806-console.log",
+      "sha256": "f58143e006e94ca2400f694224a98881564f509a67027935a27fd98d7788e98f"
+    },
+    {
+      "bytes": 70557,
+      "path": "sanitized-evidence/router-console-logs/20261022-ROMMON-recovery-readable.txt",
+      "sha256": "89df7ad810cedcac738271450f960f0d14f5bd3b64be4ce698afad5e1e29c73f"
+    },
+    {
+      "bytes": 0,
+      "path": "sanitized-evidence/router-console-logs/20261022-hybrid-kermit-console.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 601,
+      "path": "sanitized-evidence/router-console-logs/20261022-hybrid-kermit-transfer.log",
+      "sha256": "168aacf8c3e33510096c26ba76899f8fb3d9466786d1b4e448445f829620537a"
+    },
+    {
+      "bytes": 15813,
+      "path": "scripts/repository_tools.py",
+      "sha256": "6586c7a8f3c3d75b7eee52102ae42445138fb42c10bf6b08621836c580838b8d"
+    },
+    {
+      "bytes": 6128,
+      "path": "tests/test_repository_tools.py",
+      "sha256": "8fbe3d475512a16ba9f7240ed4dfe5b667265bb7176ce29b7a2bb55fa96f45ad"
+    }
+  ],
+  "limitations": "Pattern and known-value scanning cannot prove absence of every unknown binary secret. Original restore images are kept byte-exact; any detected credential requires excluding the original, not patching it.",
+  "manifest_self_hash_omitted": true,
+  "maximum_file_bytes_exclusive": 50000000,
+  "repository": "https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT",
+  "sanitized_files": [
+    "sanitized-evidence/c8375-recovery/historical-17.15.6-boot-2026-10-22.log",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-100652-console.log",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-100652-readable.txt",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-102849-console.log",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-102849-readable.txt",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-103319-console.log",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-103319-readable.txt",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-111437-console.log",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-111440-console.log",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-151731-console.log",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-153046-console.log",
+    "sanitized-evidence/c8375-recovery/console-logs/20261023-boot-readable.txt",
+    "sanitized-evidence/c8375-recovery/original-staged-firmware/original-startup-config.txt",
+    "sanitized-evidence/c8375-recovery/original-staged-firmware/pre-rommon-current-running-20261023.txt",
+    "sanitized-evidence/c8375-recovery/original-staged-firmware/pre-rommon-startup-20261023.txt",
+    "sanitized-evidence/router-console-logs/20261022-185728-console.log",
+    "sanitized-evidence/router-console-logs/20261022-191128-console.log",
+    "sanitized-evidence/router-console-logs/20261022-191815-console.log",
+    "sanitized-evidence/router-console-logs/20261022-192806-console.log",
+    "sanitized-evidence/router-console-logs/20261022-ROMMON-recovery-readable.txt",
+    "sanitized-evidence/router-console-logs/20261022-hybrid-kermit-console.log",
+    "sanitized-evidence/router-console-logs/20261022-hybrid-kermit-transfer.log"
+  ],
+  "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
+  "totals": {
+    "excluded_local_files": 115,
+    "included_bytes_without_manifest": 448762451,
+    "included_files_without_manifest": 220
+  }
+}

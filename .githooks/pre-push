@@ -1,0 +1,3 @@
+#!/bin/sh
+# Audit every new blob, including files removed in a later local commit.
+exec python3 scripts/repository_tools.py audit-history

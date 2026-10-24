@@ -1,0 +1,25 @@
+C8375-E-G2 / Cisco 8300 G2 recovery staging -- 2026-10-23
+
+Original SoC2 ROMMON extracted from c8kg2be-universalk9.26.02.01.SPA.bin.
+Version from capsule: 17.18(3r).s2.cp.
+Cisco 26.2 release notes recommend this version for C8375-E-G2 and C8355-G2.
+Source: https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html
+
+Files:
+ firmware_mirabile_soc2.pkg -- original embedded package
+ mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin -- original raw upgrade image
+ mirabile_soc2_uefi64_rel_update_capsule_image_SPA.bin -- original UEFI capsule
+ vendor MD5/SHA1 files and SHA256SUMS.txt
+
+All eight source and USB payload/metadata files verified against the local
+extraction manifest. Extraction integrity is verified, not independent RSA
+signature validation or compatibility with this particular physical unit.
+Raw image, capsule and package have different roles; do not interchange them.
+No experimental hybrid or SoC1 image is included in THIS folder.
+
+Next: capture current boot banner, platform/revision, ROMMON version, memory
+initialization and exact IOS XE error before selecting an upgrade procedure.
+No flash command is prescribed here: inspect this unit's command help first.
+The separate C8235 folder is for the other router and is not this SoC2 set.
+
+USB destination: /Volumes/CISCO FILES/C8375-E-G2-ROMMON-17.18-3r

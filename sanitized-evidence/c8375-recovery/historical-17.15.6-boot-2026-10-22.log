@@ -1,0 +1,356 @@
+nk Errors Detected During Training
+PCIe5: Link active, 1 lanes, speed gen2
+DMC2:  8 GB/ch, 1Rx8, UDIMM, 32-bit data, 4-bit ECC
+DRAM: 8 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.08 20230919-2136 00000000
+npc_mkex-cn10xx.fw   version: 01.0A.00 20230911-0319 00000000
+uefi.bin             version: 0B.17.08 20230919-2136 00000000
+bl31.bin             version: 0B.17.08 20230919-2136 00000000
+bl2.bin              version: 0B.17.08 20230919-2136 00000000
+gserp-cn10xx.fw      version: 01.01.08 20230911-0319 00000000
+gserm-cn10xx.fw      version: 01.01.08 20230911-0319 00000000
+init.bin             version: 0B.17.08 20230919-2136 00000000
+ecp_bl1.bin          version: 0B.17.08 20230801-2047 00000000
+mcp_bl1.bin          version: 0B.17.08 20230801-2047 00000000
+scp_bl1.bin          version: 0B.17.08 20230801-2047 00000000
+rom-script0.fw       version: 0B.17.08 20230919-2136 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):0215e92 (Marvell-11.23.08)
+NOTICE:  BL2: Built : 23:11:49, Sep 21 2023
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x1f8ffffff (8064MB)
+NOTICE:  LMT Memory Region: 0x1f9000000 to 0x1fdffffff (80MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x1fe000000 to 0x1feffffff (16MB)
+NOTICE:  User Non-Secure Preserved Memory Region: 0x1ff000000 to 0x1ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):0215e92 (Marvell-11.23.08)
+NOTICE:  BL31: Built : 23:12:40, Sep 21 2023
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+UEFI firmware (version 8dbebce8 built at 22:56:52 on Sep 21 2023)
+ Loading software modules for all hardware devices ...
+%INFO: eMMC parameters
+  MMC max-frequency [200000000Hz]
+  MMC Setting HS200 with hs200 1_8v
+  MMC Type Non-Removable
+InitializeCN10KEmmcDxe: Type:eMMC Rca:0x10000
+ Entering Boot devices selection and preparation...
+........................... Done
+Booting Cisco ROMMON...
+
+Board Identifier: mirabile-crestone, Revision: r3, Serial Number: unknown
+
+System Bootstrap, Version SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Release, DEVELOPMENT
+ SOFTWARE
+Copyright (c) 1994-2023 by cisco Systems, Inc.
+Compiled Thu Sep 21 23:09:06 2023 by rmaladi
+
+
+Current image running: Boot ROM1
+
+Last reset cause: LocalSoft
+C8375-E-G2 platform with 8256512 Kbytes of main memory
+
+ERROR: ChipGuard Validation of CPU UUID failed
+Soc UUID: 13 FF FF 78 86 42 20 B6 F6 1F FF 7C 
+UUID Len: 0xC
+rommon 1 > dir usb0:/
+
+0   0         drw-     .Spotlight-V100
+0   4948992   -rw-     Dektop.tar
+0   0         drw-     System Volume Information
+0   22753940  -rw-     ASR1K-fpga_prog.16.0.1.xe.bin
+0   41059376  -rw-     asr1000-rommon.173-1r.SPA.pkg
+0   806762283 -rw-     asr1001x-universalk9.17.09.04a.SPA.bin
+0   808941081 -rw-     asr1001x-universalk9.17.09.05a.SPA.bin
+0   97434576  -rw-     c800-universalk9-mz.SPA.159-3.M7.bin
+0   2571280   -rw-     C1100-rommon-1612-1r-SPA.pkg
+0   687933004 -rw-     c1100-universalk9.17.09.05a.SPA.bin
+0   702164136 -rw-     c1100-universalk9.17.12.06.SPA.bin
+0   734336448 -rw-     c1100-universalk9.17.15.04.SPA.bin
+0   482611915 -rw-     cat3k_caa-universalk9.16.12.11.SPA.bin
+0   1258131142-rw-     cat9k_iosxe.17.09.05.SPA.bin
+0   469062171 -rw-     cat9k_lite_iosxe.17.12.03.SPA.bin
+0   765829965 -rw-     isr4300-universalk9.17.09.05a.SPA.bin
+0   526809432 -rw-     ISR-AP1100AC-ME-8-10-196-0.zip
+0   6399795   -rw-     pp-adv-asr1k-179.1a-46-68.0.0.pack.zip
+0   6399805   -rw-     pp-adv-isr1100-179.1a-46-68.0.0.pack.zip
+0   6399805   -rw-     pp-adv-isr4000-179.1a-46-68.0.0.pack.zip
+0   0         drw-     OLD 9K
+0   0         drw-     OLD 43-42
+0   0         drw-     OLD 3850
+0   3994572   -rw-     isr4400_rommon_1612_2r_SPA.pkg
+0   4096      -rw-     ._isr4400_rommon_1612_2r_SPA.pkg
+0   589726873 -rw-     isr4400-universalk9.16.09.08.SPA.bin
+0   4096      -rw-     ._isr4400-universalk9.16.09.08.SPA.bin
+0   784796767 -rw-     isr4400-universalk9.17.12.05a.SPA.bin
+0   4096      -rw-     ._isr4400-universalk9.17.12.05a.SPA.bin
+0   3130875   -rw-     pp-adv-isr4000-1712.1a-49-74.0.0.pack
+0   4096      -rw-     ._pp-adv-isr4000-1712.1a-49-74.0.0.pack
+0   6289281   -rw-     pp-adv-isr4000-1712.1a-49-74.0.0.pack.zip
+0   4096      -rw-     ._pp-adv-isr4000-1712.1a-49-74.0.0.pack.zip
+0   9612      -rw-     4451X.lic
+0   4096      -rw-     ._4451X.lic
+0   784979863 -rw-     isr4400-universalk9.17.12.06.SPA.bin
+0   4096      -rw-     ._isr4400-universalk9.17.12.06.SPA.bin
+0   998827008 -rw-     VOIP.tar
+0   30063616  -rw-     ie5000-universalk9-mz.152-8.E8.bin
+0   4096      -rw-     ._ie5000-universalk9-mz.152-8.E8.bin
+0   1061005477-rw-     c8000be-universalk9.17.18.03a.SPA.bin
+0   4096      -rw-     ._c8000be-universalk9.17.18.03a.SPA.bin
+0   1006461092-rw-     c8kg2be-universalk9.17.18.03a.SPA.bin
+0   4096      -rw-     ._c8kg2be-universalk9.17.18.03a.SPA.bin
+0   1021811068-rw-     c8kg2be-universalk9.26.01.01.SPA.bin
+0   4096      -rw-     ._c8kg2be-universalk9.26.01.01.SPA.bin
+0   503546    -rw-     crashinfo_20240227-173232-UTC
+0   480977    -rw-     crashinfo_20240227-173231-UTC
+0   475049    -rw-     crashinfo_20240227-173234-UTC
+0   476728    -rw-     crashinfo_20240227-173233-UTC
+0   32768     -rw-     FSCK0000.REC
+0   0         drw-     .Trashes
+0   490100    -rw-     crashinfo_20240227-173230-UTC
+0   1284238569-rw-     cat9k_iosxe.17.15.06.SPA.bin
+0   504057659 -rw-     cat9k_lite_iosxe.17.15.06.SPA.bin
+0   4096      -rw-     ._cat9k_iosxe.17.15.06.SPA.bin
+0   4096      -rw-     ._cat9k_lite_iosxe.17.15.06.SPA.bin
+0   1035122820-rw-     c8000be-universalk9.17.15.06.SPA.bin
+0   954113032 -rw-     c8kg2be-universalk9.17.15.05.SPA.bin
+0   4096      -rw-     ._c8000be-universalk9.17.15.06.SPA.bin
+0   4096      -rw-     ._c8kg2be-universalk9.17.15.05.SPA.bin
+0   954189596 -rw-     c8kg2be-universalk9.17.15.06.SPA.bin
+0   4096      -rw-     ._c8kg2be-universalk9.17.15.06.SPA.bin
+rommon 2 > boot usb0:/c8kg2be-universalk9.17.15.06.SPA.bin
+Setting Boot Ready through Reset Control Status register in CPLD
+boot: reading file c8kg2be-universalk9.17.15.06.SPA.bin
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+################################################################################
+##############################
+
+Performing Integrity Check ...
+Performing Signature Verification of OS image...
+
+%ERROR% Booting an incompatible image for this platform
+network: failed to parse subnet for IPv0
+
+
+EFI stub: Booting Linux Kernel...
+EFI stub: Using DTB from configuration table
+Failed to handle fs_proto
+EFI stub: ERROR: Failed initrd from command line!
+EFI stub: Exiting boot services and installing virtual address map...
+Booting Linux on physical CPU 0x0000000000 [0x410fd490]
+Linux version 5.4.290 (oe-user@oe-host) (gcc version 10.2.0 (GCC)) #1 SMP Tue Apr 22 05:35:26 UTC 2025
+Machine model: Marvell CN106XX board
+earlycon: pl11 at MMIO 0x000087e028000000 (options '')
+printk: bootconsole [pl11] enabled
+Cisco Package: start=0xcab1d000
+Cisco Package: size=0x354c3000
+efi: Getting EFI parameters from FDT:
+efi: EFI v2.80 by EDK II
+efi:  SMBIOS=0xffff0000  SMBIOS 3.0=0x1f63e0000  ACPI 2.0=0x1f6890018  MEMATTR=0x1f70eb018  RNG=0x1f70fc998  MEMRESERVE=0x1d5733018 
+efi: seeding entropy pool
+random: crng init done
+Cisco Package at 0xffff41f78ab1d000 (894185472 bytes)
+crashkernel reserved: 0x00000000c4a00000 - 0x00000000caa00000 (96 MB)
+NUMA: NODE_DATA [mem 0x1f6ee3d00-0x1f6ee57ff]
+Zone ranges:
+  DMA32    [mem 0x0000000004000000-0x00000000ffffffff]
+  Normal   [mem 0x0000000100000000-0x00000001f7efffff]
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000004000000-0x000000002005ffff]
+  node   0: [mem 0x000000002007d000-0x00000000fffdffff]
+  node   0: [mem 0x00000000fffe0000-0x00000000ffffffff]
+  node   0: [mem 0x0000000100000000-0x00000001d56effff]
+  node   0: [mem 0x00000001d56f0000-0x00000001d572ffff]
+  node   0: [mem 0x00000001d5730000-0x00000001f5baffff]
+  node   0: [mem 0x00000001f5bb0000-0x00000001f5ccffff]
+  node   0: [mem 0x00000001f5cd0000-0x00000001f5ceffff]
+  node   0: [mem 0x00000001f5cf0000-0x00000001f5d4ffff]
+  node   0: [mem 0x00000001f5d50000-0x00000001f5e0ffff]
+  node   0: [mem 0x00000001f5e10000-0x00000001f5ffffff]
+  node   0: [mem 0x00000001f6000000-0x00000001f600ffff]
+  node   0: [mem 0x00000001f6010000-0x00000001f63bffff]
+  node   0: [mem 0x00000001f63c0000-0x00000001f63c8fff]
+  node   0: [mem 0x00000001f63c9000-0x00000001f63c9fff]
+  node   0: [mem 0x00000001f63ca000-0x00000001f63cffff]
+  node   0: [mem 0x00000001f63d0000-0x00000001f63effff]
+  node   0: [mem 0x00000001f63f0000-0x00000001f684ffff]
+  node   0: [mem 0x00000001f6850000-0x00000001f688ffff]
+  node   0: [mem 0x00000001f6890000-0x00000001f70effff]
+  node   0: [mem 0x00000001f70f0000-0x00000001f70fffff]
+  node   0: [mem 0x00000001f7100000-0x00000001f7efffff]
+Zeroed struct page in unavailable ranges: 1533 pages
+Initmem setup node 0 [mem 0x0000000004000000-0x00000001f7efffff]
+On node 0 totalpages: 2047715
+  DMA32 zone: 16128 pages used for memmap
+  DMA32 zone: 0 pages reserved
+  DMA32 zone: 1032163 pages, LIFO batch:63
+  Normal zone: 15868 pages used for memmap
+  Normal zone: 1015552 pages, LIFO batch:63
+psci: probing for conduit method from DT.
+psci: PSCIv1.1 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: Trusted OS resident on physical CPU 0x0
+psci: SMC Calling Convention v1.2
+percpu: Embedded 34 pages/cpu s98712 r8192 d32360 u139264
+pcpu-alloc: s98712 r8192 d32360 u139264 alloc=34*4096
+pcpu-alloc: [0] 00 [0] 01 [0] 02 [0] 03 [0] 04 [0] 05 [0] 06 [0] 07 
+pcpu-alloc: [0] 08 [0] 09 [0] 10 [0] 11 [0] 12 [0] 13 [0] 14 [0] 15 
+pcpu-alloc: [0] 16 [0] 17 [0] 18 [0] 19 [0] 20 [0] 21 [0] 22 [0] 23 
+Detected PIPT I-cache on CPU0
+CPU features: detected: GIC system register CPU interface
+CPU features: detected: Virtualization Host Extensions
+CPU features: kernel page table isolation disabled by kernel configuration
+CPU features: detected: Hardware dirty bit management
+CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+CPU features: detected: Spectre-BHB
+CPU features: detected: SSBS not fully self-synchronizing
+alternatives: patching kernel code
+Built 1 zonelists, mobility grouping on.  Total pages: 2015719
+Policy zone: Normal
+Kernel command line: cpuidle.off=1 crashkernel=96M audit=1  loglevel=7 earlycon=pl011,0x87e028000000 debug rootwait rw coherent_pool=16M net.ifnames=0 bootloader=uefi systemd.show_status=1 cgroup_init_debug=1 max_loop=64 rvu_af.mkex_profile=custom2_mkex_x4 rvu_af.kpu_profile=custom2_kpu_vlan_exdsa pci=hpmemsize=128M,hpbussize=6,realloc  console=ttyAMA1,115200n8  board=crestone maxcpus=24 failure_shell  bdinfo_start=0x1D56F0018 bdinfo_size=0x3AC70 initrd=0x19D9D75B8,0x19A5B93 pkg_start=0xCAB1D000 pkg_size=0x354C3000 SR_BOOT=usb0:c8kg2be-universalk9.17.15.06.SPA.bin  
+audit: enabled (after initialization)
+printk: log_buf_len individual max cpu contribution: 8192 bytes
+printk: log_buf_len total cpu_extra contributions: 188416 bytes
+printk: log_buf_len min size: 65536 bytes
+printk: log_buf_len: 262144 bytes
+printk: early log buf free: 59904(91%)
+Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
+Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+mem auto-init: stack:off, heap alloc:off, heap free:off
+software IO TLB: mapped [mem 0xc0a00000-0xc4a00000] (64MB)
+Memory: 6918056K/8190860K available (18684K kernel code, 1842K rwdata, 6224K rodata, 5440K init, 5192K bss, 1272804K reserved, 0K cma-reserved)
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=24, Nodes=1
+kmemleak: Kernel memory leak detector disabled
+ftrace: allocating 59248 entries in 232 pages
+ftrace: allocated 232 pages with 4 groups
+rcu: Hierarchical RCU implementation.
+rcu: 	RCU event tracing is enabled.
+rcu: 	RCU restricting CPUs from NR_CPUS=96 to nr_cpu_ids=24.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=24
+NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+GICv3: GIC: Using split EOI/Deactivate mode
+GICv3: 512 SPIs implemented
+GICv3: 0 Extended SPIs implemented
+GICv3: Distributor has no Range Selector support
+GICv3: 48 PPIs implemented
+GICv3: VLPI support, direct LPI support
+GICv3: CPU0: found redistributor 0 region 0:0x0000801000200000
+ITS [mem 0x801000040000-0x80100007ffff]
+ITS@0x0000801000040000: Single VMOVP capable
+ITS@0x0000801000040000: allocated 8192 Devices @1ea0c0000 (indirect, esz 8, psz 64K, shr 1)
+ITS@0x0000801000040000: allocated 32768 Interrupt Collections @1ea0d0000 (flat, esz 2, psz 64K, shr 1)
+ITS@0x0000801000040000: allocated 8192 Virtual CPUs @1ea0e0000 (indirect, esz 8, psz 64K, shr 1)
+GICv3: using LPI property table @0x00000001ea0f0000
+ITS: Using DirectLPI for VPE invalidation
+ITS: Enabling GICv4 support
+GICv3: CPU0: using allocated LPI pending table @0x00000001ea100000
+arch_timer: cp15 timer(s) running at 1000.00MHz (phys).
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1cd42e4dffb, max_idle_ns: 881590591483 ns
+sched_clock: 56 bits at 1000MHz, resolution 1ns, wraps every 4398046511103ns
+Console: colour dummy device 80x25
+Calibrating delay loop (skipped), value calculated using timer frequency.. 2000.00 BogoMIPS (lpj=4000000)
+pid_max: default: 32768 minimum: 301
+LSM: Security Framework initializing
+SELinux:  Initializing.
+Mount-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+Mountpoint-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
+Syspage size 3832 bytes, 300 task entries
+crankshaft_ngsw_x86 platform, dual iosd is enabled and number of app instance:3
+Default profile mem_size is 6606848 for IOSD Instance
+Default profile mem_size is 6606848 for App instance 0
+
+crankshaft_fed_app1 profile mem_size is 6606848 for App instance 1
+
+Default profile mem_size is 6606848 for App instance 2
+
+ASID allocator initialised with 65536 entries
+rcu: Hierarchical SRCU implementation.
+Platform MSI: gic-its@801000040000 domain created
+PCI/MSI: /interrupt-controller@801000000000/gic-its@801000040000 domain created
+Remapping and enabling EFI services.
+smp: Bringing up secondary CPUs ...
+Unhandled Exception in EL3.
+x30            = 0x0000000000ba5184
+x0             = 0x000087e210030000
+x1             = 0x0000000000000000
+x2             = 0x000087e003001000
+x3             = 0x0000000080000800
+x4             = 0x00000000800000b9
+x5             = 0x00000000800000b9
+x6             = 0x00000000000007df
+x7             = 0x0000000000000001
+x8             = 0x00000000064e6706
+x9             = 0x0000000000813000
+x10            = 0x0000000000000040
+x11            = 0x0000000000ba4d08
+x12            = 0x0000000000be9d80
+x13            = 0xffff41f92a3c3537
+x14            = 0x0000000000ca5f44
+x15            = 0x0000000000b61520
+x16            = 0x0000000000000044
+x17            = 0xffffb0b35ec7cef0
+x18            = 0x000000000403073d
+x19            = 0x0000000000000010
+x20            = 0x0000000000000010
+x21            = 0x0000000000c46c00
+x22            = 0x0000000000000001
+x23            = 0x0000000000000002
+x24            = 0x0000000000000000
+x25            = 0x0000000000000000
+x26            = 0x0000000000000000
+x27            = 0x0000000000000000
+x28            = 0xffff9145564b4000
+x29            = 0x0000000000be9c40
+scr_el3        = 0x000000000403073d
+sctlr_el3      = 0x0000000030cd183f
+cptr_el3       = 0x0000000000000100
+tcr_el3        = 0x0000000080853510
+daif           = 0x00000000000003c0
+mair_el3       = 0x00000000004404ff
+spsr_el3       = 0x00000000420002cc
+elr_el3        = 0x0000000000b5f08c
+ttbr0_el3      = 0x0000000000ca9001
+esr_el3        = 0x00000000be000011
+far_el3        = 0xa2f6e992ab0fb433
+spsr_el1       = 0x0000000000000000
+elr_el1        = 0x0000000000000000
+spsr_abt       = 0x0000000000000000
+spsr_und       = 0x0000000000000000
+spsr_irq       = 0x0000000000000000
+spsr_fiq       = 0x0000000000000000
+sctlr_el1      = 0x0000000030d00800
+actlr_el1      = 0x0000000000000000
+cpacr_el1      = 0x0000000000300000
+csselr_el1     = 0x0000000000000002
+sp_el1         = 0x0000000000000000
+esr_el1        = 0x0000000000000000
+ttbr0_el1      = 0x0000000000000000
+ttbr1_el1      = 0x0000000000000000
+mair_el1       = 0x0000000000000000
+amair_el1      = 0x0000000000000000
+cpupwrctlr_el1 = 0x0000000000000000
+icc_ctlr       = 0x00000000000a8410
+icc_hppir0     = 0x000000000000001d
+icc_hppir1     = 0x00000000000003ff
+icc_rpr_el1    = 0x00000000000000ff
+icc_ap0r0_el1  = 0x0000000000000000
+gicd_ispendr regs (Offsets 0x200-0x210)
+Offset			Value
+0x200:		 0x0000000000000000
+0x204:		 0x0000000000000000
+0x208:		 0x0000000000000000
+0x20c:		 0x0000000000000000
+0x210:		 0x0000000000000000

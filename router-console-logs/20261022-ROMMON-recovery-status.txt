@@ -1,0 +1,138 @@
+CONTEXT AUDIT UPDATE (2026-10-23): Read ../C8235-G2-RECOVERY-CONTEXT.txt
+for the consolidated current status, all measurement results and purchase
+recommendations. This file retains historical stage-specific notes; later
+corrections and current physical/equipment status are consolidated there.
+
+C8235-G2 / preproduction C8230X-8M2X recovery attempt, 2026-10-22
+
+Current result: Primary ROMMON firmware programmed successfully, but the release firmware cannot complete boot because of a TPM manufacturing-status access error. The router is being left in the Marvell low-level Boot Options menu for recovery. No TPM provisioning, security fuses, manufacturing fields, golden-ROM writes or factory reset were performed.
+
+Original board / firmware:
+  Board model: mirabile-arata, revision r2; Marvell CN10208C A0
+  Boot-stub firmware: 2024-07-17 01:44:08
+  ROMMON: SDK112312-SoC1-SB-v12.1.22 DEVELOPMENT SOFTWARE
+  Banner: NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY
+  IOS XE identifies chassis: C8230X-8M2X, processor board ID FGL2835L42B
+
+Original IOS XE test:
+  Booted usb0:/c8kg2be-universalk9.26.02.01.SPA.bin
+  IOS XE reported manual ROMMON upgrade required.
+  Both primary and backup NVRAM initialization failed.
+  First-boot setup was exited without saving a configuration. A temporary
+  enable secret was entered only for setup and was not saved to NVRAM.
+  A login prompt subsequently appeared. Default cisco/cisco did not work.
+  Later cpp_cp_svr faulted on fp_0_0 with rc=139 and the router rebooted.
+
+Firmware programming:
+  From the original ROMMON, help flashmon documented primary selector 1/p
+  and golden selector 2/g. Only selector 1 (primary) was used:
+
+  flashmon usb0:/C8235-G2-ROMMON-17.18-4.1r/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin 1
+
+  After confirmation, the updater programmed 0x00000000-0x00D0FFFF.
+  It explicitly preserved monitor environment 0x01F30000-0x01F4FFFF,
+  board manufacturing data 0x00FD0000-0x00FFFFFF, and uncovered image area
+  0x00D10000-0x01FFFFFF.
+  Completion output: 100% OK! spi: successfully programmed BIOS firmware
+
+  Image MD5: df061f0d6323e904f44836425798223e
+  Image SHA1: 34bd2fda5b8ed15ce20c7ca5db6d7d37ab943e18
+  These matched the original checksums packaged by Cisco.
+  The associated capsule identifies ROMMON 17.18(4.1r).s1.cp.
+
+Post-write boot:
+  Boot-stub firmware: 2026-04-01 03:34:36
+  EBF build: SoC1v11rBuild, 2026-04-01 03:33:20
+  BL2/BL31: v2.4(release):1d04daf3 (Marvell-11.23.12), built 2026-03-31
+  Boot gets through memory initialization and BL31, then halts:
+
+  Fatal error found on TPM secure device while accessing manufacturing status, cannot boot the system!
+
+  No new Cisco ROMMON version prompt or IOS XE prompt was reached.
+  The exact cause (TPM hardware/access failure versus missing or incompatible
+  manufacturing provisioning) is not established by this message alone.
+
+Recovery investigation:
+  On power cycle, sending uppercase B at the 10-second boot-menu prompt
+  enters Marvell Boot Options before the TPM failure.
+  Selecting 2 (Boot from Secondary Boot Device) produced no further output.
+  After another power cycle, entered Setup -> Chip Features, read menus,
+  returned without saving changes. Security/key provisioning and fuse
+  changes were not performed. They are not a demonstrated repair for the
+  Cisco TPM manufacturing-status failure.
+
+Next recovery requirements:
+  A compatible nonsecure/development ROMMON image for this preproduction
+  board, or Cisco-specific TPM/manufacturing repair guidance, is needed to
+  pursue a supported recovery beyond the current release firmware.
+  The low-level boot menu offers a Kermit boot-flash recovery facility,
+  but no compatible replacement development image is currently available.
+  IOS XE 26.1.1 image present locally was also inspected; its main package
+  did not contain the /firmware/host ROMMON packages seen in 26.2.1.
+
+Console:
+  /dev/cu.usbserial-AL00F7EQ, 115200 baud, 8N1, no flow control.
+  Raw logs and a readable combined transcript are in this directory.
+  Local console bridge: ../c8235_serial_console.py
+
+Additional investigation, approximately 19:15-19:46 local time:
+  Actual SoC boot source is SPI0_CS0,REMOTE. Boot menu option 2 selects
+  REMOTE, not necessarily the Cisco golden ROM. Golden ROM was not tested.
+  Boot-ROM security status was read via Chip Features -> Security -> print
+  status: lifecycle provision; secure boot enabled and locked; KAK1-3
+  provisioned. No security provisioning, lifecycle transition, TPM clearing,
+  key changes, fuse changes, factory reset, or manufacturing edits occurred.
+  DRAM and PCIe menus were inspected without saving changes or writing flash.
+
+  Prepared an unsupported experimental hybrid, retaining original SoC1
+  hardware initialization and UEFI, substituting only an intact older
+  Cisco-signed cisco-bootstub TIM/payload from the SoC2 package. This donor
+  lacks the newer TPM manufacturing-status check. Compatibility is unproven.
+  It was NOT programmed. Kermit receiver rejected its file size before
+  data transfer or flash erase: Cannot accept file that is bigger than my
+  receive buffer. Low-level receiver is limited to 0x200000 (2 MiB).
+  Best XZ/liblzma result: 2,180,098 bytes. Official LZMA SDK 26.05 encoder
+  with stronger settings: 2,176,859 bytes, still 79,707 bytes over the limit.
+  Decompression of both files reproduces the experimental raw image exactly.
+  Experimental image SHA256:
+  28c1e916e875f042bd73582ffdff788137b84f44576a61a1e4e038f5a293bb7c
+  Files and manifest are in ../experimental-recovery/.
+
+  Receiver writes linearly from flash offset 0x10000 after skipping the first
+  64 KiB. No supported offset/sparse update option was found. Therefore a
+  small standalone loader cannot simply be sent to the Kermit flash tool.
+  Do not send arbitrary truncated/sparse images; absent portions are not
+  automatically preserved during erase.
+
+  Extracted original ARATA r2 EBF/Linux device trees to
+  ../experimental-recovery/board-data/. SPI0 CS0 is boot flash, SPI0 CS1 is
+  TPM (NOT a recovery flash), SPI1 CS0 is the Cisco FPGA. Actual golden-ROM
+  selection mechanism has not been established.
+  User reports no SPI/JTAG programmer or visible ROM-bank selector; only a
+  recessed reset button. Cisco documentation describes configuration/password
+  recovery functionality, which depends on ROMMON; no demonstrated way to
+  repair this earlier TPM boot halt using that button was found.
+
+  No additional flash writes succeeded after the original primary flashmon
+  operation. Installed firmware remains original unmodified SoC1 release.
+  Next realistic options: obtain a compatible preproduction/development image
+  with a recovery payload under 2 MiB, Cisco-specific provisioning recovery
+  guidance, or hardware-assisted flash read/program and golden-bank access.
+  Identify flash part, voltage, bank wiring and preserve full dumps before
+  any hardware programming.
+
+Final console handoff at approximately 19:47 local time:
+  Rebooted without saving Setup changes; automatically sent B and verified
+  Boot Options / Choice prompt. Closed Python bridge and reconnected
+  SecureCRT to /dev/cu.usbserial-AL00F7EQ at 115200. SecureCRT connection
+  status confirmed. Press Enter to redraw the menu if its screen is blank.
+
+Board photos inspected: likely 32 MiB Micron 1.8 V flash pair U2800/U2801 found (RN170 marking), but primary/golden order and selector pinout remain unconfirmed. See ../board-photos/board-inspection-notes.txt. No hardware or console changes made during photo inspection.
+Sharper photo correction: actual flash references U2900/U2901, marking RW170. Micron official decoder verifies MT25QU256ABA8ESF-0SIT. U5600 identified as Infineon SLB9672 TPM. U2903/U2904 are PI3CH480QE signal muxes; J2900 2-pin header and J2901 8-pin header identified. Selector function/pinout unconfirmed; no jumpers or hardware changes made.
+
+2026-10-23 context audit: all Fluke measurements, physical access constraints,
+purchase links/recommendations and next-step limitations are consolidated in
+../C8235-G2-RECOVERY-CONTEXT.txt. The initial U2800/U2801 RN170 photo statement
+above is superseded by U2900/U2901 RW170. No golden-ROM test or verified
+J2900 ROM-selector pinout was established. Hardware disassembly means the
+last SecureCRT/menu handoff must not be treated as current live/power state.

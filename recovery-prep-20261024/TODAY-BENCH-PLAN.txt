@@ -1,0 +1,213 @@
+ROUTER RECOVERY BENCH PLAN - 2026-10-24
+Workspace: /Users/games/Documents/SOFTWARE
+Prepared from the three root recovery context files, board photographs, and
+manufacturer references. This is a plan; no new router measurements, hardware
+connections, console sessions, or programmer operations have been performed.
+
+FLEET - USER CLARIFICATION TODAY
+Three C8235-G2, one C8375-G2, one C8300-1N1S; all reported nonworking.
+Use temporary labels A/B/C only after tying each to its actual chassis serial.
+Do not assume the other two C8235s share the worked unit's board revision,
+firmware, TPM state, or failure symptoms.
+
+Known worked C8235: console ID FGL2835L42B, PCB barcode FOC28292GX9,
+Arata r2. Release boot reaches a TPM manufacturing-status halt. No complete
+original primary development flash backup exists in this workspace. Both
+physical flash banks need separate read-only backups and inspection.
+Known C8375: chassis FDO2742M0FK, Crestone r3. Currently no normal startup
+output after firmware experiment. Exact original 32 MiB backup is available.
+C8300: full suffix and serial pending; user reports steady red STATUS,
+green power and fan indications, no console on either connection type.
+
+RECOMMENDED ORDER
+1. Before tools arrive: label chassis; collect exact PIDs/serials, PSU labels,
+   boot/LED histories and which units received earlier firmware writes.
+   Run the C8300 external console baseline below if ready.
+2. First new-probe board task: unpowered mapping of C8375 P1_CSPI/P2_CSPI.
+   This device has an exact original backup and a defined restoration target.
+3. Validate programmer/1.8 V adapter on its own, disconnected from all routers.
+4. If an accessible header is fully mapped and electrical access is sound,
+   attempt read-only acquisition; otherwise wait for the SOIC-16 clip.
+5. Read both physical banks before choosing a restoration. C8375 original
+   restore is the leading recovery action, once the target is established.
+6. For C8235s, acquire and inspect separate images per chassis and bank first.
+
+TOOLS TODAY
+CH341A + 1.8 V adapter: identify actual revisions, input/output orientation,
+and level-translation components before connecting a router. A regulator
+alone is insufficient. Measure target-side VCC relative to target-side GND;
+Micron operating range is 1.7-2.0 V. Check accessible static high outputs as
+well. A multimeter cannot prove high-frequency signal amplitudes/overshoot;
+use the adapter circuit/part specifications to establish level translation.
+
+8-pin clip: does not fit the identified 16-pin Micron packages. Do not clamp
+half a package, straddle arbitrary leads, or assume an unrelated 8-pin device
+is boot firmware. An 8-pin device may be read only after separate identification
+and voltage/pinout checks.
+
+Dupont wires: useful on accessible mapped headers and tomorrow's breakout.
+Check connector genders and fit; do not force them. Use the shortest available
+signal path, avoid added extensions, and route a ground alongside signals.
+20 cm cables plus clip ribbon can impair SPI signal quality.
+
+Needle probes: useful for unpowered continuity to the IC leads.
+Hook clips: useful on sufficiently large, securely isolated header/test points.
+Check actual hook jaw size; a 4 mm connector specification does not establish
+safe clearance between 1.27 mm IC leads. Do not use oversized hooks on IC legs.
+
+C8375 UNPOWERED HEADER MAPPING
+Source photo: c8375-recovery/board-photos/IMG_1260-spi-pair-inspection.jpg
+U2_CSPI is left, U1_CSPI right IN THAT PHOTO. Headers P1_CSPI/P2_CSPI and
+nearby muxes are visible. No header pinout or bank assignment is verified.
+Header names/placement do not establish direct access to either chip.
+
+Before resistance measurements:
+- Disconnect ALL router power inputs, USB, console, and other external cables.
+- Photograph coin-cell orientation; remove it for unpowered board mapping if
+  accessible without damage. Confirm no residual DC voltage on the measured
+  nodes before switching to resistance. Wait for stored charge to discharge;
+  do not short rails or capacitors to discharge them.
+- Black lead COM, red lead V/ohm, never the current jack. Use ohms for numbers.
+- Touch probes together and record baseline lead resistance.
+- Establish exact package pin 1 from a clear top view and the data sheet.
+- Measure header pins to verified flash VSS first. Record actual values.
+- Then map each required flash signal to each header pin, separately for
+  each flash. Photograph/number headers consistently before recording.
+- Near lead-resistance values support a direct connection. Higher resistance
+  can reflect a series resistor or another path; beeps alone do not prove a
+  connection, and kOhms are not proof of a direct wire.
+- An unpowered mux may disconnect legitimate paths; lack of continuity is
+  not evidence that a chip or trace has failed. Do not bridge unknown headers.
+
+Micron MT25QU256ABA8ESF pin reference, SO16 TOP VIEW, option 8:
+Pin  Signal           P1 pin/resistance       P2 pin/resistance
+ 1   DQ3/HOLD#        __________________      __________________
+ 2   VCC              __________________      __________________
+ 3   RESET#           __________________      __________________
+ 7   S#/CS#           __________________      __________________
+ 8   DQ1/MISO         __________________      __________________
+ 9   W#/DQ2           __________________      __________________
+10   VSS/GND          __________________      __________________
+15   DQ0/MOSI         __________________      __________________
+16   C/CLK            __________________      __________________
+Pins 4/5/6/11/12/13/14 are DNU: do not connect them.
+Duplicate this table for U1_CSPI and U2_CSPI; one table cannot describe both.
+This is an IC reference, NOT a ready-to-connect header or adapter pinout.
+HOLD#, RESET#, and W# handling must be checked against board pull-ups,
+other drivers, and the Micron specifications; do not float or hard-short
+unknown board-driven controls. Establish mux access/isolation as needed.
+
+FIRST READS - ONLY AFTER WIRING AND ELECTRICAL CHECKS
+Keep router external power, console, and USB disconnected. If programmer
+power backfeeds the board, VCC collapses, parts warm, or identification/data
+are unstable, disconnect; isolation or professional chip removal may be needed.
+Do not solve contention by increasing voltage or powering both systems.
+A header connection is not automatically better isolated than a clip.
+
+flashrom was NOT installed at this inspection; Homebrew is present.
+Homebrew currently offers flashrom; installation command for software prep:
+  brew install flashrom
+Offline checks after installation, no programmer access:
+  flashrom --version
+  flashrom -L
+Hardware commands below are deferred until electrical checks are complete:
+  flashrom -p ch341a_spi
+  flashrom -p ch341a_spi -c MT25QU256 -r read1.bin
+  flashrom -p ch341a_spi -c MT25QU256 -r read2.bin
+Use a separate private directory per CHASSIS/PHYSICAL-CHIP and distinct names.
+Use the exact chip name reported by the installed build and only after its
+probe result agrees; resolve ambiguous identification before reading.
+  shasum -a 256 read1.bin read2.bin
+  cmp read1.bin read2.bin
+Each Micron main-array read must be 33,554,432 bytes. Check the complete image,
+including the upper 16 MiB, and inspect for credible firmware/board data.
+Matching all-FF/all-00 or repetitive/address-wrapped reads are not validation.
+No write/erase/unlock/OTP/configuration commands are included in this sheet.
+Main-array backup does not include every OTP/security/configuration register.
+
+C8375 ORIGINAL RESTORE REFERENCE - THIS CHASSIS ONLY
+File: c8375-recovery/restore-original-20261023/
+      C8375-FDO2742M0FK-ORIGINAL-SPI-32MiB.bin
+Bytes: 33,554,432
+SHA256: 72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107
+Rehashed today; both original read1/read2 copies also match this hash.
+Current nonbooting verified reference:
+  c8375-recovery/spi-backups-20261023/verified-17.18-3r-readback.bin
+  SHA256 68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b
+Compare newly acquired per-chip dumps with these files to identify the target.
+A mismatch is a reason to inspect, not to force a write. Bank identity is unknown.
+After target identification and stable backups, restoration should use the exact
+original image, full readback verification, then complete programmer removal
+before normal router power. Restored original may stop at manual ROMMON 0x1820.
+Known original-firmware console: 115200 8N1, no flow control.
+Original working boot settings remain in C8375-G2-RECOVERY-CONTEXT.md.
+
+C8235 TASKS TODAY / TOMORROW
+Worked board: U2900/U2901 Micron RW170; bank mapping unknown. J2900 remains
+unidentified; previous 6.5 kOhm to mux Select did not establish direct wiring.
+With fine probes, repeat unpowered header/mux mapping to U2903/U2904 Select
+and Enable and to the flash signals. No speculative jumpers or grounding.
+Only perform powered DC measurements after restoring mounting, cooling, and
+battery and securely attaching insulated leads WITH POWER OFF. Measure on the
+low-voltage logic board, away from mains/PSU internals. Set meter to DC volts
+before power. Do not power the inverted loose board with improvised cooling.
+For all three C8235s, document console/LED behavior separately and read both
+banks per chassis. Other units may retain useful original development code;
+that possibility is unverified. Whole-chip cloning can overwrite serials,
+manufacturing/security data and is not the default recovery method.
+Do not clear/replace the TPM or alter fuses to address the recorded halt.
+
+C8300 EXTERNAL BASELINE - CAN DO BEFORE DELIVERY
+1. Record full PID suffix/serial and how long STATUS stays steadily red.
+   Cisco lists red as booting, blinking red as hardware-integrity error.
+2. Use the actual labeled RJ45 CONSOLE port, not Ethernet or AUX. Physically
+   unplug native USB console at the router, since it disables RJ45 access.
+3. Use a known-good Cisco RS-232 console cable. Verify it on another working
+   device if available; adapter enumeration alone does not validate the link.
+4. Start logging BEFORE a cold start. Use 9600 8N1, no software or hardware
+   flow control (different from the known G2 115200 setting).
+5. Record console-active LEDs and STATUS/ENV/PWR at startup, 1, 5 and 10 min.
+   Ten minutes is an observation checkpoint, not a definitive death threshold.
+   Allow a longer observed run if safe/appropriate; stop for abnormal heat,
+   smell, critical environmental indication, or repeated fault cycling.
+6. If silent, try 115200 and inspect for any bytes; a second startup at that
+   rate may be useful to capture an early banner. Other supported baud rates
+   can be checked if there is still no readable output. Avoid endless resets.
+   Leave at least 30 seconds off between controlled cold starts.
+7. Test native USB separately with a known data cable; confirm a NEW macOS
+   serial device appears and USB console-active LED. A serial USB device
+   appearing proves the interface enumerated, not that the CPU booted.
+8. If still silent on both validated paths: power off/unplug, inspect/photo
+   logic board, DIMMs, connectors and flash markings. No G2 flash image applies.
+   Confirm installed memory and the model's service procedure before reseating
+   or trying supported known-good RAM. Remove optional modules only as a later
+   controlled, documented isolation test with the specified filler/cooling.
+9. Identify candidate C8300 boot flash before choosing a clip or voltage.
+   If SOIC8, today's clip may fit; that does not establish firmware type,
+   successful in-circuit access, or availability of a valid restoration image.
+   Capture originals before any write. No mains-side PSU probing.
+
+MEASUREMENT LOG TEMPLATE - COMPLETE ONE PER DEVICE
+Chassis temporary label / exact PID / serial:
+Board revision / physical chip label:
+External cables disconnected / battery state:
+Meter lead baseline:
+Photo file and exact pin orientation:
+Measurement endpoints / meter mode / reading / notes:
+Programmer model/revision / adapter component markings:
+Target-side VCC / accessible static-high signal voltages:
+Read filenames / sizes / hashes / JEDEC identification:
+Next inference and evidence still missing:
+
+SOURCES VERIFIED TODAY
+Cisco Catalyst 8300 LEDs (classic C8300, not G2):
+https://www.cisco.com/c/en/us/td/docs/routers/cloud_edge/c8300/hardware_installation/b-catalyst-8300-series-edge-platforms-hig/m-overview.html
+Cisco Catalyst 8300 console defaults/USB priority:
+https://www.cisco.com/c/en/us/td/docs/routers/cloud_edge/c8300/hardware_installation/b-catalyst-8300-series-edge-platforms-hig/Preinstall.html
+Micron manufacturer data sheet, page 12 Figure 6 and supply specifications:
+https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf
+flashrom CH341A programmer documentation / chip definition:
+https://raw.githubusercontent.com/flashrom/flashrom/main/doc/supported_hw/supported_prog/ch341ab.rst
+https://raw.githubusercontent.com/flashrom/flashrom/main/flashchips/micron.c
+Homebrew software package:
+https://formulae.brew.sh/formula/flashrom

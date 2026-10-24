@@ -1,0 +1,40 @@
+# Keep full IOS-XE software and redundant extraction output local.
+/c8kg2be-universalk9.*.SPA.bin
+/c8kg2be-*-inspection/*.pkg
+/c8kg2be-26.02.01-extracted/packages/*.pkg
+/c8kg2be-26.02.01-extracted/mono/firmware/
+/c8kg2be-26.02.01-extracted/rommon/
+
+# This intermediate failed-write dump contains discovered credential material.
+# Keep its exact bytes local; original and final verified backups are separate.
+/c8375-recovery/spi-backups-20261023/after-native-flash-crc-failure.bin
+
+# Original logs/configuration snapshots stay local. Publish sanitized copies.
+*.log
+**/*readable.txt
+/c8375-recovery/original-staged-firmware/*config*.txt
+/c8375-recovery/original-staged-firmware/*running*.txt
+/c8375-recovery/original-staged-firmware/*startup*.txt
+!/sanitized-evidence/**/*.log
+!/sanitized-evidence/**/*readable.txt
+
+# Raw shopping-page captures can contain transient session data; keep excerpts.
+/purchase-research/*snapshot.html
+
+# Credentials, local tools, generated caches, and operating-system metadata.
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+known-secrets.json
+.DS_Store
+._*
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+/tmp/
+/local-private/
+
+# Any other file at or above 50,000,000 bytes is blocked by the Python guard.

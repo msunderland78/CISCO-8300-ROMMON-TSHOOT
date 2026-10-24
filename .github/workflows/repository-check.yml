@@ -1,0 +1,15 @@
+name: Recovery repository checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Test publication tools
+        run: python3 -m unittest discover -s tests -v
+      - name: Audit published tree
+        run: python3 scripts/repository_tools.py audit-tree
