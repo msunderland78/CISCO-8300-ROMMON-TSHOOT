@@ -1,0 +1,82 @@
+BARE CH341A USB VERIFICATION - 2026-10-24, America/New_York
+Task: P-01-USB
+
+Setup requested: black CH341A alone connected to the Mac; programmer socket
+empty, green adapter/clips/flash chips/routers detached. No firmware operation.
+
+USER-SUPPLIED COMMAND OUTPUT
+Command: flashrom -p ch341a_spi
+
+flashrom v1.8.0 on Darwin 27.0.0 (arm64)
+flashrom is free software, get the source code at https://flashrom.org
+
+libusb: info [darwin_detach_kernel_driver] no capture entitlements. may not be able to detach the kernel driver for this device
+libusb: warning [darwin_detach_kernel_driver] USB device capture requires either an entitlement (com.apple.vm.device-access) or root privilege
+Cannot detach the existing USB driver. Claiming the interface may fail. LIBUSB_ERROR_ACCESS
+libusb: info [darwin_claim_interface] no interface found; setting configuration: 1
+No EEPROM/flash device found.
+Note: flashrom can never write if the flash chip isn't found automatically.
+
+LOCAL VERBOSE FOLLOW-UP
+Command: flashrom -VV -p ch341a_spi -c MT25QU256
+Executed without sudo. Exit status: 1 (no chip found with no target attached).
+
+flashrom v1.8.0 on Darwin 27.0.0 (arm64)
+flashrom is free software, get the source code at https://flashrom.org
+
+flashrom was built with LLVM Clang 21.0.0 (clang-2100.3.34.2), little endian
+Command line (5 args): flashrom -VV -p ch341a_spi -c MT25QU256
+Initializing ch341a_spi programmer
+libusb: info [darwin_detach_kernel_driver] no capture entitlements. may not be able to detach the kernel driver for this device
+libusb: warning [darwin_detach_kernel_driver] USB device capture requires either an entitlement (com.apple.vm.device-access) or root privilege
+Cannot detach the existing USB driver. Claiming the interface may fail. LIBUSB_ERROR_ACCESS
+Device revision is 3.0.4
+The following protocols are supported: SPI.
+Probing for Micron MT25QU256, 32768 kB: RDID byte 0 parity violation. compare_id: id1 0xff, id2 0xffff
+No EEPROM/flash device found.
+Note: flashrom can never write if the flash chip isn't found automatically.
+Runtime from programmer init to shutdown: 0min 0sec
+
+
+USER-SUPPLIED ROOT RETRY (later in the same session)
+Command: sudo flashrom -p ch341a_spi
+The password prompt is omitted; no password value was provided or recorded.
+
+flashrom v1.8.0 on Darwin 27.0.0 (arm64)
+flashrom is free software, get the source code at https://flashrom.org
+
+libusb: info [darwin_detach_kernel_driver] no capture entitlements. may not be able to detach the kernel driver for this device
+No EEPROM/flash device found.
+Note: flashrom can never write if the flash chip isn't found automatically.
+
+The root retry no longer printed LIBUSB_ERROR_ACCESS or the root/entitlement
+warning. The informational no-capture-entitlements line remains. No chip is
+attached in this bare-programmer setup, so no-chip-found remains expected.
+This does not validate the adapter, electrical levels, or a target connection.
+
+ASSESSMENT
+Basic host-to-programmer initialization and SPI probing completed despite the
+driver-detach warning. The verbose output contains no USB bulk-transfer failure
+and reads an all-FF ID from the empty bus. This is expected without a chip and
+is not a detected Micron device, a valid flash backup, or proof of target-side
+electrical compatibility. Device revision is reported by flashrom; do not
+relabel it as a verified firmware version or PCB revision.
+
+The local verbose follow-up required no root retry. The user subsequently
+performed the separately recorded sudo probe. No driver removal, security-
+setting change, programmer write, router operation, or adapter insertion
+was performed as part of these probes.
+If a later run actually fails to open/claim/transfer, reassess that specific
+error rather than treating every detach warning as fatal or universally benign.
+
+NEXT
+With the black programmer still alone, meter in DC-voltage mode, measure its
+labeled 3.3 V and 5 V pads relative to its labeled GND pad. Keep socket empty
+and adapter/clips/targets detached. These readings have not yet been reported.
+Adapter input/output/socket mapping and 1.8 V power/signal checks remain pending.
+
+PRIMARY REFERENCES
+flashrom v1.8.0 CH341A driver:
+https://raw.githubusercontent.com/flashrom/flashrom/v1.8.0/programmers/ch341a_spi.c
+libusb Darwin backend (reference for entitlement/detach behavior):
+https://raw.githubusercontent.com/libusb/libusb/master/libusb/os/darwin_usb.c
