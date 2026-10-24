@@ -8,7 +8,7 @@ This is the active tracking document for the five routers below. It expands the 
 
 **Immediate priority:** map the C8375 flash headers with the board unpowered. If a header provides verified electrical access, attempt read-only backups before the SOIC-16 clip arrives. Otherwise, prepare the harness and wait for the clip. While awaiting tools, perform the C8300 external console checks.
 
-**Execution status:** offline software preparation is verified. The user has reported initial meter lead checks, CR2032 removal/voltage, external cable disconnection, and a complete preliminary P1_CSPI-to-USB-shell scan. Flash-ground continuity and SPI signal assignments remain unverified. No programmer connections, flash reads/writes, or new router console tests have been reported in this session. Checkboxes distinguish completed preparation from planned bench work.
+**Execution status:** offline software preparation is verified. User measurements establish **P1 header pin 2 to U1 flash pin 10 (ground), settled 0.6 Ω**, and **P1 header pin 1 to U1 flash pin 2 (VCC), 0.3 Ω**. Actual U1 VCC relative to mapped ground measured **0.000–0.002 V DC** with cords disconnected and CR2032 removed. Earlier unstable values are preserved in the log. Remaining SPI signals, mux/bank routing, and U2 mapping remain to be checked. No programmer connections, flash reads/writes, or new router console tests have been reported in this session. Checkboxes distinguish completed preparation from planned bench work.
 
 ## 1. Fleet and current evidence
 
@@ -37,16 +37,16 @@ Do not assume that the other C8235s share C8235-A's board revision, flash parts,
 
 ## 2. Equipment and connection rules
 
-Delivery expectations were reported on October 24, 2026; actual receipt and bench verification remain to be recorded.
+The user confirmed receipt on October 24, 2026 of the CH341A, 1.8 V adapter, Dupont wires, SOIC-8 clip, fine probe points, and hook clips. Receipt does not establish electrical compatibility or wiring. The SOIC-16 clip remains expected October 25; no arrival confirmation is recorded for it.
 
 | Equipment | Reported availability | Intended use | Verification still needed |
 | --- | --- | --- | --- |
-| CH341A programmer | Owned / expected available for today's work | SPI identification, reads, eventual recovery writes | Actual board revision, operating mode, pinout, logic levels |
-| 1.8 V adapter | Owned / expected available for today's work | Target power and signal-level translation | Input/output orientation, circuit/component identification, output measurements |
-| SOIC-8 clip | Owned / expected available for today's work | Only independently identified compatible 8-pin devices | Cable continuity, orientation, fit, target voltage |
-| 40 × 20 cm Dupont wires | Expected October 24 | Mapped headers and SOIC-16 breakout wiring | Connector genders, continuity, secure fit |
-| Needle meter probe tips | Expected October 24 | Fine unpowered connection mapping | Meter compatibility and safe exposed tip length |
-| Meter hook clips | Expected October 24 | Secure connections on adequately spaced test points/headers | Actual hook jaw size and insulation; 4 mm connector size does not establish IC-leg clearance |
+| CH341A programmer | Received October 24, user-confirmed | SPI identification, reads, eventual recovery writes | Actual board revision, operating mode, pinout, logic levels |
+| 1.8 V adapter | Received October 24, user-confirmed | Target power and signal-level translation | Input/output orientation, circuit/component identification, output measurements |
+| SOIC-8 clip | Received October 24, user-confirmed | Only independently identified compatible 8-pin devices | Cable continuity, orientation, fit, target voltage |
+| 40 × 20 cm Dupont wires | Received October 24, user-confirmed | Mapped headers and SOIC-16 breakout wiring | Connector genders, continuity, secure fit |
+| Needle meter probe tips | Received October 24, user-confirmed | Fine unpowered connection mapping | Meter compatibility, safe exposed tip length, and refreshed lead baseline after fitting |
+| Meter hook clips | Received October 24, user-confirmed | Secure connections on adequately spaced test points/headers | Actual hook jaw size and insulation; 4 mm connector size does not establish IC-leg clearance |
 | SOIC-16 clip and breakout | Expected October 25 | Access to the identified G2 flash packages | Wide-body fit, pin numbering, every cable contact |
 | Fluke 111 | Previously documented | DC voltage, resistance, continuity | Leads in COM and V/ohm, correct mode, lead resistance baseline |
 
@@ -89,10 +89,12 @@ In that photo, **U2_CSPI is the left flash and U1_CSPI the right flash**. P1_CSP
 
 - [ ] Confirm chassis `FDO2742M0FK` and take a current photo in a documented orientation.
 - [x] Disconnect all external cables/power and record battery state: user confirms all cords disconnected and CR2032 removed.
-- [ ] Establish absence of residual voltage before resistance measurements.
-- [x] Record probe-to-probe resistance: **0.2 Ω**, user-reported; separated probes show **OL**.
+- [x] Check the unpowered flash supply relative to ground before further continuity mapping: P1 header pin 2 (ground) to U1 flash pin 2 (VCC) measured 0.000–0.002 V DC. This is a check of that rail, not every board rail.
+- [x] Record probe-to-probe resistance: **0.2 Ω with the original probes**, then **about 0.6 Ω with the new fine tips**, user-reported. Original separated probes showed OL. Compare each measurement with the baseline for its actual lead configuration.
 - [ ] Identify each flash's pin-1 marker and number the headers from clear photos. Do not equate a header's numbering with flash numbering.
 - [ ] Map ground first, then the required power/data/control signals.
+- [x] Verify P1_CSPI header pin 2 to U1_CSPI flash pin 10 (VSS): user obtained a settled 0.6 Ω, matching the fine-tip baseline, after initially unstable contact.
+- [x] Verify P1_CSPI header pin 1 to U1_CSPI flash pin 2 (VCC): user reported 0.3 Ω. The pair's requested DC reading was not separately supplied; do not invent one.
 - [ ] Record the path to **both** flash chips, including higher resistance or open readings.
 - [ ] Determine whether muxes or other circuitry interrupt header-to-flash access.
 - [ ] Decide whether there is enough evidence for a header-based read or whether to wait for the clip.
@@ -105,12 +107,12 @@ Values near the meter lead baseline support a direct connection. Higher resistan
 
 ### P1_CSPI preliminary header scan
 
-Reference endpoint: USB connector metal outer shell; not yet verified as flash/circuit ground. User reports all external cords disconnected and CR2032 removed. Lead baseline: 0.2 Ω. Do not infer SPI signal assignments from this table.
+Reference endpoint: USB connector metal outer shell. The user explicitly clarified that “chassis ground” in subsequent reports means this same measurement point. U1_CSPI pin 10 to this reference was reported as 0 V DC / 0.3 Ω and later as **0.6 Ω with the fine tips**, equal to the newly reported fine-tip baseline. This supports a direct ground connection. User reports all external cords disconnected and CR2032 removed. Original lead baseline: 0.2 Ω; fine-tip baseline: about 0.6 Ω. Do not subtract one configuration's baseline from another configuration's measurements. P1 pin 2's earlier conflicting results remain in the record, with a new fine-tip repeat of approximately 1.1 Ω to the shell that varies with contact.
 
 | Header pin | DC voltage to USB shell | Resistance to USB shell | Assessment |
 | --- | --- | --- | --- |
-| 1 | 0 V, user-reported | 980 Ω, user-reported | Resistive path; no direct shell connection demonstrated; function unknown |
-| 2 | 0 V, user-reported | 0.2 Ω, user-reported | Matches lead baseline; direct USB-shell connection supported. Ground candidate; flash/circuit-ground connection still to be verified |
+| 1 | 0 V, user-reported in initial scan | 980 Ω to shell in initial scan | Subsequently mapped to U1 flash pin 2 (VCC) by a separate 0.3 Ω direct measurement; this does not establish a valid powered supply |
+| 2 | 0 V, earlier user report | Originally 0.2 Ω to shell; fine-tip shell repeat approximately 1.1 Ω with variation; subsequent direct U1-pin-10 check settled at 0.6 Ω | P1 pin 2 mapped to U1 flash VSS/ground by the settled 0.6 Ω direct result, equal to fine-tip baseline. Earlier 11.8 Ω and contact variation retained as historical observations |
 | 3 | 0.015 V (15 mV), user-reported | OL, user-reported | User corrected the initially reported pin number from 2 to 3; function unknown |
 | 4 | 0.006 V (6 mV), user-reported | OL, user-reported | Function unknown; nonzero DC reading recorded, no fault or discharge conclusion |
 | 5 | 0.003 V (3 mV), user-reported | OL, user-reported | Function unknown; stability over time not reported; no fault or discharge conclusion |
@@ -120,9 +122,19 @@ Reference endpoint: USB connector metal outer shell; not yet verified as flash/c
 
 **Header orientation correction:** the assistant's earlier description of pin 2 as beside pin 1 identified the wrong post. The user clarified that actual pin 2 is above pin 1 in their working orientation, and that the 0.015 V / OL measurements belong to **pin 3**. The user then measured actual pin 2 at **0 V DC and 0.2 Ω to the USB shell**, matching the lead baseline. This supports a direct shell connection; flash/circuit-ground continuity remains to be established before programmer wiring. Use the board's printed numbers and the user's confirmed orientation; do not assume a conventional drawn arrangement. The pin-3 DC reading is nonzero, and the user also reported an ohms reading; do not treat this as verification that all endpoints are discharged or that OL identifies a faulty/open board trace. Voltage should be checked first on subsequent endpoints.
 
-**Checkpoint assessment:** pin 2 is a direct USB-shell connection candidate; pins 1 and 8 have measured resistive paths; pins 3–7 read OL on the user's resistance range. No data identifies VCC, CS, CLK, MOSI, MISO, reset/hold, primary/golden routing, or a failed component. OL does not prove a broken trace; an unpowered mux or another circuit path may affect measurements. The small nonzero readings were retained as reported rather than interpreted as powered rails.
+**Current checkpoint assessment:** power and ground continuity from P1 pins 1/2 to U1 VCC/VSS are established, and unpowered U1 VCC-to-ground is 0.000–0.002 V DC. Neither clock nor CS# scans to P1 pins 3–8 identified a low-resistance signal connection. Clock results are numeric below; CS# pins 3–7 were only described as approximately similar and pin 8 measured 9.33 kΩ. Do not infer a failed trace, direct SPI header access, or bank identity. Next identify U4_CSPI mux orientation and verify its ground to P1 pin 2 before tracing supply/control/data routing. Programmer validation and all router/programmer connections remain pending.
 
-**Next requested flash-ground check:** identify U1_CSPI (right Micron chip in the saved inspection crop), its bottom-right pin-1 dot in that image, and VSS pin 10 (second leg from the top on the image's left side of that chip). With all cords disconnected and CR2032 removed, measure DC voltage between P1_CSPI pin 2 and U1_CSPI pin 10 before resistance. If voltage is zero and one leg can be contacted cleanly, compare resistance with the 0.2 Ω lead baseline. This check is pending and must not be recorded as completed merely from the IC pin reference or photo. Stop if the existing probe cannot isolate the intended contact.
+**Initial flash-ground check (historical; resolved by settled repeat below):** U1_CSPI is the right Micron chip in the saved inspection crop, with its pin-1 dot at bottom-right and VSS pin 10 second from the top on the image's left side. The user measured the requested P1_CSPI pin 2 to U1 pin 10 pair at 0 V DC / 11.8 Ω, and U1 pin 10 to the USB-shell reference at 0 V DC / 0.3 Ω. These are measured observations, but they do not validate P1 pin 2 as a common programmer ground. Repeat the original P1 pin 2 to USB-shell pair with the fine probes and reliable contact before continuing net assignments.
+
+**Equipment/numbering clarification:** after the user confirmed today's tool delivery, clarified the SOIC-16 numbering in IMG_1260 orientation: right side bottom-to-top 1–8; left side top-to-bottom 9–16. The bottom-right dot identifies pin 1. Thus U1_CSPI VSS pin 10 is second from the top on the image's left side. This is flash-package numbering, distinct from the header's printed numbers. The requested DC check is an unpowered pre-resistance check, not a request to power the board or expect 1.8 V. Refresh the tips-together resistance baseline after fitting the new needle points; the old 0.2 Ω baseline was obtained before this delivery.
+
+**Initial ambiguous report (historical; resolved below):** flash pin 10 to “chassis ground” was reported at **0 V DC and 0.3 Ω**, and “pin 2” to flash pin 10 at **0 V DC and 11.8 Ω**. The assistant initially asked whether pin 2 meant the header or flash and whether the USB-shell/chassis references were separate. The user subsequently resolved both wording questions; use the confirmed endpoints below. No rail-short conclusion follows from the initial wording.
+
+**Endpoint clarification (historical, before the settled repeat):** the user explicitly confirmed that **P1_CSPI header pin 2 to U1_CSPI chip pin 10** is the pair measuring **0 V DC and 11.8 Ω**. This is not a chip-VCC-to-ground measurement. U1 chip pin 10 to “chassis ground” is reported at **0 V DC and 0.3 Ω**, and the user further clarified that this is the **same USB-shell reference used earlier**. Keep the earlier header-pin-2-to-USB-shell result of **0 V DC and 0.2 Ω** as historical evidence rather than overwriting it. These readings do not agree; contact quality or endpoint identification may be involved, but no cause is established. Do not request a comparison of supposedly separate USB/chassis reference points. Next repeat **P1_CSPI pin 2 to that same USB shell with the fine probes**, recording the settled resistance and a second contact attempt; new-tip lead baseline also remains unreported. Header pin 2 is not a verified direct flash ground and must not be wired as programmer ground on the current evidence.
+
+**Fine-tip baseline and first repeat (historical, before the settled direct result):** the user reports **about 0.6 Ω with the fine tips touching**, **0.6 Ω from USB shell to U1_CSPI pin 10 with those tips**, and a varying USB-shell-to-P1-header-pin-2 reading whose most consistent value is **about 1.1 Ω**. U1 pin 10 to shell therefore matches the current lead baseline. P1 pin 2 to shell is approximately 0.5 Ω above baseline, with limited precision because of contact variation. This makes contact resistance a plausible explanation for the earlier discrepancy, not a proven cause or evidence of a failed board connection. Next repeat **P1_CSPI header pin 2 to U1_CSPI chip pin 10** once using the same fine-tip configuration, record the settled value/range, and compare against 0.6 Ω before accepting the header ground mapping. No new powered measurement or programmer connection is requested.
+
+**Ground check resolved by direct repeat:** the user held the **P1_CSPI header pin 2 to U1_CSPI flash pin 10** measurement for an extended period. It initially varied substantially and then **settled at 0.6 Ω**, matching the new fine-tip shorted-lead baseline. Accept **P1 header pin 2 → U1 flash VSS/ground** as the established measured connection. Earlier 11.8 Ω and approximately 1.1 Ω readings remain in the historical record; contact variation is a plausible explanation, not a demonstrated damaged component. No further repetition of this same pair is requested. This does not validate other header pins or programmer wiring. Next test **P1 header pin 1 to U1 flash pin 2 (VCC)**, DC voltage first; the proposed supply connection is not yet established.
 
 ### Micron package reference
 
@@ -148,15 +160,42 @@ Pins **4, 5, 6, 11, 12, 13, 14** are DNU: do not connect them. Check board pull-
 
 | Signal / flash pin | P1_CSPI pin and resistance | P2_CSPI pin and resistance | Other path / notes |
 | --- | --- | --- | --- |
-| GND / 10 | Pending | Pending | |
-| VCC / 2 | Pending | Pending | |
-| CS# / 7 | Pending | Pending | |
-| CLK / 16 | Pending | Pending | |
+| GND / 10 | **P1 header pin 2: settled 0.6 Ω to U1 flash pin 10; connection verified by user measurement** | Pending | Fine-tip baseline 0.6 Ω; U1 pin 10 to shell 0.6 Ω. Initially unstable / 11.8 Ω result retained in history |
+| VCC / 2 | **P1 header pin 1: 0.3 Ω to U1 flash pin 2; direct connection supported** | Pending | Mapping-pair voltage was not separately reported; subsequent actual U1 VCC-to-ground check was 0.000–0.002 V DC with all sources disconnected |
+| CS# / 7 | P1 pins 3–7 reported approximately the same high/OL pattern as the clock scan; P1 pin 8 **9.33 kΩ** | Pending | Individual values for pins 3–7 not restated; do not copy clock values as exact CS measurements. No direct CS# connection identified |
+| CLK / 16 | Tested P1 pins 3–8: none showed a low-resistance connection; values below | Pending | No P1 clock assignment established. Check another signal / mux routing; supply and ground continuity do not establish which header serves which flash |
 | MOSI / 15 | Pending | Pending | |
 | MISO / 8 | Pending | Pending | |
 | HOLD# / 1 | Pending | Pending | |
 | RESET# / 3 | Pending | Pending | |
 | W# / 9 | Pending | Pending | |
+
+### U1 clock-to-P1 scan — user-reported, unpowered
+
+Red probe held on U1_CSPI flash pin 16 (clock); black moved across P1_CSPI header pins 3–8. All cords disconnected and CR2032 removed. Fine-tip baseline previously approximately 0.6 Ω.
+
+| P1 header pin | Resistance to U1 flash pin 16 | Assessment |
+| --- | --- | --- |
+| 3 | 2.95 MΩ | No direct connection demonstrated |
+| 4 | 2.88 MΩ | No direct connection demonstrated |
+| 5 | 3.11 MΩ | No direct connection demonstrated |
+| 6 | 3.08–3.11 MΩ | No direct connection demonstrated; range reported |
+| 7 | OL | No direct connection demonstrated |
+| 8 | 6.64 kΩ | Resistive path, not a demonstrated SPI clock wire |
+
+None is a demonstrated low-resistance clock path. Do not designate P1 pin 8 as clock merely because it is lower than the MΩ values. Possible explanations include unpowered mux isolation, different routing/header-to-flash association, or contact effects; no cause is proven. Hold insulated probe handles, since finger contact with exposed metal can affect high-resistance readings. Next perform a second signal scan using U1 pin 7 (CS#) before choosing a mux investigation; do not power or bridge unknown controls.
+
+### U1 chip-select-to-P1 scan — user-reported, unpowered
+
+User held red on U1_CSPI pin 7 (CS#) and scanned P1 header pins 3–8 as requested. Report: “basically the same readings as pin 16” except **P1 pin 8 = 9.33 kΩ**. Treat P1 pins 3–7 as an approximate high-resistance/OL pattern; exact individual CS# measurements were not supplied. Do not duplicate the clock scan's exact numbers into this test.
+
+No low-resistance CS# connection has been identified. Together with the clock results, this warrants checking the nearby mux/routing rather than scanning the remaining SPI signals blindly. Shared supply/ground do not identify which header serves which physical flash. This is not evidence that a flash or trace has failed.
+
+### Mux investigation — next unpowered checks
+
+In the saved inspection crop, U3_CSPI and U4_CSPI are the smaller parts beside P2_CSPI/P1_CSPI, visibly marked PI3CH480QE. The [manufacturer datasheet](https://www.mouser.com/datasheet/2/322/PI3CH480-348795.pdf) identifies a four-channel 2:1 mux/demux supporting 1.8 V operation: pin 1 Select, pin 8 GND, pin 15 active-low Enable, pin 16 VCC. Disabled outputs are high impedance. This establishes component behavior, not actual board routing or the cause of the measured isolation.
+
+Next identify **U4_CSPI**, the lower small mux beside P1 in the crop, and its pin-1 marker before probing. In that photo the marker appears at the upper-right package corner; for this orientation the top row runs right-to-left 1–8 and the bottom row left-to-right 9–16. Confirm the physical marker; do not reuse the flash-package orientation. First measure **U4 pin 8 (top-left corner lead in that orientation) to verified P1 header pin 2** in resistance mode, with all cords disconnected, CR2032 removed, and programmer unattached. A ground result provides an orientation/contact check before tracing mux data or supply pins. Actual mux-ground result, supply connection, select/enable wiring, and header-to-mux routes remain pending. Do not power or bridge unknown control pins.
 
 ### U2_CSPI mapping record
 
@@ -419,6 +458,17 @@ End state: power, cables, battery, assembly, terminal ownership
 | 2026-10-24 | C8375-01-P1-6 | P1_CSPI pin 6 to USB shell | User DC-voltage and resistance measurements; pin number clarified in follow-up | Voltage fluctuates between 0.001 and 0.000 V DC (0–1 mV); OL resistance | Near-zero displayed voltage; no direct shell connection demonstrated by the resistance reading; signal function remains unknown. Continue pin 7 | User-reported measurements and pin-number clarification in conversation |
 | 2026-10-24 | C8375-01-P1-7 | P1_CSPI pin 7 to USB shell | User DC-voltage and resistance measurements | 0.021 V DC (21 mV); OL resistance | Function unknown; no direct shell connection demonstrated. Small DC reading and OL are not a fault or rail-discharge diagnosis. Pin 8 remains to complete this preliminary scan | User-reported measurements in conversation |
 | 2026-10-24 | C8375-01-P1-8 | P1_CSPI pin 8 to USB shell | User DC-voltage and resistance measurements | 0 V DC; 5.625 kΩ (5,625 Ω) | Preliminary P1 scan complete. Resistive path; function unknown. Next verify a ground candidate against known flash VSS if probe access is reliable | User-reported measurements in conversation |
+| 2026-10-24 | EQUIPMENT-ARRIVAL | Recovery bench equipment | User confirms today's deliveries | CH341A, 1.8 V adapter, Dupont wires, SOIC-8 clip, fine probe points, and hook clips received | Actual programmer/adapter validation and wiring remain pending; SOIC-16 arrival not confirmed. Refresh meter baseline with new attachments before fine-pin resistance checks | User confirmation in conversation |
+| 2026-10-24 | C8375-01-GND-REFERENCE | Reported flash pin 10 to chassis | User DC-voltage and resistance checks | 0 V DC; 0.3 Ω | Supports flash-ground-to-chassis connection; new-tip lead baseline not reported | User-reported measurements in conversation |
+| 2026-10-24 | C8375-01-PIN2-UNRESOLVED | “Pin 2” to flash pin 10; pin-2 identity unconfirmed | User DC-voltage and resistance checks | 0 V DC; 11.8 Ω | Clarify whether header P1 pin 2 or flash U1 pin 2 (VCC). Do not assign to a net or conclude a fault before clarification | User-reported measurements; clarification requested |
+| 2026-10-24 | C8375-01-PIN2-CLARIFIED | P1_CSPI header pin 2 to U1_CSPI chip pin 10 | User explicitly confirms endpoints of previous reading | 0 V DC; 11.8 Ω | Endpoint ambiguity resolved; not a verified direct flash-ground connection. Reconcile with earlier 0.2 Ω to USB shell and U1 pin 10's 0.3 Ω to chassis. USB-shell/chassis check and new-tip lead baseline next | User clarification in conversation |
+| 2026-10-24 | C8375-01-REFERENCE-CLARIFIED | USB shell / user-described chassis ground | User clarifies reference identity | Both names refer to the same measurement point | Do not infer a separate shield/chassis network from wording. Earlier P1 pin 2 to ground at 0.2 Ω conflicts with P1 pin 2 to U1 pin 10 at 11.8 Ω and U1 pin 10 to that ground at 0.3 Ω; repeat original header pair with fine probes | User clarification in conversation |
+| 2026-10-24 | C8375-01-FINE-TIP-BASELINE | New fine-tip lead configuration and ground repeats | User baseline and repeat resistance measurements | Tips together approximately 0.6 Ω; USB shell to U1 pin 10 0.6 Ω; USB shell to P1 pin 2 varies, most consistently approximately 1.1 Ω | Flash VSS/shell path matches lead baseline. Header pin 2 is a ground candidate with contact variation; repeat direct header-pin-2 to flash-pin-10 pair once to reconcile earlier 11.8 Ω | User-reported measurements and stability description in conversation |
+| 2026-10-24 | C8375-01-GND-VERIFIED | P1_CSPI header pin 2 to U1_CSPI flash pin 10 | Extended direct repeat with fine probes | Initially oscillating substantially, then settled at 0.6 Ω | Matches fine-tip baseline; accept measured header-pin-2 to U1 VSS connection. No further repetition requested; next map proposed header-pin-1 to U1 VCC | User-reported settled measurement and stability history in conversation |
+| 2026-10-24 | C8375-01-VCC-MAPPED | P1_CSPI header pin 1 to U1_CSPI flash pin 2 | User resistance reading after requested mapping check | 0.3 Ω; DC value for this pair not separately reported | Supports direct VCC connection. Fine-tip baseline previously approximately 0.6 Ω; retain raw reading without inferring negative resistance from contact/baseline variation. Next measure actual flash VCC relative to ground, not merely between two expected-connected supply points | User-reported measurement in conversation |
+| 2026-10-24 | C8375-01-VCC-UNPOWERED | P1_CSPI header pin 2 (mapped ground) to U1_CSPI flash pin 2 (VCC) | User DC supply-to-ground measurement with power/cables disconnected and CR2032 removed | 0.000–0.002 V DC (0–2 mV) | Near-zero displayed flash supply voltage in the unpowered setup; proceed with resistance mapping of clock/data. No claim about all board rails or powered supply performance | User-reported measurement in conversation |
+| 2026-10-24 | C8375-01-CLK-SCAN | U1_CSPI flash pin 16 to P1_CSPI header pins 3–8 | User unpowered resistance scan, red on flash clock | P1-3 2.95 MΩ; P1-4 2.88 MΩ; P1-5 3.11 MΩ; P1-6 3.08–3.11 MΩ; P1-7 OL; P1-8 6.64 kΩ | No low-resistance clock connection identified. No signal assignment or fault inferred. Check CS# next; mux isolation, alternate routing, and contact effects remain possible | User-reported readings in conversation |
+| 2026-10-24 | C8375-01-CS-SCAN | U1_CSPI flash pin 7 to P1_CSPI header pins 3–8 | User unpowered resistance scan | Pins 3–7 described as basically the same as the clock scan, without individual values; pin 8 9.33 kΩ | No direct CS# mapping established; do not invent exact repeated values. Next investigate mux ground/orientation, supply and routing, keeping all equipment unpowered | User qualitative comparison and exact pin-8 reading in conversation |
 | Pending | | | | | | |
 
 ### Decisions and unresolved questions
@@ -476,3 +526,13 @@ After boot recovery, define and log an observation duration, reset/reboot behavi
 | 2026-10-24 | Recorded P1_CSPI pin 6 fluctuating between 0.000 and 0.001 V DC, with OL resistance to the USB shell. User explicitly clarified that this result belongs to pin 6; next point is pin 7. |
 | 2026-10-24 | Recorded P1_CSPI pin 7 at 0.021 V DC and OL to USB shell. Pin 8 is the remaining endpoint in this preliminary header scan. |
 | 2026-10-24 | Completed preliminary P1_CSPI scan with pin 8 at 0 V DC and 5.625 kΩ. Saved all user-reported meter/battery/header observations and the pin-number correction; flash-ground and SPI signal mapping remain pending. |
+| 2026-10-24 | Recorded today's equipment arrival. Clarified flash-package numbering in photo orientation and the purpose of unpowered DC checks; requested a refreshed lead baseline with the fine points. No programmer attachment, adapter validation, or flash-ground result recorded yet. |
+| 2026-10-24 | Recorded flash pin 10 to chassis at 0 V DC / 0.3 Ω, plus an unassigned “pin 2 to pin 10” result at 0 V DC / 11.8 Ω. Requested explicit header-versus-chip endpoint clarification before interpreting or using the latter measurement. |
+| 2026-10-24 | User confirmed the 11.8 Ω pair is P1_CSPI header pin 2 to U1_CSPI chip pin 10. Removed its provisional flash-ground status; preserve earlier USB-shell result and reconcile references before programmer wiring. |
+| 2026-10-24 | User clarified “USB ground” and “chassis ground” refer to the same point. Corrected the reference interpretation; next repeat P1 pin 2 to the same shell rather than comparing nonexistent separate reference points. |
+| 2026-10-24 | Recorded new fine-tip baseline of about 0.6 Ω, matching U1 pin 10 to USB shell. Header pin 2 to shell varies around a most consistent 1.1 Ω. Kept earlier results and requested one direct header-to-flash-ground repeat to assess contact-related discrepancy. |
+| 2026-10-24 | Direct P1 header pin 2 to U1 flash pin 10 settled at 0.6 Ω after extended contact variation, equal to fine-tip baseline. Marked this ground connection verified; remaining header/mux/bank mapping is pending. |
+| 2026-10-24 | Recorded P1 header pin 1 to U1 flash pin 2 (VCC) at 0.3 Ω. Ground and VCC header connections are now mapped; next check VCC-to-ground DC voltage before further SPI signal tracing. |
+| 2026-10-24 | Recorded unpowered U1 VCC-to-mapped-ground reading of 0.000–0.002 V DC. Next trace U1 pin 16 (clock) against remaining P1 header pins, recording actual resistance values without assuming signal assignments. |
+| 2026-10-24 | Recorded complete U1-clock-to-P1 scan: pins 3–6 approximately 2.88–3.11 MΩ, pin 7 OL, pin 8 6.64 kΩ. No clock wire found; next check CS# and investigate routing/mux behavior from evidence. |
+| 2026-10-24 | Recorded CS# scan as qualitatively similar to the clock scan, with exact P1-pin-8 value 9.33 kΩ. No low-resistance signal mapping established. Prepared unpowered U4 mux-ground/orientation check using the PI3CH480 manufacturer pin reference. |
