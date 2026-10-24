@@ -8,7 +8,7 @@ This is the active tracking document for the five routers below. It expands the 
 
 **Immediate priority:** map the C8375 flash headers with the board unpowered. If a header provides verified electrical access, attempt read-only backups before the SOIC-16 clip arrives. Otherwise, prepare the harness and wait for the clip. While awaiting tools, perform the C8300 external console checks.
 
-**Execution status:** no new physical measurements, programmer connections, flash reads/writes, or router console tests have been performed during this planning session. Checkboxes below distinguish completed preparation from planned bench work.
+**Execution status:** offline software preparation is verified. The user has reported initial meter lead checks, CR2032 removal/voltage, external cable disconnection, and a complete preliminary P1_CSPI-to-USB-shell scan. Flash-ground continuity and SPI signal assignments remain unverified. No programmer connections, flash reads/writes, or new router console tests have been reported in this session. Checkboxes distinguish completed preparation from planned bench work.
 
 ## 1. Fleet and current evidence
 
@@ -88,9 +88,9 @@ Reference: [saved flash/header photo](c8375-recovery/board-photos/IMG_1260-spi-p
 In that photo, **U2_CSPI is the left flash and U1_CSPI the right flash**. P1_CSPI, P2_CSPI, and nearby muxes are visible. Header pinouts, mux routing, and primary/golden chip assignments remain unknown.
 
 - [ ] Confirm chassis `FDO2742M0FK` and take a current photo in a documented orientation.
-- [ ] Disconnect all external cables/power and record battery state.
+- [x] Disconnect all external cables/power and record battery state: user confirms all cords disconnected and CR2032 removed.
 - [ ] Establish absence of residual voltage before resistance measurements.
-- [ ] Record probe-to-probe resistance: **pending Ω**.
+- [x] Record probe-to-probe resistance: **0.2 Ω**, user-reported; separated probes show **OL**.
 - [ ] Identify each flash's pin-1 marker and number the headers from clear photos. Do not equate a header's numbering with flash numbering.
 - [ ] Map ground first, then the required power/data/control signals.
 - [ ] Record the path to **both** flash chips, including higher resistance or open readings.
@@ -98,6 +98,31 @@ In that photo, **U2_CSPI is the left flash and U1_CSPI the right flash**. P1_CSP
 - [ ] Decide whether there is enough evidence for a header-based read or whether to wait for the clip.
 
 Values near the meter lead baseline support a direct connection. Higher resistance may indicate a series resistor or another circuit path. A kΩ reading does not establish a direct trace. An unpowered mux may leave a valid route disconnected; an open reading alone does not prove a failed trace or component.
+
+**Initial preparation reported October 24:** user measured 0.2 Ω with tips touching and OL with tips separated, and removed the CR2032. Reported installed orientation: the positive face pointed toward the router's center and the negative face toward the outside. This records the user's description, not independently confirmed holder polarity. The removed battery subsequently measured **3.03 V DC**, user-reported, consistent with its nominal unloaded voltage; no load test or battery-health conclusion follows. The user then explicitly confirmed that all cords are disconnected. Existing IMG_1260 and its inspection crop are sufficiently clear for accessible-header checks; another photograph is not required unless the actual layout differs or orientation becomes unclear. Physical chassis serial is not independently reconfirmed. P1_CSPI pin 1 subsequently measured **0 V DC and 980 Ω to the USB connector shell**; other endpoints and rail voltages remain unverified.
+
+**Preliminary scan completed:** P1_CSPI pins 1–8 have user-reported readings to the USB connector shell, listed below. These endpoint checks do not establish SPI pin functions, USB-shield-to-flash-ground identity, or discharge of every board rail. Next is verification against a known flash ground, if a single IC leg can be contacted reliably with the current probes. Do not force fine-leg probing with an oversized tip.
+
+### P1_CSPI preliminary header scan
+
+Reference endpoint: USB connector metal outer shell; not yet verified as flash/circuit ground. User reports all external cords disconnected and CR2032 removed. Lead baseline: 0.2 Ω. Do not infer SPI signal assignments from this table.
+
+| Header pin | DC voltage to USB shell | Resistance to USB shell | Assessment |
+| --- | --- | --- | --- |
+| 1 | 0 V, user-reported | 980 Ω, user-reported | Resistive path; no direct shell connection demonstrated; function unknown |
+| 2 | 0 V, user-reported | 0.2 Ω, user-reported | Matches lead baseline; direct USB-shell connection supported. Ground candidate; flash/circuit-ground connection still to be verified |
+| 3 | 0.015 V (15 mV), user-reported | OL, user-reported | User corrected the initially reported pin number from 2 to 3; function unknown |
+| 4 | 0.006 V (6 mV), user-reported | OL, user-reported | Function unknown; nonzero DC reading recorded, no fault or discharge conclusion |
+| 5 | 0.003 V (3 mV), user-reported | OL, user-reported | Function unknown; stability over time not reported; no fault or discharge conclusion |
+| 6 | Fluctuating 0.000–0.001 V (0–1 mV), user-reported | OL, user-reported | Near-zero displayed voltage; function unknown |
+| 7 | 0.021 V (21 mV), user-reported | OL, user-reported | Function unknown; stability over time not reported; no fault or discharge conclusion |
+| 8 | 0 V, user-reported | 5.625 kΩ (5,625 Ω), user-reported | Resistive path; no direct shell connection demonstrated; function unknown |
+
+**Header orientation correction:** the assistant's earlier description of pin 2 as beside pin 1 identified the wrong post. The user clarified that actual pin 2 is above pin 1 in their working orientation, and that the 0.015 V / OL measurements belong to **pin 3**. The user then measured actual pin 2 at **0 V DC and 0.2 Ω to the USB shell**, matching the lead baseline. This supports a direct shell connection; flash/circuit-ground continuity remains to be established before programmer wiring. Use the board's printed numbers and the user's confirmed orientation; do not assume a conventional drawn arrangement. The pin-3 DC reading is nonzero, and the user also reported an ohms reading; do not treat this as verification that all endpoints are discharged or that OL identifies a faulty/open board trace. Voltage should be checked first on subsequent endpoints.
+
+**Checkpoint assessment:** pin 2 is a direct USB-shell connection candidate; pins 1 and 8 have measured resistive paths; pins 3–7 read OL on the user's resistance range. No data identifies VCC, CS, CLK, MOSI, MISO, reset/hold, primary/golden routing, or a failed component. OL does not prove a broken trace; an unpowered mux or another circuit path may affect measurements. The small nonzero readings were retained as reported rather than interpreted as powered rails.
+
+**Next requested flash-ground check:** identify U1_CSPI (right Micron chip in the saved inspection crop), its bottom-right pin-1 dot in that image, and VSS pin 10 (second leg from the top on the image's left side of that chip). With all cords disconnected and CR2032 removed, measure DC voltage between P1_CSPI pin 2 and U1_CSPI pin 10 before resistance. If voltage is zero and one leg can be contacted cleanly, compare resistance with the 0.2 Ω lead baseline. This check is pending and must not be recorded as completed merely from the IC pin reference or photo. Stop if the existing probe cannot isolate the intended contact.
 
 ### Micron package reference
 
@@ -383,6 +408,17 @@ End state: power, cables, battery, assembly, terminal ownership
 | 2026-10-24 | PREP-01 | Workspace | Inventory and context review | 300 pre-existing files inventoried; three requested contexts read | Use this file for tracking | Inventory and context links above |
 | 2026-10-24 | PREP-02 | C8375-A saved artifacts | Rehash original restore image and both original source reads | All three match `72fc3f…45107` | Original restore reference available; physical target still unknown | Full hash in section 6 |
 | 2026-10-24 | P-02-SOFTWARE | Mac workstation | User installation followed by offline version/help/supported-chip checks | flashrom v1.8.0, Darwin 27.0.0 arm64; `ch341a_spi` and MT25QU256 listed | Software ready; actual programmer detection and P-01 electrical checks pending | [Software verification](recovery-prep-20261024/FLASHROM-SOFTWARE-VERIFICATION.txt) |
+| 2026-10-24 | C8375-01-PREP | Meter / removed CR2032 during requested C8375 preparation | User lead check and battery removal | Tips touching: 0.2 Ω; separated: OL; battery removed, positive face reported toward chassis center | Lead baseline recorded; battery voltage, physical identity/photo, external disconnection, and residual voltage pending | User-reported measurements in conversation; no instrument capture |
+| 2026-10-24 | C8375-01-BATTERY | Removed CR2032 during requested C8375 preparation | User DC-voltage measurement across removed cell | 3.03 V DC, unloaded | Consistent with nominal voltage; no load/health test. Leave out for unpowered mapping; confirm external disconnection and identify board contacts next | User-reported measurement in conversation; no instrument capture |
+| 2026-10-24 | C8375-01-ISOLATION | Router during requested C8375 preparation | User confirms all cords disconnected; existing 1260 photo accepted | External disconnection confirmed; CR2032 already removed | Proceed with DC voltage checks at accessible header posts; electrical functions remain unknown | User confirmation and existing IMG_1260 inspection crop |
+| 2026-10-24 | C8375-01-P1-1 | P1_CSPI pin 1 to USB shell | User DC-voltage check followed by resistance check | 0 V DC; 980 Ω | Resistive path substantially above 0.2 Ω lead baseline; not evidence of direct shell connection or a signal assignment. Continue pin 2, voltage first | User-reported measurements in conversation |
+| 2026-10-24 | C8375-01-P1-3 | P1_CSPI pin 3 to USB shell | User measurements, with immediate pin-number correction | 0.015 V DC (15 mV); OL resistance | Initially called pin 2, then explicitly corrected to pin 3. Actual pin 2 is above pin 1 in the user's orientation and remains pending. No signal assignment or fault conclusion | User-reported measurements and correction in conversation |
+| 2026-10-24 | C8375-01-P1-2 | Actual P1_CSPI pin 2 to USB shell | User DC-voltage and resistance measurements | 0 V DC; 0.2 Ω | Matches probe baseline; direct shell connection supported. Record as ground candidate pending verification against flash/circuit ground; continue pin 4 using same shell reference | User-reported measurements in conversation |
+| 2026-10-24 | C8375-01-P1-4 | P1_CSPI pin 4 to USB shell | User DC-voltage and resistance measurements | 0.006 V DC (6 mV); OL resistance | Record as reported; function remains unknown. A small DC reading and OL do not establish a faulty trace, active supply, or verified discharge. Request pin 5 DC reading first | User-reported measurements in conversation |
+| 2026-10-24 | C8375-01-P1-5 | P1_CSPI pin 5 to USB shell | User DC-voltage and resistance measurements | 0.003 V DC (3 mV); OL resistance | Function unknown; requested stability observation was not reported. Preserve observations without inferring a fault, signal assignment, or verified discharge | User-reported measurements in conversation |
+| 2026-10-24 | C8375-01-P1-6 | P1_CSPI pin 6 to USB shell | User DC-voltage and resistance measurements; pin number clarified in follow-up | Voltage fluctuates between 0.001 and 0.000 V DC (0–1 mV); OL resistance | Near-zero displayed voltage; no direct shell connection demonstrated by the resistance reading; signal function remains unknown. Continue pin 7 | User-reported measurements and pin-number clarification in conversation |
+| 2026-10-24 | C8375-01-P1-7 | P1_CSPI pin 7 to USB shell | User DC-voltage and resistance measurements | 0.021 V DC (21 mV); OL resistance | Function unknown; no direct shell connection demonstrated. Small DC reading and OL are not a fault or rail-discharge diagnosis. Pin 8 remains to complete this preliminary scan | User-reported measurements in conversation |
+| 2026-10-24 | C8375-01-P1-8 | P1_CSPI pin 8 to USB shell | User DC-voltage and resistance measurements | 0 V DC; 5.625 kΩ (5,625 Ω) | Preliminary P1 scan complete. Resistive path; function unknown. Next verify a ground candidate against known flash VSS if probe access is reliable | User-reported measurements in conversation |
 | Pending | | | | | | |
 
 ### Decisions and unresolved questions
@@ -429,3 +465,14 @@ After boot recovery, define and log an observation duration, reset/reboot behavi
 | --- | --- |
 | 2026-10-24 | Created the Markdown tracking plan from reviewed recovery histories and the initial bench worksheet. Added five-device register, task IDs, per-chip mapping tables, acquisition/restoration criteria, C8300 console isolation, and append-only result templates. No new bench tests performed. |
 | 2026-10-24 | Recorded successful flashrom v1.8.0 installation and offline confirmation of CH341A/Micron support. Marked the software preparation items complete; actual USB/programmer communication and electrical validation remain pending. |
+| 2026-10-24 | Recorded user-reported 0.2 Ω lead baseline, separated-probe OL, CR2032 removal, and its reported installed orientation. Board measurements remain pending; requested removed-cell voltage and current board identification/photo before header mapping. |
+| 2026-10-24 | Recorded removed CR2032 at 3.03 V DC, user-reported. This is an unloaded voltage measurement, not a load test or diagnosis of the boot failure. |
+| 2026-10-24 | User confirmed all cords disconnected. Accepted existing clear IMG_1260 for accessible-header identification; requested preliminary P1_CSPI-to-USB-shell DC checks without assuming that the shell is verified logic ground. |
+| 2026-10-24 | Recorded first P1_CSPI endpoint result: pin 1 to USB shell, 0 V DC and 980 Ω. Added a per-pin scan table; no ground or SPI signal assignment inferred. |
+| 2026-10-24 | Recorded 0.015 V DC and OL on actual P1_CSPI pin 3 after the user's immediate correction. Acknowledged incorrect assistant guidance about pin-2 placement; actual pin 2 is above pin 1 in the user's working orientation and is awaiting measurement. |
+| 2026-10-24 | Recorded actual P1_CSPI pin 2 at 0 V DC and 0.2 Ω to the USB shell. This matches the lead baseline and supports a direct shell connection; verification against flash/circuit ground is still pending. |
+| 2026-10-24 | Recorded P1_CSPI pin 4 at 0.006 V DC and OL to USB shell. No signal assignment or fault inferred; next requested measurement is pin 5 DC voltage. |
+| 2026-10-24 | Recorded P1_CSPI pin 5 at 0.003 V DC and OL to USB shell. Voltage stability over time was not reported; next requested point is pin 6. |
+| 2026-10-24 | Recorded P1_CSPI pin 6 fluctuating between 0.000 and 0.001 V DC, with OL resistance to the USB shell. User explicitly clarified that this result belongs to pin 6; next point is pin 7. |
+| 2026-10-24 | Recorded P1_CSPI pin 7 at 0.021 V DC and OL to USB shell. Pin 8 is the remaining endpoint in this preliminary header scan. |
+| 2026-10-24 | Completed preliminary P1_CSPI scan with pin 8 at 0 V DC and 5.625 kΩ. Saved all user-reported meter/battery/header observations and the pin-number correction; flash-ground and SPI signal mapping remain pending. |
