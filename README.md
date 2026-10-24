@@ -58,6 +58,7 @@ Older notes describe intermediate stages and may say that a write had not yet oc
 +-- ROMMON-extracted/                 Canonical SoC1/SoC2 ROMMON artifacts
 +-- c8375-recovery/                   Crestone backups, analyses, and evidence
 +-- board-photos/                     Arata photos, inspection crops, notes
++-- Photos/                          Received programmer/adapter photos and inspection crops
 +-- experimental-recovery/           Unproven firmware experiments and board data
 +-- c8kg2be-*/                        Selected image listings and platform evidence
 +-- research-evidence/                Reference sources and retained tools
@@ -105,7 +106,7 @@ Use actual session dates and time zones; several historical router clocks were i
 
 The first planned new-probe board task is **unpowered mapping of the C8375's P1_CSPI/P2_CSPI headers**. Verified header access might permit reads before the SOIC-16 clip is available. Header names alone do not establish a usable pinout or electrical isolation.
 
-The recorded equipment includes a CH341A, 1.8 V adapter, SOIC-8 clip, Dupont wires, fine meter probes, hook clips, a Fluke 111, and an expected SOIC-16 clip. Delivery dates in the plan are historical expectations, not confirmation that hardware arrived or was validated.
+The CH341A, 1.8 V adapter, SOIC-8 clip, Dupont wires, fine meter probes, and hook clips were confirmed received on October 24; [actual hardware photos](Photos/README.md) are retained. The Fluke 111 was already available. The SOIC-16 clip remains expected as of the last report. Delivery does not establish electrical compatibility; actual bench validation is tracked in the plan.
 
 For identified Micron RW170/MT25QU256 G2 flashes, establish **1.8 V power and compatible signal levels**, correct package orientation, control-pin handling, and board loading before acquisition. An SOIC-8 clip does not fit these SOIC-16 packages. Never guess a bank-select jumper or pinout.
 
@@ -180,6 +181,7 @@ python3 scripts/repository_tools.py audit-tree
 | --- | --- | --- |
 | [Repository utilities](scripts/repository_tools.py) | Sanitized copies, credential/size checks, manifest, hooks, and Git sync | Standard library; explicit CLI commands |
 | [Regression tests](tests/test_repository_tools.py) | Redaction, preservation of originals, binary detection, size and sync boundaries | Offline tests with temporary fixtures; no router access |
+| [Photo inspection crop utility](scripts/make_programmer_inspection_crops.py) | Reproduce documented crops/rotations of the received hardware photos while checking original hashes | Uses macOS `sips`; no hardware/network access or generated reconstruction |
 | [C8235 serial bridge](c8235_serial_console.py) | JSON-controlled serial logging and triggers | Opens a hardware port; historical port/log-directory defaults are embedded in the source |
 | [C8375 RJ45 bridge](c8375-recovery/rj45_serial_console.py) | Serial logging, triggers, and baud switching | Optional initial baud argument; verify port ownership and settings first |
 | [C8375 USB bridge](c8375-recovery/serial_console.py) | Native USB serial logging and triggers | Historical device name/log directory must be reviewed |
