@@ -1,75 +1,195 @@
-# Cisco 8200 and 8300 ROMMON recovery research
+# Cisco 8200 and 8300 ROMMON Recovery Research
 
-Troubleshooting records, board photographs, console tools, ROMMON artifacts, and verified flash backups for three **C8235-G2** routers, one **C8375-G2 / C8375-E-G2**, and one **C8300-1N1S**. The repository name mentions 8300; its scope includes both the 8200 and 8300 work.
+[![Repository checks](https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT/actions/workflows/repository-check.yml/badge.svg)](https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT/actions/workflows/repository-check.yml)
 
-Start with [the active test plan and tracking log](ROUTER-RECOVERY-TEST-PLAN.md). These routers are reported nonworking. A completed firmware write or matching checksum is not evidence of a successful boot or compatibility with a particular board.
+A working recovery journal for five nonworking Cisco routers: **three C8235-G2s, one C8375-G2 / C8375-E-G2, and one C8300-1N1S**. It brings together troubleshooting plans, board photographs, console evidence, extracted ROMMON firmware, verified flash backups, and Python tools that make the work reproducible.
 
-## Recovery records
+The repository name mentions 8300; the project covers **both 8200 and 8300 work**. Some examined units show development firmware or preproduction characteristics, so results must be tied to the actual chassis and board revision.
 
-| Record | Purpose |
+**Start with the [active test plan and tracking log](ROUTER-RECOVERY-TEST-PLAN.md).** It contains task checklists, measurement tables, decision points, and session templates. This repository records an ongoing investigation; it does not yet document a completed recovery of these five routers.
+
+## Current recovery status
+
+Last documented hardware baseline: **October 24, 2026**. Repository maintenance does not constitute a new hardware test. Check the active plan and current contexts for later observations.
+
+| Device | What we know | Next evidence needed |
+| --- | --- | --- |
+| C8235-A: worked Arata unit | Console ID `FGL2835L42B`; newer firmware reaches a TPM manufacturing-status halt before Cisco ROMMON. No complete original primary development-flash backup is available. | Separate reads of both flash chips; identify surviving development code and physical bank routing |
+| C8235-B and C8235-C | Both reported nonworking; individual identities, board revisions, symptoms, and write histories still need recording. | Establish independent baselines and preserve both flash banks per chassis |
+| C8375-A: Crestone unit | Chassis `FDO2742M0FK`; no normal startup output after the ROMMON experiment. Two matching original 32 MiB SPI reads and an exact restore copy are available. | Identify the physical target, obtain stable programmer reads, then restore the original image and test boot |
+| C8300-A | Reported steady red STATUS with green power/fan indications and no console through either connection type. Full PID suffix and serial are pending. | Validate each console path separately, then inspect hardware and identify boot storage if still silent |
+
+The labels above are tracking IDs, not proof that a physical chassis has been labeled. A quiet console, an LED, or a matching flash readback alone does not establish the failing component or successful recovery.
+
+## What the work has established
+
+- Extracted canonical **SoC1 and SoC2 ROMMON packages, raw images, and update capsules** from IOS-XE, retaining vendor checksums and extraction metadata.
+- Documented the worked C8235's development firmware, release-firmware TPM halt, board components, uncertain header/mux connections, and unsuccessful recovery-transfer experiments.
+- Previously booted the C8375 into IOS-XE INSTALL mode with documented workarounds and completed limited physical-port tests. It subsequently stopped booting after the ROMMON experiment; the earlier success is historical, not its current condition.
+- Captured two identical original C8375 SPI reads before that native firmware write, investigated the updater's extra writes, and verified the later programmed state. Exact bytes matching an intended image did not make that firmware compatible with the board.
+- Prepared a five-router test plan, including unpowered header mapping, 1.8 V programmer validation, read-only acquisition, original-image restoration, and C8300 console isolation.
+- Added Python tooling for public evidence sanitization, file/hash manifests, publication checks, and repeatable Git synchronization.
+
+Detailed chronology, commands, limitations, and source references are linked below. Experimental outputs remain explicitly unproven; they are not general-purpose recovery images.
+
+## Find the right record
+
+| Record | Use it for |
 | --- | --- |
-| [Active test plan](ROUTER-RECOVERY-TEST-PLAN.md) | Five-device register, task IDs, measurements, test outcomes, next steps |
-| [C8235 context](C8235-G2-RECOVERY-CONTEXT.txt) | Worked Arata prototype, TPM halt, board mapping, prior experiments |
-| [C8375 context](C8375-G2-RECOVERY-CONTEXT.md) | Crestone recovery history, exact backups, firmware experiment, restoration path |
-| [C8375 condensed handoff](C8375-E-G2-RECOVERY-CONTEXT.txt) | Shorter current-state summary |
-| [Canonical extracted ROMMON](ROMMON-extracted/README.txt) | SoC1/SoC2 packages, raw images, capsules, and checksums |
-| [Original C8375 restore notes](c8375-recovery/restore-original-20261023/RESTORE-NOTES.txt) | Exact full-chip original for chassis FDO2742M0FK only |
-| [Publication manifest](REPOSITORY-MANIFEST.json) | Included files and SHA-256 hashes; local exclusions and their reasons |
+| [Active test plan](ROUTER-RECOVERY-TEST-PLAN.md) | Current priorities, five-device register, measurements, decisions, and test outcomes |
+| [C8235 recovery context](C8235-G2-RECOVERY-CONTEXT.txt) | Arata hardware identity, firmware history, TPM halt, and prior investigations |
+| [C8375 consolidated context](C8375-G2-RECOVERY-CONTEXT.md) | Crestone chronology, original backups, failed upgrade, and prepared restoration |
+| [C8375 condensed handoff](C8375-E-G2-RECOVERY-CONTEXT.txt) | Shorter summary of the known state |
+| [ROMMON extraction notes](ROMMON-extracted/README.txt) | Package contents, extraction chain, versions, and verification limits |
+| [Original C8375 restore notes](c8375-recovery/restore-original-20261023/RESTORE-NOTES.txt) | Chassis-specific original-image identity and restoration prerequisites |
+| [Sanitized evidence guide](sanitized-evidence/README.md) | Public log/config copies and their limitations |
+| [Publication manifest](REPOSITORY-MANIFEST.json) | Included file sizes and SHA-256 hashes, plus excluded local files and reasons |
+| [Agent instructions](AGENTS.md) | Working conventions for coding agents and future maintenance |
 
-Older chronological notes describe intermediate states. Use the current context documents before acting. Experimental files are research outputs, not generally compatible recovery firmware. Full flash images can contain chassis-specific identity/security data; do not clone them blindly to another router. No license to third-party firmware or research sources is implied by their inclusion.
+Older notes describe intermediate stages and may say that a write had not yet occurred. Read the consolidated context before using historical instructions. C8300 findings currently live in the active plan.
 
-## What is tracked
+## Repository layout
 
-- Recovery documentation, the detailed Markdown plan, source scripts, research evidence, and board photographs/crops.
-- Canonical ROMMON packages, raw images, update capsules, smaller staged firmware, and checksums.
-- Exact 32 MiB C8375 original and post-experiment main-array flash backups that pass publication checks.
-- Experimental ROMMON artifacts, device trees, selected upgrade scripts, and platform/driver evidence.
-- Sanitized console captures and configuration snapshots in [sanitized-evidence](sanitized-evidence/README.md).
+```text
++-- README.md                         Project overview and contributor entry point
++-- AGENTS.md                         Persistent instructions for coding agents
++-- ROUTER-RECOVERY-TEST-PLAN.md       Active tasks and results
++-- *RECOVERY-CONTEXT*                Router-specific handoffs and history
++-- ROMMON-extracted/                 Canonical SoC1/SoC2 ROMMON artifacts
++-- c8375-recovery/                   Crestone backups, analyses, and evidence
++-- board-photos/                     Arata photos, inspection crops, notes
++-- experimental-recovery/           Unproven firmware experiments and board data
++-- c8kg2be-*/                        Selected image listings and platform evidence
++-- research-evidence/                Reference sources and retained tools
++-- purchase-research/                Tool-selection notes, excerpts, and photos
++-- recovery-prep-20261024/           Initial bench worksheet and workspace inventory
++-- sanitized-evidence/               Generated public console/configuration copies
++-- scripts/                         Authored publication and sync tools
++-- tests/                           Publication-tool regression tests
++-- .githooks/                       Local pre-commit/pre-push guards
++-- .github/workflows/               GitHub checks
++-- REPOSITORY-MANIFEST.json          Generated selection and content hashes
++```
 
-All selected files are **below 50,000,000 bytes**, the project cap requested by the owner. No Git LFS or split-image workaround is used.
+Some historical paths refer to ignored local originals. For a published console/config copy, look under `sanitized-evidence/` followed by the same relative path. A public clone does not contain every file from the original workstation.
 
-Full IOS-XE images and the large mono packages remain local. Redundant unpacked ROMMON trees are omitted because their canonical copies are already in `ROMMON-extracted/`. Raw shopping HTML is omitted in favor of excerpts and product photos. See `.gitignore` and the manifest for the actual selection.
+## Get started without connecting a router
 
-The intermediate `after-native-flash-crc-failure.bin` readback contains detected credential material and stays local without modification. The exact original restore image and final verified readback are separate artifacts and remain included after their publication checks.
-
-## Public copies and private originals
-
-The owner requested a public repository with configured or supplied passwords removed. Original raw logs and configuration backups stay unchanged on the local machine and are excluded from Git. Their sanitized counterparts preserve the original relative path beneath `sanitized-evidence/`. References in historical notes may point to the original local paths; prepend `sanitized-evidence/` to find a published counterpart.
-
-Preparation removes discovered password values, configured password hashes, logged replies to password prompts, recognizable access tokens, private keys, and credentials embedded in URLs. Local known-value material is stored only inside `.git/recovery-private/` with restricted permissions; it is not versioned. GitHub authentication uses the existing GitHub CLI credential helper, not a token placed in a script or remote URL.
-
-Binary ROMMON and SPI restore files remain **byte-exact**. They are scanned for known passwords and recognizable credential patterns. A detection blocks publication so the original can be excluded; sanitization must never patch a restore image. Scanning cannot prove that every unknown binary security field is absent. Device identifiers and other recovery evidence remain public as requested.
-
-## Repeatable preparation and sync
-
-Requires Python 3 and Git. Pushing additionally requires authorized GitHub credentials; this workstation already has an authenticated GitHub CLI session. No router connection is made by these commands.
+Repository utilities require **Python 3 and Git** and use Python's standard library. Publishing additionally requires write access to this GitHub repository and an authenticated Git credential helper. These steps do not open a serial port or attach to a programmer.
 
 ```sh
-# Regenerate sanitized copies and the file/hash manifest; do not commit or push.
-python3 scripts/repository_tools.py prepare
+git clone https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT.git
+cd CISCO-8300-ROMMON-TSHOOT
 
-# Enable the repository-local size/credential guards after cloning.
+# Enable the repository-local guards after cloning.
 python3 scripts/repository_tools.py install-hooks
 
-# Verify the tooling's redaction and preservation behavior.
+# Inspect the publication tool and run its regression checks.
+python3 scripts/repository_tools.py --help
 python3 -m unittest discover -s tests -v
+```
+
+Read the active plan and the relevant router context before bench work. If you already work in the existing checkout, use it rather than cloning over the directory containing private originals.
+
+### Record a recovery session
+
+1. Match the physical chassis to its tracking ID, serial, board revision, and physical chip labels.
+2. Use the existing task IDs and session template in the active plan. Record power/cable state, exact settings and endpoints, commands, units, and evidence paths.
+3. Separate observations from explanations. Leave unperformed work unchecked and keep failed tests in the record.
+4. Preserve original captures, photographs, and exact binary images. Give derived files distinct names and retain checksums.
+5. Update the relevant context when a finding changes the next session's starting point. Then prepare, inspect, and sync the publishable evidence.
+
+Use actual session dates and time zones; several historical router clocks were incorrect. A passing write verification is a programming result, not a boot or stability test.
+
+## Hardware workflow
+
+The first planned new-probe board task is **unpowered mapping of the C8375's P1_CSPI/P2_CSPI headers**. Verified header access might permit reads before the SOIC-16 clip is available. Header names alone do not establish a usable pinout or electrical isolation.
+
+The recorded equipment includes a CH341A, 1.8 V adapter, SOIC-8 clip, Dupont wires, fine meter probes, hook clips, a Fluke 111, and an expected SOIC-16 clip. Delivery dates in the plan are historical expectations, not confirmation that hardware arrived or was validated.
+
+For identified Micron RW170/MT25QU256 G2 flashes, establish **1.8 V power and compatible signal levels**, correct package orientation, control-pin handling, and board loading before acquisition. An SOIC-8 clip does not fit these SOIC-16 packages. Never guess a bank-select jumper or pinout.
+
+The read-first sequence is: identify the part and physical target, obtain two matching plausible full reads, compare with saved evidence, choose a justified restoration, verify the complete readback, remove programming equipment, and capture a normal assembled boot. Preserve per-chassis identity/security data throughout. The classic C8300 uses its own diagnosis and firmware; G2 images are not substitutes.
+
+Follow the detailed plan for electrical precautions and stop conditions. Firmware/TPM/fuse changes and hardware repair should follow observed evidence, not an assumption that all five routers share the same fault.
+
+## Firmware and backup integrity
+
+Canonical ROMMON artifacts are under `ROMMON-extracted/`. Vendor checksum matches and SHA-256 manifests establish file/extraction consistency; they are not independent authentication of every Cisco signature or proof of board compatibility.
+
+The exact original C8375 main-array restore image is:
+
+```text
+Chassis: FDO2742M0FK
+File: c8375-recovery/restore-original-20261023/C8375-FDO2742M0FK-ORIGINAL-SPI-32MiB.bin
+Size: 33,554,432 bytes
+SHA-256: 72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107
+```
+
+This is a full-chip original for that chassis, not an IOS-XE upgrade package or a generic donor image. The saved candidate and final verified release-firmware readback represent the later **nonbooting** state; do not confuse them with the original restore target. Main-array dumps do not necessarily capture separate OTP/security/configuration registers.
+
+## Public files, private originals, and size policy
+
+The owner requested a public repository with supplied/configured passwords removed. The publication tools remove discovered password values, configured hashes, password-prompt replies, recognizable access tokens, private keys, and credentials in URLs from generated public text copies. Original raw captures/configurations remain local and ignored.
+
+Exact ROMMON and SPI binaries remain **byte-exact**. They are scanned against locally known passwords and recognizable credential patterns. If a binary is flagged, it stays local rather than being patched. The intermediate `after-native-flash-crc-failure.bin` contains detected credential material and is excluded; the original restore and final verified readback are separate included artifacts.
+
+Local known-value material is stored only under `.git/recovery-private/` with restricted permissions. Authentication uses the existing credential helper; tokens do not belong in repository files or remote URLs. A fresh clone has sanitized evidence but not the workstation's original captures or known-password list. Pattern scanning cannot prove that every unknown binary security field is absent; device identifiers and other recovery evidence remain public as requested.
+
+Every tracked file must be **smaller than 50,000,000 bytes**, the owner's project cap. `.gitignore` keeps the following local:
+
+- Full IOS-XE images and large unpacked mono packages.
+- Redundant extracted ROMMON trees already represented by canonical artifacts.
+- Original raw logs/config snapshots and the credential-bearing intermediate dump.
+- Raw shopping HTML, credential files, caches, and OS metadata.
+
+The manifest lists actual inclusions and exclusions. No Git LFS, file splitting, or compressed-image workaround is used to evade the policy. Historical checksum files can still reference an intentionally excluded artifact.
+
+## Prepare, audit, and sync
+
+Run commands from the repository root after reviewing the files you intend to publish:
+
+```sh
+# Regenerate sanitized copies and the file/hash manifest; no commit or push.
+python3 scripts/repository_tools.py prepare
+
+# Inspect the change summary before staging/publishing.
+git status --short
+git diff --stat
 
 # Prepare, stage, audit, commit if changed, and push to origin/main.
 python3 scripts/repository_tools.py sync --message "Record today's recovery measurements"
 ```
 
-The pre-commit guard audits the staged bytes, not just the working files. The pre-push guard checks all new Git blobs, including a file deleted in a later local commit. Checks report filenames and categories without printing detected secrets. GitHub Actions also tests the tools and checks the published tree; it cannot access the workstation's private known-password list. Local hooks must be installed explicitly after a clone.
+**Sync stages all nonignored changes.** Keep unrelated edits out of a publication commit and inspect generated content when introducing a new type of evidence. Generated copies are refreshed from local sources; do not edit files in `sanitized-evidence/` or the manifest directly.
 
-Sync is an explicit command, not a background upload service. Review new evidence before running it. A non-fast-forward push is rejected; the script does not force-push or automatically merge remote changes. New oversized or credential-bearing files block sync until their inclusion/exclusion is resolved.
+The tool expects `main` and this repository's configured `origin`. It rejects a non-fast-forward push and does not force-push or automatically merge remote work. Sync is an explicit command, not a background upload service.
 
-## Python tools and provenance
+Local pre-commit checks inspect staged bytes. Pre-push checks inspect new Git blobs, including content removed in a later local commit. GitHub Actions runs the regression tests and audits the published tree; it cannot access local known-password material. Install hooks explicitly after a clone, and never bypass a guard to publish a flagged original.
 
-- [Publication, credential checks, manifest, and sync](scripts/repository_tools.py): created for this repository; Python standard library only.
-- [Publication regression tests](tests/test_repository_tools.py): verifies password redaction, binary credential detection, size enforcement, and preservation of local originals.
-- [C8235 console bridge](c8235_serial_console.py): existing JSON-controlled serial logging and trigger tool.
-- [C8375 RJ45 console bridge](c8375-recovery/rj45_serial_console.py): existing serial tool with baud switching.
-- [C8375 USB console bridge](c8375-recovery/serial_console.py): existing serial tool.
+To inspect an existing stage or commit without syncing:
 
-The serial bridges open hardware ports when executed; inspect their settings and ensure the port is not in use before running them. They are separate from the repository sync tool.
+```sh
+python3 scripts/repository_tools.py audit-index
+python3 scripts/repository_tools.py audit-tree
+```
 
-AI-assisted work is recorded through the actual scripts, regression tests, documentation, manifests, and Git commits. Existing extracted vendor code and historical artifacts are kept distinct from newly authored tooling; the repository does not claim they were all written during this setup.
+## Python tools and AI-assisted work
+
+| Tool | Purpose | Execution considerations |
+| --- | --- | --- |
+| [Repository utilities](scripts/repository_tools.py) | Sanitized copies, credential/size checks, manifest, hooks, and Git sync | Standard library; explicit CLI commands |
+| [Regression tests](tests/test_repository_tools.py) | Redaction, preservation of originals, binary detection, size and sync boundaries | Offline tests with temporary fixtures; no router access |
+| [C8235 serial bridge](c8235_serial_console.py) | JSON-controlled serial logging and triggers | Opens a hardware port; historical port/log-directory defaults are embedded in the source |
+| [C8375 RJ45 bridge](c8375-recovery/rj45_serial_console.py) | Serial logging, triggers, and baud switching | Optional initial baud argument; verify port ownership and settings first |
+| [C8375 USB bridge](c8375-recovery/serial_console.py) | Native USB serial logging and triggers | Historical device name/log directory must be reviewed |
+
+The legacy serial bridges use `termios` and `fcntl`, were used on macOS, and are not Windows-native utilities. They execute hardware-opening code at module scope: do not import them as a test or run them just to request help. Do not open a port already owned by another terminal application. Publication utilities are separate from hardware control.
+
+AI-assisted work is documented through actual scripts, tests, technical notes, manifests, and Git commits. Extracted vendor code, third-party sources, and downloaded tools retain their own provenance; they are not represented as newly authored work. No license to third-party firmware or reference material is granted by its inclusion here.
+
+## Contributing findings
+
+For a useful report or proposed change, include the exact model/board revision, relevant task ID, reproducible test conditions, sanitized evidence, observed result, and what remains unknown. Share no passwords or private originals in issues or pull requests. Preserve the distinction between a candidate, a verified flash write, a successful boot, and sustained functional operation.
+
+Documentation changes should validate links, claims, and the publication manifest. Tool changes should include meaningful regression coverage and pass `python3 -m unittest discover -s tests -v`. See [AGENTS.md](AGENTS.md) for the full maintenance workflow and evidence-preservation rules.
