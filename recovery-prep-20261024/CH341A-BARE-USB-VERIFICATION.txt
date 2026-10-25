@@ -101,14 +101,24 @@ upright-BIOS diagram. This is reported continuity; exact ohms and refreshed
 lead baseline were not supplied. Do not invent numeric results or treat the
 two labels as separate ground nets. B1 is a position label, not IC pin 1.
 
+USER-SUPPLIED SOCKET SUPPLY MAPPING (2026-10-24, America/New_York)
+Task: P-01-SOCKET-3V3
+Following the requested unpowered resistance scan from labeled 3.3 V:
+- B2: 0.3 ohm.
+- T3: 0.3 ohm.
+- T4: 0.3 ohm.
+These are the user's three specified matches, not a numerical ground/B1 result
+or refreshed tips-together baseline. Multiple direct supply-net connections
+are supported. Remaining four socket signal paths and adapter mapping are
+not established by this result.
+
 NEXT
-Keep USB unplugged, socket empty, adapter/clips/routers detached, same upright
-BIOS 25 SPI orientation. In resistance mode, fixed probe on labeled 3.3 V,
-scan T1-T4 and B2-B4 and report every near-baseline match. Also record the
-actual labeled-GND-to-B1 resistance and current tips-together baseline.
-Multiple supply-connected contacts are possible; do not assume one match or
-a fault from multiple matches. No adapter insertion or power is requested.
-Adapter input/output mapping and output/translated-signal tests remain pending.
+Keep USB unplugged, socket empty, adapter/clips/routers detached, meter in
+ohms and the same upright BIOS 25 SPI orientation. Measure four candidate
+paths: labeled CS to B4; MISO to B3; MOSI to T1; CLK to T2. Record each actual
+resistance; these are proposed checks, not observed signal assignments.
+Report any high/OL result before adapter placement. No power or adapter
+insertion is requested. Adapter output power and translation remain pending.
 
 PRIMARY REFERENCES
 flashrom v1.8.0 CH341A driver:
