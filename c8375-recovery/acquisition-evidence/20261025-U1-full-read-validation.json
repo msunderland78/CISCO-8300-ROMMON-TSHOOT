@@ -426,6 +426,16 @@
       "simultaneous_loaded_adapter_output_voltage": "not reported",
       "post_test_programmer_usb_disconnection": "requested, not separately confirmed",
       "cause": "unresolved; do not infer adapter failure, board fault or bad crimps from these observations alone"
+    },
+    "subsequent_corrected_assembled_path_resistances": {
+      "date": "2026-10-25",
+      "timezone": "America/New_York",
+      "correction": "User explicitly withdraws intervening earlier endpoint/value reports; only these latest values are active. Earlier 400-ohm ground-path and crossed-pair reports are not valid separate circuit measurements.",
+      "adapter_output_4_to_P1_pin_2_ohms": 0.3,
+      "adapter_output_8_to_P1_pin_1_ohms": 1336,
+      "P1_pin_1_to_P1_pin_2_ohms": 923,
+      "power_state": "Results supplied in response to unpowered test request; USB disconnection and fresh residual-DC measurement not separately restated.",
+      "assessment": "With unpowered conditions assumed as requested, ground is near reported lead baseline; positive supply path does not show direct low-resistance continuity. Specific lead/contact/ribbon/clip/routing or measurement cause unresolved."
     }
   },
   "assessment": {
@@ -440,6 +450,6 @@
     "no_erase_or_write_selected": true,
     "cause": "Unstable acquisition demonstrated by read mismatch; contact/signal integrity, loading/contention and transient supply behavior remain possibilities. No particular component fault established."
   },
-  "next_step": "Stop programmer USB power and defer flashrom/partial diagnostics while target VCC is approximately 0.5 V. Keep clip/new wires in place, router external power/cables and battery disconnected. Verify residual DC absent, then measure entire assembled adapter output 8-to-P1-1 path, output 4-to-P1-2 path, and P1-1-to-P1-2 rail resistance. Determine further isolation from results; do not repeat loose-lead checks or raise voltage/power router. Preserve original private reads. Ordered direct-pin clip remains expected October 26; safe target supply, stable fresh full U1 reads and U2 acquisition remain prerequisites to restoration.",
+  "next_step": "Keep programmer USB and router power/cables removed; no flashrom at prior approximately 0.5 V target supply. Confirm residual DC absent. Leave clip and new leads connected; identify X as the exact clip breakout terminal receiving the wire from active 1.8 V adapter output 8. Measure output 8-to-X and X-to-P1-1 in resistance mode to isolate the positive path. Do not repeat the 0.3-ohm ground or loose-lead checks, increase voltage, add reset jumper or select a firmware write. Direct-pin replacement remains expected October 26; safe VCC and stable full U1 reads/U2 acquisition still pending.",
   "limitations": "Main-array reads exclude separate OTP. Correct size and flashrom done do not prove correct data. Different halves are not a complete proof against all address errors. Known reference comparisons cannot assign a physical bank while acquisition is unstable. Raw dumps remain private and byte-exact; no dump contents or credentials printed."
 }

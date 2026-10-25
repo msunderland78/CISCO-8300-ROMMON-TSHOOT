@@ -13,15 +13,24 @@ The user explicitly confirms this is **the original clip with the 35 cm ribbon**
 
 **Disconnect CH341A USB; keep normal router power disconnected. Do not run flashrom or the prepared sample test at 0.5 V.** Micron's operating VCC is **1.7–2.0 V**. The new lead continuity readings support each loose lead's connection but do not establish installed mating-contact resistance, correct end-to-end routing or absence of a bridge. Since 1.8 V was measured before clip loading and 0.5 V at a different location after loading, this does not distinguish adapter-output collapse from voltage drop/open/misrouted supply or ground paths. Loading/contention remains possible; no cause or damaged component is established. Do not raise voltage, apply router power or add a reset jumper to compensate. USB disconnection after the low-voltage report was requested, not independently confirmed.
 
-**Next checks, planned, no values yet:** leave the clip and eight new wires in place, all power/USB/console cables disconnected and battery removed. At the accessible board header first verify **P1-1 to P1-2 is approximately 0 V DC**, then switch to resistance mode and record these three complete assembled-path measurements:
+**Corrected assembled-path results, October 25, 2026, America/New_York — R-01-NEW-LEADS-PATHS:** after withdrawing the intervening endpoint/value reports as incorrect, the user explicitly supplies these as the correct readings:
 
-| Endpoint A | Endpoint B | Purpose |
+| Endpoint A | Endpoint B | Corrected user resistance |
 | --- | --- | --- |
-| **Active 1.8 V adapter output 8/VCC** | **Router P1 pin 1/VCC** | Entire installed positive path, including crimp mating points and clip cable/contact |
-| **Active 1.8 V adapter output 4/GND** | **Router P1 pin 2/GND** | Entire installed return path |
-| **Router P1 pin 1** | **Router P1 pin 2** | Current assembled rail-to-ground resistance; earlier original-lead setup was 288 Ω |
+| **Active 1.8 V adapter output 4/GND** | **Router P1 pin 2/GND** | **0.3 Ω** |
+| **Active 1.8 V adapter output 8/VCC** | **Router P1 pin 1/VCC** | **1,336 Ω (1.336 kΩ)** |
+| **Router P1 pin 1** | **Router P1 pin 2** | **923 Ω** |
 
-Use adapter output terminals/accessible metal and P1 posts, not chip legs hidden by the clip. Record actual Ω/kΩ/MΩ/OL and any changing range, not just a beep. These are new complete-harness checks for the changed setup, not a request to repeat each loose lead or the broad board-routing scans. No powered re-test is selected before these results. Further isolation will depend on whether the complete paths or rail resistance changed; preserve all original dump files.
+Do not retain the earlier crossed endpoint reports or the intervening 400 Ω ground-path report as valid separate measurements. They are withdrawn reports, not changes in the circuit. These latest values answer the requested unpowered-path checks, but USB disconnection and the fresh residual-DC result were not separately restated; unpowered conditions must be ensured for further resistance measurements. Under those conditions the 0.3 Ω ground path agrees with the reported lead baseline, while 1,336 Ω does **not** establish a direct low-resistance VCC connection. The 923 Ω rail reading is not a near-baseline hard short. An open/high-resistance/misrouted installed supply path or measurement/contact issue remains possible; do not identify a particular bad crimp, ribbon, clip or board component yet. No grounds to increase voltage, add a reset jumper or run flashrom.
+
+**Next positive-path split, planned, no readings yet:** keep the original clip and eight leads connected, all power/USB/console cables and CR2032 removed. Verify approximately 0 V DC across P1-1/P1-2 before resistance mode. Follow the **wire from active adapter output 8** to the **clip breakout board where it plugs into the 35 cm ribbon assembly**. Call that exact exposed breakout pin/solder pad **X**; it is the intended feed to U1-2, not the hidden chip leg. Leave the wire plugged in. Keep one probe at X and measure these two sections in Ω mode:
+
+| Section | Endpoint A | Endpoint B |
+| --- | --- | --- |
+| A: adapter/lead/mating section | **Active adapter output 8** | **X, exact breakout terminal receiving that wire** |
+| B: ribbon/clip/board-supply section | **X, same breakout terminal** | **Router P1 pin 1** |
+
+Report the actual values and units/range/OL. The result will locate which side lacks a low-resistance supply path; it will not by itself distinguish every possible failure within that section. Do not repeat the confirmed ground pair or each individual loose-wire test. No powered re-test or device command is selected before these results; preserve all original dump files.
 
 ## Current SOIC-16 wiring map — C8375-01-SOIC16
 
