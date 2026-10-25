@@ -163,14 +163,16 @@ enough. Accept the setup for acquisition; end standalone programmer checks.
 
 NEXT
 Prioritize C8375-A / FDO2742M0FK because its exact original backup is available.
-When the SOIC-16 clip is available, identify its contacts and build the physical
-flash harness, preserving the distinction between adapter 8-pin numbering and
-Micron 16-pin numbering. Obtain two stable complete 32 MiB reads per physical
-chip U1_CSPI and U2_CSPI, then compare against the exact original and known
-nonbooting reference before selecting a restore target. No router acquisition
-has yet occurred. Do not repeat standalone programmer validation without a new
-failure or setup change. Keep programmer USB and normal router power detached
-until the target connection is ready. Clip receipt is not yet confirmed.
+User subsequently confirmed the SOIC-16 clip is not in hand until October 25
+and requested Dupont/header access today. Continue router-side mapping under
+C8375-01-HDR in the active plan. No working header signal path is established;
+P1 ground/VCC alone are insufficient. P2 is a four-post header in IMG_1260.
+If header access can be established, or with the SOIC-16 clip when available,
+obtain two stable complete 32 MiB reads per physical chip U1_CSPI and U2_CSPI,
+then compare against exact original and known nonbooting references before
+selecting a restore target. Programmer acceptance is unchanged; no further
+standalone validation is planned. Keep USB and router power detached until
+the target connection is ready. No router acquisition has yet occurred.
 
 PRIMARY REFERENCES
 flashrom v1.8.0 CH341A driver:
