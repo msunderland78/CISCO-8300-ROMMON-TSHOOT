@@ -139,18 +139,27 @@ Per-pair ohms were not supplied. Do not reuse the earlier bare-socket range
 as an invented adapter measurement. Input alignment/connectivity is supported;
 output power, blue socket mapping, and signal translation are not yet verified.
 
+USER-SUPPLIED ADAPTER SUPPLY MEASUREMENTS (2026-10-24, America/New_York)
+Task: P-01-ADAPTER-SUPPLY
+Following the standalone powered programmer/adapter procedure, blue socket
+empty, clips/routers detached, black on verified adapter input pad 4/GND:
+- Adapter input pad 8: 3.318 V DC.
+- 1117 regulator wide metal tab: 1.803 V DC.
+User supplied values in requested order. They support nominal 1.8 V regulation
+at the measured tab. They do not establish output-contact power, signal
+routing, translation, switching peaks, or loaded behavior.
+
 NEXT
-Keep the verified adapter fitted, blue socket empty, clips/routers detached.
-With USB unplugged, set meter to DC volts (COM and V/ohm jacks). Power only
-programmer plus adapter via USB, flashrom idle. Black on adapter input pad 4,
-red to input pad 8, then to the wide exposed metal tab of its 1117 regulator.
-Input is expected near 3.3 V; candidate regulator output near 1.8 V. Record
-actual readings, then unplug USB before further handling/resistance checks.
-In the original photo the wide tab is nearest the blue socket, opposite the
-two small legs. The TI LM1117 SOT-223 reference puts output on the tab, but
-the actual regulator manufacturer/variant is unconfirmed. This is a candidate
-output test, not proof of its identity or blue socket routing. If the candidate
-output exceeds 2.0 V, retain disconnected and report it. No router attachment.
+Unplug USB and check tab-to-input-4 residual voltage is approximately zero
+in DC mode before switching to ohms. View adapter from top with components
+above blue socket and lever right, as IMG_1264. Call the near-component row
+N1-N8 left to right and the far/outer-edge row F1-F8 left to right. These are
+position labels, not IC pin numbers or the old black-programmer T/B labels.
+In ohms, fixed probe on adapter input pad 4, scan all 16 output socket metal
+contacts and record every near-baseline match and resistance. Repeat fixed
+probe on regulator wide tab, recording every near-baseline match. Keep blue
+socket empty and clips/routers detached. Output ground and supply positions
+are not assumed before results; signal mapping/translation remain pending.
 
 PRIMARY REFERENCES
 flashrom v1.8.0 CH341A driver:
