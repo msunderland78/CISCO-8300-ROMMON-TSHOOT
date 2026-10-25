@@ -209,13 +209,13 @@
     "Main-array captures exclude separate OTP.",
     "Cause remains unresolved; clip seating, cabling/signal behavior and board loading are not isolated by these observations."
   ],
-  "next_step": "User requests another read attempt after reseating moving 1.8 V adapter. Await hands-off loaded P1 supply in 1.7\u20132.0 V, then one fresh U2 read3/read4 pair in a new private folder. Each read probes before capture; no force or write. Direct-pin replacement remains next alternative if path stays unreliable.",
+  "next_step": "After user rechecked post-reseat VCC 1.757 V, one fresh U2-read3/read4 pair is released/copied in a new private directory. Results pending; preserve failed read1/read2. Keep adapter supported and probe P1, not adapter. Each read probes first; no force or write.",
   "agent_programmer_access": false,
   "subsequent_user_observation": {
     "observation": "User reports reseating the 1.8 V adapter, which moves around when pressed during voltage measurement. User requests one more attempt.",
     "causation": "Contact stability is a newly reported variable; not a proven cause of failed reads. Re-seating USB-power timing was not stated.",
     "instructions": "USB unplugged before securing/reseating adapter; keep U2 clip seated; meter probes at P1 rather than pressing on adapter.",
-    "current_state": "post-reseat loaded P1 supply requested, pending",
+    "current_state": "User reports 1.757 V after reseat without adapter probing pressure. Command released/copied; new capture result pending.",
     "prepared_retry_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-195526-EDT-adapter-reseated",
     "prepared_files": [
       "U2-read3.bin",
@@ -223,6 +223,8 @@
       "U2-read3.log",
       "U2-read4.log"
     ],
-    "command_status": "prepared privately, not released until acceptable loaded voltage"
+    "command_status": "Guarded two-read command copied and offered to run immediately; each read probes first. No agent hardware access.",
+    "supply_after_reseat_VDC": 1.757,
+    "prepared_command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-195526-EDT-adapter-reseated && test ! -e U2-read3.bin && test ! -e U2-read4.bin && test ! -e U2-read3.log && test ! -e U2-read4.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read3.bin -o U2-read3.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read4.bin -o U2-read4.log && sudo chown games U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log && chmod 600 U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log"
   }
 }
