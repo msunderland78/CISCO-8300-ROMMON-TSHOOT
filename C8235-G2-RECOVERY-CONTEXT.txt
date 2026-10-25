@@ -132,6 +132,23 @@ SEPARATE ASSEMBLED UNIT / C8235-B — 2026-10-25, America/New_York
 - Owner requests documentation, tracking and GitHub sync as recovery work
   proceeds. Public evidence is a sanitized capture snapshot at each sync;
   exact originals remain local/ignored and active logging may continue.
+- Subsequent full-reload result, observed in the 12:23 EDT console poll:
+  after 300 seconds of missed punt keepalives, IOS reported software-forced
+  reload, Aborted(6) in PuntInject Keepalive Process, linux_iosd-image rc134,
+  and system reload. Bootflash crashinfo writes failed for zero free space;
+  firmware reported writing usb0:crashinfo_20250529-185458-UTC instead.
+  File presence/content/checksum has not yet been independently checked.
+  The May 2025 filename is from the incorrect router clock, not session date.
+- The reboot retained July 2024 development firmware. Armed Ctrl-C bytes on
+  this unit's UUID banner successfully stopped autoboot at rommon 1 >.
+  Current observed endpoint: powered and stopped at Cisco ROMMON; capture
+  active. This supersedes the earlier no-whole-chassis-reload checkpoints.
+- Next proposed test: preserve/verify relevant old crash reports externally,
+  free sufficient bootflash using only explicitly selected preserved reports,
+  then repeat the same verified USB image and observe F0/port readiness and
+  keepalive behavior past the previous 300-second failure. No cleanup or
+  transfer has yet been performed; retain installed firmware/configuration
+  and development ROMMON. Need not wait for the SOIC-16 clip for this test.
 
 CURRENT OUTCOME AND NEXT STEP — WORKED UNIT C8235-A
 - Router is NOT recovered. The primary ROMMON flash operation completed,

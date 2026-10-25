@@ -17,7 +17,7 @@ Tracking IDs are names for this document; they are not confirmed labels on the p
 | Tracking ID | Router | Confirmed identification | Last known condition | Recovery approach |
 | --- | --- | --- | --- | --- |
 | C8235-A | Worked-on C8235-G2 | Console ID `FGL2835L42B`; PCB barcode `FOC28292GX9`; Arata r2 | Release firmware reaches TPM manufacturing-status halt before Cisco ROMMON | Read both flash chips; identify surviving development firmware; preserve unique board data |
-| C8235-B | Other fully assembled C8235-G2 | Console PID C8230X-8M2X, serial `FGL2835LBHU`; Arata r2 | Development ROMMON retained; 17.18.3a and USB 26.2.1 reach CLI then cpp_cp_svr rc139/F0 offline; bootflash full | Preserve original ROMMON and crash evidence; plan storage cleanup/retest and obtain both-chip backups |
+| C8235-B | Other fully assembled C8235-G2 | Console PID C8230X-8M2X, serial `FGL2835LBHU`; Arata r2 | Development ROMMON retained; 17.18.3a and USB 26.2.1 reach CLI then cpp_cp_svr rc139/F0 offline; 26.2.1 reloads after 300-second keepalive failure; now at ROMMON; bootflash full | Preserve original ROMMON and crash evidence; plan storage cleanup/retest and obtain both-chip backups |
 | C8235-C | Remaining disassembled C8235-G2 | PID, serial, board revision pending | User confirms taken apart; prior C8235 measurements reported on another replica, serial still unresolved | Identify physical serial and preserve separate measurements/backups |
 | C8375-A | C8375-G2, identifies as C8375-E-G2 | Chassis `FDO2742M0FK`; Crestone r3 | No normal startup output after ROMMON experiment; previously reported blinking red STATUS and maximum fans | Identify physical target, back up both chips, restore this chassis's exact original SPI image |
 | C8300-A | C8300-1N1S | Full PID suffix and serial pending | User reports steady red STATUS, green power/fan indications, no console through either connection type | Validate console paths, then inspect hardware and identify boot storage |
@@ -489,6 +489,11 @@ About two minutes into startup, `show platform` still reports **F0 init, active 
 
 **12:21 EDT publication checkpoint:** received 26.2.1 output continues through **280 seconds** of missed punt keepalives and full-storage warnings; no whole-chassis reload has appeared. Firmware also reports `flash:core value 84% (16674 MB)`; this is a separately reported warning, not the earlier sum of directory-listed bytes. Public captures are sanitized snapshots at sync time; original logs remain local/ignored while capture continues. Owner requests ongoing tracking and GitHub sync at meaningful checkpoints and handoffs.
 
+
+**Full reload observed, 12:23 EDT console poll:** after **300 seconds** without punt keepalives, 26.2.1 reported software-forced reload, `Aborted(6)` in **PuntInject Keepalive Process**, critical `linux_iosd-image` **rc134**, and system reload. Internal crashinfo writes failed with zero space; firmware reported writing **`usb0:crashinfo_20250529-185458-UTC`**. Presence/content/hash of that new file remain unverified; its filename follows the incorrect router clock. The unchanged July 2024 development ROMMON returned, and the armed three Ctrl-C bytes stopped autoboot at **`rommon 1 >`**. Current observed state: powered at Cisco ROMMON, capture active. This supersedes the earlier no-whole-chassis-reload checkpoints while retaining them as intermediate observations.
+
+**Next proposed C8235-B test:** preserve and verify relevant crash reports on external storage, free sufficient bootflash from specifically selected preserved reports, then repeat the same verified 26.2.1 USB boot and observe F0 readiness/keepalives beyond the previous 300-second failure. The firmware recommends **5,926,609 kB** free; aim for at least **6 GB** before the repeat. No file transfer/deletion or cleanup test has yet occurred. Retain installed firmware/configuration and development ROMMON. This storage test can precede SOIC-16 clip delivery; the underlying cause remains unresolved.
+
 - [ ] Record exact PID, chassis serial, board barcode/revision, and PSU label for C8235-A/B/C.
 - [ ] Record firmware-write history separately: original state, known update, unknown history, or other.
 - [ ] Record current assembly, cooling, battery, and external cable state.
@@ -686,7 +691,7 @@ Do not mark a router recovered solely because a write completed or one boot succ
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | C8375-A | Original software-captured backup exists; external reads pending | Pending | Pending | Pending | Pending | Pending | Nonworking |
 | C8235-A | Pending | Pending | Pending | Pending | Pending | Pending | Nonworking |
-| C8235-B | Pending | No new firmware written; USB image hash matched | Development ROMMON verified October 25 | 17.18.3a installed and 26.2.1 USB reach CLI October 25 | cpp_cp_svr rc139/F0 offline on both images; bootflash full; failed | Pending | Boots; not functionally recovered |
+| C8235-B | Pending | No new firmware written; USB image hash matched | Development ROMMON verified October 25 | 17.18.3a installed and 26.2.1 USB reach CLI October 25 | cpp_cp_svr rc139/F0 offline on both; 26.2.1 reload at 300-second keepalive loss; bootflash full; failed | Pending | Boots; not functionally recovered |
 | C8235-C | Pending | Pending | Pending | Pending | Pending | Pending | Nonworking |
 | C8300-A | Pending | If needed | Pending | Pending | Pending | Pending | Nonworking |
 
