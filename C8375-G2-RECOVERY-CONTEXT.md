@@ -624,3 +624,12 @@ Other useful evidence:
 - Do not infer golden-bank selection, TPM state, fuse configuration, a RAM defect, or a PSU/fan root cause beyond the evidence above.
 - Preserve unique board data and credentials. No full dump or configuration contents should be published.
 - Reconfirm physical power/cable/USB state and actual programmer hardware before continuing.
+
+
+## 20. October 24 bench handoff: programmer accepted, header route unresolved
+
+The detailed current measurements are in [the tracking plan](ROUTER-RECOVERY-TEST-PLAN.md), especially C8375-01-HDR. The user has accepted the CH341A plus 1.8 V adapter and ended further standalone programmer validation. Adapter input measured 3.318 V and regulator tab 1.803 V. The active blue socket is printed 1–8, pin 4 ground; expected output levels were confirmed qualitatively, without separate per-pin numerical readings.
+
+P1_CSPI pin 1 maps to U1 flash VCC and P1 pin 2 to ground. P2_CSPI is a four-post header: pins 1/3 each measured 0.2 Ω to P1 ground, while pins 2/4 were approximately 5 kΩ to ground. U4 Select→P2-2 measured 329 Ω, Select→P2-4 >9 kΩ, and Enable→known ground 331 Ω. No selector setting or supply injection was tried. The mux supply search has not found a direct header feed; latest remaining P1 readings were reported collectively in MΩ, with pin 8 at 5.6 kΩ. Do not conflate these endpoints with the earlier flash-clock scan or invent per-pin values.
+
+The assistant ended repetitive broad scans after the user noted repetition. A complete SPI header access route remains unresolved; no programmer was attached to the router, and no external flash acquisition or write has occurred. The preferred next step is direct access with the SOIC-16 clip expected October 25, then two complete matching reads per physical chip, U1_CSPI and U2_CSPI. Compare with the exact original backup before selecting a restore target. Do not restart programmer validation or the same header matrices without new evidence. C8300 external-console diagnosis is a separate available task today, not work already performed.

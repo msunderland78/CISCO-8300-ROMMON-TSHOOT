@@ -122,7 +122,7 @@ Reference endpoint: USB connector metal outer shell. The user explicitly clarifi
 
 **Header orientation correction:** the assistant's earlier description of pin 2 as beside pin 1 identified the wrong post. The user clarified that actual pin 2 is above pin 1 in their working orientation, and that the 0.015 V / OL measurements belong to **pin 3**. The user then measured actual pin 2 at **0 V DC and 0.2 Ω to the USB shell**, matching the lead baseline. This supports a direct shell connection; flash/circuit-ground continuity remains to be established before programmer wiring. Use the board's printed numbers and the user's confirmed orientation; do not assume a conventional drawn arrangement. The pin-3 DC reading is nonzero, and the user also reported an ohms reading; do not treat this as verification that all endpoints are discharged or that OL identifies a faulty/open board trace. Voltage should be checked first on subsequent endpoints.
 
-**Current checkpoint assessment:** programmer/adapter remains accepted. C8375 header mapping continues with all power disconnected while the SOIC-16 clip is due October 25. P2 pins 1/3 are ground; pins 2/4 are about 5 kΩ to ground. Latest readings: **U4 Select pin 1→P2 pin 2 = 329 Ω; Select→P2 pin 4 >9 kΩ; Enable pin 15→P1 pin 2/GND = 331 Ω**. These support resistive paths, not proven direct traces, resistor identities, or powered control levels. Mux VCC still has no identified direct header connection. Next finish its P1 supply search: measure U4 pin 16 to the five untested P1 pins 3–7. No jumpers or programmer-to-router attachment yet.
+**Current checkpoint assessment:** stop the repetitive C8375 header resistance scans. The user reports the requested remaining P1 points in the **MΩ range**, with **P1 pin 8 = 5.6 kΩ**, in response to the U4-pin-16 supply search. A usable direct mux supply/SPI header route is still not established; this does not prove that header access is physically impossible. There is no justified Dupont wiring diagram to apply from the current data. Preserve the completed tables and do not ask the same broad scans again without new evidence that changes the diagnostic question. The programmer/adapter remains accepted. **Preferred next C8375 action: direct physical-flash acquisition with the SOIC-16 clip expected October 25**, followed by two matching full reads per chip and comparison against the exact original backup. C8300 external-console diagnosis remains available today; no new C8300 test has been performed in this session.
 
 **Initial flash-ground check (historical; resolved by settled repeat below):** U1_CSPI is the right Micron chip in the saved inspection crop, with its pin-1 dot at bottom-right and VSS pin 10 second from the top on the image's left side. The user measured the requested P1_CSPI pin 2 to U1 pin 10 pair at 0 V DC / 11.8 Ω, and U1 pin 10 to the USB-shell reference at 0 V DC / 0.3 Ω. These are measured observations, but they do not validate P1 pin 2 as a common programmer ground. Repeat the original P1 pin 2 to USB-shell pair with the fine probes and reliable contact before continuing net assignments.
 
@@ -215,12 +215,12 @@ Next identify **U4_CSPI**, the lower small mux beside P1 in the crop, and its pi
 | --- | --- | --- |
 | P1_CSPI pin 1 | 1.22 kΩ, previously measured | Not an established common supply |
 | P1_CSPI pin 2 / GND | Approximately 300 Ω inferred from common P2-1/3 grounds; not separately measured | Inferred supply-to-ground path |
-| P1_CSPI pin 3 | Pending | Untested supply search endpoint |
-| P1_CSPI pin 4 | Pending | Untested supply search endpoint |
-| P1_CSPI pin 5 | Pending | Untested supply search endpoint |
-| P1_CSPI pin 6 | Pending | Untested supply search endpoint |
-| P1_CSPI pin 7 | Pending | Untested supply search endpoint |
-| P1_CSPI pin 8 | High kΩ, from user group description; no exact value | No direct supply path established |
+| P1_CSPI pin 3 | MΩ range, user group report; exact value not supplied | No direct mux supply path established |
+| P1_CSPI pin 4 | MΩ range, user group report; exact value not supplied | No direct mux supply path established |
+| P1_CSPI pin 5 | MΩ range, user group report; exact value not supplied | No direct mux supply path established |
+| P1_CSPI pin 6 | MΩ range, user group report; exact value not supplied | No direct mux supply path established |
+| P1_CSPI pin 7 | MΩ range, user group report; exact value not supplied | No direct mux supply path established |
+| P1_CSPI pin 8 | **5.6 kΩ**, latest user report; earlier described as high kΩ | No direct mux supply path established |
 | P2_CSPI pin 1 | **300 Ω**, user-reported | P2-1 subsequently mapped to GND; this is a mux-VCC-to-ground path |
 | P2_CSPI pin 2 | High kΩ, from user group description; no exact value | Function unknown |
 | P2_CSPI pin 3 | **300 Ω**, user-reported | P2-3 subsequently mapped to GND; this is a mux-VCC-to-ground path |
@@ -249,9 +249,13 @@ Consequently, the previous **300 Ω from U4 pin 16 to P2 pins 1/3** is an approx
 
 The near-330 Ω values may involve resistors or other in-circuit paths; do not promote this to a verified 330 Ω component or strap function. No powered mux-control measurement or selector setting has been performed.
 
-**Next requested measurements — finish P1 mux-supply search:** keep normal router power/cords disconnected, CR2032 removed, and programmer USB unplugged/unattached. In ohms mode hold one fine probe on **U4_CSPI pin 16 (VCC), the bottom-right corner lead in the saved crop**, and measure to **P1 pins 3, 4, 5, 6 and 7**. These five VCC-to-header pairs have not been tested; prior scans of these header pins used flash clock/CS#, not mux VCC. Record every actual resistance/range or OL. This completes the P1-post search for a direct accessible mux supply; it does not establish a route through the mux. Do not apply power or install jumpers based on the 329/331 Ω readings.
+**Latest supply-search report and end of broad scans:** in response to the U4-pin-16-to-P1 supply search, the user reports the requested remaining points in the **MΩ range**, except **P1 pin 8 = 5.6 kΩ**. Treat P1 pins 3–7 as a group report without inventing individual values. The user notes that these scans feel repeated. Preserve the earlier flash-clock scan as a different recorded endpoint; do not merge its individual numbers into this mux-supply scan. No further repetition is needed for the present access decision.
 
-These measurements do not authorize guessed header wiring or mux-control shorts. A header-based acquisition still needs known power, ground, CLK, CS#, MOSI, MISO and control handling, plus a working mux route where applicable. Begin with read-only identification/acquisition when that setup is established.
+**Header-access assessment:** no direct mux supply connection or complete CLK/CS#/MOSI/MISO path has been established. Ground/VCC header mappings and the approximately 330 Ω control paths are insufficient to publish a working programmer-to-header harness. This is an unresolved board-routing/power dependency, not proof of a damaged mux or an impossible header interface. No new programmer-to-router attachment, jumper setting, read, or write has occurred.
+
+**Next C8375 action:** use the SOIC-16 clip when it arrives October 25 to pursue direct physical-chip acquisition under R-01. Map the new clip/harness to the Micron package, preserving the adapter's 8-pin versus flash's 16-pin distinction. Save two complete matching reads from each chip and compare them with the exact original backup before choosing a restore target. The programmer/adapter itself is accepted; do not restart its standalone validation or these broad header resistance scans without new diagnostic evidence.
+
+**Useful work available today:** C8300-01 external-console diagnosis does not require the SOIC-16 clip. First establish whether the native USB console was physically unplugged while the RJ45 path was tested at 9600, 8N1, no flow control. [Cisco's classic Catalyst 8300 guide](https://www.cisco.com/c/en/us/td/docs/routers/cloud_edge/c8300/hardware_installation/b-catalyst-8300-series-edge-platforms-hig/Preinstall.html) documents that an inserted native USB console cable disables RJ45 and gives the 9600 default. Treat this as a planned alternative, not a newly performed test or an assumption that the earlier user console attempts were wrong.
 
 ### U2_CSPI mapping record
 
@@ -592,6 +596,7 @@ End state: power, cables, battery, assembly, terminal ownership
 | 2026-10-24 | C8375-01-HDR-VCCSCAN | U4 pin 16 to P1-8 and P2-1..4 | User unpowered resistance results | P2-1 **300 Ω**, P2-3 **300 Ω**; other requested points collectively high kΩ, exact values not supplied | Resistive paths; no direct mux supply established. Next P2-to-known-ground and P2-1-to-3 checks. No supply/enable/select jumpers | User report in conversation |
 | 2026-10-24 | C8375-01-HDR-P2-GND | P2 pins relative to known P1-2/GND; extra P1-1 to P2-1 check | User unpowered resistance readings | P2-1 and P2-3 **0.2 Ω each** to GND; P2-2 and P2-4 **around 5 kΩ each**; P1-1 to P2-1 **925 Ω** | P2-1/3 are ground; earlier 300 Ω mux-VCC paths are to ground. P2-2/4 functions unknown. Next trace U4 Select to P2-2/4 and Enable to known ground | User report; P2-1-to-3 direct numerical reading not supplied |
 | 2026-10-24 | C8375-01-HDR-U4-CONTROL | U4 Select/Enable to P2 and known ground | User requested unpowered resistance measurements | Select→P2-2 **329 Ω**; Select→P2-4 **>9,000 Ω**; Enable→P1-2/GND **331 Ω** | Resistive control-related paths; direct traces, component identities and powered logic levels unproven. Next five untested mux-VCC-to-P1 pairs, pins 3–7 | User report in conversation |
+| 2026-10-24 | C8375-01-HDR-SEARCH-END | U4 VCC supply-search response, P1 remaining posts | User group resistance report and repeat-scan concern | Requested remaining points **MΩ range**; P1-8 **5.6 kΩ**; individual MΩ values not supplied | No direct mux supply or complete SPI header route established. Stop broad repeats, retain programmer acceptance, prefer direct SOIC-16 clip reads. C8300 console work remains an alternative today | User report in conversation; no new powered test/read/write |
 | Pending | | | | | | |
 
 ### Decisions and unresolved questions
@@ -600,7 +605,7 @@ End state: power, cables, battery, assembly, terminal ownership
 | --- | --- | --- |
 | Fleet count | Confirmed: 3 × C8235-G2, 1 × C8375-G2, 1 × C8300-1N1S | Bind physical serials to tracking IDs |
 | Exact delivered programmer/adapter revisions | Unknown | Photos and P-01 validation |
-| Can C8375 headers provide access today? | Unknown; user requests this route with Dupont wires while SOIC-16 clip is unavailable | C8375-01-HDR: search separate mux supply, then establish signal/control paths; P2 is four pins |
+| Can C8375 headers provide access today? | No working wiring route established by completed scans; stop broad repeats | Prefer direct SOIC-16 clip acquisition October 25; revisit header only with new routing evidence |
 | Which C8375 chip contains the modified active image? | Unknown | Stable reads and C8375-02 comparison |
 | Which banks retain original C8235 code? | Unknown | Separate reads from all three chassis |
 | C8300 irreparable hardware failure? | Not established | Validated console tests followed by inspection and targeted diagnosis |
@@ -676,3 +681,4 @@ After boot recovery, define and log an observation duration, reset/reboot behavi
 | 2026-10-24 | Recorded U4 VCC scan: P2 pins 1/3 each 300 Ω; P1-8 and P2-2/4 described collectively as high kΩ. Preserved units and missing per-point values. No direct supply assigned; next five larger-header-only ground/common-net checks. |
 | 2026-10-24 | Mapped P2 pins 1/3 to ground at 0.2 Ω each; pins 2/4 about 5 kΩ to ground. Recorded P1-1 to P2-1 at 925 Ω. Reinterpreted earlier 300 Ω readings as mux-supply-to-ground paths; next U4 Select/Enable continuity checks, no jumpers. |
 | 2026-10-24 | Recorded U4 Select→P2-2 329 Ω, Select→P2-4 >9 kΩ, Enable→known ground 331 Ω. No selector jumper assigned. Next finish mux VCC search against previously untested P1 pins 3–7 to assess header-only supply access. |
+| 2026-10-24 | Recorded remaining P1 supply-search readings as MΩ range and pin 8 as 5.6 kΩ. Acknowledged repetitive guidance; ended broad scans and consolidated header access as unresolved. Next C8375 work is direct SOIC-16 clip acquisition; C8300 external-console diagnosis remains available today. |
