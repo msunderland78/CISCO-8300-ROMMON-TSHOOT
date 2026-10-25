@@ -27,7 +27,26 @@
     "sha256": "c63ff74c98539a16a9f2dac1726df7646ef093c6240c533b6affedf6b567ac82"
   },
   "interpretation": "No successful U2 ID. Acceptable pre-probe supply and low-resistance power paths do not validate SPI contacts or establish the cause. Darwin informational capture-entitlements line also occurred during successful U1 access; no permission diagnosis from that line alone.",
-  "next_step": "One unpowered U2 clip reseat, reconnect only programmer USB, recheck DC VCC 1.7\u20132.0 V, then fresh identification-only log. Stop on repeat failure; do not force detection or start full reads.",
+  "next_step": "Stop software probes. USB unplugged, normal router sources/cables and CR2032 removed; remove clip from U2. Measure full harness from active adapter output 2 to actual metal jaw contact intended for U2 pin 8, and adapter output 6 to jaw contact intended for U2 pin 16. These are MISO and CLK cable checks, not board or under-clip measurements. Await both resistance values before another command.",
   "retry_command_prepared_not_run": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification && test ! -e U2-identification-reseat1.log && sudo flashrom -V -p ch341a_spi -c MT25QU256 -o U2-identification-reseat1.log",
-  "agent_programmer_access": false
+  "agent_programmer_access": false,
+  "subsequent_attempt": {
+    "recorded_at": "2026-10-25T19:14:53.649638-04:00",
+    "user_ran_retry_command": true,
+    "physical_reseat_and_rechecked_voltage": "requested previously; not separately confirmed in this reply",
+    "id1": "0x20",
+    "id2": "0x0000",
+    "expected_id1": "0x20",
+    "expected_id2": "0xbb19",
+    "chip_found": false,
+    "main_array_read_performed": false,
+    "write_performed": false,
+    "log": {
+      "private_original": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification/U2-identification-reseat1.log",
+      "public_generated_counterpart": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-reseat1-partial-id.log",
+      "size_bytes": 546,
+      "sha256": "b0ac6e0dca623217aa0f95f07c9c38a1f5d6e951716bd22b0c9ed3dfafb068cd"
+    },
+    "interpretation": "Manufacturer byte now matches expected Micron byte; device bytes remain wrong. Incomplete response does not establish chip model, reliable communication, or a defective chip. Cause unresolved."
+  }
 }

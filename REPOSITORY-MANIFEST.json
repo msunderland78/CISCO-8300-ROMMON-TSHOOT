@@ -141,6 +141,11 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
+      "bytes": 546,
+      "path": "c8375-recovery/programmer-logs/20261025-U2-reseat1-partial-id.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 33554432,
       "path": "c8375-recovery/spi-backups-20261023/after-native-flash-crc-failure.bin",
       "reason": "intermediate failed-write dump contains detected credential material; exact original retained locally"
@@ -678,9 +683,9 @@
       "sha256": "a96d2f930878e06a3b87061e3e3b9f1ac43732188431fcb8b6879f2ab980401c"
     },
     {
-      "bytes": 65335,
+      "bytes": 66765,
       "path": "C8375-CH341A-HEADER-WIRING.md",
-      "sha256": "b085844e32da3aff3230c93bfee90aadbe14a1b5b57bf756610b0a6907dae2fc"
+      "sha256": "dcb973b31198cee56c9830c36bd7dfd3c042781a13e7c5166adcf14432533cd7"
     },
     {
       "bytes": 13235,
@@ -688,9 +693,9 @@
       "sha256": "dfb30c0fdb7f612d6eeddd9900a5dc9e7792424e6d5f1ced632d67350dfe8fec"
     },
     {
-      "bytes": 66116,
+      "bytes": 67546,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "713a1558dc45ef42d65baf2b6dd8d270b83448571207117a03b20158fac1f60b"
+      "sha256": "bd6a21676c9bec1c0166e626d15b050f57d0da77b6b19c10c48f10b75d5eb27b"
     },
     {
       "bytes": 1992,
@@ -858,9 +863,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 160956,
+      "bytes": 162458,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "a16bbd9c72a45afe1ef797364b9b249b2771471b37dc33ccc9eb7eecf9924fcf"
+      "sha256": "987af9d5cdd7cc3144874c763aa5d943358da9f8070e8220ea7e74f1d1703a39"
     },
     {
       "bytes": 6850655,
@@ -1028,9 +1033,9 @@
       "sha256": "6db738792beb7b22e54b42510f5fb96a3216ec0d3d83118b3d74d895141b9c22"
     },
     {
-      "bytes": 2081,
+      "bytes": 3326,
       "path": "c8375-recovery/acquisition-evidence/20261025-U2-identification-no-id.json",
-      "sha256": "32a2b625b26b92f421538d6e07bee8c94142537bacb13d822ceb8cf41bc64e9d"
+      "sha256": "9ade3ea6730b75f1d986e09ded2108a839389777e9273db160c64e43e25bdbbb"
     },
     {
       "bytes": 172399,
@@ -1883,6 +1888,11 @@
       "sha256": "c63ff74c98539a16a9f2dac1726df7646ef093c6240c533b6affedf6b567ac82"
     },
     {
+      "bytes": 546,
+      "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-reseat1-partial-id.log",
+      "sha256": "b0ac6e0dca623217aa0f95f07c9c38a1f5d6e951716bd22b0c9ed3dfafb068cd"
+    },
+    {
       "bytes": 80262,
       "path": "sanitized-evidence/router-console-logs/20261022-185728-console.log",
       "sha256": "b5545972f9aaeef073e9abdf8836e182b39bd805273fc4478588f4de78ab6e23"
@@ -1982,6 +1992,7 @@
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-short-leads-read5.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-short-leads-read6.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-initial-no-id.log",
+    "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-reseat1-partial-id.log",
     "sanitized-evidence/router-console-logs/20261022-185728-console.log",
     "sanitized-evidence/router-console-logs/20261022-191128-console.log",
     "sanitized-evidence/router-console-logs/20261022-191815-console.log",
@@ -1996,8 +2007,8 @@
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 128,
-    "included_bytes_without_manifest": 526404889,
-    "included_files_without_manifest": 262
+    "excluded_local_files": 129,
+    "included_bytes_without_manifest": 526411042,
+    "included_files_without_manifest": 263
   }
 }
