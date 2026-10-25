@@ -23,3 +23,21 @@ Visible programmer labels include `CH341A Mini Programmer`, revision text appear
 The adapter has an 1117-marked regulator and a 48-pin TI-marked IC whose text appears consistent with the 74LVC16T245 family. The full suffix, regulator output variant, module wiring/direction, socket mapping, and actual power/signal levels remain unverified. Component-family capability does not validate this particular module. See the [active test plan](../ROUTER-RECOVERY-TEST-PLAN.md) for bench results and next steps.
 
 No router, programmer, or adapter operation is established by a photograph alone. At initial inspection, the next requested powered check is **bare programmer USB communication only**, with adapter, clips, and all targets detached.
+
+
+## Partial eight-pin clip assessment — October 24
+
+Four additional original user photographs were inspected without modification:
+
+| File | Observed coverage |
+| --- | --- |
+| [IMG_1269.jpeg](IMG_1269.jpeg) | Actual black eight-contact clip, ribbon/keyed connector, and separate green clip breakout with eight male legs. Its electrical pin mapping is not yet measured. This is distinct from the green 1.8 V adapter with blue ZIF socket. |
+| [IMG_1270.jpeg](IMG_1270.jpeg) | Close view of clip placed over the CS# end of right-hand U1_CSPI, away from its visible pin-1 dot. Individual jaw-to-leg contacts are partly obscured. |
+| [IMG_1271.jpeg](IMG_1271.jpeg) | Opposite/rotated angle of clip placement and surrounding board; does not establish every electrical contact or absence of bridges. |
+| [IMG_1273.jpeg](IMG_1273.jpeg) | Wider view of the same clip/board setup, showing U1/U2 and P1/P2 context. |
+
+The position appears consistent with the proposed U1 pins 5–8/9–12 contact window; appearance is not electrical verification. No clip output pin number, stable contact, lack of shorts, or safe powered harness is inferred solely from the photos. The clip breakout's male legs make individual Dupont wiring feasible if the connectors fit securely, but it must not be inserted straight into the programmer/1.8 V adapter in this offset use.
+
+Next, with all router power/cables disconnected, CR2032 removed, programmer USB unplugged and clip breakout separate from the programmer/adapter: in ohms mode, black on **router P1_CSPI pin 2 / known ground**, scan red across the **eight exposed male legs on the clip breakout**. Report how many give a near-lead-resistance reading and their actual resistance. Mark identified leg(s) so their physical identity is retained; multiple low matches need review before assigning a contact. This verifies the new clip connection through U1's ground, not a new unknown-board-node search. Electrical clip mapping remains pending.
+
+Follow the [hybrid wiring worksheet](../C8375-CH341A-HEADER-WIRING.md) and [active plan](../ROUTER-RECOVERY-TEST-PLAN.md). No powered operation is requested.
