@@ -69,17 +69,25 @@ These are ground-reference checks. They do not by themselves establish point-to-
 | 7 | 11 | DNU | Inferred position within window, not separately measured; leave disconnected |
 | 8 | 12 | DNU | User-described alignment; leave disconnected |
 
-**Immediate next step — two direct signal contacts plus an adjacent-contact check:** retain all normal router cords disconnected, CR2032 removed, programmer USB unplugged and clip breakout separate from programmer/adapter. Keep the clip seated as just checked. In ohms mode measure:
+## Clip access limitation and contact-3/contact-4 result
 
-| Pair | Purpose | Actual result |
-| --- | --- | --- |
-| Clip/breakout contact **3** → actual U1 chip lead/pad **7** | Verify direct CS# contact | Pending |
-| Clip/breakout contact **4** → actual U1 chip lead/pad **8** | Verify direct MISO contact | Pending |
-| Clip/breakout contact **3** → clip/breakout contact **4** | Check for a near-zero bridge between these adjacent signal contacts | Pending |
+The user reports that the fitted clip **blocks access to the actual U1 legs/pads**, so the direct clip-3→U1-7 and clip-4→U1-8 checks could not be performed. Do not record them as OL or as verified contacts. Their broad statement that all clip contacts read OL to other clip contacts was explicitly withdrawn. A specific follow-up confirms **clip contact 3→clip contact 4 = OL**. This is only that pair's result; it does not establish every inter-contact reading or prove both jaws are making chip contact.
 
-The first two should be near the lead/cable/contact resistance if the intended contacts are sound. The third should not show a near-zero connection; report its actual value/units or OL rather than assuming an open. Probe the actual chip leg/its solder pad for the first two so the test includes the jaw-to-chip connection. If those points are inaccessible with the jaw fitted, report the access limitation instead of forcing a probe or substituting contact-to-ground readings.
+| Pair | Actual result / status |
+| --- | --- |
+| Clip contact 3 → actual U1 chip lead/pad 7 | Not performed: jaw blocks access |
+| Clip contact 4 → actual U1 chip lead/pad 8 | Not performed: jaw blocks access |
+| Clip contact 3 → clip contact 4 | **OL**, user explicitly confirmed |
 
-This is not another CS# routing search: it verifies the user-proposed direct clip path. No power or programmer connection is assigned yet. MOSI, mux power/select/enable, board loading and remaining control handling remain unresolved. No powered chip identification/read/write has been reported.
+## Immediate next step: indirect CS# contact check using a recorded reference
+
+The earlier bare-chip unpowered CS# scan recorded **red on U1 pin 7, black on P1 pin 8 = 9.33 kΩ** (see C8375-01-CS-SCAN in the tracking plan). This is a resistance reference; **it is not a direct SPI connection or an assignment of P1 pin 8 as CS#**.
+
+Keep the clip seated, all normal router cords disconnected, CR2032 removed, programmer USB unplugged, and breakout separate from programmer/adapter. In **ohms mode**, put **red on clip/breakout contact 3** and **black on router P1_CSPI pin 8**, preserving the earlier measurement polarity. Report the actual value/units or OL. Do not force a probe under the jaw or remove/reseat the clip for this requested pair.
+
+A comparable finite resistance would support connection through the intended CS# contact, while not uniquely proving physical landing or every other contact. The value need not match digit for digit: board state, contact and nonlinear circuit paths can affect resistance readings. OL would leave contact/reference validity unresolved, not diagnose a flash failure. This substitutes the clip endpoint into a previously measured pair rather than starting a new board-wide search. The new result remains pending.
+
+MISO contact, MOSI, mux power/select/enable, board loading and remaining control handling still need a justified setup. No powered ID/read/write has been reported. The programmer itself remains accepted.
 
 ## Clock trace result: U1 flash to U4 channel A
 
