@@ -238,6 +238,51 @@ SEPARATE ASSEMBLED UNIT / C8235-B — 2026-10-25, America/New_York
   verification is required before any removal. The 5,449,154,560-byte
   173306-UTC.tar original stays internal. Extra plan/results artifact:
   recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-EXTRA-ARCHIVE.json.
+- Extra report verification/removal completed at 13:18 EDT. Exact part
+  lengths passed and SHA-256 of the full source matched concatenated USB
+  parts after sync/unmount/read-only remount/cache clear:
+  9912116121f1072d4e2b2402a42d649c56f6a699b650cb262a59f5f0046ac82b
+  Source remained read-only through verification; inode/size/mtime/ctime
+  remained unchanged across the guarded read/write remount before removal.
+  Deleted that one named report and synced. Total archived/deleted internal
+  reports: 59 / 11,625,000,609 bytes. df available: 10,340,804 KiB, above the
+  5,926,609 KiB recommendation. 5,449,154,560-byte 173306-UTC.tar retained.
+- Read-only SPI preservation during maintenance: /proc/mtd exposes one
+  logical mtd0, size 0x02000000, erase 0x1000, name spi0.0. Used /dev/mtd0ro
+  (read-only character node) for two distinct full 32 MiB dd reads, 32 x 1 MiB
+  with iflag=fullblock. Each read took about 22.24 seconds. USB folder:
+  C8235-B-FGL2835LBHU-20261025-SPI-READS. Both full files compared equal and
+  have SHA-256 cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857,
+  confirmed again after USB sync/unmount/read-only remount/cache clear.
+  Digest differs from all-00/all-FF images. Physical U-reference and bank
+  correspondence remain unresolved; this is ONE logical main-array snapshot,
+  not both-chip acquisition, factory-original certification, signature
+  authentication or an approved image for another chassis. No SPI writes.
+  Raw binaries stay on USB outside Git; public metadata:
+  recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-SPI-BACKUP-METADATA.json.
+- Final USB IOS-image SHA-256 still matches the unchanged original:
+  0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456.
+  Fresh baseline crashinfo is 502,359 bytes with SHA-256
+  c17f32b9dc886f163cb5cb7790e7fbe30193556baf029c9e5647c55e7ee05ed1.
+  A separate matching copy is preserved in the report archive as
+  baseline-26.2.1-crashinfo_20250529-185458-UTC.log to protect it if the router
+  later reuses the incorrect-clock filename. USB includes hash inventories
+  and EXTRA-PARTS-README.txt describing exact concatenation order.
+- At 13:23 EDT both physical filesystems were cleanly unmounted. The vendor
+  reboot -f wrapper failed because it requires pglobals.sh/systemd absent in
+  this maintenance boot. busybox reboot -f then reset the system successfully;
+  development boot-stub startup was observed. Temporary boot-parameter
+  restoration and the normal ten-minute IOS retest remain pending at this
+  checkpoint. Failure and subsequent reset are retained in the capture.
+- At the returned ROMMON prompt, unset USER_BOOT_PARAM reported it does
+  not exist; set output confirmed the original absent state. No environment
+  sync was issued. Maintenance capture closed cleanly; lsof showed the port
+  unowned, then a separate 115200/no-flow capture opened for normal retest:
+  router-console-logs/20261025-132544-C8235-B-FGL2835LBHU-retest-console.log.
+  At 13:25:49 EDT issued the same verified 26.2.1 USB boot with normal boot
+  parameters. Armed Ctrl-C on the UUID banner for any subsequent failure
+  reload. Ten-minute IOS observation starts only after CLI access, not during
+  maintenance or image loading; outcome pending at this checkpoint.
 
 CURRENT OUTCOME AND NEXT STEP — WORKED UNIT C8235-A
 - Router is NOT recovered. The primary ROMMON flash operation completed,

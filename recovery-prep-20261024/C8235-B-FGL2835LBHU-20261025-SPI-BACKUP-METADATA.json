@@ -1,0 +1,35 @@
+{
+  "chassis": "C8235-B",
+  "console_serial": "FGL2835LBHU",
+  "board": "mirabile-arata r2, A0 alt package",
+  "console_soc_uuid_hex": "13ffff8779adfb7c6de081a7",
+  "date_timezone": "2026-10-25 America/New_York",
+  "operation": "Two full current software reads of one logical SPI main-array device through its read-only Linux MTD node",
+  "source": "/dev/mtd0ro",
+  "mtd_name": "spi0.0",
+  "mtd_size_bytes": 33554432,
+  "mtd_erase_bytes": 4096,
+  "command": "dd if=/dev/mtd0ro of=<distinct USB destination> bs=1048576 count=32 iflag=fullblock",
+  "reads": [
+    {
+      "usb_path": "C8235-B-FGL2835LBHU-20261025-SPI-READS/linux-mtd0ro-read1.bin",
+      "bytes": 33554432,
+      "sha256": "cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857"
+    },
+    {
+      "usb_path": "C8235-B-FGL2835LBHU-20261025-SPI-READS/linux-mtd0ro-read2.bin",
+      "bytes": 33554432,
+      "sha256": "cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857"
+    }
+  ],
+  "comparison": "full file cmp passed; SHA-256 values match; digest differs from all-00 and all-FF images of this length",
+  "usb_readback_after_remount": "Both full SHA-256 values matched again after final sync, USB unmount/read-only remount and page-cache clearing.",
+  "physical_chip_reference": "unresolved",
+  "primary_golden_mapping": "unresolved",
+  "second_physical_bank_read": false,
+  "spi_writes_performed": false,
+  "original_bytes_modified": false,
+  "publication": "Exact binary reads remain only on user USB, outside Git publication; metadata and sanitized console evidence are public.",
+  "limitations": "Current logical-device snapshot; not a factory-original certification, firmware authentication, compatibility result, both-chip backup or recovery test.",
+  "plaintext_development_version_marker_search": "No SDK112312-SoC1-SB-v12.1.22 match printed; no firmware-content classification inferred from that absence."
+}

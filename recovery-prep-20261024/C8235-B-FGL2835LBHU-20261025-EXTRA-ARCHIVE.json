@@ -20,6 +20,12 @@
     }
   ],
   "required_verification": "After sync/unmount/read-only remount/cache clear, concatenated parts SHA-256 must equal full original SHA-256; verify exact part lengths; source rechecked before deletion.",
-  "status": "planned; not yet copied or deleted",
-  "retained_large_original": "Router_RP_0-system-report_20240227-173306-UTC.tar"
+  "status": "verified archive; original report removed after source inode/size/mtime/ctime remained unchanged across read-write remount",
+  "retained_large_original": "Router_RP_0-system-report_20240227-173306-UTC.tar",
+  "source_sha256": "9912116121f1072d4e2b2402a42d649c56f6a699b650cb262a59f5f0046ac82b",
+  "concatenated_parts_sha256": "9912116121f1072d4e2b2402a42d649c56f6a699b650cb262a59f5f0046ac82b",
+  "verification": "Exact part sizes checked, sync completed, USB unmounted/remounted read-only and page cache cleared; full source and concatenated-parts SHA-256 matched.",
+  "source_deleted": true,
+  "available_internal_kib_after_deletion": 10340804,
+  "retained_other_large_original_bytes": 5449154560
 }
