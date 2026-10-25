@@ -1,6 +1,6 @@
 # C8375 recovery through the CH341A and board header
 
-Updated October 25, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: CH341A + accepted 1.8 V adapter + Dupont wires + board header; now assessing the user's partial SOIC-8 clip proposal for direct CS#/MISO access.** The user explicitly reaffirmed this approach after the assistant incorrectly switched to C8300 work. The SOIC-16 clip was expected October 25; receipt has not yet been confirmed. It remains an alternate access method.
+Updated October 25, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: CH341A + accepted 1.8 V adapter + Dupont wires + board header; now assessing the user's partial SOIC-8 clip proposal for direct CS#/MISO access.** The user explicitly reaffirmed this approach after the assistant incorrectly switched to C8300 work. On October 25 the user confirms the SOIC-16 clip is still about 16 hours away, expected around **4:30 PM local time (America/New_York)**. This is the user's delivery expectation, not a confirmed arrival. It remains the preferred full-contact access tool once available.
 
 The programmer/adapter is accepted. Do not repeat standalone programmer checks or the completed broad supply/ground/header resistance matrices. No programmer has been attached to the router, and no external chip read or write has occurred.
 
@@ -14,8 +14,8 @@ This is a tracking map, **not a ready-to-power harness**. Power/ground net ident
 | Ground | 4 | 10 | P1 pin 2 | Continuity established; P2 pins 1/3 also ground |
 | Clock | 6 | 16 | **P1 pin 4, via U4 IA0/channel A** | P1-4→U4-2 **33 Ω**; U4-4→U1 CLK **22 Ω**. Passing this route still requires mux power/select/enable setup |
 | Chip select | 1 | 7 | Header unmapped; **clip contact 3 supported by reference match** | Clip-3→P1-8 **9.33 kΩ**, matching earlier bare U1-7→P1-8. Indirect evidence; not a powered test |
-| MOSI / data to flash | 5 | 15 | Unmapped | Pending |
-| MISO / data from flash | 2 | 8 | Header unmapped; proposed direct clip contact 4 | Direct pad hidden; next trace clip-4 to remaining U4 common terminals |
+| MOSI / data to flash | 5 | 15 | Unmapped | Attempted U4 trace was MΩ/OL with difficult fine-pin contact; inconclusive. Assess secure direct flash-leg access |
+| MISO / data from flash | 2 | 8 | Header unmapped; proposed direct clip contact 4 | Direct pad hidden; U4 trace MΩ/OL with unreliable access, so contact/routing remains unresolved |
 | WP#/DQ2 control | 3 | 9 | Unmapped | Board control handling unresolved |
 | HOLD#/DQ3 control | 7 | 1 | Unmapped | Board control handling unresolved |
 | RESET# | No dedicated adapter pin assigned | 3 | Unmapped | Establish existing board handling before attachment |
@@ -83,22 +83,32 @@ The user reports that the fitted clip **blocks access to the actual U1 legs/pads
 
 The earlier bare-chip scan recorded **red U1 pin 7 / CS#, black P1 pin 8 = 9.33 kΩ**. With the clip seated, the user now measures **red clip contact 3, black P1 pin 8 = 9.33 kΩ**, exactly matching the recorded value. This supports the intended clip CS# connection without accessing a hidden leg. It is indirect resistance evidence, not unique proof of physical landing, an identified direct header signal, or a powered functional test. **P1 pin 8 remains only a resistance reference; it is not assigned as CS#.** No repeat is needed.
 
-## Next tests: MOSI and expected MISO to the remaining U4 channels
+## Data-trace attempt: high readings with difficult U4 access
 
-Keep the clip seated, all normal router cords disconnected, CR2032 removed, programmer USB unplugged and breakout separate from programmer/adapter. Use ohms mode. The three remaining U4 common terminals are pins **7 / YB, 9 / YC, 12 / YD**; channel A / pin 4 was traced for clock already.
+The user reports the requested six data-to-common-terminal pairs **all in MΩ or OL**, while explicitly saying U4 is extremely small and difficult to contact reliably. No individual values or allocation of OL versus MΩ were supplied. Preserve this as a group report with a contact-access limitation, not proof of disconnected signals or a faulty mux. **Stop further U4 fine-pin probing with this setup.** Earlier positive clock-path measurements remain recorded, but they do not make the uncertain data-path negatives definitive.
 
-1. Fixed red on **large U1 flash pin 15 / MOSI**, the **left-side second lead from the bottom** with the pin-1 dot at bottom-right in the saved photo. Scan black over **small U4 pins 7, 9, 12**.
-2. Fixed red on **clip/breakout contact 4**, the expected MISO contact. Scan black over the same **small U4 pins 7, 9, 12**. This may establish an accessible low-resistance data path through the clip, without a probe under the jaw.
+| Red endpoint | Black endpoints attempted | User result |
+| --- | --- | --- |
+| Large U1 flash pin 15 / MOSI | Small U4 pins 7, 9, 12 | MΩ or OL, group report; exact per-pair values not supplied, difficult contact |
+| Clip contact 4 / expected MISO | Small U4 pins 7, 9, 12 | MΩ or OL, group report; exact per-pair values not supplied, difficult contact |
 
-| Black endpoint, small U4 | Photo position | Red U1 flash pin 15 / MOSI | Red clip contact 4 / expected MISO |
-| --- | --- | --- | --- |
-| Pin 7 | Top row, second from left | Pending | Pending |
-| Pin 9 | Bottom-left corner | Pending | Pending |
-| Pin 12 | Bottom row, fourth from left | Pending | Pending |
+## Next access decision: bypass the mux rather than repeat tiny-pin scans
 
-Record all six actual values/units or OL. A low path would identify another data channel. A high-only scan leaves routing/contact unresolved and does not diagnose a failed chip. These pairs have not been tested; completed clock, ground and CS# reference checks should not be repeated. Do not force any probe under the clip.
+The proper wide SOIC-16 clip, once received and checked for fit/contact mapping, would provide direct access to both **U1 pin 15 / MOSI** and **pin 16 / CLK**, as well as the other required flash pins. The user says it remains approximately 16 hours away, expected October 25 around 4:30 PM local time.
 
-MOSI header assignment, MISO path/contact, mux power/select/enable, board loading and remaining control handling still need a justified setup. No powered ID/read/write has been reported. The programmer itself remains accepted.
+A conditional alternative using existing tools is the partial CS-end clip plus **two secure individual hook connections** directly to U1's uncovered pins **15 / MOSI** and **16 / clock**. In the saved-photo orientation these are the left-side bottom two leads: pin 15 second from bottom, pin 16 bottom-left. They are adjacent, so ordinary hooks may be too large to attach independently without bridging or stressing the legs. The actual hook tips have not been photographed or assessed. A 4 mm meter connector specification does not establish hook-tip clearance.
+
+| Required connection | Conditional direct-access proposal | Status |
+| --- | --- | --- |
+| MOSI | Accepted adapter output 5 to U1 pin 15 through a suitably isolated, stable hook | **Not connected; hook fit unverified** |
+| CLK | Accepted adapter output 6 to U1 pin 16 through another suitably isolated, stable hook | **Not connected; hook fit unverified** |
+| CS#/MISO/GND | Existing partial clip contacts 3/4/6, individually routed as established | Ground confirmed, CS# supported indirectly, MISO contact unresolved |
+| VCC | Known P1 pin 1, 1.8 V only | Net mapped; loaded powering not tested |
+| HOLD#/RESET#/WP# | Board/control handling still to be established | Pending |
+
+Using direct flash-side MOSI/CLK connections would avoid requiring the unpowered U4 path to pass those signals. This is an access proposal, not a ready harness or authorization to energize uncertain contacts. Safe loading, remaining control levels and contact isolation still need a justified setup. Do not use hand-held needle pressure or an improvised unstable connection for a firmware write.
+
+**Immediate next step while awaiting the full clip:** put a clear photograph of the **two actual hook tips beside U1's exposed pins 15/16** in Photos, with the clip/programmer cables and all normal router power disconnected. Leave the hooks unattached for this first size/fit view; do not force them onto IC legs. We will decide whether direct isolated contacts are practical from the actual tools. No further U4 sweep, powered connection, jumper or flash operation is requested. If the hooks cannot provide secure single-leg contact, use the proper wide SOIC-16 clip when it arrives rather than guessing/forcing contacts.
 
 ## Clock trace result: U1 flash to U4 channel A
 
