@@ -122,7 +122,7 @@ Reference endpoint: USB connector metal outer shell. The user explicitly clarifi
 
 **Header orientation correction:** the assistant's earlier description of pin 2 as beside pin 1 identified the wrong post. The user clarified that actual pin 2 is above pin 1 in their working orientation, and that the 0.015 V / OL measurements belong to **pin 3**. The user then measured actual pin 2 at **0 V DC and 0.2 Ω to the USB shell**, matching the lead baseline. This supports a direct shell connection; flash/circuit-ground continuity remains to be established before programmer wiring. Use the board's printed numbers and the user's confirmed orientation; do not assume a conventional drawn arrangement. The pin-3 DC reading is nonzero, and the user also reported an ohms reading; do not treat this as verification that all endpoints are discharged or that OL identifies a faulty/open board trace. Voltage should be checked first on subsequent endpoints.
 
-**Current checkpoint assessment:** CH341A plus 1.8 V adapter remains accepted; no repeat standalone programmer checks. SOIC-16 clip arrives October 25; today the user is pursuing C8375 header access with Dupont wires. P1 pin 1→U1 VCC and pin 2→ground are mapped, but SPI signal paths remain unresolved. The latest U4-pin-16 supply search found **P2 pin 1 = 300 Ω and P2 pin 3 = 300 Ω**, while P1 pin 8 and P2 pins 2/4 were described collectively as high kΩ without exact values. No direct mux supply connection is established and no supply/control role is assigned to P2. Next map P2 pins 1–4 to known P1 ground, plus P2 pin 1 to pin 3, using only header posts with all power disconnected. Keep programmer unattached to the router. A mapped working route could permit header reads today; the SOIC-16 clip remains the alternate.
+**Current checkpoint assessment:** programmer/adapter remains accepted, and C8375 header access is being investigated while the SOIC-16 clip is due October 25. The user now measures **P2 pins 1 and 3 each at 0.2 Ω to known P1 pin 2/GND**; accept both as ground contacts. P2 pins 2 and 4 are each approximately **5 kΩ to ground**, with their functions still unknown. **P1 pin 1 to P2 pin 1 = 925 Ω**, a mapped flash-supply-to-ground reading. Earlier U4 pin 16 to P2 pins 1/3 readings of 300 Ω consequently represent approximately 300 Ω to ground, not an identified supply feed. Next trace U4 Select pin 1 to P2 pins 2/4, and U4 Enable pin 15 to known P1 ground. Keep all power disconnected and programmer unattached; no header jumpers or injection are established.
 
 **Initial flash-ground check (historical; resolved by settled repeat below):** U1_CSPI is the right Micron chip in the saved inspection crop, with its pin-1 dot at bottom-right and VSS pin 10 second from the top on the image's left side. The user measured the requested P1_CSPI pin 2 to U1 pin 10 pair at 0 V DC / 11.8 Ω, and U1 pin 10 to the USB-shell reference at 0 V DC / 0.3 Ω. These are measured observations, but they do not validate P1 pin 2 as a common programmer ground. Repeat the original P1 pin 2 to USB-shell pair with the fine probes and reliable contact before continuing net assignments.
 
@@ -215,20 +215,25 @@ Next identify **U4_CSPI**, the lower small mux beside P1 in the crop, and its pi
 | --- | --- | --- |
 | P1_CSPI pin 1 | 1.22 kΩ, previously measured | Not an established common supply |
 | P1_CSPI pin 8 | High kΩ, from user group description; no exact value | No direct supply path established |
-| P2_CSPI pin 1 | **300 Ω**, user-reported | Resistive path; function unknown |
+| P2_CSPI pin 1 | **300 Ω**, user-reported | P2-1 subsequently mapped to GND; this is a mux-VCC-to-ground path |
 | P2_CSPI pin 2 | High kΩ, from user group description; no exact value | Function unknown |
-| P2_CSPI pin 3 | **300 Ω**, user-reported | Resistive path; function unknown |
+| P2_CSPI pin 3 | **300 Ω**, user-reported | P2-3 subsequently mapped to GND; this is a mux-VCC-to-ground path |
 | P2_CSPI pin 4 | High kΩ, from user group description; no exact value | Function unknown |
 
-**Next requested measurements — P2 header relationships:** keep C8375 normal power/cords disconnected, CR2032 removed, and programmer USB unplugged/unattached to the router. Use the actual printed header numbering. In ohms mode, fixed probe on **P1_CSPI pin 2 (known ground)**, measure P2 pins **1, 2, 3 and 4**. Then measure **P2 pin 1 to P2 pin 3**. Record actual values/ranges or OL for all five. These larger-header-only checks look for ground contacts and whether the two 300 Ω endpoints are directly common. All results below are pending. No jumpers or powered tests are requested.
+**P2 ground mapping results received:** user reports **P2 pin 1 and pin 3 each at 0.2 Ω to P1 pin 2**, establishing both as ground contacts. **P2 pins 2 and 4 are each around 5 kΩ to P1 pin 2**; their functions remain unknown. The additional reported pair is **P1 pin 1 to P2 pin 1 = 925 Ω**, a flash-VCC-to-ground measurement through the established mappings. The requested direct P2-pin-1-to-P2-pin-3 value was not supplied; their common ground is already supported, so no redundant repeat is requested. These results do not diagnose a short or component failure.
 
-| Measurement pair | Resistance |
+Consequently, the previous **300 Ω from U4 pin 16 to P2 pins 1/3** is an approximately 300 Ω mux-supply-to-ground reading. It does not identify P2 pins 1/3 as mux power feeds. P2 pins 2/4 may be control-related, but that remains a hypothesis until traced.
+
+| Measurement pair | Resistance / assessment |
 | --- | --- |
-| P1 pin 2 / GND ↔ P2 pin 1 | Pending |
-| P1 pin 2 / GND ↔ P2 pin 2 | Pending |
-| P1 pin 2 / GND ↔ P2 pin 3 | Pending |
-| P1 pin 2 / GND ↔ P2 pin 4 | Pending |
-| P2 pin 1 ↔ P2 pin 3 | Pending |
+| P1 pin 2 / GND ↔ P2 pin 1 | **0.2 Ω; ground contact established** |
+| P1 pin 2 / GND ↔ P2 pin 2 | **Around 5 kΩ; function unknown** |
+| P1 pin 2 / GND ↔ P2 pin 3 | **0.2 Ω; ground contact established** |
+| P1 pin 2 / GND ↔ P2 pin 4 | **Around 5 kΩ; function unknown** |
+| P2 pin 1 ↔ P2 pin 3 | Not separately reported; both mapped to common ground |
+| P1 pin 1 / flash VCC ↔ P2 pin 1 / GND | **925 Ω; rail-to-ground reading, no fault inferred** |
+
+**Next requested measurements — U4 control mapping:** keep all normal router power/cords disconnected, CR2032 removed, and programmer USB unplugged/unattached. In the saved crop orientation, U4 is the lower small mux beside P1: **Select pin 1 is its top-right corner lead; active-low Enable pin 15 is on the bottom row, second lead from the right**. Confirm the pin-1 marker as before. In ohms mode measure **U4 pin 1→P2 pin 2**, **U4 pin 1→P2 pin 4**, then **U4 pin 15→P1 pin 2/GND**. Record each actual resistance/range or OL. Touch only one mux lead; if access is impractical, report that rather than forcing contact. All three readings remain pending. No supply injection, mux-control shorts, or jumpers are requested.
 
 These measurements do not authorize guessed header wiring or mux-control shorts. A header-based acquisition still needs known power, ground, CLK, CS#, MOSI, MISO and control handling, plus a working mux route where applicable. Begin with read-only identification/acquisition when that setup is established.
 
@@ -569,6 +574,7 @@ End state: power, cables, battery, assembly, terminal ownership
 | 2026-10-24 | P-01-ACCEPTED | CH341A plus fitted 1.8 V adapter | User physical socket clarification, qualitative output confirmation, and explicit end to further validation | Active output contacts printed 1–8; 4 ground; eight unused contacts; expected 1.8 V levels reported correct, no per-pin values | Setup accepted for acquisition. Supersede N/F scan; next R-01 on C8375 with SOIC-16 clip. No router reads performed yet | User clarification and acceptance in conversation |
 | 2026-10-24 | C8375-01-HDR-PLAN | C8375 P1/P2 headers and U4 mux | User requests Dupont/header access today; saved photo re-inspected | SOIC-16 clip confirmed unavailable until tomorrow; P2 appears 2×2/four-pin; no new electrical readings | Resume router-side mapping. Next U4 VCC to P1-8 and P2-1..4 unpowered. Programmer remains accepted; do not guess the header pinout | User request, IMG_1260, and prior mapping results |
 | 2026-10-24 | C8375-01-HDR-VCCSCAN | U4 pin 16 to P1-8 and P2-1..4 | User unpowered resistance results | P2-1 **300 Ω**, P2-3 **300 Ω**; other requested points collectively high kΩ, exact values not supplied | Resistive paths; no direct mux supply established. Next P2-to-known-ground and P2-1-to-3 checks. No supply/enable/select jumpers | User report in conversation |
+| 2026-10-24 | C8375-01-HDR-P2-GND | P2 pins relative to known P1-2/GND; extra P1-1 to P2-1 check | User unpowered resistance readings | P2-1 and P2-3 **0.2 Ω each** to GND; P2-2 and P2-4 **around 5 kΩ each**; P1-1 to P2-1 **925 Ω** | P2-1/3 are ground; earlier 300 Ω mux-VCC paths are to ground. P2-2/4 functions unknown. Next trace U4 Select to P2-2/4 and Enable to known ground | User report; P2-1-to-3 direct numerical reading not supplied |
 | Pending | | | | | | |
 
 ### Decisions and unresolved questions
@@ -651,3 +657,4 @@ After boot recovery, define and log an observation duration, reset/reboot behavi
 | 2026-10-24 | User clarified printed blue output socket numbering 1–8, output 4 ground, eight unused contacts, and expected 1.8 V operation; then explicitly ended programmer validation. Accepted setup, retired N/F scan, and moved next priority to two full reads per C8375 physical chip when the SOIC-16 clip is available. No invented per-pin readings or completed router operations. |
 | 2026-10-24 | User confirms SOIC-16 clip arrives tomorrow and requests Dupont/header access today. Re-inspected full IMG_1260: P2_CSPI has four posts. Added C8375-01-HDR for a limited unpowered mux-supply search; header access remains possible but not established. No additional programmer validation, router attachment, or new electrical result claimed. |
 | 2026-10-24 | Recorded U4 VCC scan: P2 pins 1/3 each 300 Ω; P1-8 and P2-2/4 described collectively as high kΩ. Preserved units and missing per-point values. No direct supply assigned; next five larger-header-only ground/common-net checks. |
+| 2026-10-24 | Mapped P2 pins 1/3 to ground at 0.2 Ω each; pins 2/4 about 5 kΩ to ground. Recorded P1-1 to P2-1 at 925 Ω. Reinterpreted earlier 300 Ω readings as mux-supply-to-ground paths; next U4 Select/Enable continuity checks, no jumpers. |
