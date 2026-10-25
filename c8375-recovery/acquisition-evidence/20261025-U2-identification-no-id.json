@@ -27,7 +27,7 @@
     "sha256": "c63ff74c98539a16a9f2dac1726df7646ef093c6240c533b6affedf6b567ac82"
   },
   "interpretation": "No successful U2 ID. Acceptable pre-probe supply and low-resistance power paths do not validate SPI contacts or establish the cause. Darwin informational capture-entitlements line also occurred during successful U1 access; no permission diagnosis from that line alone.",
-  "next_step": "Leave clip/wires on U2. Meter DC volts with black P1-2/GND, only CH341A USB connected, normal router power/cables and CR2032 removed. Measure bare U1 pin 7/CS# and mapped U2-breakout pin 7/CS# relative to ground. Await both static values; no flashrom command yet. Idle readings alone cannot prove select behavior during a transfer.",
+  "next_step": "Keep U2 clip/wires unchanged. With only programmer USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2, red P1-1; report current supply. Await reading before another probe/command. Do not add CS/reset jumpers or raise voltage based on idle measurements.",
   "retry_command_prepared_not_run": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification && test ! -e U2-identification-reseat1.log && sudo flashrom -V -p ch341a_spi -c MT25QU256 -o U2-identification-reseat1.log",
   "agent_programmer_access": false,
   "subsequent_attempt": {
@@ -66,7 +66,8 @@
   },
   "next_step_history": [
     "Leave clip seated and wiring unchanged. With only CH341A USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2/GND; red at mapped breakout terminal reaching U2-3/RESET#, then mapped terminal reaching U2-1/HOLD#. Await both voltages; no flashrom command or jumper. These are breakout-level observations and do not independently establish jaw-to-chip contact.",
-    "Keep clip on U2. Unplug programmer USB, keep router power/cables/CR2032 removed, verify P1-1/P1-2 approximately zero DC volts, then ohms: active adapter output 1 to bare U1 pin 7 / CS#, output 2 to bare U1 pin 8 / MISO. These test possible inter-chip paths through the installed harness; do not remove clip if U1 access is blocked. Await values/access report. No new software command or write. Unpowered resistance cannot establish powered mux behavior or prove contention."
+    "Keep clip on U2. Unplug programmer USB, keep router power/cables/CR2032 removed, verify P1-1/P1-2 approximately zero DC volts, then ohms: active adapter output 1 to bare U1 pin 7 / CS#, output 2 to bare U1 pin 8 / MISO. These test possible inter-chip paths through the installed harness; do not remove clip if U1 access is blocked. Await values/access report. No new software command or write. Unpowered resistance cannot establish powered mux behavior or prove contention.",
+    "Leave clip/wires on U2. Meter DC volts with black P1-2/GND, only CH341A USB connected, normal router power/cables and CR2032 removed. Measure bare U1 pin 7/CS# and mapped U2-breakout pin 7/CS# relative to ground. Await both static values; no flashrom command yet. Idle readings alone cannot prove select behavior during a transfer."
   ],
   "inter_chip_resistance_measurements": {
     "recorded_at": "2026-10-25T19:31:09.382201-04:00",
@@ -81,5 +82,28 @@
     "MISO_endpoints": "U2 mapped cable-end/clip-breakout contact reaching physical pin 8 to actual bare U1 pin 8",
     "user_endpoint_confirmation": "yes, the end of the wire clip on u2 to the actual pin on u1 for both",
     "interpretation": "Low-resistance MISO path through installed U2 clip/harness to U1 is supported. CS pairs do not show a low-resistance tie. This does not prove a particular resistor, direct hardwiring, powered mux state, simultaneous selection or bus contention."
+  },
+  "idle_chip_select_voltages": {
+    "recorded_at": "2026-10-25T19:37:59.495076-04:00",
+    "source": "user-reported DC voltages following requested USB-only idle check",
+    "black_reference": "P1-2 / GND",
+    "bare_U1_pin7_CS_VDC": 1.243,
+    "U2_mapped_breakout_pin7_or_adapter_output1_CS_VDC": 1.306,
+    "contemporaneous_supply_VDC": "not yet supplied; fresh P1-1/P1-2 reading requested",
+    "prior_supply_VDC": 1.759,
+    "conditional_VIH_minimum_V": 1.2313,
+    "conditional_margin_U1_V": 0.0117,
+    "conditional_margin_U2_V": 0.0747,
+    "interpretation": "Nominal margins use the earlier VCC and do not include meter accuracy, supply change or transient behavior. These idle readings do not establish active-driver high levels, simultaneous selection or contention."
+  },
+  "driver_source_check": {
+    "source": "https://raw.githubusercontent.com/flashrom/flashrom/v1.8.0/programmers/ch341a_spi.c",
+    "version": "upstream v1.8.0; installed runtime reports v1.8.0, exact local build source equivalence not independently proved",
+    "findings": "enable_pins sets CS output latch high; enable=false clears output-direction bits. ch341a_spi_shutdown calls enable_pins(false). Thus after normal exit the programmer is not actively driving CS through this output configuration. Board/adapter bias and loading can affect idle levels. Active transfer waveforms remain unmeasured.",
+    "functions": [
+      "enable_pins",
+      "ch341a_spi_shutdown"
+    ],
+    "hardware_executed": false
   }
 }
