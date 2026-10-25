@@ -13,7 +13,7 @@ This is a tracking map, **not a ready-to-power harness**. Power/ground net ident
 | Flash VCC | 8 | 2 | P1 pin 1 | Header-to-flash continuity measured; actual in-circuit powering not tested |
 | Ground | 4 | 10 | P1 pin 2 | Continuity established; P2 pins 1/3 also ground |
 | Clock | 6 | 16 | **P1 pin 4, via U4 IA0/channel A** | P1-4→U4-2 **33 Ω**; U4-4→U1 CLK **22 Ω**. Passing this route still requires mux power/select/enable setup |
-| Chip select | 1 | 7 | Unmapped | Previous direct-header scan found no low-resistance path |
+| Chip select | 1 | 7 | Unmapped | User scanned every U4 pin and every P1/P2 post; no low path, lowest readings around 5 kΩ. Next targeted U3 common-terminal check |
 | MOSI / data to flash | 5 | 15 | Unmapped | Pending |
 | MISO / data from flash | 2 | 8 | Unmapped | Pending |
 | WP#/DQ2 control | 3 | 9 | Unmapped | Board control handling unresolved |
@@ -64,17 +64,32 @@ The two path measurements do not establish a measured end-to-end header/flash re
 
 The user reports **no small resistance readings and most OL** from U4 pin 3 / IA1 to P1 posts 3–8. Do not convert this into all six being OL or invent the other values. No low-resistance header path was identified on IA1. The measured IA0 path to **P1 pin 4 at 33 Ω** remains the clock header branch; these scans are finished and should not be repeated.
 
-## Next test: trace U1 chip select to a remaining U4 channel
+## Chip-select result: no low path to U4 or either header
 
-Keep all router cords disconnected, CR2032 removed, programmer USB unplugged/unattached, and meter in ohms. Hold red on **large right-hand Micron U1 flash pin 7 / CS#**, the **second lead from the top on its right side** in the saved-photo orientation. Measure black to **small U4 mux pins 7, 9 and 12**, the remaining common terminals after channel A was traced for clock. Record all three actual resistances or high/OL.
+The user expanded the requested CS# scan: **large U1 flash pin 7 to every pin on small U4 and every post on P1 and P2**. They report no reading below approximately **5,000 Ω / 5 kΩ**. Per-endpoint values were not supplied. This includes the requested U4 common terminals 7/9/12; do not ask for those measurements again or assign exactly 5 kΩ to each endpoint.
+
+No low-resistance chip-select connection has been established to these tested endpoints. The assumption that CS# would share U4 with clock remains unconfirmed; possible alternate mux/buffer/logic routing has not been traced. These measurements do not diagnose a failed flash, mux, or broken PCB trace. The [Micron pin reference](https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf), Figure 6, still identifies SOIC-16 pin 7 as S#/chip select.
+
+## Next test: U1 chip select to U3 common terminals
+
+Keep all router cords disconnected, CR2032 removed, programmer USB unplugged/unattached, meter in ohms. Fixed red remains on **large right-hand U1 flash pin 7 / CS#**, second lead from the top on its right side in the saved photo. Move black to **small U3_CSPI mux pins 4, 7, 9 and 12**. U3 is the **upper small mux beside P2**, above U4. These CS#-to-U3 pairs have not been tested.
+
+U3 is the same PI3CH480 family. Identify its pin-1 marker before counting; in the saved-photo orientation the marker is at top-right, with the same row numbering as U4:
+
+```text
+Top row:       8  7  6  5  4  3  2  1
+                    U3_CSPI
+Bottom row:    9 10 11 12 13 14 15 16
+```
 
 | Fixed endpoint | Moving endpoint / photo position | Result |
 | --- | --- | --- |
-| Large U1 flash pin 7 / CS# | Small U4 mux pin 7 / top row, second from left | Pending |
-| Large U1 flash pin 7 / CS# | Small U4 mux pin 9 / bottom-left corner | Pending |
-| Large U1 flash pin 7 / CS# | Small U4 mux pin 12 / bottom row, fourth from left | Pending |
+| Large U1 flash pin 7 / CS# | Small U3 pin 4 / top row, fourth from right | Pending |
+| Large U1 flash pin 7 / CS# | Small U3 pin 7 / top row, second from left | Pending |
+| Large U1 flash pin 7 / CS# | Small U3 pin 9 / bottom-left corner | Pending |
+| Large U1 flash pin 7 / CS# | Small U3 pin 12 / bottom row, fourth from left | Pending |
 
-These CS#-to-mux pairs have not been measured; the older CS# test was to the header. A low path would identify the next channel to trace to its header-side terminal. A high-only result would leave this route unresolved rather than diagnose a failed chip. Other SPI signals, board-control handling and mux supply remain unresolved; no powered harness connection or selector jumper is selected.
+Report actual resistance/range or OL for all four. These are candidate alternate-route tests, not a claimed U3 assignment. Keep the accepted programmer unattached; mux power/control and the rest of the signal map remain unresolved. No jumper, supply injection or flash operation is selected.
 
 ## Acquisition and recovery sequence
 
