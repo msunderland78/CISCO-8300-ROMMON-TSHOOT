@@ -1,6 +1,6 @@
 # C8375 recovery through the CH341A and board header
 
-Updated October 24, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: CH341A + accepted 1.8 V adapter + Dupont wires + board header; now assessing the user's partial SOIC-8 clip proposal for direct CS#/MISO access.** The user explicitly reaffirmed this approach after the assistant incorrectly switched to C8300 work. The SOIC-16 clip is expected tomorrow and is an alternate access method.
+Updated October 25, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: CH341A + accepted 1.8 V adapter + Dupont wires + board header; now assessing the user's partial SOIC-8 clip proposal for direct CS#/MISO access.** The user explicitly reaffirmed this approach after the assistant incorrectly switched to C8300 work. The SOIC-16 clip was expected October 25; receipt has not yet been confirmed. It remains an alternate access method.
 
 The programmer/adapter is accepted. Do not repeat standalone programmer checks or the completed broad supply/ground/header resistance matrices. No programmer has been attached to the router, and no external chip read or write has occurred.
 
@@ -52,9 +52,20 @@ Use only the accepted **1.8 V adapter output**, not the bare programmer pads (th
 
 **Photo observations:** IMG_1269 shows a separate small green clip breakout with eight male legs, allowing individual cable contacts to be reached; this is not the green 1.8 V adapter with the blue socket. IMG_1270/1271/1273 show the clip on U1's end away from the pin-1 dot, consistent with the proposed CS-end window. The jaw contacts are partly hidden, so photos do not prove all four contacts per side are aligned, stable, or isolated. No contact numbering is inferred from ribbon color or breakout position.
 
-**Immediate next step — clip ground contact:** retain the clip on U1 only if it sits naturally without forcing. Keep all normal router cords disconnected, CR2032 removed, programmer USB unplugged, and the green clip breakout separate from the programmer/1.8 V adapter. In **ohms mode**, hold black on **router P1_CSPI pin 2 / verified ground**. Touch red to each of the **eight exposed male legs on the clip breakout**. Report how many read close to the probe/contact baseline and their actual resistance. Mark the matching leg(s) on paper/tape or a clear photo so we retain physical identity; if the board has printed numbers, use those. If none or multiple legs are near zero, report that without selecting one by guess. This tests the newly fitted clip's ground contact through U1. All these results are pending; it does not yet prove CS#/MISO contact or absence of adjacent bridges. Leave the breakout out of the blue adapter socket.
+## October 25: changed clip placement and ground-scan result
 
-After ground is identified, map the other actual clip contacts and verify only intended legs are reached before designing the powered harness. MOSI and clock-mux power/select/enable remain unresolved. No powered programmer-to-router connection, chip ID probe, read, or write has been reported. Prior U3 and 244A-device search questions remain set aside.
+The user reports repositioning the clip with these intended correspondences: **clip 1→U1 pin 5; clip 4→U1 pin 8; clip 5→U1 pin 9; clip 8→U1 pin 12**. Preserve these as user-described alignment, not direct electrical continuity results. They initially described all readings as OL except clip contact 5 at **0.3 Ω / ground**. A specific follow-up confirms the other probe was fixed on **router P1 pin 2 / known ground** throughout. Thus these were **clip-to-ground measurements**, not clip-to-each-corresponding-flash-leg measurements.
+
+| Endpoint to router P1 pin 2 / GND | User result | Meaning |
+| --- | --- | --- |
+| Clip/breakout contact 5 | **0.3 Ω** | Ground-connected at this clip placement; physical U1 landing not independently established |
+| Other clip/breakout contacts | **OL**, user group report | Not low-resistance to the ground reference in this test; does not prove their individual clip-to-chip continuity |
+
+Micron assigns **U1 pin 9 = WP#/DQ2**, **pin 10 = VSS/ground**. If the claimed sequential half-package contact map is correct, clip contact 6 would reach U1 pin 10. Its reported OL to ground leaves that contact/map unresolved. Possibilities include board-held-low WP#, contact/numbering/alignment differences, a missing contact, or a clip bridge; none is diagnosed. Do not declare that pin 9 cannot be grounded or that the chip is faulty. A ground scan cannot distinguish these cases by itself.
+
+**Immediate next step — inspect the native pin-9 ground state:** with all normal router cords disconnected, CR2032 removed, programmer USB unplugged and breakout disconnected from programmer/adapter, **remove the clip from U1**. In ohms mode, black on **router P1 pin 2 / known ground**, red on **bare U1 flash pin 9**, the **top-left corner lead in the saved-photo orientation**. Record the resistance/units or OL. This one new test checks the board's WP#-to-ground state without a possible clip bridge. Do not drive adapter WP# output high onto this node before its actual connection is resolved. All direct clip-to-chip mappings and absence-of-bridge checks remain pending; the programmer itself remains accepted.
+
+The current clip result does not establish CS#/MISO contact, a completed harness, mux power/control, or a powered read. MOSI and the clock-mux setup remain unresolved. No powered programmer-to-router attachment, chip ID/read/write or normal router power-up has been reported in this stage. Prior broad header/U4/U3 searches remain set aside.
 
 ## Clock trace result: U1 flash to U4 channel A
 
