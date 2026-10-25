@@ -48,7 +48,7 @@ Bottom row:    9 10 11 12 13 14 15 16
 | Fixed endpoint | Header result | Status |
 | --- | --- | --- |
 | U4 mux pin 2 / IA0 | **P1 pin 4 = 33 Ω** | Confirmed by user, with chip-name correction from U1 to U4 |
-| U4 mux pin 3 / IA1 | Lowest resistance / P1 post not yet supplied | Remaining queued clock-branch check |
+| U4 mux pin 3 / IA1 | P1 pins 3–8: **no low readings; most OL** | User qualitative report; other high values not supplied |
 
 The identified route is:
 
@@ -60,11 +60,21 @@ P1 pin 4 -- measured 33 Ω path -- U4 pin 2 / IA0
 
 The two path measurements do not establish a measured end-to-end header/flash resistance while the switch is unpowered. The datasheet selects IA0 with Select low and Enable low; the board's actual powered levels and supply remain unresolved. No selector jumper, injection, programmer attachment, or read has occurred.
 
-## Next test: finish the already queued alternate clock-branch check
+## Alternate clock branch result
 
-Keep all router cords disconnected, CR2032 removed, programmer USB unplugged/unattached, and meter in ohms. Hold red on **small U4 mux pin 3**, the **third top lead from the right** in the saved-photo orientation. Move black across **P1 header pins 3–8**. Report the lowest resistance, matching header pin and units, plus any similarly low matches. If all readings stay high, report that with the lowest value/unit. This scan was already requested but its result has not been supplied; **U4 pin 2 to P1 pin 4 is finished and should not be repeated**.
+The user reports **no small resistance readings and most OL** from U4 pin 3 / IA1 to P1 posts 3–8. Do not convert this into all six being OL or invent the other values. No low-resistance header path was identified on IA1. The measured IA0 path to **P1 pin 4 at 33 Ω** remains the clock header branch; these scans are finished and should not be repeated.
 
-After that, trace the other three SPI signals (CS#, MOSI and MISO) through the remaining mux channels. Their header assignments, board-control handling, and mux supply remain unresolved; the harness is not ready to power yet.
+## Next test: trace U1 chip select to a remaining U4 channel
+
+Keep all router cords disconnected, CR2032 removed, programmer USB unplugged/unattached, and meter in ohms. Hold red on **large right-hand Micron U1 flash pin 7 / CS#**, the **second lead from the top on its right side** in the saved-photo orientation. Measure black to **small U4 mux pins 7, 9 and 12**, the remaining common terminals after channel A was traced for clock. Record all three actual resistances or high/OL.
+
+| Fixed endpoint | Moving endpoint / photo position | Result |
+| --- | --- | --- |
+| Large U1 flash pin 7 / CS# | Small U4 mux pin 7 / top row, second from left | Pending |
+| Large U1 flash pin 7 / CS# | Small U4 mux pin 9 / bottom-left corner | Pending |
+| Large U1 flash pin 7 / CS# | Small U4 mux pin 12 / bottom row, fourth from left | Pending |
+
+These CS#-to-mux pairs have not been measured; the older CS# test was to the header. A low path would identify the next channel to trace to its header-side terminal. A high-only result would leave this route unresolved rather than diagnose a failed chip. Other SPI signals, board-control handling and mux supply remain unresolved; no powered harness connection or selector jumper is selected.
 
 ## Acquisition and recovery sequence
 
