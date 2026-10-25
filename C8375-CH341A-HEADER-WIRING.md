@@ -1,10 +1,31 @@
-# C8375 recovery through the CH341A and board header
+# C8375 recovery: CH341A wiring and access history
 
-Updated October 25, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: CH341A + accepted 1.8 V adapter + Dupont wires + board header; now assessing the user's partial SOIC-8 clip proposal for direct CS#/MISO access.** The user explicitly reaffirmed this approach after the assistant incorrectly switched to C8300 work. On October 25 the user confirms the SOIC-16 clip is still about 16 hours away, expected around **4:30 PM local time (America/New_York)**. This is the user's delivery expectation, not a confirmed arrival. It remains the preferred full-contact access tool once available.
+Updated October 25, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: accepted CH341A + 1.8 V adapter + Dupont wires + newly arrived full SOIC-16 clip on U1_CSPI.** Arrival is now user-confirmed, superseding the earlier delivery expectation and partial-clip/hook proposal retained below.
 
-The programmer/adapter is accepted. Do not repeat standalone programmer checks or the completed broad supply/ground/header resistance matrices. No programmer has been attached to the router, and no external chip read or write has occurred.
+The programmer/adapter is accepted. Do not repeat standalone programmer checks or completed broad header scans. The user confirms the chassis, all external power/cables removed, CR2032 removed and CH341A USB unplugged. They report Dupont wires fitted to adapter outputs 1–8 and can identify the clip connection for each U1 leg. No powered target connection or external chip read/write is reported.
 
-## Wiring map: known connections and unresolved signals
+## Current SOIC-16 wiring map — C8375-01-SOIC16
+
+User-reported measurements through the newly fitted clip: **U1 pin 10 to P1 pin 2 = 0.3 Ω**; **U1 pin 8 to P1 pin 8 = 9.35 kΩ**. Ground contact is supported. The second is a resistive-path observation, not direct continuity or verification of all contacts. Earlier **9.33 kΩ** readings were bare **U1 pin 7 / CS#** and partial-clip contact 3 to P1-8. Preserve the different endpoints; do not relabel today's pin 8 / MISO result as pin 7 or assign P1-8 a signal function. Present meter mode, lead baseline, polarity and a fresh residual-voltage reading were not separately supplied.
+
+With USB unplugged, route each Dupont wire from the **active 1.8 V adapter output** to the full-clip terminal reaching the specified **physical U1 pin**. Breakout terminal numbers/colors are not assumed to equal package numbers. The user confirms they can map all 16 clip contacts; numerical point-to-point readings for all contacts have not been supplied.
+
+| Active 1.8 V adapter output | Signal | Full-clip contact reaching physical U1 pin |
+| --- | --- | --- |
+| 1 | CS# / chip select | 7 |
+| 2 | MISO / DQ1, flash to programmer | 8 |
+| 3 | WP# / DQ2 | 9 |
+| 4 | GND / VSS | 10 |
+| 5 | MOSI / DQ0, programmer to flash | 15 |
+| 6 | CLK | 16 |
+| 7 | HOLD# / DQ3 | 1 |
+| 8 | VCC, 1.8 V | 2 |
+
+Reference: [Micron MT25QU256ABA datasheet, Figure 6 and Table 1, pages 12–14](https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf). U1 pins **4/5/6/11/12/13/14 are DNU**: leave their clip terminals electrically disconnected. U1 **pin 3 is RESET#**: no additional programmer wire or hard VCC tie is assigned; Micron specifies an internal pull-up, but the board could still affect the level.
+
+This is an **unpowered assembly map**, not a completed/powered test. Check each used clip terminal and assembled wire against its intended leg, and check for unintended bridges before USB power. WP#/HOLD# must have defined inactive levels for ordinary SPI use; adapter outputs 3/7 provide their usual high levels, but any board-held-low condition or contention must be resolved before powering. Direct clip access avoids needing a working header/mux route; it does not isolate U1 electrically from the board. Loaded VCC, control levels, back-powering and bus contention remain untested. First powered work, after harness checks, is controlled identification and stable reads under R-01; no erase/write is selected.
+
+## Historical header wiring map: known connections and unresolved signals
 
 This is a tracking map, **not a ready-to-power harness**. Power/ground net identity does not establish the signal route, mux power/control, or acceptable board loading. Leave the programmer disconnected while tracing.
 
@@ -22,7 +43,7 @@ This is a tracking map, **not a ready-to-power harness**. Power/ground net ident
 
 The adapter's input/output expected operation was confirmed by the user. The flash package assignments follow [Micron Figure 6](https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf). Do not equate adapter, header, and flash pin numbers.
 
-## Current proposal: partial SOIC-8 clip plus mapped header connections
+## Earlier proposal: partial SOIC-8 clip plus mapped header connections
 
 The user proposes using the eight-pin clip on part of U1 and supplying the remaining connections through P1/P2. **This is mechanically/electrically possible in principle, not a verified fit or a ready harness.** The actual jaws/cable and placement are now photographed in [IMG_1269](Photos/IMG_1269.jpeg), [IMG_1270](Photos/IMG_1270.jpeg), [IMG_1271](Photos/IMG_1271.jpeg) and [IMG_1273](Photos/IMG_1273.jpeg). The clip appears positioned over the intended CS# end of U1; its electrical contacts remain unverified. Its contact pitch, jaw span for the wide SOIC-16 package, alignment, grip and one-to-one contact continuity must be established unpowered. Do not force the clip or rely on a precarious fit.
 

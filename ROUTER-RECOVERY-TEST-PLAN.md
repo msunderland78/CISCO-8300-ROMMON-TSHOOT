@@ -6,9 +6,9 @@ Workspace: `/Users/games/Documents/SOFTWARE`
 
 This is the active tracking document for the five routers below. It expands the discussion and [initial bench worksheet](recovery-prep-20261024/TODAY-BENCH-PLAN.txt). Use this Markdown file for subsequent measurements, results, decisions, and next steps. The earlier recovery-context files remain the detailed history.
 
-**Immediate priority, October 25:** C8235-B (`FGL2835LBHU`) now boots 26.2.1 from USB but reproduces critical `cpp_cp_svr` rc139/F0-offline failure. Verified cleanup/retest completed: CPP rc139 and reload recurred with about 9.5 GB free. Inspect the preserved fresh system report and platform initialization evidence; retain development ROMMON and obtain original flash backups. C8235-A reproduces the pre-ROMMON TPM halt. The remaining C8235-C is taken apart, serial pending. C8375 acquisition awaits the SOIC-16 clip; keep all chassis separate.
+**Immediate priority, October 25:** the user has returned to C8375-A; the SOIC-16 clip has arrived and is fitted to U1. Assemble the unpowered harness using [the current wiring map](C8375-CH341A-HEADER-WIRING.md), then establish electrical readiness before R-01 acquisition. C8235-B (`FGL2835LBHU`) boots 26.2.1 from USB but reproduces critical `cpp_cp_svr` rc139/F0-offline failure after cleanup with about 9.5 GB free; preserve its report and development ROMMON for later investigation. C8235-A reproduces the pre-ROMMON TPM halt; C8235-C is taken apart, serial pending. Keep all chassis separate.
 
-**Execution status:** offline software preparation is verified. User measurements establish **P1 header pin 2 to U1 flash pin 10 (ground), settled 0.6 Ω**, and **P1 header pin 1 to U1 flash pin 2 (VCC), 0.3 Ω**. Actual U1 VCC relative to mapped ground measured **0.000–0.002 V DC** with cords disconnected and CR2032 removed. Earlier unstable values are preserved in the log. Remaining SPI signals, mux/bank routing, and U2 mapping remain to be checked. No new programmer connections or flash reads/writes are reported; the October 25 C8235 console test and its TPM halt are recorded under C8235-01. Checkboxes distinguish completed preparation from planned bench work.
+**Execution status:** offline software preparation is verified. Prior measurements establish **P1-2 to U1-10 ground, settled 0.6 Ω**, **P1-1 to U1-2 VCC, 0.3 Ω**, and historical unpowered U1 VCC **0.000–0.002 V DC**. The user now confirms C8375-A identity, all external power/cables and CR2032 removed, CH341A USB unplugged, full SOIC-16 clip seated, and ability to map its contacts to all U1 legs. New through-clip readings are **U1-10→P1-2 = 0.3 Ω** and **U1-8→P1-8 = 9.35 kΩ**. Dupont wires are fitted to adapter outputs 1–8; target-end harness assembly/checks, loaded power/control behavior, stable reads, physical bank identity and U2 acquisition remain pending. No powered C8375 attachment or new read/write is reported. Earlier observations remain in the log.
 
 ## 1. Fleet and current evidence
 
@@ -37,7 +37,7 @@ Do not assume that the other C8235s share C8235-A's board revision, flash parts,
 
 ## 2. Equipment and connection rules
 
-The user confirmed receipt on October 24, 2026 of the CH341A, 1.8 V adapter, Dupont wires, SOIC-8 clip, fine probe points, and hook clips. Receipt does not establish electrical compatibility or wiring. The SOIC-16 clip remains expected October 25; no arrival confirmation is recorded for it.
+The user confirmed receipt on October 24, 2026 of the CH341A, 1.8 V adapter, Dupont wires, SOIC-8 clip, fine probe points, and hook clips. Programmer/adapter acceptance is recorded under P-01. The SOIC-16 clip's arrival and placement on U1 are now confirmed October 25; its harness and in-circuit operation remain untested.
 
 | Equipment | Reported availability | Intended use | Verification still needed |
 | --- | --- | --- | --- |
@@ -47,7 +47,7 @@ The user confirmed receipt on October 24, 2026 of the CH341A, 1.8 V adapter, Dup
 | 40 × 20 cm Dupont wires | Received October 24, user-confirmed | Mapped headers and SOIC-16 breakout wiring | Connector genders, continuity, secure fit |
 | Needle meter probe tips | Received October 24, user-confirmed | Fine unpowered connection mapping | Meter compatibility, safe exposed tip length, and refreshed lead baseline after fitting |
 | Meter hook clips | Received October 24, user-confirmed | Secure connections on adequately spaced test points/headers | Actual hook jaw size and insulation; 4 mm connector size does not establish IC-leg clearance |
-| SOIC-16 clip and breakout | Expected October 25 | Access to the identified G2 flash packages | Wide-body fit, pin numbering, every cable contact |
+| SOIC-16 clip and breakout | Received October 25; user reports fitted to C8375 U1 | Access to identified G2 flash packages | User can map all contacts; assembled harness, contact isolation and powered behavior pending |
 | Fluke 111 | Previously documented | DC voltage, resistance, continuity | Leads in COM and V/ohm, correct mode, lead resistance baseline |
 
 ### Rules that apply to every bench session
@@ -122,7 +122,7 @@ Reference endpoint: USB connector metal outer shell. The user explicitly clarifi
 
 **Header orientation correction:** the assistant's earlier description of pin 2 as beside pin 1 identified the wrong post. The user clarified that actual pin 2 is above pin 1 in their working orientation, and that the 0.015 V / OL measurements belong to **pin 3**. The user then measured actual pin 2 at **0 V DC and 0.2 Ω to the USB shell**, matching the lead baseline. This supports a direct shell connection; flash/circuit-ground continuity remains to be established before programmer wiring. Use the board's printed numbers and the user's confirmed orientation; do not assume a conventional drawn arrangement. The pin-3 DC reading is nonzero, and the user also reported an ohms reading; do not treat this as verification that all endpoints are discharged or that OL identifies a faulty/open board trace. Voltage should be checked first on subsequent endpoints.
 
-**Current checkpoint assessment — October 25:** remain on C8375 recovery with accepted CH341A/1.8 V adapter. User reports all six MOSI/expected-MISO-to-U4-common attempts in **MΩ or OL**, with very difficult small-pin contact; these negatives are inconclusive. **Stop U4 fine probing with the current setup.** The user confirms the SOIC-16 clip is still approximately **16 hours away, expected around 4:30 PM local time**. Next assess direct flash access: a proper wide SOIC-16 clip when available, or potentially the existing partial clip plus two secure hooks on uncovered **U1 pins 15/MOSI and 16/CLK**. Hook-tip size/fit is unknown; request a photo of actual tips beside those larger flash legs, unpowered and unattached. No new hookup is selected. Ground and CS# reference results remain recorded; MISO contact, control handling and loading remain unresolved. No powered ID/read/write yet.
+**Current checkpoint assessment — October 25, C8375-01-SOIC16:** full SOIC-16 clip arrival supersedes the partial-clip/hook proposal below. The accepted adapter's outputs **1–8 map by signal to physical U1 pins 7/8/9/10/15/16/1/2** through individually identified clip contacts. See [the wiring sheet](C8375-CH341A-HEADER-WIRING.md) for DNU, RESET#, controls and pre-power checks. Current power/cable/battery state is reconfirmed; ground contact has new 0.3 Ω support. U1-8→P1-8 is now reported as 9.35 kΩ, whereas the older 9.33 kΩ reference was U1-7/CS#: retain both endpoints without conflating them. No new powered ID/read/write. Stop completed tiny-U4 scans; the new clip provides direct physical access but does not establish electrical isolation from the board.
 
 **Initial flash-ground check (historical; resolved by settled repeat below):** U1_CSPI is the right Micron chip in the saved inspection crop, with its pin-1 dot at bottom-right and VSS pin 10 second from the top on the image's left side. The user measured the requested P1_CSPI pin 2 to U1 pin 10 pair at 0 V DC / 11.8 Ω, and U1 pin 10 to the USB-shell reference at 0 V DC / 0.3 Ω. These are measured observations, but they do not validate P1 pin 2 as a common programmer ground. Repeat the original P1 pin 2 to USB-shell pair with the fine probes and reliable contact before continuing net assignments.
 
@@ -604,8 +604,9 @@ Purpose: identify actual parts and accessible low-voltage test points before ass
 
 No G2 firmware file is a restore image for this platform. The 8-pin clip being mechanically compatible does not establish electrical compatibility, boot-flash identity, isolation, or availability of valid replacement firmware. If inspection points toward power/reset faults, define specific low-voltage test points and expected values before powered probing; do not guess rail voltages or work inside mains PSUs.
 
-## 9. SOIC-16 clip arrival checklist — expected October 25
+## 9. SOIC-16 clip checklist — received October 25
 
+- [x] Record user's confirmation of clip arrival and placement on C8375 U1; user confirms ability to map each contact to all 16 package pins. Detailed contact/bridge readings remain pending.
 - [ ] Confirm actual clip/breakout contents and wide-body package fit.
 - [ ] Photograph clip pin 1 and breakout numbering.
 - [ ] With everything unpowered, meter every clip contact to its breakout connection; cable color is not proof of numbering.
@@ -713,6 +714,7 @@ End state: power, cables, battery, assembly, terminal ownership
 | 2026-10-25, 12:02–12:04 EDT | C8235-01 | User-confirmed previously worked C8235, FGL2835L42B; serial /dev/cu.usbserial-AL00F7EQ | Existing bridge, 115200 8N1/no flow; automatic B, then N | Marvell menu reached; normal boot completed BL2/BL31 then fatal TPM manufacturing-status halt | Cisco ROMMON/26.2.1 USB boot remain blocked on primary path. No write performed. Earlier C8235 measurements belong to another unidentified replica chassis | [Capture](sanitized-evidence/router-console-logs/20261025-120203-console.log) |
 | 2026-10-25, from 12:08 EDT | C8235-01 / C8235-B | Other assembled C8235, FGL2835LBHU, Arata r2 | Serial 115200 8N1/no flow; B, N, show version; USB SHA-512; reload; automatic Ctrl-C at UUID; manual USB boot | Installed 17.18.3a reaches CLI then cpp_cp_svr rc139; verified USB 26.2.1 reaches CLI then cpp_cp_svr rc139/F0 offline; bootflash 0 free | Boot success verified; packet-processing failure reproduced; functions untested. ROMMON unchanged. Preserve crash evidence and plan cleanup, then retest | [Capture](sanitized-evidence/router-console-logs/20261025-120812-console.log) |
 | 2026-10-25, 12:28–13:37 EDT | C8235-04 / C8235-B | FGL2835LBHU, internal eMMC and USB; one logical mtd0ro | Verified report archive and named deletion, temporary unsaved maintenance boot, two SPI read-only snapshots, restored normal USB26.2.1 boot, 600-second capture | 59 reports / 11,625,000,609 bytes safely archived/removed; >10.5 GB preboot available; CPP rc139/F0 offline/reload still occurred with 9.51 GB free | Cleanup complete; stability failed; fresh report preserved; now at ROMMON; cause unresolved | [Retest result](recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-RETEST.json) |
+| 2026-10-25, America/New_York | C8375-01-SOIC16 | C8375-A / FDO2742M0FK, U1_CSPI, new full clip | User reports arrival, seating and through-clip resistance checks; confirms identity and all power/cables/CR2032 removed, CH341A USB unplugged | U1-10→P1-2 **0.3 Ω**; U1-8→P1-8 **9.35 kΩ**; Dupont wires on adapter outputs 1–8; can identify all 16 clip contacts | Ground contact supported; pin-8 resistive path does not verify every contact. Earlier 9.33 kΩ was pin 7. Provide unpowered eight-wire map; harness isolation, controls/loading and reads pending | User report/clarification in conversation; [current harness map](C8375-CH341A-HEADER-WIRING.md); fresh meter baseline/polarity/residual DC not supplied |
 | Pending | | | | | | |
 
 ### Decisions and unresolved questions
@@ -721,7 +723,7 @@ End state: power, cables, battery, assembly, terminal ownership
 | --- | --- | --- |
 | Fleet count | Confirmed: 3 × C8235-G2, 1 × C8375-G2, 1 × C8300-1N1S | Bind physical serials to tracking IDs |
 | Exact delivered programmer/adapter revisions | Unknown | Photos and P-01 validation |
-| Can C8375 headers provide access today? | No working wiring route established by completed scans; stop broad repeats | Prefer direct SOIC-16 clip acquisition October 25; revisit header only with new routing evidence |
+| Can C8375 headers provide access today? | No complete route established; broad scans ended. Full SOIC-16 clip now received/fitted | Assemble/check direct clip harness; revisit headers only with new routing evidence |
 | Which C8375 chip contains the modified active image? | Unknown | Stable reads and C8375-02 comparison |
 | Which banks retain original C8235 code? | Unknown | Separate reads from all three chassis |
 | C8300 irreparable hardware failure? | Not established | Validated console tests followed by inspection and targeted diagnosis |
