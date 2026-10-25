@@ -633,3 +633,12 @@ The detailed current measurements are in [the tracking plan](ROUTER-RECOVERY-TES
 P1_CSPI pin 1 maps to U1 flash VCC and P1 pin 2 to ground. P2_CSPI is a four-post header: pins 1/3 each measured 0.2 Ω to P1 ground, while pins 2/4 were approximately 5 kΩ to ground. U4 Select→P2-2 measured 329 Ω, Select→P2-4 >9 kΩ, and Enable→known ground 331 Ω. No selector setting or supply injection was tried. The mux supply search has not found a direct header feed; latest remaining P1 readings were reported collectively in MΩ, with pin 8 at 5.6 kΩ. Do not conflate these endpoints with the earlier flash-clock scan or invent per-pin values.
 
 The assistant ended repetitive broad scans after the user noted repetition. A complete SPI header access route remains unresolved; no programmer was attached to the router, and no external flash acquisition or write has occurred. The preferred next step is direct access with the SOIC-16 clip expected October 25, then two complete matching reads per physical chip, U1_CSPI and U2_CSPI. Compare with the exact original backup before selecting a restore target. Do not restart programmer validation or the same header matrices without new evidence. C8300 external-console diagnosis is a separate available task today, not work already performed.
+
+
+## 21. Active priority clarification: continue the CH341A/Dupont/header route
+
+After the preceding recommendation to wait for the clip and the assistant's switch to C8300, the user explicitly asked to return to recovering this router through the CH341A and pin header. Keep this as the immediate task. C8300 notes and the confirmed absence of its USB-console cable during RJ45 testing are retained for later.
+
+Use [C8375-CH341A-HEADER-WIRING.md](C8375-CH341A-HEADER-WIRING.md) as the focused harness/status sheet. Programmer/adapter is accepted; broad supply/ground scans are complete and should not be repeated. Adapter output 8 to P1-1 and output 4 to P1-2 are known net correspondences, not a ready-to-power harness. SPI signals, mux power/control and board loading are unresolved.
+
+The next new unpowered test is large U1 flash clock pin 16 to small U4 mux common terminals 4/7/9/12, looking for a direct PCB trace on the candidate flash side of the mux. None of those pairs has been measured. Do not confuse this with prior clock-to-header or mux-supply-to-header scans. Preserve actual results, identify a channel if possible, then trace its paired terminals to the header. No programmer-to-router attachment, selector jumper, new chip read or write has occurred.
