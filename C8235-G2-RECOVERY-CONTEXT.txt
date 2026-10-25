@@ -149,6 +149,32 @@ SEPARATE ASSEMBLED UNIT / C8235-B — 2026-10-25, America/New_York
   keepalive behavior past the previous 300-second failure. No cleanup or
   transfer has yet been performed; retain installed firmware/configuration
   and development ROMMON. Need not wait for the SOIC-16 clip for this test.
+- User authorized the archive/verified-cleanup/reboot/ten-minute observation
+  sequence. At 12:28 EDT, the same live console remains at ROMMON. Entered
+  shell (UEFI Shell v2.2) and skipped startup.nsh with ESC. Mapping shows
+  fs0: internal eMMC partition 1 and fs3: USB; verified their contents against
+  known installed packages and the USB image before any copy operation.
+- Material size correction: UEFI lists 86 core files totaling 17,074,155,169
+  bytes. Earlier IOS totals (81 files / 8,484,220,577 listed bytes) are retained
+  as observations, but understate two files: 173306-UTC.tar is 5,449,154,560
+  bytes versus IOS 1,154,187,264, and 173307-UTC.tar is 4,908,574,720 versus
+  IOS 613,607,424. Each difference is exactly 4 GiB, consistent with a 32-bit
+  size-display wrap. Five later zero-byte files do not change the byte sum.
+  Do not use the earlier approximately 8.5 GB listing as actual core usage.
+- Selected 58 nonempty files individually below 4 GiB, totaling 6,716,425,889
+  bytes, for USB archive and possible later source deletion. Retain both
+  >4-GiB originals and zero-length files. USB directory:
+  C8235-B-FGL2835LBHU-20261025-REPORTS. Exact selection and observed sizes:
+  recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-ARCHIVE-PLAN.json.
+  Per-file copy/comp outcomes:
+  recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-ARCHIVE-RESULTS.json.
+- UEFI cp and comp are available. First 11 files copied successfully and
+  comp reported no differences. Larger-file copying is in progress at the
+  12:37 EDT checkpoint; no internal source deletion has occurred. Comparison
+  is full binary equality, not a hash or proof of report completeness.
+- Fresh USB crashinfo_20250529-185458-UTC is present, listed at 502,359 bytes;
+  its contents/hash have not yet been independently examined. UEFI ls reports
+  unsupported GetTime but still lists files; use actual session time.
 
 CURRENT OUTCOME AND NEXT STEP — WORKED UNIT C8235-A
 - Router is NOT recovered. The primary ROMMON flash operation completed,

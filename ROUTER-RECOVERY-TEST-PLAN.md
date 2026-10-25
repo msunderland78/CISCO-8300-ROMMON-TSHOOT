@@ -501,6 +501,22 @@ About two minutes into startup, `show platform` still reports **F0 init, active 
 - [ ] Identify physical flash markings and headers independently on each board.
 - [ ] Obtain separate stable backups of both banks per chassis using R-01.
 
+### C8235-04 — Authorized archive, verified cleanup and ten-minute USB retest
+
+**October 25, from 12:28 EDT:** user authorized the complete archive/verify/cleanup/retest sequence. Entered UEFI Shell v2.2 from the existing Cisco ROMMON and skipped startup.nsh with ESC. Confirmed **fs0:** is internal eMMC partition 1 and **fs3:** the USB drive by mapping and directory contents. IOS is stopped during archival, avoiding its keepalive-triggered reload while copying.
+
+**Material size correction:** UEFI metadata lists **86 files / 17,074,155,169 bytes** in `core/`. Earlier IOS reported **81 regular files / 8,484,220,577 listed bytes**. The `173306-UTC.tar` report is **5,449,154,560 bytes** (IOS listed 1,154,187,264); `173307-UTC.tar` is **4,908,574,720 bytes** (IOS listed 613,607,424). Each discrepancy is **4 GiB**, consistent with 32-bit size-display wrap; five newly listed zero-byte files do not affect totals. Preserve both observations, but use the UEFI sizes for copy planning.
+
+Selected **58 nonempty files below 4 GiB each, totaling 6,716,425,889 bytes**. Both larger originals and zero-byte files stay internal. Archive destination: USB `C8235-B-FGL2835LBHU-20261025-REPORTS/`. This selected amount exceeds the firmware's reported 5,926,609 kB requirement; measure actual free space after verified deletion before proceeding. The fresh USB crashinfo file is present at **502,359 bytes**, contents/hash unexamined. UEFI's GetTime warning does not establish the session date.
+
+- [x] Record the exact [selection and source/destination identities](recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-ARCHIVE-PLAN.json).
+- [x] Validate a small copy using UEFI `cp` and full binary `comp`.
+- [ ] Complete all selected copies and comparisons; [per-file results](recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-ARCHIVE-RESULTS.json) distinguish pending/completed actions. At the 12:37 EDT checkpoint, 11 comparisons passed and larger-file copying is in progress.
+- [ ] Delete only named source files whose USB copies passed comparison; retain firmware/configuration/ROMMON and both >4-GiB reports.
+- [ ] Measure actual free space and meet the firmware recommendation.
+- [ ] Boot the same verified 26.2.1 USB image.
+- [ ] Observe at least ten minutes and record F0/port readiness, keepalive behavior and any reload. Record failure even if the observation cannot finish without reboot.
+
 ### C8235-02 — Improve mapping on the worked Arata board
 
 The historical Arata photo/inspection record identifies flashes U2900/U2901 and nearby PI3CH480 muxes U2903/U2904. It previously attributed the associated measurements to C8235-A. On October 25 the user clarified that those measurements were on another replica; its serial remains unresolved, so do not transfer measured connectivity to A or B. J2900 remains unidentified. Historical measurements supported one ground pin but did not establish a direct connection from the other pin to mux Select; the reported approximately 6.5 kΩ reading was difficult to obtain with large probes.
