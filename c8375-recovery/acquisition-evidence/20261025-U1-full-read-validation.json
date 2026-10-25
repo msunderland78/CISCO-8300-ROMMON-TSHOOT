@@ -1,0 +1,421 @@
+{
+  "recorded_local": "2026-10-25T15:35:51.932763-04:00",
+  "task": "R-01-U1-VALIDATION",
+  "chassis": "C8375-A / FDO2742M0FK",
+  "physical_chip": "U1_CSPI",
+  "source_kind": "Local offline analysis of two user-run flashrom outputs and their original program-generated logs; no programmer access during analysis.",
+  "analysis_authorship": "AI-assisted original offline analysis using Python standard-library pathlib, hashlib, bytes comparisons and per-byte difference counts; not extracted vendor code.",
+  "private_source_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-151243-EDT/",
+  "files": {
+    "U1-read1": {
+      "bytes": 33554432,
+      "sha256": "6f82693674aa55c64176541d398b4d93c6ac06a9af227c4849ff6e21ded1fb43",
+      "all_ff": false,
+      "all_00": false,
+      "zero_bytes": 3034509,
+      "ff_bytes": 27751924,
+      "lower_16MiB_sha256": "2115025459646488942ef50c5d0c2d6c86b7869091f3e4966d22ad331209f3c9",
+      "upper_16MiB_sha256": "2db71c67dbeb083dd45e52816ee24769bdd21034a0e7b318126adb0e7a651a14",
+      "halves_identical": false,
+      "identical_lower_upper_aligned_4KiB_blocks": 2649,
+      "lower_4KiB_blocks": {
+        "all_ff": 2665,
+        "all_00": 304,
+        "distinct": 1129,
+        "total": 4096
+      },
+      "upper_4KiB_blocks": {
+        "all_ff": 4080,
+        "all_00": 0,
+        "distinct": 15,
+        "total": 4096
+      }
+    },
+    "U1-read2": {
+      "bytes": 33554432,
+      "sha256": "73c2d10a76d799e37ef0237f7d607c7aa858b78a2ceb07dc0eaa4fff64b64606",
+      "all_ff": false,
+      "all_00": false,
+      "zero_bytes": 3035647,
+      "ff_bytes": 27751439,
+      "lower_16MiB_sha256": "2fde684d5cf698cf0bedcd91962efc1b5127b85bd4f8a2b76c1c681290e15795",
+      "upper_16MiB_sha256": "46bd7585634ac577043962d2d532c6adba31b694b8f7cbd06e0db44871485b01",
+      "halves_identical": false,
+      "identical_lower_upper_aligned_4KiB_blocks": 2649,
+      "lower_4KiB_blocks": {
+        "all_ff": 2665,
+        "all_00": 304,
+        "distinct": 1129,
+        "total": 4096
+      },
+      "upper_4KiB_blocks": {
+        "all_ff": 4080,
+        "all_00": 0,
+        "distinct": 15,
+        "total": 4096
+      }
+    },
+    "original-reference": {
+      "bytes": 33554432,
+      "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107"
+    },
+    "nonbooting-reference": {
+      "bytes": 33554432,
+      "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b"
+    }
+  },
+  "comparisons": {
+    "U1-read1-vs-U1-read2": {
+      "differing_bytes": 2989540,
+      "first_offset": "0x0001ffb5",
+      "last_offset": "0x01f8a327",
+      "differing_64KiB_windows": 98,
+      "top_64KiB_windows": [
+        [
+          "0x006e0000",
+          59136
+        ],
+        [
+          "0x00700000",
+          59065
+        ],
+        [
+          "0x00620000",
+          59048
+        ],
+        [
+          "0x006f0000",
+          59008
+        ],
+        [
+          "0x00630000",
+          59004
+        ],
+        [
+          "0x00680000",
+          59000
+        ],
+        [
+          "0x00660000",
+          58987
+        ],
+        [
+          "0x00690000",
+          58987
+        ],
+        [
+          "0x00610000",
+          58964
+        ],
+        [
+          "0x00640000",
+          58944
+        ],
+        [
+          "0x006b0000",
+          58938
+        ],
+        [
+          "0x00670000",
+          58922
+        ]
+      ]
+    },
+    "U1-read1-vs-original-reference": {
+      "differing_bytes": 3692659,
+      "first_offset": "0x0001000d",
+      "last_offset": "0x01f9407f",
+      "differing_64KiB_windows": 105,
+      "top_64KiB_windows": [
+        [
+          "0x00360000",
+          65536
+        ],
+        [
+          "0x00370000",
+          65536
+        ],
+        [
+          "0x001e0000",
+          60603
+        ],
+        [
+          "0x006e0000",
+          59163
+        ],
+        [
+          "0x00660000",
+          59136
+        ],
+        [
+          "0x00610000",
+          59099
+        ],
+        [
+          "0x00710000",
+          59084
+        ],
+        [
+          "0x00670000",
+          59011
+        ],
+        [
+          "0x006c0000",
+          59002
+        ],
+        [
+          "0x00620000",
+          58995
+        ],
+        [
+          "0x00690000",
+          58984
+        ],
+        [
+          "0x00700000",
+          58955
+        ]
+      ]
+    },
+    "U1-read1-vs-nonbooting-reference": {
+      "differing_bytes": 4266772,
+      "first_offset": "0x0001000c",
+      "last_offset": "0x01f9407f",
+      "differing_64KiB_windows": 106,
+      "top_64KiB_windows": [
+        [
+          "0x00710000",
+          65303
+        ],
+        [
+          "0x006b0000",
+          65300
+        ],
+        [
+          "0x006c0000",
+          65299
+        ],
+        [
+          "0x00620000",
+          65296
+        ],
+        [
+          "0x006a0000",
+          65292
+        ],
+        [
+          "0x00670000",
+          65290
+        ],
+        [
+          "0x00610000",
+          65287
+        ],
+        [
+          "0x00630000",
+          65287
+        ],
+        [
+          "0x00660000",
+          65284
+        ],
+        [
+          "0x00640000",
+          65279
+        ],
+        [
+          "0x00690000",
+          65273
+        ],
+        [
+          "0x00650000",
+          65266
+        ]
+      ]
+    },
+    "U1-read2-vs-original-reference": {
+      "differing_bytes": 3690687,
+      "first_offset": "0x0001000d",
+      "last_offset": "0x01f9407f",
+      "differing_64KiB_windows": 105,
+      "top_64KiB_windows": [
+        [
+          "0x00360000",
+          65536
+        ],
+        [
+          "0x00370000",
+          65536
+        ],
+        [
+          "0x001e0000",
+          60601
+        ],
+        [
+          "0x00610000",
+          59120
+        ],
+        [
+          "0x00660000",
+          59064
+        ],
+        [
+          "0x006d0000",
+          59064
+        ],
+        [
+          "0x006b0000",
+          59039
+        ],
+        [
+          "0x00630000",
+          59022
+        ],
+        [
+          "0x00640000",
+          59007
+        ],
+        [
+          "0x006e0000",
+          58997
+        ],
+        [
+          "0x00710000",
+          58995
+        ],
+        [
+          "0x00620000",
+          58992
+        ]
+      ]
+    },
+    "U1-read2-vs-nonbooting-reference": {
+      "differing_bytes": 4266775,
+      "first_offset": "0x0001000c",
+      "last_offset": "0x01f9407f",
+      "differing_64KiB_windows": 106,
+      "top_64KiB_windows": [
+        [
+          "0x00630000",
+          65314
+        ],
+        [
+          "0x00660000",
+          65308
+        ],
+        [
+          "0x00710000",
+          65306
+        ],
+        [
+          "0x00640000",
+          65297
+        ],
+        [
+          "0x00690000",
+          65293
+        ],
+        [
+          "0x00700000",
+          65292
+        ],
+        [
+          "0x006b0000",
+          65284
+        ],
+        [
+          "0x00610000",
+          65283
+        ],
+        [
+          "0x00650000",
+          65279
+        ],
+        [
+          "0x006c0000",
+          65276
+        ],
+        [
+          "0x006d0000",
+          65273
+        ],
+        [
+          "0x00620000",
+          65270
+        ]
+      ]
+    }
+  },
+  "regions": {
+    "payload": {
+      "start": "0x00000000",
+      "end_exclusive": "0x00fd0000",
+      "read1_vs_read2_differing_bytes": 2986626,
+      "read1_vs_nonbooting_differing_bytes": 4242400,
+      "read2_vs_nonbooting_differing_bytes": 4242403
+    },
+    "preserved-manufacturing-boundary": {
+      "start": "0x00fd0000",
+      "end_exclusive": "0x01001000",
+      "read1_vs_read2_differing_bytes": 266,
+      "read1_vs_nonbooting_differing_bytes": 4531,
+      "read2_vs_nonbooting_differing_bytes": 4531
+    },
+    "upper-before-environment": {
+      "start": "0x01001000",
+      "end_exclusive": "0x01f30000",
+      "read1_vs_read2_differing_bytes": 2200,
+      "read1_vs_nonbooting_differing_bytes": 11297,
+      "read2_vs_nonbooting_differing_bytes": 11297
+    },
+    "environment": {
+      "start": "0x01f30000",
+      "end_exclusive": "0x01f50000",
+      "read1_vs_read2_differing_bytes": 428,
+      "read1_vs_nonbooting_differing_bytes": 8288,
+      "read2_vs_nonbooting_differing_bytes": 8288
+    },
+    "upper-tail": {
+      "start": "0x01f50000",
+      "end_exclusive": "0x02000000",
+      "read1_vs_read2_differing_bytes": 20,
+      "read1_vs_nonbooting_differing_bytes": 256,
+      "read2_vs_nonbooting_differing_bytes": 256
+    }
+  },
+  "logs": [
+    {
+      "file": "20261025-U1-full-read1.log",
+      "original_log_sha256": "52bdeab142b1517f63985e6154f30591f0b43a668aac9bb7dbff9a2870bd1297",
+      "runtime_reported": "4min37sec",
+      "reported_read_done": true,
+      "public_copy": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-full-read1.log"
+    },
+    {
+      "file": "20261025-U1-full-read2.log",
+      "original_log_sha256": "4a0d3e90b042b3695a0c8611291cc09d3fe0f7ddad21dbff21bb1f18a36f4afa",
+      "runtime_reported": "4min37sec",
+      "reported_read_done": true,
+      "public_copy": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-full-read2.log"
+    }
+  ],
+  "user_observations": {
+    "target_vcc_during_reads": "Stayed around 1.727 V DC, user-reported; a meter reading does not exclude fast transients.",
+    "wire_setup": "Full 20 cm Dupont wires between accepted 1.8 V adapter and full clip breakout; no shorter wires currently available, user has spares they could cut.",
+    "power_and_cables": "Normal router power/console/cables and CR2032 removed under confirmed setup; programmer USB removal requested after reads, not independently confirmed afterward."
+  },
+  "assessment": {
+    "both_full_array_size": true,
+    "read_pair_byte_identical": false,
+    "both_match_a_verified_reference": false,
+    "stable_backup_requirement_met": false,
+    "all_ff_or_all_00": false,
+    "exact_lower_upper_16MiB_duplication": false,
+    "plausibility_pass": false,
+    "physical_primary_golden_assignment": "unresolved",
+    "no_erase_or_write_selected": true,
+    "cause": "Unstable acquisition demonstrated by read mismatch; contact/signal integrity, loading/contention and transient supply behavior remain possibilities. No particular component fault established."
+  },
+  "next_step": "With all power disconnected, make a short properly terminated spare-wire set (all eight preferably about 5\u201310 cm; exact length matching unnecessary), retain old set, preserve clip seating and signal map. Then use a bounded 64-KiB repeatability test before any new full reads. No voltage increase, reset jumper, majority-vote restore image or firmware write.",
+  "limitations": "Main-array reads exclude separate OTP. Correct size and flashrom done do not prove correct data. Different halves are not a complete proof against all address errors. Known reference comparisons cannot assign a physical bank while acquisition is unstable. Raw dumps remain private and byte-exact; no dump contents or credentials printed."
+}

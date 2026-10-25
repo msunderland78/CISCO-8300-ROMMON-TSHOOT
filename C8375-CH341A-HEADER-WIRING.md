@@ -2,7 +2,7 @@
 
 Updated October 25, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: accepted CH341A + 1.8 V adapter + Dupont wires + newly arrived full SOIC-16 clip on U1_CSPI.** Arrival is now user-confirmed, superseding the earlier delivery expectation and partial-clip/hook proposal retained below.
 
-The programmer/adapter is accepted. Do not repeat standalone programmer checks or broad header scans. The user has now successfully identified **Micron MT25QU256, 32 MiB, JEDEC 20 BB 19**, through the full clip on **C8375-A / FDO2742M0FK / U1_CSPI**, and read status **0x00**. The prior target rail measured **1.727 V**. The earlier near-zero RESET# breakout reading is retained below, but successful communication supersedes the inference that the flash is continuously held in reset during this probe. No reset jumper or pull-up is selected. Normal router power/console/cables and CR2032 remain disconnected under the confirmed setup; programmer USB removal after the probe was requested, not separately confirmed. **Two full U1 reads are prepared but not executed; no external firmware write has occurred.**
+The programmer/adapter is accepted. Do not repeat standalone programmer checks or broad header scans. The user has now successfully identified **Micron MT25QU256, 32 MiB, JEDEC 20 BB 19**, through the full clip on **C8375-A / FDO2742M0FK / U1_CSPI**, and read status **0x00**. The prior target rail measured **1.727 V**. The earlier near-zero RESET# breakout reading is retained below, but successful communication supersedes the inference that the flash is continuously held in reset during this probe. No reset jumper or pull-up is selected. Normal router power/console/cables and CR2032 remain disconnected under the confirmed setup; programmer USB removal after the probe was requested, not separately confirmed. **Both full U1 reads are now complete but differ at 2,989,540 byte positions; neither is a validated stable backup. No external firmware write has occurred.** The user reports VCC stayed around 1.727 V throughout; full 20 cm Dupont wires are in the path. Next shorten a spare set of all eight properly terminated wires, unpowered, then run the prepared small-region diagnostic before further full reads.
 
 ## Current SOIC-16 wiring map — C8375-01-SOIC16
 
@@ -61,22 +61,49 @@ The local installed **flashrom v1.8.0 `--help`** was checked offline during this
 
 **RESET# reconciliation:** preserve the earlier **0–0.001 V at the mapped breakout terminal**, with USB connected, and the earlier conditional inference that a genuine asserted RESET# would prevent communication. The subsequent valid JEDEC/status response shows the flash was **not continuously held in effective reset during this probe**. The exact explanation for the previous measurement is unresolved (endpoint/contact, timing or circuit-state differences are possibilities, not established causes). Do not diagnose a bad flash/reset driver, insist on further clip photographs, add a RESET# hard tie/pull-up, or claim the measured terminal was actually high. Identification success still does not prove that U1 contains the modified primary image.
 
-**Next: two independent full main-array reads of this same physical U1, planned.** A fresh restricted local directory has been created at:
+**Original full-read preparation, subsequently executed below:** A fresh restricted local directory has been created at:
 
 ```text
 .git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-151243-EDT/
 ```
 
-The private directory/plan exist; **no `.bin` read outputs exist yet**. A command has been copied to the user's clipboard that changes to this exact directory, stops if either output filename already exists, runs the two reads in sequence only on success, and sets the four new dump/log files to owner `games`, mode 0600. The parent directory is mode 0700 and is outside publication/manifest traversal. Hardware-access portions are:
+At the planning checkpoint the private directory/plan existed with no dump outputs. The two dump/log pairs now exist and are preserved as described in the validation result below. A command has been copied to the user's clipboard that changes to this exact directory, stops if either output filename already exists, runs the two reads in sequence only on success, and sets the four new dump/log files to owner `games`, mode 0600. The parent directory is mode 0700 and is outside publication/manifest traversal. Hardware-access portions are:
 
 ```sh
 sudo flashrom -p ch341a_spi -c MT25QU256 -r U1-read1.bin -o U1-read1.log
 sudo flashrom -p ch341a_spi -c MT25QU256 -r U1-read2.bin -o U1-read2.log
 ```
 
-These are **planned reads**, not completed backups. The [upstream manual](https://raw.githubusercontent.com/flashrom/flashrom/main/doc/classic_cli_manpage.rst) specifies `-r` reads flash into a file; an existing filename would be overwritten, hence the fresh directory and preflight guards. Do not rerun/overwrite original or partial dump files. Keep the clip/eight wires unchanged, normal router power/console/cables and CR2032 disconnected. Set the meter to DC volts before USB power and monitor **P1-1/VCC to P1-2/GND** while reading; unplug for voltage outside **1.7–2.0 V**, collapse, warming or unexpected router activity. After both commands finish (or any error), unplug programmer USB and preserve the full output/files. No force/erase/write/protection/OTP operation is selected.
+These were the planned read commands; both subsequently completed, but their outputs failed the repeatability check below. Command completion is not backup validation. The [upstream manual](https://raw.githubusercontent.com/flashrom/flashrom/main/doc/classic_cli_manpage.rst) specifies `-r` reads flash into a file; an existing filename would be overwritten, hence the fresh directory and preflight guards. Do not rerun/overwrite original or partial dump files. Keep the clip/eight wires unchanged, normal router power/console/cables and CR2032 disconnected. Set the meter to DC volts before USB power and monitor **P1-1/VCC to P1-2/GND** while reading; unplug for voltage outside **1.7–2.0 V**, collapse, warming or unexpected router activity. After both commands finish (or any error), unplug programmer USB and preserve the full output/files. No force/erase/write/protection/OTP operation is selected.
 
 After file creation, verify **33,554,432 bytes each**, SHA-256 and byte-for-byte equality, credible contents including upper-16-MiB/address-wrap checks, and comparison against this chassis's original **72fc3f…45107** and known nonbooting **68c695…e88b** references. Do not print dump contents or credentials. Then acquire U2 separately with all power off before moving the clip; no U2 read or primary/golden assignment is claimed yet.
+
+
+## U1 full reads completed; repeatability failed — R-01
+
+**October 25, 2026, America/New_York:** the user reports both reads complete. Offline local file inspection confirms two **33,554,432-byte** main-array files and two original flashrom logs in the private directory above. Both logs report **done**, each with **4 min 37 sec** runtime. [Read 1 log](sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-full-read1.log) and [read 2 log](sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-full-read2.log) are generated public counterparts of byte-exact local log copies; full dump bytes remain only under the restricted private directory, mode 0600. No programmer access occurred during offline verification.
+
+| File | Bytes | SHA-256 |
+| --- | --- | --- |
+| U1-read1.bin | 33,554,432 | `6f82693674aa55c64176541d398b4d93c6ac06a9af227c4849ff6e21ded1fb43` |
+| U1-read2.bin | 33,554,432 | `73c2d10a76d799e37ef0237f7d607c7aa858b78a2ceb07dc0eaa4fff64b64606` |
+
+**Verified failure:** the files differ at **2,989,540 byte positions**, spanning **98 aligned 64-KiB windows**, first difference **0x0001FFB5**, last **0x01F8A327**. Neither equals this chassis's verified original or known nonbooting reference; both reference hashes were rechecked unchanged. The reads are not uniform FF/00 and their 16-MiB halves are not identical, but those observations do not establish credible data or correct addressing in every region. The byte mismatches are not a successful stable backup or a basis for physical primary/golden assignment. Preserve both original reads; do not patch, majority-vote, overwrite or flash either one. Full results, per-region counts and rehashed references are in [offline validation metadata](c8375-recovery/acquisition-evidence/20261025-U1-full-read-validation.json); no dump contents or credentials are printed/published.
+
+**User observations:** P1 target supply stayed around **1.727 V DC** during both reads; the meter does not exclude faster transients. The harness includes the full **20 cm Dupont wires** plus the clip path. Shorter ready-made wires are unavailable, but spare wires can be cut. This establishes unstable acquisition, not a particular bad component. Contact, signal integrity, loading/contention or transient supply behavior remain possible causes; shorter wiring is a diagnostic change, not a guaranteed fix. Successful ID remains valid evidence of communication, while full-read reliability has failed.
+
+**Next wiring change, planned:** with CH341A USB, normal router power/console/cables and CR2032 disconnected, make a **separate spare set** of **all eight wires**, roughly **5–10 cm** where practical, retaining secure connectors and properly crimped or soldered/insulated joins. They do **not** need exact length matching. CLK/MISO/MOSI/CS affect signaling; VCC/GND affect the supply/return path. WP#/HOLD# are less timing-sensitive but can also be kept short. Keep the original set intact as a reference, leave the clip seated and replace one wire at a time using the established map. Do not work on live wiring, use bare loose twists, raise voltage, power the router together with the programmer, or add a reset jumper. New wiring is not reported complete yet.
+
+**Prepared bounded test, not executed:** [layout](c8375-recovery/acquisition-evidence/20261025-U1-64KiB-diagnostic.layout) selects **0x006E0000–0x006EFFFF**, a **65,536-byte** region where the initial full reads differed at **59,136 positions**. A fresh private folder `20261025-153551-EDT-short-wire-diagnostic/` beside the original acquisition folder contains the layout and planned guarded commands. **No new CH341A command has run or been copied to the clipboard yet**. After the replacement harness is reported ready and its power setup checked, read that region twice into explicitly named PARTIAL files, then compare them offline before spending another two full reads. Partial samples are never full backups or restore images.
+
+Planned read syntax (filenames guarded against reuse in the prepared command):
+
+```sh
+sudo flashrom -p ch341a_spi -c MT25QU256 -r -l U1-sample.layout -i sample:U1-PARTIAL-006e0000-read1.bin -o U1-partial-read1.log
+sudo flashrom -p ch341a_spi -c MT25QU256 -r -l U1-sample.layout -i sample:U1-PARTIAL-006e0000-read2.bin -o U1-partial-read2.log
+```
+
+CLI semantics were checked with the installed **v1.8.0 dummy programmer only**, using an emulated 128-KiB M25P10 and a different in-range test layout. The initial database name `-c M25P10.RES` was rejected; corrected `-c M25P10` with `dummy:emulate=M25P10.RES` completed and produced exactly **65,536 bytes**. This verifies region-sized extraction syntax, not U1 or CH341A signal reliability. The [upstream manual](https://raw.githubusercontent.com/flashrom/flashrom/main/doc/classic_cli_manpage.rst) documents `-r -l ... -i region:file` extraction. There is no force, erase/write, protection or OTP operation in the planned diagnostic. Stable full U1 reads, separate U2 acquisition and target comparison remain pending.
 
 ## Historical header wiring map: known connections and unresolved signals
 
