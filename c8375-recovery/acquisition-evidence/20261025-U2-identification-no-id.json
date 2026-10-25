@@ -27,7 +27,7 @@
     "sha256": "c63ff74c98539a16a9f2dac1726df7646ef093c6240c533b6affedf6b567ac82"
   },
   "interpretation": "No successful U2 ID. Acceptable pre-probe supply and low-resistance power paths do not validate SPI contacts or establish the cause. Darwin informational capture-entitlements line also occurred during successful U1 access; no permission diagnosis from that line alone.",
-  "next_step": "Keep clip on U2. Unplug programmer USB, keep router power/cables/CR2032 removed, verify P1-1/P1-2 approximately zero DC volts, then ohms: active adapter output 1 to bare U1 pin 7 / CS#, output 2 to bare U1 pin 8 / MISO. These test possible inter-chip paths through the installed harness; do not remove clip if U1 access is blocked. Await values/access report. No new software command or write. Unpowered resistance cannot establish powered mux behavior or prove contention.",
+  "next_step": "Leave clip/wires on U2. Meter DC volts with black P1-2/GND, only CH341A USB connected, normal router power/cables and CR2032 removed. Measure bare U1 pin 7/CS# and mapped U2-breakout pin 7/CS# relative to ground. Await both static values; no flashrom command yet. Idle readings alone cannot prove select behavior during a transfer.",
   "retry_command_prepared_not_run": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification && test ! -e U2-identification-reseat1.log && sudo flashrom -V -p ch341a_spi -c MT25QU256 -o U2-identification-reseat1.log",
   "agent_programmer_access": false,
   "subsequent_attempt": {
@@ -65,6 +65,21 @@
     "reference": "Table 47, p.82: VIH minimum 0.7 VCC; Figure 6 and Table 1, pp.12\u201314."
   },
   "next_step_history": [
-    "Leave clip seated and wiring unchanged. With only CH341A USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2/GND; red at mapped breakout terminal reaching U2-3/RESET#, then mapped terminal reaching U2-1/HOLD#. Await both voltages; no flashrom command or jumper. These are breakout-level observations and do not independently establish jaw-to-chip contact."
-  ]
+    "Leave clip seated and wiring unchanged. With only CH341A USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2/GND; red at mapped breakout terminal reaching U2-3/RESET#, then mapped terminal reaching U2-1/HOLD#. Await both voltages; no flashrom command or jumper. These are breakout-level observations and do not independently establish jaw-to-chip contact.",
+    "Keep clip on U2. Unplug programmer USB, keep router power/cables/CR2032 removed, verify P1-1/P1-2 approximately zero DC volts, then ohms: active adapter output 1 to bare U1 pin 7 / CS#, output 2 to bare U1 pin 8 / MISO. These test possible inter-chip paths through the installed harness; do not remove clip if U1 access is blocked. Await values/access report. No new software command or write. Unpowered resistance cannot establish powered mux behavior or prove contention."
+  ],
+  "inter_chip_resistance_measurements": {
+    "recorded_at": "2026-10-25T19:31:09.382201-04:00",
+    "source": "user-reported, followed by explicit endpoint confirmation",
+    "meter_mode": "ohms",
+    "power_state": "USB unplugged requested and included in confirmation question; normal router power/cables/CR2032 remain removed under continuing setup",
+    "residual_voltage": "approximately zero requested before ohms; no separate numeric value supplied",
+    "clip_state": "left seated on U2",
+    "CS_ohms": 9360,
+    "CS_endpoints": "U2 mapped cable-end/clip-breakout contact reaching physical pin 7 to actual bare U1 pin 7",
+    "MISO_ohms": 0.8,
+    "MISO_endpoints": "U2 mapped cable-end/clip-breakout contact reaching physical pin 8 to actual bare U1 pin 8",
+    "user_endpoint_confirmation": "yes, the end of the wire clip on u2 to the actual pin on u1 for both",
+    "interpretation": "Low-resistance MISO path through installed U2 clip/harness to U1 is supported. CS pairs do not show a low-resistance tie. This does not prove a particular resistor, direct hardwiring, powered mux state, simultaneous selection or bus contention."
+  }
 }
