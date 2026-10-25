@@ -209,6 +209,20 @@
     "Main-array captures exclude separate OTP.",
     "Cause remains unresolved; clip seating, cabling/signal behavior and board loading are not isolated by these observations."
   ],
-  "next_step": "Programmer USB disconnection requested; leave U2 clip seated per user preference. Preserve all bytes privately. Replacement direct-pin clip expected October 26, not yet received; on arrival reconfirm setup/contact mapping, verify voltage/ID and bounded repeatability before full acquisition. No firmware write or speculative CS/reset jumper.",
-  "agent_programmer_access": false
+  "next_step": "User requests another read attempt after reseating moving 1.8 V adapter. Await hands-off loaded P1 supply in 1.7\u20132.0 V, then one fresh U2 read3/read4 pair in a new private folder. Each read probes before capture; no force or write. Direct-pin replacement remains next alternative if path stays unreliable.",
+  "agent_programmer_access": false,
+  "subsequent_user_observation": {
+    "observation": "User reports reseating the 1.8 V adapter, which moves around when pressed during voltage measurement. User requests one more attempt.",
+    "causation": "Contact stability is a newly reported variable; not a proven cause of failed reads. Re-seating USB-power timing was not stated.",
+    "instructions": "USB unplugged before securing/reseating adapter; keep U2 clip seated; meter probes at P1 rather than pressing on adapter.",
+    "current_state": "post-reseat loaded P1 supply requested, pending",
+    "prepared_retry_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-195526-EDT-adapter-reseated",
+    "prepared_files": [
+      "U2-read3.bin",
+      "U2-read4.bin",
+      "U2-read3.log",
+      "U2-read4.log"
+    ],
+    "command_status": "prepared privately, not released until acceptable loaded voltage"
+  }
 }
