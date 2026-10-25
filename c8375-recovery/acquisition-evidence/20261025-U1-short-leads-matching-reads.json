@@ -149,7 +149,16 @@
     "normal_power_and_battery": "Normal router power/console/other cables and CR2032 previously confirmed removed; programmer USB removal requested immediately after completion, not yet explicitly confirmed.",
     "prior_unpowered_MISO_ground": "OL, user-reported; installed MISO-to-breakout lead check was not supplied.",
     "changes_since_original_unstable_pair": "Shorter lead set plus clip repositioning/power reconnections; no single-variable cable-length conclusion.",
-    "post_capture_state": "User explicitly confirms CH341A USB unplugged; U2_CSPI board label and its own pin-1 dot identified. Clip not yet reported attached to U2."
+    "post_capture_state": "User explicitly confirms CH341A USB unplugged; U2_CSPI board label and its own pin-1 dot identified. Clip not yet reported attached to U2.",
+    "U2_unpowered_measurements": {
+      "U2_pin2_to_pin10_VDC": 0,
+      "U2_pin10_to_pin2_ohms": 976,
+      "U2_pin2_to_pin1_ohms": 4762,
+      "U1_pin2_to_pin1_ohms_comparison": 4762,
+      "U2_pin10_to_P1_pin2_ohms": 0.2,
+      "U2_pin2_to_P1_pin1_ohms": 0.2,
+      "notes": "User first supplied internal chip-pair results, then supplied requested two header-cross-reference pairs as both 0.2 ohms. Chip marking RW170 expected from historical photo, not separately restated; U2 and own pin-1 dot identified."
+    }
   },
   "assessment": {
     "repeatability_passed": true,
@@ -167,7 +176,47 @@
     "not_a_selected_restore_image": true,
     "no_firmware_write_selected": true
   },
-  "next_step": "Unplug programmer USB and retain U1 acquisition privately, unchanged. Identify and acquire U2 separately under an unpowered verified contact/power mapping; compare both chips to known references before selecting any restoration target. Confirm actual U2 package/pin-1, ground and VCC association; do not assume P1-1 monitors U2 supply or infer bank from placement. Matching full reads show repeatability, not signature authentication or proof against every systematic acquisition error. Separate OTP is excluded.",
+  "next_step": "U2 ground/VCC associations to P1 measured 0.2 ohms each. With all power off, fit harness to U2 using own marker/same mapped signal assignments; then check target DC VCC at P1-1/P1-2 with CH341A USB only, report voltage, disconnect if outside 1.7\u20132.0 V. No U2 software command yet; loaded value pending. Read-only U2 acquisition/reference comparison needed before any restore selection; systematic U1 read accuracy remains under investigation despite matching captures.",
   "analysis_authorship": "AI-assisted original offline Python standard-library analysis: full-file SHA-256, full-byte equality, reference comparisons, uniform-array and 16-MiB-half tests, fixed known-vendor marker counts. No raw dump contents or unrestricted strings printed; no signature authentication.",
-  "next_U2_checks": "Requested with all power/cables and battery disconnected, clip off U2: confirm Micron RW170 marking; DC U2-2/VCC to U2-10/GND approximately zero; then \u03a9 U2-10 to P1-2 and U2-2 to P1-1. Do not assume shared supply or infer bank role. Values pending."
+  "next_U2_checks": "Requested with all power/cables and battery disconnected, clip off U2: confirm Micron RW170 marking; DC U2-2/VCC to U2-10/GND approximately zero; then \u03a9 U2-10 to P1-2 and U2-2 to P1-1. Do not assume shared supply or infer bank role. Values pending.",
+  "additional_integrity_check": {
+    "method": "Offline per-byte bit tests against rehashed exact original; count bytes with read&~reference nonzero and reference&~read nonzero. No derived candidate file written.",
+    "regions": {
+      "payload": {
+        "extra_one_bytes": 0,
+        "missing_one_bytes": 3668640
+      },
+      "manufacturing-boundary": {
+        "extra_one_bytes": 0,
+        "missing_one_bytes": 4531
+      },
+      "upper-before-env": {
+        "extra_one_bytes": 1063,
+        "missing_one_bytes": 10234
+      },
+      "environment": {
+        "extra_one_bytes": 82,
+        "missing_one_bytes": 8268
+      },
+      "upper-tail": {
+        "extra_one_bytes": 128,
+        "missing_one_bytes": 128
+      }
+    },
+    "whole_array_reference_relationships": {
+      "original": {
+        "read_has_ones_where_reference_zero_byte_count": 1273,
+        "read_lacks_reference_ones_byte_count": 3691801
+      },
+      "known_nonbooting": {
+        "read_has_ones_where_reference_zero_byte_count": 1941111,
+        "read_lacks_reference_ones_byte_count": 3959636
+      }
+    },
+    "known_references_AND_differing_bytes": 3172701,
+    "known_references_OR_differing_bytes": 4669026,
+    "observation": "Across payload 0x00000000\u20130x00FCFFFF, every read byte is a bitwise subset of the original byte; 3,668,640 byte positions lack original one bits and none add one bits. This is a strong directional relationship, not simple proof of a different bank/firmware.",
+    "interpretation": "Raises systematic bit-loss/read-path or actual one-way data-change possibilities; no cause established. Repeatability passed, raw-byte accuracy/authentication unresolved. Neither simple AND nor OR of the two known reference arrays matches this capture.",
+    "hardware_access": "none"
+  }
 }
