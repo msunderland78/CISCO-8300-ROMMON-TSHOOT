@@ -27,7 +27,7 @@
     "sha256": "c63ff74c98539a16a9f2dac1726df7646ef093c6240c533b6affedf6b567ac82"
   },
   "interpretation": "No successful U2 ID. Acceptable pre-probe supply and low-resistance power paths do not validate SPI contacts or establish the cause. Darwin informational capture-entitlements line also occurred during successful U1 access; no permission diagnosis from that line alone.",
-  "next_step": "Prepared two user-run full U2 main-array reads in fresh private directory. Each read probes first; second runs only if first succeeds. Capture result pending. Monitor DC target VCC and keep clip/wires unchanged. Stop/unplug if supply leaves 1.7\u20132.0 V; no router power or voltage increase. No write. Compare sizes/hashes/bytes and known references offline after completion; main-array reads exclude separate OTP.",
+  "next_step": "Two subsequent full U2 reads completed but failed repeatability at 3,897,877 bytes. See 20261025-U2-full-read-validation.json. USB unplug requested, clip stays seated; next hardware test direct-pin replacement on arrival; no write.",
   "retry_command_prepared_not_run": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification && test ! -e U2-identification-reseat1.log && sudo flashrom -V -p ch341a_spi -c MT25QU256 -o U2-identification-reseat1.log",
   "agent_programmer_access": false,
   "subsequent_attempt": {
@@ -69,7 +69,8 @@
     "Keep clip on U2. Unplug programmer USB, keep router power/cables/CR2032 removed, verify P1-1/P1-2 approximately zero DC volts, then ohms: active adapter output 1 to bare U1 pin 7 / CS#, output 2 to bare U1 pin 8 / MISO. These test possible inter-chip paths through the installed harness; do not remove clip if U1 access is blocked. Await values/access report. No new software command or write. Unpowered resistance cannot establish powered mux behavior or prove contention.",
     "Leave clip/wires on U2. Meter DC volts with black P1-2/GND, only CH341A USB connected, normal router power/cables and CR2032 removed. Measure bare U1 pin 7/CS# and mapped U2-breakout pin 7/CS# relative to ground. Await both static values; no flashrom command yet. Idle readings alone cannot prove select behavior during a transfer.",
     "Keep U2 clip/wires unchanged. With only programmer USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2, red P1-1; report current supply. Await reading before another probe/command. Do not add CS/reset jumpers or raise voltage based on idle measurements.",
-    "One fresh user-terminal identification-only attempt with existing clip/wires untouched, no further hardware adjustment. File guard preserves all previous logs; no main-array read or firmware write selected. Require exact 20/BB19 before considering acquisition. Await actual outcome."
+    "One fresh user-terminal identification-only attempt with existing clip/wires untouched, no further hardware adjustment. File guard preserves all previous logs; no main-array read or firmware write selected. Require exact 20/BB19 before considering acquisition. Await actual outcome.",
+    "Prepared two user-run full U2 main-array reads in fresh private directory. Each read probes first; second runs only if first succeeds. Capture result pending. Monitor DC target VCC and keep clip/wires unchanged. Stop/unplug if supply leaves 1.7\u20132.0 V; no router power or voltage increase. No write. Compare sizes/hashes/bytes and known references offline after completion; main-array reads exclude separate OTP."
   ],
   "inter_chip_resistance_measurements": {
     "recorded_at": "2026-10-25T19:31:09.382201-04:00",
@@ -135,5 +136,6 @@
     "interpretation": "Successful communication in this attempt, superseding the most recent failure as current outcome while all earlier failures remain preserved. Cause of intermittent identification, physical bank role and main-array data accuracy remain unresolved."
   },
   "prepared_full_read_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads",
-  "prepared_full_read_command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads && test ! -e U2-read1.bin && test ! -e U2-read2.bin && test ! -e U2-read1.log && test ! -e U2-read2.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read1.bin -o U2-read1.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read2.bin -o U2-read2.log && sudo chown games U2-read1.bin U2-read2.bin U2-read1.log U2-read2.log && chmod 600 U2-read1.bin U2-read2.bin U2-read1.log U2-read2.log"
+  "prepared_full_read_command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads && test ! -e U2-read1.bin && test ! -e U2-read2.bin && test ! -e U2-read1.log && test ! -e U2-read2.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read1.bin -o U2-read1.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read2.bin -o U2-read2.log && sudo chown games U2-read1.bin U2-read2.bin U2-read1.log U2-read2.log && chmod 600 U2-read1.bin U2-read2.bin U2-read1.log U2-read2.log",
+  "full_read_validation": "c8375-recovery/acquisition-evidence/20261025-U2-full-read-validation.json"
 }

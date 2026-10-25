@@ -1,0 +1,214 @@
+{
+  "recorded_at": "2026-10-25T19:52:16.367107-04:00",
+  "task_id": "R-01",
+  "chassis": "FDO2742M0FK",
+  "chip": "U2_CSPI",
+  "operation": "two user-run read-only main-array captures",
+  "private_acquisition_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads",
+  "command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads && test ! -e U2-read1.bin && test ! -e U2-read2.bin && test ! -e U2-read1.log && test ! -e U2-read2.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read1.bin -o U2-read1.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read2.bin -o U2-read2.log && sudo chown games U2-read1.bin U2-read2.bin U2-read1.log U2-read2.log && chmod 600 U2-read1.bin U2-read2.bin U2-read1.log U2-read2.log",
+  "setup": "existing clip left seated on U2, eight shorter crimped leads and original 35 cm ribbon, accepted 1.8 V adapter, normal router power/console/other cables and CR2032 removed",
+  "last_supply_before_reads_VDC": 1.757,
+  "supply_during_reads": "user report requested; pending",
+  "repeatability_result": "FAIL",
+  "pair_check": {
+    "checked_at": "2026-10-25T19:51:02.521374-04:00",
+    "chassis": "FDO2742M0FK",
+    "chip": "U2_CSPI",
+    "files": [
+      {
+        "file": "U2-read1.bin",
+        "size_bytes": 33554432,
+        "sha256": "66856b955526c85bb5ec9cccb09e1a347e59fc4497d7f25dc190163fd89e3c8b",
+        "mode": "0o600",
+        "owner_uid": 2080186244,
+        "log": {
+          "file": "U2-read1.log",
+          "size_bytes": 2057,
+          "sha256": "7b0311ad393e7167be5dfd09ca0d78ec7063dd4a61f4de122ed4b17308fdaa81",
+          "mode": "0o600",
+          "owner_uid": 2080186244,
+          "detected_expected_chip": true,
+          "done": true,
+          "runtime": "4min36sec"
+        }
+      },
+      {
+        "file": "U2-read2.bin",
+        "size_bytes": 33554432,
+        "sha256": "b07ad18bcfd71520e61ad2ef75b578185e5c598815105e47065a84f35d6478cf",
+        "mode": "0o600",
+        "owner_uid": 2080186244,
+        "log": {
+          "file": "U2-read2.log",
+          "size_bytes": 2057,
+          "sha256": "767e8b6ba88b041ad014b28ba663ceb761fd592b676885a6084886764d0659cc",
+          "mode": "0o600",
+          "owner_uid": 2080186244,
+          "detected_expected_chip": true,
+          "done": true,
+          "runtime": "4min36sec"
+        }
+      }
+    ],
+    "byte_identical": false,
+    "differing_bytes": 3897877
+  },
+  "pair_difference_summary": {
+    "differing_bytes": 3897877,
+    "first_difference_hex": "0x1ffbf",
+    "last_difference_hex": "0x1f9407f",
+    "aligned_64KiB_windows_with_differences": 105
+  },
+  "read1_reference_comparison": {
+    "original": {
+      "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+      "byte_equal": false,
+      "differing_bytes": 4366967
+    },
+    "known_nonbooting": {
+      "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+      "byte_equal": false,
+      "differing_bytes": 4182964
+    },
+    "U1_stable_read5": {
+      "sha256": "4f6511d64b834935c4e7ba696dc6ed71494e08e5e36bda4cea7afbcce40ef760",
+      "byte_equal": false,
+      "differing_bytes": 3855864
+    }
+  },
+  "read2_reference_comparison": {
+    "original": {
+      "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+      "byte_equal": false,
+      "differing_bytes": 4363672
+    },
+    "known_nonbooting": {
+      "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+      "byte_equal": false,
+      "differing_bytes": 4165703
+    },
+    "U1_stable_read5": {
+      "sha256": "4f6511d64b834935c4e7ba696dc6ed71494e08e5e36bda4cea7afbcce40ef760",
+      "byte_equal": false,
+      "differing_bytes": 3899006
+    }
+  },
+  "read1_basic_plausibility": {
+    "unique_byte_values": 256,
+    "all_FF": false,
+    "all_00": false,
+    "halves_equal": false
+  },
+  "read1_known_marker_and_page_statistics": {
+    "known_marker_counts": {
+      "HMIT": 31,
+      "TIMH": 5,
+      "UEFI": 0,
+      "crestone": 6,
+      "SoC2": 0,
+      "SDK112308": 0,
+      "SDK102200": 0,
+      "17.18": 0,
+      "9.2.1": 0
+    },
+    "HMIT_offsets_hex": [
+      "0x10000",
+      "0x1ffc4",
+      "0x3ff24",
+      "0x63834",
+      "0x9fd44",
+      "0xcfc54",
+      "0xffb64",
+      "0x100000",
+      "0x2088b7",
+      "0x20b99c",
+      "0x21190a",
+      "0x2149ef",
+      "0x21aa9d",
+      "0x232b99",
+      "0x238e37",
+      "0x23ec55",
+      "0x244b8f",
+      "0x247a60",
+      "0x24aa4d",
+      "0x25378c",
+      "0x25674d",
+      "0x25972a",
+      "0x25c5cb",
+      "0x45ea89",
+      "0x48e999",
+      "0x4be8a9",
+      "0x53e629",
+      "0x59f880",
+      "0x5fe269",
+      "0x9fce73",
+      "0xa5cc93"
+    ],
+    "halves": {
+      "lower": {
+        "FF_bytes": 11176536,
+        "zero_bytes": 2371586,
+        "all_FF_4096B_pages": 2697,
+        "all_zero_4096B_pages": 261,
+        "distinct_4096B_pages": 1140
+      },
+      "upper": {
+        "FF_bytes": 16745540,
+        "zero_bytes": 28502,
+        "all_FF_4096B_pages": 4084,
+        "all_zero_4096B_pages": 0,
+        "distinct_4096B_pages": 12
+      }
+    }
+  },
+  "read1_reference_bit_relationship": {
+    "chip": "U2_CSPI",
+    "capture": "U2-read1.bin",
+    "sha256": "66856b955526c85bb5ec9cccb09e1a347e59fc4497d7f25dc190163fd89e3c8b",
+    "method": "aggregate per-byte bit relationship only; no derived image generated",
+    "regions": {
+      "original": {
+        "payload": {
+          "start_hex": "0x0",
+          "end_exclusive_hex": "0xfd0000",
+          "bytes_adding_reference_zero_bits": 2590275,
+          "bytes_losing_reference_one_bits": 3749870
+        },
+        "rest": {
+          "start_hex": "0xfd0000",
+          "end_exclusive_hex": "0x2000000",
+          "bytes_adding_reference_zero_bits": 12499,
+          "bytes_losing_reference_one_bits": 21892
+        }
+      },
+      "known_nonbooting": {
+        "payload": {
+          "start_hex": "0x0",
+          "end_exclusive_hex": "0xfd0000",
+          "bytes_adding_reference_zero_bits": 1765687,
+          "bytes_losing_reference_one_bits": 3559967
+        },
+        "rest": {
+          "start_hex": "0xfd0000",
+          "end_exclusive_hex": "0x2000000",
+          "bytes_adding_reference_zero_bits": 12497,
+          "bytes_losing_reference_one_bits": 21890
+        }
+      }
+    }
+  },
+  "public_generated_logs": [
+    "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-full-read1.log",
+    "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-full-read2.log"
+  ],
+  "limits": [
+    "Neither full U2 read matches either known reference or stable U1 capture.",
+    "Successful JEDEC detection and completed file sizes do not establish reliable array acquisition.",
+    "Nonuniform contents and firmware-like markers do not establish accuracy, signature authentication, compatibility, bank role or a restore target.",
+    "U1 matching pair remains repeatable but byte accuracy is separately unresolved.",
+    "Main-array captures exclude separate OTP.",
+    "Cause remains unresolved; clip seating, cabling/signal behavior and board loading are not isolated by these observations."
+  ],
+  "next_step": "Programmer USB disconnection requested; leave U2 clip seated per user preference. Preserve all bytes privately. Replacement direct-pin clip expected October 26, not yet received; on arrival reconfirm setup/contact mapping, verify voltage/ID and bounded repeatability before full acquisition. No firmware write or speculative CS/reset jumper.",
+  "agent_programmer_access": false
+}
