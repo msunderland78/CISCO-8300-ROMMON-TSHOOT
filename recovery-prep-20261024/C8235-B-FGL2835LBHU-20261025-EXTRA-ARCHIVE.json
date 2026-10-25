@@ -1,0 +1,25 @@
+{
+  "chassis": "C8235-B / FGL2835LBHU",
+  "purpose": "Reach measured free-space target by preserving one additional crash report as FAT32-compatible parts; not firmware splitting or a publication-policy workaround.",
+  "source": "/mnt/internal/core/Router_RP_0-system-report_20240227-173307-UTC.tar",
+  "source_bytes": 4908574720,
+  "destination_directory": "USB C8235-B-FGL2835LBHU-20261025-REPORTS/",
+  "part_prefix": "Router_RP_0-system-report_20240227-173307-UTC.tar.part-",
+  "expected_parts": [
+    {
+      "suffix": "00",
+      "bytes": 2000000000
+    },
+    {
+      "suffix": "01",
+      "bytes": 2000000000
+    },
+    {
+      "suffix": "02",
+      "bytes": 908574720
+    }
+  ],
+  "required_verification": "After sync/unmount/read-only remount/cache clear, concatenated parts SHA-256 must equal full original SHA-256; verify exact part lengths; source rechecked before deletion.",
+  "status": "planned; not yet copied or deleted",
+  "retained_large_original": "Router_RP_0-system-report_20240227-173306-UTC.tar"
+}

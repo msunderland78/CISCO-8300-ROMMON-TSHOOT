@@ -216,6 +216,28 @@ SEPARATE ASSEMBLED UNIT / C8235-B — 2026-10-25, America/New_York
   Existing candidates require final verification too. Internal flash stays
   read-only; no source deletion has occurred. Exact commands/results are in
   the new capture. Native copy is substantially faster than UEFI in this run.
+- Native archival completed: 58 files / 6,716,425,889 bytes copied or reused,
+  followed by completed sync. Unmounted USB, remounted read-only and cleared
+  page cache; all 58 source/destination sizes and full SHA-256 hashes matched.
+  Hash inventory is preserved in the repository and on USB as
+  C8235-B-FGL2835LBHU-20261025-REPORTS/SHA256SUMS-verified-20261025.txt.
+  The USB inventory itself passed byte comparison after another remount.
+- Remounted internal ext4 normally read/write. Rehashed each named source
+  against the verified inventory immediately before deletion and checked its
+  USB counterpart exists at matching size. All 58 sources were removed with
+  successful status and sync; no firmware packages/configuration were deleted.
+  At 13:08 EDT df available is 5,547,268 KiB, below the reported recommended
+  5,926,609 KiB. The initial 6.716 GB selection alone did not meet the measured
+  available-space target; do not count this as a completed cleanup/retest.
+- At 13:09 EDT began an additional archive of the 4,908,574,720-byte
+  Router_RP_0-system-report_20240227-173307-UTC.tar. Source is again mounted
+  read-only. Native split creates FAT32-compatible parts 00/01/02 of
+  2,000,000,000 / 2,000,000,000 / 908,574,720 bytes on USB. This preserves a
+  crash report for local recovery evidence; it is not firmware splitting or
+  a publication-policy workaround. Full original-vs-concatenated SHA-256
+  verification is required before any removal. The 5,449,154,560-byte
+  173306-UTC.tar original stays internal. Extra plan/results artifact:
+  recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-EXTRA-ARCHIVE.json.
 
 CURRENT OUTCOME AND NEXT STEP — WORKED UNIT C8235-A
 - Router is NOT recovered. The primary ROMMON flash operation completed,
