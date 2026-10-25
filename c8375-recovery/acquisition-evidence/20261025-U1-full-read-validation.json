@@ -403,7 +403,16 @@
     "target_vcc_during_reads": "Stayed around 1.727 V DC, user-reported; a meter reading does not exclude fast transients.",
     "wire_setup": "Full 20 cm Dupont wires between accepted 1.8 V adapter and full clip breakout; no shorter wires currently available, user has spares they could cut.",
     "power_and_cables": "Normal router power/console/cables and CR2032 removed under confirmed setup; programmer USB removal requested after reads, not independently confirmed afterward.",
-    "subsequent_clip_cable_length_clarification": "User reports the clip cable itself is 35 cm. With original 20 cm Dupont wires, the estimated one-way programmer-to-clip conductor path is about 55 cm, excluding connectors and PCB traces; this is arithmetic from user-reported/nominal lengths, not an electrical measurement."
+    "subsequent_clip_cable_length_clarification": "User reports the clip cable itself is 35 cm. With original 20 cm Dupont wires, the estimated one-way programmer-to-clip conductor path is about 55 cm, excluding connectors and PCB traces; this is arithmetic from user-reported/nominal lengths, not an electrical measurement.",
+    "subsequent_equipment_order": {
+      "reported_date": "2026-10-25",
+      "timezone": "America/New_York",
+      "description": "User ordered replacement clip with pins directly on clip body, intended to remove ribbon cable and leave only Dupont leads.",
+      "expected_delivery_date": "2026-10-26",
+      "delivery_source": "User expectation, not independently verified",
+      "received": false,
+      "exact_model_and_fit_confirmed": false
+    }
   },
   "assessment": {
     "both_full_array_size": true,
@@ -417,6 +426,6 @@
     "no_erase_or_write_selected": true,
     "cause": "Unstable acquisition demonstrated by read mismatch; contact/signal integrity, loading/contention and transient supply behavior remain possibilities. No particular component fault established."
   },
-  "next_step": "With all power disconnected, retain the factory 35 cm clip cable intact for the first diagnostic change and minimize only the eight added Dupont wires using a properly terminated spare set, about 5 cm where practical (5\u201310 cm is a practical target for the jumpers only; exact length matching unnecessary). This leaves roughly 40\u201345 cm total cable, so it does not establish a short overall path or guarantee a fix. Preserve clip seating and original wire set, then use the prepared bounded 64-KiB repeatability test before any new full reads. Cable length is a plausible contributor, not a proven cause. No voltage increase, reset jumper, majority-vote restore image or firmware write.",
+  "next_step": "Preserve old clip/cable and original private reads. Prefer replacement direct-pin clip expected October 26 over modifying the old ribbon or the earlier old-cable jumper-shortening trial. On actual receipt reconfirm chassis/power/cable/CR2032 state, wide SOIC-16 fit and fresh contact mapping, assemble short secure Dupont leads with accepted 1.8 V adapter, and check power/ID. Then run prepared bounded 64-KiB repeatability test before fresh full U1 reads, separate U2 acquisition and target comparison. A short-region pass is not a full backup. No new-clip test, voltage increase, reset jumper, majority-vote restore image or firmware write.",
   "limitations": "Main-array reads exclude separate OTP. Correct size and flashrom done do not prove correct data. Different halves are not a complete proof against all address errors. Known reference comparisons cannot assign a physical bank while acquisition is unstable. Raw dumps remain private and byte-exact; no dump contents or credentials printed."
 }
