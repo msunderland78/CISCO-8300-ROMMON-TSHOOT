@@ -13,9 +13,9 @@ This is a tracking map, **not a ready-to-power harness**. Power/ground net ident
 | Flash VCC | 8 | 2 | P1 pin 1 | Header-to-flash continuity measured; actual in-circuit powering not tested |
 | Ground | 4 | 10 | P1 pin 2 | Continuity established; P2 pins 1/3 also ground |
 | Clock | 6 | 16 | **P1 pin 4, via U4 IA0/channel A** | P1-4→U4-2 **33 Ω**; U4-4→U1 CLK **22 Ω**. Passing this route still requires mux power/select/enable setup |
-| Chip select | 1 | 7 | Unmapped | User scanned every U4 pin and every P1/P2 post; no low path, lowest readings around 5 kΩ. Next targeted U3 common-terminal check |
+| Chip select | 1 | 7 | Header unmapped; proposed direct clip contact 3 | Board scan had no low path; next validate direct clip-3→U1-7 continuity |
 | MOSI / data to flash | 5 | 15 | Unmapped | Pending |
-| MISO / data from flash | 2 | 8 | Unmapped | Pending |
+| MISO / data from flash | 2 | 8 | Header unmapped; proposed direct clip contact 4 | Next validate direct clip-4→U1-8 continuity |
 | WP#/DQ2 control | 3 | 9 | Unmapped | Board control handling unresolved |
 | HOLD#/DQ3 control | 7 | 1 | Unmapped | Board control handling unresolved |
 | RESET# | No dedicated adapter pin assigned | 3 | Unmapped | Establish existing board handling before attachment |
@@ -35,7 +35,7 @@ The most useful candidate position is the **CS# end, away from the pin-1 dot**, 
 | CS# | 7 | Partial clip, individually mapped | Clip fit/contact map pending; could bypass the unresolved CS# routing search |
 | MISO | 8 | Partial clip, individually mapped | Clip fit/contact map pending |
 | WP#/DQ2 | 9 | Partial clip if needed; establish inactive control handling | Pending |
-| Ground | 10 | Known P1 pin 2, or verified clip contact | P1 ground mapped; clip contact pending |
+| Ground | 10 | Known P1 pin 2 or **clip contact 6** | User corrected and validated chip/clip ground; low reading **0.3 Ω** |
 | 1.8 V VCC | 2 | Known P1 pin 1 | Net mapped; in-circuit powering not tested |
 | Clock | 16 | P1 pin 4 through U4 IA0/channel A | Two trace segments mapped; **mux power/select/enable not established** |
 | MOSI | 15 | Header/board route still to be identified | Unmapped |
@@ -52,20 +52,34 @@ Use only the accepted **1.8 V adapter output**, not the bare programmer pads (th
 
 **Photo observations:** IMG_1269 shows a separate small green clip breakout with eight male legs, allowing individual cable contacts to be reached; this is not the green 1.8 V adapter with the blue socket. IMG_1270/1271/1273 show the clip on U1's end away from the pin-1 dot, consistent with the proposed CS-end window. The jaw contacts are partly hidden, so photos do not prove all four contacts per side are aligned, stable, or isolated. No contact numbering is inferred from ribbon color or breakout position.
 
-## October 25: changed clip placement and ground-scan result
+## October 25: corrected ground contact and partial-clip map
 
-The user reports repositioning the clip with these intended correspondences: **clip 1→U1 pin 5; clip 4→U1 pin 8; clip 5→U1 pin 9; clip 8→U1 pin 12**. Preserve these as user-described alignment, not direct electrical continuity results. They initially described all readings as OL except clip contact 5 at **0.3 Ω / ground**. A specific follow-up confirms the other probe was fixed on **router P1 pin 2 / known ground** throughout. Thus these were **clip-to-ground measurements**, not clip-to-each-corresponding-flash-leg measurements.
+The user explicitly corrected the earlier numbering error after checking the bare chip and reseating/checking the clip: **U1 pin 10 is ground, reached by clip/breakout contact 6**. The earlier low reading, **0.3 Ω to known ground**, belongs to this corrected ground connection, not U1 pin 9 / clip contact 5. Other checked contacts were reported OL to ground. Preserve the prior statement as a corrected report, not evidence of a WP# ground tie or a clip bridge. The requested clip-removed WP# investigation is superseded; no further ground scan is needed for this correction.
 
-| Endpoint to router P1 pin 2 / GND | User result | Meaning |
+These are ground-reference checks. They do not by themselves establish point-to-point continuity of the non-ground contacts.
+
+| Clip/breakout contact, user's numbering | U1 physical pin in proposed window | Signal | Status |
+| --- | --- | --- | --- |
+| 1 | 5 | DNU | User-described alignment; leave electrically disconnected |
+| 2 | 6 | DNU | Inferred position within window, not separately measured; leave disconnected |
+| 3 | 7 | CS# | Direct contact check next |
+| 4 | 8 | MISO | User-described alignment; direct contact check next |
+| 5 | 9 | WP#/DQ2 | Earlier ground assignment explicitly withdrawn; control handling unresolved |
+| **6** | **10** | **GND** | **User validated bare chip and reseated clip; corrected low ground reading 0.3 Ω** |
+| 7 | 11 | DNU | Inferred position within window, not separately measured; leave disconnected |
+| 8 | 12 | DNU | User-described alignment; leave disconnected |
+
+**Immediate next step — two direct signal contacts plus an adjacent-contact check:** retain all normal router cords disconnected, CR2032 removed, programmer USB unplugged and clip breakout separate from programmer/adapter. Keep the clip seated as just checked. In ohms mode measure:
+
+| Pair | Purpose | Actual result |
 | --- | --- | --- |
-| Clip/breakout contact 5 | **0.3 Ω** | Ground-connected at this clip placement; physical U1 landing not independently established |
-| Other clip/breakout contacts | **OL**, user group report | Not low-resistance to the ground reference in this test; does not prove their individual clip-to-chip continuity |
+| Clip/breakout contact **3** → actual U1 chip lead/pad **7** | Verify direct CS# contact | Pending |
+| Clip/breakout contact **4** → actual U1 chip lead/pad **8** | Verify direct MISO contact | Pending |
+| Clip/breakout contact **3** → clip/breakout contact **4** | Check for a near-zero bridge between these adjacent signal contacts | Pending |
 
-Micron assigns **U1 pin 9 = WP#/DQ2**, **pin 10 = VSS/ground**. If the claimed sequential half-package contact map is correct, clip contact 6 would reach U1 pin 10. Its reported OL to ground leaves that contact/map unresolved. Possibilities include board-held-low WP#, contact/numbering/alignment differences, a missing contact, or a clip bridge; none is diagnosed. Do not declare that pin 9 cannot be grounded or that the chip is faulty. A ground scan cannot distinguish these cases by itself.
+The first two should be near the lead/cable/contact resistance if the intended contacts are sound. The third should not show a near-zero connection; report its actual value/units or OL rather than assuming an open. Probe the actual chip leg/its solder pad for the first two so the test includes the jaw-to-chip connection. If those points are inaccessible with the jaw fitted, report the access limitation instead of forcing a probe or substituting contact-to-ground readings.
 
-**Immediate next step — inspect the native pin-9 ground state:** with all normal router cords disconnected, CR2032 removed, programmer USB unplugged and breakout disconnected from programmer/adapter, **remove the clip from U1**. In ohms mode, black on **router P1 pin 2 / known ground**, red on **bare U1 flash pin 9**, the **top-left corner lead in the saved-photo orientation**. Record the resistance/units or OL. This one new test checks the board's WP#-to-ground state without a possible clip bridge. Do not drive adapter WP# output high onto this node before its actual connection is resolved. All direct clip-to-chip mappings and absence-of-bridge checks remain pending; the programmer itself remains accepted.
-
-The current clip result does not establish CS#/MISO contact, a completed harness, mux power/control, or a powered read. MOSI and the clock-mux setup remain unresolved. No powered programmer-to-router attachment, chip ID/read/write or normal router power-up has been reported in this stage. Prior broad header/U4/U3 searches remain set aside.
+This is not another CS# routing search: it verifies the user-proposed direct clip path. No power or programmer connection is assigned yet. MOSI, mux power/select/enable, board loading and remaining control handling remain unresolved. No powered chip identification/read/write has been reported.
 
 ## Clock trace result: U1 flash to U4 channel A
 
