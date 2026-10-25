@@ -2,10 +2,12 @@
 
 Updated October 25, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: accepted CH341A + 1.8 V adapter + Dupont wires + newly arrived full SOIC-16 clip on U1_CSPI.** Arrival is now user-confirmed, superseding the earlier delivery expectation and partial-clip/hook proposal retained below.
 
+**Latest user observation, October 25, 2026, America/New_York:** slight clip movement reportedly restored target VCC from about 0.5 V to **1.757 V with USB connected**. The user requests two new full reads using the shorter crimped leads and the original ribbon clip. A guarded **read3/read4** command in a fresh private folder is prepared and copied; neither new read has run yet. Keep the clip still during tests and unplug USB before any further adjustment. Earlier electrical failures remain recorded below.
+
 The programmer/adapter is accepted. Do not repeat standalone programmer checks or broad header scans. The user has now successfully identified **Micron MT25QU256, 32 MiB, JEDEC 20 BB 19**, through the full clip on **C8375-A / FDO2742M0FK / U1_CSPI**, and read status **0x00**. The prior target rail measured **1.727 V**. The earlier near-zero RESET# breakout reading is retained below, but successful communication supersedes the inference that the flash is continuously held in reset during this probe. No reset jumper or pull-up is selected. Normal router power/console/cables and CR2032 remain disconnected under the confirmed setup; programmer USB removal after the probe was requested, not separately confirmed. **Both full U1 reads are now complete but differ at 2,989,540 byte positions; neither is a validated stable backup. No external firmware write has occurred.** The user reports VCC stayed around 1.727 V throughout and now clarifies that the **clip cable itself is 35 cm**, in addition to the **20 cm Dupont wires**: about **55 cm** of conductor path before connectors/PCB traces. The user has now ordered a **replacement clip with pins directly on the clip**, expected **October 26, 2026, America/New_York**, to remove the 35 cm ribbon entirely. Receipt, fit and pin mapping are not yet verified. Prefer testing that clip with short Dupont wires when available; the earlier old-clip jumper-shortening trial is superseded as the next priority. Keep the current clip/cable intact and all original reads preserved.
 
 
-## Current stop condition: low target VCC with new crimped leads
+## Supply-path investigation and subsequent reported voltage recovery
 
 **October 25, 2026, America/New_York — R-01-NEW-LEADS-VCC:** the user has made **eight replacement leads by cutting, stripping and crimping**, reports **each at 0.3 Ω**, and connected them to the accepted 1.8 V adapter and clip pinout. Actual new lead lengths and a refreshed lead baseline were not supplied. Before clip loading, the user reports **1.8 V between the adapter output ground 4 and VCC 8** (called CH341A pins 4/8 in their message, in the context of the 1.8 V board). With the clip/target attached and programmer USB powered, **P1-1/VCC relative to P1-2/GND is approximately 0.5 V DC**.
 
@@ -23,14 +25,38 @@ The user explicitly confirms this is **the original clip with the 35 cm ribbon**
 
 Do not retain the earlier crossed endpoint reports or the intervening 400 Ω ground-path report as valid separate measurements. They are withdrawn reports, not changes in the circuit. These latest values answer the requested unpowered-path checks, but USB disconnection and the fresh residual-DC result were not separately restated; unpowered conditions must be ensured for further resistance measurements. Under those conditions the 0.3 Ω ground path agrees with the reported lead baseline, while 1,336 Ω does **not** establish a direct low-resistance VCC connection. The 923 Ω rail reading is not a near-baseline hard short. An open/high-resistance/misrouted installed supply path or measurement/contact issue remains possible; do not identify a particular bad crimp, ribbon, clip or board component yet. No grounds to increase voltage, add a reset jumper or run flashrom.
 
-**Next positive-path split, planned, no readings yet:** keep the original clip and eight leads connected, all power/USB/console cables and CR2032 removed. Verify approximately 0 V DC across P1-1/P1-2 before resistance mode. Follow the **wire from active adapter output 8** to the **clip breakout board where it plugs into the 35 cm ribbon assembly**. Call that exact exposed breakout pin/solder pad **X**; it is the intended feed to U1-2, not the hidden chip leg. Leave the wire plugged in. Keep one probe at X and measure these two sections in Ω mode:
+**Earlier positive-path split, not performed; superseded as next action by the reported clip/voltage recovery and user-requested read retry below:** keep the original clip and eight leads connected, all power/USB/console cables and CR2032 removed. Verify approximately 0 V DC across P1-1/P1-2 before resistance mode. Follow the **wire from active adapter output 8** to the **clip breakout board where it plugs into the 35 cm ribbon assembly**. Call that exact exposed breakout pin/solder pad **X**; it is the intended feed to U1-2, not the hidden chip leg. Leave the wire plugged in. Keep one probe at X and measure these two sections in Ω mode:
 
 | Section | Endpoint A | Endpoint B |
 | --- | --- | --- |
 | A: adapter/lead/mating section | **Active adapter output 8** | **X, exact breakout terminal receiving that wire** |
 | B: ribbon/clip/board-supply section | **X, same breakout terminal** | **Router P1 pin 1** |
 
-Report the actual values and units/range/OL. The result will locate which side lacks a low-resistance supply path; it will not by itself distinguish every possible failure within that section. Do not repeat the confirmed ground pair or each individual loose-wire test. No powered re-test or device command is selected before these results; preserve all original dump files.
+Report the actual values and units/range/OL. The result will locate which side lacks a low-resistance supply path; it will not by itself distinguish every possible failure within that section. Do not repeat the confirmed ground pair or each individual loose-wire test. At that checkpoint no powered re-test/device command was selected. No A/B segment readings were subsequently supplied; the user instead reports clip movement restored voltage and requests the full-read retry below. Preserve all original dump files.
+
+
+## Clip movement restored reported VCC; full-read retry selected
+
+**October 25, 2026, America/New_York — R-01-SHORT-LEADS-RETRY:** the user reports that moving the clip slightly restored the supply to **1.757 V DC with CH341A USB plugged in**, in the context of the same **P1-1/VCC to P1-2/GND** target measurement. The original **35 cm ribbon clip** and eight new cut/stripped/crimped shorter leads remain the setup; actual new lead lengths are still unspecified. The direct-pin replacement clip is still only expected October 26. The user explicitly requests **two full captures again** to assess the shorter leads. No result from the proposed A/B positive-path resistance split is claimed.
+
+The restored DC voltage is inside Micron's **1.7–2.0 V** operating range, so the prior 0.5 V stop is superseded for a monitored read-only retry while VCC remains acceptable. Recovery associated with clip movement supports a contact-related contributor to the latest supply-path problem, but the exact contact/cause and longer-term stability are not established. Both the lead set and clip seating have changed relative to the initial mismatched full reads; any improved repeatability cannot isolate cable length alone. Do not call the original reads corrected or the harness fully verified from this one DC reading. Future clip/wire adjustments must be made with programmer USB and all router power disconnected; do not repeat powered movement.
+
+A fresh restricted folder is prepared:
+
+```text
+.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-171515-EDT-short-leads-clip-adjusted/
+```
+
+A command copied to the user's clipboard changes into this folder, refuses existing read3/read4 filenames, executes the two reads sequentially only on success, then sets the new dump/log files to owner `games`, mode 0600. Folder mode is 0700; the path is excluded from publication/manifest traversal. **No new binary/log capture outputs exist yet.** Hardware-access portions are:
+
+```sh
+sudo flashrom -p ch341a_spi -c MT25QU256 -r U1-read3.bin -o U1-read3.log
+sudo flashrom -p ch341a_spi -c MT25QU256 -r U1-read4.bin -o U1-read4.log
+```
+
+The earlier private read1/read2 dumps, hashes and failure metadata remain unchanged. This user-requested full pair supersedes the small-window test as the immediate next step; that diagnostic remains available and unexecuted. Keep normal router power/console/other cables and CR2032 disconnected, accepted 1.8 V adapter in circuit, and clip/wires still. Monitor **P1-1/VCC to P1-2/GND in DC volts** during both reads. Disconnect USB if VCC leaves **1.7–2.0 V**, collapses or warming/unexpected router activity occurs; retain any partial file and do not rerun over it. Unplug USB after the commands finish or on an error. No erase/write/force, protection, OTP, reset jumper or voltage increase is selected.
+
+After completion, inspect both files privately for **33,554,432 bytes**, full hashes and byte equality, comparison against both original reads and known verified references, and data/address plausibility. Do not infer bank role or authorize a restore from file size/command completion alone. Stable full U1 acquisition and separate U2 backups remain pending. No capture has been executed by the agent during preparation.
 
 ## Current SOIC-16 wiring map — C8375-01-SOIC16
 

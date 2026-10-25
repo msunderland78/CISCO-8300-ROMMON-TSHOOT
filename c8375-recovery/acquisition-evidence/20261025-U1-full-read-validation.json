@@ -436,6 +436,18 @@
       "P1_pin_1_to_P1_pin_2_ohms": 923,
       "power_state": "Results supplied in response to unpowered test request; USB disconnection and fresh residual-DC measurement not separately restated.",
       "assessment": "With unpowered conditions assumed as requested, ground is near reported lead baseline; positive supply path does not show direct low-resistance continuity. Specific lead/contact/ribbon/clip/routing or measurement cause unresolved."
+    },
+    "subsequent_clip_adjustment_and_retry_request": {
+      "date": "2026-10-25",
+      "timezone": "America/New_York",
+      "observation": "User reports slight clip movement restored target supply to 1.757 V DC with CH341A USB connected.",
+      "target_vcc_v": 1.757,
+      "target_endpoints_context": "Same P1-1/VCC to P1-2/GND target supply discussed immediately before report; endpoints not separately restated.",
+      "harness": "Original 35 cm ribbon clip and eight new shorter crimped leads; exact new lengths unspecified.",
+      "A_B_supply_path_checks": "not performed/reported",
+      "request": "User explicitly requests two full captures again to assess shorter leads.",
+      "causal_limit": "Both shorter leads and clip seating changed; improvement would not establish cable length as sole cause.",
+      "future_handling": "Keep clip still; unplug programmer USB before future adjustments."
     }
   },
   "assessment": {
@@ -450,6 +462,16 @@
     "no_erase_or_write_selected": true,
     "cause": "Unstable acquisition demonstrated by read mismatch; contact/signal integrity, loading/contention and transient supply behavior remain possibilities. No particular component fault established."
   },
-  "next_step": "Keep programmer USB and router power/cables removed; no flashrom at prior approximately 0.5 V target supply. Confirm residual DC absent. Leave clip and new leads connected; identify X as the exact clip breakout terminal receiving the wire from active 1.8 V adapter output 8. Measure output 8-to-X and X-to-P1-1 in resistance mode to isolate the positive path. Do not repeat the 0.3-ohm ground or loose-lead checks, increase voltage, add reset jumper or select a firmware write. Direct-pin replacement remains expected October 26; safe VCC and stable full U1 reads/U2 acquisition still pending.",
-  "limitations": "Main-array reads exclude separate OTP. Correct size and flashrom done do not prove correct data. Different halves are not a complete proof against all address errors. Known reference comparisons cannot assign a physical bank while acquisition is unstable. Raw dumps remain private and byte-exact; no dump contents or credentials printed."
+  "next_step": "Perform user-requested monitored read-only retry using new private U1-read3.bin/U1-read4.bin folder/guarded clipboard command; old captures remain untouched. Latest reported target VCC 1.757 V is in range, but monitor P1-1/P1-2 during both full reads and unplug for out-of-range/collapse/warming/unexpected activity. No clip/wire movement while powered; router external power/cables and CR2032 stay removed. Unplug USB after completion/error. Privately validate size/hash/byte equality, compare old reads and verified references, and inspect plausibility; no new results yet. U2 backups/physical target identification still pending; no erase/write/force, OTP/protection changes, reset jumper or voltage increase.",
+  "limitations": "Main-array reads exclude separate OTP. Correct size and flashrom done do not prove correct data. Different halves are not a complete proof against all address errors. Known reference comparisons cannot assign a physical bank while acquisition is unstable. Raw dumps remain private and byte-exact; no dump contents or credentials printed.",
+  "prepared_second_full_read_pair": {
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-171515-EDT-short-leads-clip-adjusted/",
+    "outputs": [
+      "U1-read3.bin",
+      "U1-read4.bin"
+    ],
+    "expected_bytes_each": 33554432,
+    "state": "planned; no capture files yet; no device action by agent",
+    "clipboard_prepared": true
+  }
 }
