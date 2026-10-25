@@ -1,6 +1,6 @@
 # C8375 recovery through the CH341A and board header
 
-Updated October 24, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: CH341A + accepted 1.8 V adapter + Dupont wires + board header.** The user explicitly reaffirmed this approach after the assistant incorrectly switched to C8300 work. The SOIC-16 clip is expected tomorrow and is an alternate access method.
+Updated October 24, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: CH341A + accepted 1.8 V adapter + Dupont wires + board header; now assessing the user's partial SOIC-8 clip proposal for direct CS#/MISO access.** The user explicitly reaffirmed this approach after the assistant incorrectly switched to C8300 work. The SOIC-16 clip is expected tomorrow and is an alternate access method.
 
 The programmer/adapter is accepted. Do not repeat standalone programmer checks or the completed broad supply/ground/header resistance matrices. No programmer has been attached to the router, and no external chip read or write has occurred.
 
@@ -21,6 +21,36 @@ This is a tracking map, **not a ready-to-power harness**. Power/ground net ident
 | RESET# | No dedicated adapter pin assigned | 3 | Unmapped | Establish existing board handling before attachment |
 
 The adapter's input/output expected operation was confirmed by the user. The flash package assignments follow [Micron Figure 6](https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf). Do not equate adapter, header, and flash pin numbers.
+
+## Current proposal: partial SOIC-8 clip plus mapped header connections
+
+The user proposes using the eight-pin clip on part of U1 and supplying the remaining connections through P1/P2. **This is mechanically/electrically possible in principle, not a verified fit or a ready harness.** The actual clip jaws/cable have not been photographed. Its contact pitch, jaw span for the wide SOIC-16 package, alignment, grip and one-to-one contact continuity must be established unpowered. Do not force the clip or rely on a precarious fit.
+
+The most useful candidate position is the **CS# end, away from the pin-1 dot**, toward the top of the saved U1 photo. A correctly aligned four-contacts-per-jaw clip there would touch **flash pins 5–8 on one side and 9–12 opposite**, including CS# 7, MISO 8, WP# 9 and GND 10. The other touched pins **5, 6, 11 and 12 are DNU** and must have no electrical connection to programmer outputs or supply. This is a proposed contact window, not a confirmed pinout of the actual clip cable.
+
+**Do not plug the ordinary eight-pin clip cable straight into the adapter for this offset position.** Its normal eight-pin pin mapping would be wrong. Every used cable contact must be traced to its actual U1 leg and routed individually through a suitable breakout/Dupont connection; unused contacts remain electrically disconnected. Check that each used contact touches only its intended leg, with no adjacent bridge, before any powered operation.
+
+| Function | U1 pin | Proposed access | Status |
+| --- | --- | --- | --- |
+| CS# | 7 | Partial clip, individually mapped | Clip fit/contact map pending; could bypass the unresolved CS# routing search |
+| MISO | 8 | Partial clip, individually mapped | Clip fit/contact map pending |
+| WP#/DQ2 | 9 | Partial clip if needed; establish inactive control handling | Pending |
+| Ground | 10 | Known P1 pin 2, or verified clip contact | P1 ground mapped; clip contact pending |
+| 1.8 V VCC | 2 | Known P1 pin 1 | Net mapped; in-circuit powering not tested |
+| Clock | 16 | P1 pin 4 through U4 IA0/channel A | Two trace segments mapped; **mux power/select/enable not established** |
+| MOSI | 15 | Header/board route still to be identified | Unmapped |
+| HOLD#/DQ3 | 1 | Existing board handling or verified connection | Must establish appropriate inactive level |
+| RESET# | 3 | Existing board handling; part has internal pull-up | No new hard tie assigned |
+
+Thus the proposal could solve direct access to CS#/MISO, but it does not by itself complete MOSI, clock switching, or board-control/power handling. All clip work in this phase is unpowered.
+
+## Using CH341A as a diagnostic tool
+
+After a known, compatible circuit connection is established, chip-ID probing and repeatable full reads are useful diagnostics. **An ID/read-only command does not make guessed wiring electrically safe.** A USB-powered programmer applies voltage and drives signals even with the router's own power cords removed. Wrong voltage, a supply-to-ground short, driving an existing output, or back-powering other circuitry can damage the flash, programmer/adapter or board.
+
+Use only the accepted **1.8 V adapter output**, not the bare programmer pads (the bare signal levels measured approximately 5.18 V). Disconnect programmer USB and normal router power before every wiring change. Guessing unknown P1/P2 posts or moving wires while powered is not the next diagnostic step. Controlled testing follows identification of compatible signal nodes and acceptable loading; it does not replace that identification.
+
+**Immediate next step:** keep all normal router cords and programmer USB disconnected, CR2032 out, and clip cable unplugged from the adapter/programmer. Photograph the actual clip jaws, its cable connector and its proposed CS-end placement on U1. Assess a natural, secure fit without forcing it; no powered attachment is requested. Then map the actual cable contacts unpowered. The previous U3 scan and the pending question about the 244A-marked U1_IO device are set aside while evaluating this user-proposed access method; no reply to that earlier question is required for the clip assessment.
 
 ## Clock trace result: U1 flash to U4 channel A
 
@@ -70,9 +100,9 @@ The user expanded the requested CS# scan: **large U1 flash pin 7 to every pin on
 
 No low-resistance chip-select connection has been established to these tested endpoints. The assumption that CS# would share U4 with clock remains unconfirmed; possible alternate mux/buffer/logic routing has not been traced. These measurements do not diagnose a failed flash, mux, or broken PCB trace. The [Micron pin reference](https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf), Figure 6, still identifies SOIC-16 pin 7 as S#/chip select.
 
-## Next test: U1 chip select to U3 common terminals
+## Prior U3 chip-select trace request: superseded by partial-clip assessment
 
-Keep all router cords disconnected, CR2032 removed, programmer USB unplugged/unattached, meter in ohms. Fixed red remains on **large right-hand U1 flash pin 7 / CS#**, second lead from the top on its right side in the saved photo. Move black to **small U3_CSPI mux pins 4, 7, 9 and 12**. U3 is the **upper small mux beside P2**, above U4. These CS#-to-U3 pairs have not been tested.
+Keep all router cords disconnected, CR2032 removed, programmer USB unplugged/unattached, meter in ohms. Fixed red remains on **large right-hand U1 flash pin 7 / CS#**, second lead from the top on its right side in the saved photo. Move black to **small U3_CSPI mux pins 4, 7, 9 and 12**. U3 is the **upper small mux beside P2**, above U4. No individual results for these CS#-to-U3 pairs have been supplied. They are no longer the immediate requested action.
 
 U3 is the same PI3CH480 family. Identify its pin-1 marker before counting; in the saved-photo orientation the marker is at top-right, with the same row numbering as U4:
 
@@ -89,7 +119,7 @@ Bottom row:    9 10 11 12 13 14 15 16
 | Large U1 flash pin 7 / CS# | Small U3 pin 9 / bottom-left corner | Pending |
 | Large U1 flash pin 7 / CS# | Small U3 pin 12 / bottom row, fourth from left | Pending |
 
-Report actual resistance/range or OL for all four. These are candidate alternate-route tests, not a claimed U3 assignment. Keep the accepted programmer unattached; mux power/control and the rest of the signal map remain unresolved. No jumper, supply injection or flash operation is selected.
+This earlier targeted request is retained as history, not a new instruction to resume CS# hunting. These were candidate alternate-route tests, not a claimed U3 assignment. Keep the accepted programmer unattached; mux power/control and the rest of the signal map remain unresolved. No jumper, supply injection or flash operation is selected.
 
 ## Acquisition and recovery sequence
 
