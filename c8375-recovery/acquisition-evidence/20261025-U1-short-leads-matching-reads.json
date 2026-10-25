@@ -1,0 +1,173 @@
+{
+  "recorded_local": "2026-10-25T18:39:39.783274-04:00",
+  "task": "R-01-U1-MATCHING-PAIR",
+  "chassis": "C8375-A / FDO2742M0FK",
+  "physical_chip": "U1_CSPI",
+  "source": "Two user-run flashrom reads and original program-generated logs, independently inspected and compared locally; no programmer access by agent during this capture pair.",
+  "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-182549-EDT-user-read-retry/",
+  "files": [
+    {
+      "name": "U1-read5.bin",
+      "bytes": 33554432,
+      "sha256": "4f6511d64b834935c4e7ba696dc6ed71494e08e5e36bda4cea7afbcce40ef760",
+      "mode": "0o600",
+      "owner_uid": 2080186244,
+      "mtime_local": "2026-10-25T18:30:53.478273-04:00"
+    },
+    {
+      "name": "U1-read6.bin",
+      "bytes": 33554432,
+      "sha256": "4f6511d64b834935c4e7ba696dc6ed71494e08e5e36bda4cea7afbcce40ef760",
+      "mode": "0o600",
+      "owner_uid": 2080186244,
+      "mtime_local": "2026-10-25T18:35:30.004260-04:00"
+    }
+  ],
+  "pair_checks": {
+    "bytes_each": [
+      33554432,
+      33554432
+    ],
+    "sha256": "4f6511d64b834935c4e7ba696dc6ed71494e08e5e36bda4cea7afbcce40ef760",
+    "byte_identical": true,
+    "uniform_00": false,
+    "uniform_ff": false,
+    "lower_upper_halves_identical": false,
+    "halves_sha256": [
+      "5c472e92a1694ac50f53cc6db1aee69027a21940b1bd4b2f298d15e55b4f1cfc",
+      "388bd82f5b6bfaaae7d2af7528cfef1d5dd142e42740bdfbab0ac365c69cba00"
+    ],
+    "page_stats": {
+      "lower": {
+        "total": 4096,
+        "all_ff": 2665,
+        "all_00": 304,
+        "distinct": 1129
+      },
+      "upper": {
+        "total": 4096,
+        "all_ff": 4080,
+        "all_00": 0,
+        "distinct": 15
+      }
+    },
+    "vendor_manifest_marker_counts": {
+      "TIMH": 0,
+      "TIMN": 0,
+      "UEFI": 1,
+      "ROMMON": 0,
+      "ChipGuard": 0,
+      "Crestone": 0,
+      "crestone": 3,
+      "SoC2": 1
+    },
+    "known_version_markers": {
+      "SDK112308": 0,
+      "SDK112310": 0,
+      "SDK112312": 0,
+      "v9.2.1": 0,
+      "v11.2.7": 0,
+      "17.18": 0,
+      "17.15": 0
+    },
+    "bounded_sdk_version_identifiers": []
+  },
+  "reference_comparisons": {
+    "old_read1": {
+      "sha256": "6f82693674aa55c64176541d398b4d93c6ac06a9af227c4849ff6e21ded1fb43",
+      "bytes_equal": false,
+      "differing_bytes": 2997618,
+      "per_region_differences": {
+        "payload": 2994566,
+        "manufacturing-boundary": 266,
+        "upper-before-env": 2312,
+        "environment": 444,
+        "upper-tail": 30
+      }
+    },
+    "old_read2": {
+      "sha256": "73c2d10a76d799e37ef0237f7d607c7aa858b78a2ceb07dc0eaa4fff64b64606",
+      "bytes_equal": false,
+      "differing_bytes": 2990115,
+      "per_region_differences": {
+        "payload": 2987260,
+        "manufacturing-boundary": 245,
+        "upper-before-env": 2190,
+        "environment": 410,
+        "upper-tail": 10
+      }
+    },
+    "original": {
+      "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+      "bytes_equal": false,
+      "differing_bytes": 3693016,
+      "per_region_differences": {
+        "payload": 3668640,
+        "manufacturing-boundary": 4531,
+        "upper-before-env": 11297,
+        "environment": 8292,
+        "upper-tail": 256
+      }
+    },
+    "known_nonbooting": {
+      "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+      "bytes_equal": false,
+      "differing_bytes": 4266648,
+      "per_region_differences": {
+        "payload": 4242276,
+        "manufacturing-boundary": 4531,
+        "upper-before-env": 11297,
+        "environment": 8288,
+        "upper-tail": 256
+      }
+    }
+  },
+  "logs": [
+    {
+      "capture": 5,
+      "original_log_sha256": "c60c0c58d54bbd7511b158e3280a20ce394a37263c7253ac79d63bf958ef3778",
+      "bytes": 2057,
+      "runtime": "Runtime from programmer init to shutdown: 4min36sec",
+      "done_reported": true,
+      "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-short-leads-read5.log"
+    },
+    {
+      "capture": 6,
+      "original_log_sha256": "82f86cd37a64f41175950755073ef4dc932fbd90d8fc8828bda671feddea049e",
+      "bytes": 2053,
+      "runtime": "Runtime from programmer init to shutdown: 4min37sec",
+      "done_reported": true,
+      "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-short-leads-read6.log"
+    }
+  ],
+  "setup": {
+    "programmer": "CH341A with accepted 1.8 V power/signal adapter",
+    "clip": "Original full SOIC-16 clip with 35 cm ribbon; ordered direct-pin replacement not yet received",
+    "leads": "Eight new cut/stripped/crimped shorter leads; exact lengths not supplied, each individually reported 0.3 ohms",
+    "latest_user_reported_supply_vdc": 1.75,
+    "supply_monitoring_during_this_pair": "User was instructed to monitor P1-1/P1-2; no separate full-duration voltage record supplied.",
+    "normal_power_and_battery": "Normal router power/console/other cables and CR2032 previously confirmed removed; programmer USB removal requested immediately after completion, not yet explicitly confirmed.",
+    "prior_unpowered_MISO_ground": "OL, user-reported; installed MISO-to-breakout lead check was not supplied.",
+    "changes_since_original_unstable_pair": "Shorter lead set plus clip repositioning/power reconnections; no single-variable cable-length conclusion.",
+    "post_capture_state": "User explicitly confirms CH341A USB unplugged; U2_CSPI board label and its own pin-1 dot identified. Clip not yet reported attached to U2."
+  },
+  "assessment": {
+    "repeatability_passed": true,
+    "full_size_passed": true,
+    "main_array_differing_bytes_between_pair": 0,
+    "uniform_ff_or_00": false,
+    "exact_16MiB_half_duplication": false,
+    "firmware_like_content": "Contains known vendor marker occurrences (HMIT, UEFI, crestone, SoC2) and nonuniform regions; no firmware contents or unrestricted strings published.",
+    "matches_original_reference": false,
+    "matches_known_nonbooting_reference": false,
+    "signature_authentication_performed": false,
+    "firmware_compatibility_or_boot_proven": false,
+    "physical_primary_golden_assignment": "unresolved",
+    "stable_systematic_read_errors_excluded": false,
+    "not_a_selected_restore_image": true,
+    "no_firmware_write_selected": true
+  },
+  "next_step": "Unplug programmer USB and retain U1 acquisition privately, unchanged. Identify and acquire U2 separately under an unpowered verified contact/power mapping; compare both chips to known references before selecting any restoration target. Confirm actual U2 package/pin-1, ground and VCC association; do not assume P1-1 monitors U2 supply or infer bank from placement. Matching full reads show repeatability, not signature authentication or proof against every systematic acquisition error. Separate OTP is excluded.",
+  "analysis_authorship": "AI-assisted original offline Python standard-library analysis: full-file SHA-256, full-byte equality, reference comparisons, uniform-array and 16-MiB-half tests, fixed known-vendor marker counts. No raw dump contents or unrestricted strings printed; no signature authentication.",
+  "next_U2_checks": "Requested with all power/cables and battery disconnected, clip off U2: confirm Micron RW170 marking; DC U2-2/VCC to U2-10/GND approximately zero; then \u03a9 U2-10 to P1-2 and U2-2 to P1-1. Do not assume shared supply or infer bank role. Values pending."
+}

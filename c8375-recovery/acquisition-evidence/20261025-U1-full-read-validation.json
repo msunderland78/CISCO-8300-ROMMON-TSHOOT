@@ -471,7 +471,7 @@
     "no_erase_or_write_selected": true,
     "cause": "Unstable acquisition demonstrated by read mismatch; contact/signal integrity, loading/contention and transient supply behavior remain possibilities. No particular component fault established."
   },
-  "next_step": "User sudo clean gate ran and failed chip ID (0x00 / 0x00); no new full capture. Preserve failure logs and original mismatched reads. Unplug programmer USB; verify target residual DC absent and measure active adapter output 2/MISO to output 4/GND in resistance mode with harness intact; result pending. Root authentication/file guards no longer explain failure. No force/full-read repeat/firmware write, voltage increase or reset change selected.",
+  "next_step": "Preserve matching private U1 read5/read6 plus earlier failed evidence. User confirms USB unplugged/U2 board label and own pin-1 dot identified. Before U2 clip/power, confirm RW170 marking, residual DC U2-2 to U2-10, then ground U2-10 to P1-2 and VCC association U2-2 to P1-1. Do not assume shared supply or bank role. Separate U2 reads/reference comparison required before restore-target selection; no firmware write, reset/OTP/protection change or voltage increase.",
   "limitations": "Main-array reads exclude separate OTP. Correct size and flashrom done do not prove correct data. Different halves are not a complete proof against all address errors. Known reference comparisons cannot assign a physical bank while acquisition is unstable. Raw dumps remain private and byte-exact; no dump contents or credentials printed.",
   "prepared_second_full_read_pair": {
     "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-171515-EDT-short-leads-clip-adjusted/",
@@ -482,5 +482,19 @@
     "expected_bytes_each": 33554432,
     "state": "Original read3 attempt failed; fresh clean user sudo ID gate also failed with zero ID. No new full captures/dumps/read logs were created.",
     "clipboard_prepared": true
+  },
+  "subsequent_matching_U1_pair": {
+    "metadata": "c8375-recovery/acquisition-evidence/20261025-U1-short-leads-matching-reads.json",
+    "read_files": [
+      "U1-read5.bin",
+      "U1-read6.bin"
+    ],
+    "bytes_each": 33554432,
+    "sha256_both": "4f6511d64b834935c4e7ba696dc6ed71494e08e5e36bda4cea7afbcce40ef760",
+    "byte_identical": true,
+    "original_failed_results_retained": true,
+    "neither_saved_reference_matches": true,
+    "user_confirms_USB_unplugged_U2_marker_identified": true,
+    "U2_marking_and_mapping_measurements": "requested, values pending"
   }
 }

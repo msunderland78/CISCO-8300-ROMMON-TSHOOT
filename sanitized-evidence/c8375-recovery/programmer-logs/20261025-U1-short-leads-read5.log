@@ -1,0 +1,36 @@
+flashrom v1.8.0 on Darwin 27.0.0 (arm64)
+flashrom was built with LLVM Clang 21.0.0 (clang-2100.3.34.2), little endian
+Command line (8 args): flashrom -p ch341a_spi -c MT25QU256 -r U1-read5.bin -o U1-read5.log
+Initializing ch341a_spi programmer
+Device revision is 3.0.4
+The following protocols are supported: SPI.
+Probing for Micron MT25QU256, 32768 kB: compare_id: id1 0x20, id2 0xbb19
+Added layout entry 00000000 - 01ffffff named complete flash
+Found Micron flash chip "MT25QU256" (32768 kB, SPI) on ch341a_spi.
+Chip status register is 0x00.
+Chip status register: Status Register Write Disable (SRWD, SRP, ...) is not set
+Chip status register: Block Protect 3 (BP3) is not set
+Chip status register: Top/Bottom (TB) is top
+Chip status register: Block Protect 2 (BP2) is not set
+Chip status register: Block Protect 1 (BP1) is not set
+Chip status register: Block Protect 0 (BP0) is not set
+Chip status register: Write Enable Latch (WEL) is not set
+Chip status register: Write In Progress (WIP/BUSY) is not set
+This chip may contain one-time programmable memory. flashrom cannot read
+and may never be able to write it, hence it may not be able to completely
+clone the contents of this chip (see man page for details).
+===
+This flash part has status UNTESTED for operations: WP
+The test status of this chip may have been updated in the latest development
+version of flashrom. If you are running the latest development version,
+please email a report to flashrom@flashrom.org if any of the above operations
+work correctly for you with this flash chip. Please include the flashrom log
+file for all operations you tested (see the man page for details), and mention
+which mainboard or programmer you tested in the subject line.
+You can also try to follow the instructions here:
+https://www.flashrom.org/contrib_howtos/how_to_mark_chip_tested.html
+Thanks for your help!
+Block protection is disabled.
+Reading flash... read_flash:  region (00000000..0x1ffffff) is readable, reading range (00000000..0x1ffffff).
+done.
+Runtime from programmer init to shutdown: 4min36sec
