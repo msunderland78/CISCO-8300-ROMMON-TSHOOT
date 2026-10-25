@@ -27,7 +27,7 @@
     "sha256": "c63ff74c98539a16a9f2dac1726df7646ef093c6240c533b6affedf6b567ac82"
   },
   "interpretation": "No successful U2 ID. Acceptable pre-probe supply and low-resistance power paths do not validate SPI contacts or establish the cause. Darwin informational capture-entitlements line also occurred during successful U1 access; no permission diagnosis from that line alone.",
-  "next_step": "Keep U2 clip/wires unchanged. With only programmer USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2, red P1-1; report current supply. Await reading before another probe/command. Do not add CS/reset jumpers or raise voltage based on idle measurements.",
+  "next_step": "One fresh user-terminal identification-only attempt with existing clip/wires untouched, no further hardware adjustment. File guard preserves all previous logs; no main-array read or firmware write selected. Require exact 20/BB19 before considering acquisition. Await actual outcome.",
   "retry_command_prepared_not_run": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification && test ! -e U2-identification-reseat1.log && sudo flashrom -V -p ch341a_spi -c MT25QU256 -o U2-identification-reseat1.log",
   "agent_programmer_access": false,
   "subsequent_attempt": {
@@ -67,7 +67,8 @@
   "next_step_history": [
     "Leave clip seated and wiring unchanged. With only CH341A USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2/GND; red at mapped breakout terminal reaching U2-3/RESET#, then mapped terminal reaching U2-1/HOLD#. Await both voltages; no flashrom command or jumper. These are breakout-level observations and do not independently establish jaw-to-chip contact.",
     "Keep clip on U2. Unplug programmer USB, keep router power/cables/CR2032 removed, verify P1-1/P1-2 approximately zero DC volts, then ohms: active adapter output 1 to bare U1 pin 7 / CS#, output 2 to bare U1 pin 8 / MISO. These test possible inter-chip paths through the installed harness; do not remove clip if U1 access is blocked. Await values/access report. No new software command or write. Unpowered resistance cannot establish powered mux behavior or prove contention.",
-    "Leave clip/wires on U2. Meter DC volts with black P1-2/GND, only CH341A USB connected, normal router power/cables and CR2032 removed. Measure bare U1 pin 7/CS# and mapped U2-breakout pin 7/CS# relative to ground. Await both static values; no flashrom command yet. Idle readings alone cannot prove select behavior during a transfer."
+    "Leave clip/wires on U2. Meter DC volts with black P1-2/GND, only CH341A USB connected, normal router power/cables and CR2032 removed. Measure bare U1 pin 7/CS# and mapped U2-breakout pin 7/CS# relative to ground. Await both static values; no flashrom command yet. Idle readings alone cannot prove select behavior during a transfer.",
+    "Keep U2 clip/wires unchanged. With only programmer USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2, red P1-1; report current supply. Await reading before another probe/command. Do not add CS/reset jumpers or raise voltage based on idle measurements."
   ],
   "inter_chip_resistance_measurements": {
     "recorded_at": "2026-10-25T19:31:09.382201-04:00",
@@ -105,5 +106,16 @@
       "ch341a_spi_shutdown"
     ],
     "hardware_executed": false
-  }
+  },
+  "rechecked_supply": {
+    "recorded_at": "2026-10-25T19:39:14.834487-04:00",
+    "user_reported_VDC": 1.757,
+    "endpoints": "P1-1/VCC relative to P1-2/GND",
+    "setup": "clip/wires unchanged, only CH341A USB connected; normal router power/cables/CR2032 removed",
+    "VIH_minimum_using_this_VCC_V": 1.2299,
+    "U1_previous_CS_margin_V": 0.0131,
+    "U2_previous_CS_margin_V": 0.0761,
+    "interpretation": "Target VCC remains within 1.7\u20132.0 V. Prior idle CS voltages are near the high threshold but do not show active-driver levels; no contention or fault established."
+  },
+  "fresh_command_prepared_not_run": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification && test ! -e U2-identification-controls-checked.log && sudo flashrom -V -p ch341a_spi -c MT25QU256 -o U2-identification-controls-checked.log"
 }
