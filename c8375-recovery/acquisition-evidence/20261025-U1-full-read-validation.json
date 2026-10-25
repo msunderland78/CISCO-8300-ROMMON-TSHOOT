@@ -412,6 +412,20 @@
       "delivery_source": "User expectation, not independently verified",
       "received": false,
       "exact_model_and_fit_confirmed": false
+    },
+    "subsequent_new_crimped_lead_test": {
+      "date": "2026-10-25",
+      "timezone": "America/New_York",
+      "lead_preparation": "Eight replacement leads cut, stripped and crimped; each reported 0.3 ohms; actual new lengths and refreshed baseline not provided.",
+      "adapter_unloaded_vcc_v": 1.8,
+      "adapter_endpoints": "Active 1.8 V adapter output 8/VCC to output 4/GND; user called these CH341A pins in context of 1.8 V board.",
+      "target_attached_vcc_approx_v": 0.5,
+      "target_endpoints": "Router P1-1/VCC to P1-2/GND",
+      "clip_confirmed": "Original 35 cm ribbon clip, not the ordered direct-pin replacement",
+      "identity_and_isolation_confirmed": "C8375 FDO2742M0FK, U1; all normal router power/console/other cables disconnected and CR2032 removed.",
+      "simultaneous_loaded_adapter_output_voltage": "not reported",
+      "post_test_programmer_usb_disconnection": "requested, not separately confirmed",
+      "cause": "unresolved; do not infer adapter failure, board fault or bad crimps from these observations alone"
     }
   },
   "assessment": {
@@ -426,6 +440,6 @@
     "no_erase_or_write_selected": true,
     "cause": "Unstable acquisition demonstrated by read mismatch; contact/signal integrity, loading/contention and transient supply behavior remain possibilities. No particular component fault established."
   },
-  "next_step": "Preserve old clip/cable and original private reads. Prefer replacement direct-pin clip expected October 26 over modifying the old ribbon or the earlier old-cable jumper-shortening trial. On actual receipt reconfirm chassis/power/cable/CR2032 state, wide SOIC-16 fit and fresh contact mapping, assemble short secure Dupont leads with accepted 1.8 V adapter, and check power/ID. Then run prepared bounded 64-KiB repeatability test before fresh full U1 reads, separate U2 acquisition and target comparison. A short-region pass is not a full backup. No new-clip test, voltage increase, reset jumper, majority-vote restore image or firmware write.",
+  "next_step": "Stop programmer USB power and defer flashrom/partial diagnostics while target VCC is approximately 0.5 V. Keep clip/new wires in place, router external power/cables and battery disconnected. Verify residual DC absent, then measure entire assembled adapter output 8-to-P1-1 path, output 4-to-P1-2 path, and P1-1-to-P1-2 rail resistance. Determine further isolation from results; do not repeat loose-lead checks or raise voltage/power router. Preserve original private reads. Ordered direct-pin clip remains expected October 26; safe target supply, stable fresh full U1 reads and U2 acquisition remain prerequisites to restoration.",
   "limitations": "Main-array reads exclude separate OTP. Correct size and flashrom done do not prove correct data. Different halves are not a complete proof against all address errors. Known reference comparisons cannot assign a physical bank while acquisition is unstable. Raw dumps remain private and byte-exact; no dump contents or credentials printed."
 }
