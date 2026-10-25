@@ -92,17 +92,23 @@ separate 3.3 V supply pad reading 3.322 V. Do not connect these directly to
 the 1.8 V router flash. The meter does not establish switching peaks or
 adapter behavior. The actual adapter must translate both power and signals.
 
+USER-SUPPLIED SOCKET GROUND MAPPING (2026-10-24, America/New_York)
+Task: P-01-SOCKET-GND
+User describes a top GND reference beside the 3.3 V / 5 V labels and another
+bottom GND reference in the row described as containing pins 1 and 2, second
+from the end. Both checks identify B1 as ground in the requested temporary
+upright-BIOS diagram. This is reported continuity; exact ohms and refreshed
+lead baseline were not supplied. Do not invent numeric results or treat the
+two labels as separate ground nets. B1 is a position label, not IC pin 1.
+
 NEXT
-Unplug USB and retain detached adapter/clips/routers. With programmer underside
-BIOS 25 SPI text upright, temporarily call the four socket solder joints above
-it T1-T4 from left to right and the four below B1-B4 from left to right.
-These are position labels, not IC pin numbers. Confirm the labeled supply pads
-have decayed to approximately zero V DC relative to labeled GND, then refresh
-tips-together resistance baseline. In resistance mode, black on labeled GND,
-scan the eight BIOS-area socket solder joints and record near-baseline paths
-and their positions. Do not include separate EEPROM/24-I2C joints. No adapter
-insertion or router connection is requested; socket and adapter mapping and
-1.8 V output/translated signal verification remain pending.
+Keep USB unplugged, socket empty, adapter/clips/routers detached, same upright
+BIOS 25 SPI orientation. In resistance mode, fixed probe on labeled 3.3 V,
+scan T1-T4 and B2-B4 and report every near-baseline match. Also record the
+actual labeled-GND-to-B1 resistance and current tips-together baseline.
+Multiple supply-connected contacts are possible; do not assume one match or
+a fault from multiple matches. No adapter insertion or power is requested.
+Adapter input/output mapping and output/translated-signal tests remain pending.
 
 PRIMARY REFERENCES
 flashrom v1.8.0 CH341A driver:
