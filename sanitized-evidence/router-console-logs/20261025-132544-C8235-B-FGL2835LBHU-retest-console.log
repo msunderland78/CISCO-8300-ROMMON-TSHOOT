@@ -416,3 +416,91 @@ Router#
 *May 29 18:51:42.497: %SYS-4-INSECURE_WARNING: Module: NTP - Command: ntp allow mode control 3 - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
 *May 29 18:51:49.356: %IOSXE_INFRA-4-NO_PUNT_KEEPALIVE:  Keepalive not received for 100 seconds
 *May 29 18:52:09.365: %IOSXE_INFRA-4-NO_PUNT_KEEPALIVE:  Keepalive not received for 120 seconds
+*May 29 18:52:29.369: %IOSXE_INFRA-4-NO_PUNT_KEEPALIVE:  Keepalive not received for 140 seconds
+*May 29 18:52:34.942: %PMAN-3-PROCHOLDDOWN: F0/0: cpp_cp_svr: The process cpp_cp_svr has been helddown (rc 139)
+*May 29 18:52:35.065: %SELINUX-1-VIOLATION: R0/0: audispd: type=AVC msg=audit(1748544755.056:163): avc:  denied  { getattr } for  pid=27542 comm="df" path="/sys/kernel/debug/tracing" dev="tracefs" ino=1 scontext=system_u:system_r:polaris_pvp_t:s0 tcontext=system_u:object_r:tracefs_t:s0 tclass=dir permissive=0
+*May 29 18:52:49.379: %IOSXE_INFRA-4-NO_PUNT_KEEPALIVE:  Keepalive not received for 160 seconds
+[TX 2026-10-25T13:30:33.584634] b'show platform\rdir bootflash: | include bytes\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:03:50      
+ 0/0      8M-2xSFP+           booting               00:03:05      
+R0        C8230X-8M2X         ok, active            00:03:50      
+F0        C8230X-8M2X         init, active          00:03:50      
+P0        PWR-CC2-66WAC       ok                    00:03:18      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#dir bootflash: | include bytes
+20229492736 bytes total (9513209856 bytes free)
+Router#
+*May 29 18:52:53.042: %PMAN-0-PROCFAILCRIT: F0/0: pvp: A critical process cpp_cp_svr has failed (rc 139)
+*May 29 18:52:54.272: %IOSXE_OIR-6-OFFLINECARD: Card (fp) offline in slot F0
+*May 29 18:52:54.236: %IOSXE-6-PLATFORM: R0/0: cpp_sp: Shutting down CPP MDM while client(s) still connected
+*May 29 18:53:09.384: %IOSXE_INFRA-4-NO_PUNT_KEEPALIVE:  Keepalive not received for 180 seconds
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 1884ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+DBC88 cpp_common_os:FFFF9F2C0000+21134 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 2951ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+D4DD8 bipc:FFFF8AE80000+5E20 bipc:FFFF8AE80000+5ADC cpp_common_os:FFFF9F2C0000+1F57C cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 4049ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+DBC88 cpp_common_os:FFFF9F2C0000+21134 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 5149ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+DBC88 cpp_common_os:FFFF9F2C0000+21134 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 6300ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+DBC88 cpp_common_os:FFFF9F2C0000+21134 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 7367ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+DBC88 cpp_common_os:FFFF9F2C0000+21134 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 8488ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+DBC88 cpp_common_os:FFFF9F2C0000+21134 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 9619ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+DBC88 cpp_common_os:FFFF9F2C0000+21134 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 10634ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+D4DD8 bipc:FFFF8AE80000+5E20 bipc:FFFF8AE80000+5ADC cpp_common_os:FFFF9F2C0000+1F57C cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 11687ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+DBC88 cpp_common_os:FFFF9F2C0000+21134 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 12887ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+D4DD8 bipc:FFFF8AE80000+5E20 bipc:FFFF8AE80000+5ADC cpp_common_os:FFFF9F2C0000+1F57C cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 13945ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+DBC88 cpp_common_os:FFFF9F2C0000+21134 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 14986ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+DBC88 cpp_common_os:FFFF9F2C0000+21134 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 16004ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+D4DD8 bipc:FFFF8AE80000+5E20 bipc:FFFF8AE80000+5ADC cpp_common_os:FFFF9F2C0000+1F57C cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 17048ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+D4DD8 bipc:FFFF8AE80000+5E20 bipc:FFFF8AE80000+5ADC cpp_common_os:FFFF9F2C0000+1F57C cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 18097ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 cpp_common_os:FFFF9F2C0000+21180 cpp_common_os:FFFF9F2C0000+1F550 cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC cpp_common_os:FFFF9F2C0000+20784 evlib:FFFF8ABF0000+9034
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 19146ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+D4DD8 bipc:FFFF8AE80000+5E20 bipc:FFFF8AE80000+5ADC cpp_common_os:FFFF9F2C0000+1F57C cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC
+*May 29 18:53:15.792: %EVENTLIB-3-CPUHOG: F0/0: fman_fp_image: undefined: 20167ms, Traceback=1#43105629348049c0c7d27e2cb2cce0fc  linux-vdso:FFFF9FD41000+7E0 c:FFFF885B0000+D4DD8 bipc:FFFF8AE80000+5E20 bipc:FFFF8AE80000+5ADC cpp_common_os:FFFF9F2C0000+1F57C cpp_common_os:FFFF9F2C0000+1F258 cpp_punt_inject:FFFF9F110000+56A4 :AAAAE04F0000+9C79D4 :AAAAE04F0000+84AFA4 :AAAAE04F0000+47E9BC cpp_common_os:FFFF9F2C0000+20BFC
+*May 29 18:53:29.390: %IOSXE_INFRA-4-NO_PUNT_KEEPALIVE:  Keepalive not received for 200 seconds
+*May 29 18:53:49.393: %IOSXE_INFRA-4-NO_PUNT_KEEPALIVE:  Keepalive not received for 220 secondsMay 29 18:53:54.075: %PMAN-5-EXITACTION: F0/0: pvp: Process manager is exiting: Critical process cpp_cp_svr fault on fp_0_0 (rc=139)
+
+*May 29 18:53:54.066: %PMAN-5-EXITACTION: F0/0: pvp: Process manager is exiting: Critical process cpp_cp_svr fault on fp_0_0 (rc=139)
+*May 29 18:53:55.317: %IOSXE_OIR-6-OFFLINECARD: Card (cc) offline in slot 0
+*May 29 18:53:55.363: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/0, interfaces disabled
+*May 29 18:53:55.364: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/4, interfaces disabled
+*May 29 18:53:55.416: %SPA_OIR-6-OFFLINECARD: SPA (8M-2xSFP+) offline in subslot 0/0
+*May 29 18:53:55.427: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*May 29 18:53:56.003: %SERVICES-2-NORESOLVE_LOCAL: F0/0: btman: Error resolving local FRU: Invalid argument
+*May 29 18:53:56.035: %SERVICES-3-INVALID_CHASFS: F0/0: btman: Thread 0xffffbd94b020 has no global chasfs contextMay 29 18:53:59.204: %PMAN-5-EXITACTION: R0/May 29 18:54:05.511: %PMAN-3-PROCESS_NOTIFICATION: R0/0: pvp: System report bootflash:core/Router_RP_0-system-report_20250529-185359-UTC.tar.gz (size: 43166 KB) generated and System report info at bootflash:core/Router_RP_0-system-report_20250529-185359-UTC-info.txt
+
+
+=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2024-07-17 01:44:08
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+

@@ -283,6 +283,17 @@ SEPARATE ASSEMBLED UNIT / C8235-B — 2026-10-25, America/New_York
   parameters. Armed Ctrl-C on the UUID banner for any subsequent failure
   reload. Ten-minute IOS observation starts only after CLI access, not during
   maintenance or image loading; outcome pending at this checkpoint.
+- Cleaned-storage observation: CLI at 13:27:44 EDT; deadline 13:37:44 EDT.
+  show version confirms USB26.2.1 / FGL2835LBHU / 0x3922. sysboot exists;
+  no initial no-space/RAM-fallback warning. RP memory 18% used / 82% free.
+  Initial free 9,534,873,600 bytes, later 9,534,832,640. F0 init, active,
+  0/0 booting; keepalive warnings continued. cpp_cp_svr then held down with
+  rc139 at router-clock 18:52:34.942; status sample still has 9,513,209,856
+  bytes free, F0 init and 0/0 booting. Thus verified storage cleanup is not
+  sufficient to fix packet processing; the underlying cause remains unknown.
+  Continue the complete ten-minute capture; no stability pass or external
+  packet test. Structured samples are in C8235-B-FGL2835LBHU-20261025-RETEST.json
+  under recovery-prep-20261024/.
 
 CURRENT OUTCOME AND NEXT STEP — WORKED UNIT C8235-A
 - Router is NOT recovered. The primary ROMMON flash operation completed,
