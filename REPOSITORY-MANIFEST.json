@@ -581,8 +581,13 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
-      "bytes": 166387,
+      "bytes": 172349,
       "path": "router-console-logs/20261025-120812-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 21021,
+      "path": "router-console-logs/20261025-124927-console.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
@@ -618,9 +623,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 40295,
+      "bytes": 43284,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "445b95c818b5ffc2ca79afdef56a14a8cd65c45bda46dfae4cbf636cdee096c1"
+      "sha256": "ceb7952444be5425bbf6e2da05e9ac14f4fdc09059ce8214b83c3dd655a4150b"
     },
     {
       "bytes": 19985,
@@ -803,9 +808,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 125647,
+      "bytes": 127896,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "9798592629194d076197aeff2c7b5e0505dfdfe5c5b5d7ff2650cd912e6d1dba"
+      "sha256": "93130e350edaad9c53fff003a3eb4d6a47d6069acf257fc17b3480b721624425"
     },
     {
       "bytes": 6850655,
@@ -1548,9 +1553,9 @@
       "sha256": "b4693b9691c027a5e8e87843282ae7df84df94a9feee0382d05df1a9fd6b92ad"
     },
     {
-      "bytes": 2551,
+      "bytes": 12981,
       "path": "recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-ARCHIVE-RESULTS.json",
-      "sha256": "be44752afa291dcf73ddb2783b866b60a764a245f7b6ea9d1b5b694a77a2ff83"
+      "sha256": "aa3109f60e133b5aaae4c984c2c7309105a70aa8bbf990cb42bb48f9535d68ad"
     },
     {
       "bytes": 10089,
@@ -1773,9 +1778,14 @@
       "sha256": "7496ded0742b237f22010de7d0c6160362ef399edca3fb7056bae4a488302597"
     },
     {
-      "bytes": 166387,
+      "bytes": 172349,
       "path": "sanitized-evidence/router-console-logs/20261025-120812-console.log",
-      "sha256": "4c7b23bfbbd3dc087586104080d631a9effd84040eeccce10b6f845058c28569"
+      "sha256": "4830d437df1c02d5f7ec67f399dc9b48c46a808b2c74f7c512c2926ebaf1c52a"
+    },
+    {
+      "bytes": 21023,
+      "path": "sanitized-evidence/router-console-logs/20261025-124927-console.log",
+      "sha256": "e5d95872ead6eca5a1b97b7f7ca8d7eaeb3c9fc6fbea9b3e8e0d3524818eaed9"
     },
     {
       "bytes": 3720,
@@ -1821,12 +1831,13 @@
     "sanitized-evidence/router-console-logs/20261022-hybrid-kermit-console.log",
     "sanitized-evidence/router-console-logs/20261022-hybrid-kermit-transfer.log",
     "sanitized-evidence/router-console-logs/20261025-120203-console.log",
-    "sanitized-evidence/router-console-logs/20261025-120812-console.log"
+    "sanitized-evidence/router-console-logs/20261025-120812-console.log",
+    "sanitized-evidence/router-console-logs/20261025-124927-console.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 117,
-    "included_bytes_without_manifest": 526076786,
-    "included_files_without_manifest": 241
+    "excluded_local_files": 118,
+    "included_bytes_without_manifest": 526119439,
+    "included_files_without_manifest": 242
   }
 }

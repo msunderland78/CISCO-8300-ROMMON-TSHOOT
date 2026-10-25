@@ -175,6 +175,47 @@ SEPARATE ASSEMBLED UNIT / C8235-B — 2026-10-25, America/New_York
 - Fresh USB crashinfo_20250529-185458-UTC is present, listed at 502,359 bytes;
   its contents/hash have not yet been independently examined. UEFI ls reports
   unsupported GetTime but still lists files; use actual session time.
+- Transfer-method checkpoint, 12:47 EDT: the first selected 444,610,560-byte
+  .tar copied successfully in UEFI (started 12:36:57, completion observed by
+  12:44:13). Its comp was still running at 12:47. Ctrl-C/ESC did not return
+  a prompt. The remaining archive automation was stopped before it issued
+  further copies; 11 small files are verified, this larger copy is not yet
+  verified, and no internal source has been deleted.
+- Requested user power off, wait about ten seconds, then power on while only
+  the read-only comparison remains active. Armed Ctrl-C on the UUID banner
+  to regain Cisco ROMMON. Planned alternative is a temporary initramfs Linux
+  maintenance shell for native file transfer/checksums without IOS startup;
+  no ROMMON update, persistent boot change or security provisioning intended.
+- User confirmed the requested power cycle. Development ROMMON returned
+  and automatic Ctrl-C stopped autoboot. Original USER_BOOT_PARAM was absent;
+  its restore record is private under .git/recovery-private/. Reopened the
+  same unowned console at 12:49 EDT using the previously inspected adjustable
+  rj45_serial_console.py code with its log directory overridden to the C8235
+  root router-console-logs/ (not the C8375 evidence folder). New capture:
+  router-console-logs/20261025-124927-console.log.
+- Temporary unsaved parameter accepted:
+  rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0
+  Booted the same USB 26.2.1 image. Opening ttyAMA0 switched UART to 9600;
+  changed Mac capture to 9600 and reached sh-5.0#, then router stty 115200
+  plus Mac 115200 restored clear interaction. IOS is not started in this boot.
+  No flashmon, environment sync, configuration-register or security change.
+- Created /proc and mounted proc/sysfs in the RAM initramfs. Identified
+  /dev/mmcblk0p1 (20,249,599 KiB) as internal bootflash, /dev/sda1
+  (60,062,720 KiB) as USB. Mounted internal ext4 ro,noload at /mnt/internal;
+  USB VFAT initially read-only at /mnt/usb. Internal df: 19,755,364 KiB total,
+  19,738,412 used, zero available. USB: 33,483,104 KiB available at this point.
+- Native SHA-256 confirmed the completed 444,610,560-byte UEFI copy equals
+  its source after the power cycle; both hashes:
+  8345768506cae8cc00b4b997059bf87a5ffe1cfb4489da1d30d988bf5a168020
+  The interrupted UEFI comparison was not counted as verification; this
+  later native hash equality is the verified result.
+- Remounted only USB read/write. At 12:55 EDT began AI-assisted one-off Bash
+  copy loop with the exact 58 name/size pairs in RAM /tmp/c8235-b-selected.tsv.
+  It checks source sizes, reuses matching-size existing candidates, refuses
+  unexpected-size destination files, and copies only missing selected reports.
+  Existing candidates require final verification too. Internal flash stays
+  read-only; no source deletion has occurred. Exact commands/results are in
+  the new capture. Native copy is substantially faster than UEFI in this run.
 
 CURRENT OUTCOME AND NEXT STEP — WORKED UNIT C8235-A
 - Router is NOT recovered. The primary ROMMON flash operation completed,

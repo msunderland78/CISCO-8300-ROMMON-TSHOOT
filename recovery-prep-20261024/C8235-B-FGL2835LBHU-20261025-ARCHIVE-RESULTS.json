@@ -2,85 +2,419 @@
   "chassis": "C8235-B / FGL2835LBHU",
   "date_timezone": "2026-10-25 America/New_York",
   "destination": "UEFI fs3:\\C8235-B-FGL2835LBHU-20261025-REPORTS\\ (USB)",
-  "verification": "UEFI comp full binary comparison; no hashes calculated in UEFI",
+  "verification": "All selected files require native source/destination SHA-256 after flush and USB remount; prior UEFI comparisons retained as intermediate evidence.",
   "files": [
-    {
-      "name": "Router_RP_0-system-report_20250108-182657-UTC-info.txt",
-      "bytes": 6993,
-      "copy": "ok",
-      "comparison": "no differences encountered",
-      "source_deleted": false
-    },
     {
       "name": "Router_RP_0-system-report_20240227-172946-UTC-info.txt",
       "bytes": 7441,
-      "copy": "ok",
+      "copy": "reused-existing-size-match",
       "comparison": "no differences encountered",
       "source_deleted": false
     },
     {
       "name": "Router_RP_0-system-report_20240227-172946-UTC.tar.gz",
       "bytes": 8080158,
-      "copy": "ok",
+      "copy": "reused-existing-size-match",
       "comparison": "no differences encountered",
       "source_deleted": false
     },
     {
       "name": "Router_RP_0-system-report_20240227-172955-UTC-info.txt",
       "bytes": 7775,
-      "copy": "ok",
+      "copy": "reused-existing-size-match",
       "comparison": "no differences encountered",
       "source_deleted": false
     },
     {
       "name": "Router_RP_0-system-report_20240227-172955-UTC.tar.gz",
       "bytes": 12493920,
-      "copy": "ok",
+      "copy": "reused-existing-size-match",
       "comparison": "no differences encountered",
       "source_deleted": false
     },
     {
       "name": "Router_RP_0-system-report_20240227-173154-UTC-info.txt",
       "bytes": 7770,
-      "copy": "ok",
+      "copy": "reused-existing-size-match",
       "comparison": "no differences encountered",
       "source_deleted": false
     },
     {
       "name": "Router_RP_0-system-report_20240227-173154-UTC.tar.gz",
       "bytes": 21701670,
-      "copy": "ok",
+      "copy": "reused-existing-size-match",
       "comparison": "no differences encountered",
       "source_deleted": false
     },
     {
       "name": "Router_RP_0-system-report_20240227-173238-UTC.tar",
       "bytes": 397312,
-      "copy": "ok",
+      "copy": "reused-existing-size-match",
       "comparison": "no differences encountered",
       "source_deleted": false
     },
     {
       "name": "Router_RP_0-system-report_20240227-173239-UTC-info.txt",
       "bytes": 85,
-      "copy": "ok",
+      "copy": "reused-existing-size-match",
       "comparison": "no differences encountered",
       "source_deleted": false
     },
     {
       "name": "Router_RP_0-system-report_20240227-173239-UTC.tar.gz",
       "bytes": 31762,
-      "copy": "ok",
+      "copy": "reused-existing-size-match",
       "comparison": "no differences encountered",
       "source_deleted": false
     },
     {
       "name": "Router_RP_0-system-report_20240227-173302-UTC-info.txt",
       "bytes": 8187,
-      "copy": "ok",
+      "copy": "reused-existing-size-match",
       "comparison": "no differences encountered",
       "source_deleted": false
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173302-UTC.tar",
+      "bytes": 444610560,
+      "copy": "reused-existing-size-match",
+      "comparison": "native-sha256-match-after-power-cycle",
+      "source_deleted": false,
+      "copy_started_local": "2026-10-25T12:36:57 America/New_York",
+      "comparison_started_local": "2026-10-25T12:44:13 America/New_York",
+      "sha256": "8345768506cae8cc00b4b997059bf87a5ffe1cfb4489da1d30d988bf5a168020"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173302-UTC.tar.gz",
+      "bytes": 60700685,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173303-UTC-info.txt",
+      "bytes": 8187,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173303-UTC.tar",
+      "bytes": 1290905600,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173303-UTC.tar.gz",
+      "bytes": 59691832,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173304-UTC-info.txt",
+      "bytes": 14519,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173304-UTC.tar",
+      "bytes": 888903680,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173304-UTC.tar.gz",
+      "bytes": 60305339,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173305-UTC-info.txt",
+      "bytes": 8193,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173305-UTC.tar",
+      "bytes": 853534720,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173305-UTC.tar.gz",
+      "bytes": 60899380,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173306-UTC-info.txt",
+      "bytes": 12851,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173306-UTC.tar.gz",
+      "bytes": 53277418,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173307-UTC-info.txt",
+      "bytes": 8463,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173307-UTC.tar.gz",
+      "bytes": 48754684,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173308-UTC.tar",
+      "bytes": 861585408,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173309-UTC-info.txt",
+      "bytes": 197,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173309-UTC.tar",
+      "bytes": 1256837120,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173309-UTC.tar.gz",
+      "bytes": 53638,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173310-UTC-info.txt",
+      "bytes": 197,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173310-UTC.tar",
+      "bytes": 518942720,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173310-UTC.tar.gz",
+      "bytes": 54521,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173312-UTC-info.txt",
+      "bytes": 1088,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173312-UTC.tar.gz",
+      "bytes": 17415914,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173318-UTC-info.txt",
+      "bytes": 595,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173318-UTC.tar",
+      "bytes": 3164160,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173318-UTC.tar.gz",
+      "bytes": 72766,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173319-UTC-info.txt",
+      "bytes": 595,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173319-UTC.tar",
+      "bytes": 60979200,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173319-UTC.tar.gz",
+      "bytes": 71113,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173323-UTC-info.txt",
+      "bytes": 664,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173323-UTC.tar",
+      "bytes": 6359040,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173323-UTC.tar.gz",
+      "bytes": 74976,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173429-UTC-info.txt",
+      "bytes": 7262,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173429-UTC.tar.gz",
+      "bytes": 58854621,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173450-UTC-info.txt",
+      "bytes": 581,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20240227-173450-UTC.tar.gz",
+      "bytes": 75352,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0-system-report_20250108-182657-UTC-info.txt",
+      "bytes": 6993,
+      "copy": "reused-existing-size-match",
+      "comparison": "no differences encountered",
+      "source_deleted": false
+    },
+    {
+      "name": "Router_RP_0-system-report_20250108-182657-UTC.tar.gz",
+      "bytes": 23898352,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0_armv8el_crb_linux_iosd_crankshaft-universalk9-ms_3896_20240227-173236-UTC.core.gz",
+      "bytes": 42800336,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0_cpp_cp_svr_19076_20240227-172816-UTC.core.gz.coregen.dbg",
+      "bytes": 2565,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0_cpp_cp_svr_19098_20240227-172818-UTC.core.gz.coregen.dbg",
+      "bytes": 2737,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0_cpp_cp_svr_19102_20240227-172817-UTC.core.gz.coregen.dbg",
+      "bytes": 2737,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0_ngiolite_21815_20240227-173235-UTC.core.gz.coregen.dbg",
+      "bytes": 90718,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0_ngiolite_21835_20240227-173237-UTC.core.gz.coregen.dbg",
+      "bytes": 82165,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0_ngiolite_21842_20240227-173236-UTC.core.gz.coregen.dbg",
+      "bytes": 90719,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0_qfp-ucode-mirabile_18711_1709054899.gz.TEMP_IN_PROGRESS.",
+      "bytes": 462848,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
+    },
+    {
+      "name": "Router_RP_0_qfp-ucode-mirabile_18711_20240227-172819-UTC.core.gz.coregen.dbg",
+      "bytes": 61800,
+      "comparison": "pending",
+      "source_deleted": false,
+      "copy": "native-returned-ok"
     }
   ],
-  "failures": []
+  "failures": [],
+  "native_copy_loop_file_count": 58,
+  "native_sync_status": "pending; copy count marker not yet received"
 }
