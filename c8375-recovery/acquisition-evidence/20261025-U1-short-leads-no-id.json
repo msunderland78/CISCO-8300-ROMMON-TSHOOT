@@ -20,7 +20,7 @@
   "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-short-leads-read3-no-id.log",
   "limitations": "No supply voltage during the failed probe is yet reported; earlier 1.757 V is not a simultaneous measurement. Zero ID is not proof of a dead/erased flash or a particular fault. Darwin detach info also appeared on an earlier successful ID and is not established as this failure cause.",
   "hardware_actions_by_agent": "One explicit non-root identification-only probe in the fresh restart folder returned zero IDs; the following sudo -n attempt failed authentication before flashrom. No full agent capture or erase/write ran. Programmer control was returned to user for the copied root-gated command.",
-  "next_step": "User runs clean sudo identification-gated chain already copied to clipboard, with USB connected, target about 1.75 V and clip still. Identification failure stops before reads. Preserve new logs and do not force chip selection or repeat over existing logs. Assess new root output before assigning hardware/permission cause. No full captures have been verified from this restart yet; no erase/write selected.",
+  "next_step": "Unplug programmer USB and keep router power/cables/battery removed. Confirm target rail approximately 0 V DC before resistance mode. With harness intact, measure active 1.8 V adapter output 2/MISO to output 4/GND and report resistance/units/OL; result pending. This tests for a static low-resistance MISO ground path, not a full communication-path validation. No force, full-read repeat, erase/write or new hardware access by agent.",
   "user_followup": {
     "first_attempt_power_state": "User later states it had been unplugged for the first run; exact timing relative to the saved log is not resolved.",
     "second_attempt": "User reports reconnecting and retrying, but it did not work; no additional dump files were present at agent inspection.",
@@ -46,5 +46,22 @@
     "user_command_prepared": "Fresh folder; guards all output/log names; sudo identification gate then two full reads only if ID succeeds, followed by ownership and 0600 permissions.",
     "clipboard_updated": true,
     "programmer_ownership": "Agent completed probes/released device; user instructed to run fresh root-gated chain in VS Code. Agent will not access programmer concurrently."
+  },
+  "user_privileged_clean_restart_result": {
+    "date": "2026-10-25",
+    "timezone": "America/New_York",
+    "command": "sudo flashrom -V -p ch341a_spi -c MT25QU256 -o identification-sudo.log",
+    "result": "Identification gate executed but returned zero ID and no chip; neither full read started.",
+    "received_id": "0x00 / 0x00; RDID byte 0 parity violation",
+    "device_revision": "3.0.4",
+    "log_bytes": 570,
+    "log_sha256": "6ad2a0330576ff506837bd11432b795f0b9818dc3e7129087aff14e3acaff5b8",
+    "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-clean-restart-sudo-no-id.log",
+    "read3_binary_exists": false,
+    "read4_binary_exists": false,
+    "read3_and_read4_logs_exist": false,
+    "nonroot_detach_access_warning_present": false,
+    "darwin_info_message_present": true,
+    "interpretation": "sudo authenticated and programmer initialized; this attempt was not stopped by file guards. No valid chip response. Specific wiring/contact/control/loading or software cause not identified; no erased/dead-chip diagnosis."
   }
 }

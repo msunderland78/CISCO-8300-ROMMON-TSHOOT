@@ -471,7 +471,7 @@
     "no_erase_or_write_selected": true,
     "cause": "Unstable acquisition demonstrated by read mismatch; contact/signal integrity, loading/contention and transient supply behavior remain possibilities. No particular component fault established."
   },
-  "next_step": "User can run fresh sudo identification-gated two-read command copied to clipboard in VS Code; monitor VCC/clip stability with router power/cables/battery removed. No ID means no capture; do not force. Await root-gate or capture output and privately validate files if created. First failed retry produced no dump files; logs/original mismatched reads preserved. Full stable U1/U2 acquisition and bank assignment remain pending; no firmware write.",
+  "next_step": "User sudo clean gate ran and failed chip ID (0x00 / 0x00); no new full capture. Preserve failure logs and original mismatched reads. Unplug programmer USB; verify target residual DC absent and measure active adapter output 2/MISO to output 4/GND in resistance mode with harness intact; result pending. Root authentication/file guards no longer explain failure. No force/full-read repeat/firmware write, voltage increase or reset change selected.",
   "limitations": "Main-array reads exclude separate OTP. Correct size and flashrom done do not prove correct data. Different halves are not a complete proof against all address errors. Known reference comparisons cannot assign a physical bank while acquisition is unstable. Raw dumps remain private and byte-exact; no dump contents or credentials printed.",
   "prepared_second_full_read_pair": {
     "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-171515-EDT-short-leads-clip-adjusted/",
@@ -480,7 +480,7 @@
       "U1-read4.bin"
     ],
     "expected_bytes_each": 33554432,
-    "state": "First read3 attempt failed detection; no read3/read4 binaries created. Failed log preserved. Fresh user root-identification-gated restart prepared; results pending.",
+    "state": "Original read3 attempt failed; fresh clean user sudo ID gate also failed with zero ID. No new full captures/dumps/read logs were created.",
     "clipboard_prepared": true
   }
 }

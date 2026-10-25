@@ -1,0 +1,10 @@
+flashrom v1.8.0 on Darwin 27.0.0 (arm64)
+flashrom was built with LLVM Clang 21.0.0 (clang-2100.3.34.2), little endian
+Command line (7 args): flashrom -V -p ch341a_spi -c MT25QU256 -o identification-sudo.log
+Initializing ch341a_spi programmer
+Device revision is 3.0.4
+The following protocols are supported: SPI.
+Probing for Micron MT25QU256, 32768 kB: RDID byte 0 parity violation. compare_id: id1 0x00, id2 0x00
+No EEPROM/flash device found.
+Note: flashrom can never write if the flash chip isn't found automatically.
+Runtime from programmer init to shutdown: 0min 0sec
