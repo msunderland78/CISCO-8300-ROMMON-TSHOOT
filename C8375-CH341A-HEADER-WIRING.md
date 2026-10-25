@@ -12,7 +12,7 @@ This is a tracking map, **not a ready-to-power harness**. Power/ground net ident
 | --- | --- | --- | --- | --- |
 | Flash VCC | 8 | 2 | P1 pin 1 | Header-to-flash continuity measured; actual in-circuit powering not tested |
 | Ground | 4 | 10 | P1 pin 2 | Continuity established; P2 pins 1/3 also ground |
-| Clock | 6 | 16 | Unmapped | U1 flash CLK→U4 channel-A common pin 4 measured **22 Ω**; trace paired terminals next |
+| Clock | 6 | 16 | **P1 pin 4, via U4 IA0/channel A** | P1-4→U4-2 **33 Ω**; U4-4→U1 CLK **22 Ω**. Passing this route still requires mux power/select/enable setup |
 | Chip select | 1 | 7 | Unmapped | Previous direct-header scan found no low-resistance path |
 | MOSI / data to flash | 5 | 15 | Unmapped | Pending |
 | MISO / data from flash | 2 | 8 | Unmapped | Pending |
@@ -26,7 +26,7 @@ The adapter's input/output expected operation was confirmed by the user. The fla
 
 The requested unpowered trace produced **22 Ω from U1 flash pin 16 / CLK to U4 mux pin 4**. The user reports U4 pins 7/9/12 as really high; no individual values or units were supplied for those three. This points to U4 **channel A** as the flash-clock path. A series resistance along the path is consistent with the 22 Ω reading; no individual resistor has been identified.
 
-The [PI3CH480 datasheet](https://www.mouser.com/datasheet/2/322/PI3CH480-348795.pdf) assigns common terminal YA to pin 4 and its two selectable terminals IA0/IA1 to pins **2 and 3**, respectively. Mapping either to a P1 post would identify a candidate header-side clock route. Actual selector state, mux power and end-to-end operation remain unresolved.
+The [PI3CH480 datasheet](https://www.mouser.com/datasheet/2/322/PI3CH480-348795.pdf) assigns common terminal YA to pin 4 and its two selectable terminals IA0/IA1 to pins **2 and 3**, respectively. The user subsequently confirmed **U4 pin 2 / IA0 to P1 pin 4 = 33 Ω**. This identifies P1 pin 4 as the header branch for the measured clock channel. Their first message said U1 pin 2; they explicitly corrected it to **U4**, so do not record a new flash-VCC-to-header reading. Actual selector state, mux power and end-to-end operation remain unresolved.
 
 U4 pin numbering in that saved-photo orientation, with pin-1 marker at top-right:
 
@@ -43,22 +43,28 @@ Bottom row:    9 10 11 12 13 14 15 16
 | U1 flash pin 16 / CLK | U4 mux pin 9 | High, qualitative user report; exact value/unit not supplied |
 | U1 flash pin 16 / CLK | U4 mux pin 12 | High, qualitative user report; exact value/unit not supplied |
 
-## Next test: channel-A terminals to the P1 header
+## Clock header branch: P1 pin 4 to U4 IA0
 
-Keep all router cords disconnected, CR2032 removed, programmer USB unplugged and programmer unattached. Use ohms mode and single-lead contact. In the saved-photo orientation U4 pin 1 is top-right: **pin 2 is the second top lead from the right, pin 3 the third**.
-
-1. Hold red on **small U4 mux pin 2**. Scan black across **P1 header pins 3–8**.
-2. Hold red on **small U4 mux pin 3**. Scan black across **P1 header pins 3–8**.
-3. Report the **lowest reading and matching P1 post for each mux terminal**, plus any additional similarly low matches. If an entire scan stays high, report that with the lowest value and units. Do not assign a signal from a kΩ path alone.
-
-These are new channel-terminal-to-header pairs, distinct from prior flash-to-header and mux-supply/control scans. Pins 1/2 of P1 are already mapped supply/ground and excluded from this signal search. All new results remain pending.
-
-| Fixed endpoint | Header posts to examine | Lowest resistance / matching post |
+| Fixed endpoint | Header result | Status |
 | --- | --- | --- |
-| U4 mux pin 2 / IA0 | P1 pins 3–8 | Pending |
-| U4 mux pin 3 / IA1 | P1 pins 3–8 | Pending |
+| U4 mux pin 2 / IA0 | **P1 pin 4 = 33 Ω** | Confirmed by user, with chip-name correction from U1 to U4 |
+| U4 mux pin 3 / IA1 | Lowest resistance / P1 post not yet supplied | Remaining queued clock-branch check |
 
-The measured path so far is **U1 CLK pin 16 → 22 Ω path → U4 pin 4 / YA**. The next test identifies which, if either, P1 post reaches its IA0/IA1 branch. No clock header assignment, mux selector jumper, supply injection, or programmer connection is established yet. Other SPI signals and mux power/control remain to be resolved before chip identification/readout.
+The identified route is:
+
+```text
+P1 pin 4 -- measured 33 Ω path -- U4 pin 2 / IA0
+                                 [channel-A switch]
+                                 U4 pin 4 / YA -- measured 22 Ω path -- U1 CLK pin 16
+```
+
+The two path measurements do not establish a measured end-to-end header/flash resistance while the switch is unpowered. The datasheet selects IA0 with Select low and Enable low; the board's actual powered levels and supply remain unresolved. No selector jumper, injection, programmer attachment, or read has occurred.
+
+## Next test: finish the already queued alternate clock-branch check
+
+Keep all router cords disconnected, CR2032 removed, programmer USB unplugged/unattached, and meter in ohms. Hold red on **small U4 mux pin 3**, the **third top lead from the right** in the saved-photo orientation. Move black across **P1 header pins 3–8**. Report the lowest resistance, matching header pin and units, plus any similarly low matches. If all readings stay high, report that with the lowest value/unit. This scan was already requested but its result has not been supplied; **U4 pin 2 to P1 pin 4 is finished and should not be repeated**.
+
+After that, trace the other three SPI signals (CS#, MOSI and MISO) through the remaining mux channels. Their header assignments, board-control handling, and mux supply remain unresolved; the harness is not ready to power yet.
 
 ## Acquisition and recovery sequence
 
