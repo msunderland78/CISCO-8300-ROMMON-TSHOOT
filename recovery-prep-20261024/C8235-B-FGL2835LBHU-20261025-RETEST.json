@@ -1,0 +1,31 @@
+{
+  "chassis": "C8235-B",
+  "console_serial": "FGL2835LBHU",
+  "task_id": "C8235-04",
+  "date_timezone": "2026-10-25 America/New_York",
+  "capture": "router-console-logs/20261025-132544-C8235-B-FGL2835LBHU-retest-console.log",
+  "serial_endpoint": "/dev/cu.usbserial-AL00F7EQ",
+  "serial_settings": "115200 8N1 no flow control",
+  "boot_command": "boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin",
+  "image_sha256": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456",
+  "temporary_maintenance_parameter_absent_confirmed": true,
+  "configuration_register": "0x3922",
+  "observation_start_utc": "2026-10-25T17:27:44Z",
+  "minimum_observation_seconds": 600,
+  "observation_deadline_utc": "2026-10-25T17:37:44Z",
+  "status": "observation in progress; no stability pass claimed",
+  "pre_boot_available_kib": 10340804,
+  "initial_IOS_bootflash_free_bytes": 9534873600,
+  "initial_IOS_F0_state": "init, active",
+  "initial_IOS_0_0_state": "booting",
+  "initial_port_inventory": "Tw0/0/0 through Tw0/0/5 administratively down; Gi0 down; Service-Engine up/up; external packet tests not performed",
+  "initial_warnings": [
+    "TPM self-test error 256",
+    "RVU NIC mailbox errors -28 and -709",
+    "SCMI protocols 19/20/21 not implemented",
+    "manual ROMMON upgrade required"
+  ],
+  "initial_storage_result": "sysboot directory now exists; earlier no-space/sysboot RAM-fallback warning absent in captured boot prefix",
+  "samples": [],
+  "physical_port_functional_tests": "not performed"
+}
