@@ -10,6 +10,14 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+CURRENT CHECKPOINT — 2026-10-25, 13:37 EDT
+C8235-B FGL2835LBHU: verified report archival/cleanup completed; normal USB
+26.2.1 still failed with CPP rc139 and reboot despite about 9.5 GB free.
+Ten-minute capture complete; powered at Cisco ROMMON with logging active.
+Two matching read-only 32 MiB snapshots of ONE logical SPI device are on USB;
+physical bank mapping/other chip pending. A remains powered off after its
+TPM halt; C is the separate disassembled unit with serial pending.
+
 SESSION CORRECTION / CONSOLE RESUMPTION — 2026-10-25, America/New_York
 - User confirms today's console-connected router is the previously worked
   C8235 identified above in the conversation as FGL2835L42B. User clarified
@@ -294,6 +302,34 @@ SEPARATE ASSEMBLED UNIT / C8235-B — 2026-10-25, America/New_York
   Continue the complete ten-minute capture; no stability pass or external
   packet test. Structured samples are in C8235-B-FGL2835LBHU-20261025-RETEST.json
   under recovery-prep-20261024/.
+- Final C8235-B retest outcome: full host capture window 13:27:44–13:37:44
+  EDT completed (600 seconds), but continuous IOS stability FAILED before
+  ten minutes. cpp_cp_svr failed critically with rc139, F0 went offline and
+  the chassis restarted, observed by 13:32:09 EDT. Missed keepalives reached
+  220 seconds in this retest; unlike the earlier full-storage baseline, no
+  300-second fatal keepalive marker preceded this reset. Process-manager
+  exits followed the CPP fault. Most recent status after CPP helddown still
+  had 9,513,209,856 bytes free. Storage exhaustion is therefore not the sole
+  explanation or a sufficient remedy. Underlying cause remains unresolved.
+- Development ROMMON returned and automatic Ctrl-C caught it. During the
+  remainder of the capture window, entered UEFI shell, rechecked fs0 internal
+  eMMC / fs3 USB mapping, and preserved the fresh full system report:
+  internal core/Router_RP_0-system-report_20250529-185359-UTC.tar.gz,
+  44,201,929 bytes, plus its 12,207-byte -info.txt. USB archive filenames use
+  cleaned-retest-system-report_20250529-185359-UTC.tar.gz / -info.txt.
+  Both copies returned ok and full comp found no differences. Originals
+  retained internally; no fresh-report hash was calculated. Raw reports may
+  contain credentials/configuration and stay internal/on USB outside Git.
+- UEFI exit returned directly to Cisco rommon 2 > at 13:37:44 EDT. Current
+  observed state: fully assembled B powered at ROMMON; serial and USB remain
+  connected, console capture active at 115200. No successful port/traffic
+  tests: F0 never became operational; admin-down port listings are not proof
+  of damaged Ethernet ports. Time at ROMMON/UEFI is not IOS uptime.
+- Next evidence-based work: inspect the preserved fresh CPP/system report
+  and platform initialization evidence, keeping the development ROMMON and
+  native snapshots intact. Both physical-chip mapping/backups remain a
+  separate pending task. No additional firmware, TPM, fuse or lifecycle
+  changes are justified by this cleanup result alone.
 
 CURRENT OUTCOME AND NEXT STEP — WORKED UNIT C8235-A
 - Router is NOT recovered. The primary ROMMON flash operation completed,

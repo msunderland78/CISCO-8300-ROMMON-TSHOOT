@@ -13,7 +13,7 @@
   "observation_start_utc": "2026-10-25T17:27:44Z",
   "minimum_observation_seconds": 600,
   "observation_deadline_utc": "2026-10-25T17:37:44Z",
-  "status": "Failure observed with free storage; ten-minute capture still in progress",
+  "status": "Completed experiment: storage cleanup verified; continuous IOS stability failed and system reloaded before ten minutes; full ten-minute capture window completed",
   "pre_boot_available_kib": 10340804,
   "initial_IOS_bootflash_free_bytes": 9534873600,
   "initial_IOS_F0_state": "init, active",
@@ -49,9 +49,33 @@
       "cpp_cp_svr_helddown_rc": 139
     }
   ],
-  "physical_port_functional_tests": "not performed",
+  "physical_port_functional_tests": "Not performed: F0/forwarding module failed before becoming operational; administratively-down interfaces alone do not establish hardware-port failure.",
   "packet_processing_failure_observed": true,
   "failure_event_router_clock": "May 29 18:52:34.942 (incorrect router clock)",
   "failure_observed_by_host_utc": "2026-10-25T17:32:03.364933+00:00",
-  "conclusion_so_far": "Verified cleanup removed storage-exhaustion and RAM-fallback symptoms, but cpp_cp_svr rc139 recurred while bootflash still had 9,513,209,856 bytes free. Cleanup is not sufficient to resolve the packet-processing fault; underlying cause unresolved."
+  "conclusion_so_far": "Verified cleanup removed storage-exhaustion and RAM-fallback symptoms, but cpp_cp_svr rc139 recurred while bootflash still had 9,513,209,856 bytes free. Cleanup is not sufficient to resolve the packet-processing fault; underlying cause unresolved.",
+  "observation_end_utc": "2026-10-25T17:37:44Z",
+  "capture_window_seconds": 600,
+  "continuous_IOS_ten_minute_stability_passed": false,
+  "critical_cpp_exit_rc": 139,
+  "F0_offline_observed": true,
+  "whole_chassis_reload_observed": true,
+  "reload_observed_by_host_utc": "2026-10-25T17:32:09Z",
+  "maximum_missed_keepalive_seconds_before_reload": 220,
+  "fatal_300_second_keepalive_marker_in_this_retest": false,
+  "free_bytes_in_status_sample_after_cpp_helddown": 9513209856,
+  "cause_observed": "Critical cpp_cp_svr failure and process-manager exits, followed by restart; this retest did not reach the baseline 300-second fatal keepalive marker before reload.",
+  "conclusion": "Verified cleanup corrected storage exhaustion and removed initial RAM-fallback warnings, but cpp_cp_svr rc139, F0 offline and whole-chassis reload recurred with ample free storage. Storage cleanup is not sufficient; underlying platform/driver/hardware cause unresolved.",
+  "final_router_state": "Powered at Cisco ROMMON rommon 2 >; original development firmware retained; console logging active at 115200; maintenance parameter absent",
+  "fresh_system_report": {
+    "internal_path": "bootflash:core/Router_RP_0-system-report_20250529-185359-UTC.tar.gz",
+    "bytes": 44201929,
+    "usb_path": "C8235-B-FGL2835LBHU-20261025-REPORTS/cleaned-retest-system-report_20250529-185359-UTC.tar.gz",
+    "metadata_internal_path": "bootflash:core/Router_RP_0-system-report_20250529-185359-UTC-info.txt",
+    "metadata_bytes": 12207,
+    "metadata_usb_path": "C8235-B-FGL2835LBHU-20261025-REPORTS/cleaned-retest-system-report_20250529-185359-UTC-info.txt",
+    "verification": "Both UEFI copies completed [ok] and full comp reported no differences; originals retained internally. SHA-256 not calculated for these fresh copies.",
+    "privacy": "Raw report and info remain internal/on USB, outside Git; may contain credentials or other private configuration.",
+    "timestamp_note": "May 2025 filenames are from incorrect router clock; actual capture/archive date October 25, 2026 America/New_York."
+  }
 }
