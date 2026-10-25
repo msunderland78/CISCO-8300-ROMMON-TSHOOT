@@ -27,7 +27,7 @@
     "sha256": "c63ff74c98539a16a9f2dac1726df7646ef093c6240c533b6affedf6b567ac82"
   },
   "interpretation": "No successful U2 ID. Acceptable pre-probe supply and low-resistance power paths do not validate SPI contacts or establish the cause. Darwin informational capture-entitlements line also occurred during successful U1 access; no permission diagnosis from that line alone.",
-  "next_step": "One fresh user-terminal identification-only attempt with existing clip/wires untouched, no further hardware adjustment. File guard preserves all previous logs; no main-array read or firmware write selected. Require exact 20/BB19 before considering acquisition. Await actual outcome.",
+  "next_step": "Prepared two user-run full U2 main-array reads in fresh private directory. Each read probes first; second runs only if first succeeds. Capture result pending. Monitor DC target VCC and keep clip/wires unchanged. Stop/unplug if supply leaves 1.7\u20132.0 V; no router power or voltage increase. No write. Compare sizes/hashes/bytes and known references offline after completion; main-array reads exclude separate OTP.",
   "retry_command_prepared_not_run": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification && test ! -e U2-identification-reseat1.log && sudo flashrom -V -p ch341a_spi -c MT25QU256 -o U2-identification-reseat1.log",
   "agent_programmer_access": false,
   "subsequent_attempt": {
@@ -68,7 +68,8 @@
     "Leave clip seated and wiring unchanged. With only CH341A USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2/GND; red at mapped breakout terminal reaching U2-3/RESET#, then mapped terminal reaching U2-1/HOLD#. Await both voltages; no flashrom command or jumper. These are breakout-level observations and do not independently establish jaw-to-chip contact.",
     "Keep clip on U2. Unplug programmer USB, keep router power/cables/CR2032 removed, verify P1-1/P1-2 approximately zero DC volts, then ohms: active adapter output 1 to bare U1 pin 7 / CS#, output 2 to bare U1 pin 8 / MISO. These test possible inter-chip paths through the installed harness; do not remove clip if U1 access is blocked. Await values/access report. No new software command or write. Unpowered resistance cannot establish powered mux behavior or prove contention.",
     "Leave clip/wires on U2. Meter DC volts with black P1-2/GND, only CH341A USB connected, normal router power/cables and CR2032 removed. Measure bare U1 pin 7/CS# and mapped U2-breakout pin 7/CS# relative to ground. Await both static values; no flashrom command yet. Idle readings alone cannot prove select behavior during a transfer.",
-    "Keep U2 clip/wires unchanged. With only programmer USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2, red P1-1; report current supply. Await reading before another probe/command. Do not add CS/reset jumpers or raise voltage based on idle measurements."
+    "Keep U2 clip/wires unchanged. With only programmer USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2, red P1-1; report current supply. Await reading before another probe/command. Do not add CS/reset jumpers or raise voltage based on idle measurements.",
+    "One fresh user-terminal identification-only attempt with existing clip/wires untouched, no further hardware adjustment. File guard preserves all previous logs; no main-array read or firmware write selected. Require exact 20/BB19 before considering acquisition. Await actual outcome."
   ],
   "inter_chip_resistance_measurements": {
     "recorded_at": "2026-10-25T19:31:09.382201-04:00",
@@ -117,5 +118,22 @@
     "U2_previous_CS_margin_V": 0.0761,
     "interpretation": "Target VCC remains within 1.7\u20132.0 V. Prior idle CS voltages are near the high threshold but do not show active-driver levels; no contention or fault established."
   },
-  "fresh_command_prepared_not_run": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification && test ! -e U2-identification-controls-checked.log && sudo flashrom -V -p ch341a_spi -c MT25QU256 -o U2-identification-controls-checked.log"
+  "fresh_command_prepared_not_run": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification && test ! -e U2-identification-controls-checked.log && sudo flashrom -V -p ch341a_spi -c MT25QU256 -o U2-identification-controls-checked.log",
+  "subsequent_successful_identification": {
+    "recorded_at": "2026-10-25T19:41:09.892861-04:00",
+    "user_ran_command": true,
+    "log_verified_offline": true,
+    "JEDEC": "20 BB 19",
+    "chip": "Micron MT25QU256",
+    "size_bytes": 33554432,
+    "status_register": "0x00",
+    "operation": "identification only; no main-array read or write",
+    "private_original": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification/U2-identification-controls-checked.log",
+    "public_generated_counterpart": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-controls-checked-id-success.log",
+    "log_sha256": "d7276d289642ee0b2383434f0bae27f644a8b31fb1a94c37405faf4d14e74619",
+    "log_size_bytes": 1955,
+    "interpretation": "Successful communication in this attempt, superseding the most recent failure as current outcome while all earlier failures remain preserved. Cause of intermittent identification, physical bank role and main-array data accuracy remain unresolved."
+  },
+  "prepared_full_read_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads",
+  "prepared_full_read_command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads && test ! -e U2-read1.bin && test ! -e U2-read2.bin && test ! -e U2-read1.log && test ! -e U2-read2.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read1.bin -o U2-read1.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read2.bin -o U2-read2.log && sudo chown games U2-read1.bin U2-read2.bin U2-read1.log U2-read2.log && chmod 600 U2-read1.bin U2-read2.bin U2-read1.log U2-read2.log"
 }
