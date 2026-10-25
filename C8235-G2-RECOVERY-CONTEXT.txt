@@ -1,15 +1,139 @@
 C8235-G2 / ARATA PROTOTYPE ROUTER — RECOVERY CONTEXT
-Updated: 2026-10-23, America/New_York
+Updated: 2026-10-25, America/New_York
 Workspace: /Users/games/Documents/SOFTWARE
 
 START HERE
-This is the consolidated handoff for this conversation through the purchase
-recommendations. It supersedes older status summaries where they differ.
+This handoff retains the original recovery history and the separately
+identified October 25 console sessions. Dated current observations supersede
+older status summaries where they differ.
 Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-CURRENT OUTCOME AND NEXT STEP
+SESSION CORRECTION / CONSOLE RESUMPTION — 2026-10-25, America/New_York
+- User confirms today's console-connected router is the previously worked
+  C8235 identified above in the conversation as FGL2835L42B. User clarified
+  that prior C8235 measurements were performed on a DIFFERENT C8235, described
+  as an exact replica. The measured unit's serial/tracking ID is unresolved.
+  Do not attribute those electrical results to today's console unit or infer
+  identical firmware, TPM state, or flash-bank contents from physical similarity.
+  Earlier combined hardware/measurement narrative below is retained as history;
+  its cross-chassis attribution needs reconciliation before further board work.
+- User reports today's router powered off with USB serial connected at 115200,
+  and answered yes to the identity / secured cooling / no attached programmer,
+  probes or jumpers check. Coin-cell state and other cables/USB storage were
+  not separately specified; do not infer their state from the old disassembly.
+- At 12:02 EDT opened /dev/cu.usbserial-AL00F7EQ exclusively using the existing
+  c8235_serial_console.py, 115200 8N1, no flow control. lsof showed no owner
+  beforehand. Capture: router-console-logs/20261025-120203-console.log (local
+  original; public counterpart requires repository_tools.py prepare).
+- Armed one-shot uppercase B on the exact prompt
+  "Press 'B' within 10 seconds for boot menu". This only requests the low-level
+  Marvell menu; it does not establish access to Cisco ROMMON or IOS XE.
+  Power-on output was then observed: mirabile-arata r2, A0 alt package,
+  2026-04-01 boot stub, SPI0_CS0,REMOTE using SPI0_CS0. Automatic B reached
+  Marvell Boot Options. Sent N (Boot Normally) at about 12:03 EDT; memory
+  initialization and BL2/BL31 completed, followed by the same fatal TPM
+  manufacturing-status error. No Cisco ROMMON or IOS XE prompt was reached.
+  The earlier USB boot cannot currently be repeated through this primary
+  path. No firmware writes, configuration changes or security changes made.
+  Capture was subsequently closed before moving the cable to another chassis;
+  last observed router state was powered at the halt. Later power state is
+  user-controlled and not yet reported.
+  Public evidence: sanitized-evidence/router-console-logs/20261025-120203-console.log.
+
+
+HISTORICAL PREPARATION CHECKPOINT — 2026-10-25, America/New_York
+Superseded by the separately identified C8235-B results below.
+- User reiterates three C8235s total: the worked primary-TPM-halt unit, a
+  second unit taken apart, and a third still fully assembled. Individual
+  serials for the latter two remain pending; C8235-B/C assignments are not
+  yet established. The earlier measurement unit must remain separately
+  identified rather than being merged into the primary-flashed history.
+- User proposes connecting USB storage and serial to the fully assembled
+  other unit to attempt 26.2.1. Accepted as the next console baseline/test.
+  Instructed user to keep that unit off while moving cables and report when
+  connected; fresh capture and ROMMON inspection must precede the USB boot.
+  No boot, firmware version, or outcome for that unit is yet observed.
+
+
+SEPARATE ASSEMBLED UNIT / C8235-B — 2026-10-25, America/New_York
+- User confirmed moving the USB drive and serial cable to the other fully
+  assembled C8235 with power off. The previously tested unit was powered off.
+  At 12:08 EDT opened an unowned /dev/cu.usbserial-AL00F7EQ exclusively at
+  115200 8N1, no flow control. Capture: router-console-logs/20261025-120812-console.log.
+- Power-on output is clear at 115200; no switch to 9600 was needed. Automatic
+  B reached Marvell Boot Options, then N selected normal boot. July 17, 2024
+  boot stub/EBF and SDK112312-SoC1-SB-v12.1.22 DEVELOPMENT ROMMON, Boot ROM0,
+  mirabile-arata r2, A0 alt package, 16 GB memory. ROMMON reports board serial
+  unknown; SoC UUID bytes: 13 FF FF 87 79 AD FB 7C 6D E0 81 A7.
+- Initial boot continued through packages.conf before the manually sent break
+  and Ctrl-C could stop it. IOS XE 17.18.3a reached Router> and enable reached
+  Router# without a password prompt. show version identifies processor board
+  FGL2835LBHU, PID C8230X-8M2X, image bootflash:packages.conf, confreg 0x3922.
+  Bind tracking ID C8235-B to FGL2835LBHU; the remaining disassembled unit is
+  C8235-C with its serial still pending. Older external notes mentioning
+  FGL2835LBHU can now be associated with B only where their evidence matches.
+- 17.18.3a startup reports bootflash free space 0 kB, a TPM self-test error 256,
+  mailbox errors, and a critical-low 12V_DG_ST reading of 0 mV (firmware-reported,
+  not a meter measurement). cpp_cp_svr subsequently held down/failed with rc139;
+  F0 went offline. CLI access does not establish functional stability.
+- USB image c8kg2be-universalk9.26.02.01.SPA.bin is 1,048,008,916 bytes.
+  IOS verify /sha512 and local shasum -a 512 of the unchanged original match:
+  a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c521
+  15fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02
+  This verifies file equality, not compatibility or successful boot.
+- Issued reload and confirmed it; no save prompt appeared. Automatic three
+  Ctrl-C bytes on "UUID Len: 0xC" interrupted the next autoboot successfully
+  and reached rommon 1 >. showmon -v confirmed the same development ROMMON.
+  dir usb0:/<filename> failed because ROMMON expects a directory; dir usb0:
+  succeeded and showed the expected file. Both outcomes remain in the log.
+- Issued boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin; image reading began.
+  Boot outcome pending at this checkpoint. No flashmon, install, config-save,
+  configuration-register change, firmware upgrade or file deletion was issued.
+  Local original capture is ignored; sanitized counterpart is generated with
+  repository_tools.py prepare. Keep this session separate from C8235-A's halt.
+- Subsequent result, about 12:16 EDT: 26.2.1 booted from USB to Router> and
+  Router#. show version confirms Version 26.02.1, USB system image,
+  FGL2835LBHU and unchanged confreg 0x3922. ROMMON-update warning explicitly
+  says manual update required; no update was performed.
+- 26.2.1 reports no space in /bootflash/sysboot, so packages use system RAM.
+  dir bootflash: reports 20,229,492,736 bytes total and 0 bytes free. The core/
+  listing contains 81 regular files totaling 8,484,220,577 listed bytes,
+  including 7,954,014,208 bytes of uncompressed system-report .tar files.
+  These are directory-listed sizes, not allocated-disk usage measurements.
+  Existing firmware packages and packages.conf were retained; no files copied
+  off or deleted. Next storage step is preserve relevant crash evidence and
+  plan a scoped cleanup before repeating a stability test.
+- Brief control-processor status: RAM 26% used / 74% free; sensor report CPU
+  52 C, inlet 24 C, outlet 22 C, other listed rails Normal, but 12V_DG_ST
+  remains firmware-reported Critical_Low/0 mV. Do not infer actual rail failure
+  or healthy hardware from firmware telemetry alone.
+- About two minutes into platform startup, F0 remains init, active and 0/0
+  booting, with 20/40-second punt-keepalive failures and write errors on full
+  bootflash. Boot/CLI success is verified; sustained operation/port functions
+  are not. Storage exhaustion could contribute to instability, but causation
+  is unproven. TPM self-test and mailbox errors also persist under 26.2.1.
+- Router clocks show February 2024 / May 2025; actual session is October 25,
+  2026 EDT. Console capture remains active. Re-armed three Ctrl-C bytes on
+  UUID Len: 0xC to stop any subsequent reboot at Cisco ROMMON.
+- Later observation, 12:18 EDT console poll: 26.2.1 also reported
+  cpp_cp_svr helddown and critical failure rc139, then F0 offline. Router-clock
+  event 18:51:48 is approximately two minutes after CLI access, not the work
+  date/time. This verifies a packet-processing failure after the successful
+  USB boot. Whole-chassis reload had not yet been observed at this checkpoint.
+  Similar rc139 under both images is evidence of a shared symptom, not proof
+  of a particular hardware, ROMMON, TPM or disk-exhaustion cause.
+- At the 12:21 EDT publication checkpoint, the active capture still shows
+  26.2.1 punt-keepalive failures through 280 seconds and full-storage warnings;
+  no whole-chassis reload has appeared in the received output. Router also
+  reports flash:core value 84% (16674 MB); retain this firmware warning
+  separately from the sum of directory-listed file sizes above.
+- Owner requests documentation, tracking and GitHub sync as recovery work
+  proceeds. Public evidence is a sanitized capture snapshot at each sync;
+  exact originals remain local/ignored and active logging may continue.
+
+CURRENT OUTCOME AND NEXT STEP — WORKED UNIT C8235-A
 - Router is NOT recovered. The primary ROMMON flash operation completed,
   but the release firmware now halts before Cisco ROMMON at a TPM
   manufacturing-status error. IOS XE is no longer reached by that boot path.
@@ -21,17 +145,19 @@ CURRENT OUTCOME AND NEXT STEP
   full dump of the device's original primary development ROMMON.
 - J2900 is NOT a verified ROM selector. No jumper was fitted. Its nearer-
   battery pin's function remains unknown despite the resistance tests below.
-- Hardware is disassembled for access: user reports the board mounts upside
-  down in the case and had to be removed for measurements. Tests were
-  requested with all external power/cables disconnected and coin-cell removed.
-  Reconfirm physical condition and battery placement when resuming; do not
-  assume it has since been reassembled or powered.
+- Historical summary attributed disassembly for measurements to this unit:
+  upside-down board removed, external cables disconnected and coin-cell
+  removed for testing. October 25 user correction supersedes that chassis
+  attribution: measurements were on another replica. Current fleet comprises
+  powered-off worked unit A, assembled console unit B, and disassembled unit C
+  (serial pending). Reconfirm each unit's battery/assembly for board work.
 - User has a Fluke 111 with ordinary pointed probes, no mini-grabber leads.
   A powered J2900 voltage measurement was proposed but NOT performed because
   mounting/cooling and probe access made it impractical.
-- Latest discussion concerns obtaining a CH341A programmer, 1.8 V adapter,
-  SOIC-16 clip and jumper wires. No purchase, delivery or new programmer
-  connection has been confirmed.
+- Historical purchase handoff had no confirmed deliveries. Superseding
+  October 24/25 plan entries record CH341A, adapter and other tool receipt
+  and accepted programmer setup; user still awaits the SOIC-16 clip today.
+  No C8235 external flash acquisition has been performed.
 - Intended next hardware step after equipment arrives: verify adapter power
   AND signal levels, verify every connection against the Micron datasheet,
   attempt read-only full dumps of BOTH flash chips, repeat reads and compare

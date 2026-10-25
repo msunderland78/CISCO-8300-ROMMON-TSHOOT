@@ -10,12 +10,13 @@ The repository name mentions 8300; the project covers **both 8200 and 8300 work*
 
 ## Current recovery status
 
-Last documented hardware baseline: **October 24, 2026**. Repository maintenance does not constitute a new hardware test. Check the active plan and current contexts for later observations.
+Last documented hardware baseline: **October 25, 2026 (America/New_York)**. Repository maintenance does not constitute a new hardware test. Check the active plan and current contexts for later observations.
 
 | Device | What we know | Next evidence needed |
 | --- | --- | --- |
 | C8235-A: worked Arata unit | Console ID `FGL2835L42B`; newer firmware reaches a TPM manufacturing-status halt before Cisco ROMMON. No complete original primary development-flash backup is available. | Separate reads of both flash chips; identify surviving development code and physical bank routing |
-| C8235-B and C8235-C | Both reported nonworking; individual identities, board revisions, symptoms, and write histories still need recording. | Establish independent baselines and preserve both flash banks per chassis |
+| C8235-B: other assembled unit | `FGL2835LBHU`, Arata r2, development ROMMON retained. Installed 17.18.3a and verified USB 26.2.1 reach CLI, then `cpp_cp_svr` fails with rc139 and F0 goes offline. Bootflash has zero free bytes. | Preserve crash evidence, plan storage cleanup and retest; back up both flash chips |
+| C8235-C: disassembled unit | User confirms this remaining unit is taken apart; serial is pending. Earlier C8235 measurements were on another replica, rather than the primary-flashed unit. | Bind measurements to its actual serial and preserve both flash banks |
 | C8375-A: Crestone unit | Chassis `FDO2742M0FK`; no normal startup output after the ROMMON experiment. Two matching original 32 MiB SPI reads and an exact restore copy are available. | Identify the physical target, obtain stable programmer reads, then restore the original image and test boot |
 | C8300-A | Reported steady red STATUS with green power/fan indications and no console through either connection type. Full PID suffix and serial are pending. | Validate each console path separately, then inspect hardware and identify boot storage if still silent |
 
@@ -25,6 +26,7 @@ The labels above are tracking IDs, not proof that a physical chassis has been la
 
 - Extracted canonical **SoC1 and SoC2 ROMMON packages, raw images, and update capsules** from IOS-XE, retaining vendor checksums and extraction metadata.
 - Documented the worked C8235's development firmware, release-firmware TPM halt, board components, uncertain header/mux connections, and unsuccessful recovery-transfer experiments.
+- On October 25, reproduced C8235-A's pre-ROMMON TPM halt and booted separately identified C8235-B from USB into **26.2.1**. Both 17.18.3a and 26.2.1 on B subsequently reported critical `cpp_cp_svr` rc139 failures. Full bootflash and other warnings are recorded; the root cause is unresolved. See the [dated results and captures](ROUTER-RECOVERY-TEST-PLAN.md#c8235-01--record-an-independent-baseline-for-each-chassis).
 - Previously booted the C8375 into IOS-XE INSTALL mode with documented workarounds and completed limited physical-port tests. It subsequently stopped booting after the ROMMON experiment; the earlier success is historical, not its current condition.
 - Captured two identical original C8375 SPI reads before that native firmware write, investigated the updater's extra writes, and verified the later programmed state. Exact bytes matching an intended image did not make that firmware compatible with the board.
 - Prepared a five-router test plan, including unpowered header mapping, 1.8 V programmer validation, read-only acquisition, original-image restoration, and C8300 console isolation.

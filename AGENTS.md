@@ -93,7 +93,7 @@ For documentation-only changes, verify links, formatting, factual consistency, a
 
 ## Commit, sync, and handoff
 
-When the user requests tracking/sync, use the existing authorized remote and guarded workflow:
+The owner requests ongoing documentation, tracking, and GitHub sync during active recovery. Record and sync completed results at meaningful evidence checkpoints and before handoff; do not wait for another sync reminder. Use the existing authorized remote and guarded workflow:
 
 ```sh
 python3 scripts/repository_tools.py sync --message "Describe the completed change"

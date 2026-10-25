@@ -574,6 +574,16 @@
       "bytes": 601,
       "path": "router-console-logs/20261022-hybrid-kermit-transfer.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 2949,
+      "path": "router-console-logs/20261025-120203-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 132020,
+      "path": "router-console-logs/20261025-120812-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -603,14 +613,14 @@
       "sha256": "9fde1bf4c9a6f4018a5e58f151100d9eab76e6e0ad1859c7665f0ace31ff7798"
     },
     {
-      "bytes": 11372,
+      "bytes": 11554,
       "path": "AGENTS.md",
-      "sha256": "ec8f12048b2ddc4abaf22b88d070051c1c3a20900a41b6d144c4acdd48428f09"
+      "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 28062,
+      "bytes": 37113,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "26ec32134f435604038892a213895b1534a8395585fa2b8d94ec04d4096fd3c2"
+      "sha256": "3dbcc552414452a3bf68068830c8e6c1c312a7f735b24fbcc90825f0304e2685"
     },
     {
       "bytes": 19985,
@@ -693,9 +703,9 @@
       "sha256": "1cbd1c6e9b5a52a9a12aa1e63f65e3b7749a74234d45186868d74df36d1dbb71"
     },
     {
-      "bytes": 18592,
+      "bytes": 19389,
       "path": "README.md",
-      "sha256": "05372276cace53de2ae2325f90eaccbe4ccfe2de70346cbaaba05330006b4f1c"
+      "sha256": "e7380d0cd3e7ad283f34e5b8a2135ca33363df7029af9ba9c96ee5ce57d78f81"
     },
     {
       "bytes": 3934,
@@ -793,9 +803,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 113012,
+      "bytes": 121770,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "a78da5bf37e39ddec7fdbbf52573e4e9997b5b5ec4e2d6ec0671959ab8bf03e9"
+      "sha256": "94cc32132d09c931f817515338e34a7ee141a287fbf445981ff310719fc1348c"
     },
     {
       "bytes": 6850655,
@@ -1748,6 +1758,16 @@
       "sha256": "168aacf8c3e33510096c26ba76899f8fb3d9466786d1b4e448445f829620537a"
     },
     {
+      "bytes": 2949,
+      "path": "sanitized-evidence/router-console-logs/20261025-120203-console.log",
+      "sha256": "7496ded0742b237f22010de7d0c6160362ef399edca3fb7056bae4a488302597"
+    },
+    {
+      "bytes": 132020,
+      "path": "sanitized-evidence/router-console-logs/20261025-120812-console.log",
+      "sha256": "e9a06d5706070c55b200e18eb920dfae8e6b4d836a953a36045cde025e93a65e"
+    },
+    {
       "bytes": 3720,
       "path": "scripts/make_programmer_inspection_crops.py",
       "sha256": "9635f8fdc895d09afa8732bb7b76042619192660eaa8b5b9bbcab3115971b868"
@@ -1789,12 +1809,14 @@
     "sanitized-evidence/router-console-logs/20261022-192806-console.log",
     "sanitized-evidence/router-console-logs/20261022-ROMMON-recovery-readable.txt",
     "sanitized-evidence/router-console-logs/20261022-hybrid-kermit-console.log",
-    "sanitized-evidence/router-console-logs/20261022-hybrid-kermit-transfer.log"
+    "sanitized-evidence/router-console-logs/20261022-hybrid-kermit-transfer.log",
+    "sanitized-evidence/router-console-logs/20261025-120203-console.log",
+    "sanitized-evidence/router-console-logs/20261025-120812-console.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 115,
-    "included_bytes_without_manifest": 525869847,
-    "included_files_without_manifest": 237
+    "excluded_local_files": 117,
+    "included_bytes_without_manifest": 526023604,
+    "included_files_without_manifest": 239
   }
 }
