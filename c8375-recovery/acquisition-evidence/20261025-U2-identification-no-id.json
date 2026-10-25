@@ -27,7 +27,7 @@
     "sha256": "c63ff74c98539a16a9f2dac1726df7646ef093c6240c533b6affedf6b567ac82"
   },
   "interpretation": "No successful U2 ID. Acceptable pre-probe supply and low-resistance power paths do not validate SPI contacts or establish the cause. Darwin informational capture-entitlements line also occurred during successful U1 access; no permission diagnosis from that line alone.",
-  "next_step": "Stop software probes. USB unplugged, normal router sources/cables and CR2032 removed; remove clip from U2. Measure full harness from active adapter output 2 to actual metal jaw contact intended for U2 pin 8, and adapter output 6 to jaw contact intended for U2 pin 16. These are MISO and CLK cable checks, not board or under-clip measurements. Await both resistance values before another command.",
+  "next_step": "Leave clip seated and wiring unchanged. With only CH341A USB connected and normal router power/cables/CR2032 removed, DC volts black P1-2/GND; red at mapped breakout terminal reaching U2-3/RESET#, then mapped terminal reaching U2-1/HOLD#. Await both voltages; no flashrom command or jumper. These are breakout-level observations and do not independently establish jaw-to-chip contact.",
   "retry_command_prepared_not_run": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-190849-EDT-identification && test ! -e U2-identification-reseat1.log && sudo flashrom -V -p ch341a_spi -c MT25QU256 -o U2-identification-reseat1.log",
   "agent_programmer_access": false,
   "subsequent_attempt": {
@@ -48,5 +48,7 @@
       "sha256": "b0ac6e0dca623217aa0f95f07c9c38a1f5d6e951716bd22b0c9ed3dfafb068cd"
     },
     "interpretation": "Manufacturer byte now matches expected Micron byte; device bytes remain wrong. Incomplete response does not establish chip model, reliable communication, or a defective chip. Cause unresolved."
-  }
+  },
+  "superseded_next_step": "Stop software probes. USB unplugged, normal router sources/cables and CR2032 removed; remove clip from U2. Measure full harness from active adapter output 2 to actual metal jaw contact intended for U2 pin 8, and adapter output 6 to jaw contact intended for U2 pin 16. These are MISO and CLK cable checks, not board or under-clip measurements. Await both resistance values before another command.",
+  "user_constraint": "User declines removing the seated U2 clip and is confident of seating. Off-board jaw continuity checks were not performed and are no longer requested."
 }
