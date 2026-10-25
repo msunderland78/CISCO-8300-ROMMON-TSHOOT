@@ -110,6 +110,8 @@ The CH341A, 1.8 V adapter, SOIC-8 clip, Dupont wires, fine meter probes, and hoo
 
 For identified Micron RW170/MT25QU256 G2 flashes, establish **1.8 V power and compatible signal levels**, correct package orientation, control-pin handling, and board loading before acquisition. An SOIC-8 clip does not fit these SOIC-16 packages. Never guess a bank-select jumper or pinout.
 
+Current work on the classic C8300 is unpowered board inspection. The user confirmed its native USB console was unplugged during the silent RJ45 attempt, ruling out console priority for that attempt. Chassis-label and motherboard photographs are requested under [Photos/C8300](Photos/C8300/README.md) before choosing internal test points or identifying a boot-flash candidate.
+
 The read-first sequence is: identify the part and physical target, obtain two matching plausible full reads, compare with saved evidence, choose a justified restoration, verify the complete readback, remove programming equipment, and capture a normal assembled boot. Preserve per-chassis identity/security data throughout. The classic C8300 uses its own diagnosis and firmware; G2 images are not substitutes.
 
 Follow the detailed plan for electrical precautions and stop conditions. Firmware/TPM/fuse changes and hardware repair should follow observed evidence, not an assumption that all five routers share the same fault.
