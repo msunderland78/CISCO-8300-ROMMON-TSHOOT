@@ -2,7 +2,7 @@
 
 Updated October 25, 2026, America/New_York. **Active target: C8375-A / FDO2742M0FK. Active approach: accepted CH341A + 1.8 V adapter + Dupont wires + newly arrived full SOIC-16 clip on U1_CSPI.** Arrival is now user-confirmed, superseding the earlier delivery expectation and partial-clip/hook proposal retained below.
 
-The programmer/adapter is accepted. Do not repeat standalone programmer checks or completed broad header scans. The user confirms the chassis, all external power/cables removed, CR2032 removed and CH341A USB unplugged. They report Dupont wires fitted to adapter outputs 1–8 and can identify the clip connection for each U1 leg. No powered target connection or external chip read/write is reported.
+The programmer/adapter is accepted. Do not repeat standalone programmer checks or completed broad header scans. The user confirms the chassis, all external power/cables removed, CR2032 removed and CH341A USB unplugged. They can identify the clip connection for each U1 leg and now report **all eight harness wires connected according to the map below**. Assembly is user-reported; electrical checks remain pending. No powered target connection or external chip read/write is reported.
 
 ## Current SOIC-16 wiring map — C8375-01-SOIC16
 
@@ -24,6 +24,8 @@ With USB unplugged, route each Dupont wire from the **active 1.8 V adapter outpu
 Reference: [Micron MT25QU256ABA datasheet, Figure 6 and Table 1, pages 12–14](https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf). U1 pins **4/5/6/11/12/13/14 are DNU**: leave their clip terminals electrically disconnected. U1 **pin 3 is RESET#**: no additional programmer wire or hard VCC tie is assigned; Micron specifies an internal pull-up, but the board could still affect the level.
 
 This is an **unpowered assembly map**, not a completed/powered test. Check each used clip terminal and assembled wire against its intended leg, and check for unintended bridges before USB power. WP#/HOLD# must have defined inactive levels for ordinary SPI use; adapter outputs 3/7 provide their usual high levels, but any board-held-low condition or contention must be resolved before powering. Direct clip access avoids needing a working header/mux route; it does not isolate U1 electrically from the board. Loaded VCC, control levels, back-powering and bus contention remain untested. First powered work, after harness checks, is controlled identification and stable reads under R-01; no erase/write is selected.
+
+**Next requested measurements, C8375-01-SOIC16-HARNESS (planned, no readings yet):** keep all external power/console/cables and CR2032 removed, CH341A USB unplugged. Use accessible clip breakout terminals identified by the **U1 physical pins they reach**, without moving the fitted clip or probing hidden chip legs. First check DC volts, black at U1-10/GND and red at U1-2/VCC; establish no residual voltage before resistance mode. Then record settled resistance for **U1-2↔10 (VCC/GND)**, **U1-7↔8 (CS#/MISO)**, **U1-15↔16 (MOSI/CLK)** and **U1-3↔10 (RESET#/GND)**. These check the newly assembled harness and reset path, not the completed header-routing scans. Retain changing values/ranges and units; a continuity beep is insufficient. The adapter remains attached but unpowered, so readings include adapter and board paths. No all-pairs-OL expectation or powered-test clearance follows from these checks alone.
 
 ## Historical header wiring map: known connections and unresolved signals
 
