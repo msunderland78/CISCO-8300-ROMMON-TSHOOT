@@ -122,7 +122,7 @@ Reference endpoint: USB connector metal outer shell. The user explicitly clarifi
 
 **Header orientation correction:** the assistant's earlier description of pin 2 as beside pin 1 identified the wrong post. The user clarified that actual pin 2 is above pin 1 in their working orientation, and that the 0.015 V / OL measurements belong to **pin 3**. The user then measured actual pin 2 at **0 V DC and 0.2 Ω to the USB shell**, matching the lead baseline. This supports a direct shell connection; flash/circuit-ground continuity remains to be established before programmer wiring. Use the board's printed numbers and the user's confirmed orientation; do not assume a conventional drawn arrangement. The pin-3 DC reading is nonzero, and the user also reported an ohms reading; do not treat this as verification that all endpoints are discharged or that OL identifies a faulty/open board trace. Voltage should be checked first on subsequent endpoints.
 
-**Current checkpoint assessment:** C8375 P1 ground/VCC paths to U1 are mapped; direct clock/CS# access is still unresolved. U4 ground is mapped and its VCC-to-flash-VCC reading is 1.22 kΩ; fine mux probing is paused. Bare CH341A USB probing works; supplies measured 3.322 V and 5.195 V, while idle CS/MOSI/CLK were approximately 5.18 V. The programmer BIOS/25-SPI socket map and all eight fitted adapter input paths are confirmed. With only the programmer/adapter powered, the user now reports **input pad 8: 3.318 V; regulator wide tab: 1.803 V**, both relative to input pad 4/GND. This supports nominal 1.8 V regulation at the tab. Next unplug USB, check residual voltage, and map ground and the tab's supply net to the blue output socket using temporary N/F position labels. Socket power routing, signal mapping, and translation remain unverified; no router attachment is ready.
+**Current checkpoint assessment:** the user accepts the CH341A plus 1.8 V adapter as working and has explicitly ended further standalone programmer validation. Recorded adapter readings are input **3.318 V** and regulator tab **1.803 V**. The blue socket uses eight contacts clearly numbered **1–8**; the other eight are unused. The user identifies output 4 as ground and reports the remaining connections/expected 1.8 V levels correct, without supplying individual output readings. Use the printed numbers; discard the proposed N/F coordinate scheme. **Next priority: R-01 on C8375-A, obtain two full 32 MiB reads from each physical flash with the SOIC-16 clip, then compare against the exact original backup before selecting a restore target.** Receipt of that clip is not yet confirmed. C8375 header clock/CS# access remains unresolved, so do not substitute the incompletely mapped header for the clip. Do not repeat standalone programmer checks unless a new failure or setup change warrants diagnosis.
 
 **Initial flash-ground check (historical; resolved by settled repeat below):** U1_CSPI is the right Micron chip in the saved inspection crop, with its pin-1 dot at bottom-right and VSS pin 10 second from the top on the image's left side. The user measured the requested P1_CSPI pin 2 to U1 pin 10 pair at 0 V DC / 11.8 Ω, and U1 pin 10 to the USB-shell reference at 0 V DC / 0.3 Ω. These are measured observations, but they do not validate P1 pin 2 as a common programmer ground. Repeat the original P1 pin 2 to USB-shell pair with the fine probes and reliable contact before continuing net assignments.
 
@@ -217,15 +217,17 @@ Next identify **U4_CSPI**, the lower small mux beside P1 in the crop, and its pi
 
 ## 5. Programmer validation and read-only acquisition
 
-### P-01 — Validate the programmer with no router attached
+### P-01 — Programmer and adapter accepted for acquisition
 
-- [x] Photograph both sides of the actual CH341A board and 1.8 V adapter: user supplied [IMG_1264](Photos/IMG_1264.jpeg), [IMG_1266](Photos/IMG_1266.jpeg), and [IMG_1268](Photos/IMG_1268.jpeg); see [photo index](Photos/README.md).
-- [ ] Record board revision, switch/jumper settings, adapter components, input/output sides, and pin 1.
-- [ ] Establish power **and signal** translation from the actual circuit/component specifications.
-- [ ] Measure target-side VCC relative to target-side GND: **pending V**. Expected nominal value: about 1.8 V, within the flash operating range.
-- [ ] Measure accessible static-high signal outputs and record each signal/condition. A low reading can be an idle-low or undriven signal; it is not automatically a fault.
-- [ ] Record the limitation: a multimeter cannot establish fast signal peaks, overshoot, or timing. Supply voltage alone does not validate logic levels.
-- [ ] Verify continuity through each cable/breakout contact with the programmer unplugged.
+**Status: accepted by the user on October 24, 2026; standalone validation ended at their explicit request.** Continue to physical-chip acquisition when the SOIC-16 clip is available. Do not reopen the superseded blue-socket scan or request additional standalone programmer measurements without a new failure or setup change.
+
+- [x] Preserve photographs of the actual boards: [IMG_1264](Photos/IMG_1264.jpeg), [IMG_1266](Photos/IMG_1266.jpeg), [IMG_1268](Photos/IMG_1268.jpeg), and [photo index](Photos/README.md).
+- [x] Confirm bare USB communication, map the programmer socket, and confirm all eight fitted adapter input paths.
+- [x] Record adapter input **3.318 V** and regulator tab **1.803 V**.
+- [x] Record user clarification of the active blue socket contacts: printed **1–8**, output **4 = ground**, other eight socket contacts unused; remaining connections/expected 1.8 V levels reported correct.
+- [x] Record user acceptance and move to R-01. Individual output-pin readings were not supplied; preserve the qualitative confirmation without inventing exact values.
+
+A multimeter does not capture switching peaks or timing. New clip/harness orientation and physical target identity belong to the acquisition setup, rather than repeated standalone programmer validation.
 
 **Actual received hardware, photo inspection:** the black board is labeled CH341A Mini Programmer, with revision text appearing as `V1.512`, an external crystal, a 3.3 V-marked 1117 regulator, a 16-position ZIF socket, and underside legends for `BIOS 25 SPI`, `EEPROM 24 I2C`, CLK/CS/MOSI/MISO/GND/3.3 V/5 V. Its printed jumper legend specifies **1–2 programming, 2–3 TTL**; confirm those actual numbered posts while USB is unplugged rather than inferring a shunt position from perspective.
 
@@ -240,7 +242,7 @@ Original photographs are unchanged. Non-generative crop/rotation derivatives and
 - [x] Complete bare-programmer USB initialization / empty-bus SPI probe; evidence above.
 - [x] Measure bare-board labeled 3.3 V and 5 V pads relative to labeled GND in DC-voltage mode, keeping socket empty and adapter/clips/routers detached: user reports **3.322 V** and **5.195 V**, respectively. These are unloaded DC readings; they do not validate SPI logic levels or the adapter.
 - [x] Record bare-programmer CS, MOSI, and CLK idle DC levels relative to GND, with no flashrom command running: user reports **CS 5.19 V; MOSI 5.182 V; CLK 5.182 V**, in requested order. This establishes approximately 5.18 V at the labeled bare signal pads in this idle state. It does not establish switching peaks, drive strength, or the adapter output. Do not attach these bare signals directly to the 1.8 V router flash.
-- [ ] Establish adapter input/output direction, socket mapping, regulator output, and logic levels before fitting it to any router.
+- [x] Record user confirmation of the adapter output numbering/ground/expected voltage levels and acceptance for acquisition; see the latest output report below.
 
 **Programmer socket ground mapping result:** the user identifies two accessible points labeled ground: one beside the 3.3 V / 5 V labels on top, and another on the bottom in the row they describe as containing pins 1 and 2, second from the end. Both show **B1 as ground** in our temporary diagram. Record this as user-reported continuity, not two distinct ground nets. Exact resistance values and refreshed lead baseline were not supplied. B1 is a temporary solder-joint position label, not IC pin 1 or an adapter pin assignment.
 
@@ -267,17 +269,11 @@ Original photographs are unchanged. Non-generative crop/rotation derivatives and
 
 **Standalone adapter supply results:** user reports **3.318 V at input pad 8** and **1.803 V at the regulator wide metal tab**, in requested order, relative to verified input pad 4/GND. These readings are consistent with the nominal input supply and 1.8 V regulation at the tab. They are unloaded socket measurements with the blue socket empty, not an established output-contact voltage or proof of signal translation. Actual installed regulator identity remains unconfirmed.
 
-**Blue socket working coordinates:** view the green adapter from above exactly as in IMG_1264: numbered input pads/component area above the blue socket, lever to the right. Temporarily name the eight socket contacts nearest the components **N1–N8**, left to right, and the eight nearest the outer board edge **F1–F8**, left to right. N/F are position labels, not manufacturer pin numbers and not the earlier black programmer T/B coordinates.
+**Blue socket clarification and user acceptance:** the user reports that eight light-blue socket contacts are unused; the active eight are clearly labeled **1–4 on one side and 5–8 on the other**. Output **4 is ground**. The user reports that the remaining ports map correctly and have 1.8 V where expected. No individual output-pin voltages or resistance values were supplied in this report, so retain it as qualitative confirmation. The assistant's proposed N/F labels and sixteen-contact mapping scan are **superseded**, not completed measurements.
 
-```text
-        Numbered input pads / component area
-        N1 N2 N3 N4 N5 N6 N7 N8
-             Blue output socket      Lever →
-        F1 F2 F3 F4 F5 F6 F7 F8
-        Outer board edge
-```
+The user then stated that the programmer works properly and has been validated enough. **Accept the current programmer/adapter setup for the next phase and end standalone programmer checks.** This changes the next action from adapter testing to physical-chip acquisition; it does not claim that a router has been read or restored.
 
-**Next requested operation — unpowered blue-socket power mapping:** unplug USB; retain empty blue socket and detached clips/routers. In DC-voltage mode confirm regulator tab to input pad 4 is approximately zero before resistance measurements. Keep the adapter fitted if accessible, or remove it only with USB unplugged if necessary for access. In ohms mode, fixed probe on **adapter input pad 4**, scan all 16 blue socket metal contacts and record every near-baseline path by N/F position and actual resistance. Then repeat with the fixed probe on the regulator's **wide metal tab**, recording every near-baseline contact. No ground/power position is assumed in advance, and paths through electronics at higher resistance do not establish a direct connection. No powered socket scan, clip attachment, or router connection is requested.
+**Next operation:** with the SOIC-16 clip available, proceed to R-01 on **C8375-A / FDO2742M0FK**. Identify the clip's physical contacts and assemble the signal-based connection to the identified Micron package; adapter 8-pin numbering is not the router flash's 16-pin numbering. Obtain and preserve two complete reads from each physical chip, U1_CSPI and U2_CSPI, then compare them with the saved original and known nonbooting references. No further standalone programmer validation is requested. Until chip attachment is ready, leave the programmer disconnected from USB and the router disconnected from its normal power/cables.
 
 **Regulator reference qualification:** the standard [TI LM1117 SOT-223 pinout](https://www.ti.com/lit/ds/symlink/lm1117.pdf), page 3, identifies the large tab as output. The actual adapter only visibly reads 1117 plus a lot-like marking; its manufacturer/voltage variant is unconfirmed. This reference identifies a candidate measurement point, not the installed regulator's authenticated identity or its output routing.
 
@@ -290,7 +286,7 @@ Some CH341A boards drive signals near 5 V despite a lower socket supply; see [of
 - [x] Verify the installed build lists `ch341a_spi` and **Micron MT25QU256, 32768 KiB, SPI**.
 - [x] Check communication with the actual programmer with no router or flash chip connected: completed under P-01-USB; see the command evidence above.
 
-**P-02 initial software result (historical): passed on October 24, 2026.** The user supplied successful version output, and local `--version`, `--help`, and `-L` checks confirmed installation and compiled-in support. These offline checks do not establish USB communication, adapter voltage/logic levels, in-circuit access, or physical chip identification. At that initial offline checkpoint the user was waiting for equipment. Equipment has since arrived and bare USB probing is complete under P-01; adapter electrical validation and router attachment remain pending.
+**P-02 initial software result (historical): passed on October 24, 2026.** The user supplied successful version output, and local `--version`, `--help`, and `-L` checks confirmed installation and compiled-in support. These offline checks do not establish USB communication, adapter voltage/logic levels, in-circuit access, or physical chip identification. At that initial offline checkpoint the user was waiting for equipment. Equipment has since arrived and bare USB probing is complete under P-01; the adapter has subsequently been accepted by the user under P-01; router acquisition remains pending.
 
 These preparation commands do not access a router:
 
@@ -302,7 +298,7 @@ flashrom -L
 
 ### R-01 — Read each identified physical chip
 
-Only connect after P-01 and the relevant wiring checks are complete. A header does not automatically provide isolation from the rest of the board. Use short wiring where possible; avoid adding extensions to the 20 cm Dupont wires or clip ribbon.
+P-01 is accepted by the user. Continue with identification and wiring of the new clip/harness for the physical target; no additional standalone programmer checks are planned. A header does not automatically provide isolation from the rest of the board. Use short wiring where possible; avoid adding extensions to the 20 cm Dupont wires or clip ribbon.
 
 - [ ] Record chassis serial, physical chip label, wiring photo, programmer/adapter, and battery/cable state.
 - [ ] Keep router external power and console/USB disconnected.
@@ -539,6 +535,7 @@ End state: power, cables, battery, assembly, terminal ownership
 | 2026-10-24 | P-01-SOCKET-SIGNALS | Labeled CS/MISO/MOSI/CLK pads to temporary BIOS socket B4/B3/T1/T2 | User unpowered resistance checks of all four proposed pairs | All four **0.3–0.4 Ω**, reported as a range without per-pair exact values | All four signal paths confirmed. Next unpowered adapter fit and input continuity validation; adapter output levels remain unknown | User report in conversation |
 | 2026-10-24 | P-01-ADAPTER-INPUT | Fitted green adapter input footprint versus programmer labeled pads | User confirms all eight requested unpowered input paths | All correct; individual Ω not supplied | Supports input alignment/connectivity. Next standalone powered input/regulator-tab DC checks; blue socket empty, routers/clips disconnected. Output/socket and translation still pending | User confirmation in conversation |
 | 2026-10-24 | P-01-ADAPTER-SUPPLY | Fitted adapter input pad 8 and regulator wide metal tab, relative to verified input pad 4/GND | User standalone powered DC-voltage readings, blue socket empty | Input **3.318 V**; tab **1.803 V** | Supports nominal 1.8 V at regulator tab. Output contact routing and signal translation unverified. Next unpowered N/F-position scan from input ground and tab supply | User readings in requested order |
+| 2026-10-24 | P-01-ACCEPTED | CH341A plus fitted 1.8 V adapter | User physical socket clarification, qualitative output confirmation, and explicit end to further validation | Active output contacts printed 1–8; 4 ground; eight unused contacts; expected 1.8 V levels reported correct, no per-pin values | Setup accepted for acquisition. Supersede N/F scan; next R-01 on C8375 with SOIC-16 clip. No router reads performed yet | User clarification and acceptance in conversation |
 | Pending | | | | | | |
 
 ### Decisions and unresolved questions
@@ -618,3 +615,4 @@ After boot recovery, define and log an observation duration, reset/reboot behavi
 | 2026-10-24 | Confirmed four programmer socket signal pairs at user-reported 0.3–0.4 Ω each. Next step advances to unpowered adapter placement in the mapped BIOS/25-SPI half and verification of every numbered input path before power; blue-socket output mapping and electrical validation remain pending. |
 | 2026-10-24 | Recorded user confirmation of all eight fitted adapter input paths without inventing per-pair Ω. Next power only the empty programmer/adapter assembly and measure input pad 8 and the 1117 wide metal tab relative to verified pad 4; then unplug. Output routing and signal levels remain pending. Consolidated current checkpoint to remove superseded detached-adapter wording. |
 | 2026-10-24 | Recorded standalone adapter input 3.318 V and regulator tab 1.803 V. Next unpowered blue-socket ground/supply mapping with explicit N/F position labels; tab regulation does not establish output-socket wiring or signal translation. |
+| 2026-10-24 | User clarified printed blue output socket numbering 1–8, output 4 ground, eight unused contacts, and expected 1.8 V operation; then explicitly ended programmer validation. Accepted setup, retired N/F scan, and moved next priority to two full reads per C8375 physical chip when the SOIC-16 clip is available. No invented per-pin readings or completed router operations. |
