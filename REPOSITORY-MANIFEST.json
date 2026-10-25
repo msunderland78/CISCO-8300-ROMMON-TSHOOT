@@ -591,7 +591,7 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
-      "bytes": 54697,
+      "bytes": 54749,
       "path": "router-console-logs/20261025-132544-C8235-B-FGL2835LBHU-retest-console.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
     }
@@ -628,9 +628,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 51538,
+      "bytes": 52464,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "0fd0350101cc63e0aa90d4cfeae6a92dfb5cae5ebed0551115435e3fb3000744"
+      "sha256": "a96d2f930878e06a3b87061e3e3b9f1ac43732188431fcb8b6879f2ab980401c"
     },
     {
       "bytes": 19985,
@@ -813,9 +813,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 136612,
+      "bytes": 137447,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "4a1367fdd3ffeae5f2742a99d924779df45cee3b196775f7c90f7cd65b9f9041"
+      "sha256": "395d5bd741aef5a5329e6314cedaf20d3aa6657e8dba83f85f0c5dfd9cd26565"
     },
     {
       "bytes": 6850655,
@@ -1553,6 +1553,11 @@
       "sha256": "7d1055127811d44ea39e76e8dbab3dd7fd373d3cf6163d3efad62f1cc5aa228d"
     },
     {
+      "bytes": 3993,
+      "path": "recovery-prep-20261024/C8235-20261025-STOPPING-POINT.json",
+      "sha256": "d9fd874224dbd8ed8bf211c92b7755494e9778fc2ae7438917327cdd41fdc24f"
+    },
+    {
       "bytes": 9112,
       "path": "recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-ARCHIVE-PLAN.json",
       "sha256": "b4693b9691c027a5e8e87843282ae7df84df94a9feee0382d05df1a9fd6b92ad"
@@ -1573,9 +1578,9 @@
       "sha256": "b406c0dcedba324014b9c1506fcd7ddf67ead3a0cd82c31341d8c87440e617cc"
     },
     {
-      "bytes": 4979,
+      "bytes": 5238,
       "path": "recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-RETEST.json",
-      "sha256": "8e8110680f57e69e3deb1cd25bd9822159515039f660a61cbc8ce70b20126efe"
+      "sha256": "8c9dc1868b959daf85431d0bfcdea0cd5b06f16394da13b98f38d528818cdcd4"
     },
     {
       "bytes": 1907,
@@ -1813,9 +1818,9 @@
       "sha256": "f96537648e123aa0b70decdb3526dd3873fd1672a18059981bc4ca5499b94379"
     },
     {
-      "bytes": 54697,
+      "bytes": 54749,
       "path": "sanitized-evidence/router-console-logs/20261025-132544-C8235-B-FGL2835LBHU-retest-console.log",
-      "sha256": "8966e8ae33571172763356a46f96b7148cf21774da99825cb2602cfbf6e09fdd"
+      "sha256": "3919762b22f8ccc4353ca8d8b8f1ddb92ef495fb8426ad0bf88c1cb48b1197fe"
     },
     {
       "bytes": 3720,
@@ -1868,7 +1873,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 119,
-    "included_bytes_without_manifest": 526267384,
-    "included_files_without_manifest": 247
+    "included_bytes_without_manifest": 526273449,
+    "included_files_without_manifest": 248
   }
 }

@@ -10,10 +10,11 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-CURRENT CHECKPOINT — 2026-10-25, 13:37 EDT
+CURRENT CHECKPOINT — 2026-10-25, 14:00 EDT
 C8235-B FGL2835LBHU: verified report archival/cleanup completed; normal USB
 26.2.1 still failed with CPP rc139 and reboot despite about 9.5 GB free.
-Ten-minute capture complete; powered at Cisco ROMMON with logging active.
+Ten-minute capture complete; last confirmed powered at Cisco ROMMON.
+All console captures are now closed and the serial port is released.
 Two matching read-only 32 MiB snapshots of ONE logical SPI device are on USB;
 physical bank mapping/other chip pending. A remains powered off after its
 TPM halt; C is the separate disassembled unit with serial pending.
@@ -330,6 +331,18 @@ SEPARATE ASSEMBLED UNIT / C8235-B — 2026-10-25, America/New_York
   native snapshots intact. Both physical-chip mapping/backups remain a
   separate pending task. No additional firmware, TPM, fuse or lifecycle
   changes are justified by this cleanup result alone.
+- STOPPING POINT, 14:00 EDT: user requests switching tasks. At 13:59:37 EDT
+  CR confirmed rommon 2 >. Closed the active bridge cleanly (exit 0); lsof
+  showed no owner on either cu/tty.usbserial-AL00F7EQ endpoint. All four
+  October 25 console originals are now closed and hashed in
+  recovery-prep-20261024/C8235-20261025-STOPPING-POINT.json.
+  Fresh 44,201,929-byte system report and 12,207-byte info file are on USB
+  under C8235-B-FGL2835LBHU-20261025-REPORTS/, with cleaned-retest- filenames;
+  both copies were byte-compared successfully, originals remain internal.
+  No transfer/IOS operation is running. User may power off at ROMMON, then
+  remove USB; actual poweroff is not confirmed. No background capture or
+  scheduled/background sync remains. Resume by inspecting the preserved
+  fresh report, after reconfirming physical state/console ownership.
 
 CURRENT OUTCOME AND NEXT STEP — WORKED UNIT C8235-A
 - Router is NOT recovered. The primary ROMMON flash operation completed,

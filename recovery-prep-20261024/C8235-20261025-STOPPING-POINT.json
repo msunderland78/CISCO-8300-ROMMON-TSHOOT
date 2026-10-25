@@ -1,0 +1,63 @@
+{
+  "handoff_utc": "2026-10-25T18:00:03Z",
+  "handoff_local": "2026-10-25 14:00 America/New_York (EDT)",
+  "reason": "User requested a clean stopping point before switching tasks",
+  "router": "C8235-B / FGL2835LBHU",
+  "last_console_check_utc": "2026-10-25T17:59:37Z",
+  "last_confirmed_router_state": "Powered at Cisco ROMMON rommon 2 >; no IOS or transfer in progress",
+  "console": "Bridge closed cleanly with exit code 0; lsof found no owner of /dev/cu.usbserial-AL00F7EQ or /dev/tty.usbserial-AL00F7EQ",
+  "poweroff": "User may power off at ROMMON and remove USB after shutdown; actual poweroff not confirmed",
+  "captures": [
+    {
+      "chassis": "C8235-A",
+      "local_original": "router-console-logs/20261025-120203-console.log",
+      "public_counterpart": "sanitized-evidence/router-console-logs/20261025-120203-console.log",
+      "bytes": 2949,
+      "original_sha256": "7496ded0742b237f22010de7d0c6160362ef399edca3fb7056bae4a488302597",
+      "capture_closed": true
+    },
+    {
+      "chassis": "C8235-B",
+      "local_original": "router-console-logs/20261025-120812-console.log",
+      "public_counterpart": "sanitized-evidence/router-console-logs/20261025-120812-console.log",
+      "bytes": 172349,
+      "original_sha256": "4830d437df1c02d5f7ec67f399dc9b48c46a808b2c74f7c512c2926ebaf1c52a",
+      "capture_closed": true
+    },
+    {
+      "chassis": "C8235-B",
+      "local_original": "router-console-logs/20261025-124927-console.log",
+      "public_counterpart": "sanitized-evidence/router-console-logs/20261025-124927-console.log",
+      "bytes": 66168,
+      "original_sha256": "60846b5a663c4451834a90bacb24ee68ac0920e52173cbf1fa6b86c9a6cacc49",
+      "capture_closed": true
+    },
+    {
+      "chassis": "C8235-B",
+      "local_original": "router-console-logs/20261025-132544-C8235-B-FGL2835LBHU-retest-console.log",
+      "public_counterpart": "sanitized-evidence/router-console-logs/20261025-132544-C8235-B-FGL2835LBHU-retest-console.log",
+      "bytes": 54749,
+      "original_sha256": "3919762b22f8ccc4353ca8d8b8f1ddb92ef495fb8426ad0bf88c1cb48b1197fe",
+      "capture_closed": true
+    }
+  ],
+  "fresh_crash_report": {
+    "internal_path": "bootflash:core/Router_RP_0-system-report_20250529-185359-UTC.tar.gz",
+    "bytes": 44201929,
+    "usb_path": "C8235-B-FGL2835LBHU-20261025-REPORTS/cleaned-retest-system-report_20250529-185359-UTC.tar.gz",
+    "metadata_internal_path": "bootflash:core/Router_RP_0-system-report_20250529-185359-UTC-info.txt",
+    "metadata_bytes": 12207,
+    "metadata_usb_path": "C8235-B-FGL2835LBHU-20261025-REPORTS/cleaned-retest-system-report_20250529-185359-UTC-info.txt",
+    "verification": "Both UEFI copies completed [ok] and full comp reported no differences; originals retained internally. SHA-256 not calculated for these fresh copies.",
+    "privacy": "Raw report and info remain internal/on USB, outside Git; may contain credentials or other private configuration.",
+    "timestamp_note": "May 2025 filenames are from incorrect router clock; actual capture/archive date October 25, 2026 America/New_York."
+  },
+  "other_USB_artifacts": [
+    "C8235-B-FGL2835LBHU-20261025-REPORTS/ (verified older reports, multipart report and hash/reassembly inventories)",
+    "C8235-B-FGL2835LBHU-20261025-SPI-READS/ (two matching 32 MiB snapshots of ONE logical read-only MTD device)"
+  ],
+  "firmware_state": "Development ROMMON retained; maintenance parameter absent; no ROMMON upgrade or security provisioning performed",
+  "next_recovery_step": "Inspect preserved fresh CPP/system report and platform initialization evidence. Reconfirm physical state/console ownership on resume. Physical chip/bank mapping and both-chip acquisition remain pending.",
+  "publication": "Raw console originals remain local/ignored; full reports and SPI binaries remain on user USB, outside Git. Public records contain metadata and generated sanitized captures.",
+  "background_activity": "No console capture or scheduled/background sync left running."
+}

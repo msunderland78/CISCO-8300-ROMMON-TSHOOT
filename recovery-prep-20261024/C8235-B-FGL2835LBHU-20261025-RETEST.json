@@ -66,7 +66,7 @@
   "free_bytes_in_status_sample_after_cpp_helddown": 9513209856,
   "cause_observed": "Critical cpp_cp_svr failure and process-manager exits, followed by restart; this retest did not reach the baseline 300-second fatal keepalive marker before reload.",
   "conclusion": "Verified cleanup corrected storage exhaustion and removed initial RAM-fallback warnings, but cpp_cp_svr rc139, F0 offline and whole-chassis reload recurred with ample free storage. Storage cleanup is not sufficient; underlying platform/driver/hardware cause unresolved.",
-  "final_router_state": "Powered at Cisco ROMMON rommon 2 >; original development firmware retained; console logging active at 115200; maintenance parameter absent",
+  "final_router_state": "At 14:00 EDT handoff: last confirmed powered at Cisco ROMMON rommon 2 >; capture closed and serial port released; poweroff not yet confirmed",
   "fresh_system_report": {
     "internal_path": "bootflash:core/Router_RP_0-system-report_20250529-185359-UTC.tar.gz",
     "bytes": 44201929,
@@ -77,5 +77,7 @@
     "verification": "Both UEFI copies completed [ok] and full comp reported no differences; originals retained internally. SHA-256 not calculated for these fresh copies.",
     "privacy": "Raw report and info remain internal/on USB, outside Git; may contain credentials or other private configuration.",
     "timestamp_note": "May 2025 filenames are from incorrect router clock; actual capture/archive date October 25, 2026 America/New_York."
-  }
+  },
+  "observation_end_router_state": "Powered at Cisco ROMMON rommon 2 >; original development firmware retained; console logging active at 115200; maintenance parameter absent",
+  "handoff_record": "recovery-prep-20261024/C8235-20261025-STOPPING-POINT.json"
 }
