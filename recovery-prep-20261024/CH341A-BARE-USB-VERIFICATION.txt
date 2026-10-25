@@ -112,13 +112,30 @@ or refreshed tips-together baseline. Multiple direct supply-net connections
 are supported. Remaining four socket signal paths and adapter mapping are
 not established by this result.
 
+USER-SUPPLIED SOCKET SIGNAL MAPPING (2026-10-24, America/New_York)
+Task: P-01-SOCKET-SIGNALS
+User reports all four requested pairs at 0.3-0.4 ohm:
+- Labeled CS to B4.
+- Labeled MISO to B3.
+- Labeled MOSI to T1.
+- Labeled CLK to T2.
+Individual exact values were not supplied; retain the reported range for each.
+This completes the bare programmer signal/supply socket map. Ground/B1 was
+reported as continuity but no separate numerical value was supplied. Adapter
+input alignment, blue socket output mapping, power and translation remain
+unverified; the bare signals measured about 5.18 V and are unsuitable for
+direct 1.8 V target connection.
+
 NEXT
-Keep USB unplugged, socket empty, adapter/clips/routers detached, meter in
-ohms and the same upright BIOS 25 SPI orientation. Measure four candidate
-paths: labeled CS to B4; MISO to B3; MOSI to T1; CLK to T2. Record each actual
-resistance; these are proposed checks, not observed signal assignments.
-Report any high/OL result before adapter placement. No power or adapter
-insertion is requested. Adapter output power and translation remain pending.
+With USB unplugged and clips/routers detached, fit the green adapter male
+input pins into the mapped BIOS/25-SPI half of the black ZIF, four per side,
+and latch without power. Keep the blue socket empty. The numbered green
+front solder pads are the male input footprint, not blue output contacts.
+With blue socket below in the top view, input pads are left column 1-4 down,
+right column 8-5 down. In ohms mode verify programmer labeled pads to adapter
+input pads: GND -> 4; 3.3 V -> 8, 3, 7; CS -> 1; MISO -> 2; MOSI -> 5;
+CLK -> 6. All readings remain pending. Keep power off if any path differs or
+reads high/OL; correct the alignment before powered adapter testing.
 
 PRIMARY REFERENCES
 flashrom v1.8.0 CH341A driver:
