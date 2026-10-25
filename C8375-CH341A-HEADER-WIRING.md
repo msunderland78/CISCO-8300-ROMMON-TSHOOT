@@ -13,9 +13,9 @@ This is a tracking map, **not a ready-to-power harness**. Power/ground net ident
 | Flash VCC | 8 | 2 | P1 pin 1 | Header-to-flash continuity measured; actual in-circuit powering not tested |
 | Ground | 4 | 10 | P1 pin 2 | Continuity established; P2 pins 1/3 also ground |
 | Clock | 6 | 16 | **P1 pin 4, via U4 IA0/channel A** | P1-4→U4-2 **33 Ω**; U4-4→U1 CLK **22 Ω**. Passing this route still requires mux power/select/enable setup |
-| Chip select | 1 | 7 | Header unmapped; proposed direct clip contact 3 | Board scan had no low path; next validate direct clip-3→U1-7 continuity |
+| Chip select | 1 | 7 | Header unmapped; **clip contact 3 supported by reference match** | Clip-3→P1-8 **9.33 kΩ**, matching earlier bare U1-7→P1-8. Indirect evidence; not a powered test |
 | MOSI / data to flash | 5 | 15 | Unmapped | Pending |
-| MISO / data from flash | 2 | 8 | Header unmapped; proposed direct clip contact 4 | Next validate direct clip-4→U1-8 continuity |
+| MISO / data from flash | 2 | 8 | Header unmapped; proposed direct clip contact 4 | Direct pad hidden; next trace clip-4 to remaining U4 common terminals |
 | WP#/DQ2 control | 3 | 9 | Unmapped | Board control handling unresolved |
 | HOLD#/DQ3 control | 7 | 1 | Unmapped | Board control handling unresolved |
 | RESET# | No dedicated adapter pin assigned | 3 | Unmapped | Establish existing board handling before attachment |
@@ -32,7 +32,7 @@ The most useful candidate position is the **CS# end, away from the pin-1 dot**, 
 
 | Function | U1 pin | Proposed access | Status |
 | --- | --- | --- | --- |
-| CS# | 7 | Partial clip, individually mapped | Clip fit/contact map pending; could bypass the unresolved CS# routing search |
+| CS# | 7 | Partial clip contact 3 | **9.33 kΩ** reference match supports connection; no powered functional test |
 | MISO | 8 | Partial clip, individually mapped | Clip fit/contact map pending |
 | WP#/DQ2 | 9 | Partial clip if needed; establish inactive control handling | Pending |
 | Ground | 10 | Known P1 pin 2 or **clip contact 6** | User corrected and validated chip/clip ground; low reading **0.3 Ω** |
@@ -62,8 +62,8 @@ These are ground-reference checks. They do not by themselves establish point-to-
 | --- | --- | --- | --- |
 | 1 | 5 | DNU | User-described alignment; leave electrically disconnected |
 | 2 | 6 | DNU | Inferred position within window, not separately measured; leave disconnected |
-| 3 | 7 | CS# | Direct contact check next |
-| 4 | 8 | MISO | User-described alignment; direct contact check next |
+| 3 | 7 | CS# | Indirect **9.33 kΩ** reference match supports intended contact |
+| 4 | 8 | MISO | Direct pad hidden; next trace clip contact to remaining U4 commons |
 | 5 | 9 | WP#/DQ2 | Earlier ground assignment explicitly withdrawn; control handling unresolved |
 | **6** | **10** | **GND** | **User validated bare chip and reseated clip; corrected low ground reading 0.3 Ω** |
 | 7 | 11 | DNU | Inferred position within window, not separately measured; leave disconnected |
@@ -79,15 +79,26 @@ The user reports that the fitted clip **blocks access to the actual U1 legs/pads
 | Clip contact 4 → actual U1 chip lead/pad 8 | Not performed: jaw blocks access |
 | Clip contact 3 → clip contact 4 | **OL**, user explicitly confirmed |
 
-## Immediate next step: indirect CS# contact check using a recorded reference
+## CS# contact reference result
 
-The earlier bare-chip unpowered CS# scan recorded **red on U1 pin 7, black on P1 pin 8 = 9.33 kΩ** (see C8375-01-CS-SCAN in the tracking plan). This is a resistance reference; **it is not a direct SPI connection or an assignment of P1 pin 8 as CS#**.
+The earlier bare-chip scan recorded **red U1 pin 7 / CS#, black P1 pin 8 = 9.33 kΩ**. With the clip seated, the user now measures **red clip contact 3, black P1 pin 8 = 9.33 kΩ**, exactly matching the recorded value. This supports the intended clip CS# connection without accessing a hidden leg. It is indirect resistance evidence, not unique proof of physical landing, an identified direct header signal, or a powered functional test. **P1 pin 8 remains only a resistance reference; it is not assigned as CS#.** No repeat is needed.
 
-Keep the clip seated, all normal router cords disconnected, CR2032 removed, programmer USB unplugged, and breakout separate from programmer/adapter. In **ohms mode**, put **red on clip/breakout contact 3** and **black on router P1_CSPI pin 8**, preserving the earlier measurement polarity. Report the actual value/units or OL. Do not force a probe under the jaw or remove/reseat the clip for this requested pair.
+## Next tests: MOSI and expected MISO to the remaining U4 channels
 
-A comparable finite resistance would support connection through the intended CS# contact, while not uniquely proving physical landing or every other contact. The value need not match digit for digit: board state, contact and nonlinear circuit paths can affect resistance readings. OL would leave contact/reference validity unresolved, not diagnose a flash failure. This substitutes the clip endpoint into a previously measured pair rather than starting a new board-wide search. The new result remains pending.
+Keep the clip seated, all normal router cords disconnected, CR2032 removed, programmer USB unplugged and breakout separate from programmer/adapter. Use ohms mode. The three remaining U4 common terminals are pins **7 / YB, 9 / YC, 12 / YD**; channel A / pin 4 was traced for clock already.
 
-MISO contact, MOSI, mux power/select/enable, board loading and remaining control handling still need a justified setup. No powered ID/read/write has been reported. The programmer itself remains accepted.
+1. Fixed red on **large U1 flash pin 15 / MOSI**, the **left-side second lead from the bottom** with the pin-1 dot at bottom-right in the saved photo. Scan black over **small U4 pins 7, 9, 12**.
+2. Fixed red on **clip/breakout contact 4**, the expected MISO contact. Scan black over the same **small U4 pins 7, 9, 12**. This may establish an accessible low-resistance data path through the clip, without a probe under the jaw.
+
+| Black endpoint, small U4 | Photo position | Red U1 flash pin 15 / MOSI | Red clip contact 4 / expected MISO |
+| --- | --- | --- | --- |
+| Pin 7 | Top row, second from left | Pending | Pending |
+| Pin 9 | Bottom-left corner | Pending | Pending |
+| Pin 12 | Bottom row, fourth from left | Pending | Pending |
+
+Record all six actual values/units or OL. A low path would identify another data channel. A high-only scan leaves routing/contact unresolved and does not diagnose a failed chip. These pairs have not been tested; completed clock, ground and CS# reference checks should not be repeated. Do not force any probe under the clip.
+
+MOSI header assignment, MISO path/contact, mux power/select/enable, board loading and remaining control handling still need a justified setup. No powered ID/read/write has been reported. The programmer itself remains accepted.
 
 ## Clock trace result: U1 flash to U4 channel A
 
