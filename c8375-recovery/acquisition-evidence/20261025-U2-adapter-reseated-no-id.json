@@ -1,0 +1,33 @@
+{
+  "recorded_at": "2026-10-25T20:06:23.220183-04:00",
+  "task_id": "R-01-U2-ADAPTER",
+  "chassis": "FDO2742M0FK",
+  "chip": "U2_CSPI",
+  "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-200000-EDT-usb-reconnect-retry",
+  "command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-200000-EDT-usb-reconnect-retry && test ! -e U2-read3.bin && test ! -e U2-read4.bin && test ! -e U2-read3.log && test ! -e U2-read4.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read3.bin -o U2-read3.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read4.bin -o U2-read4.log && sudo chown games U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log && chmod 600 U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log",
+  "result": {
+    "USB_initialization_succeeded": true,
+    "id1": "0x00",
+    "id2": "0x0000",
+    "RDID_byte0_parity_violation": true,
+    "chip_found": false,
+    "read3_bin_created": false,
+    "read4_bin_created": false,
+    "read4_log_created": false,
+    "full_read_started": false,
+    "write_selected": false
+  },
+  "last_P1_supply_VDC_user_reported": 1.752,
+  "during_probe_P1_VDC": "not separately reported",
+  "setup": "U2 clip unchanged, shorter crimped leads/original 35 cm ribbon, accepted 1.8 V adapter user-reseated, normal router power/console/other cables and CR2032 removed; last P1 supply 1.752 V",
+  "USB_path": "direct Mac USB; IOUSBHostDevice detected 1a86:5512 at 20:03:07 EDT before command",
+  "log": {
+    "private_original": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-200000-EDT-usb-reconnect-retry/U2-read3.log",
+    "size_bytes": 572,
+    "sha256": "f5151dde0baa0c09ab8a80c1c2aad84619e3c5f0148714147d0e350d7d12768f",
+    "public_generated_counterpart": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-adapter-reseated-usb-restored-no-id.log"
+  },
+  "interpretation": "USB-access failure was followed by restored enumeration and successful programmer initialization, but SPI identification then failed. No new full captures. Moving adapter, clip/contact/cabling/signal quality and board loading are not isolated causes.",
+  "next_step": "USB unplug requested; leave U2 clip seated per user preference. Preserve all earlier captures/logs. Recommended next hardware change is ordered direct-pin clip on arrival with stable adapter support, unpowered mapping checks then voltage/ID and bounded repeatability before further full reads. No firmware write, voltage increase or speculative CS/reset jumper.",
+  "agent_programmer_access": false
+}

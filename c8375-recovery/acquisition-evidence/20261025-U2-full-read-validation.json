@@ -8,7 +8,7 @@
   "command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads && test ! -e U2-read1.bin && test ! -e U2-read2.bin && test ! -e U2-read1.log && test ! -e U2-read2.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read1.bin -o U2-read1.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read2.bin -o U2-read2.log && sudo chown games U2-read1.bin U2-read2.bin U2-read1.log U2-read2.log && chmod 600 U2-read1.bin U2-read2.bin U2-read1.log U2-read2.log",
   "setup": "existing clip left seated on U2, eight shorter crimped leads and original 35 cm ribbon, accepted 1.8 V adapter, normal router power/console/other cables and CR2032 removed",
   "last_supply_before_reads_VDC": 1.757,
-  "supply_during_reads": "user report requested; pending",
+  "supply_during_reads": "Not separately reported; only pre-read 1.757 V and later post-reconnect 1.752 V are established.",
   "repeatability_result": "FAIL",
   "pair_check": {
     "checked_at": "2026-10-25T19:51:02.521374-04:00",
@@ -209,7 +209,7 @@
     "Main-array captures exclude separate OTP.",
     "Cause remains unresolved; clip seating, cabling/signal behavior and board loading are not isolated by these observations."
   ],
-  "next_step": "Expected CH341A 1a86:5512 reappeared in macOS USB host-device inventory at 20:03:07 EDT. User confirms direct Mac USB connection, last P1 1.752 V. Fresh guarded U2-read3/read4 command copied in new 20261025-200000-EDT-usb-reconnect-retry directory; results pending. Preserve failed read1/read2 and USB-open failure log. No agent programmer access or write.",
+  "next_step": "USB unplug requested; leave U2 clip seated per user preference. Preserve all earlier captures/logs. Recommended next hardware change is ordered direct-pin clip on arrival with stable adapter support, unpowered mapping checks then voltage/ID and bounded repeatability before further full reads. No firmware write, voltage increase or speculative CS/reset jumper.",
   "agent_programmer_access": false,
   "subsequent_user_observation": {
     "observation": "User reports reseating the 1.8 V adapter, which moves around when pressed during voltage measurement. User requests one more attempt.",
@@ -227,5 +227,6 @@
     "supply_after_reseat_VDC": 1.757,
     "prepared_command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-195526-EDT-adapter-reseated && test ! -e U2-read3.bin && test ! -e U2-read4.bin && test ! -e U2-read3.log && test ! -e U2-read4.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read3.bin -o U2-read3.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read4.bin -o U2-read4.log && sudo chown games U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log && chmod 600 U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log"
   },
-  "adapter_retry_transport_failure": "c8375-recovery/acquisition-evidence/20261025-U2-adapter-reseated-usb-open-failed.json"
+  "adapter_retry_transport_failure": "c8375-recovery/acquisition-evidence/20261025-U2-adapter-reseated-usb-open-failed.json",
+  "subsequent_no_id_result": "c8375-recovery/acquisition-evidence/20261025-U2-adapter-reseated-no-id.json"
 }
