@@ -1,0 +1,86 @@
+{
+  "recorded_at": "2026-10-25T20:42:42.113173-04:00",
+  "chassis": "FDO2742M0FK",
+  "session_status": "User requested stopping for today; no further hardware operation selected",
+  "full_capture_count": 8,
+  "capture_integrity_check": "All eight full 32-MiB files rehashed against previously recorded values, unchanged, mode0600; adjacent logs present",
+  "captures": [
+    {
+      "chip": "U1",
+      "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-151243-EDT/U1-read1.bin",
+      "size_bytes": 33554432,
+      "sha256": "6f82693674aa55c64176541d398b4d93c6ac06a9af227c4849ff6e21ded1fb43",
+      "mode": "0600",
+      "log": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-151243-EDT/U1-read1.log",
+      "log_sha256": "52bdeab142b1517f63985e6154f30591f0b43a668aac9bb7dbff9a2870bd1297"
+    },
+    {
+      "chip": "U1",
+      "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-151243-EDT/U1-read2.bin",
+      "size_bytes": 33554432,
+      "sha256": "73c2d10a76d799e37ef0237f7d607c7aa858b78a2ceb07dc0eaa4fff64b64606",
+      "mode": "0600",
+      "log": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-151243-EDT/U1-read2.log",
+      "log_sha256": "4a0d3e90b042b3695a0c8611291cc09d3fe0f7ddad21dbff21bb1f18a36f4afa"
+    },
+    {
+      "chip": "U1",
+      "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-182549-EDT-user-read-retry/U1-read5.bin",
+      "size_bytes": 33554432,
+      "sha256": "4f6511d64b834935c4e7ba696dc6ed71494e08e5e36bda4cea7afbcce40ef760",
+      "mode": "0600",
+      "log": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-182549-EDT-user-read-retry/U1-read5.log",
+      "log_sha256": "c60c0c58d54bbd7511b158e3280a20ce394a37263c7253ac79d63bf958ef3778"
+    },
+    {
+      "chip": "U1",
+      "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-182549-EDT-user-read-retry/U1-read6.bin",
+      "size_bytes": 33554432,
+      "sha256": "4f6511d64b834935c4e7ba696dc6ed71494e08e5e36bda4cea7afbcce40ef760",
+      "mode": "0600",
+      "log": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-182549-EDT-user-read-retry/U1-read6.log",
+      "log_sha256": "82f86cd37a64f41175950755073ef4dc932fbd90d8fc8828bda671feddea049e"
+    },
+    {
+      "chip": "U2",
+      "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads/U2-read1.bin",
+      "size_bytes": 33554432,
+      "sha256": "66856b955526c85bb5ec9cccb09e1a347e59fc4497d7f25dc190163fd89e3c8b",
+      "mode": "0600",
+      "log": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads/U2-read1.log",
+      "log_sha256": "7b0311ad393e7167be5dfd09ca0d78ec7063dd4a61f4de122ed4b17308fdaa81"
+    },
+    {
+      "chip": "U2",
+      "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads/U2-read2.bin",
+      "size_bytes": 33554432,
+      "sha256": "b07ad18bcfd71520e61ad2ef75b578185e5c598815105e47065a84f35d6478cf",
+      "mode": "0600",
+      "log": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-194109-EDT-full-reads/U2-read2.log",
+      "log_sha256": "767e8b6ba88b041ad014b28ba663ceb761fd592b676885a6084886764d0659cc"
+    },
+    {
+      "chip": "U2",
+      "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-201130-EDT-shorter-usb/U2-read3.bin",
+      "size_bytes": 33554432,
+      "sha256": "7c9380d44cb71d1af0cdb7726d46f52403c0070895ce8364ab2603e0564c5cb5",
+      "mode": "0600",
+      "log": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-201130-EDT-shorter-usb/U2-read3.log",
+      "log_sha256": "68b39a51f5ae560f07a5485a56d8a5879089695f069d06f7aec1e7b62e73f740"
+    },
+    {
+      "chip": "U2",
+      "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-201130-EDT-shorter-usb/U2-read4.bin",
+      "size_bytes": 33554432,
+      "sha256": "3aebc8dbe548730f296d3c1b1f24661295a365c423e4a2be1338a676e72a1498",
+      "mode": "0600",
+      "log": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-201130-EDT-shorter-usb/U2-read4.log",
+      "log_sha256": "e4d6d4dc573803331652b6d7e030a01c0a5baf97f54820b63258f1046a9ec37c"
+    }
+  ],
+  "private_programmer_log_count": 16,
+  "public_sync_scope": "Documentation, validation/hash metadata, generated sanitized logs and repository manifest; raw flash dumps remain local under ignored .git/recovery-private, not uploaded",
+  "hardware_state": "Last clip seated on U2, original 35 cm ribbon and short crimped leads, user-reseated 1.8 V adapter; shorter USB connection. Normal router power/console/other cables and CR2032 removed under confirmed setup. CH341A USB unplug requested for shutdown, not yet confirmed. No flashrom process at final filesystem check.",
+  "findings": "U1 read5/read6 repeatable but raw-byte accuracy remains unresolved. Both U2 pairs failed, 3,897,877 and 1,775,520 differing bytes. U2 read4 first TIM 32KiB region equals original, but no bank/restore target is established. No firmware write performed.",
+  "next_session": "Reconfirm chassis and physical/power/cable/battery state. Replacement direct-pin SOIC16 clip expected Oct26, receipt not confirmed. Verify new contact mapping with USB unplugged, stabilize adapter, verify voltage/ID, then bounded repeatability and fresh full captures as supported; do not repeat broad standalone programmer acceptance. Reassess both U1 accuracy and U2 repeatability before restore-target selection."
+}
