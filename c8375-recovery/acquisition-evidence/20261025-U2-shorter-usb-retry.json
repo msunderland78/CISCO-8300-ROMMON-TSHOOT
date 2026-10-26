@@ -1,0 +1,24 @@
+{
+  "task_id": "R-01-U2-SHORTER-USB",
+  "prepared_at": "2026-10-25T20:11:30.173971-04:00",
+  "chassis": "FDO2742M0FK",
+  "chip": "U2_CSPI",
+  "directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-201130-EDT-shorter-usb",
+  "filenames": [
+    "U2-read3.bin",
+    "U2-read4.bin",
+    "U2-read3.log",
+    "U2-read4.log"
+  ],
+  "command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-201130-EDT-shorter-usb && test ! -e U2-read3.bin && test ! -e U2-read4.bin && test ! -e U2-read3.log && test ! -e U2-read4.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read3.bin -o U2-read3.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read4.bin -o U2-read4.log && sudo chown games U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log && chmod 600 U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log",
+  "status": "Prepared and copied to clipboard; no new capture result yet",
+  "expected_size_bytes_each": 33554432,
+  "last_supply_VDC": 1.758,
+  "USB_detection": "IOUSBHostDevice sees VID 1a86 PID 5512; no flashrom process before command preparation",
+  "new_setup_user_reported": "device moved closer and USB cable shortened; actual USB length unspecified",
+  "physical_setup": "U2 clip/adapter/wires retained, user-reseated 1.8 V adapter, original 35 cm clip ribbon plus shorter crimped Dupont leads; normal router power/console/other cables and CR2032 removed",
+  "agent_programmer_access": false,
+  "USB_programmer_control": "user terminal only",
+  "result": "pending; command prepared/copied only",
+  "interpretation": "Shorter USB connection is a newly reported setup change, not a proven cause or fix. SPI-side original 35 cm ribbon remains. Earlier zero-ID and failed full-pair evidence remains unchanged."
+}
