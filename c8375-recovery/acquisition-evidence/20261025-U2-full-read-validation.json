@@ -209,7 +209,7 @@
     "Main-array captures exclude separate OTP.",
     "Cause remains unresolved; clip seating, cabling/signal behavior and board loading are not isolated by these observations."
   ],
-  "next_step": "Adapter-reseated read3 stopped before chip probing: USB open/initialization failed; no new captures. Expected programmer absent from host inventory after reconnect, despite P1 1.752 V. Await USB connection-path clarification before another command; preserve read1/read2 and failed retry log.",
+  "next_step": "Expected CH341A 1a86:5512 reappeared in macOS USB host-device inventory at 20:03:07 EDT. User confirms direct Mac USB connection, last P1 1.752 V. Fresh guarded U2-read3/read4 command copied in new 20261025-200000-EDT-usb-reconnect-retry directory; results pending. Preserve failed read1/read2 and USB-open failure log. No agent programmer access or write.",
   "agent_programmer_access": false,
   "subsequent_user_observation": {
     "observation": "User reports reseating the 1.8 V adapter, which moves around when pressed during voltage measurement. User requests one more attempt.",

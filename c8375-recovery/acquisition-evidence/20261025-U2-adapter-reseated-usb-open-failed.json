@@ -16,8 +16,21 @@
   },
   "host_observation": "Initial IOUSB-plane inventory exposed no device nodes and is not sufficient alone. Independent IOUSBHostDevice class inventory exposes 12 USB device nodes, none with WCH vendor 0x1a86, including a repeat check after the user reconnect reply. No flashrom process. system_profiler SPUSBDataType also exposes no nodes; rely on class inventory coverage rather than that empty inventory.",
   "interpretation": "USB initialization failure before SPI probe; no new inference about U2 contact, identity or array contents. An existing failed log would stop the old guarded chain if repeated.",
-  "next_step": "1.752 V is in range, but expected programmer remains absent from macOS host-device inventory. User USB path (direct Mac vs hub/dock/extension/adapter vs other power source) requested. Await answer to choose reconnection path; no read command released or hardware programmer access by agent.",
+  "next_step": "USB enumeration restored; fresh guarded read3/read4 command copied in separate directory. Each read probes first. Results pending; no agent programmer access.",
   "prepared_retry_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-200000-EDT-usb-reconnect-retry",
   "post_reconnect_supply_VDC_user_reported": 1.752,
-  "post_reconnect_supply_recorded_at": "2026-10-25T20:02:14.548336-04:00"
+  "post_reconnect_supply_recorded_at": "2026-10-25T20:02:14.548336-04:00",
+  "subsequent_USB_recheck": {
+    "at": "2026-10-25T20:03:07-04:00",
+    "method": "ioreg -r -c IOUSBHostDevice -a, filtered vendor/product only",
+    "USB_device_nodes": 13,
+    "name": "USB UART-LPT",
+    "VID": "0x1a86",
+    "PID": "0x5512",
+    "expected_programmer_present": true,
+    "flashrom_running": false,
+    "connection_path_user_reported": "direct Mac USB port",
+    "last_P1_supply_VDC_user_reported": 1.752
+  },
+  "retry_command_released": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-200000-EDT-usb-reconnect-retry && test ! -e U2-read3.bin && test ! -e U2-read4.bin && test ! -e U2-read3.log && test ! -e U2-read4.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read3.bin -o U2-read3.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read4.bin -o U2-read4.log && sudo chown games U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log && chmod 600 U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log"
 }
