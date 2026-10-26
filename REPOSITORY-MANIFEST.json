@@ -171,6 +171,16 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
+      "bytes": 2057,
+      "path": "c8375-recovery/programmer-logs/20261025-U2-shorter-usb-read3.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 2057,
+      "path": "c8375-recovery/programmer-logs/20261025-U2-shorter-usb-read4.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 33554432,
       "path": "c8375-recovery/spi-backups-20261023/after-native-flash-crc-failure.bin",
       "reason": "intermediate failed-write dump contains detected credential material; exact original retained locally"
@@ -708,9 +718,9 @@
       "sha256": "a96d2f930878e06a3b87061e3e3b9f1ac43732188431fcb8b6879f2ab980401c"
     },
     {
-      "bytes": 83896,
+      "bytes": 86056,
       "path": "C8375-CH341A-HEADER-WIRING.md",
-      "sha256": "3db8fbb1a31dda7e08da28672308cc46fd198bff0becf4c70a7d5dfd8df7e336"
+      "sha256": "302c5df8851cffecd77fec015f0df1b4e495cadd8fb1969441fcac815eebbe7a"
     },
     {
       "bytes": 13235,
@@ -718,9 +728,9 @@
       "sha256": "dfb30c0fdb7f612d6eeddd9900a5dc9e7792424e6d5f1ced632d67350dfe8fec"
     },
     {
-      "bytes": 84638,
+      "bytes": 86777,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "9137a010722815eb764b255bb22fec3daa7530393fb4faf941ce887e3c9dbbad"
+      "sha256": "34909fca54768a65cb13c6dd856b99d5292364abe3bbdd701eb0cf0c67bed13a"
     },
     {
       "bytes": 1992,
@@ -888,9 +898,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 181511,
+      "bytes": 184132,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "0dd6171f88fe186588450adc75412e4ef3275fb0e9cf21c5b93e8d34beb3a58c"
+      "sha256": "5ce82b40958050d98814784ff8971ce8055dfb80fa724641750e088c191c90bb"
     },
     {
       "bytes": 6850655,
@@ -1068,9 +1078,9 @@
       "sha256": "ca3b58baeca971ce5fb3c2f5dc6aba842d6125f9f6ce6e40a1a5b5201439d8fd"
     },
     {
-      "bytes": 9549,
+      "bytes": 9670,
       "path": "c8375-recovery/acquisition-evidence/20261025-U2-full-read-validation.json",
-      "sha256": "fe3f7fc5c51877d7abc078d70ec8507267529de69bdc1c43bca32e4f30dcfd4a"
+      "sha256": "ae2aeefec69d69e366b1216307923fcb19ac601fb5c462e51d5d2c4afebeb637"
     },
     {
       "bytes": 12264,
@@ -1078,9 +1088,9 @@
       "sha256": "39ff2a1800e2d20cfc98c67cd160c698ce42f13ebba7027dfeec9da648a47c3b"
     },
     {
-      "bytes": 1796,
+      "bytes": 8240,
       "path": "c8375-recovery/acquisition-evidence/20261025-U2-shorter-usb-retry.json",
-      "sha256": "0ab2f4fbbb7287a3302214e4567f7dbaf12a1556e88032f1407d6b7633d45d31"
+      "sha256": "ed356f9e5a3012adc51491d6ba7e4889269894ce1aa9231129cdf250b07eee9d"
     },
     {
       "bytes": 172399,
@@ -1963,6 +1973,16 @@
       "sha256": "b0ac6e0dca623217aa0f95f07c9c38a1f5d6e951716bd22b0c9ed3dfafb068cd"
     },
     {
+      "bytes": 2057,
+      "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-shorter-usb-read3.log",
+      "sha256": "68b39a51f5ae560f07a5485a56d8a5879089695f069d06f7aec1e7b62e73f740"
+    },
+    {
+      "bytes": 2057,
+      "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-shorter-usb-read4.log",
+      "sha256": "e4d6d4dc573803331652b6d7e030a01c0a5baf97f54820b63258f1046a9ec37c"
+    },
+    {
       "bytes": 80262,
       "path": "sanitized-evidence/router-console-logs/20261022-185728-console.log",
       "sha256": "b5545972f9aaeef073e9abdf8836e182b39bd805273fc4478588f4de78ab6e23"
@@ -2068,6 +2088,8 @@
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-full-read2.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-initial-no-id.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-reseat1-partial-id.log",
+    "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-shorter-usb-read3.log",
+    "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-shorter-usb-read4.log",
     "sanitized-evidence/router-console-logs/20261022-185728-console.log",
     "sanitized-evidence/router-console-logs/20261022-191128-console.log",
     "sanitized-evidence/router-console-logs/20261022-191815-console.log",
@@ -2082,8 +2104,8 @@
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 134,
-    "included_bytes_without_manifest": 526497927,
-    "included_files_without_manifest": 272
+    "excluded_local_files": 136,
+    "included_bytes_without_manifest": 526515526,
+    "included_files_without_manifest": 274
   }
 }
