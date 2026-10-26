@@ -209,7 +209,7 @@
     "Main-array captures exclude separate OTP.",
     "Cause remains unresolved; clip seating, cabling/signal behavior and board loading are not isolated by these observations."
   ],
-  "next_step": "After user rechecked post-reseat VCC 1.757 V, one fresh U2-read3/read4 pair is released/copied in a new private directory. Results pending; preserve failed read1/read2. Keep adapter supported and probe P1, not adapter. Each read probes first; no force or write.",
+  "next_step": "Adapter-reseated read3 stopped before chip probing: USB open/initialization failed; no new captures. Expected programmer absent from host inventory after reconnect, despite P1 1.752 V. Await USB connection-path clarification before another command; preserve read1/read2 and failed retry log.",
   "agent_programmer_access": false,
   "subsequent_user_observation": {
     "observation": "User reports reseating the 1.8 V adapter, which moves around when pressed during voltage measurement. User requests one more attempt.",
@@ -226,5 +226,6 @@
     "command_status": "Guarded two-read command copied and offered to run immediately; each read probes first. No agent hardware access.",
     "supply_after_reseat_VDC": 1.757,
     "prepared_command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-195526-EDT-adapter-reseated && test ! -e U2-read3.bin && test ! -e U2-read4.bin && test ! -e U2-read3.log && test ! -e U2-read4.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read3.bin -o U2-read3.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read4.bin -o U2-read4.log && sudo chown games U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log && chmod 600 U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log"
-  }
+  },
+  "adapter_retry_transport_failure": "c8375-recovery/acquisition-evidence/20261025-U2-adapter-reseated-usb-open-failed.json"
 }

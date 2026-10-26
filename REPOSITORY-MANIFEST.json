@@ -136,6 +136,11 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
+      "bytes": 369,
+      "path": "c8375-recovery/programmer-logs/20261025-U2-adapter-reseated-usb-open-failed.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 1955,
       "path": "c8375-recovery/programmer-logs/20261025-U2-controls-checked-id-success.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
@@ -698,9 +703,9 @@
       "sha256": "a96d2f930878e06a3b87061e3e3b9f1ac43732188431fcb8b6879f2ab980401c"
     },
     {
-      "bytes": 78544,
+      "bytes": 80008,
       "path": "C8375-CH341A-HEADER-WIRING.md",
-      "sha256": "f274c48a1191cf0f8bb82e7f4e419b5d06ca32c3ed4e479e28f70040aa2f12d5"
+      "sha256": "c4469569fc81c04c871e8d0339f201b47a9b83f885c42acbb218e238b3f3cb20"
     },
     {
       "bytes": 13235,
@@ -708,9 +713,9 @@
       "sha256": "dfb30c0fdb7f612d6eeddd9900a5dc9e7792424e6d5f1ced632d67350dfe8fec"
     },
     {
-      "bytes": 79286,
+      "bytes": 80750,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "de85978a4b3e8dfd37cede12dab384f2ac2547c16187d76432c884bd422981cd"
+      "sha256": "2a9bd53a5bea459b70392104ddf28daf393fbc4934a2cf039a3100c4b218ba8d"
     },
     {
       "bytes": 1992,
@@ -878,9 +883,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 175698,
+      "bytes": 177312,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "95883101b382792247d408733489125c31e26f358810720a8e8f047c45ac420e"
+      "sha256": "bf40a1374ce6d61e290a7888212a8c94579aae3358e5b6a70bd4daf9020e7945"
     },
     {
       "bytes": 6850655,
@@ -1048,9 +1053,14 @@
       "sha256": "6db738792beb7b22e54b42510f5fb96a3216ec0d3d83118b3d74d895141b9c22"
     },
     {
-      "bytes": 9149,
+      "bytes": 2549,
+      "path": "c8375-recovery/acquisition-evidence/20261025-U2-adapter-reseated-usb-open-failed.json",
+      "sha256": "2f5191bc29812c8dad138ace97d0523c1e07e8c5ec81609ff792e7185fc32bdd"
+    },
+    {
+      "bytes": 9305,
       "path": "c8375-recovery/acquisition-evidence/20261025-U2-full-read-validation.json",
-      "sha256": "a595268ab96b7db3e1899f29c0b82041fd0af335ce14aa3f3e0ade0a1a05498a"
+      "sha256": "13d24796da8aa033e30d098bc79196773284b5796feff77e4a7e9d286e410c78"
     },
     {
       "bytes": 12264,
@@ -1903,6 +1913,11 @@
       "sha256": "82f86cd37a64f41175950755073ef4dc932fbd90d8fc8828bda671feddea049e"
     },
     {
+      "bytes": 369,
+      "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-adapter-reseated-usb-open-failed.log",
+      "sha256": "ee22282bbdb33b41ec4804c735556151499ec8b0c3999e9be9cceb68db43df3a"
+    },
+    {
       "bytes": 1955,
       "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-controls-checked-id-success.log",
       "sha256": "d7276d289642ee0b2383434f0bae27f644a8b31fb1a94c37405faf4d14e74619"
@@ -2026,6 +2041,7 @@
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-short-leads-read3-no-id.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-short-leads-read5.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U1-short-leads-read6.log",
+    "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-adapter-reseated-usb-open-failed.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-controls-checked-id-success.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-full-read1.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-full-read2.log",
@@ -2045,8 +2061,8 @@
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 132,
-    "included_bytes_without_manifest": 526471957,
-    "included_files_without_manifest": 267
+    "excluded_local_files": 133,
+    "included_bytes_without_manifest": 526479573,
+    "included_files_without_manifest": 269
   }
 }

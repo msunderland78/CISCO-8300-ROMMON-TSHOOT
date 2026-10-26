@@ -1,0 +1,23 @@
+{
+  "recorded_at": "2026-10-25T20:00:00.199095-04:00",
+  "chassis": "FDO2742M0FK",
+  "chip_context": "U2_CSPI clipped; programmer never reached chip probing",
+  "command": "cd /Users/games/Documents/SOFTWARE/.git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-195526-EDT-adapter-reseated && test ! -e U2-read3.bin && test ! -e U2-read4.bin && test ! -e U2-read3.log && test ! -e U2-read4.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read3.bin -o U2-read3.log && sudo flashrom -p ch341a_spi -c MT25QU256 -r U2-read4.bin -o U2-read4.log && sudo chown games U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log && chmod 600 U2-read3.bin U2-read4.bin U2-read3.log U2-read4.log",
+  "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-195526-EDT-adapter-reseated",
+  "failure": "Couldn't open device 1a86:5512. Programmer initialization failed.",
+  "read3_bin_exists": false,
+  "read4_bin_exists": false,
+  "read4_log_exists": false,
+  "log": {
+    "private_original": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-195526-EDT-adapter-reseated/U2-read3.log",
+    "size_bytes": 369,
+    "sha256": "ee22282bbdb33b41ec4804c735556151499ec8b0c3999e9be9cceb68db43df3a",
+    "public_generated_counterpart": "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-adapter-reseated-usb-open-failed.log"
+  },
+  "host_observation": "Initial IOUSB-plane inventory exposed no device nodes and is not sufficient alone. Independent IOUSBHostDevice class inventory exposes 12 USB device nodes, none with WCH vendor 0x1a86, including a repeat check after the user reconnect reply. No flashrom process. system_profiler SPUSBDataType also exposes no nodes; rely on class inventory coverage rather than that empty inventory.",
+  "interpretation": "USB initialization failure before SPI probe; no new inference about U2 contact, identity or array contents. An existing failed log would stop the old guarded chain if repeated.",
+  "next_step": "1.752 V is in range, but expected programmer remains absent from macOS host-device inventory. User USB path (direct Mac vs hub/dock/extension/adapter vs other power source) requested. Await answer to choose reconnection path; no read command released or hardware programmer access by agent.",
+  "prepared_retry_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261025-200000-EDT-usb-reconnect-retry",
+  "post_reconnect_supply_VDC_user_reported": 1.752,
+  "post_reconnect_supply_recorded_at": "2026-10-25T20:02:14.548336-04:00"
+}
