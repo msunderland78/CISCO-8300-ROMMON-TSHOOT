@@ -46,47 +46,19 @@
     "Only original bytes plus labeled non-generative crops are preserved; no markings reconstructed."
   ],
   "next_step": {
-    "state": "Await unpowered cable/interposer-to-free-female-connector resistances; whole blocks detached at clip TOP, clip remains seated",
-    "conditions": "CH341A USB unplugged, normal router power/other cables disconnected and CR2032 removed; first P1\u22480V DC, then ohms. Record/label clip-end block positions/orientation before unplugging whole blocks; adapter ends stay connected.",
-    "endpoints": "Active1.8V adapter OUTPUT to accessible female socket inside the freed cable block, identifying which clip contact/actual package pin it previously occupied. No hidden chip/mux/header probing.",
-    "measurements": [
-      {
-        "adapter_output": 1,
-        "signal": "CS#",
-        "U2_package_pin": 7
-      },
-      {
-        "adapter_output": 2,
-        "signal": "MISO/DQ1",
-        "U2_package_pin": 8
-      },
-      {
-        "adapter_output": 5,
-        "signal": "MOSI/DQ0",
-        "U2_package_pin": 15
-      },
-      {
-        "adapter_output": 6,
-        "signal": "CLK",
-        "U2_package_pin": 16
-      }
+    "state": "U1 comparison identification prepared only; awaiting actual U1 clip placement, current isolation state and loaded P1 voltage. Not copied to clipboard or run.",
+    "physical_setup_requested": [
+      "CH341A USB unplugged; normal router power/other cables disconnected and CR2032 removed.",
+      "Confirm P1\u22480V before moving clip. Move only chip clip U2\u2192U1, using U1 own pin1 orientation and unchanged checked wire assignments/connector positions.",
+      "Reconnect only CH341A USB, verify/report P1 in1.7\u20132.0V and explicitly confirm physical target U1. Keep flashrom stopped until target/voltage confirmed."
     ],
-    "fresh_probe_baseline": "requested",
-    "if_unidentified": "Report inability to confidently identify a cavity instead of guessing numbers/colors.",
-    "finish_state": "USB remains unplugged; leave blocks detached from clip pending results.",
-    "coverage": "Tests adapter/interposer/wire/crimp/free female-contact routing only, not clip internal path, jaw-to-chip contact, board loading or dynamic SPI integrity.",
-    "not_selected": [
-      "individual terminal depinning",
-      "U2 clip removal",
-      "under-clip probing",
-      "P1/P2/U1 SPI proxy",
-      "powered connector changes",
-      "flashrom retry",
-      "voltage increase",
-      "jumper",
-      "full capture",
-      "firmware/protection/OTP/provisioning changes"
-    ]
+    "comparison_reason": "U1 previously identified and read5/read6 matched, with separate systematic accuracy concerns. Same harness identification comparison may inform common-path versus target-specific investigation, but neither pass nor failure alone proves a good/dead chip or firmware bank identity.",
+    "private_session": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-124218-EDT-comparison-identification",
+    "prepared_hardware_command": "sudo /opt/homebrew/sbin/flashrom -V -p ch341a_spi -c MT25QU256 -o U1-identification.log",
+    "operations": "Identification only, no array read/write, force, protection/OTP or persistent provisioning change.",
+    "target_confirmation_pending": true,
+    "voltage_pending": true,
+    "agent_hardware_access": false
   },
   "user_access_followup": "User says clip completely covers the area around U2 and notes mux circuitry between chips and header. No under-clip measurements supplied or repeated.",
   "top_terminal_access_confirmation": {
@@ -133,5 +105,54 @@
       "firmware/protection/OTP/provisioning changes"
     ],
     "header_route_rule": "P1 is verified as power/ground reference only. Historical clock-to-header route involves mux and other SPI routes are incomplete; do not use P1/P2 or neighboring U1 as a direct proxy for U2 SPI pins."
+  },
+  "withdrawn_free_connector_test_plan": {
+    "state": "Await unpowered cable/interposer-to-free-female-connector resistances; whole blocks detached at clip TOP, clip remains seated",
+    "conditions": "CH341A USB unplugged, normal router power/other cables disconnected and CR2032 removed; first P1\u22480V DC, then ohms. Record/label clip-end block positions/orientation before unplugging whole blocks; adapter ends stay connected.",
+    "endpoints": "Active1.8V adapter OUTPUT to accessible female socket inside the freed cable block, identifying which clip contact/actual package pin it previously occupied. No hidden chip/mux/header probing.",
+    "measurements": [
+      {
+        "adapter_output": 1,
+        "signal": "CS#",
+        "U2_package_pin": 7
+      },
+      {
+        "adapter_output": 2,
+        "signal": "MISO/DQ1",
+        "U2_package_pin": 8
+      },
+      {
+        "adapter_output": 5,
+        "signal": "MOSI/DQ0",
+        "U2_package_pin": 15
+      },
+      {
+        "adapter_output": 6,
+        "signal": "CLK",
+        "U2_package_pin": 16
+      }
+    ],
+    "fresh_probe_baseline": "requested",
+    "if_unidentified": "Report inability to confidently identify a cavity instead of guessing numbers/colors.",
+    "finish_state": "USB remains unplugged; leave blocks detached from clip pending results.",
+    "coverage": "Tests adapter/interposer/wire/crimp/free female-contact routing only, not clip internal path, jaw-to-chip contact, board loading or dynamic SPI integrity.",
+    "not_selected": [
+      "individual terminal depinning",
+      "U2 clip removal",
+      "under-clip probing",
+      "P1/P2/U1 SPI proxy",
+      "powered connector changes",
+      "flashrom retry",
+      "voltage increase",
+      "jumper",
+      "full capture",
+      "firmware/protection/OTP/provisioning changes"
+    ],
+    "validity": "Withdrawn: user rejects clip-side measurement feasibility; connector/socket probeability was assumed, not established. No test performed."
+  },
+  "user_access_correction": {
+    "recorded_at": "2026-10-27T12:42:18.269623-04:00",
+    "user_report": "There is nowhere to measure on the clip itself.",
+    "agent_correction": "Inaccessible clip/free-connector resistance instructions withdrawn. Stop requesting clip-side or under-clip measurements and do not substitute mux/header paths. No resistance values or completed checks claimed."
   }
 }
