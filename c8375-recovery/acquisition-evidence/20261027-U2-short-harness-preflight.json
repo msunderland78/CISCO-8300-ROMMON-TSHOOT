@@ -17,7 +17,7 @@
     "P1-1_to_P1-2_usb_powered_vdc": 1.787
   },
   "new_tool_model": "not specified",
-  "status": "Current user VCC 1.79 V, RESET 1.73 V, confirmed loaded adapter output7/HOLD route 0 V. Software retries stopped; source/load split requested.",
+  "status": "VCC 1.79 V / RESET 1.73 V / adapter output7\u2192HOLD 0 V; grouped 5\u20138 connector prevents single-wire isolation. Unpowered assembled output7-to4 resistance requested.",
   "next_diagnostic": {
     "state": "planned after successful ID",
     "regions": [
@@ -70,22 +70,23 @@
   },
   "historical_reconciliation": "October 25 U2 probes returned 00/00 and then 20/0000 before later successful 20 BB 19 identification and full reads. This initial failure does not establish permanent inability to communicate or a dead/erased chip. Both October 25 full pairs subsequently failed repeatability.",
   "next_step": {
-    "state": "Await unloaded adapter output-7 voltage after USB-off disconnection of only the HOLD lead at the adapter; no flashrom command",
-    "setup": "Same U2 clip/chassis; normal router power and other cables disconnected, CR2032 removed.",
-    "steps": [
-      "Unplug CH341A USB; confirm approximately 0 V DC at P1-1/P1-2.",
-      "Disconnect only the lead from active 1.8 V adapter output 7; leave its other end at mapped U2 pin 1/HOLD# and keep all other connections unchanged. Keep the loose connector insulated and clear of other contacts.",
-      "Reconnect only CH341A USB, keep flashrom stopped, meter DC volts black P1-2/GND, red on now-unloaded adapter output 7. Report that voltage.",
-      "Unplug CH341A USB after measuring; leave this lead disconnected for now, do not reconnect it while powered."
+    "state": "Await unpowered output7-to-ground resistance; grouped connector and U2 clip remain intact",
+    "setup": "CH341A USB unplugged, normal router power/other cables disconnected, CR2032 removed.",
+    "requested_measurements": [
+      "First DC volts P1-1 to P1-2, confirm approximately zero residual voltage.",
+      "Then ohms: probes-together baseline.",
+      "Ohms: active 1.8 V adapter output 7 to output 4/GND, black 4 and red 7; exact value/units or OL."
     ],
-    "interpretation": "If unloaded adapter output 7 rises near 1.8 V, the attached lead/clip/target network is associated with the low loaded level; this does not locate a short or prove board contention. If it remains low, investigate adapter/source path before reattaching the load.",
+    "interpretation": "A reading near lead baseline would support a static low-resistance path to ground on the assembled HOLD route but not locate the cause. High resistance/OL would not exclude a powered driver, transient behavior, misrouting or contact fault.",
     "not_selected": [
+      "any connector disconnection",
       "HOLD-to-VCC jumper",
+      "USB power during resistance test",
+      "flashrom retry",
+      "full capture",
       "voltage increase",
       "router power",
-      "flashrom retry",
-      "full read",
-      "erase/write/protection/OTP/provisioning changes"
+      "firmware/protection/OTP/provisioning change"
     ]
   },
   "retry_command_status": "Copied to clipboard; not run by agent",
@@ -148,24 +149,50 @@
     },
     "assessment": "VCC 1.79 V within operating range; reported RESET 1.73 V exceeds nominal VIH minimum 1.253 V. Loaded adapter output 7/HOLD route is 0 V, below VIL maximum 0.537 V. If reaching U2 and HOLD enabled, this can inhibit communication; actual package contact and earlier transaction levels are not established, and no cause is located.",
     "next_step": {
-      "state": "Await unloaded adapter output-7 voltage after USB-off disconnection of only the HOLD lead at the adapter; no flashrom command",
-      "setup": "Same U2 clip/chassis; normal router power and other cables disconnected, CR2032 removed.",
-      "steps": [
-        "Unplug CH341A USB; confirm approximately 0 V DC at P1-1/P1-2.",
-        "Disconnect only the lead from active 1.8 V adapter output 7; leave its other end at mapped U2 pin 1/HOLD# and keep all other connections unchanged. Keep the loose connector insulated and clear of other contacts.",
-        "Reconnect only CH341A USB, keep flashrom stopped, meter DC volts black P1-2/GND, red on now-unloaded adapter output 7. Report that voltage.",
-        "Unplug CH341A USB after measuring; leave this lead disconnected for now, do not reconnect it while powered."
+      "state": "Await unpowered output7-to-ground resistance; grouped connector and U2 clip remain intact",
+      "setup": "CH341A USB unplugged, normal router power/other cables disconnected, CR2032 removed.",
+      "requested_measurements": [
+        "First DC volts P1-1 to P1-2, confirm approximately zero residual voltage.",
+        "Then ohms: probes-together baseline.",
+        "Ohms: active 1.8 V adapter output 7 to output 4/GND, black 4 and red 7; exact value/units or OL."
       ],
-      "interpretation": "If unloaded adapter output 7 rises near 1.8 V, the attached lead/clip/target network is associated with the low loaded level; this does not locate a short or prove board contention. If it remains low, investigate adapter/source path before reattaching the load.",
+      "interpretation": "A reading near lead baseline would support a static low-resistance path to ground on the assembled HOLD route but not locate the cause. High resistance/OL would not exclude a powered driver, transient behavior, misrouting or contact fault.",
       "not_selected": [
+        "any connector disconnection",
         "HOLD-to-VCC jumper",
+        "USB power during resistance test",
+        "flashrom retry",
+        "full capture",
         "voltage increase",
         "router power",
-        "flashrom retry",
-        "full read",
-        "erase/write/protection/OTP/provisioning changes"
+        "firmware/protection/OTP/provisioning change"
       ]
     },
     "endpoint_confirmed_at": "2026-10-27T10:49:52.475122-04:00"
+  },
+  "grouped_connection_constraint": {
+    "reported_at": "2026-10-27T10:53:06.280941-04:00",
+    "user_report": "I have a 4 pin clip connecting to pin 5 through 8 on the 1.8 v adapter to ch341a",
+    "practical_constraint": "User cannot disconnect output 7 alone with this grouped four-position connection. Do not depin, cut, pull out one contact, or remove only the 5\u20138 group as a powered test.",
+    "prior_single_lead_isolation_check": "not performed; superseded"
+  },
+  "superseded_single_lead_isolation_plan": {
+    "state": "Await unloaded adapter output-7 voltage after USB-off disconnection of only the HOLD lead at the adapter; no flashrom command",
+    "setup": "Same U2 clip/chassis; normal router power and other cables disconnected, CR2032 removed.",
+    "steps": [
+      "Unplug CH341A USB; confirm approximately 0 V DC at P1-1/P1-2.",
+      "Disconnect only the lead from active 1.8 V adapter output 7; leave its other end at mapped U2 pin 1/HOLD# and keep all other connections unchanged. Keep the loose connector insulated and clear of other contacts.",
+      "Reconnect only CH341A USB, keep flashrom stopped, meter DC volts black P1-2/GND, red on now-unloaded adapter output 7. Report that voltage.",
+      "Unplug CH341A USB after measuring; leave this lead disconnected for now, do not reconnect it while powered."
+    ],
+    "interpretation": "If unloaded adapter output 7 rises near 1.8 V, the attached lead/clip/target network is associated with the low loaded level; this does not locate a short or prove board contention. If it remains low, investigate adapter/source path before reattaching the load.",
+    "not_selected": [
+      "HOLD-to-VCC jumper",
+      "voltage increase",
+      "router power",
+      "flashrom retry",
+      "full read",
+      "erase/write/protection/OTP/provisioning changes"
+    ]
   }
 }
