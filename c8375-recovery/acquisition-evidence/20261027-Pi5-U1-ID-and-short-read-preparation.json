@@ -66,5 +66,17 @@
   ],
   "sources": [
     "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/doc/classic_cli_manpage.rst"
-  ]
+  ],
+  "script_delivery_update": {
+    "recorded_at": "2026-10-27T17:13:51.543596-04:00",
+    "owner_request": "Execute as a script file on Pi rather than pasted Python here-document",
+    "source": "scripts/pi_u1_short_reads.py",
+    "source_sha256": "6275e16b0568689c19a749bd6e1a249f632f4492e3fabdc7fedbefda15bf5c51",
+    "authorship": "AI-assisted original wrapper promoted from prepared private source; explicit --read CLI added, no vendor code",
+    "invocation": "python3 /path/to/pi_u1_short_reads.py --read",
+    "default_and_help": "Display help only; no SPI or acquisition-file creation",
+    "delivery": "Publish through existing authorized GitHub repository; prepare clipboard curl download pinned to published commit with SHA256 verification, then explicit --read. No direct SSH transfer attempted and no hardware execution.",
+    "validation": "All18unittests passed, including7offline Pi acquisition tests covering no-hardware help/import, active-process guard, matching/mismatching samples, empty/wrong-size rejection, failure stop/no retry, exact-original preservation and0700/0600 modes. Mocked subprocess only; no router test.",
+    "status": "Prepared for publication/download, not installed or executed on Pi"
+  }
 }

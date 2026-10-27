@@ -67,8 +67,8 @@ Older notes describe intermediate stages and may say that a write had not yet oc
 +-- purchase-research/                Tool-selection notes, excerpts, and photos
 +-- recovery-prep-20261024/           Initial bench worksheet and workspace inventory
 +-- sanitized-evidence/               Generated public console/configuration copies
-+-- scripts/                         Authored publication and sync tools
-+-- tests/                           Publication-tool regression tests
++-- scripts/                         Authored publication, inspection and bounded-acquisition tools
++-- tests/                           Offline utility regression tests; no router access
 +-- .githooks/                       Local pre-commit/pre-push guards
 +-- .github/workflows/               GitHub checks
 +-- REPOSITORY-MANIFEST.json          Generated selection and content hashes
@@ -186,6 +186,7 @@ python3 scripts/repository_tools.py audit-tree
 | [Repository utilities](scripts/repository_tools.py) | Sanitized copies, credential/size checks, manifest, hooks, and Git sync | Standard library; explicit CLI commands |
 | [Regression tests](tests/test_repository_tools.py) | Redaction, preservation of originals, binary detection, size and sync boundaries | Offline tests with temporary fixtures; no router access |
 | [Photo inspection crop utility](scripts/make_programmer_inspection_crops.py) | Reproduce documented crops/rotations of the received hardware photos while checking original hashes | Uses macOS `sips`; no hardware/network access or generated reconstruction |
+| [Pi U1 short-read diagnostic](scripts/pi_u1_short_reads.py) | Two independent reads of two 64 KiB regions on C8375-A/FDO2742M0FK/U1; preserve private samples/logs and compare hashes/bytes | Python standard library, Linux `flashrom`, `sudo`, `pgrep`; only explicit `--read` opens SPI. Requires the checked Pi/1.8 V harness and router isolation in the [Pi acquisition plan](c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md) |
 | [C8235 serial bridge](c8235_serial_console.py) | JSON-controlled serial logging and triggers | Opens a hardware port; historical port/log-directory defaults are embedded in the source |
 | [C8375 RJ45 bridge](c8375-recovery/rj45_serial_console.py) | Serial logging, triggers, and baud switching | Optional initial baud argument; verify port ownership and settings first |
 | [C8375 USB bridge](c8375-recovery/serial_console.py) | Native USB serial logging and triggers | Historical device name/log directory must be reviewed |

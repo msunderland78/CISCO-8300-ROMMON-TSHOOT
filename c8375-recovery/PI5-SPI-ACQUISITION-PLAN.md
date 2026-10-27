@@ -175,6 +175,20 @@ The command refuses an active flashrom process, creates a fresh mode0700 Pi-home
 
 Validation: Python AST and shell here-document syntax pass; importing definitions triggers no main/hardware action. Synthetic equal samples give0differences; first/last changes in the upper region give2 at correct absolute offsets; an empty placeholder is rejected. These are offline logic checks, **not Pi acquisition tests**. Keep the same U1 harness and router isolation, monitor P1 supply1.7–2.0V, and share the final comparison metadata before further reads. **No samples or full reads have completed yet.** [ID, dependencies, prepared-command hashes and validation](acquisition-evidence/20261027-Pi5-U1-ID-and-short-read-preparation.json).
 
+### Script-file execution, superseding the pasted here-document handoff
+
+At the owner's request, the prepared wrapper is now an ordinary repository file: [`scripts/pi_u1_short_reads.py`](../scripts/pi_u1_short_reads.py). It is AI-assisted original code using the Python3 standard library plus installed `flashrom`, `sudo` and `pgrep`. Hardware and acquisition-file creation require the explicit invocation:
+
+```sh
+python3 /path/to/pi_u1_short_reads.py --read
+```
+
+Running without `--read`, using `--help`, or importing definitions does not access SPI. The fixed target/settings remain **C8375-A/FDO2742M0FK/U1**, **MT25QU256**, **RP1 `/dev/spidev0.0`**, requested100kHz, the two existing64KiB regions and two passes. No full capture/write/protection/OTP operation is added. Keep the checked harness still, normal router power/cables/CR2032 removed, and supply1.7–2.0V.
+
+Delivery: owner runs a short `curl` download from the existing public repository pinned to a specific published commit, verifies SHA256 with `sha256sum`, then invokes the downloaded file with `--read`. A fresh private Pi tools directory prevents overwriting another script. This avoids retrying the rejected saved SSH login. Downloading is not installation/execution until the owner runs the command; no agent SPI command is selected.
+
+Validation: `python3 -m unittest discover -s tests -v` passes **18tests**, including **7offline mocked acquisition tests** for safe import/help/default, competing-process guard, comparison offsets, incomplete samples, failed-read stop, differing samples, original-byte preservation and private modes. No hardware was used. [Source hash and delivery record](acquisition-evidence/20261027-Pi5-U1-ID-and-short-read-preparation.json). No Pi read result exists yet; preserve any captures and share the comparison before further reads.
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.
