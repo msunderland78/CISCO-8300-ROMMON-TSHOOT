@@ -69,7 +69,7 @@
     "darwin_libusb_info": "Present in user paste; not in flashrom output log. Similar info also accompanied prior successful access; it does not establish a permission failure."
   },
   "historical_reconciliation": "October 25 U2 probes returned 00/00 and then 20/0000 before later successful 20 BB 19 identification and full reads. This initial failure does not establish permanent inability to communicate or a dead/erased chip. Both October 25 full pairs subsequently failed repeatability.",
-  "next_step": "Unplug programmer USB, leave wiring seated; obtain user report of during-read P1 voltage and setup stability before selecting next diagnostic. No full-read retry or write.",
+  "next_step": "Planned one USB-off U2 clip-only reseat, then fresh two-region sample pair if loaded P1 supply remains 1.7\u20132.0 V. Command copied, trial not performed/confirmed. No full captures or write.",
   "retry_command_status": "Copied to clipboard; not run by agent",
   "retry_identification_result": {
     "verified_at": "2026-10-27T10:28:07.656512-04:00",
@@ -105,5 +105,14 @@
     "checks": "guards all output names, precreates owner-mode-0600 outputs, stops on flashrom error, offline sizes/hashes/byte comparison, preserves each sample without majority voting",
     "cli_validation": "Installed flashrom v1.8.0 dummy-only two-region extraction completed successfully with exactly 32768 bytes per test region; no hardware access. Prepared shell syntax passed sh -n.",
     "validation": "c8375-recovery/acquisition-evidence/20261027-U2-short-harness-partial-validation.json"
+  },
+  "voltage_followup": {
+    "recorded_at": "2026-10-27T10:32:04.771597-04:00",
+    "user_report": "Not watching super closely; every spot check is very close to 1.787 V.",
+    "continuous_during_read_monitoring": false,
+    "exact_min_max_or_transients": "not measured",
+    "mechanical_stability": "not separately answered",
+    "usb_unplug": "requested; not confirmed",
+    "interpretation": "Supports approximately normal DC supply at observed moments; no reported sustained collapse, but does not exclude brief dips or signal/control/contact problems."
   }
 }

@@ -120,12 +120,72 @@
   ],
   "repeatability_pass": false,
   "full_capture_selected": false,
-  "during_read_vcc": "not yet supplied; requested",
+  "during_read_vcc": "User spot checks close to 1.787 V; not continuously observed; exact range not supplied",
   "usb_unplug": "requested after samples; not confirmed",
   "limitations": [
     "Samples cover only two 64-KiB regions and are not backups or restore images.",
     "A successful ID and matching upper sample do not validate the mismatching lower region.",
     "No single cause is established: changed wire length does not exclude contact, board loading/contention, control or supply problems.",
     "Read2 log reports status 0x02 / WEL set; this is an observed status report, not proof of array programming. Invoked commands selected reads only; no erase/write/protection/OTP operation was selected."
-  ]
+  ],
+  "voltage_followup": {
+    "recorded_at": "2026-10-27T10:32:04.771597-04:00",
+    "user_report": "Not watching super closely; every spot check is very close to 1.787 V.",
+    "continuous_during_read_monitoring": false,
+    "exact_min_max_or_transients": "not measured",
+    "mechanical_stability": "not separately answered",
+    "usb_unplug": "requested; not confirmed",
+    "interpretation": "Supports approximately normal DC supply at observed moments; no reported sustained collapse, but does not exclude brief dips or signal/control/contact problems."
+  },
+  "additional_offline_analysis": {
+    "lower_region": [
+      {
+        "sample_read": 1,
+        "lost_one_bits_by_bit_lsb_first": [
+          16334,
+          16558,
+          16405,
+          16162,
+          16452,
+          16417,
+          16296,
+          16303
+        ],
+        "differences_from_bitwise_AND_of_nonbooting_reference_and_saved_U1_at_same_addresses": 57432
+      },
+      {
+        "sample_read": 2,
+        "lost_one_bits_by_bit_lsb_first": [
+          17220,
+          17494,
+          17358,
+          17159,
+          17429,
+          17254,
+          17184,
+          17479
+        ],
+        "differences_from_bitwise_AND_of_nonbooting_reference_and_saved_U1_at_same_addresses": 56573
+      }
+    ],
+    "interpretation": "Loss occurs across all eight serialized byte bit positions. Samples are not the exact bitwise AND of the saved known-nonbooting reference and saved matching U1 sample. Neither observation diagnoses a faulty lead, contention, timing or actual flash changes."
+  },
+  "next_trial": {
+    "created_at": "2026-10-27T10:32:04.770851-04:00",
+    "target": "C8375-A / FDO2742M0FK / U2_CSPI",
+    "status": "planned, not performed",
+    "hypothesis": "Test changed clip seating without changing wire assignments, adapter or total cable path. Contact is a possible contributor, not a proven fault.",
+    "preconditions": [
+      "Unplug CH341A USB; normal router power/all other cables remain disconnected and CR2032 removed.",
+      "Check P1-1/P1-2 in DC volts is approximately zero before adjusting clip.",
+      "Reseat only U2 clip once using its own pin-1 orientation; keep same eight assignments and adapter.",
+      "Reconnect only CH341A USB, verify P1 supply remains 1.7\u20132.0 V, then run the prepared partial diagnostic while watching meter."
+    ],
+    "script": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/clip-reseat1/RUN-U2-SAMPLES.sh",
+    "script_sha256": "88a8b924c3eb592a60d537ceafd7aa291df95f3948edf094c6cf3cc660cc8b41",
+    "copied_to_clipboard": true,
+    "executed": false,
+    "full_reads_selected": false,
+    "source_samples_preserved": true
+  }
 }
