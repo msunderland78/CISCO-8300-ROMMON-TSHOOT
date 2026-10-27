@@ -68,22 +68,9 @@
     "agent_programmer_access": false
   },
   "current_next_step": {
-    "state": "Await fresh loaded adapter output7/output8 DC readings with corrected probes; prior regulator/reference checks canceled",
-    "setup": [
-      "Unplug CH341A USB before reconnecting any target leads.",
-      "Reconnect ALL router/clip leads in their original checked adapter positions as intact connector blocks; leave U2 clip/adapter seating unchanged.",
-      "Normal router power/other cables disconnected, CR2032 removed; reconnect only CH341A USB, flashrom stopped, correct probes, DC volts.",
-      "Black on adapter OUTPUT4/GND; red OUTPUT7 then OUTPUT8; report both values."
-    ],
-    "purpose": "Repeat identical voltage endpoints with target attached to determine whether earlier loaded0 persists with correct probes, before inferring a low HOLD route or retrying software.",
-    "not_selected": [
-      "regulator-tab test based on invalid unloaded zeros",
-      "HOLD jumper",
-      "voltage increase",
-      "flashrom retry",
-      "full capture",
-      "firmware/protection/OTP/provisioning change"
-    ]
+    "state": "Superseded by later clip/connections adjustment and in-range loaded voltage reports; new partial test prepared",
+    "latest_record": "c8375-recovery/acquisition-evidence/20261027-U2-short-harness-preflight.json",
+    "trial_private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/connections-adjusted-120654-EDT"
   },
   "current_control_voltage_report": {
     "recorded_at": "2026-10-27T10:48:39.838961-04:00",

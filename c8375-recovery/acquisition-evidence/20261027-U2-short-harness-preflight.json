@@ -17,7 +17,7 @@
     "P1-1_to_P1-2_usb_powered_vdc": 1.787
   },
   "new_tool_model": "not specified",
-  "status": "Corrected unloaded output7\u21924 and output8\u21924 both1.803 V. Prior unloaded zeros invalid due wrong probes. Cancel regulator check; fresh loaded output7/output8 correct-probe measurements requested.",
+  "status": "After further user clip/connections adjustment: rail1.787V, output7/output8 each\u22481.7\u20131.8V loaded; fresh guarded two-region partial retry copied, results pending.",
   "next_diagnostic": {
     "state": "planned after successful ID",
     "regions": [
@@ -69,24 +69,7 @@
     "darwin_libusb_info": "Present in user paste; not in flashrom output log. Similar info also accompanied prior successful access; it does not establish a permission failure."
   },
   "historical_reconciliation": "October 25 U2 probes returned 00/00 and then 20/0000 before later successful 20 BB 19 identification and full reads. This initial failure does not establish permanent inability to communicate or a dead/erased chip. Both October 25 full pairs subsequently failed repeatability.",
-  "next_step": {
-    "state": "Await fresh loaded adapter output7/output8 DC readings with corrected probes; prior regulator/reference checks canceled",
-    "setup": [
-      "Unplug CH341A USB before reconnecting any target leads.",
-      "Reconnect ALL router/clip leads in their original checked adapter positions as intact connector blocks; leave U2 clip/adapter seating unchanged.",
-      "Normal router power/other cables disconnected, CR2032 removed; reconnect only CH341A USB, flashrom stopped, correct probes, DC volts.",
-      "Black on adapter OUTPUT4/GND; red OUTPUT7 then OUTPUT8; report both values."
-    ],
-    "purpose": "Repeat identical voltage endpoints with target attached to determine whether earlier loaded0 persists with correct probes, before inferring a low HOLD route or retrying software.",
-    "not_selected": [
-      "regulator-tab test based on invalid unloaded zeros",
-      "HOLD jumper",
-      "voltage increase",
-      "flashrom retry",
-      "full capture",
-      "firmware/protection/OTP/provisioning change"
-    ]
-  },
+  "next_step": "Run freshly prepared two-region partial pair with monitored in-range supply; inspect outputs offline before selecting full reads.",
   "retry_command_status": "Copied to clipboard; not run by agent",
   "retry_identification_result": {
     "verified_at": "2026-10-27T10:28:07.656512-04:00",
@@ -320,6 +303,69 @@
       "router lead reconnection",
       "adapter reseating while powered",
       "HOLD-to-VCC jumper",
+      "voltage increase",
+      "flashrom retry",
+      "full capture",
+      "firmware/protection/OTP/provisioning change"
+    ]
+  },
+  "adjusted_connections_retry": {
+    "reported_at": "2026-10-27T12:06:54.882338-04:00",
+    "target": "C8375-A / FDO2742M0FK / U2_CSPI, current-session identity",
+    "user_change": "User adjusted clip and connections again; particular contacts and power-off timing not separately specified. No single-variable cause established.",
+    "user_reported": {
+      "P1_pin1_to_adapter_output8_ohms": 0.3,
+      "P1_pin2_to_adapter_output4_ohms": 0.3,
+      "P1_pin1_to_P1_pin2_loaded_VDC": 1.787,
+      "loaded_adapter_output8_to_output4_VDC_approx_range": [
+        1.7,
+        1.8
+      ],
+      "loaded_adapter_output7_to_output4_VDC_approx_range": [
+        1.7,
+        1.8
+      ]
+    },
+    "assessment": "Current reported VCC and output7/HOLD route are in expected DC ranges; prior loaded0 report is historical, not current. No stable data, full backup or causal repair is established until new samples complete. Fresh resistance baseline and during-read voltage not separately supplied.",
+    "current_session_conditions": "Normal router power/other cables disconnected, CR2032 removed and accepted translated 1.8V setup persist from session; no switch of chassis/chip reported.",
+    "trial_private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/connections-adjusted-120654-EDT",
+    "script_sha256": "95db86e4f7756cd85166a2077b09bf3bb194460c36f17d3478c4f4de59f6230e",
+    "source_script_sha256": "9d6e95e1f1553a7b7b2911f4fc8c06abf86d3e725b7b4fdb57cf9ec6ce67bee5",
+    "regions": [
+      {
+        "start": "0x001f0000",
+        "end_inclusive": "0x001fffff"
+      },
+      {
+        "start": "0x01f30000",
+        "end_inclusive": "0x01f3ffff"
+      }
+    ],
+    "expected": "Two independent reads of both regions: four65536-byte samples, two logs, offline sizes/SHA256/byte comparison. Guard all existing outputs; stop on any failed probe/read. No majority vote.",
+    "state": "Prepared and copied to clipboard; not executed by agent; results pending",
+    "flashrom_processes": [],
+    "validation": "Unchanged previously dummy-verified read syntax; new shell sh -n and embedded Python AST checks pass. No hardware accessed.",
+    "read_conditions": "Do not alter wiring while powered. Only CH341A USB powers target. Monitor P1 DC supply and unplug if outside1.7\u20132.0V. Keep router normal power/cables and CR2032 disconnected.",
+    "not_selected": [
+      "full reads before sample validation",
+      "force/erase/write",
+      "HOLD/reset jumper",
+      "voltage increase",
+      "OTP/protection/provisioning changes"
+    ]
+  },
+  "previous_loaded_recheck_request": {
+    "state": "Await fresh loaded adapter output7/output8 DC readings with corrected probes; prior regulator/reference checks canceled",
+    "setup": [
+      "Unplug CH341A USB before reconnecting any target leads.",
+      "Reconnect ALL router/clip leads in their original checked adapter positions as intact connector blocks; leave U2 clip/adapter seating unchanged.",
+      "Normal router power/other cables disconnected, CR2032 removed; reconnect only CH341A USB, flashrom stopped, correct probes, DC volts.",
+      "Black on adapter OUTPUT4/GND; red OUTPUT7 then OUTPUT8; report both values."
+    ],
+    "purpose": "Repeat identical voltage endpoints with target attached to determine whether earlier loaded0 persists with correct probes, before inferring a low HOLD route or retrying software.",
+    "not_selected": [
+      "regulator-tab test based on invalid unloaded zeros",
+      "HOLD jumper",
       "voltage increase",
       "flashrom retry",
       "full capture",
