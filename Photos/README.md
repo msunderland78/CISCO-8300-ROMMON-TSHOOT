@@ -41,3 +41,21 @@ The position appears consistent with the proposed U1 pins 5–8/9–12 contact w
 Next, with all router power/cables disconnected, CR2032 removed, programmer USB unplugged and clip breakout separate from the programmer/adapter: in ohms mode, black on **router P1_CSPI pin 2 / known ground**, scan red across the **eight exposed male legs on the clip breakout**. Report how many give a near-lead-resistance reading and their actual resistance. Mark identified leg(s) so their physical identity is retained; multiple low matches need review before assigning a contact. This verifies the new clip connection through U1's ground, not a new unknown-board-node search. Electrical clip mapping remains pending.
 
 Follow the [hybrid wiring worksheet](../C8375-CH341A-HEADER-WIRING.md) and [active plan](../ROUTER-RECOVERY-TEST-PLAN.md). No powered operation is requested.
+
+
+## Current direct-pin U2 harness — October 27
+
+Four new original user photographs document the changed harness after repeated chip-ID failures. The USB plug appears exposed in the overview; that records the photograph, not present power confirmation. No cable length, hidden contact or complete pin map is established visually.
+
+| Original | Coverage |
+| --- | --- |
+| [IMG_1274.jpeg](IMG_1274.jpeg) | Programmer/adapter, grouped colored leads and chip clip on the user-identified U2 setup |
+| [IMG_1276.jpeg](IMG_1276.jpeg) | Adapter socket/interposer and grouped connector detail |
+| [IMG_1277.jpeg](IMG_1277.jpeg) | One angle of clip housing and chip-edge area |
+| [IMG_1278.jpeg](IMG_1278.jpeg) | Opposite angle, visible RW170 marking and neighboring board context |
+
+[Inspection record and original hashes](../c8375-recovery/acquisition-evidence/20261027-U2-current-harness-photo-inspection.json), [non-generative crop metadata and reproduction commands](inspection-20261027/CROP-METADATA.json), [derivative limitations](inspection-20261027/README.txt). Original bytes were rehashed unchanged after crop generation.
+
+Earlier requested, now conditional on accessible TOP clip terminals: with all sources off, no residual P1 voltage, clip/connectors left seated, measure a fresh probe baseline and the four signal paths **adapter output1→U2-7/CS#, output2→U2-8/MISO, output5→U2-15/MOSI, output6→U2-16/CLK**, using accessible clip-side terminals rather than hidden package legs. These values are pending. They will test the measured harness paths, not independently prove jaw-to-chip contact or dynamic signal integrity. No new software probe, jumper, voltage increase or firmware write is selected.
+
+User follow-up: the area around U2 is covered, and the header route includes mux circuitry. No under-clip probe or header/U1 substitute is requested. Access clarification concerns only exposed metal at the clip TOP wire terminals/rear crimps; the four resistance checks remain conditional and unperformed.

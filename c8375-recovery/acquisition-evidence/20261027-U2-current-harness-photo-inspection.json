@@ -1,0 +1,89 @@
+{
+  "inspected_at": "2026-10-27T12:27:50.600429-04:00",
+  "task": "R-01-U2-SHORT-HARNESS",
+  "target": "User-identified C8375-A/FDO2742M0FK/U2; chassis serial not independently visible in these four views",
+  "photos": [
+    {
+      "path": "Photos/IMG_1274.jpeg",
+      "bytes": 10870652,
+      "sha256": "ca96fc14b22daab342aedeac90d18090132f587df8662cbe8484844becd02cf6",
+      "authorship": "user-supplied original photograph; no edits",
+      "observed_coverage": "Overview of programmer/1.8V adapter, colored grouped lead harness and spring chip clip on board; exposed USB plug visible at capture."
+    },
+    {
+      "path": "Photos/IMG_1276.jpeg",
+      "bytes": 10362703,
+      "sha256": "270800e8027e49f7509c2a0d25464cef6efe59ad5458c1964ac46ea5c71052ba",
+      "authorship": "user-supplied original photograph; no edits",
+      "observed_coverage": "Closer view of 1.8V adapter, ZIF socket, small socket/interposer board and grouped lead connectors. Individual hidden contact continuity is not visible."
+    },
+    {
+      "path": "Photos/IMG_1277.jpeg",
+      "bytes": 8203348,
+      "sha256": "72d7ffd537eaff0300bccd6db1ce3945156cd382e570ba9e8b9d19f2f2e0ebe3",
+      "authorship": "user-supplied original photograph; no edits",
+      "observed_coverage": "One angle of chip clip housing over user-identified U2, neighboring flash and nearby logic. Jaw-to-leg contacts and complete package orientation are obscured."
+    },
+    {
+      "path": "Photos/IMG_1278.jpeg",
+      "bytes": 9604586,
+      "sha256": "a89b3e56e01b2e5cc93da21a9de0b324b8d225831abde4b2f7d9e910ee273a4d",
+      "authorship": "user-supplied original photograph; no edits",
+      "observed_coverage": "Opposite chip/clip angle; RW170 marking and adjacent board context visible. Full contact engagement/pin1 identity not independently verified from photograph."
+    }
+  ],
+  "derived_inspection": "Photos/inspection-20261027/CROP-METADATA.json",
+  "analysis_authorship": "AI-assisted visual inspection and non-generative sips derivatives; no hardware access",
+  "observations": [
+    "Direct-pin spring chip clip and grouped connector harness visible, qualitatively consistent with the user-described replacement; exact maker/model not established.",
+    "Programmer/1.8V adapter assembly and small socket/interposer board are visible. Photograph shows USB plug exposed at capture, not proof of current power state.",
+    "Current user-reported a-little-over10cm total path remains a user measurement; no cable length estimated from perspective.",
+    "Both chip-edge views show placement/nearby components, but hidden jaw contacts, complete signal routing and pin1 mapping cannot be certified visually."
+  ],
+  "limits": [
+    "No individual wrong wire, confirmed bridge, dead chip, board fault or primary/golden identity established.",
+    "Power/ground continuity and DC readings remain electrical evidence separate from visual inspection.",
+    "Only original bytes plus labeled non-generative crops are preserved; no markings reconstructed."
+  ],
+  "next_step": {
+    "state": "Await whether clip TOP wire-terminal/rear-crimp metal is accessible without moving clip/unplugging blocks; four resistance measurements conditional on access, not completed",
+    "conditions": "Same C8375-A/FDO2742M0FK/U2 setup; CH341A USB unplugged, normal router power/other cables disconnected and CR2032 removed. Confirm P1 approximately0V DC before ohms. Keep clip and connector blocks seated.",
+    "probe_endpoints": "Active1.8V adapter OUTPUT to accessible clip-side terminal/rear crimp mapped to actual U2 package pin; no hidden package-leg probing beneath clip, no cable-color inference.",
+    "measurements": [
+      {
+        "adapter_output": 1,
+        "signal": "CS#",
+        "U2_package_pin": 7
+      },
+      {
+        "adapter_output": 2,
+        "signal": "MISO/DQ1",
+        "U2_package_pin": 8
+      },
+      {
+        "adapter_output": 5,
+        "signal": "MOSI/DQ0",
+        "U2_package_pin": 15
+      },
+      {
+        "adapter_output": 6,
+        "signal": "CLK",
+        "U2_package_pin": 16
+      }
+    ],
+    "fresh_probes_together_baseline": "requested, not supplied yet",
+    "if_inaccessible": "Report inaccessible instead of removing clip or probing hidden legs.",
+    "interpretation": "Low resistance checks the measured assembled wire/interposer/terminal path only. It does not independently prove metal-jaw-to-chip contact or reliable dynamic SPI operation.",
+    "datasheet": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf, Figure6 and Table1, package SF",
+    "not_selected": [
+      "another unchanged software retry",
+      "pinout changes based only on wire colors/photos",
+      "jumper",
+      "voltage increase",
+      "full capture",
+      "firmware/protection/OTP/provisioning changes"
+    ],
+    "header_route_rule": "P1 is verified as power/ground reference only. Historical clock-to-header route involves mux and other SPI routes are incomplete; do not use P1/P2 or neighboring U1 as a direct proxy for U2 SPI pins."
+  },
+  "user_access_followup": "User says clip completely covers the area around U2 and notes mux circuitry between chips and header. No under-clip measurements supplied or repeated."
+}
