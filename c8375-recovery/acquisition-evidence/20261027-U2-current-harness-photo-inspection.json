@@ -46,6 +46,55 @@
     "Only original bytes plus labeled non-generative crops are preserved; no markings reconstructed."
   ],
   "next_step": {
+    "state": "Await unpowered cable/interposer-to-free-female-connector resistances; whole blocks detached at clip TOP, clip remains seated",
+    "conditions": "CH341A USB unplugged, normal router power/other cables disconnected and CR2032 removed; first P1\u22480V DC, then ohms. Record/label clip-end block positions/orientation before unplugging whole blocks; adapter ends stay connected.",
+    "endpoints": "Active1.8V adapter OUTPUT to accessible female socket inside the freed cable block, identifying which clip contact/actual package pin it previously occupied. No hidden chip/mux/header probing.",
+    "measurements": [
+      {
+        "adapter_output": 1,
+        "signal": "CS#",
+        "U2_package_pin": 7
+      },
+      {
+        "adapter_output": 2,
+        "signal": "MISO/DQ1",
+        "U2_package_pin": 8
+      },
+      {
+        "adapter_output": 5,
+        "signal": "MOSI/DQ0",
+        "U2_package_pin": 15
+      },
+      {
+        "adapter_output": 6,
+        "signal": "CLK",
+        "U2_package_pin": 16
+      }
+    ],
+    "fresh_probe_baseline": "requested",
+    "if_unidentified": "Report inability to confidently identify a cavity instead of guessing numbers/colors.",
+    "finish_state": "USB remains unplugged; leave blocks detached from clip pending results.",
+    "coverage": "Tests adapter/interposer/wire/crimp/free female-contact routing only, not clip internal path, jaw-to-chip contact, board loading or dynamic SPI integrity.",
+    "not_selected": [
+      "individual terminal depinning",
+      "U2 clip removal",
+      "under-clip probing",
+      "P1/P2/U1 SPI proxy",
+      "powered connector changes",
+      "flashrom retry",
+      "voltage increase",
+      "jumper",
+      "full capture",
+      "firmware/protection/OTP/provisioning changes"
+    ]
+  },
+  "user_access_followup": "User says clip completely covers the area around U2 and notes mux circuitry between chips and header. No under-clip measurements supplied or repeated.",
+  "top_terminal_access_confirmation": {
+    "confirmed_at": "2026-10-27T12:35:28.625059-04:00",
+    "user_report": "Connector blocks hide all clip-side terminal metal",
+    "in_place_terminal_tests": "not performed; inaccessible and superseded"
+  },
+  "superseded_in_place_terminal_plan": {
     "state": "Await whether clip TOP wire-terminal/rear-crimp metal is accessible without moving clip/unplugging blocks; four resistance measurements conditional on access, not completed",
     "conditions": "Same C8375-A/FDO2742M0FK/U2 setup; CH341A USB unplugged, normal router power/other cables disconnected and CR2032 removed. Confirm P1 approximately0V DC before ohms. Keep clip and connector blocks seated.",
     "probe_endpoints": "Active1.8V adapter OUTPUT to accessible clip-side terminal/rear crimp mapped to actual U2 package pin; no hidden package-leg probing beneath clip, no cable-color inference.",
@@ -84,6 +133,5 @@
       "firmware/protection/OTP/provisioning changes"
     ],
     "header_route_rule": "P1 is verified as power/ground reference only. Historical clock-to-header route involves mux and other SPI routes are incomplete; do not use P1/P2 or neighboring U1 as a direct proxy for U2 SPI pins."
-  },
-  "user_access_followup": "User says clip completely covers the area around U2 and notes mux circuitry between chips and header. No under-clip measurements supplied or repeated."
+  }
 }

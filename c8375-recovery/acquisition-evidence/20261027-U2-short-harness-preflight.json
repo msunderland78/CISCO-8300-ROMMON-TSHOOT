@@ -17,7 +17,7 @@
     "P1-1_to_P1-2_usb_powered_vdc": 1.787
   },
   "new_tool_model": "not specified",
-  "status": "Current harness photos inspected; user reports under-clip U2 area inaccessible and mux/header limitations. Clarification requested about TOP clip-terminal access before four unpowered SPI-path checks; no new software retry.",
+  "status": "Current photo inspection complete; user confirms all TOP clip terminal metal hidden. In-place path check unperformed. Revised USB-off free-connector cable checks requested while U2 clip stays seated.",
   "next_diagnostic": {
     "state": "planned after successful ID",
     "regions": [
@@ -70,9 +70,9 @@
   },
   "historical_reconciliation": "October 25 U2 probes returned 00/00 and then 20/0000 before later successful 20 BB 19 identification and full reads. This initial failure does not establish permanent inability to communicate or a dead/erased chip. Both October 25 full pairs subsequently failed repeatability.",
   "next_step": {
-    "state": "Await whether clip TOP wire-terminal/rear-crimp metal is accessible without moving clip/unplugging blocks; four resistance measurements conditional on access, not completed",
-    "conditions": "Same C8375-A/FDO2742M0FK/U2 setup; CH341A USB unplugged, normal router power/other cables disconnected and CR2032 removed. Confirm P1 approximately0V DC before ohms. Keep clip and connector blocks seated.",
-    "probe_endpoints": "Active1.8V adapter OUTPUT to accessible clip-side terminal/rear crimp mapped to actual U2 package pin; no hidden package-leg probing beneath clip, no cable-color inference.",
+    "state": "Await unpowered cable/interposer-to-free-female-connector resistances; whole blocks detached at clip TOP, clip remains seated",
+    "conditions": "CH341A USB unplugged, normal router power/other cables disconnected and CR2032 removed; first P1\u22480V DC, then ohms. Record/label clip-end block positions/orientation before unplugging whole blocks; adapter ends stay connected.",
+    "endpoints": "Active1.8V adapter OUTPUT to accessible female socket inside the freed cable block, identifying which clip contact/actual package pin it previously occupied. No hidden chip/mux/header probing.",
     "measurements": [
       {
         "adapter_output": 1,
@@ -95,19 +95,22 @@
         "U2_package_pin": 16
       }
     ],
-    "fresh_probes_together_baseline": "requested, not supplied yet",
-    "if_inaccessible": "Report inaccessible instead of removing clip or probing hidden legs.",
-    "interpretation": "Low resistance checks the measured assembled wire/interposer/terminal path only. It does not independently prove metal-jaw-to-chip contact or reliable dynamic SPI operation.",
-    "datasheet": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf, Figure6 and Table1, package SF",
+    "fresh_probe_baseline": "requested",
+    "if_unidentified": "Report inability to confidently identify a cavity instead of guessing numbers/colors.",
+    "finish_state": "USB remains unplugged; leave blocks detached from clip pending results.",
+    "coverage": "Tests adapter/interposer/wire/crimp/free female-contact routing only, not clip internal path, jaw-to-chip contact, board loading or dynamic SPI integrity.",
     "not_selected": [
-      "another unchanged software retry",
-      "pinout changes based only on wire colors/photos",
-      "jumper",
+      "individual terminal depinning",
+      "U2 clip removal",
+      "under-clip probing",
+      "P1/P2/U1 SPI proxy",
+      "powered connector changes",
+      "flashrom retry",
       "voltage increase",
+      "jumper",
       "full capture",
       "firmware/protection/OTP/provisioning changes"
-    ],
-    "header_route_rule": "P1 is verified as power/ground reference only. Historical clock-to-header route involves mux and other SPI routes are incomplete; do not use P1/P2 or neighboring U1 as a direct proxy for U2 SPI pins."
+    ]
   },
   "retry_command_status": "Copied to clipboard; not run by agent",
   "retry_identification_result": {
