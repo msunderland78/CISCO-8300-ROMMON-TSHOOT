@@ -1,0 +1,88 @@
+{
+  "reviewed_at": "2026-10-27T13:25:43.361741-04:00",
+  "task": "P-03-ALTERNATE-SPI",
+  "reason": "U1 corrected comparison identified/read but failed repeatability332/7bytes; U2 earlier pairs/read paths unreliable. Need independent controllable SPI source, no confirmed dead chip/board cause.",
+  "user_inventory": {
+    "Raspberry_Pi": "Owned, user thinks model5; exact model/OS/power/media/SSH access unconfirmed",
+    "CH347": "Could order; not ordered/received",
+    "EZP2023": "Could order; not ordered/received",
+    "TL866_3G_T48": "Could order, higher cost; not ordered/received",
+    "original_SOIC16_ribbon_assembly": "Unavailable or modified, user confirmed"
+  },
+  "recommendation_order": [
+    {
+      "option": "Existing RaspberryPi via Linux spidev/flashrom linux_spi",
+      "decision": "Try first after model/OS and level-translation setup validation; no purchase justified yet",
+      "reason": "Independent SPI controller and requested lower clock, e.g100kHz. Pi5 has RP1 SPI exposed through Linux. Reuse existing1.8V adapter only as a candidate until input mapping/voltage/directions verified with Pi.",
+      "status": "research/planned; no Pi access, wiring or test performed"
+    },
+    {
+      "option": "CH347",
+      "decision": "Fallback if a purchase becomes useful; review exact board first",
+      "reason": "flashrom1.8 supports CH347T/F and selectable rates60MHz to468.75kHz; default15MHz. Prefer a documented1.8V VIO-capable board, not a supply-only1.8V claim. WCH lists F with1.8V IO support and T with3.3V IO. Actual board implementation needs verification.",
+      "status": "Candidate, not tested or purchased"
+    },
+    {
+      "option": "EZP2023",
+      "decision": "Defer purchase",
+      "reason": "Did not establish authoritative exact MT25QU256ABA/SOIC16 algorithm, board-level1.8V signal behavior and current host software path for a specified unit. This is an evidence gap, not a claim that every EZP unit is incapable.",
+      "status": "Unverified candidate"
+    },
+    {
+      "option": "XGecu T48 / TL866-3G",
+      "decision": "Do not spend on this yet for current diagnostic",
+      "reason": "Broader universal programmer. Official store lists1.8V-minimum VCC; minipro supports T48/macOS, while vendor workflow lists Windows. Exact chip algorithm/SOIC16 connection and VIO still need checking before a purchase; exact official chip-list fetch was unavailable. Higher capability does not bypass in-circuit loading/contact issues.",
+      "status": "Candidate, not tested or purchased"
+    }
+  ],
+  "sources": [
+    {
+      "title": "RaspberryPi official GPIO/SPI hardware documentation",
+      "url": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html",
+      "supports": "Pi5 RP1 SPI, headerSPI0 functions and3.3V GPIO; RP1 input-high minimum2.0V, so direct1.8V MISO is not guaranteed high."
+    },
+    {
+      "title": "Flashromv1.8.0 manual linux_spi/ch341a_spi/ch347_spi",
+      "url": "https://raw.githubusercontent.com/flashrom/flashrom/v1.8.0/doc/classic_cli_manpage.rst",
+      "supports": "linux_spi uses Linux spidev and spispeed in kHz; CH341 fixed2MHz/no params; CH347 selectable named rates."
+    },
+    {
+      "title": "Flashromv1.8.0 CH347 driver",
+      "url": "https://raw.githubusercontent.com/flashrom/flashrom/v1.8.0/programmers/ch347_spi.c",
+      "supports": "CH347T/F VID/PID entries, supported rate table and default15MHz."
+    },
+    {
+      "title": "WCH USB interface product table",
+      "url": "https://www.wch-ic.com/products/productsCenter/mcuInterface?categoryId=1&tName=USB+to+UART",
+      "supports": "CH347F3.3/2.5/1.8V IO versus CH347T3.3V IO; chip specification is not proof of any seller board circuit."
+    },
+    {
+      "title": "XGecu official T48 store page",
+      "url": "https://xgecu.myshopify.com/collections/xgecu-t48-tl866ii-3g-programmer",
+      "supports": "T48 model naming, VCC1.8\u20136.5V, vendor Windows software; not exact Micron support verification."
+    },
+    {
+      "title": "minipro upstream project",
+      "url": "https://gitlab.com/DavidGriffith/minipro/-/tree/master",
+      "supports": "T48 compatibility and native macOS/Linux support; exact device algorithm still requires verification."
+    }
+  ],
+  "Pi_preparation_plan": {
+    "state": "Await actual Pi model/OS/SSH or microSD/power readiness; keep Pi disconnected from router",
+    "steps": [
+      "Identify model from board and OS/read-only system inventory; do not assume Pi5 from user guess.",
+      "Check installed flashrom version and exact MT25QU256 name offline; select GPIO-header SPI controller device, not Pi internal boot EEPROM.",
+      "Before any target connection, disconnect/remove CH341A from adapter input and establish Pi\u2192adapter input mapping, correct source/ground and bidirectional1.8V\u21943.3V translation. Do not connect GPIO3.3V directly to1.8V flash or use simultaneous Pi/CH341A drive.",
+      "Verify safe adapter setup and target-loaded rail1.7\u20132.0V; current router physical clip remains U1 unless user explicitly changes it.",
+      "Then use requested100kHz linux_spi to identify first and repeat same independent partial samples. Stable samples are prerequisite to fresh full pairs; no write/protection/OTP/provisioning change."
+    ],
+    "requested_rate_kHz": 100,
+    "rate_status": "proposal only, not configured or measured",
+    "current_router_state": "U1 clip/wiring last user-confirmed; normal router power/cables/CR2032 disconnected under session, CH341A USB unplug requested but not confirmed"
+  },
+  "limitations": [
+    "Different/slower reader may help identify timing/translation problems, but is not a proven cure for contact/board loading.",
+    "Adapter is a candidate for reuse, not a newly verified Pi interface.",
+    "No device purchase, Pi setup, GPIO connection or router hardware operation performed during research."
+  ]
+}

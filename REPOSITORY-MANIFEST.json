@@ -773,9 +773,9 @@
       "sha256": "a96d2f930878e06a3b87061e3e3b9f1ac43732188431fcb8b6879f2ab980401c"
     },
     {
-      "bytes": 105172,
+      "bytes": 106009,
       "path": "C8375-CH341A-HEADER-WIRING.md",
-      "sha256": "2afa5399f58a479389a44dbccf7c63b5087a2ef1b087d544c3ee102ba8f369fe"
+      "sha256": "265d1bb1446cfa3936118c47e625ddef31ef629c39e450ec1910edf6a2bab5ad"
     },
     {
       "bytes": 13235,
@@ -783,9 +783,9 @@
       "sha256": "dfb30c0fdb7f612d6eeddd9900a5dc9e7792424e6d5f1ced632d67350dfe8fec"
     },
     {
-      "bytes": 104788,
+      "bytes": 105553,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "a2c2a3034c15bfbd38c99a5e571c89c861bb672bbc953994f9a2192bbb0f12b9"
+      "sha256": "0a56cc5261c0bac73d868a5ef5559322ab34e539b08852de4d86c164481c72c4"
     },
     {
       "bytes": 1992,
@@ -1003,9 +1003,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 206622,
+      "bytes": 210070,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "c3f4a73dc1a42e216863a266ab5b3bb26b6b85da2025d17035ee1ed7e0b03ec7"
+      "sha256": "e3a24a0c8fe45443ec7148a3efdb77b7d9c14f9863e68a8d322946c7b826f18f"
     },
     {
       "bytes": 6850655,
@@ -1203,14 +1203,14 @@
       "sha256": "a2352f520db5d595e19d40b17ebab427f17ba09f738e7f537f5c2d81c59f31a0"
     },
     {
-      "bytes": 8336,
+      "bytes": 7199,
       "path": "c8375-recovery/acquisition-evidence/20261027-U1-comparison-partial-validation.json",
-      "sha256": "f58fb335f2d148175647aba4a4d18f3b096e3300b3ccfbcd00b76d212287118d"
+      "sha256": "0ec7cb1eb12274d0aa0447385d2fa58cfc0e308824e791b8ff6b2756a735e246"
     },
     {
-      "bytes": 6650,
+      "bytes": 5787,
       "path": "c8375-recovery/acquisition-evidence/20261027-U1-comparison-preflight.json",
-      "sha256": "37fafdf7dabd13370c05662a8d8cb3b4c6824f25bc7c1074a6eed0feeaf3120c"
+      "sha256": "6129ad652118cae1efc8d18c518f86786e979eb43718096d4a8ee88206055a19"
     },
     {
       "bytes": 18325,
@@ -1236,6 +1236,11 @@
       "bytes": 27237,
       "path": "c8375-recovery/acquisition-evidence/20261027-U2-short-harness-preflight.json",
       "sha256": "3d3f94ba92d3025db932ad426b7d31ddf7061e08bfba841a7bd0560676cddf37"
+    },
+    {
+      "bytes": 5895,
+      "path": "c8375-recovery/acquisition-evidence/20261027-alternate-programmer-options.json",
+      "sha256": "dc3cbc93daf663288932daf203ba13b49c2aec15eea889f26bd482ffaea8473f"
     },
     {
       "bytes": 172399,
@@ -2316,7 +2321,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 147,
-    "included_bytes_without_manifest": 584241711,
-    "included_files_without_manifest": 303
+    "included_bytes_without_manifest": 584250656,
+    "included_files_without_manifest": 304
   }
 }
