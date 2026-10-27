@@ -68,22 +68,56 @@
     "agent_programmer_access": false
   },
   "current_next_step": {
-    "state": "Await three targeted user DC measurements; no further software command prepared/released",
-    "setup": "Keep clip seated, no flashrom process, normal router power/other cables disconnected and CR2032 removed; only CH341A USB power. DC volts, black P1-2/GND.",
-    "requested_red_endpoints": [
-      "P1-1/VCC",
-      "mapped accessible clip contact reaching U2 physical pin 3/RESET#",
-      "mapped accessible clip contact reaching U2 physical pin 1/HOLD#"
+    "state": "Await unloaded adapter output-7 voltage after USB-off disconnection of only the HOLD lead at the adapter; no flashrom command",
+    "setup": "Same U2 clip/chassis; normal router power and other cables disconnected, CR2032 removed.",
+    "steps": [
+      "Unplug CH341A USB; confirm approximately 0 V DC at P1-1/P1-2.",
+      "Disconnect only the lead from active 1.8 V adapter output 7; leave its other end at mapped U2 pin 1/HOLD# and keep all other connections unchanged. Keep the loose connector insulated and clear of other contacts.",
+      "Reconnect only CH341A USB, keep flashrom stopped, meter DC volts black P1-2/GND, red on now-unloaded adapter output 7. Report that voltage.",
+      "Unplug CH341A USB after measuring; leave this lead disconnected for now, do not reconnect it while powered."
     ],
-    "inaccessible_contact_rule": "Report inaccessible; do not probe beneath clip or infer numbering from breakout labels.",
-    "rationale": "Two consecutive post-requested-reseat attempts failed 00/00. Historical October 25 control readings (RESET 1.707 V, HOLD 1.770 V with prior VCC 1.759 V) describe an older setup and are not current measurements. Check current controls before repeating software retries.",
+    "interpretation": "If unloaded adapter output 7 rises near 1.8 V, the attached lead/clip/target network is associated with the low loaded level; this does not locate a short or prove board contention. If it remains low, investigate adapter/source path before reattaching the load.",
     "not_selected": [
-      "full captures",
+      "HOLD-to-VCC jumper",
       "voltage increase",
       "router power",
-      "RESET/HOLD jumper",
-      "firmware write",
-      "OTP/protection/provisioning changes"
+      "flashrom retry",
+      "full read",
+      "erase/write/protection/OTP/provisioning changes"
     ]
+  },
+  "current_control_voltage_report": {
+    "recorded_at": "2026-10-27T10:48:39.838961-04:00",
+    "source": "user reply to requested USB-only DC checks, no agent hardware access",
+    "reported_P1_VCC_V": 1.79,
+    "reported_U2_pin3_RESET_V": 1.73,
+    "reported_output_7_V": 0,
+    "zero_reading_endpoint": "User explicitly confirms active 1.8 V adapter output 7, mapped to U2 physical pin 1/HOLD#",
+    "black_reference_and_power": "User explicitly confirms black P1-2/GND, CH341A USB connected",
+    "datasheet_thresholds_at_reported_VCC": {
+      "VIH_min_V": 1.253,
+      "VIL_max_V": 0.537
+    },
+    "assessment": "VCC 1.79 V within operating range; reported RESET 1.73 V exceeds nominal VIH minimum 1.253 V. Loaded adapter output 7/HOLD route is 0 V, below VIL maximum 0.537 V. If reaching U2 and HOLD enabled, this can inhibit communication; actual package contact and earlier transaction levels are not established, and no cause is located.",
+    "next_step": {
+      "state": "Await unloaded adapter output-7 voltage after USB-off disconnection of only the HOLD lead at the adapter; no flashrom command",
+      "setup": "Same U2 clip/chassis; normal router power and other cables disconnected, CR2032 removed.",
+      "steps": [
+        "Unplug CH341A USB; confirm approximately 0 V DC at P1-1/P1-2.",
+        "Disconnect only the lead from active 1.8 V adapter output 7; leave its other end at mapped U2 pin 1/HOLD# and keep all other connections unchanged. Keep the loose connector insulated and clear of other contacts.",
+        "Reconnect only CH341A USB, keep flashrom stopped, meter DC volts black P1-2/GND, red on now-unloaded adapter output 7. Report that voltage.",
+        "Unplug CH341A USB after measuring; leave this lead disconnected for now, do not reconnect it while powered."
+      ],
+      "interpretation": "If unloaded adapter output 7 rises near 1.8 V, the attached lead/clip/target network is associated with the low loaded level; this does not locate a short or prove board contention. If it remains low, investigate adapter/source path before reattaching the load.",
+      "not_selected": [
+        "HOLD-to-VCC jumper",
+        "voltage increase",
+        "router power",
+        "flashrom retry",
+        "full read",
+        "erase/write/protection/OTP/provisioning changes"
+      ]
+    },
+    "endpoint_confirmed_at": "2026-10-27T10:49:52.475878-04:00"
   }
 }
