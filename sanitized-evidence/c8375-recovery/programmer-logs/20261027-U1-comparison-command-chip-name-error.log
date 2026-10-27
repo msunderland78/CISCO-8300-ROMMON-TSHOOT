@@ -1,0 +1,9 @@
+flashrom v1.8.0 on Darwin 27.0.0 (arm64)
+flashrom was built with LLVM Clang 21.0.0 (clang-2100.3.34.2), little endian
+Command line (13 args): /opt/homebrew/sbin/flashrom -p ch341a_spi -c MT25QU156 -r -l U1-samples.layout -i sample1:U1-PARTIAL-001f0000-read1.bin -i sample2:U1-PARTIAL-01f30000-read1.bin -o U1-partial-read1.log
+Added layout entry 001f0000 - 001fffff named sample1
+Added layout entry 01f30000 - 01f3ffff named sample2
+Using regions: "sample2":"U1-PARTIAL-01f30000-read1.bin", "sample1":"U1-PARTIAL-001f0000-read1.bin".
+Error: Unknown chip 'MT25QU156' specified.
+Run flashrom -L to view the hardware supported in this flashrom version.
+Runtime from programmer init to shutdown: 29885333min24sec

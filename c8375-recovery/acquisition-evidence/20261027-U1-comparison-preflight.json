@@ -22,8 +22,8 @@
       "end_inclusive": "0x01f3ffff"
     }
   ],
-  "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125257-EDT-comparison-samples",
-  "script_sha256": "0320138c7d1a93b96ae987e08182babecf41fec10ea82760c3024df51f2f9374",
+  "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125555-EDT-comparison-samples-corrected",
+  "script_sha256": "96cdb38caa99a0dce36a2f01b86c14b69fafce59d218481f2109cc450b91913d",
   "expected_samples": 4,
   "expected_bytes_each": 65536,
   "expected_logs": 2,
@@ -33,7 +33,7 @@
     "USB": "USB UART-LPT /1A86:5512",
     "flashrom_processes": 0
   },
-  "status": "Fresh guarded U1 sample command copied to clipboard, not executed by agent; results pending",
+  "status": "First command rejected before hardware init due agent chip-name typo; corrected MT25QU256 script validated/copied in fresh directory, hardware results pending",
   "preconditions_for_user_run": "Only CH341A USB powers target; router power/other cables and CR2032 disconnected. Keep wiring stationary and monitor P1 DC supply1.7\u20132.0V; unplug outside range.",
   "limitations": "U1 previously returned matching full read5/read6 but with accuracy concerns. This is comparative diagnosis, not proof U1 is good or U2 bad; partial samples are not backups and bank roles remain unresolved.",
   "not_selected": [
@@ -42,5 +42,35 @@
     "jumper",
     "voltage increase",
     "OTP/protection/provisioning changes"
-  ]
+  ],
+  "command_error": {
+    "verified_at": "2026-10-27T12:55:55.263295-04:00",
+    "target_intended": "C8375-A / FDO2742M0FK / U1_CSPI",
+    "cause": "Agent broad U2\u2192U1 string replacement unintentionally changed candidate MT25QU256 to MT25QU156. This is an authored command-generation error, not a hardware/chip failure.",
+    "bad_private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125257-EDT-comparison-samples",
+    "bad_script_sha256": "0320138c7d1a93b96ae987e08182babecf41fec10ea82760c3024df51f2f9374",
+    "original_log_private": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125257-EDT-comparison-samples/U1-partial-read1.log",
+    "log_sha256": "47a8c4bbc93b8456d67e89b5103ed50b2b6f094817f4d500c7dbdfeb2818d1fd",
+    "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U1-comparison-command-chip-name-error.log",
+    "programmer_initialized": false,
+    "error": "Unknown chip 'MT25QU156' specified.",
+    "samples": [
+      {
+        "private_path": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125257-EDT-comparison-samples/U1-PARTIAL-001f0000-read1.bin",
+        "bytes": 0,
+        "interpretation": "precreated empty placeholder, not a capture"
+      },
+      {
+        "private_path": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125257-EDT-comparison-samples/U1-PARTIAL-01f30000-read1.bin",
+        "bytes": 0,
+        "interpretation": "precreated empty placeholder, not a capture"
+      }
+    ],
+    "second_read_started": false,
+    "printed_runtime": "29885333min24sec; startup failure output is not a credible elapsed runtime",
+    "corrected_private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125555-EDT-comparison-samples-corrected",
+    "corrected_script_sha256": "96cdb38caa99a0dce36a2f01b86c14b69fafce59d218481f2109cc450b91913d",
+    "correction_checks": "Both actual flashrom argv candidate tokens checked as MT25QU256, ch341a_spi/read only; installed offline -L lists MT25QU256; sh -n and embedded comparison Python AST pass. No programmer access during validation.",
+    "corrected_state": "Corrected candidate command copied to clipboard in fresh guarded directory; hardware outcome pending"
+  }
 }
