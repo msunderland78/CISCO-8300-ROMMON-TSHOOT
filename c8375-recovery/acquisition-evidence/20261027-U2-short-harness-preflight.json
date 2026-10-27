@@ -17,7 +17,7 @@
     "P1-1_to_P1-2_usb_powered_vdc": 1.787
   },
   "new_tool_model": "not specified",
-  "status": "Confirmed fully unloaded adapter output7\u21924=0 V and output8\u21924=0 V with CH341A USB connected and adapter seated. Target leads remain disconnected; reference/source/regulator voltage checks requested.",
+  "status": "Corrected unloaded output7\u21924 and output8\u21924 both1.803 V. Prior unloaded zeros invalid due wrong probes. Cancel regulator check; fresh loaded output7/output8 correct-probe measurements requested.",
   "next_diagnostic": {
     "state": "planned after successful ID",
     "regions": [
@@ -70,20 +70,17 @@
   },
   "historical_reconciliation": "October 25 U2 probes returned 00/00 and then 20/0000 before later successful 20 BB 19 identification and full reads. This initial failure does not establish permanent inability to communicate or a dead/erased chip. Both October 25 full pairs subsequently failed repeatability.",
   "next_step": {
-    "state": "Await source3.3, regulator-tab and output8 DC readings against CH341A side GND; target stays fully disconnected",
-    "setup": "All router/clip leads removed from adapter; adapter stays on CH341A, only CH341A USB connected, flashrom stopped, DC volts. Black on CH341A side GND (different reference from prior output4).",
-    "red_endpoints": [
-      "CH341A side pin labeled3.3V",
-      "Large exposed metal tab of adapter 1117-marked regulator, same historical test point as October24 1.803V",
-      "Empty active adapter OUTPUT8"
+    "state": "Await fresh loaded adapter output7/output8 DC readings with corrected probes; prior regulator/reference checks canceled",
+    "setup": [
+      "Unplug CH341A USB before reconnecting any target leads.",
+      "Reconnect ALL router/clip leads in their original checked adapter positions as intact connector blocks; leave U2 clip/adapter seating unchanged.",
+      "Normal router power/other cables disconnected, CR2032 removed; reconnect only CH341A USB, flashrom stopped, correct probes, DC volts.",
+      "Black on adapter OUTPUT4/GND; red OUTPUT7 then OUTPUT8; report both values."
     ],
-    "if_inaccessible": "Report regulator tab inaccessible rather than reaching beneath or moving powered adapter.",
-    "purpose": "Separate a missing source/regulated rail from output-socket or output4-reference/contact issues after both unloaded readings returned0.",
-    "historical_photo_reference": "Photos/inspection/adapter-regulator-readable.png, non-generative crop from October24 Photos/IMG_1264.jpeg; not a current setup photograph or authenticated regulator model",
+    "purpose": "Repeat identical voltage endpoints with target attached to determine whether earlier loaded0 persists with correct probes, before inferring a low HOLD route or retrying software.",
     "not_selected": [
-      "router lead reconnection",
-      "adapter reseating while powered",
-      "HOLD-to-VCC jumper",
+      "regulator-tab test based on invalid unloaded zeros",
+      "HOLD jumper",
       "voltage increase",
       "flashrom retry",
       "full capture",
@@ -150,27 +147,25 @@
     },
     "assessment": "VCC 1.79 V within operating range; reported RESET 1.73 V exceeds nominal VIH minimum 1.253 V. Loaded adapter output 7/HOLD route is 0 V, below VIL maximum 0.537 V. If reaching U2 and HOLD enabled, this can inhibit communication; actual package contact and earlier transaction levels are not established, and no cause is located.",
     "next_step": {
-      "state": "Await source3.3, regulator-tab and output8 DC readings against CH341A side GND; target stays fully disconnected",
-      "setup": "All router/clip leads removed from adapter; adapter stays on CH341A, only CH341A USB connected, flashrom stopped, DC volts. Black on CH341A side GND (different reference from prior output4).",
-      "red_endpoints": [
-        "CH341A side pin labeled3.3V",
-        "Large exposed metal tab of adapter 1117-marked regulator, same historical test point as October24 1.803V",
-        "Empty active adapter OUTPUT8"
+      "state": "Await fresh loaded adapter output7/output8 DC readings with corrected probes; prior regulator/reference checks canceled",
+      "setup": [
+        "Unplug CH341A USB before reconnecting any target leads.",
+        "Reconnect ALL router/clip leads in their original checked adapter positions as intact connector blocks; leave U2 clip/adapter seating unchanged.",
+        "Normal router power/other cables disconnected, CR2032 removed; reconnect only CH341A USB, flashrom stopped, correct probes, DC volts.",
+        "Black on adapter OUTPUT4/GND; red OUTPUT7 then OUTPUT8; report both values."
       ],
-      "if_inaccessible": "Report regulator tab inaccessible rather than reaching beneath or moving powered adapter.",
-      "purpose": "Separate a missing source/regulated rail from output-socket or output4-reference/contact issues after both unloaded readings returned0.",
-      "historical_photo_reference": "Photos/inspection/adapter-regulator-readable.png, non-generative crop from October24 Photos/IMG_1264.jpeg; not a current setup photograph or authenticated regulator model",
+      "purpose": "Repeat identical voltage endpoints with target attached to determine whether earlier loaded0 persists with correct probes, before inferring a low HOLD route or retrying software.",
       "not_selected": [
-        "router lead reconnection",
-        "adapter reseating while powered",
-        "HOLD-to-VCC jumper",
+        "regulator-tab test based on invalid unloaded zeros",
+        "HOLD jumper",
         "voltage increase",
         "flashrom retry",
         "full capture",
         "firmware/protection/OTP/provisioning change"
       ]
     },
-    "endpoint_confirmed_at": "2026-10-27T10:49:52.475122-04:00"
+    "endpoint_confirmed_at": "2026-10-27T10:49:52.475122-04:00",
+    "fresh_measurement_caveat": "Earlier loaded output7=0 is not explicitly withdrawn, but correct-probe loaded recheck is required after the unloaded probe mistake; do not treat earlier0 as an established current board-held-low diagnosis."
   },
   "grouped_connection_constraint": {
     "reported_at": "2026-10-27T10:53:06.280941-04:00",
@@ -266,15 +261,15 @@
     ]
   },
   "fully_unloaded_adapter_report": {
-    "reported_and_confirmed_at": "2026-10-27T11:48:18.499005-04:00",
+    "corrected_at": "2026-10-27T11:51:45.915645-04:00",
     "user_reported_vdc": {
-      "adapter_output7_to_output4": 0,
-      "adapter_output8_to_output4": 0
+      "adapter_output7_to_output4": 1.803,
+      "adapter_output8_to_output4": 1.803
     },
-    "explicit_user_confirmation": "CH341A USB connected; 1.8 V adapter still seated; all router/clip leads removed; probes on empty adapter outputs7/8 versus output4",
-    "target_state": "Router/clip leads disconnected at adapter; no normal router power/cables, CR2032 removed under current session setup; U2 clip was instructed left seated, not separately restated in measurement reply",
-    "interpretation": "Both unloaded output7 and output8 report 0 V against adapter output4. This extends the issue beyond the loaded HOLD reading; supply, adapter seating/contact, socket probing/reference and module behavior remain unresolved. No failed-regulator/adapter diagnosis or cause of earlier read errors is established.",
-    "historical_reconciliation": "Keep earlier loaded P1 1.79 V, source3.318 V with both grounds, and October24 regulator-tab1.803 V as their own measurements. Current fully unloaded readings are a changed setup/time, not evidence that earlier rails were always absent."
+    "setup": "Previously explicitly confirmed: CH341A USB connected, adapter seated, all router/clip leads removed, empty adapter output contacts",
+    "user_correction": "Earlier unloaded zeros were measured with wrong probes plugged in; with correct probes both pairs read1.803 VDC.",
+    "assessment": "Both unloaded outputs are nominal1.8V at this DC measurement. Earlier unloaded zeros are invalid measurement reports, not a supply collapse or changed electrical state. This verifies unloaded DC output availability, not full signal translation, current capability, loaded HOLD level or reliable acquisition.",
+    "scope": "Only the last unloaded zero report was explicitly withdrawn. Earlier loaded output7=0 report and other measurements are retained as earlier reports; loaded values require correct-probe recheck before treating HOLD as board-pulled-low."
   },
   "previous_unloaded_test_plan": {
     "state": "Await fully unloaded adapter output7 and output8 DC voltages; all target leads disconnected at adapter with USB off, connector blocks intact",
@@ -294,6 +289,40 @@
       "router power",
       "flashrom retry",
       "full read",
+      "firmware/protection/OTP/provisioning change"
+    ]
+  },
+  "invalidated_unloaded_zero_report": {
+    "reported_and_confirmed_at": "2026-10-27T11:48:18.499005-04:00",
+    "user_reported_vdc": {
+      "adapter_output7_to_output4": 0,
+      "adapter_output8_to_output4": 0
+    },
+    "explicit_user_confirmation": "CH341A USB connected; 1.8 V adapter still seated; all router/clip leads removed; probes on empty adapter outputs7/8 versus output4",
+    "target_state": "Router/clip leads disconnected at adapter; no normal router power/cables, CR2032 removed under current session setup; U2 clip was instructed left seated, not separately restated in measurement reply",
+    "interpretation": "Both unloaded output7 and output8 report 0 V against adapter output4. This extends the issue beyond the loaded HOLD reading; supply, adapter seating/contact, socket probing/reference and module behavior remain unresolved. No failed-regulator/adapter diagnosis or cause of earlier read errors is established.",
+    "historical_reconciliation": "Keep earlier loaded P1 1.79 V, source3.318 V with both grounds, and October24 regulator-tab1.803 V as their own measurements. Current fully unloaded readings are a changed setup/time, not evidence that earlier rails were always absent.",
+    "validity": "Withdrawn by user: wrong probes plugged in; not a valid electrical observation",
+    "invalidated_at": "2026-10-27T11:51:45.915645-04:00"
+  },
+  "canceled_regulator_reference_plan": {
+    "state": "Await source3.3, regulator-tab and output8 DC readings against CH341A side GND; target stays fully disconnected",
+    "setup": "All router/clip leads removed from adapter; adapter stays on CH341A, only CH341A USB connected, flashrom stopped, DC volts. Black on CH341A side GND (different reference from prior output4).",
+    "red_endpoints": [
+      "CH341A side pin labeled3.3V",
+      "Large exposed metal tab of adapter 1117-marked regulator, same historical test point as October24 1.803V",
+      "Empty active adapter OUTPUT8"
+    ],
+    "if_inaccessible": "Report regulator tab inaccessible rather than reaching beneath or moving powered adapter.",
+    "purpose": "Separate a missing source/regulated rail from output-socket or output4-reference/contact issues after both unloaded readings returned0.",
+    "historical_photo_reference": "Photos/inspection/adapter-regulator-readable.png, non-generative crop from October24 Photos/IMG_1264.jpeg; not a current setup photograph or authenticated regulator model",
+    "not_selected": [
+      "router lead reconnection",
+      "adapter reseating while powered",
+      "HOLD-to-VCC jumper",
+      "voltage increase",
+      "flashrom retry",
+      "full capture",
       "firmware/protection/OTP/provisioning change"
     ]
   }
