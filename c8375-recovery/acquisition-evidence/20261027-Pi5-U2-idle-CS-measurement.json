@@ -35,7 +35,26 @@
     "supply_range_V": "1.7\u20132.0",
     "chip_select": "High deselects/tri-states outputs; low enables. Falling S# edge required before command."
   },
-  "interpretation": "Conditional on U2 being powered within1.7\u20132.0V,0.33\u20130.35V is below guaranteed-low ceiling0.51\u20130.60V. This supports investigating low U2 select but does not establish simultaneous command decoding/driving or distinguish normal supply from partial back-powering. Last P1=1.770V is not a direct current U2-VCC measurement.",
-  "next_step": "No new SPI or jumper. If U2 physical pin2/VCC is safely accessible without moving U1 clip, measure DC volts red U2pin2, black P1pin2/GND, same isolated Pi-powered idle state. Report access rather than probe a blocked leg.",
-  "actions_this_checkpoint": "Read existing evidence and primary datasheet; record owner meter observation only. No new programmer/GPIO control, firmware write or speculative pull-up/reset/selector jumper."
+  "interpretation": "Measured U2 VCC0.931V is below specified1.7\u20132.0V operating range. Normal VIL/VIH limits cannot classify the0.33\u20130.35V CS measurement at this supply. This supports investigating unintended partial powering/shared-line loading; it does not establish a feed path, normal simultaneous chip operation or the cause of the exact reference-AND result.",
+  "next_step": "Pause all SPI/clock/clip retries. Owner to unplug Pi supply after accepted shutdown, retain wiring/clip/router isolation, then DCV residual checks P1pin1-toP1pin2 and U2pin2-toP1pin2. No resistance/continuity measurement until unplugged and residual voltage verified absent. Plan unpowered supply/net mapping only after those results; no jumper/voltage increase/router power.",
+  "actions_this_checkpoint": "Read/check datasheet and record two owner meter readings. SSH verifies no programmer and sudo shutdown -h now returns0. No SPI or GPIO command, array write/reset/protection change or hardware jumper.",
+  "recorded_at": "2026-10-27T19:39:32.805591-04:00",
+  "supply_measurement": {
+    "red_probe": "Actual U2 physical pin2 / VCC",
+    "black_probe": "P1 pin2 / GND under instructed DCV procedure",
+    "reported_VDC": 0.931,
+    "power_state": "Same Pi-only powered idle U1-clipped setup; no intervening SPI operation.",
+    "independent_observation": "User meter report; no new photograph or independent reading."
+  },
+  "prior_conditional_interpretation": "Conditional on U2 being powered within1.7\u20132.0V,0.33\u20130.35V is below guaranteed-low ceiling0.51\u20130.60V. This supports investigating low U2 select but does not establish simultaneous command decoding/driving or distinguish normal supply from partial back-powering. Last P1=1.770V is not a direct current U2-VCC measurement.",
+  "shutdown": {
+    "precheck": {
+      "process_exit": 1,
+      "active_processes": ""
+    },
+    "shutdown_exit_code": 0,
+    "stdout": "",
+    "stderr": "\n",
+    "limitation": "SSH shutdown request only; Pi supply unplug and residual voltage not confirmed."
+  }
 }

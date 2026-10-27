@@ -313,6 +313,14 @@ Micron Table47,p82 specifies VILmax0.3×VCC/VIHmin0.7×VCC; Table43,p80 operatin
 
 Next: liftredprobe; leave setup unchanged, no SPI. If safely accessible, measure DCV **redU2physicalpin2/VCC,blackP1pin2/GND**; do not disturb U1clip or use a blocked endpoint. Await reading/access report before deciding any further control. No pull-up, reset or selector jumper, voltage increase, desoldering or write selected. [Owner observation/precheck/limits](acquisition-evidence/20261027-Pi5-U2-idle-CS-measurement.json).
 
+### U2 VCC below operating range; powered tests stopped — October27, America/New_York
+
+Under the same instructed idle DCV setup, owner reports **U2physicalpin2/VCC=0.931VDC** relative toP1pin2/GND. This is a direct U2supply observation, separate from earlierP1=1.770V. Micron operatingVCC is1.7–2.0V. Therefore the preceding **conditional** S#logic-low interpretation at valid supply cannot be applied to U2at0.931V; normal VIH/VIL behavior is unspecified here. This supports investigating unintended partial powering/shared-line loading. It does not establish the feed path, normal operation of U2, simultaneous valid outputs or the physical cause of the exact-AND data relation. Preserve both owner readings and the earlier conditional reasoning.
+
+Agent stops further powered SPI work, verifies no programmer over SSH, then executes`sudo shutdown -h now`; exit0 records accepted shutdown request. Pi input power unplug and residual voltage are **not yet confirmed**; shutdown acceptance alone does not establish an unpowered header/board.
+
+Next requested: after Pi supply unplug, retain U1clip/wires and normal router power/cables/CR2032 isolation. Meter staysDCV,blackP1pin2/GND: measureP1pin1,then safely accessibleU2pin2. **Await both residual readings before Ω/continuity or wiring changes.** If residual voltage remains, do not short/discharge speculatively; record it. Future unpowered supply/net mapping can distinguish rail coupling from signal back-powering only after this state is established. No U2VCCfeed, select/reset jumper, raised adapter voltage, router normal power, new SPI or firmware write selected. [Meter observations and shutdown evidence](acquisition-evidence/20261027-Pi5-U2-idle-CS-measurement.json).
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.
