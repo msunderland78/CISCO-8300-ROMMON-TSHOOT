@@ -1,0 +1,46 @@
+{
+  "prepared_at": "2026-10-27T12:52:57.200935-04:00",
+  "task": "R-01-U1-COMPARISON",
+  "target": "C8375-A / FDO2742M0FK / U1_CSPI",
+  "user_confirmation": "Clip connected to U1; output4\u2192P1-2=0.3ohms, output8\u2192P1-1=0.3ohms, P1-1\u2192P1-2=1.786VDC; user says read to test.",
+  "user_reported": {
+    "output4_to_P1_pin2_ohms": 0.3,
+    "output8_to_P1_pin1_ohms": 0.3,
+    "P1_pin1_to_pin2_loaded_VDC": 1.786
+  },
+  "fresh_meter_baseline": "not supplied",
+  "resistance_conditions": "USB-off/residual voltage conditions were instructed before move; not separately restated in numeric reply",
+  "session_conditions": "Normal router power/other cables disconnected, CR2032 removed, accepted1.8V adapter and checked wire assignments retained under session. User now explicitly confirms physical U1 target.",
+  "plan_change": "Previously identification-only command prepared but never released. Latest user request authorizes read test, so use two short regions; flashrom probes before each read and stops on failed ID. Do not report prepared ID-only command as performed.",
+  "regions": [
+    {
+      "start": "0x001f0000",
+      "end_inclusive": "0x001fffff"
+    },
+    {
+      "start": "0x01f30000",
+      "end_inclusive": "0x01f3ffff"
+    }
+  ],
+  "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125257-EDT-comparison-samples",
+  "script_sha256": "0320138c7d1a93b96ae987e08182babecf41fec10ea82760c3024df51f2f9374",
+  "expected_samples": 4,
+  "expected_bytes_each": 65536,
+  "expected_logs": 2,
+  "guards": "No overwrite, precreated mode0600 user-owned outputs, stop on flashrom error, independent samples preserved and compared offline without raw-byte output or majority voting.",
+  "validation": "sh -n and embedded Python AST pass; same previously dummy-validated multi-region read syntax. No real hardware accessed by agent.",
+  "host_observed_before_preparation": {
+    "USB": "USB UART-LPT /1A86:5512",
+    "flashrom_processes": 0
+  },
+  "status": "Fresh guarded U1 sample command copied to clipboard, not executed by agent; results pending",
+  "preconditions_for_user_run": "Only CH341A USB powers target; router power/other cables and CR2032 disconnected. Keep wiring stationary and monitor P1 DC supply1.7\u20132.0V; unplug outside range.",
+  "limitations": "U1 previously returned matching full read5/read6 but with accuracy concerns. This is comparative diagnosis, not proof U1 is good or U2 bad; partial samples are not backups and bank roles remain unresolved.",
+  "not_selected": [
+    "full capture before sample validation",
+    "force/erase/write",
+    "jumper",
+    "voltage increase",
+    "OTP/protection/provisioning changes"
+  ]
+}
