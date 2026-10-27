@@ -1,0 +1,275 @@
+{
+  "task_id": "R-01",
+  "date": "2026-10-27",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / FDO2742M0FK",
+  "physical_chip": "U1",
+  "device": "/dev/spidev0.0",
+  "physical_state": {
+    "clip": "Owner returned to intact short clip before tests",
+    "pretest_P1_VDC": 1.769,
+    "owner_confirmed": "CH341A removed; router power/all other cables disconnected; CR2032 removed; eight mapped connections checked; no competing programmer",
+    "during_test": "Owner confirms voltage remained within 1.7\u20132.0 V and nothing moved; no min/max numeric readings supplied"
+  },
+  "flashrom_control": {
+    "directory": "/home/sundema/C8375-U1-ShortReturn-target4KiB-6mw6xu5p",
+    "identification_exit_code": 0,
+    "identification_expected": true,
+    "records": [
+      {
+        "requested_kHz": 100,
+        "pass": 1,
+        "file": "U1-001f2000-100kHz-read1.bin",
+        "exit_code": 0,
+        "bytes": 4096,
+        "sha256": "05fc2530426c583da046d15530c05a5dbb931fafc8d53d03ed59bf88a28c26a2",
+        "unique_byte_values": 256,
+        "zero_bytes": 17,
+        "ff_bytes": 19,
+        "time": "2026-10-27T18:19:06.048046-04:00",
+        "different_bytes_from_original": 15,
+        "first20_difference_addresses": [
+          "0x1f2000",
+          "0x1f2001",
+          "0x1f2002",
+          "0x1f2003",
+          "0x1f2004",
+          "0x1f2005",
+          "0x1f2006",
+          "0x1f2007",
+          "0x1f2008",
+          "0x1f2009",
+          "0x1f200a",
+          "0x1f2ffb",
+          "0x1f2ffc",
+          "0x1f2ffd",
+          "0x1f2fff"
+        ],
+        "last_difference_address": "0x1f2fff"
+      },
+      {
+        "requested_kHz": 100,
+        "pass": 2,
+        "file": "U1-001f2000-100kHz-read2.bin",
+        "exit_code": 0,
+        "bytes": 4096,
+        "sha256": "05fc2530426c583da046d15530c05a5dbb931fafc8d53d03ed59bf88a28c26a2",
+        "unique_byte_values": 256,
+        "zero_bytes": 17,
+        "ff_bytes": 19,
+        "time": "2026-10-27T18:19:06.497288-04:00",
+        "different_bytes_from_original": 15,
+        "first20_difference_addresses": [
+          "0x1f2000",
+          "0x1f2001",
+          "0x1f2002",
+          "0x1f2003",
+          "0x1f2004",
+          "0x1f2005",
+          "0x1f2006",
+          "0x1f2007",
+          "0x1f2008",
+          "0x1f2009",
+          "0x1f200a",
+          "0x1f2ffb",
+          "0x1f2ffc",
+          "0x1f2ffd",
+          "0x1f2fff"
+        ],
+        "last_difference_address": "0x1f2fff"
+      },
+      {
+        "requested_kHz": 50,
+        "pass": 1,
+        "file": "U1-001f2000-50kHz-read1.bin",
+        "exit_code": 0,
+        "bytes": 4096,
+        "sha256": "825340b3d3c9e9f2e4b3aa1a8a2944ee39c77f4b2544da3e3e57bf913b376c72",
+        "unique_byte_values": 222,
+        "zero_bytes": 427,
+        "ff_bytes": 0,
+        "time": "2026-10-27T18:19:07.275789-04:00",
+        "different_bytes_from_original": 3688,
+        "first20_difference_addresses": [
+          "0x1f2000",
+          "0x1f2001",
+          "0x1f2002",
+          "0x1f2003",
+          "0x1f2004",
+          "0x1f2005",
+          "0x1f2006",
+          "0x1f2007",
+          "0x1f2008",
+          "0x1f2009",
+          "0x1f200a",
+          "0x1f200b",
+          "0x1f200c",
+          "0x1f200d",
+          "0x1f200e",
+          "0x1f200f",
+          "0x1f2010",
+          "0x1f2011",
+          "0x1f2012",
+          "0x1f2013"
+        ],
+        "last_difference_address": "0x1f2fff"
+      },
+      {
+        "requested_kHz": 50,
+        "pass": 2,
+        "file": "U1-001f2000-50kHz-read2.bin",
+        "exit_code": 0,
+        "bytes": 4096,
+        "sha256": "825340b3d3c9e9f2e4b3aa1a8a2944ee39c77f4b2544da3e3e57bf913b376c72",
+        "unique_byte_values": 222,
+        "zero_bytes": 427,
+        "ff_bytes": 0,
+        "time": "2026-10-27T18:19:08.054944-04:00",
+        "different_bytes_from_original": 3688,
+        "first20_difference_addresses": [
+          "0x1f2000",
+          "0x1f2001",
+          "0x1f2002",
+          "0x1f2003",
+          "0x1f2004",
+          "0x1f2005",
+          "0x1f2006",
+          "0x1f2007",
+          "0x1f2008",
+          "0x1f2009",
+          "0x1f200a",
+          "0x1f200b",
+          "0x1f200c",
+          "0x1f200d",
+          "0x1f200e",
+          "0x1f200f",
+          "0x1f2010",
+          "0x1f2011",
+          "0x1f2012",
+          "0x1f2013"
+        ],
+        "last_difference_address": "0x1f2fff"
+      }
+    ]
+  },
+  "independent_direct_reader": {
+    "source": "scripts/pi_u1_direct_read.py",
+    "source_sha256": "71ae3e241bc287c1ba2e1faf72260e1da67ef24f1d4ef3073d534827d188dcf9",
+    "runtime_exit_code": 1,
+    "report": {
+      "started_at": "2026-10-27T18:21:57.929569-04:00",
+      "chassis": "C8375-A/FDO2742M0FK",
+      "physical_chip": "U1",
+      "device": "/dev/spidev0.0",
+      "address": "0x1f2000",
+      "bytes_per_sample": 4096,
+      "chunk_bytes": 512,
+      "transaction": "single full-duplex SPI_IOC_MESSAGE(1)",
+      "opcodes": [
+        "0x9f RDID",
+        "0x13 native 4-byte READ"
+      ],
+      "directory": "/home/sundema/C8375-U1-direct512-3vyeg6g5",
+      "status": "failed/interrupted",
+      "samples": [
+        {
+          "file": "U1-001f2000-100kHz-read1.bin",
+          "requested_kHz": 100,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "4401df3a03bf633a48f365fed48b503998d544475ddff95b20ef177dcb68ac07",
+          "zero_bytes": 375,
+          "ff_bytes": 4
+        },
+        {
+          "file": "U1-001f2000-100kHz-read2.bin",
+          "requested_kHz": 100,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "936ab084ad0130e255133bd43ca1bb58127c1e4e6a8f18bef77565702270d83d",
+          "zero_bytes": 439,
+          "ff_bytes": 0
+        }
+      ],
+      "identities": {
+        "100000": "20bb19",
+        "10000": "001319"
+      },
+      "pair_differences": {
+        "100": 928
+      },
+      "failure": "Incorrect chip ID; no force or automatic retry",
+      "finished_at": "2026-10-27T18:21:58.600882-04:00"
+    },
+    "independently_verified_samples": [
+      {
+        "file": "U1-001f2000-100kHz-read1.bin",
+        "requested_kHz": 100,
+        "pass": 1,
+        "bytes": 4096,
+        "sha256": "4401df3a03bf633a48f365fed48b503998d544475ddff95b20ef177dcb68ac07",
+        "zero_bytes": 375,
+        "ff_bytes": 4,
+        "different_bytes_from_original": 3224,
+        "first_difference": "0x1f2000",
+        "last_difference": "0x1f2fff"
+      },
+      {
+        "file": "U1-001f2000-100kHz-read2.bin",
+        "requested_kHz": 100,
+        "pass": 2,
+        "bytes": 4096,
+        "sha256": "936ab084ad0130e255133bd43ca1bb58127c1e4e6a8f18bef77565702270d83d",
+        "zero_bytes": 439,
+        "ff_bytes": 0,
+        "different_bytes_from_original": 3695,
+        "first_difference": "0x1f2000",
+        "last_difference": "0x1f2fff"
+      }
+    ],
+    "pair_different_bytes": 928
+  },
+  "reference": {
+    "path": "c8375-recovery/restore-original-20261023/C8375-FDO2742M0FK-ORIGINAL-SPI-32MiB.bin",
+    "address": "0x001f2000\u20130x001f2fff",
+    "block_sha256": "a36ee8a337d98b56fbf1a0d9af8062bc5a7f97347b6680a63b5e23d485392056"
+  },
+  "logs": [
+    {
+      "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-ShortReturn-U1-U1-100kHz-read1.log",
+      "original_sha256": "17a605193c6a5d0ca08920eea5eda9e8d47e6777a67ba93cd726754ebee02dd1"
+    },
+    {
+      "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-ShortReturn-U1-U1-100kHz-read2.log",
+      "original_sha256": "87b4b983da65cbb1a3400c670c016a45c52437c5c43e74b45a6bcecda1c2ad43"
+    },
+    {
+      "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-ShortReturn-U1-U1-50kHz-read1.log",
+      "original_sha256": "48f2d0ff1cbd5b78830ddf89d30ca50bbb66c72aa904b5ad414dfc03b1ecca6c"
+    },
+    {
+      "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-ShortReturn-U1-U1-50kHz-read2.log",
+      "original_sha256": "a017c95f400baf2999245a356534cc3e439966a199073a448a990e07c79aea43"
+    },
+    {
+      "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-ShortReturn-U1-identification.log",
+      "original_sha256": "aba673f613db738c619b9ee0d867aff73f68e0c1578d24edbf376db1f531f523"
+    }
+  ],
+  "preservation": "All six 4096-byte samples, reports and original logs retained privately on Pi and independently imported locally; binary contents not published.",
+  "validation": {
+    "offline_unittest_count": 22,
+    "result": "passed",
+    "hardware_import": "All six sizes/SHA256 and both direct samples independently compared locally",
+    "process_check_after_test": "No flashrom or direct reader process found over key-only SSH"
+  },
+  "interpretation": [
+    "Flashrom 100 kHz pair is identical, but differs at 15 bytes from saved reference: first 11 bytes plus four in final five-byte transaction.",
+    "Flashrom 50 kHz pair is identical, but differs from reference at 3688 bytes.",
+    "Independent single full-duplex 512-byte chunk reader fails repeatability at 100 kHz (928 differing bytes).",
+    "10 kHz RDID returned 001319 rather than 20bb19; guard stopped before any 10 kHz data read. Requested rates are not waveform measurements.",
+    "Results do not isolate a flashrom defect, electrical fault, board loading/contention or controller/driver issue. Reference disagreement alone is not proof of incorrect current contents.",
+    "No firmware program/erase, reset, register/protection/OTP command or full-array capture was selected. No reliable backup established."
+  ],
+  "next_step": "Stop unchanged SPI retries and preserve assembly. Review accessible test points and suitable waveform instrumentation/independent interface controls before selecting further hardware access; no voltage increase, speculative jumper or write."
+}
