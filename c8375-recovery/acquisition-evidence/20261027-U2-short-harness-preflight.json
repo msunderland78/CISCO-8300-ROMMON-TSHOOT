@@ -1,0 +1,52 @@
+{
+  "session": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness",
+  "created_at": "2026-10-27T10:21:35.127538-04:00",
+  "task": "R-01-U2-SHORT-HARNESS",
+  "target": "C8375-A / FDO2742M0FK / U2_CSPI",
+  "user_confirmed": [
+    "target/chassis",
+    "router external power and other cables disconnected",
+    "CR2032 removed",
+    "no console/programmer command running",
+    "all eight connections checked against actual mapping"
+  ],
+  "user_reported": {
+    "total_wire_length": "a little longer than 10 cm total",
+    "P1-1_to_adapter_output_8_ohms": 0.3,
+    "P1-2_to_adapter_output_4_ohms": 0.3,
+    "P1-1_to_P1-2_usb_powered_vdc": 1.787
+  },
+  "new_tool_model": "not specified",
+  "status": "identification command copied to user clipboard; not run; awaits user sudo",
+  "next_diagnostic": {
+    "state": "planned after successful ID",
+    "regions": [
+      {
+        "start": "0x1f0000",
+        "end_inclusive": "0x1fffff",
+        "old_pair_differences": 44075
+      },
+      {
+        "start": "0x1f30000",
+        "end_inclusive": "0x1f3ffff",
+        "old_pair_differences": 4096
+      }
+    ],
+    "reason": "most differing 64-KiB windows in each 16-MiB half of prior U2 read3/read4",
+    "partial_samples_are_not_backups": true
+  },
+  "host_observed": {
+    "usb_product": "USB UART-LPT",
+    "vid_pid": "1A86:5512",
+    "flashrom_processes": 0,
+    "installed_flashrom": "1.8.0",
+    "sudo_cached": false,
+    "programmer_access_by_agent": false
+  },
+  "measurement_limits": [
+    "Resistance meter mode, fresh lead baseline, USB-off/residual-voltage conditions were not separately restated for the reported resistance readings.",
+    "Loaded DC voltage alone does not exclude transients, signal/contact problems or board loading.",
+    "Exact new tool/clip model and removal of the old ribbon are not separately specified; total wire length is user-reported.",
+    "This is SPI/ROMMON main-array acquisition; presence of IOS configuration in U2 is unverified."
+  ]
+}
