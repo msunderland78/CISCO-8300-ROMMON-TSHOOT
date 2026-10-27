@@ -50,5 +50,31 @@
       "Assumed short between neighboring header pins",
       "Powered or router-connected continuity test"
     ]
+  },
+  "isolated_input_measurement_report": {
+    "recorded_at": "2026-10-27T16:25:06.670982-04:00",
+    "task": "P-03-PI-ADAPTER-INPUT",
+    "source": "Owner message: 632 ohms between 8 and 3 as well as between 7 and 3",
+    "reported_pairs": [
+      {
+        "endpoint_a": "adapter INPUT8",
+        "endpoint_b": "adapter INPUT3",
+        "ohms": 632
+      },
+      {
+        "endpoint_a": "adapter INPUT7",
+        "endpoint_b": "adapter INPUT3",
+        "ohms": 632
+      }
+    ],
+    "requested_but_not_reported": [
+      "adapter INPUT8 to INPUT7",
+      "fresh probes-together baseline"
+    ],
+    "conditions": "Detached module, all wires removed, all supplies unplugged and residual voltage absent were requested; numeric response does not separately restate these conditions or meter model/polarity. No agent electrical measurement.",
+    "inference": "Reported 632ohm pairs do not establish a direct common supply node. Do not turn the second pair into INPUT8-to-INPUT7 or infer an exact resistor, internal circuit or damaged component.",
+    "decision": "Do not use a single INPUT8 feed on the assumption of internal shorts. No need to repeat solely to reject the all-three-common hypothesis. The proposed fixed-rail method still needs a secure common junction; no such junction is verified among available parts. Mini solderless breadboard is a practical no-custom-cable option, not an order or delivered item.",
+    "next": "Obtain/select a secure common junction for Pi3.3V to adapter INPUT8/3/7, then verify detached interface before reconnecting router. No new wiring/power-up/probe selected from resistance alone.",
+    "reference_product": "https://www.adafruit.com/product/65"
   }
 }
