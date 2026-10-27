@@ -32,5 +32,15 @@
   "full_reads_selected": false,
   "write_selected": false,
   "source": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/doc/user_docs/in_system.rst",
-  "source_scope": "General cable-length/contact guidance only; external generic power/reset workarounds are not selected for this router."
+  "source_scope": "General cable-length/contact guidance only; external generic power/reset workarounds are not selected for this router.",
+  "execution_update": {
+    "recorded_at": "2026-10-27T17:59:47.457633-04:00",
+    "new_clip_connected_owner_report": true,
+    "mapping_and_isolation_owner_confirmed": true,
+    "ID_passed": true,
+    "two_region_pairs_repeatable": true,
+    "independent4KiB100kHz_pair_failed": true,
+    "validation_record": "20261027-Pi5-New40cmA-U1-validation.json",
+    "next": "Recommended short-clip control with same4KiB diagnostic after power-off swap and loaded supply check; no further test yet"
+  }
 }

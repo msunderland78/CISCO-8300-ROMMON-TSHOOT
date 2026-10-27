@@ -1,0 +1,40 @@
+flashrom v1.6.0 on Linux 7.0.0-1020-raspi (aarch64)
+flashrom was built with GCC 15.2.0, little endian
+Command line (12 args): flashrom -V -p linux_spi:dev=/dev/spidev0.0,spispeed=50 -c MT25QU256 -l /home/sundema/C8375-U1-New40cmA-target4KiB-_0n4cd3b/region.layout -r -i probe:/home/sundema/C8375-U1-New40cmA-target4KiB-_0n4cd3b/U1-001f2000-50kHz-read2.bin -o /home/sundema/C8375-U1-New40cmA-target4KiB-_0n4cd3b/U1-50kHz-read2.log
+Added layout entry 001f2000 - 001f2fff named probe
+Using region: "probe":"/home/sundema/C8375-U1-New40cmA-target4KiB-_0n4cd3b/U1-001f2000-50kHz-read2.bin".
+Initializing linux_spi programmer
+Using device /dev/spidev0.0
+Using 50kHz clock
+get_max_kernel_buf_size: Using value from /sys/module/spidev/parameters/bufsiz as max buffer size.
+linux_spi_init: max_kernel_buf_size: 4096
+The following protocols are supported: SPI.
+Probing for Micron MT25QU256, 32768 kB: compare_id: id1 0x20, id2 0xbb19
+Added layout entry 00000000 - 01ffffff named complete flash
+Found Micron flash chip "MT25QU256" (32768 kB, SPI) on linux_spi.
+Chip status register is 0x00.
+Chip status register: Status Register Write Disable (SRWD, SRP, ...) is not set
+Chip status register: Block Protect 3 (BP3) is not set
+Chip status register: Top/Bottom (TB) is top
+Chip status register: Block Protect 2 (BP2) is not set
+Chip status register: Block Protect 1 (BP1) is not set
+Chip status register: Block Protect 0 (BP0) is not set
+Chip status register: Write Enable Latch (WEL) is not set
+Chip status register: Write In Progress (WIP/BUSY) is not set
+This chip may contain one-time programmable memory. flashrom cannot read
+and may never be able to write it, hence it may not be able to completely
+clone the contents of this chip (see man page for details).
+===
+This flash part has status UNTESTED for operations: WP
+The test status of this chip may have been updated in the latest development
+version of flashrom. If you are running the latest development version,
+please email a report to flashrom@flashrom.org if any of the above operations
+work correctly for you with this flash chip. Please include the flashrom log
+file for all operations you tested (see the man page for details), and mention
+which mainboard or programmer you tested in the subject line.
+You can also try to follow the instructions here:
+https://www.flashrom.org/contrib_howtos/how_to_mark_chip_tested.html
+Thanks for your help!
+Block protection is disabled.
+Reading flash... read_flash:  region (00000000..0x1ffffff) is readable, reading range (0x1f2000..0x1f2fff).
+done.

@@ -1,0 +1,413 @@
+{
+  "recorded_at": "2026-10-27T17:59:47.457633-04:00",
+  "task": "R-01-U1-NEW40CMA",
+  "chassis": "C8375-A/FDO2742M0FK",
+  "physical_chip": "U1",
+  "assembly": "New40cm-A is session label for newly connected factory-wired clip;40cm is prior owner cable report, actual assembled length/model not independently inspected.",
+  "pre_test": {
+    "P1-1_to_adapter_OUTPUT8_ohms": 0.5,
+    "P1-2_to_adapter_OUTPUT4_ohms": 0.5,
+    "P1-1_to_P1-2_VDC": 1.747,
+    "resistance_conditions": "Fresh lead baseline/power-off measurement timing not separately supplied",
+    "owner_confirmation": "yes: correct chassis/U1, CH341A removed, router power/all other cables/CR2032 isolated, no other console/programmer session, all8connections checked",
+    "during_read_voltage": "Owner replied yes to1.7-2.0V during initial ID/two64KiB passes; no exact min/max or separate mechanical-stability answer. Follow-up4KiB monitoring requested but no separate voltage report."
+  },
+  "execution": "Agent key-only SSH ID and checksum-verified read script; private in-memory sudo stdin only; no sudo-policy change. ID and all acquisition commands select read/probe only.",
+  "identification": {
+    "exit_code": 0,
+    "chip": "20BB19 / MicronMT25QU256 /32768kB",
+    "status_register": "0x00",
+    "requested_clock_kHz": 100
+  },
+  "two_region_run": {
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-New40cmA-Pi100kHz-import-doicudb0",
+    "Pi_directory": "/home/sundema/C8375-U1-Pi100kHz-64f75k0i",
+    "reported_start": "2026-10-27T17:52:05.073914-04:00",
+    "reported_finish": "2026-10-27T17:52:26.361366-04:00",
+    "files": [
+      {
+        "file": "U1-lower-read1.bin",
+        "bytes": 65536,
+        "sha256": "3a90cb68339ebe39cdf590ebf091efe23237988347eac31f5b4452a99343d028",
+        "mode": "0o600"
+      },
+      {
+        "file": "U1-lower-read2.bin",
+        "bytes": 65536,
+        "sha256": "3a90cb68339ebe39cdf590ebf091efe23237988347eac31f5b4452a99343d028",
+        "mode": "0o600"
+      },
+      {
+        "file": "U1-read1.log",
+        "bytes": 2761,
+        "sha256": "a7a13526c89cc4e1dbb121dea7ade311590258ab20792ac14cc833d5e264a6b7",
+        "mode": "0o600"
+      },
+      {
+        "file": "U1-read2.log",
+        "bytes": 2761,
+        "sha256": "600e7af7770b2f1fdf65c612a920089f71c7ebc00845a6d15224f9f5aa0c874d",
+        "mode": "0o600"
+      },
+      {
+        "file": "U1-upper-read1.bin",
+        "bytes": 65536,
+        "sha256": "9ff5becdcc25f72889f1b59fccd8e97d8e8cc14ef9423a9e0b3a209d0ed76269",
+        "mode": "0o600"
+      },
+      {
+        "file": "U1-upper-read2.bin",
+        "bytes": 65536,
+        "sha256": "9ff5becdcc25f72889f1b59fccd8e97d8e8cc14ef9423a9e0b3a209d0ed76269",
+        "mode": "0o600"
+      },
+      {
+        "file": "comparison.json",
+        "bytes": 3187,
+        "sha256": "32c556a6a064c30082eeb1091adc1ff562019480ec5135d4ab26cf167a84debd",
+        "mode": "0o600"
+      },
+      {
+        "file": "regions.layout",
+        "bytes": 48,
+        "sha256": "3bdc7d71c35b7c951eb4a2a953563996c2176ed3dd803bd7782a7daa1d40e7bd",
+        "mode": "0o600"
+      }
+    ],
+    "verified_results": {
+      "lower": {
+        "pair_different_bytes": 0,
+        "different_bytes_from_current_short_clip": 57539,
+        "new_sha256": "3a90cb68339ebe39cdf590ebf091efe23237988347eac31f5b4452a99343d028",
+        "old_sha256": "6c39b76271b961e11e745f09eede3b69c6181d704b40dadf21e8dc73400d4c84",
+        "reference_comparisons": {
+          "original": {
+            "different_bytes": 65266,
+            "bytes_losing_reference_one_bits": 8024,
+            "bytes_adding_reference_one_bits": 57539,
+            "first_difference": "0x1f0000",
+            "last_difference": "0x1fffff"
+          },
+          "known_nonbooting": {
+            "different_bytes": 65268,
+            "bytes_losing_reference_one_bits": 8033,
+            "bytes_adding_reference_one_bits": 57516,
+            "first_difference": "0x1f0000",
+            "last_difference": "0x1fffff"
+          }
+        }
+      },
+      "upper": {
+        "pair_different_bytes": 0,
+        "different_bytes_from_current_short_clip": 7,
+        "new_sha256": "9ff5becdcc25f72889f1b59fccd8e97d8e8cc14ef9423a9e0b3a209d0ed76269",
+        "old_sha256": "e0c7d36013e11f91b484ea6d2c7d70b0acbb93611c50c96f014702f8b258d67e",
+        "reference_comparisons": {
+          "original": {
+            "different_bytes": 122,
+            "bytes_losing_reference_one_bits": 116,
+            "bytes_adding_reference_one_bits": 6,
+            "first_difference": "0x1f30218",
+            "last_difference": "0x1f3ffff"
+          },
+          "known_nonbooting": {
+            "different_bytes": 120,
+            "bytes_losing_reference_one_bits": 115,
+            "bytes_adding_reference_one_bits": 5,
+            "first_difference": "0x1f3041e",
+            "last_difference": "0x1f3ffff"
+          }
+        }
+      }
+    },
+    "finding": "Both pairs byte-identical, but new versus short clip differs57539lower/7upperbytes. Neither region matches original/known-nonbooting references.",
+    "block_analysis": {
+      "lower": {
+        "first_new_vs_old_difference": "0x1f01b2",
+        "last_new_vs_old_difference": "0x1fffff",
+        "new_loses_old_one_bits_at_bytes": 0,
+        "new_adds_old_one_bits_at_bytes": 57539,
+        "blocks": [
+          {
+            "start": "0x1f0000",
+            "different_bytes": 399,
+            "new_zeros": 7757,
+            "new_FF": 85,
+            "new_distinct": 80
+          },
+          {
+            "start": "0x1f2000",
+            "different_bytes": 8161,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1f4000",
+            "different_bytes": 8164,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1f6000",
+            "different_bytes": 8168,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1f8000",
+            "different_bytes": 8159,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1fa000",
+            "different_bytes": 8164,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1fc000",
+            "different_bytes": 8157,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1fe000",
+            "different_bytes": 8167,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          }
+        ]
+      },
+      "upper": {
+        "first_new_vs_old_difference": "0x1f31eb0",
+        "last_new_vs_old_difference": "0x1f31fff",
+        "new_loses_old_one_bits_at_bytes": 0,
+        "new_adds_old_one_bits_at_bytes": 7,
+        "blocks": [
+          {
+            "start": "0x1f30000",
+            "different_bytes": 7,
+            "new_zeros": 7849,
+            "new_FF": 5,
+            "new_distinct": 82
+          },
+          {
+            "start": "0x1f32000",
+            "different_bytes": 0,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1f34000",
+            "different_bytes": 0,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1f36000",
+            "different_bytes": 0,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1f38000",
+            "different_bytes": 0,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1f3a000",
+            "different_bytes": 0,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1f3c000",
+            "different_bytes": 0,
+            "new_zeros": 0,
+            "new_FF": 8192,
+            "new_distinct": 1
+          },
+          {
+            "start": "0x1f3e000",
+            "different_bytes": 0,
+            "new_zeros": 73,
+            "new_FF": 8117,
+            "new_distinct": 4
+          }
+        ]
+      }
+    },
+    "important_readout": "New64KiB lower sample is allFF from0x001F2000 through0x001FFFFF. This is observed data, not proof of erasure."
+  },
+  "targeted_follow_up": {
+    "reason": "Read same0x001F2000-0x001F2FFF window independently to test read-size and clock sensitivity, avoiding full-chip reads",
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-New40cmA-target4KiB-import-ead6kd40",
+    "Pi_directory": "/home/sundema/C8375-U1-New40cmA-target4KiB-_0n4cd3b",
+    "records": [
+      {
+        "requested_kHz": 100,
+        "pass": 1,
+        "file": "U1-001f2000-100kHz-read1.bin",
+        "exit_code": 0,
+        "bytes": 4096,
+        "sha256": "de01ba7500bdcdfde6b6b29231333f7c6f8006625cfc5a27362c29e4109879d7",
+        "unique_byte_values": 256,
+        "zero_bytes": 17,
+        "ff_bytes": 19,
+        "time": "2026-10-27T17:55:52.295026-04:00",
+        "different_bytes_from_original": 8,
+        "different_bytes_from_new_clip_64KiB_slice": 4077,
+        "exact_circular_rotation_of_original_offset": -1
+      },
+      {
+        "requested_kHz": 100,
+        "pass": 2,
+        "file": "U1-001f2000-100kHz-read2.bin",
+        "exit_code": 0,
+        "bytes": 4096,
+        "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1",
+        "unique_byte_values": 256,
+        "zero_bytes": 29,
+        "ff_bytes": 9,
+        "time": "2026-10-27T17:55:52.743615-04:00",
+        "different_bytes_from_original": 4077,
+        "different_bytes_from_new_clip_64KiB_slice": 4087,
+        "exact_circular_rotation_of_original_offset": -1
+      },
+      {
+        "requested_kHz": 50,
+        "pass": 1,
+        "file": "U1-001f2000-50kHz-read1.bin",
+        "exit_code": 0,
+        "bytes": 4096,
+        "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1",
+        "unique_byte_values": 256,
+        "zero_bytes": 29,
+        "ff_bytes": 9,
+        "time": "2026-10-27T17:55:53.524140-04:00",
+        "different_bytes_from_original": 4077,
+        "different_bytes_from_new_clip_64KiB_slice": 4087,
+        "exact_circular_rotation_of_original_offset": -1
+      },
+      {
+        "requested_kHz": 50,
+        "pass": 2,
+        "file": "U1-001f2000-50kHz-read2.bin",
+        "exit_code": 0,
+        "bytes": 4096,
+        "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1",
+        "unique_byte_values": 256,
+        "zero_bytes": 29,
+        "ff_bytes": 9,
+        "time": "2026-10-27T17:55:54.303026-04:00",
+        "different_bytes_from_original": 4077,
+        "different_bytes_from_new_clip_64KiB_slice": 4087,
+        "exact_circular_rotation_of_original_offset": -1
+      }
+    ],
+    "pair_different_bytes": {
+      "100": 4072,
+      "50": 0
+    },
+    "finding": "100kHz pair differs4072/4096bytes; first sample differs8from original, second differs4077. The50kHz pair is identical to100kHz second sample but still differs4077from original and disagrees with earlier64KiB slice. Stable wrong/read-shape-dependent data remains possible.",
+    "alignment_analysis": [
+      {
+        "file": "U1-001f2000-100kHz-read1.bin",
+        "candidate_alignment_matches": [
+          {
+            "reference_start": "0x1f2000",
+            "unique_anchor_votes": 9,
+            "different_bytes": 8
+          }
+        ]
+      },
+      {
+        "file": "U1-001f2000-100kHz-read2.bin",
+        "candidate_alignment_matches": []
+      }
+    ]
+  },
+  "preserved_log_sources": [
+    {
+      "local_original": "c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-ID100kHz.log",
+      "public_generated": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-ID100kHz.log",
+      "bytes": 2112,
+      "sha256": "7fafd0ffe9d4a5b0b6cb91e9684f385535c8a80e5d4a94aff0dd1715953c3af0",
+      "status_lines": [
+        "Chip status register is 0x00."
+      ]
+    },
+    {
+      "local_original": "c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-64KiB-read1.log",
+      "public_generated": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-64KiB-read1.log",
+      "bytes": 2761,
+      "sha256": "a7a13526c89cc4e1dbb121dea7ade311590258ab20792ac14cc833d5e264a6b7",
+      "status_lines": [
+        "Chip status register is 0x00."
+      ]
+    },
+    {
+      "local_original": "c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-64KiB-read2.log",
+      "public_generated": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-64KiB-read2.log",
+      "bytes": 2761,
+      "sha256": "600e7af7770b2f1fdf65c612a920089f71c7ebc00845a6d15224f9f5aa0c874d",
+      "status_lines": [
+        "Chip status register is 0x00."
+      ]
+    },
+    {
+      "local_original": "c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-001f2000-100kHz-read1.log",
+      "public_generated": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-001f2000-100kHz-read1.log",
+      "bytes": 2546,
+      "sha256": "539edd870eb5104c9716f0a29708d744255209e1e810fb5e372a8e7494f9151e",
+      "status_lines": [
+        "Chip status register is 0x00."
+      ]
+    },
+    {
+      "local_original": "c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-001f2000-100kHz-read2.log",
+      "public_generated": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-001f2000-100kHz-read2.log",
+      "bytes": 2546,
+      "sha256": "3e42a3f43d1e8aed78734f9ef51f6664817cdec68b1e9caea32d560a88922eae",
+      "status_lines": [
+        "Chip status register is 0x00."
+      ]
+    },
+    {
+      "local_original": "c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-001f2000-50kHz-read1.log",
+      "public_generated": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-001f2000-50kHz-read1.log",
+      "bytes": 2541,
+      "sha256": "108149079d02d8d8448f204d1d437d6a4588937e5989a8e242a927a54b76ad46",
+      "status_lines": [
+        "Chip status register is 0x00."
+      ]
+    },
+    {
+      "local_original": "c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-001f2000-50kHz-read2.log",
+      "public_generated": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-Pi5-New40cmA-U1-001f2000-50kHz-read2.log",
+      "bytes": 2541,
+      "sha256": "6df839d1d838dd293253d60f16aba7790d7127108a9839cbbd49790f2547d46f",
+      "status_lines": [
+        "Chip status register is 0x00."
+      ]
+    }
+  ],
+  "inference": "New clip is not validated as accurate. Within-pair agreement at64KiB and50kHz does not overcome same-address/read-size/100kHz disagreement. Cause among contact/cable/loading, supply transients, transaction/address state or shared interface/software is unresolved; no claim of array modification, erased flash, failed chip or specific bad cable.",
+  "next": "Stop further acquisition. Recommended control: Pi shutdown/unplug before returning to intact short clip on same U1; recheck loaded supply and ownership/isolation, then repeat exact independent4KiB read test. Preserve both assemblies and all captures. No full reads or writes selected.",
+  "full_reads_selected": false,
+  "write_selected": false
+}
