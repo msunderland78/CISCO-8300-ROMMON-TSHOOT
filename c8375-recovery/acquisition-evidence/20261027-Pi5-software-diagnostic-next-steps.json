@@ -1,0 +1,114 @@
+{
+  "task_id": "R-01",
+  "date": "2026-10-27",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / FDO2742M0FK",
+  "physical_chip": "U1",
+  "owner_equipment": "Owner reports no oscilloscope, USB logic analyzer or alternative adapter/programmer; asks whether Pi software can help.",
+  "offline_analysis": [
+    {
+      "file": "U1-001f2000-100kHz-read1.bin",
+      "method": "flashrom",
+      "equal_bytes_from_reference": 4081,
+      "lost_reference_one_bits": 29,
+      "added_one_bits": 0,
+      "best_bit_alignment": [
+        0.99911,
+        0
+      ]
+    },
+    {
+      "file": "U1-001f2000-100kHz-read2.bin",
+      "method": "flashrom",
+      "equal_bytes_from_reference": 4081,
+      "lost_reference_one_bits": 29,
+      "added_one_bits": 0,
+      "best_bit_alignment": [
+        0.99911,
+        0
+      ]
+    },
+    {
+      "file": "U1-001f2000-50kHz-read1.bin",
+      "method": "flashrom",
+      "equal_bytes_from_reference": 408,
+      "lost_reference_one_bits": 8343,
+      "added_one_bits": 0,
+      "best_bit_alignment": [
+        0.74539,
+        0
+      ]
+    },
+    {
+      "file": "U1-001f2000-50kHz-read2.bin",
+      "method": "flashrom",
+      "equal_bytes_from_reference": 408,
+      "lost_reference_one_bits": 8343,
+      "added_one_bits": 0,
+      "best_bit_alignment": [
+        0.74539,
+        0
+      ]
+    },
+    {
+      "file": "U1-001f2000-100kHz-read1.bin",
+      "method": "direct512",
+      "equal_bytes_from_reference": 872,
+      "lost_reference_one_bits": 7302,
+      "added_one_bits": 0,
+      "best_bit_alignment": [
+        0.77716,
+        0
+      ]
+    },
+    {
+      "file": "U1-001f2000-100kHz-read2.bin",
+      "method": "direct512",
+      "equal_bytes_from_reference": 401,
+      "lost_reference_one_bits": 8387,
+      "added_one_bits": 0,
+      "best_bit_alignment": [
+        0.74405,
+        0
+      ]
+    }
+  ],
+  "analysis_limitations": "Comparisons are against a historical saved image, not guaranteed current contents. All six samples show zero added-one bits relative to this reference and best alignment at zero among shifts -8..8. This suggests investigating high-level loss/masking, not a proven electrical cause or permission to reconstruct bytes.",
+  "read_only_Pi_inventory": {
+    "kernel": "7.0.0-1020-raspi",
+    "software_spi_module": "Matching spi-gpio kernel module present; not loaded/configured/tested",
+    "gpiod": "Not installed; apt candidate 2.2.1-3build1",
+    "python3-libgpiod": "Not installed; apt candidate 2.2.1-3build1",
+    "flashrom_process": "None found"
+  },
+  "next_tests_planned_only": [
+    {
+      "step": 1,
+      "test": "Pi-only external loopback",
+      "physical_plan": "Shut down and unplug Pi; remove all adapter/router connections from Pi header, including supply; clip can remain seated on isolated router. Connect Pi physical 19/MOSI to physical 21/MISO with one Dupont lead. Reconfirm isolation before power/test.",
+      "purpose": "Send known byte patterns and compare received data at several transfer lengths/rates without router or translator.",
+      "limit": "Pass does not establish chip-select behavior or operation under adapter/board load."
+    },
+    {
+      "step": 2,
+      "test": "Adapter-only loopback if Pi-only passes",
+      "physical_plan": "Pi-off changes; router harness disconnected from adapter output. Reconnect checked adapter input mapping and supply, then join adapter OUTPUT5/MOSI to OUTPUT2/MISO after verifying output numbering/access.",
+      "purpose": "Test forward and return translation with known data, without the router.",
+      "limit": "Pass is under light load; does not establish loaded clip/router behavior."
+    },
+    {
+      "step": 3,
+      "test": "Software-generated GPIO SPI control if loopbacks pass",
+      "physical_plan": "Prepare and offline-check driver/GPIO mapping, ownership, inactive CS and reversible configuration before reconnecting the checked U1 harness. Refresh target/isolation/voltage confirmation.",
+      "purpose": "Bypass RP1 dedicated SPI engine/driver and deliberately allow settling before each sample; ID then bounded read-only blocks.",
+      "limit": "Linux software timing varies; no exact clock or analog waveform measurement. Pi3.3V signals still require the existing checked1.8V translation."
+    }
+  ],
+  "actions_this_checkpoint": "Offline byte comparison and SSH package/module/process inventory only. No SPI/GPIO opened, package installed, module loaded, pin changed, router command, reset, flash write or physical change performed.",
+  "sources": [
+    "https://docs.kernel.org/spi/spidev.html",
+    "https://libgpiod.readthedocs.io/en/v2.3.1/python_api.html",
+    "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/doc/user_docs/in_system.rst"
+  ],
+  "next_inference": "A failed isolated loopback localizes trouble upstream of the router. Passing loopbacks followed by failing in-circuit reads directs investigation toward load/selection/control interactions; it does not prove the clip faulty."
+}
