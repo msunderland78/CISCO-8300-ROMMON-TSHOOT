@@ -5,8 +5,8 @@
   "chassis": "C8375-A / FDO2742M0FK (fresh full confirmation pending)",
   "physical_chip": "U1 (owner reports short clip reconnected)",
   "owner_observation": "Pi powered, short clip on U1, loaded P1 pin1-to2=1.770 VDC.",
-  "status": "prepared; not executed",
-  "pending_physical_confirmation": "Same chassis/serial/U1; OUTPUT2-to5 loopback removed; eight mapped paths checked; CH341A/router power/other router cables/CR2032 disconnected; no competing programmer; monitor1.7\u20132.0V.",
+  "status": "completed; repeatability passed; accuracy/bank identity unresolved",
+  "pending_physical_confirmation": "Resolved before acquisition by owner confirmation",
   "source": "scripts/pi_gpio_u1_read.py",
   "installation": {
     "directory": "/home/sundema/C8375-U1-GPIO-read-tools-9n0eppu5",
@@ -44,5 +44,203 @@
     "new_tests": "Four bounded-reader tests cover native address/chunk shape, failed ID stop, mismatch offsets/private original preservation, and no default/help hardware action. Existing GPIO mode0/cleanup tests retained.",
     "remote_preparation": "Fresh source deployment SHA256 verified and --help passes; no GPIO/SPI opened by preparation."
   },
-  "limitation": "No new identification, sample bytes, repeatability or accuracy result exists yet. Matching4KiB samples would not establish whole-array accuracy or a full backup."
+  "limitation": "No new identification, sample bytes, repeatability or accuracy result exists yet. Matching4KiB samples would not establish whole-array accuracy or a full backup.",
+  "preparation_status": "prepared; not executed",
+  "physical_confirmation": "Owner explicitly replies yes, move forward to same C8375-A/FDO2742M0FK/U1, all eight checked paths, OUTPUT2-to5 jumper removed, CH341A/router power/cables/CR2032 disconnected, no competing programmer and voltage watch.",
+  "runtime": {
+    "exit_code": 0,
+    "report": {
+      "started_at": "2026-10-27T19:22:35.549791-04:00",
+      "setup": "C8375-A/FDO2742M0FK/U1; short clip; checked translated harness; loopback jumper removed",
+      "method": "libgpiod GPIO software SPI, mode0/MSB-first; no SPI engine transfers",
+      "gpiod_version": "2.2.0",
+      "gpiochip": "/dev/gpiochip0",
+      "controller": "1f00050000.spi",
+      "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+      "CS_GPIO": 8,
+      "MISO_GPIO": 9,
+      "MOSI_GPIO": 10,
+      "CLK_GPIO": 11,
+      "requested_wait_seconds_per_phase": 0.0002,
+      "timing_limit": "Three waits per bit plus Python/Linux/GPIO overhead; no exact clock claim",
+      "directory": "/home/sundema/C8375-U1-GPIO-target4KiB-vmbu037j",
+      "status": "passed",
+      "tests": [],
+      "chassis": "C8375-A/FDO2742M0FK",
+      "physical_chip": "U1",
+      "start_address": "0x1f2000",
+      "bytes_per_sample": 4096,
+      "chunk_bytes": 512,
+      "opcodes": [
+        "0x9f RDID",
+        "0x13 native four-byte READ"
+      ],
+      "samples": [
+        {
+          "file": "U1-001f2000-GPIO-read1.bin",
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "09327df0f66e6745229cc1681f50c8c301177615f7615abbabee8762f7c55171",
+          "zero_bytes": 426,
+          "ff_bytes": 0
+        },
+        {
+          "file": "U1-001f2000-GPIO-read2.bin",
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "09327df0f66e6745229cc1681f50c8c301177615f7615abbabee8762f7c55171",
+          "zero_bytes": 426,
+          "ff_bytes": 0
+        }
+      ],
+      "identities": [
+        {
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "pass": 2,
+          "id": "20bb19"
+        }
+      ],
+      "progress": {
+        "pass": 2,
+        "completed_bytes": 4096
+      },
+      "comparison": {
+        "different_bytes": 0,
+        "first_difference_address": null,
+        "last_difference_address": null
+      },
+      "limitation": "4 KiB equality does not establish whole-array accuracy, bank identity or a complete backup",
+      "driver_restored": true,
+      "finished_at": "2026-10-27T19:23:27.891388-04:00"
+    }
+  },
+  "independent_validation": {
+    "independently_verified_samples": [
+      {
+        "file": "U1-001f2000-GPIO-read1.bin",
+        "pass": 1,
+        "bytes": 4096,
+        "sha256": "09327df0f66e6745229cc1681f50c8c301177615f7615abbabee8762f7c55171",
+        "zero_bytes": 426,
+        "ff_bytes": 0,
+        "comparisons": {
+          "saved_original": {
+            "different_bytes": 3687,
+            "lost_reference_one_bits": 8343,
+            "added_one_bits": 0,
+            "first_difference": "0x1f2000",
+            "last_difference": "0x1f2fff"
+          },
+          "known_nonbooting": {
+            "different_bytes": 3638,
+            "lost_reference_one_bits": 7933,
+            "added_one_bits": 0,
+            "first_difference": "0x1f2000",
+            "last_difference": "0x1f2fff"
+          },
+          "flashrom_short_return_100kHz": {
+            "different_bytes": 3673,
+            "lost_reference_one_bits": 8314,
+            "added_one_bits": 0,
+            "first_difference": "0x1f200a",
+            "last_difference": "0x1f2ffa"
+          },
+          "flashrom_short_return_50kHz": {
+            "different_bytes": 5,
+            "lost_reference_one_bits": 5,
+            "added_one_bits": 5,
+            "first_difference": "0x1f2ffb",
+            "last_difference": "0x1f2fff"
+          }
+        }
+      },
+      {
+        "file": "U1-001f2000-GPIO-read2.bin",
+        "pass": 2,
+        "bytes": 4096,
+        "sha256": "09327df0f66e6745229cc1681f50c8c301177615f7615abbabee8762f7c55171",
+        "zero_bytes": 426,
+        "ff_bytes": 0,
+        "comparisons": {
+          "saved_original": {
+            "different_bytes": 3687,
+            "lost_reference_one_bits": 8343,
+            "added_one_bits": 0,
+            "first_difference": "0x1f2000",
+            "last_difference": "0x1f2fff"
+          },
+          "known_nonbooting": {
+            "different_bytes": 3638,
+            "lost_reference_one_bits": 7933,
+            "added_one_bits": 0,
+            "first_difference": "0x1f2000",
+            "last_difference": "0x1f2fff"
+          },
+          "flashrom_short_return_100kHz": {
+            "different_bytes": 3673,
+            "lost_reference_one_bits": 8314,
+            "added_one_bits": 0,
+            "first_difference": "0x1f200a",
+            "last_difference": "0x1f2ffa"
+          },
+          "flashrom_short_return_50kHz": {
+            "different_bytes": 5,
+            "lost_reference_one_bits": 5,
+            "added_one_bits": 5,
+            "first_difference": "0x1f2ffb",
+            "last_difference": "0x1f2fff"
+          }
+        }
+      }
+    ],
+    "pair_different_bytes": 0,
+    "postflight": {
+      "process_exit": 1,
+      "active_processes": "",
+      "spi_exists": true,
+      "driver": "/sys/bus/platform/drivers/dw_spi_mmio"
+    }
+  },
+  "exact_AND_analysis": {
+    "range": "0x001f2000\u20130x001f2fff",
+    "references": [
+      {
+        "path": "c8375-recovery/restore-original-20261023/C8375-FDO2742M0FK-ORIGINAL-SPI-32MiB.bin",
+        "bytes": 33554432,
+        "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+        "block_sha256": "a36ee8a337d98b56fbf1a0d9af8062bc5a7f97347b6680a63b5e23d485392056"
+      },
+      {
+        "path": "c8375-recovery/spi-backups-20261023/verified-17.18-3r-readback.bin",
+        "bytes": 33554432,
+        "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+        "block_sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+      }
+    ],
+    "observed_GPIO_sample_sha256": "09327df0f66e6745229cc1681f50c8c301177615f7615abbabee8762f7c55171",
+    "computed_AND_sha256": "09327df0f66e6745229cc1681f50c8c301177615f7615abbabee8762f7c55171",
+    "different_bytes": 0,
+    "truth_table_keys": "reference_original_bit,reference_nonbooting_bit,observed_bit",
+    "truth_table_counts": {
+      "000": 8356,
+      "111": 8136,
+      "100": 8343,
+      "010": 7933
+    },
+    "limitation": "Exact mathematical relation verified. No candidate artifact created; no physical bank assignment or electrical contention proved. Current stored contents, selection and signal interaction require independent checks."
+  },
+  "retention": "Both original4096-byte samples and report remain on Pi and privately imported locally; original bytes/SHA256 independently verified; no raw sample contents published.",
+  "during_voltage": "Requested during-test voltage/movement/warmth observations; response pending. Last owner reading1.770VDC before test.",
+  "interpretation": [
+    "Both RDIDs expected20BB19; matching pair proves repeatability for this block, not accuracy.",
+    "GPIO result differs3687bytes from saved original and3638from known nonbooting, only losing reference-one bits.",
+    "GPIO matches earlier flashrom50kHz result for first4091bytes; differs only at final five addresses1f2ffb\u20131f2fff.",
+    "Entire4096-byte GPIO result exactly equals original AND known-nonbooting corresponding bytes; both reference full-file hashes independently reverified.",
+    "Exact relation is established. Shared-data-line interaction/selection is a strong diagnostic hypothesis, not proof of two active chips, physical bank contents/roles or hardware cause. Actual stored contents and other explanations remain unresolved.",
+    "No full read, array write/erase, reset, protection/register/OTP operation, corrected/reconstructed artifact or speculative jumper selected."
+  ],
+  "next_step": "Pause unchanged read/clock/clip retries; assess safe access to exposed U2 physical pin7/CS with U1 clip unmoved. If accessible, select documented control/supply voltage checks. No under-clip probing, U2 jumper or new SPI selected yet."
 }
