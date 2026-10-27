@@ -1,0 +1,41 @@
+{
+  "task_id": "R-01 / U2 selection diagnosis",
+  "date": "2026-10-27",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / FDO2742M0FK",
+  "programmed_target": "None",
+  "active_clip": "Short clip stays on U1; U2 exposed",
+  "owner_access": "U2 physical pin7 reachable, although tricky. Agent clarified steady contact in DCV is acceptable; avoid adjacent-leg bridging.",
+  "measurement": {
+    "red_probe": "Actual bare U2 physical pin7 / S#",
+    "black_probe": "P1 pin2 / GND per instructed procedure",
+    "meter_mode": "DC volts per instructed procedure",
+    "reported_VDC_min": 0.33,
+    "reported_VDC_max": 0.35,
+    "state": "Idle, Pi-only source; U1 harness unchanged; router power/other cables/CR2032 and CH341A remain disconnected under prior confirmation.",
+    "limitation": "User reports range for pin7; no new photo or independent meter observation. During earlier GPIO read voltage/movement/warmth reply remains pending."
+  },
+  "read_only_precheck": {
+    "process_exit": 1,
+    "active_processes": "",
+    "spi_device_exists": true,
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "pinctrl": {
+      "exit_code": 0,
+      "stdout": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+      "stderr": "\n"
+    }
+  },
+  "datasheet": {
+    "url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+    "signal_description_page": 14,
+    "DC_table_page": 82,
+    "VIL_max": "0.3*VCC",
+    "VIH_min": "0.7*VCC",
+    "supply_range_V": "1.7\u20132.0",
+    "chip_select": "High deselects/tri-states outputs; low enables. Falling S# edge required before command."
+  },
+  "interpretation": "Conditional on U2 being powered within1.7\u20132.0V,0.33\u20130.35V is below guaranteed-low ceiling0.51\u20130.60V. This supports investigating low U2 select but does not establish simultaneous command decoding/driving or distinguish normal supply from partial back-powering. Last P1=1.770V is not a direct current U2-VCC measurement.",
+  "next_step": "No new SPI or jumper. If U2 physical pin2/VCC is safely accessible without moving U1 clip, measure DC volts red U2pin2, black P1pin2/GND, same isolated Pi-powered idle state. Report access rather than probe a blocked leg.",
+  "actions_this_checkpoint": "Read existing evidence and primary datasheet; record owner meter observation only. No new programmer/GPIO control, firmware write or speculative pull-up/reset/selector jumper."
+}

@@ -305,6 +305,14 @@ This exact relation raises **selection/shared-data-line interaction** as a speci
 
 **Next:** stop unchanged reads/clock/clip sweeps; assess whether exposed U2physicalpin7/CS can be safely reached without disturbing U1clip or adjacent pins. Access is requested, no probing/jumper yet. If accessible, define current U2supply/select checks before further SPI. No under-clip measurement, speculative control jumper, voltage increase, full capture or array write selected. [Runtime/source hashes, comparisons and exact AND validation](acquisition-evidence/20261027-Pi5-GPIO-U1-short-read.json).
 
+### U2 idle S# measurement — October 27, America/New_York
+
+Owner confirms bareU2pin7 access is possible but tricky, with U1clip untouched. Agent performs read-only SSH/process and`pinctrl get8-11`: no programmer, normalSPI0driver/node, GPIO8outputhigh/pullup,GPIO9–11SPI0. No SPI command or pin setting changed. After instructed idle DCV measurement (blackP1pin2/GND,redactualU2physicalpin7), owner reports **0.33–0.35VDC**. Steady single-leg contact is acceptable; duration is not a required limit. Do not bridge adjacent legs. During-read voltage/movement/warmth observations from the prior GPIO capture remain separately pending.
+
+Micron Table47,p82 specifies VILmax0.3×VCC/VIHmin0.7×VCC; Table43,p80 operatingVCC1.7–2.0V. Thus **if U2 has valid operating supply**,0.33–0.35V is guaranteedlow (ceiling0.51–0.60V). Signal descriptions,p14 say highS#tri-states outputs,low enables, and a falling edge is required before a command. This idle observation supports investigating selection but does not establish U2command decoding/driving during U1read. **U2ownVCC is not yet measured**; the last P1=1.770V cannot be assumed to apply to it. Partial powering and other common-path explanations remain unresolved. [Micron datasheet](https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf).
+
+Next: liftredprobe; leave setup unchanged, no SPI. If safely accessible, measure DCV **redU2physicalpin2/VCC,blackP1pin2/GND**; do not disturb U1clip or use a blocked endpoint. Await reading/access report before deciding any further control. No pull-up, reset or selector jumper, voltage increase, desoldering or write selected. [Owner observation/precheck/limits](acquisition-evidence/20261027-Pi5-U2-idle-CS-measurement.json).
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.
