@@ -36,7 +36,7 @@
     "chip_select": "High deselects/tri-states outputs; low enables. Falling S# edge required before command."
   },
   "interpretation": "Measured U2 VCC0.931V is below specified1.7\u20132.0V operating range. Normal VIL/VIH limits cannot classify the0.33\u20130.35V CS measurement at this supply. This supports investigating unintended partial powering/shared-line loading; it does not establish a feed path, normal simultaneous chip operation or the cause of the exact reference-AND result.",
-  "next_step": "Pause all SPI/clock/clip retries. Owner to unplug Pi supply after accepted shutdown, retain wiring/clip/router isolation, then DCV residual checks P1pin1-toP1pin2 and U2pin2-toP1pin2. No resistance/continuity measurement until unplugged and residual voltage verified absent. Plan unpowered supply/net mapping only after those results; no jumper/voltage increase/router power.",
+  "next_step": "With Pi power cable physically unplugged, router power/cables/CR2032 and CH341A removed, and both measured supply residuals0VDC, measure \u03a9 lead baseline, then red U2physicalpin2/VCC to blackP1physicalpin1/VCC. Report numerical settled resistance/OL and drift; keep U1clip/harness unchanged. No automatic hardware access or jumper.",
   "actions_this_checkpoint": "Read/check datasheet and record two owner meter readings. SSH verifies no programmer and sudo shutdown -h now returns0. No SPI or GPIO command, array write/reset/protection change or hardware jumper.",
   "recorded_at": "2026-10-27T19:39:32.805591-04:00",
   "supply_measurement": {
@@ -61,8 +61,19 @@
     "recorded_at": "2026-10-27T19:40:51.247410-04:00",
     "owner_report": "with pi off ... p1 pin 1 to pin 2 is 0 vdc",
     "P1_pin1_to_pin2_VDC": 0.0,
-    "U2_pin2_to_P1_pin2_VDC": "pending",
+    "U2_pin2_to_P1_pin2_VDC": 0.0,
     "Pi_supply_physically_unplugged": "explicit confirmation requested; owner currently says Pi off",
-    "state_limit": "No resistance/continuity or wiring changes until unplug and both residual checks confirmed."
+    "state_limit": "Both requested residual points report0VDC. Physical Pi-supply unplug was instructed but not separately acknowledged; next \u03a9 procedure explicitly requires power cable physically unplugged and all router sources removed.",
+    "second_owner_report": "u2 pin 2 to p1 pin 2 is 0 vdc",
+    "second_recorded_at": "2026-10-27T19:43:03.141065-04:00"
+  },
+  "planned_unpowered_mapping": {
+    "condition": "Pi input cable physically unplugged; all other sources removed; residual checks0VDC",
+    "meter": "Ohms; leadsCOM/V\u03a9; record probes-together baseline",
+    "red_probe": "U2 physical pin2/VCC",
+    "black_probe": "P1 pin1/VCC (NOT P1 ground for this resistance check)",
+    "purpose": "Check unpowered low-resistance relationship between observed U2 supply and U1-fed P1 supply; no shared-rail assumption",
+    "report": "Baseline plus settled numerical \u03a9/OL; note drift",
+    "status": "Instructed/planned only; no resistance value supplied"
   }
 }

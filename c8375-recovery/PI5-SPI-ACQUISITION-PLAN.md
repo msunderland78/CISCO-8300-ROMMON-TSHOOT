@@ -321,7 +321,9 @@ Agent stops further powered SPI work, verifies no programmer over SSH, then exec
 
 Next requested: after Pi supply unplug, retain U1clip/wires and normal router power/cables/CR2032 isolation. Meter staysDCV,blackP1pin2/GND: measureP1pin1,then safely accessibleU2pin2. **Await both residual readings before Ω/continuity or wiring changes.** If residual voltage remains, do not short/discharge speculatively; record it. Future unpowered supply/net mapping can distinguish rail coupling from signal back-powering only after this state is established. No U2VCCfeed, select/reset jumper, raised adapter voltage, router normal power, new SPI or firmware write selected. [Meter observations and shutdown evidence](acquisition-evidence/20261027-Pi5-U2-idle-CS-measurement.json).
 
-**Residual follow-up:** owner reports “with Pi off”,P1pin1→pin2=**0VDC**. U2pin2-toP1pin2 residual and explicit physical Pi-supply unplug confirmation remain pending; no resistance/continuity or wiring change selected yet.
+**Residual follow-up:** owner reports “with Pi off”,P1pin1→pin2=**0VDC**, then U2pin2→P1pin2=**0VDC**. Physical Pi-supply unplug was requested but not separately acknowledged; it remains an explicit condition for any Ω measurement.
+
+**Next user-side unpowered mapping, not yet measured:** with Pi power cable physically unplugged, all router sources/CR2032/CH341A removed and both residuals0VDC, leave U1clip/harness unchanged. MeterΩ with COM/VΩleads: first probes-together baseline; then **redactualU2pin2/VCC,blackP1pin1/VCC**. Request settled numericalΩorOL, noting drift. This tests the two supply points without assuming they share a rail. In-circuit semiconductor/adapter paths can affect resistance; a result alone will not establish back-power source. No SPI, powered Ω, speculative discharge/short/jumper or supply increase.
 
 ## 4. Preserve full backups before considering recovery writes
 
