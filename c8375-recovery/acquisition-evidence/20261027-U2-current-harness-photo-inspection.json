@@ -46,9 +46,10 @@
     "Only original bytes plus labeled non-generative crops are preserved; no markings reconstructed."
   ],
   "next_step": {
-    "state": "User confirms U1 placement and1.786V; guarded U1 partial comparison test copied, results pending",
-    "current_target": "U1_CSPI, not U2",
-    "record": "c8375-recovery/acquisition-evidence/20261027-U1-comparison-preflight.json"
+    "state": "Current U1 comparison completed with repeatability failure; no new command, diagnostic equipment/during-read voltage information pending",
+    "current_physical_target": "U1, not U2",
+    "result": "c8375-recovery/acquisition-evidence/20261027-U1-comparison-partial-validation.json",
+    "original_clip": "unavailable or modified, user-confirmed"
   },
   "user_access_followup": "User says clip completely covers the area around U2 and notes mux circuitry between chips and header. No under-clip measurements supplied or repeated.",
   "top_terminal_access_confirmation": {

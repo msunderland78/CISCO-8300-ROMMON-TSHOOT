@@ -1,0 +1,178 @@
+{
+  "verified_at": "2026-10-27T12:58:12.755119-04:00",
+  "task": "R-01-U1-COMPARISON",
+  "target": "C8375-A / FDO2742M0FK / U1_CSPI",
+  "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125555-EDT-comparison-samples-corrected",
+  "validation": "Independent offline byte/size/hash/reference checks by agent; no programmer access",
+  "reference_sha256": {
+    "original": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+    "known_nonbooting": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b"
+  },
+  "older_U1_read5_sha256": "4f6511d64b834935c4e7ba696dc6ed71494e08e5e36bda4cea7afbcce40ef760",
+  "regions": [
+    {
+      "start": "0x001f0000",
+      "end_inclusive": "0x001fffff",
+      "samples": [
+        {
+          "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125555-EDT-comparison-samples-corrected/U1-PARTIAL-001f0000-read1.bin",
+          "bytes": 65536,
+          "mode": "0o600",
+          "sha256": "3193dc4438f2bb369a6a4b6cb5e1fdc40ce8ae2da3a87647dbc1d5f4e57e08d6",
+          "distinct_byte_values": 256,
+          "reference_comparisons": {
+            "original": {
+              "differing_bytes": 8080,
+              "bytes_with_reference_one_bits_lost": 8080,
+              "bytes_with_one_bits_added": 0
+            },
+            "known_nonbooting": {
+              "differing_bytes": 65261,
+              "bytes_with_reference_one_bits_lost": 59618,
+              "bytes_with_one_bits_added": 51682
+            }
+          },
+          "differences_from_older_U1_read5_region": 58775
+        },
+        {
+          "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125555-EDT-comparison-samples-corrected/U1-PARTIAL-001f0000-read2.bin",
+          "bytes": 65536,
+          "mode": "0o600",
+          "sha256": "8e8cea7b77d0a9c065a7fbf66bd34151a1d7c971506e4a1520de54d4edf1ed99",
+          "distinct_byte_values": 256,
+          "reference_comparisons": {
+            "original": {
+              "differing_bytes": 8078,
+              "bytes_with_reference_one_bits_lost": 8078,
+              "bytes_with_one_bits_added": 0
+            },
+            "known_nonbooting": {
+              "differing_bytes": 65264,
+              "bytes_with_reference_one_bits_lost": 59623,
+              "bytes_with_one_bits_added": 51671
+            }
+          },
+          "differences_from_older_U1_read5_region": 58779
+        }
+      ],
+      "differing_bytes": 332,
+      "first_difference": "0x1f01ee",
+      "last_difference": "0x1f1feb",
+      "repeatability_pass": false,
+      "older_U1_read5_differences_from_original": 58802
+    },
+    {
+      "start": "0x01f30000",
+      "end_inclusive": "0x01f3ffff",
+      "samples": [
+        {
+          "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125555-EDT-comparison-samples-corrected/U1-PARTIAL-01f30000-read1.bin",
+          "bytes": 65536,
+          "mode": "0o600",
+          "sha256": "3c4b76257dcb332f77eec5937695d3ed151b34d8f30f031201fc5a37377f3eac",
+          "distinct_byte_values": 81,
+          "reference_comparisons": {
+            "original": {
+              "differing_bytes": 54,
+              "bytes_with_reference_one_bits_lost": 53,
+              "bytes_with_one_bits_added": 1
+            },
+            "known_nonbooting": {
+              "differing_bytes": 52,
+              "bytes_with_reference_one_bits_lost": 52,
+              "bytes_with_one_bits_added": 0
+            }
+          },
+          "differences_from_older_U1_read5_region": 8232
+        },
+        {
+          "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125555-EDT-comparison-samples-corrected/U1-PARTIAL-01f30000-read2.bin",
+          "bytes": 65536,
+          "mode": "0o600",
+          "sha256": "51785789af73f0637f66dad9672773dbf6155b8bea86163c8932d7cbad068532",
+          "distinct_byte_values": 81,
+          "reference_comparisons": {
+            "original": {
+              "differing_bytes": 59,
+              "bytes_with_reference_one_bits_lost": 58,
+              "bytes_with_one_bits_added": 1
+            },
+            "known_nonbooting": {
+              "differing_bytes": 57,
+              "bytes_with_reference_one_bits_lost": 57,
+              "bytes_with_one_bits_added": 0
+            }
+          },
+          "differences_from_older_U1_read5_region": 8237
+        }
+      ],
+      "differing_bytes": 7,
+      "first_difference": "0x1f3fff1",
+      "last_difference": "0x1f3fff7",
+      "repeatability_pass": false,
+      "older_U1_read5_differences_from_original": 8237
+    }
+  ],
+  "logs": [
+    {
+      "private_original": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125555-EDT-comparison-samples-corrected/U1-partial-read1.log",
+      "sha256": "d47621c1372082eaf4e643aee1148b4dbb6896f1460918ed48b6d9b33699bc9d",
+      "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U1-comparison-partial-read1.log",
+      "chip": "Micron MT25QU256 /32768KiB",
+      "status_lines": [
+        "Chip status register is 0x00."
+      ],
+      "runtime_lines": [
+        "Runtime from programmer init to shutdown: 0min 1sec"
+      ],
+      "completed": true
+    },
+    {
+      "private_original": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-125555-EDT-comparison-samples-corrected/U1-partial-read2.log",
+      "sha256": "f8179b4629ddd7eda051afc563437a4d9799c5e0653d9a1503faba528b0480ba",
+      "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U1-comparison-partial-read2.log",
+      "chip": "Micron MT25QU256 /32768KiB",
+      "status_lines": [
+        "Chip status register is 0x02."
+      ],
+      "runtime_lines": [
+        "Runtime from programmer init to shutdown: 0min 1sec"
+      ],
+      "completed": true
+    }
+  ],
+  "repeatability_pass": false,
+  "pre_read_P1_VDC": 1.786,
+  "during_read_P1_VDC": "not separately supplied",
+  "full_reads_selected": false,
+  "USB_unplug": "requested after validation; confirmation pending",
+  "inference": "This harness communicated with U1 twice but produced nonidentical samples. U2-specific chip failure is not established and current common path is not validated. U1/U2 comparisons also change target seating and board path; static voltages do not establish switching integrity.",
+  "limitations": [
+    "Two partial regions are not a full backup, signature verification, proven byte accuracy or a bank-role assignment.",
+    "Earlier pre-hardware MT25QU156 command typo remains preserved separately and is not counted as a hardware attempt.",
+    "Do not repair samples by voting/patching or select them as restore images."
+  ],
+  "original_clip_availability": "User reports original clip/ribbon/breakout unavailable or modified",
+  "current_next_step": {
+    "state": "No further unchanged read/full capture prepared; await available diagnostic equipment and during-read P1 observation",
+    "physical_state_requested": "Unplug CH341A USB, leave clip/wiring on U1; router normal power/other cables and CR2032 remain disconnected. Unplug confirmation pending.",
+    "user_equipment_update": "Original35cm ribbon SOIC16clip/breakout unavailable or modified, user-confirmed; do not propose intact-original assembly comparison.",
+    "missing_information": [
+      "Other SPI programmer/oscilloscope/logic analyzer available and exact model, if any",
+      "Whether P1 voltage was observed during corrected U1 reads or only before them"
+    ],
+    "research": "Upstream flashromv1.8.0 ch341a_spi driver has no SPI speed parameter handling; config_stream speed bits documented as I2C rate/SPI data width, not adjustable SPI clock. No unsupported spispeed argument or experimental driver was run.",
+    "source": "https://raw.githubusercontent.com/flashrom/flashrom/v1.8.0/programmers/ch341a_spi.c",
+    "scope": "Installed flashrom is1.8.0; upstream tagged-source inspection is not proof of byte-identical installed build or the cause of data errors.",
+    "not_selected": [
+      "unavailable clip/contact resistance checks",
+      "old-original clip swap",
+      "unchanged software retry",
+      "full captures",
+      "majority-voted restore image",
+      "jumpers",
+      "voltage increase",
+      "firmware/protection/OTP/provisioning changes"
+    ]
+  }
+}
