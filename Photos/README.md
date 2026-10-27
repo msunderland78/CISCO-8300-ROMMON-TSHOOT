@@ -2,6 +2,12 @@
 
 User-supplied photos added October 24, 2026. Preserve these original files.
 
+## Detached adapter for Pi interface — October 27
+
+Original [IMG_1279.jpeg](IMG_1279.jpeg) shows the green 1.8V adapter top, blue ZIF socket, translator/regulator and printed 1/4/5/8 input-footprint labels. [IMG_1280.jpeg](IMG_1280.jpeg) shows its underside and two rows of four male input contacts. Appearance does not establish electrical mapping, underside pin numbering, connector grip or current power/cable state. No new measurements or hardware operations were performed. [Inspection metadata/original hashes](../c8375-recovery/acquisition-evidence/20261027-Pi5-adapter-photo-inspection.json).
+
+The owner asks to avoid a custom three-way Dupont cable. Proposed method: one connected five-hole solderless-breadboard strip and four ordinary female-to-male jumpers distribute Pi3.3V to adapter INPUT8/3/7; SPI signals remain direct through the adapter. No assembly or powered test is claimed. See [connection example and prerequisites](../c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md#no-custom-cable-distribute-33-v-on-a-solderless-breadboard).
+
 | File | Coverage |
 | --- | --- |
 | [IMG_1264.jpeg](IMG_1264.jpeg) | Top of black CH341A programmer and green adapter, sockets and components |

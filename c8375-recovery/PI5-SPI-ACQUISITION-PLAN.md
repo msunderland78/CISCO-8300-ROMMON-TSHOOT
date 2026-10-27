@@ -54,6 +54,26 @@ The existing P-01 input mapping was user-confirmed October 24: ground→4; 3.3 V
 | 23 / GPIO11 | CLK | 6 |
 | 24 / GPIO8 | CE0 / CS# | 1 |
 
+### No custom cable: distribute 3.3 V on a solderless breadboard
+
+The owner supplied [adapter top](../Photos/IMG_1279.jpeg) and [underside](../Photos/IMG_1280.jpeg) photographs October 27 and requests ordinary jumpers rather than a custom three-way cable. The underside shows two rows of four male input contacts. Photographs do not establish their pin numbers, dimensions, connector grip or electrical connections; retain the measured historical input mapping and confirm actual orientation before use.
+
+A **small solderless breadboard plus four ordinary female-to-male jumpers** provides a proposed detachable 3.3 V distribution point. Use one connected five-hole terminal strip on one side of the center trench, for example A10–E10 on a board with that labeling:
+
+| Breadboard hole | Other end of female-to-male jumper |
+| --- | --- |
+| A10 | Pi physical pin 1 / 3.3 V |
+| B10 | Adapter INPUT 8 |
+| C10 | Adapter INPUT 3 |
+| D10 | Adapter INPUT 7 |
+| E10 | Unused |
+
+The male ends enter the breadboard; female ends fit the Pi/adapter male pins only if they grip securely. All four holes must belong to the **same connected strip**; F10–J10 across the trench is separate. Verify the bare breadboard strip's continuity while disconnected before assembling. The breadboard makes the common junction without stuffing multiple wires into one Dupont housing, soldering, cutting, or crimping. Pi physical pin17 is another 3.3V contact, but the header supplies only two such contacts, so it alone does not provide three separate source contacts. No GPIO-output substitute is selected.
+
+Keep MOSI, MISO, CLK and CS# direct through the active adapter using short ordinary female-to-female leads, and keep common ground per the table. Only the 3.3 V distribution junction uses the breadboard. Do not use Pi 5 V or the adapter's 1.8 V OUTPUT contacts for this input junction. No breadboard, new harness, power-up, measurement or SPI operation has been performed/confirmed. The target remains disconnected until interface checks pass.
+
+References: [Adafruit breadboard terminal strips](https://learn.adafruit.com/breadboards-for-beginners/breadboards), [official Pi header pin functions](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html). This is a proposed connection method, not a claim that a new accessory has been purchased or tested.
+
 This is a mapping plan, not evidence that a Pi harness has been built or tested. Use no Pi 5 V pin. All four SPI signals pass through the active adapter; the flash-side supply and controls stay at 1.8 V, and returning MISO must remain compatible with Pi 3.3 V GPIO. Verify unloaded adapter supply/translation first, then power off before reattaching the router harness. Recheck accessible loaded P1 VCC/GND against 1.7–2.0 V before probing. Do not compensate for loading by increasing voltage or adding router power.
 
 Once the interface and loaded target are checked, the planned ID-only command on the Pi is:
