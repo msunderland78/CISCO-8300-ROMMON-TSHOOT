@@ -783,9 +783,9 @@
       "sha256": "cb55b4c472cd0e5d3610d598655bc83e08c1f02c9edf7e75ac68020a8f9459b1"
     },
     {
-      "bytes": 114728,
+      "bytes": 115846,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "584575eb911050760b9f1becfbfbb7907a2539eeba83bb65abb3856011b08665"
+      "sha256": "08588e535b20c09ef69ca31c0a831acdac785ef600546be5e2bad62ecb6057bc"
     },
     {
       "bytes": 1992,
@@ -1028,9 +1028,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 220635,
+      "bytes": 221753,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "a1f72f157340a0c2248112f276b3dca57ce2d7bc7ce6cebd8bb08c8c69d718dd"
+      "sha256": "0bb922841090e10f09f6905f311bab38ce32a90bf7f172fdcce2a7980fb56e99"
     },
     {
       "bytes": 6850655,
@@ -1173,9 +1173,9 @@
       "sha256": "b956ba64ffee87007fc6dff503cd9a35445721114d9c0368b20ef24c0b1615d9"
     },
     {
-      "bytes": 28966,
+      "bytes": 31046,
       "path": "c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md",
-      "sha256": "2995e93ac35def3b8c223fb8bf1046ec2f12c3011e03b7dbf3b8086d51e4b790"
+      "sha256": "580cdeedd8e7b46fa2dc9bd409880029e13a5712f0a637636070230895281b46"
     },
     {
       "bytes": 22807,
@@ -1233,9 +1233,14 @@
       "sha256": "a2352f520db5d595e19d40b17ebab427f17ba09f738e7f537f5c2d81c59f31a0"
     },
     {
-      "bytes": 5181,
+      "bytes": 5551,
       "path": "c8375-recovery/acquisition-evidence/20261027-Pi5-U1-ID-and-short-read-preparation.json",
-      "sha256": "6e15230be0e47ff55b1ffbf3d70098ee56be97dbe5a904a792a576f4bcfe4e16"
+      "sha256": "78ff91cd9736bf01186f1d322422845b4d2055f4a86ad57f09754c2dd8253253"
+    },
+    {
+      "bytes": 6128,
+      "path": "c8375-recovery/acquisition-evidence/20261027-Pi5-U1-short-read-result.json",
+      "sha256": "6cff923af704dbf4fd173144192e1d40159ef75671a7c8c3e94a51711926c6c5"
     },
     {
       "bytes": 4816,
@@ -2386,7 +2391,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 147,
-    "included_bytes_without_manifest": 635459364,
-    "included_files_without_manifest": 317
+    "included_bytes_without_manifest": 635470178,
+    "included_files_without_manifest": 318
   }
 }

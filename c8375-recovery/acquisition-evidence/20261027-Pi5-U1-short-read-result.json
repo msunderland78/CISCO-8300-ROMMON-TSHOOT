@@ -1,0 +1,158 @@
+{
+  "recorded_at": "2026-10-27T17:19:00.709874-04:00",
+  "task": "R-01-U1-PI-SHORT",
+  "chassis": "C8375-A/FDO2742M0FK",
+  "physical_chip": "U1",
+  "source": "Owner-pasted complete Pi read logs and comparison.json output; original Pi files have not been independently retrieved or hashed locally.",
+  "Pi_directory_basename": "C8375-U1-Pi100kHz-mbprng0s",
+  "script_install_directory_basename": "C8375-U1-tools-fqJkDi",
+  "script_delivery": {
+    "commit": "e23ef49331e69f1a4104304ab278fd07cd32649e",
+    "sha256": "6275e16b0568689c19a749bd6e1a249f632f4492e3fabdc7fedbefda15bf5c51",
+    "owner_output": "sha256sum: OK"
+  },
+  "reported_started_at": "2026-10-27T17:15:32.501917-04:00",
+  "reported_finished_at": "2026-10-27T17:16:01.566164-04:00",
+  "programmer": "linux_spi:dev=/dev/spidev0.0,spispeed=100",
+  "clock": "Requested/software-reported100kHz, not measured waveform",
+  "chip_identity": "Both passes20BB19/MicronMT25QU256/32768kB",
+  "status_registers": [
+    "0x00",
+    "0x02"
+  ],
+  "WEL_observation": "Pass2 reports WEL set, WIP clear; preserved as observed, not proof of array programming. Both commands request reads only.",
+  "read_exit_codes": [
+    0,
+    0
+  ],
+  "reported_samples": [
+    {
+      "file": "U1-lower-read1.bin",
+      "region": "lower",
+      "pass": 1,
+      "bytes": 65536,
+      "sha256": "6c39b76271b961e11e745f09eede3b69c6181d704b40dadf21e8dc73400d4c84",
+      "unique_byte_values": 256,
+      "zero_bytes": 8151,
+      "ff_bytes": 204
+    },
+    {
+      "file": "U1-upper-read1.bin",
+      "region": "upper",
+      "pass": 1,
+      "bytes": 65536,
+      "sha256": "e0c7d36013e11f91b484ea6d2c7d70b0acbb93611c50c96f014702f8b258d67e",
+      "unique_byte_values": 81,
+      "zero_bytes": 7928,
+      "ff_bytes": 57269
+    },
+    {
+      "file": "U1-lower-read2.bin",
+      "region": "lower",
+      "pass": 2,
+      "bytes": 65536,
+      "sha256": "6c39b76271b961e11e745f09eede3b69c6181d704b40dadf21e8dc73400d4c84",
+      "unique_byte_values": 256,
+      "zero_bytes": 8151,
+      "ff_bytes": 204
+    },
+    {
+      "file": "U1-upper-read2.bin",
+      "region": "upper",
+      "pass": 2,
+      "bytes": 65536,
+      "sha256": "e0c7d36013e11f91b484ea6d2c7d70b0acbb93611c50c96f014702f8b258d67e",
+      "unique_byte_values": 81,
+      "zero_bytes": 7928,
+      "ff_bytes": 57269
+    }
+  ],
+  "reported_comparison": {
+    "lower": {
+      "start": "0x001F0000",
+      "end_inclusive": "0x001FFFFF",
+      "different_bytes": 0
+    },
+    "upper": {
+      "start": "0x01F30000",
+      "end_inclusive": "0x01F3FFFF",
+      "different_bytes": 0
+    }
+  },
+  "reported_repeatable": true,
+  "previous_CH341A_U1_different_bytes": {
+    "lower": 332,
+    "upper": 7
+  },
+  "independent_local_reference_hash_checks": {
+    "original": {
+      "path": "c8375-recovery/restore-original-20261023/C8375-FDO2742M0FK-ORIGINAL-SPI-32MiB.bin",
+      "bytes": 33554432,
+      "full_sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+      "regions": {
+        "lower": {
+          "sha256": "7686f1a0cb96f7d3bf18961af6203928162d65aeb122c41867ed76b4f87744ff",
+          "matches_owner_reported_Pi_hash": false,
+          "zero_bytes": 423,
+          "ff_bytes": 225,
+          "unique_byte_values": 256
+        },
+        "upper": {
+          "sha256": "c266795592474bafc685bad4b61c8f7bdd69cc7fc8afa12155eeb87c1f6e0996",
+          "matches_owner_reported_Pi_hash": false,
+          "zero_bytes": 7840,
+          "ff_bytes": 57344,
+          "unique_byte_values": 79
+        }
+      }
+    },
+    "known_nonbooting": {
+      "path": "c8375-recovery/spi-backups-20261023/verified-17.18-3r-readback.bin",
+      "bytes": 33554432,
+      "full_sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+      "regions": {
+        "lower": {
+          "sha256": "8dad2eea81d0986e115195255fec6d8e4d9f7da83d09541be7e0b899e333cbd1",
+          "matches_owner_reported_Pi_hash": false,
+          "zero_bytes": 432,
+          "ff_bytes": 252,
+          "unique_byte_values": 256
+        },
+        "upper": {
+          "sha256": "231a8d2a53af5df6886b6810d898631351fbb56f29b1a2282dcb4226406c21e1",
+          "matches_owner_reported_Pi_hash": false,
+          "zero_bytes": 7840,
+          "ff_bytes": 57344,
+          "unique_byte_values": 80
+        }
+      }
+    },
+    "older_U1_read5": {
+      "path": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261025-182549-EDT-user-read-retry/U1-read5.bin",
+      "bytes": 33554432,
+      "full_sha256": "4f6511d64b834935c4e7ba696dc6ed71494e08e5e36bda4cea7afbcce40ef760",
+      "regions": {
+        "lower": {
+          "sha256": "b27f29d81a190bbc6213a76ca0c68448867417054019f8d372d0ca357c3372ba",
+          "matches_owner_reported_Pi_hash": false,
+          "zero_bytes": 7114,
+          "ff_bytes": 0,
+          "unique_byte_values": 254
+        },
+        "upper": {
+          "sha256": "2c35580e7ac38f8e12a7523487d34fd79dfdbab593ab072bb5d8c4d79fdd07f6",
+          "matches_owner_reported_Pi_hash": false,
+          "zero_bytes": 15674,
+          "ff_bytes": 49162,
+          "unique_byte_values": 80
+        }
+      }
+    }
+  },
+  "inference": "Owner-reported pair passes bounded repeatability. Each reported region hash differs from corresponding rehashed original, known nonbooting and older repeatable U1 references. This does not identify physical bank, cause, current intended flash contents or true byte accuracy. Short captures are nonconstant; no raw Pi bytewise comparison is possible locally yet.",
+  "supply": "Last pre-test loaded P1 voltage1.789VDC; during-read continuous range not reported",
+  "next": "Import original Pi sample/log/metadata folder using owner-run Mac SCP command to fresh0700 .git/recovery-private chassis/U1 destination; local bytewise reference/plausibility analysis before selecting lengthy full reads. No unchanged read retry or write selected.",
+  "clipboard": "Mac-terminal SCP import command prepared, syntax checked and copied; not executed by agent. Uses normal interactive SSH authentication, no embedded credentials.",
+  "full_reads_selected": false,
+  "write_selected": false
+}

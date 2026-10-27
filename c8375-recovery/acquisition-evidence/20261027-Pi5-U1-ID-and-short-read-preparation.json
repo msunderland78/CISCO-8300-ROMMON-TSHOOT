@@ -78,5 +78,13 @@
     "delivery": "Publish through existing authorized GitHub repository; prepare clipboard curl download pinned to published commit with SHA256 verification, then explicit --read. No direct SSH transfer attempted and no hardware execution.",
     "validation": "All18unittests passed, including7offline Pi acquisition tests covering no-hardware help/import, active-process guard, matching/mismatching samples, empty/wrong-size rejection, failure stop/no retry, exact-original preservation and0700/0600 modes. Mocked subprocess only; no router test.",
     "status": "Prepared for publication/download, not installed or executed on Pi"
+  },
+  "execution_update": {
+    "recorded_at": "2026-10-27T17:19:00.709874-04:00",
+    "owner_executed": true,
+    "script_installed_and_checksum_verified_by_owner": true,
+    "result": "Both two64KiB-region pairs match; reads exit0; four65536byte files per owner report",
+    "result_record": "20261027-Pi5-U1-short-read-result.json",
+    "originals_retrieved": false
   }
 }
