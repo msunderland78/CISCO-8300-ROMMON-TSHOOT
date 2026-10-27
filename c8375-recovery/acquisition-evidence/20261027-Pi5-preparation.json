@@ -1,0 +1,49 @@
+{
+  "prepared_at": "2026-10-27T13:36:27.034749-04:00",
+  "task": "P-03-PI-PREP",
+  "user_confirmed": {
+    "model": "RaspberryPi5, user-confirmed; OS model string not yet independently read",
+    "microSD_capacity_GB": 256,
+    "current_OS": "User believes Ubuntu24 LTS Server; exact release/kernel not yet confirmed",
+    "reimage_offer": "User can reimage card, but no erasure/reimage selected"
+  },
+  "recommendation": "Keep existing UbuntuServer24.04LTS initially; boot/read-only inventory before changing OS or buying equipment.",
+  "sources": [
+    {
+      "url": "https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/raspberry-pi/",
+      "supports": "UbuntuServer24.04LTS is a supported Pi installation path; actual installed image remains unconfirmed."
+    },
+    {
+      "url": "https://ubuntu.com/hardware/docs/boards/how-to/special_hardware/rpi-config-txt/",
+      "supports": "Ubuntu Pi boot config normally /boot/firmware/config.txt, config sections matter; no blind append or EEPROM update."
+    },
+    {
+      "url": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html",
+      "supports": "Pi5 RP1/headerSPI0 and3.3V GPIO; enabled header SPI must be distinguished from internal boot EEPROM."
+    }
+  ],
+  "first_stage": {
+    "physical_setup": "Pi only: existing microSD, normal appropriate power supply and Ethernet. GPIO header empty, no connection to router/adapter. CH341A USB unplug requested, router remains normally unpowered/cables/CR2032 disconnected, clip last confirmed on U1.",
+    "access": "Ask hostname/IP+login username for existing SSH, or local monitor/keyboard console. No endpoint/credential supplied and no remote access attempted.",
+    "commands": [
+      "cat /etc/os-release",
+      "uname -r",
+      "tr -d '\\000' < /proc/device-tree/model",
+      "printf '\\n'",
+      "hostname -I",
+      "ls -l /dev/spidev*",
+      "flashrom --version"
+    ],
+    "where": "Run on Pi terminal, not Mac. Commands only report OS/kernel/model/IP/SPI nodes/flashrom version; do not open a programmer or change configuration.",
+    "expected_missing_components": "No spidev nodes or flashrom command-not-found is diagnostic inventory, not flash-chip failure.",
+    "clipboard": "Read-only commands copied; not executed by agent or confirmed run by user",
+    "validation": "Local /bin/sh -n syntax check passes; not a runtime test on Pi."
+  },
+  "later_stages_not_performed": [
+    "Verify actual OS/kernel and header SPI0 node, then install/check flashrom and exact Micron candidate offline.",
+    "Enable header SPI if needed with backed-up reviewed config; no Pi boot EEPROM operation.",
+    "Power Pi off before GPIO wiring. Remove CH341A from adapter input; verify Pi\u2192adapter input source/ground and3.3V\u21941.8V signal translation with target disconnected.",
+    "Reconfirm physical U1 target/router isolation and1.7\u20132.0V before read-only ID/bounded comparisons at requested100kHz."
+  ],
+  "current_status": "Pi5/media availability confirmed by user; current OS/access and all device-side preparation unverified. No reimage/install/config/reboot/GPIO/router operation performed."
+}
