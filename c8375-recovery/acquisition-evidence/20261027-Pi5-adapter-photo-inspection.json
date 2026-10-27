@@ -12,6 +12,11 @@
       "path": "Photos/IMG_1280.jpeg",
       "bytes": 9327389,
       "sha256": "e851d1cf72bb49b5aab08dd9c200375bef4af7965f69438c94fbc54a7eff2e05"
+    },
+    {
+      "path": "Photos/IMG_1281.jpeg",
+      "bytes": 13836399,
+      "sha256": "b10200aaee5a16932864bd740a961385c83498750bf0bc5a0e2b109f10923c3f"
     }
   ],
   "observed": [
@@ -30,5 +35,20 @@
   "sources": [
     "https://learn.adafruit.com/breadboards-for-beginners/breadboards",
     "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html"
-  ]
+  ],
+  "parts_inventory_update": {
+    "recorded_at": "2026-10-27T16:21:19.721478-04:00",
+    "owner_report": "IMG_1281 shows all other available parts apart from Dupont cables; no solderless breadboard reported available",
+    "observed": "Loose single-row male header strip and multiple green SPI/package breakout boards, some with fitted headers/connectors; no established common power bus",
+    "limitations": "Do not treat adjacent header pins as connected or assume breakout continuity from appearance. No specific board is verified as a four-contact common junction.",
+    "next_check": "With 1.8V adapter removed from CH341A and every input/output wire disconnected, confirm residual voltage absent, record ohms lead baseline; measure adapter INPUT8 to INPUT3 and INPUT8 to INPUT7 at accessible input contacts. Near-baseline results would support a direct common node; finite/high values do not. No measurements yet.",
+    "reason": "Earlier fitted checks establish programmer-to-adapter paths, not internal detached adapter ties. Check whether separate feeds are needed before selecting a splitter.",
+    "not_selected": [
+      "GPIO-output replacement for supply/control-high wiring",
+      "Loose male jumpers wedged in unsoldered PCB holes",
+      "Twisted/taped connections",
+      "Assumed short between neighboring header pins",
+      "Powered or router-connected continuity test"
+    ]
+  }
 }

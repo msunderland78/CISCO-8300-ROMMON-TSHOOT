@@ -2,11 +2,6 @@
 
 User-supplied photos added October 24, 2026. Preserve these original files.
 
-## Detached adapter for Pi interface — October 27
-
-Original [IMG_1279.jpeg](IMG_1279.jpeg) shows the green 1.8V adapter top, blue ZIF socket, translator/regulator and printed 1/4/5/8 input-footprint labels. [IMG_1280.jpeg](IMG_1280.jpeg) shows its underside and two rows of four male input contacts. Appearance does not establish electrical mapping, underside pin numbering, connector grip or current power/cable state. No new measurements or hardware operations were performed. [Inspection metadata/original hashes](../c8375-recovery/acquisition-evidence/20261027-Pi5-adapter-photo-inspection.json).
-
-The owner asks to avoid a custom three-way Dupont cable. Proposed method: one connected five-hole solderless-breadboard strip and four ordinary female-to-male jumpers distribute Pi3.3V to adapter INPUT8/3/7; SPI signals remain direct through the adapter. No assembly or powered test is claimed. See [connection example and prerequisites](../c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md#no-custom-cable-distribute-33-v-on-a-solderless-breadboard).
 
 | File | Coverage |
 | --- | --- |
@@ -63,3 +58,12 @@ Four new original user photographs document the changed harness after repeated c
 [Inspection record and original hashes](../c8375-recovery/acquisition-evidence/20261027-U2-current-harness-photo-inspection.json), [non-generative crop metadata and reproduction commands](inspection-20261027/CROP-METADATA.json), [derivative limitations](inspection-20261027/README.txt). Original bytes were rehashed unchanged after crop generation.
 
 The user confirms no clip-side measurement access. The in-place and detached-connector continuity proposals were based on assumed probeable endpoints and are **withdrawn/unperformed**. No electrical signal-path checks are claimed from these photographs. These photos document U2 placement before the later user-confirmed move to U1. U1 subsequently has reported P1 supply1.786V and completed corrected short comparison reads, but region pairs differ at332/7bytes; it is not a validated backup. See the [U1 preflight](../c8375-recovery/acquisition-evidence/20261027-U1-comparison-preflight.json). See the [active plan](../ROUTER-RECOVERY-TEST-PLAN.md) and [inspection record](../c8375-recovery/acquisition-evidence/20261027-U2-current-harness-photo-inspection.json).
+
+## Detached adapter for Pi interface — October 27
+
+Original [IMG_1279.jpeg](IMG_1279.jpeg) shows the green 1.8V adapter top, blue ZIF socket, translator/regulator and printed 1/4/5/8 input-footprint labels. [IMG_1280.jpeg](IMG_1280.jpeg) shows its underside and two rows of four male input contacts. Appearance does not establish electrical mapping, underside pin numbering, connector grip or current power/cable state. No new measurements or hardware operations were performed. [Inspection metadata/original hashes](../c8375-recovery/acquisition-evidence/20261027-Pi5-adapter-photo-inspection.json).
+
+The owner asks to avoid a custom three-way Dupont cable. Proposed method: one connected five-hole solderless-breadboard strip and four ordinary female-to-male jumpers distribute Pi3.3V to adapter INPUT8/3/7; SPI signals remain direct through the adapter. No assembly or powered test is claimed. See [connection example and prerequisites](../c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md#no-custom-cable-distribute-33-v-on-a-solderless-breadboard).
+
+
+[IMG_1281.jpeg](IMG_1281.jpeg) records the remaining available loose pin headers and SPI/package breakout boards. Owner reports these plus Dupont cables are all other parts; no breadboard is available. No four-contact common node or safe fan-out is established from appearance. The next proposed check is isolated adapter INPUT8→3 and INPUT8→7 resistance, with every adapter wire removed and all power disconnected; no values have been reported.

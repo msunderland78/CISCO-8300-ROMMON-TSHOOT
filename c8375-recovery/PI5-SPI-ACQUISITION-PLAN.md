@@ -54,6 +54,17 @@ The existing P-01 input mapping was user-confirmed October 24: ground→4; 3.3 V
 | 23 / GPIO11 | CLK | 6 |
 | 24 / GPIO8 | CE0 / CS# | 1 |
 
+### Available parts clarification and next isolated adapter check
+
+The owner supplied [IMG_1281](../Photos/IMG_1281.jpeg) and says these are all other parts besides Dupont cables. It shows loose pin headers and several SPI/package breakout boards. **No solderless breadboard is reported available**; the breadboard example below remains a contingent option, not the current setup. A loose pin-header strip does not join adjacent pins. None of these breakout boards has a measured four-contact common node or verified secure fan-out connection; do not invent one from the photo or wedge loose male jumpers into unsoldered holes.
+
+Before selecting extra hardware, check whether the **detached 1.8 V adapter itself** already joins the three proposed input feeds. Earlier P-01 measurements were programmer-to-adapter checks while fitted; they do not establish internal ties within the standalone adapter. With Pi power unplugged, CH341A USB unplugged, the adapter removed from the CH341A, and **every input/output wire removed from the adapter**, verify residual voltage absent. Use accessible **eight-pin INPUT contacts/solder pads beside the arrow**, not the blue output socket. With meter leads in COM and V/ohms and resistance mode, record probes-together baseline, then measure:
+
+1. Adapter **INPUT8 → INPUT3**, in ohms.
+2. Adapter **INPUT8 → INPUT7**, in ohms.
+
+Report actual values/OL. Near-baseline readings would support a direct common net; higher resistance does not establish one. This is a new isolated input-side check, not another router/covered-clip scan. **No result, jumper, one-wire power-up or firmware command is selected yet.** A single input8 supply feed is only a possible outcome if internal connectivity and resulting output behavior support it. Do not omit feeds or substitute GPIO outputs based on the photograph.
+
 ### No custom cable: distribute 3.3 V on a solderless breadboard
 
 The owner supplied [adapter top](../Photos/IMG_1279.jpeg) and [underside](../Photos/IMG_1280.jpeg) photographs October 27 and requests ordinary jumpers rather than a custom three-way cable. The underside shows two rows of four male input contacts. Photographs do not establish their pin numbers, dimensions, connector grip or electrical connections; retain the measured historical input mapping and confirm actual orientation before use.
