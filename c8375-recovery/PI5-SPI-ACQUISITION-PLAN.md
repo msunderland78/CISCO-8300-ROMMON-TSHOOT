@@ -71,6 +71,17 @@ Read-only SSH `sudo pinctrl get 8-11` reports GPIO9/10/11 as SPI0 MISO/MOSI/SCLK
 3. Power the Pi alone. Do not move wires or start flashrom. Measure **DC volts, black router P1-2/GND, red P1-1/VCC**, and report the loaded value. Expected supply range **1.7–2.0V**; no increase or additional router supply is selected. If voltage collapses, leaves that range, or unexpected warming/activity occurs, disconnect Pi supply and preserve the failed observation.
 4. Only after an acceptable loaded reading, proceed to a fresh logged U1 identification at requested100kHz, then independent bounded reads if ID matches. A command's preparation does not establish execution; all original evidence stays unchanged.
 
+**Loaded result now reported:** owner reports **P1-1/VCC→P1-2/GND =1.789VDC**. Freshly reconfirmed target is C8375-A/FDO2742M0FK/U1 with normal router power/other cables/CR2032 disconnected and no active competing session. The voltage is within1.7–2.0V; the numerical reply does not separately narrate every shutdown/reconnect step or measure transients.
+
+**One user-executed ID-only command is now prepared; no agent SPI access or ID result:** run on the **Pi**, leaving wiring/clip still and normal router power disconnected:
+
+```sh
+id_log=$(mktemp "$HOME/C8375-U1-ID-100kHz-XXXXXX.log") &&
+sudo flashrom -V -p linux_spi:dev=/dev/spidev0.0,spispeed=100 -c MT25QU256 -o "$id_log"
+```
+
+The log is fresh, mode0600 and owned by the Pi user. This requests100kHz, not a measured clock. No main-array capture, force, write/erase or protection/OTP operation is selected. Expected prior identity **20BB19 / Micron MT25QU256 / 32768KiB**; stop on incorrect/zero ID. Local `/bin/sh -n` syntax passes; only an actual user probe/log can establish communication. Await output before bounded reads. Keep VCC in1.7–2.0V and disconnect Pi supply for collapse/out-of-range voltage, warming or unexpected board activity.
+
 ### Available parts clarification and next isolated adapter check
 
 The owner supplied [IMG_1281](../Photos/IMG_1281.jpeg) and says these are all other parts besides Dupont cables. It shows loose pin headers and several SPI/package breakout boards. **No solderless breadboard is reported available**; the breadboard example below remains a contingent option, not the current setup. A loose pin-header strip does not join adjacent pins. None of these breakout boards has a measured four-contact common node or verified secure fan-out connection; do not invent one from the photo or wedge loose male jumpers into unsoldered holes.

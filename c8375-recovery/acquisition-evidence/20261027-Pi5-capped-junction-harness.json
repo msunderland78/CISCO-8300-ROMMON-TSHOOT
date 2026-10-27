@@ -50,7 +50,7 @@
     "Continuity alone does not establish current capacity, loaded contact stability or reliable SPI",
     "No router-powered test, SPI identification, main-array acquisition or write selected/performed"
   ],
-  "next": "Owner to shut down Pi/unplug supply, check capped-junction grip with power off, reconnect same mapped U1 output harness and check input signal map; then power Pi only and report loaded P1-1 to P1-2 VDC. Stay within1.7-2.0V. No loaded result or SPI command yet.",
+  "next": "User to run fresh logged ID-only command on Pi. Keep clip/wiring still and normal router power/cables/CR2032 disconnected; monitor P1 VCC1.7-2.0V and disconnect Pi supply for out-of-range voltage/collapse/warming. Await ID log/output before bounded reads.",
   "inspection_crop": {
     "location": ".git/recovery-private/pi-preparation-20261027/IMG_1283-header-right-inspection.png",
     "purpose": "Private non-generative header-end inspection only",
@@ -101,5 +101,27 @@
     "owner_response": "yes",
     "confirmed": "Clip still on C8375-A/FDO2742M0FK/U1; normal router power/all other cables disconnected; CR2032 removed; no active console/programmer session",
     "scope": "Owner confirmation, no independent physical inspection"
+  },
+  "loaded_supply_result": {
+    "recorded_at": "2026-10-27T17:01:31.758712-04:00",
+    "source": "Owner:1.789vdc between p1pin1 and pin2",
+    "task": "P-03/R-01-U1-PI-ID",
+    "chassis": "C8375-A / FDO2742M0FK",
+    "physical_chip": "U1; reconfirmed immediately before reconnect instruction",
+    "endpoint_positive": "router P1-1/VCC",
+    "endpoint_reference": "router P1-2/GND",
+    "volts_DC": 1.789,
+    "state": "Pi-only programming supply and existing mapped U1 harness; normal router power/other cables/CR2032 isolated under freshly confirmed setup; no change reported. Shutdown/unplug/reconnect sequence requested, not separately narrated in numerical response.",
+    "inference": "Within Micron1.7-2.0V supply range. Static value only; no continuous min/max, transients, loaded control levels or reliable acquisition established.",
+    "next": "Release one user-executed logged identification-only command at requested100kHz; expected20BB19/MT25QU256/32768KiB. No force, array read/write, OTP or protection change selected.",
+    "ownership": "User owns SPI/programmer command execution; agent prepared files/syntax only, no programmer/SPI node opened."
+  },
+  "prepared_ID_command": {
+    "prepared_at": "2026-10-27T17:01:31.758712-04:00",
+    "private_command_file": ".git/recovery-private/pi-preparation-20261027/PI5-U1-ID-100KHZ-COMMAND.txt",
+    "command": "# Run on the Pi, not the Mac. U1 identification only; no array read/write.\nid_log=$(mktemp \"$HOME/C8375-U1-ID-100kHz-XXXXXX.log\") &&\nsudo flashrom -V -p linux_spi:dev=/dev/spidev0.0,spispeed=100 -c MT25QU256 -o \"$id_log\"\n",
+    "log_preservation": "mktemp creates fresh mode0600 log in Pi home; stdout remains visible. No old evidence overwritten.",
+    "validation": "Local /bin/sh -n passed; exact MT25QU256 retained; linux_spi/MT25QU256 supported by already inventoried Pi build. Not a runtime/probe test.",
+    "executed": false
   }
 }
