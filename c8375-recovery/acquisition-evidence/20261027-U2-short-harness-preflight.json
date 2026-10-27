@@ -17,7 +17,7 @@
     "P1-1_to_P1-2_usb_powered_vdc": 1.787
   },
   "new_tool_model": "not specified",
-  "status": "User identification retry succeeded 20 BB 19 / MT25QU256 / status 00; bounded two-region/two-read command prepared, no array read yet",
+  "status": "ID retry succeeded; two-region sample pair executed and FAILED lower-region repeatability; no new full capture",
   "next_diagnostic": {
     "state": "planned after successful ID",
     "regions": [
@@ -69,7 +69,7 @@
     "darwin_libusb_info": "Present in user paste; not in flashrom output log. Similar info also accompanied prior successful access; it does not establish a permission failure."
   },
   "historical_reconciliation": "October 25 U2 probes returned 00/00 and then 20/0000 before later successful 20 BB 19 identification and full reads. This initial failure does not establish permanent inability to communicate or a dead/erased chip. Both October 25 full pairs subsequently failed repeatability.",
-  "next_step": "Run prepared guarded two-region partial read pair on unchanged harness, monitor P1 1.7\u20132.0 V under CH341A USB only. Preserve all outputs; compare offline. Full captures deferred until samples pass and plausibility reviewed.",
+  "next_step": "Unplug programmer USB, leave wiring seated; obtain user report of during-read P1 voltage and setup stability before selecting next diagnostic. No full-read retry or write.",
   "retry_command_status": "Copied to clipboard; not run by agent",
   "retry_identification_result": {
     "verified_at": "2026-10-27T10:28:07.656512-04:00",
@@ -98,11 +98,12 @@
     "script_private_path": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/RUN-U2-SAMPLES.sh",
     "script_sha256": "9d6e95e1f1553a7b7b2911f4fc8c06abf86d3e725b7b4fdb57cf9ec6ce67bee5",
     "copied_to_clipboard": true,
-    "executed": false,
+    "executed": true,
     "expected_bytes_per_file": 65536,
     "expected_dump_files": 4,
     "expected_log_files": 2,
     "checks": "guards all output names, precreates owner-mode-0600 outputs, stops on flashrom error, offline sizes/hashes/byte comparison, preserves each sample without majority voting",
-    "cli_validation": "Installed flashrom v1.8.0 dummy-only two-region extraction completed successfully with exactly 32768 bytes per test region; no hardware access. Prepared shell syntax passed sh -n."
+    "cli_validation": "Installed flashrom v1.8.0 dummy-only two-region extraction completed successfully with exactly 32768 bytes per test region; no hardware access. Prepared shell syntax passed sh -n.",
+    "validation": "c8375-recovery/acquisition-evidence/20261027-U2-short-harness-partial-validation.json"
   }
 }

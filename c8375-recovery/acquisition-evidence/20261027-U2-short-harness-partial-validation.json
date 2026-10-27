@@ -1,0 +1,131 @@
+{
+  "verified_at": "2026-10-27T10:29:40.560842-04:00",
+  "target": "C8375-A / FDO2742M0FK / U2_CSPI",
+  "verification": "Independent offline sizes, hashes, byte comparisons and reference-region comparisons; no programmer access",
+  "regions": [
+    {
+      "start": "0x001f0000",
+      "end_inclusive": "0x001fffff",
+      "samples": [
+        {
+          "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/U2-PARTIAL-001f0000-read1.bin",
+          "bytes": 65536,
+          "mode": "0o600",
+          "sha256": "19a732f35d8354e8ed4e8cbe8d80416268127eeb4692773fc4648a44735840b8",
+          "distinct_byte_values": 255,
+          "reference_comparisons": {
+            "original": {
+              "differing_bytes": 64790,
+              "bytes_with_reference_one_bits_lost": 63512,
+              "bytes_with_one_bits_added": 39738
+            },
+            "known_nonbooting": {
+              "differing_bytes": 58849,
+              "bytes_with_reference_one_bits_lost": 58849,
+              "bytes_with_one_bits_added": 0
+            }
+          }
+        },
+        {
+          "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/U2-PARTIAL-001f0000-read2.bin",
+          "bytes": 65536,
+          "mode": "0o600",
+          "sha256": "f21fc22b4b69986c042da65b7c4a6bf85f59ce33cc33ce6820ad9059d2d92461",
+          "distinct_byte_values": 256,
+          "reference_comparisons": {
+            "original": {
+              "differing_bytes": 64707,
+              "bytes_with_reference_one_bits_lost": 63509,
+              "bytes_with_one_bits_added": 37207
+            },
+            "known_nonbooting": {
+              "differing_bytes": 59273,
+              "bytes_with_reference_one_bits_lost": 59273,
+              "bytes_with_one_bits_added": 0
+            }
+          }
+        }
+      ],
+      "differing_bytes": 58005,
+      "repeatability_pass": false
+    },
+    {
+      "start": "0x01f30000",
+      "end_inclusive": "0x01f3ffff",
+      "samples": [
+        {
+          "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/U2-PARTIAL-01f30000-read1.bin",
+          "bytes": 65536,
+          "mode": "0o600",
+          "sha256": "78dee8ca6dc361d79771e2a7fb8bd832210789a25d2784d23088fa8c860c46b5",
+          "distinct_byte_values": 81,
+          "reference_comparisons": {
+            "original": {
+              "differing_bytes": 44,
+              "bytes_with_reference_one_bits_lost": 43,
+              "bytes_with_one_bits_added": 1
+            },
+            "known_nonbooting": {
+              "differing_bytes": 42,
+              "bytes_with_reference_one_bits_lost": 42,
+              "bytes_with_one_bits_added": 0
+            }
+          }
+        },
+        {
+          "file": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/U2-PARTIAL-01f30000-read2.bin",
+          "bytes": 65536,
+          "mode": "0o600",
+          "sha256": "78dee8ca6dc361d79771e2a7fb8bd832210789a25d2784d23088fa8c860c46b5",
+          "distinct_byte_values": 81,
+          "reference_comparisons": {
+            "original": {
+              "differing_bytes": 44,
+              "bytes_with_reference_one_bits_lost": 43,
+              "bytes_with_one_bits_added": 1
+            },
+            "known_nonbooting": {
+              "differing_bytes": 42,
+              "bytes_with_reference_one_bits_lost": 42,
+              "bytes_with_one_bits_added": 0
+            }
+          }
+        }
+      ],
+      "differing_bytes": 0,
+      "repeatability_pass": true
+    }
+  ],
+  "logs": [
+    {
+      "private_original": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/U2-partial-read1.log",
+      "sha256": "59ab627c07a66b25539fa2a4845dc3095c70e74ac1ab7677764d36501efaed01",
+      "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-short-harness-partial-read1.log",
+      "status_register_line": [
+        "Chip status register is 0x00."
+      ],
+      "completed": true,
+      "runtime": "1 second"
+    },
+    {
+      "private_original": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/U2-partial-read2.log",
+      "sha256": "9b2f95ba390faefd928ba8c5fa1ea68162d9d77619ca470d42a1baa4e6b1b59d",
+      "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-short-harness-partial-read2.log",
+      "status_register_line": [
+        "Chip status register is 0x02."
+      ],
+      "completed": true,
+      "runtime": "1 second"
+    }
+  ],
+  "repeatability_pass": false,
+  "full_capture_selected": false,
+  "during_read_vcc": "not yet supplied; requested",
+  "usb_unplug": "requested after samples; not confirmed",
+  "limitations": [
+    "Samples cover only two 64-KiB regions and are not backups or restore images.",
+    "A successful ID and matching upper sample do not validate the mismatching lower region.",
+    "No single cause is established: changed wire length does not exclude contact, board loading/contention, control or supply problems.",
+    "Read2 log reports status 0x02 / WEL set; this is an observed status report, not proof of array programming. Invoked commands selected reads only; no erase/write/protection/OTP operation was selected."
+  ]
+}
