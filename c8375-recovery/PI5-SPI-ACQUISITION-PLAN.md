@@ -165,6 +165,16 @@ Only after those checks, prepare a fresh private acquisition directory for that 
 
 Read each of the same two 64 KiB regions independently at least twice: `001f0000–001fffff` and `01f30000–01f3ffff`. Check exact file sizes, SHA-256 and differing byte positions. Preserve failures and empty placeholders as failures. Test each clip separately with the same recorded settings; change one variable at a time. Even matching short regions are insufficient to establish whole-array accuracy.
 
+### First Pi U1 ID succeeds; bounded acquisition prepared
+
+Owner-pasted identification output now reports **20BB19 / MicronMT25QU256 /32768kB / status0x00**, using `linux_spi` on `/dev/spidev0.0` with software-reported100kHz and4096-byte kernel buffer. It ends **No operations were specified**. The original Pi logfile basename is `C8375-U1-ID-100kHz-1HaQgr.log`; it has not been independently retrieved or hashed. Separate OTP and untested-WP notices are retained; no OTP/protection command is selected.
+
+An **AI-assisted original Python3 standard-library read/compare command** is prepared locally under `.git/recovery-private/pi-preparation-20261027/` (`pi_u1_short_reads.py`, `PI5-U1-SHORT-READS-COMMAND.txt`) and copied to the owner's clipboard. User pastes it into the **Pi terminal**; no agent SPI access. It uses exact `MT25QU256` and `linux_spi:dev=/dev/spidev0.0,spispeed=100`; the installed/upstream1.6 manual supports `-r -l layout -i region:file` for region-sized reads. No full-array output filename is supplied.
+
+The command refuses an active flashrom process, creates a fresh mode0700 Pi-home directory, then performs two independent passes over the same two64KiB regions. Four sample files and two logs are precreated exclusively as user-owned0600 files, so sudo can write them while the comparison remains user-readable. Failed/empty placeholders are recorded as failures, not samples; no automatic retry or overwrite of old evidence occurs. Each pass must return success and exact65536-byte files before continuing. Results include SHA256, byte diversity, zero/FF counts and changed-byte counts/absolute first/last positions; binary contents are never printed. Preserve everything privately.
+
+Validation: Python AST and shell here-document syntax pass; importing definitions triggers no main/hardware action. Synthetic equal samples give0differences; first/last changes in the upper region give2 at correct absolute offsets; an empty placeholder is rejected. These are offline logic checks, **not Pi acquisition tests**. Keep the same U1 harness and router isolation, monitor P1 supply1.7–2.0V, and share the final comparison metadata before further reads. **No samples or full reads have completed yet.** [ID, dependencies, prepared-command hashes and validation](acquisition-evidence/20261027-Pi5-U1-ID-and-short-read-preparation.json).
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.

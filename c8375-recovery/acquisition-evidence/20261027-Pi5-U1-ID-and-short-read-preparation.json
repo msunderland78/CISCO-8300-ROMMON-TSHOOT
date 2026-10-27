@@ -1,0 +1,70 @@
+{
+  "recorded_at": "2026-10-27T17:08:55.767801-04:00",
+  "task": "R-01-U1-PI-ID / R-01-U1-PI-SHORT-PREP",
+  "chassis": "C8375-A / FDO2742M0FK",
+  "physical_chip": "U1",
+  "source": "Owner-pasted Pi terminal output. Original Pi logfile has not been independently retrieved or hashed; saved SSH login was rejected in prior setup check.",
+  "remote_ID_log_basename": "C8375-U1-ID-100kHz-1HaQgr.log",
+  "ID_result": {
+    "programmer": "linux_spi",
+    "device": "/dev/spidev0.0",
+    "speed_report": "Using100kHzclock; requested/software-reported, not measured waveform",
+    "flashrom": "v1.6.0",
+    "kernel": "7.0.0-1020-raspi",
+    "architecture": "aarch64",
+    "max_kernel_buffer_bytes": 4096,
+    "id1": "0x20",
+    "id2": "0xbb19",
+    "chip": "Micron MT25QU256",
+    "size_reported_kB": 32768,
+    "status_register": "0x00",
+    "WEL": "not set",
+    "WIP": "not set",
+    "completion": "No operations were specified",
+    "warnings": "Separate OTP cannot be fully cloned; WP operations untested. No OTP/protection operation selected."
+  },
+  "supply": "Most recent owner P1-1 to P1-2 loaded reading1.789VDC; during-ID continuous voltage not reported.",
+  "inference": "Communication/identification succeeded in this attempt. Does not establish stable reads, whole-array accuracy, bank role, configuration location or repair.",
+  "next_prepared": {
+    "owner": "User executes on Pi; agent prepared/copied only",
+    "method": "AI-assisted original Python3 standard-library wrapper; flashrom1.6.0, sudo and pgrep required; no hardware action on import",
+    "programmer": "linux_spi:dev=/dev/spidev0.0,spispeed=100",
+    "chip": "MT25QU256",
+    "regions": {
+      "lower": "001f0000:001fffff",
+      "upper": "01f30000:01f3ffff"
+    },
+    "passes": 2,
+    "expected_bytes_per_sample": 65536,
+    "files": "Four independent region-sized samples, two logs, layout and comparison.json in a fresh mode0700 Pi-home directory; files mode0600. Precreated empty files on a failed pass are placeholders, not captures.",
+    "guards": "Stop if another flashrom process exists; fresh unique directory and exclusive file creation; stop on nonzero flashrom or wrong sample size; no force/write/erase/protection flags",
+    "analysis": "Per-file SHA256, exact sizes, unique-byte and zero/FF counts; per-region changed-byte count and absolute first/last offsets; rejects incomplete files",
+    "privacy": "No binary contents printed. Preserve raw dumps privately; only metadata/summary may be shared.",
+    "clipboard": "Prepared command copied automatically per continuing owner clipboard preference",
+    "executed": false,
+    "validation": {
+      "python_syntax": "pass",
+      "shell_here_document_syntax": "pass",
+      "safe_import": "Executed definitions only via runpy; main guard prevented hardware/filesystem/network action",
+      "synthetic_comparison_checks": [
+        "Equal65536byte samples ->0differences",
+        "Two changes at first/last bytes in upper region ->2 and correct absolute offsets",
+        "Empty placeholder rejected"
+      ],
+      "hardware_test": "None; script prepared, not run on Pi",
+      "source_sha256": "f1bc761ba17db2751cc0140e0ca0ca6bbae968bed36e60257d8693053d0b2e61",
+      "clipboard_sha256": "66fbc9c14bb85021b0c4a7b802412db3844f4e80ef45d1b00ae647b83a37e068",
+      "private_source": ".git/recovery-private/pi-preparation-20261027/pi_u1_short_reads.py",
+      "private_command": ".git/recovery-private/pi-preparation-20261027/PI5-U1-SHORT-READS-COMMAND.txt"
+    }
+  },
+  "limitations": [
+    "Pi ID transcript supplied by owner; original remote logfile not independently fetched",
+    "No Pi sample result or full backup yet",
+    "Short-region repeatability alone will not establish whole-array accuracy",
+    "No firmware write, OTP/provisioning or physical bank assignment selected"
+  ],
+  "sources": [
+    "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/doc/classic_cli_manpage.rst"
+  ]
+}

@@ -50,7 +50,7 @@
     "Continuity alone does not establish current capacity, loaded contact stability or reliable SPI",
     "No router-powered test, SPI identification, main-array acquisition or write selected/performed"
   ],
-  "next": "User to run fresh logged ID-only command on Pi. Keep clip/wiring still and normal router power/cables/CR2032 disconnected; monitor P1 VCC1.7-2.0V and disconnect Pi supply for out-of-range voltage/collapse/warming. Await ID log/output before bounded reads.",
+  "next": "User to execute clipboard two-region/two-pass read-only diagnostic on Pi; keep harness unchanged and normal router power/cables/CR2032 disconnected, monitor1.7-2.0V. Await size/hash/byte comparison before further acquisition.",
   "inspection_crop": {
     "location": ".git/recovery-private/pi-preparation-20261027/IMG_1283-header-right-inspection.png",
     "purpose": "Private non-generative header-end inspection only",
@@ -122,7 +122,8 @@
     "command": "# Run on the Pi, not the Mac. U1 identification only; no array read/write.\nid_log=$(mktemp \"$HOME/C8375-U1-ID-100kHz-XXXXXX.log\") &&\nsudo flashrom -V -p linux_spi:dev=/dev/spidev0.0,spispeed=100 -c MT25QU256 -o \"$id_log\"\n",
     "log_preservation": "mktemp creates fresh mode0600 log in Pi home; stdout remains visible. No old evidence overwritten.",
     "validation": "Local /bin/sh -n passed; exact MT25QU256 retained; linux_spi/MT25QU256 supported by already inventoried Pi build. Not a runtime/probe test.",
-    "executed": false
+    "executed": true,
+    "execution_owner": "Owner ran it in Pi terminal; agent did not execute SPI command"
   },
   "extra_log_template_check": {
     "recorded_at": "2026-10-27T17:03:15.348207-04:00",
@@ -130,5 +131,11 @@
     "returncode": 255,
     "outcome": "Saved SSH login rejected: authentication denied. Remote dry-run did not execute. No retry, credential search or GPIO/SPI access. Earlier successful SSH/pinctrl inventory retained.",
     "impact": "User can run prepared ID command from their Pi terminal; no successful Pi runtime validation of this template is claimed."
+  },
+  "user_ID_result": {
+    "recorded_at": "2026-10-27T17:08:55.767801-04:00",
+    "result": "20BB19 / MicronMT25QU256 /32768kB/status00 via linux_spi0.0 at requested100kHz, owner-pasted output",
+    "evidence": "20261027-Pi5-U1-ID-and-short-read-preparation.json",
+    "scope": "ID only; No operations were specified; original Pi logfile not independently fetched"
   }
 }
