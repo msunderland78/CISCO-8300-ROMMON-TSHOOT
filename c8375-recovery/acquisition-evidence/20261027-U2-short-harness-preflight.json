@@ -17,7 +17,7 @@
     "P1-1_to_P1-2_usb_powered_vdc": 1.787
   },
   "new_tool_model": "not specified",
-  "status": "identification command copied to user clipboard; not run; awaits user sudo",
+  "status": "Initial user sudo probe failed 00/00; one unchanged-harness identification retry prepared, not run",
   "next_diagnostic": {
     "state": "planned after successful ID",
     "regions": [
@@ -48,5 +48,27 @@
     "Loaded DC voltage alone does not exclude transients, signal/contact problems or board loading.",
     "Exact new tool/clip model and removal of the old ribbon are not separately specified; total wire length is user-reported.",
     "This is SPI/ROMMON main-array acquisition; presence of IOS configuration in U2 is unverified."
-  ]
+  ],
+  "initial_identification_result": {
+    "verified_at": "2026-10-27T10:25:41.335552-04:00",
+    "original_private_log": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/U2-identification.log",
+    "log_bytes": 587,
+    "log_sha256": "ad3619fdd191bf8f5a94cf5dd7bac4576e999720f25dcca7bbf939c53ee85978",
+    "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-short-harness-initial-no-id.log",
+    "programmer_initialized": true,
+    "device_revision": "3.0.4",
+    "observed_id1": "0x00",
+    "observed_id2": "0x00",
+    "rdid_byte0_parity_violation": true,
+    "chip_found": false,
+    "full_or_partial_dumps_created": false,
+    "process_exit_code": "not independently captured",
+    "user_terminal_returned": true,
+    "during_probe_vcc": "not separately reported",
+    "usb_unplug_requested_not_confirmed": true,
+    "darwin_libusb_info": "Present in user paste; not in flashrom output log. Similar info also accompanied prior successful access; it does not establish a permission failure."
+  },
+  "historical_reconciliation": "October 25 U2 probes returned 00/00 and then 20/0000 before later successful 20 BB 19 identification and full reads. This initial failure does not establish permanent inability to communicate or a dead/erased chip. Both October 25 full pairs subsequently failed repeatability.",
+  "next_step": "User points out prior successful access after failed ID. Leave wiring unchanged; if USB unplugged, reconnect programmer USB only and ensure P1 voltage remains 1.7\u20132.0 V. One fresh guarded ID-only retry, not force or full read; then bounded samples only after expected ID. No mandatory clip reseating or new continuity scans.",
+  "retry_command_status": "Copied to clipboard; not run by agent"
 }
