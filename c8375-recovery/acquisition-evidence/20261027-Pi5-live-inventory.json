@@ -1,0 +1,70 @@
+{
+  "recorded_at": "2026-10-27T16:07:28.091361-04:00",
+  "task": "P-03-PI-INVENTORY",
+  "method": "SSH using existing restricted credential record; read-only OS, file, sysfs, package and offline flashrom listing commands; no programmer opened",
+  "physical_state": "Owner replied yes to grouped reconfirmation of C8375-A/FDO2742M0FK/U1, CH341A/router power/cables/battery isolation and disconnected Pi GPIO; no independent physical inspection",
+  "ssh_returncode": 0,
+  "model": "Raspberry Pi 5 Model B Rev 1.1",
+  "os_release": "PRETTY_NAME=\"Ubuntu 26.04.1 LTS\"",
+  "kernel": "7.0.0-1020-raspi",
+  "architecture": "aarch64",
+  "header_SPI_enabled": "dtparam=spi=on already present in [all] before overlays; config unchanged",
+  "spi_nodes": [
+    "/dev/spidev0.1",
+    "/dev/spidev0.0",
+    "/dev/spidev10.0"
+  ],
+  "spi_sysfs": [
+    {
+      "device": "spi0.0",
+      "path": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi/spi_master/spi0/spi0.0",
+      "of_node": "/sys/firmware/devicetree/base/axi/pcie@1000120000/rp1/spi@50000/spidev@0",
+      "driver": "/sys/bus/spi/drivers/spidev",
+      "compatible": "spidev,"
+    },
+    {
+      "device": "spi0.1",
+      "path": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi/spi_master/spi0/spi0.1",
+      "of_node": "/sys/firmware/devicetree/base/axi/pcie@1000120000/rp1/spi@50000/spidev@1",
+      "driver": "/sys/bus/spi/drivers/spidev",
+      "compatible": "spidev,"
+    },
+    {
+      "device": "spi10.0",
+      "path": "/sys/devices/platform/soc@107c000000/107d004000.spi/spi_master/spi10/spi10.0",
+      "of_node": "/sys/firmware/devicetree/base/soc@107c000000/spi@7d004000/spidev@0",
+      "driver": "/sys/bus/spi/drivers/spidev",
+      "compatible": "spidev,"
+    }
+  ],
+  "spi_aliases": {
+    "spi0": "/axi/pcie@1000120000/rp1/spi@50000",
+    "spi10": "/soc@107c000000/spi@7d004000"
+  },
+  "selected_header_device": "/dev/spidev0.0; RP1 SPI0 CE0, supported by sysfs/device-tree; not opened",
+  "excluded_device": "/dev/spidev10.0; separate SoC SPI controller, no access selected",
+  "flashrom_version": {
+    "returncode": 0,
+    "output": "flashrom v1.6.0 on Linux 7.0.0-1020-raspi (aarch64)\nflashrom is free software, get the source code at https://flashrom.org\n\n"
+  },
+  "flashrom_support": {
+    "returncode": 0,
+    "output": "Micron                       MT25QU256                            PREW            32768  SPI       \nlinux_spi, usbblaster_spi, pickit2_spi, ch341a_spi, ch347_spi, digilent_spi,\nSupported devices for the linux_spi programmer:"
+  },
+  "flashrom_package": "flashrom:\n  Installed: 1.6.0-2ubuntu1.1\n  Candidate: 1.6.0-2ubuntu1.1\n  Version table:\n *** 1.6.0-2ubuntu1.1 500\n        500 http://archive.ubuntu.com/ubuntu resolute-updates/main arm64 Packages\n        100 /var/lib/dpkg/status\n     1.6.0-2ubuntu1 500\n        500 http://archive.ubuntu.com/ubuntu resolute/main arm64 Packages\n",
+  "privilege_status": "sudo -n true requires interactive authentication. pinctrl get 8-11 returned Must be root /255; pin functions were not verified by pinctrl.",
+  "installed_manual": "Read installed /usr/share/man/man8/flashrom.8.gz offline: linux_spi spispeed parsed in kHz; -i region:file partial reads documented",
+  "clock": "100kHz planned request only; no programmer initialization or waveform measurement",
+  "not_performed": [
+    "Package install/update",
+    "Boot config change/reboot",
+    "GPIO wiring or writes",
+    "Probe/read of any SPI controller or router chip",
+    "Firmware write/erase/protection/OTP operation"
+  ],
+  "next": "Power off Pi, remove its supply before wiring; identify detached existing adapter INPUT pins with router output harness disconnected. Reuse accepted adapter subject to Pi-interface power/translation checks; then U1 ID and bounded repeatability.",
+  "private_evidence": [
+    ".git/recovery-private/pi-preparation-20261027/pi5-inventory.json",
+    ".git/recovery-private/pi-preparation-20261027/pi5-offline-manual.json"
+  ]
+}

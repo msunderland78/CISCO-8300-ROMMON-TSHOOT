@@ -1,6 +1,14 @@
 # Pi5 SPI acquisition plan — C8375-A
 
-Updated October 27, 2026, America/New_York. Task **P-03**; chassis **C8375-A / FDO2742M0FK**, Crestone/SoC2. This is a planned acquisition workflow; no Pi login, configuration, GPIO connection or router test has been performed.
+Updated October 27, 2026, America/New_York. Task **P-03**; chassis **C8375-A / FDO2742M0FK**, Crestone/SoC2. Read-only SSH inventory is now complete; electrical setup and router acquisition remain planned.
+
+## Verified Pi inventory — October 27, approximately 16:06 EDT
+
+SSH succeeded using the existing private credential record. The Pi reports **Raspberry Pi 5 Model B Rev 1.1**, **Ubuntu 26.04.1 LTS**, **aarch64**, kernel **7.0.0-1020-raspi**. Header SPI is already enabled with `dtparam=spi=on`; no installation, configuration change or reboot was necessary. Installed **flashrom 1.6.0 / package 1.6.0-2ubuntu1.1** lists both `linux_spi` and **MT25QU256 / 32768 KiB** offline. Its installed manual documents `spispeed` in kHz and region-sized `-i region:file` reads.
+
+Sysfs/device-tree identify **`/dev/spidev0.0` as RP1 SPI0 / CE0**, through `/axi/pcie@1000120000/rp1/spi@50000/spidev@0`. `/dev/spidev0.1` is the other chip select. **Leave `/dev/spidev10.0` alone**: it belongs to the separate SoC controller, not the selected header interface. None of these nodes was opened. `sudo -n true` requires interactive authentication; unprivileged `pinctrl get 8-11` returned `Must be root`, so that command did not verify pin functions. No privileged GPIO command ran.
+
+The owner replied “yes” to the grouped chassis/U1/isolation/disconnected-GPIO reconfirmation; individual conditions were not independently inspected. [Public inventory metadata](acquisition-evidence/20261027-Pi5-live-inventory.json); raw SSH output remains private. Earlier no-login statements below describe the preparation checkpoint before this inventory.
 
 ## Saved state and equipment
 
@@ -30,6 +38,31 @@ Check the actual model and release, then inspect `/dev/spidev*`. A missing flash
 Check installed/package flashrom version and `MT25QU256` support offline. Install a supported package if needed. If header SPI is disabled, inspect `/boot/firmware/config.txt` and its sections, preserve a backup, then enable the appropriate header SPI configuration and reboot as needed. Do not blindly append configuration or reimage a working card. Verify nodes again after any change. Validate partial-read syntax for that installed version without opening a programmer.
 
 ## 2. Validate the Pi-to-adapter interface with the router disconnected
+
+### Next physical step and proposed input wiring
+
+Run `sudo poweroff` on the Pi, wait for shutdown, then unplug its power supply before handling the header. With CH341A USB unplugged, disconnect the router's harness from the adapter output and remove the adapter from the CH341A. The clip can stay on U1. Identify the adapter's **underside INPUT contacts**, their pin-1 orientation and accessible connection method before connecting wires. Blue-socket OUTPUT numbering is a different endpoint. Do not infer underside orientation by mirroring a photo.
+
+The existing P-01 input mapping was user-confirmed October 24: ground→4; 3.3 V→8/3/7; CS→1; MISO→2; MOSI→5; CLK→6. The following is the proposed replacement source, subject to reconfirming those actual input contacts and the Pi interface with the router disconnected:
+
+| Pi physical header pin | Signal | Existing adapter INPUT contact |
+| --- | --- | --- |
+| 1 | 3.3 V supply / inactive control inputs | 8, 3 and 7 |
+| 6 | Ground | 4 |
+| 19 / GPIO10 | MOSI | 5 |
+| 21 / GPIO9 | MISO | 2 |
+| 23 / GPIO11 | CLK | 6 |
+| 24 / GPIO8 | CE0 / CS# | 1 |
+
+This is a mapping plan, not evidence that a Pi harness has been built or tested. Use no Pi 5 V pin. All four SPI signals pass through the active adapter; the flash-side supply and controls stay at 1.8 V, and returning MISO must remain compatible with Pi 3.3 V GPIO. Verify unloaded adapter supply/translation first, then power off before reattaching the router harness. Recheck accessible loaded P1 VCC/GND against 1.7–2.0 V before probing. Do not compensate for loading by increasing voltage or adding router power.
+
+Once the interface and loaded target are checked, the planned ID-only command on the Pi is:
+
+```sh
+sudo flashrom -V -p linux_spi:dev=/dev/spidev0.0,spispeed=100 -c MT25QU256
+```
+
+This command has **not** run. `100` requests **100 kHz**, not 100 MHz; actual clock remains unmeasured. Expect prior JEDEC `20 BB 19` and 32768 KiB; stop on incorrect/zero ID rather than forcing detection. Preserve its log in a fresh private acquisition directory. Main-array/configuration recovery remains unproven.
 
 Pi GPIO uses **3.3 V logic**; the flash requires **1.8 V power and signal translation**. The existing active adapter is a candidate for reuse, not a verified Pi interface. Power the Pi off before GPIO wiring, and remove the CH341A entirely from the adapter input. Establish the actual adapter input numbering, supply requirements, ground and translator directions before applying power. A 1.8 V supply alone does not translate SPI signals.
 

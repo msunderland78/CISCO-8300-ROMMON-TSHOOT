@@ -8,7 +8,11 @@ Read C8375-G2-RECOVERY-CONTEXT.md and ROUTER-RECOVERY-TEST-PLAN.md before
 this older October23 summary. Current clip last confirmed on U1; corrected
 short pairs fail repeatability332/7bytes; U2 still lacks a stable backup.
 Pi5/256GB now reported Ubuntu Server26.04.1 LTS. SSH credentials saved only
-in restricted .git/recovery-private/pi5-ssh.json; no login yet. Two new40cm
+in restricted .git/recovery-private/pi5-ssh.json. Read-only SSH inventory now
+confirms Pi5 Rev1.1, Ubuntu26.04.1, kernel7.0.0-1020-raspi, flashrom1.6.0
+and MT25QU256 support. Header SPI0/CE0 is /dev/spidev0.0 via RP1;
+leave separate SoC /dev/spidev10.0 alone. No SPI device opened or config
+changed. Pi-to-adapter input wiring/translation checks remain next. Two new40cm
 SOIC16 clips and10cm Dupont cables received. Full Pi low-clock acquisition
 plan: c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md. No write selected.
 
