@@ -53,7 +53,23 @@ class BitBang:
             self.wait()
 
 
-def acquire():
+def loopback_diagnostic(spi, report, directory, save):
+    for name in PATTERNS:
+        expected = pattern_bytes(name, 64)
+        for number in (1, 2):
+            received = spi.transfer(expected)
+            report["tests"].append({
+                "pattern": name, "pass": number, "bytes": len(expected),
+                "tx_sha256": hashlib.sha256(expected).hexdigest(),
+                "rx_sha256": hashlib.sha256(received).hexdigest(),
+                **compare(expected, received),
+            })
+            save()
+    return all(t["different_bytes"] == 0 for t in report["tests"])
+
+
+def run_hardware(prefix, setup, diagnostic, report_extras=None):
+    """Shared checked GPIO ownership/cleanup; callers provide explicit diagnostics."""
     import gpiod
     from gpiod.line import Direction, Value
 
@@ -72,11 +88,11 @@ def acquire():
             if chip.get_line_info(line).name != f"GPIO{line}":
                 raise RuntimeError("Unexpected GPIO line mapping; no changes")
     uid, gid = int(os.environ.get("SUDO_UID", "0")), int(os.environ.get("SUDO_GID", "0"))
-    directory = Path(tempfile.mkdtemp(prefix="Pi5-adapter-gpio-loopback-", dir=pwd.getpwuid(uid).pw_dir))
+    directory = Path(tempfile.mkdtemp(prefix=prefix, dir=pwd.getpwuid(uid).pw_dir))
     os.chown(directory, uid, gid)
     report = {
         "started_at": datetime.now().astimezone().isoformat(),
-        "setup": "Adapter-only OUTPUT2-to5 jumper; router fully disconnected",
+        "setup": setup,
         "method": "libgpiod GPIO software SPI, mode0/MSB-first; no SPI engine transfers",
         "gpiod_version": gpiod.__version__, "gpiochip": "/dev/gpiochip0",
         "controller": CONTROLLER, "driver": str(DRIVER),
@@ -85,6 +101,7 @@ def acquire():
         "timing_limit": "Three waits per bit plus Python/Linux/GPIO overhead; no exact clock claim",
         "directory": str(directory), "status": "started", "tests": [],
     }
+    report.update(report_extras or {})
 
     def save():
         path = directory / "report.json"
@@ -102,7 +119,7 @@ def acquire():
             MOSI: gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE),
             CLK: gpiod.LineSettings(direction=Direction.OUTPUT, output_value=Value.INACTIVE),
         }
-        with gpiod.request_lines("/dev/gpiochip0", consumer="isolated-adapter-control", config=settings) as request:
+        with gpiod.request_lines("/dev/gpiochip0", consumer="checked-gpio-spi-control", config=settings) as request:
             def write(line, value):
                 request.set_value(line, Value.ACTIVE if value else Value.INACTIVE)
 
@@ -110,18 +127,8 @@ def acquire():
                 return request.get_value(line) == Value.ACTIVE
 
             spi = BitBang(write, read, lambda: time.sleep(DELAY_SECONDS))
-            for name in PATTERNS:
-                expected = pattern_bytes(name, 64)
-                for number in (1, 2):
-                    received = spi.transfer(expected)
-                    report["tests"].append({
-                        "pattern": name, "pass": number, "bytes": len(expected),
-                        "tx_sha256": hashlib.sha256(expected).hexdigest(),
-                        "rx_sha256": hashlib.sha256(received).hexdigest(),
-                        **compare(expected, received),
-                    })
-                    save()
-        report["status"] = "passed" if all(t["different_bytes"] == 0 for t in report["tests"]) else "failed"
+            passed = diagnostic(spi, report, directory, save)
+        report["status"] = "passed" if passed else "failed"
     except (OSError, RuntimeError, ValueError, KeyboardInterrupt) as error:
         report["status"] = "failed/interrupted"
         report["failure"] = str(error) or type(error).__name__
@@ -141,6 +148,14 @@ def acquire():
         save()
     print(json.dumps(report, indent=2), flush=True)
     return 0 if report["status"] == "passed" else 1
+
+
+def acquire():
+    return run_hardware(
+        "Pi5-adapter-gpio-loopback-",
+        "Adapter-only OUTPUT2-to5 jumper; router fully disconnected",
+        loopback_diagnostic,
+    )
 
 
 def main(argv=None):

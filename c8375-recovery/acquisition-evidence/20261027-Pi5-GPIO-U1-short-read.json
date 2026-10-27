@@ -1,0 +1,48 @@
+{
+  "task_id": "R-01",
+  "date": "2026-10-27",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / FDO2742M0FK (fresh full confirmation pending)",
+  "physical_chip": "U1 (owner reports short clip reconnected)",
+  "owner_observation": "Pi powered, short clip on U1, loaded P1 pin1-to2=1.770 VDC.",
+  "status": "prepared; not executed",
+  "pending_physical_confirmation": "Same chassis/serial/U1; OUTPUT2-to5 loopback removed; eight mapped paths checked; CH341A/router power/other router cables/CR2032 disconnected; no competing programmer; monitor1.7\u20132.0V.",
+  "source": "scripts/pi_gpio_u1_read.py",
+  "installation": {
+    "directory": "/home/sundema/C8375-U1-GPIO-read-tools-9n0eppu5",
+    "sha256": {
+      "pi_u1_direct_read.py": "71ae3e241bc287c1ba2e1faf72260e1da67ef24f1d4ef3073d534827d188dcf9",
+      "pi_spi_loopback.py": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405",
+      "pi_gpio_loopback.py": "422dcdbef11a082c03ebcee23a19d0861fe4847ae82a20c3bbfbc1303191e376",
+      "pi_gpio_u1_read.py": "1aaeaae98db1516f9691fd1334f8d623cea7b9918c4584d38004906e487b017d"
+    },
+    "help_exit_code": 0
+  },
+  "preflight": {
+    "hostname": "PI-MATT-UBT",
+    "spi_device_exists": true,
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "process_exit": 1,
+    "process_matches": ""
+  },
+  "planned_read": {
+    "method": "GPIO mode0/MSB-first via verified RP1 GPIO8/9/10/11;200us phase waits, not measured clock",
+    "id": "20bb19 expected before each pass; incorrect/incomplete ID stops before array read",
+    "range": "0x001f2000\u20130x001f2fff",
+    "sample_bytes": 4096,
+    "passes": 2,
+    "chunk_bytes": 512,
+    "only_flash_opcodes": [
+      "0x9f RDID",
+      "0x13 native four-byte READ"
+    ],
+    "preservation": "Fresh private Pi folder; exclusive sample creation/mode0600; sizes/hashes/differences only in report; temporary SPI0 driver ownership restored in finally"
+  },
+  "validation": {
+    "offline_tests": 34,
+    "result": "passed",
+    "new_tests": "Four bounded-reader tests cover native address/chunk shape, failed ID stop, mismatch offsets/private original preservation, and no default/help hardware action. Existing GPIO mode0/cleanup tests retained.",
+    "remote_preparation": "Fresh source deployment SHA256 verified and --help passes; no GPIO/SPI opened by preparation."
+  },
+  "limitation": "No new identification, sample bytes, repeatability or accuracy result exists yet. Matching4KiB samples would not establish whole-array accuracy or a full backup."
+}
