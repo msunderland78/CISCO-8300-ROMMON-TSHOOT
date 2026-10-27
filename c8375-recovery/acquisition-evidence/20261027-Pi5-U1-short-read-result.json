@@ -151,8 +151,61 @@
   },
   "inference": "Owner-reported pair passes bounded repeatability. Each reported region hash differs from corresponding rehashed original, known nonbooting and older repeatable U1 references. This does not identify physical bank, cause, current intended flash contents or true byte accuracy. Short captures are nonconstant; no raw Pi bytewise comparison is possible locally yet.",
   "supply": "Last pre-test loaded P1 voltage1.789VDC; during-read continuous range not reported",
-  "next": "Import original Pi sample/log/metadata folder using owner-run Mac SCP command to fresh0700 .git/recovery-private chassis/U1 destination; local bytewise reference/plausibility analysis before selecting lengthy full reads. No unchanged read retry or write selected.",
+  "next": "Exact Pi originals now privately imported and independently verified; analyze stable mismatches and test read-path/clock variables before full reads/writes.",
   "clipboard": "Mac-terminal SCP import command prepared, syntax checked and copied; not executed by agent. Uses normal interactive SSH authentication, no embedded credentials.",
   "full_reads_selected": false,
-  "write_selected": false
+  "write_selected": false,
+  "independent_validation_update": {
+    "recorded_at": "2026-10-27T17:23:00.334090-04:00",
+    "key_only_SCP_imported": true,
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-Pi100kHz-import-ptr1bkz9",
+    "all_four_sample_sizes_and_hashes_match_report": true,
+    "actual_pair_different_bytes": {
+      "lower": 0,
+      "upper": 0
+    },
+    "actual_reference_comparisons": {
+      "lower": {
+        "pair_different_bytes": 0,
+        "reference_comparisons": {
+          "original": {
+            "different_bytes": 8024,
+            "bytes_losing_reference_one_bits": 8024,
+            "bytes_adding_reference_one_bits": 0,
+            "first_difference": "0x1f0000",
+            "last_difference": "0x1f1faa"
+          },
+          "known_nonbooting": {
+            "different_bytes": 65264,
+            "bytes_losing_reference_one_bits": 59620,
+            "bytes_adding_reference_one_bits": 51735,
+            "first_difference": "0x1f0000",
+            "last_difference": "0x1fffff"
+          }
+        },
+        "differences_from_latest_CH341A_read1": 488
+      },
+      "upper": {
+        "pair_different_bytes": 0,
+        "reference_comparisons": {
+          "original": {
+            "different_bytes": 119,
+            "bytes_losing_reference_one_bits": 118,
+            "bytes_adding_reference_one_bits": 1,
+            "first_difference": "0x1f30218",
+            "last_difference": "0x1f3ffff"
+          },
+          "known_nonbooting": {
+            "different_bytes": 117,
+            "bytes_losing_reference_one_bits": 117,
+            "bytes_adding_reference_one_bits": 0,
+            "first_difference": "0x1f3041e",
+            "last_difference": "0x1f3ffff"
+          }
+        },
+        "differences_from_latest_CH341A_read1": 67
+      }
+    },
+    "record": "20261027-Pi5-key-access-and-independent-validation.json"
+  }
 }

@@ -1,0 +1,121 @@
+{
+  "recorded_at": "2026-10-27T17:23:00.334090-04:00",
+  "task": "P-03-SSH-KEY / R-01-U1-PI-VALIDATION",
+  "access": {
+    "authorization": "Owner explicitly requests login retry and SSH key",
+    "retry": "Existing saved password login succeeded on requested retry; earlier authentication rejection retained, cause unresolved",
+    "key_type": "Ed25519",
+    "public_fingerprint": "SHA256:eY9NoW3wYoYLbnYb47O4ccHPTwLScmOA0+Qd1u3Ki00",
+    "private_storage": "Restricted local .git/recovery-private/ssh/, directory0700/key0600; no key material or credentials published",
+    "remote_change": "Append dedicated restrict/from-current-Mac-source-IP entry to owner authorized_keys; existing bytes preserved. SSH directory0700/authorized_keys0600.",
+    "verified": "Key-only SSH identity command and key-only SCP both succeeded; no password fallback",
+    "unchanged": "SSH daemon configuration and sudo settings",
+    "limitation": "Source-IP restriction can require adjustment if Mac source address changes"
+  },
+  "private_import": {
+    "directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U1/20261027-Pi100kHz-import-ptr1bkz9",
+    "method": "Key-only SCP into fresh private directory; no SPI access or original Pi modification",
+    "files": [
+      {
+        "file": "U1-lower-read1.bin",
+        "bytes": 65536,
+        "sha256": "6c39b76271b961e11e745f09eede3b69c6181d704b40dadf21e8dc73400d4c84",
+        "mode": "0o600"
+      },
+      {
+        "file": "U1-lower-read2.bin",
+        "bytes": 65536,
+        "sha256": "6c39b76271b961e11e745f09eede3b69c6181d704b40dadf21e8dc73400d4c84",
+        "mode": "0o600"
+      },
+      {
+        "file": "U1-read1.log",
+        "bytes": 2761,
+        "sha256": "19b3fe189379648a93d641f3811dcfb8adf303133dce69dbb95a513dc8500050",
+        "mode": "0o600"
+      },
+      {
+        "file": "U1-read2.log",
+        "bytes": 2757,
+        "sha256": "cc8436c8f2165ff84338521f044996adc47c6565ea0817bea8461e1eb0f1bce4",
+        "mode": "0o600"
+      },
+      {
+        "file": "U1-upper-read1.bin",
+        "bytes": 65536,
+        "sha256": "e0c7d36013e11f91b484ea6d2c7d70b0acbb93611c50c96f014702f8b258d67e",
+        "mode": "0o600"
+      },
+      {
+        "file": "U1-upper-read2.bin",
+        "bytes": 65536,
+        "sha256": "e0c7d36013e11f91b484ea6d2c7d70b0acbb93611c50c96f014702f8b258d67e",
+        "mode": "0o600"
+      },
+      {
+        "file": "comparison.json",
+        "bytes": 3185,
+        "sha256": "8927f8c60117834131c2aef7b07064270cb560ed63dcd1bb4bb7ea851a64ef5b",
+        "mode": "0o600"
+      },
+      {
+        "file": "regions.layout",
+        "bytes": 48,
+        "sha256": "3bdc7d71c35b7c951eb4a2a953563996c2176ed3dd803bd7782a7daa1d40e7bd",
+        "mode": "0o600"
+      }
+    ],
+    "sample_hashes_match_owner_report": true,
+    "expected_sample_bytes_each": 65536,
+    "actual_pair_comparisons": {
+      "lower": {
+        "pair_different_bytes": 0,
+        "reference_comparisons": {
+          "original": {
+            "different_bytes": 8024,
+            "bytes_losing_reference_one_bits": 8024,
+            "bytes_adding_reference_one_bits": 0,
+            "first_difference": "0x1f0000",
+            "last_difference": "0x1f1faa"
+          },
+          "known_nonbooting": {
+            "different_bytes": 65264,
+            "bytes_losing_reference_one_bits": 59620,
+            "bytes_adding_reference_one_bits": 51735,
+            "first_difference": "0x1f0000",
+            "last_difference": "0x1fffff"
+          }
+        },
+        "differences_from_latest_CH341A_read1": 488
+      },
+      "upper": {
+        "pair_different_bytes": 0,
+        "reference_comparisons": {
+          "original": {
+            "different_bytes": 119,
+            "bytes_losing_reference_one_bits": 118,
+            "bytes_adding_reference_one_bits": 1,
+            "first_difference": "0x1f30218",
+            "last_difference": "0x1f3ffff"
+          },
+          "known_nonbooting": {
+            "different_bytes": 117,
+            "bytes_losing_reference_one_bits": 117,
+            "bytes_adding_reference_one_bits": 0,
+            "first_difference": "0x1f3041e",
+            "last_difference": "0x1f3ffff"
+          }
+        },
+        "differences_from_latest_CH341A_read1": 67
+      }
+    }
+  },
+  "inference": "Bounded Pi repeatability independently passes0/0differences. Against original, lower differs8024bytes, all losing originalonebits; upper differs119bytes,118withlostones/1withaddedones. This preserves accuracy/bank uncertainty; matching repeated samples alone do not validate contents. No flash-array write inferred from WEL flag.",
+  "next": "Keep exact originals; further controlled read-path/clock comparison and address/bit analysis before long full-chip reads or any restoration write. User still owns physical setup/voltage monitoring; no new SPI command executed during access setup/import.",
+  "full_reads_selected": false,
+  "write_selected": false,
+  "validation": "Private-file inventory/hash/size checks, bytewise comparison and existing reported timestamps/logs; documentation/publication checks only for repository changes",
+  "sources": [
+    "https://man.openbsd.org/sshd.8"
+  ]
+}
