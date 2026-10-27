@@ -223,6 +223,18 @@ Owner replied yes to voltage remaining1.7–2.0V during the initial ID/two-pass 
 
 **Next recommended control:** stop reads and preserve the current new-clip setup/result. When ready to change, shut down/unplug Pi, return to the intact short clip on the sameU1, verify assembly/mapping and refreshed loaded supply/isolation/ownership, then repeat the exact independent4KiB test. This distinguishes a clip-dependent result from shared transaction/address/software behavior without presuming either clip accurate. That swap/control has not been performed. [Measurements, timings, sample/log hashes and independent comparisons](acquisition-evidence/20261027-Pi5-New40cmA-U1-validation.json).
 
+### Clock/noise explanation and refinement before more physical changes
+
+Read-only inspection now confirms live RP1SPI0 uses `dw_spi_mmio` with200MHz `clk_sys`. **50kHz is not the lowest rate of this controller family.** RPi rpi-6.12.y DesignWare code caps an even divider at65534, corresponding to about3.05kHz at200MHz. That is a family/source-derived estimate, not verification of installed Ubuntu7.0.0-1020binary limits or an actual waveform.25/10kHz are possible diagnostic requests; neither was executed here. Kernel spidev documentation cautions that requested speed is not a measurement of actual bitrate.
+
+Lower rate gives settling/setup time; it does not automatically increase signal voltage or tame each fast GPIO edge. Ringing, wrong thresholds, board loading/contention and supply transients can still cause systematic errors. Faster transfers reduce time under observation but have less timing margin. Ideal32MiB payload times at100/50/25/10kHz are about45/89/179/447minutes per read, before overhead; short diagnostic blocks remain practical.
+
+Continuity and repeated pair equality are useful but not certificates of byte accuracy or clean waveforms. Current strongest evidence is differing reads of the sameU1address without an array-write command, including read-size dependence. An old-reference mismatch alone can reflect changed contents or unresolved bank identity. Current goal is a trustworthy read path/address interpretation before recovery writes.
+
+Upstreamflashrom1.6 `linux_spi.c` configures mode0/eight-bit and combines command/read phases in `SPI_IOC_MESSAGE(2)`. Its MT25QU256 feature macro includes native4-byte read support, and `spi_nbyte_read` chooses that when supported by programmer; a generic3/4byte-mode mistake is therefore not established. Source review neither proves exact installed binary equivalence nor identifies a defect. Actual command/chip-select/chunk/address behavior merits independent validation.
+
+**Refinement:** leave the current physical assembly alone while completing that audit, then select one independent same-address small-block transaction control and controlled clock comparison. This precedes another clip swap; the earlier short-clip reversal remains an available control afterward. No new SPI access, clock setting, firmware or GPIO mutation occurred during this review. [Live clock inventory, source hashes, hypotheses and limits](acquisition-evidence/20261027-Pi5-clock-and-read-path-review.json).
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.

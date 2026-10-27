@@ -1,0 +1,85 @@
+{
+  "recorded_at": "2026-10-27T18:08:35.821813-04:00",
+  "task": "R-01-READ-PATH-EXPLANATION",
+  "scope": "Answer owner clock/noise/repeatability question; read-only clock/sysfs/source inspection only, no SPI node opened or read performed",
+  "live_Pi_inventory": {
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "of_node": "/sys/firmware/devicetree/base/axi/pcie@1000120000/rp1/spi@50000",
+    "clock-names": "ssi_clk,",
+    "clocks": "000000020000000c",
+    "clock_summary_exit_code": 0,
+    "relevant_clock_lines": [
+      "          clk_sys                    6       6        0        200000000   0          0     50000      Y            1f00074000.i2c                  no_connection_id         ",
+      "                                                                                                                    1f00050000.spi                  no_connection_id         ",
+      " vpu-clock                           2       2        0        750000000   0          0     50000      Y   107d004000.spi                  no_connection_id         "
+    ],
+    "clock_read_stderr": "\n"
+  },
+  "speed_conclusion": {
+    "fifty_kHz_is_minimum": false,
+    "family_source": "RaspberryPi rpi-6.12.y DesignWare driver divider clamped to65534 and even values; not an exact audit of installed Ubuntu7.0.0-1020binary",
+    "live_input_clock_Hz": 200000000,
+    "divider_based_floor_Hz": 3051.8509475997193,
+    "qualified_limit": "Approximate driver-family/hardware divider floor3.05kHz; exact installed build limit and waveform not verified.25/10kHz are proposed diagnostic requests, not executed speeds.",
+    "userspace_limitation": "SPI_IOC speed is requested rate; kernel spidev API does not directly report actual wire bitrate",
+    "ideal_single_32MiB_payload_minutes": {
+      "100": 44.73924266666667,
+      "50": 89.47848533333334,
+      "25": 178.95697066666668,
+      "10": 447.39242666666667
+    }
+  },
+  "signal_explanation": "Lower bit rate increases settling/setup margin but does not automatically change signal amplitude, GPIO edge slew or external interference. Ringing/false clock edges, level translation, loading and power transients may remain at slow bit rates. Faster transfer reduces elapsed capture time while reducing timing margin. No SNR/waveform measurement exists for this setup.",
+  "evidence_priority": "Reference-image mismatch alone may reflect changed contents or unresolved bank identity. Same physical address yielding different immediate readouts/read sizes is the stronger acquisition inconsistency. Targeted100kHzpair differed4072/4096bytes;50kHzpair matched each other but not prior100kHzfirst or larger-read slice.",
+  "source_audit_findings": [
+    "Upstreamflashrom1.6linux_spi uses mode0,8-bit transfers, SPI_MASTER_4BA and SPI_IOC_MESSAGE(2) for command plus read data.",
+    "MT25QU256 definition includesFEATURE_4BA_WREN; macro includes native4-byte read support. spi_nbyte_read selects native4-byte read opcode when chip and programmer support it.",
+    "This makes a simplistic assumed3-byte/4-byte mismatch unproven; actual runtime command/CS/chunk behavior still requires independent validation.",
+    "Upstreamsource review does not prove exact installed package binary equivalence or identify a software defect."
+  ],
+  "working_hypotheses": [
+    "Electrical: translation/drive/loading/clock edge or supply behavior despite mechanical continuity",
+    "Transaction: command/address sampling, chip-select boundaries, chunk/read-order/state or implementation behavior",
+    "Current image/bank/reference differences: explain reference mismatch, not same-address read inconsistency by themselves"
+  ],
+  "next_refinement": "Pause additional clip changes while completing read-transaction/chunk/address audit; then choose one independent same-address fixed-small-block read implementation and controlled speed comparison. Earlier short-clip reversal remains a possible control, not a proven clip fault. No new hardware test, flash repair or write selected this turn.",
+  "sources": [
+    {
+      "URL": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/linux_spi.c",
+      "sha256": "8282c709f1f8a9d80460e1ef79a27c377f54518afb0aaee6eb24eb437860089f",
+      "local_copy": "Private reference-source cache; not executable instructions"
+    },
+    {
+      "URL": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/spi25.c",
+      "sha256": "4f986d7edb7888a0d71124cae8b38d1f12494e2986741414eaebe35e403a94e3",
+      "local_copy": "Private reference-source cache; not executable instructions"
+    },
+    {
+      "URL": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/flashchips/micron.c",
+      "sha256": "edeed37c72977baa728453b41f6eea4ccbfa21a7d7441fdffc7b188e79b40021",
+      "local_copy": "Private reference-source cache; not executable instructions"
+    },
+    {
+      "URL": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/include/flash.h",
+      "sha256": "67d841e28ccd0b6fac96eebd84fe1ee8537829f09be63dceb19d7d8a40f1ed62",
+      "local_copy": "Private reference-source cache; not executable instructions"
+    },
+    {
+      "URL": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/spi.c",
+      "sha256": "f560b7fc18f6ddbe2214f5cc76c29d0497b4db3df928d29ff6338aabe9d2ef9b",
+      "local_copy": "Private reference-source cache; not executable instructions"
+    },
+    {
+      "URL": "https://raw.githubusercontent.com/raspberrypi/linux/rpi-6.12.y/drivers/spi/spi-dw-core.c"
+    },
+    {
+      "URL": "https://docs.kernel.org/spi/spidev.html"
+    },
+    {
+      "URL": "https://www.ti.com/lit/an/scea045/scea045.pdf"
+    },
+    {
+      "URL": "https://www.ti.com/lit/an/slaa734a/slaa734a.pdf"
+    }
+  ]
+}
