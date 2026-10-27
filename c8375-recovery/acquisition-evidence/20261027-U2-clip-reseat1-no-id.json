@@ -68,19 +68,21 @@
     "agent_programmer_access": false
   },
   "current_next_step": {
-    "state": "Await targeted programmer-facing adapter input voltages or report of inaccessible contacts; no new flashrom command",
-    "setup": "Leave all connectors/U2 clip in place. Router normal power/cables disconnected, CR2032 removed, flashrom stopped. Meter DC volts, black active adapter OUTPUT4/GND; only CH341A USB connected.",
-    "red_endpoints": [
-      "adapter programmer-facing INPUT7",
-      "adapter programmer-facing INPUT8"
+    "state": "Await fully unloaded adapter output7 and output8 DC voltages; all target leads disconnected at adapter with USB off, connector blocks intact",
+    "steps": [
+      "Unplug CH341A USB; normal router power/other cables disconnected, CR2032 removed. Confirm P1 near 0 V DC.",
+      "Record connector orientations, then remove ALL router/clip connections from active 1.8 V adapter, using whole connector blocks; do not detach only positions5\u20138 or leave other target signal/ground links. Leave adapter seated on CH341A and SOIC clip seated on U2.",
+      "Reconnect only CH341A USB, flashrom stopped, meter DC volts, black now-empty adapter OUTPUT4/GND. Measure now-unloaded adapter OUTPUT7 then OUTPUT8. P1 is not the reference once target disconnected.",
+      "Unplug USB after measurement; leave target leads disconnected for now, preserve connector orientations."
     ],
-    "reference": "October24 input path confirmation mapped both input7 and input8 to programmer 3.3 V rail; numeric 3.318 V was measured at input8 only. No historical numeric input7 voltage is invented.",
-    "inaccessible_rule": "If contacts hidden, report hidden; do not reach underneath or move powered adapter.",
-    "purpose": "Check current upstream source feeding HOLD route while output8 target VCC was 1.79 V and output7 was 0 V. This is a targeted response to a new loaded-output failure, not reopening broad standalone validation.",
+    "purpose": "Separate adapter/source behavior from attached target/harness loading without depinning a grouped connector or disturbing the U2 clip. All target connections are removed together to avoid a partially supplied target through remaining signals.",
+    "interpretation": "Output7 rising near regulated output8 after unloading associates the low loaded state with attached lead/clip/board load or mating contact; does not locate a fault. Output7 staying low with output8 near1.8V directs investigation to source/adapter path or idle-output state, without declaring a failed module.",
+    "status": "planned, not confirmed performed",
     "not_selected": [
-      "connector disconnection",
+      "single-pin depinning",
       "HOLD-to-VCC jumper",
-      "voltage increase",
+      "partial target disconnection under power",
+      "router power",
       "flashrom retry",
       "full read",
       "firmware/protection/OTP/provisioning change"
@@ -100,19 +102,21 @@
     },
     "assessment": "VCC 1.79 V within operating range; reported RESET 1.73 V exceeds nominal VIH minimum 1.253 V. Loaded adapter output 7/HOLD route is 0 V, below VIL maximum 0.537 V. If reaching U2 and HOLD enabled, this can inhibit communication; actual package contact and earlier transaction levels are not established, and no cause is located.",
     "next_step": {
-      "state": "Await targeted programmer-facing adapter input voltages or report of inaccessible contacts; no new flashrom command",
-      "setup": "Leave all connectors/U2 clip in place. Router normal power/cables disconnected, CR2032 removed, flashrom stopped. Meter DC volts, black active adapter OUTPUT4/GND; only CH341A USB connected.",
-      "red_endpoints": [
-        "adapter programmer-facing INPUT7",
-        "adapter programmer-facing INPUT8"
+      "state": "Await fully unloaded adapter output7 and output8 DC voltages; all target leads disconnected at adapter with USB off, connector blocks intact",
+      "steps": [
+        "Unplug CH341A USB; normal router power/other cables disconnected, CR2032 removed. Confirm P1 near 0 V DC.",
+        "Record connector orientations, then remove ALL router/clip connections from active 1.8 V adapter, using whole connector blocks; do not detach only positions5\u20138 or leave other target signal/ground links. Leave adapter seated on CH341A and SOIC clip seated on U2.",
+        "Reconnect only CH341A USB, flashrom stopped, meter DC volts, black now-empty adapter OUTPUT4/GND. Measure now-unloaded adapter OUTPUT7 then OUTPUT8. P1 is not the reference once target disconnected.",
+        "Unplug USB after measurement; leave target leads disconnected for now, preserve connector orientations."
       ],
-      "reference": "October24 input path confirmation mapped both input7 and input8 to programmer 3.3 V rail; numeric 3.318 V was measured at input8 only. No historical numeric input7 voltage is invented.",
-      "inaccessible_rule": "If contacts hidden, report hidden; do not reach underneath or move powered adapter.",
-      "purpose": "Check current upstream source feeding HOLD route while output8 target VCC was 1.79 V and output7 was 0 V. This is a targeted response to a new loaded-output failure, not reopening broad standalone validation.",
+      "purpose": "Separate adapter/source behavior from attached target/harness loading without depinning a grouped connector or disturbing the U2 clip. All target connections are removed together to avoid a partially supplied target through remaining signals.",
+      "interpretation": "Output7 rising near regulated output8 after unloading associates the low loaded state with attached lead/clip/board load or mating contact; does not locate a fault. Output7 staying low with output8 near1.8V directs investigation to source/adapter path or idle-output state, without declaring a failed module.",
+      "status": "planned, not confirmed performed",
       "not_selected": [
-        "connector disconnection",
+        "single-pin depinning",
         "HOLD-to-VCC jumper",
-        "voltage increase",
+        "partial target disconnection under power",
+        "router power",
         "flashrom retry",
         "full read",
         "firmware/protection/OTP/provisioning change"
@@ -173,6 +177,43 @@
       "full capture",
       "voltage increase",
       "router power",
+      "firmware/protection/OTP/provisioning change"
+    ]
+  },
+  "source_rail_report": {
+    "recorded_at": "2026-10-27T11:42:18.697894-04:00",
+    "source": "user measurement following clarification that CH341A side 3.3V/GND pads check the source rail only",
+    "voltage_V": 3.318,
+    "pairs": [
+      {
+        "red": "CH341A side pin labeled 3.3 V",
+        "black": "CH341A side pin labeled GND"
+      },
+      {
+        "red": "same CH341A side 3.3 V pin",
+        "black": "1.8 V adapter output 4/GND"
+      }
+    ],
+    "requested_conditions": "DC volts, only CH341A USB power, adapter/clip connected, flashrom stopped, router power/other cables disconnected and CR2032 removed",
+    "assessment": "Supports nominal 3.3 V source and common ground reference at adapter output4. Does not independently measure hidden input7/input8 contacts or establish the cause of loaded output7=0 V.",
+    "hidden_input7_input8": "No direct current measurements supplied; do not substitute source rail reading for them."
+  },
+  "superseded_input_contact_request": {
+    "state": "Await targeted programmer-facing adapter input voltages or report of inaccessible contacts; no new flashrom command",
+    "setup": "Leave all connectors/U2 clip in place. Router normal power/cables disconnected, CR2032 removed, flashrom stopped. Meter DC volts, black active adapter OUTPUT4/GND; only CH341A USB connected.",
+    "red_endpoints": [
+      "adapter programmer-facing INPUT7",
+      "adapter programmer-facing INPUT8"
+    ],
+    "reference": "October24 input path confirmation mapped both input7 and input8 to programmer 3.3 V rail; numeric 3.318 V was measured at input8 only. No historical numeric input7 voltage is invented.",
+    "inaccessible_rule": "If contacts hidden, report hidden; do not reach underneath or move powered adapter.",
+    "purpose": "Check current upstream source feeding HOLD route while output8 target VCC was 1.79 V and output7 was 0 V. This is a targeted response to a new loaded-output failure, not reopening broad standalone validation.",
+    "not_selected": [
+      "connector disconnection",
+      "HOLD-to-VCC jumper",
+      "voltage increase",
+      "flashrom retry",
+      "full read",
       "firmware/protection/OTP/provisioning change"
     ]
   }
