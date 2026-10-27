@@ -82,6 +82,8 @@ sudo flashrom -V -p linux_spi:dev=/dev/spidev0.0,spispeed=100 -c MT25QU256 -o "$
 
 The log is fresh, mode0600 and owned by the Pi user. This requests100kHz, not a measured clock. No main-array capture, force, write/erase or protection/OTP operation is selected. Expected prior identity **20BB19 / Micron MT25QU256 / 32768KiB**; stop on incorrect/zero ID. Local `/bin/sh -n` syntax passes; only an actual user probe/log can establish communication. Await output before bounded reads. Keep VCC in1.7–2.0V and disconnect Pi supply for collapse/out-of-range voltage, warming or unexpected board activity.
 
+**Access follow-up:** an additional SSH-only `mktemp --dry-run` check was rejected at login (255/authentication denied) using the existing saved record. It did not execute or open SPI; no file was created. Earlier successful SSH/pinctrl checks remain valid history. No credential retry/search is selected. The owner can execute the ID command in their Pi terminal; only local shell syntax, not a Pi runtime log-template check, is claimed.
+
 ### Available parts clarification and next isolated adapter check
 
 The owner supplied [IMG_1281](../Photos/IMG_1281.jpeg) and says these are all other parts besides Dupont cables. It shows loose pin headers and several SPI/package breakout boards. **No solderless breadboard is reported available**; the breadboard example below remains a contingent option, not the current setup. A loose pin-header strip does not join adjacent pins. None of these breakout boards has a measured four-contact common node or verified secure fan-out connection; do not invent one from the photo or wedge loose male jumpers into unsoldered holes.

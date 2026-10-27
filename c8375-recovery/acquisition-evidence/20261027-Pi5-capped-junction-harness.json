@@ -123,5 +123,12 @@
     "log_preservation": "mktemp creates fresh mode0600 log in Pi home; stdout remains visible. No old evidence overwritten.",
     "validation": "Local /bin/sh -n passed; exact MT25QU256 retained; linux_spi/MT25QU256 supported by already inventoried Pi build. Not a runtime/probe test.",
     "executed": false
+  },
+  "extra_log_template_check": {
+    "recorded_at": "2026-10-27T17:03:15.348207-04:00",
+    "attempt": "SSH mktemp --dry-run of ID log filename template; no file intended, no SPI command",
+    "returncode": 255,
+    "outcome": "Saved SSH login rejected: authentication denied. Remote dry-run did not execute. No retry, credential search or GPIO/SPI access. Earlier successful SSH/pinctrl inventory retained.",
+    "impact": "User can run prepared ID command from their Pi terminal; no successful Pi runtime validation of this template is claimed."
   }
 }
