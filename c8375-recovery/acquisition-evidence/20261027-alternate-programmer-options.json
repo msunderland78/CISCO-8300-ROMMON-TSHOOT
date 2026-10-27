@@ -3,11 +3,13 @@
   "task": "P-03-ALTERNATE-SPI",
   "reason": "U1 corrected comparison identified/read but failed repeatability332/7bytes; U2 earlier pairs/read paths unreliable. Need independent controllable SPI source, no confirmed dead chip/board cause.",
   "user_inventory": {
-    "Raspberry_Pi": "User confirms Pi5 and256GB microSD; believes existing Ubuntu24LTS Server. OS/kernel/access pending; no reimage selected.",
+    "Raspberry_Pi": "Owner confirms Pi5/256GB card and now reports Ubuntu Server26.04.1 LTS; SSH credentials saved privately. OS/kernel/SPI not independently read; no reimage selected.",
     "CH347": "Could order; not ordered/received",
     "EZP2023": "Could order; not ordered/received",
     "TL866_3G_T48": "Could order, higher cost; not ordered/received",
-    "original_SOIC16_ribbon_assembly": "Unavailable or modified, user confirmed"
+    "original_SOIC16_ribbon_assembly": "Unavailable or modified, user confirmed",
+    "new_SOIC16_clips": "Two received with40cm cables; separate from unavailable old35cm assembly; exact model/fit/mapping unverified",
+    "new_Dupont_cables": "10cm cables received; actual assembled route not measured"
   },
   "recommendation_order": [
     {
@@ -68,9 +70,9 @@
     }
   ],
   "Pi_preparation_plan": {
-    "state": "Pi5/model and256GB card user-confirmed; preserve existing UbuntuServer24.04 initially, read-only inventory/access pending",
+    "state": "Pi5/256GB and Ubuntu Server26.04.1 LTS owner-reported; credentials saved privately, no login; preserve installation and inventory first",
     "steps": [
-      "Identify model from board and OS/read-only system inventory; do not assume Pi5 from user guess.",
+      "Independently read model/OS/kernel and header SPI inventory via saved SSH access with GPIO disconnected; owner now reports Pi5/Ubuntu Server26.04.1 LTS.",
       "Check installed flashrom version and exact MT25QU256 name offline; select GPIO-header SPI controller device, not Pi internal boot EEPROM.",
       "Before any target connection, disconnect/remove CH341A from adapter input and establish Pi\u2192adapter input mapping, correct source/ground and bidirectional1.8V\u21943.3V translation. Do not connect GPIO3.3V directly to1.8V flash or use simultaneous Pi/CH341A drive.",
       "Verify safe adapter setup and target-loaded rail1.7\u20132.0V; current router physical clip remains U1 unless user explicitly changes it.",
@@ -79,11 +81,13 @@
     "requested_rate_kHz": 100,
     "rate_status": "proposal only, not configured or measured",
     "current_router_state": "U1 clip/wiring last user-confirmed; normal router power/cables/CR2032 disconnected under session, CH341A USB unplug requested but not confirmed",
-    "record": "c8375-recovery/acquisition-evidence/20261027-Pi5-preparation.json"
+    "record": "c8375-recovery/acquisition-evidence/20261027-Pi5-preparation.json",
+    "complete_plan": "c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md"
   },
   "limitations": [
     "Different/slower reader may help identify timing/translation problems, but is not a proven cure for contact/board loading.",
     "Adapter is a candidate for reuse, not a newly verified Pi interface.",
     "No device purchase, Pi setup, GPIO connection or router hardware operation performed during research."
-  ]
+  ],
+  "inventory_updated_at": "2026-10-27T15:33:32.087306-04:00"
 }

@@ -3,7 +3,16 @@ Updated 2026-10-23, America/New_York
 Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
-CURRENT STATE -- ROUTER DOES NOT BOOT AFTER RECOMMENDED ROMMON EXPERIMENT
+CURRENT HANDOFF POINTER -- October 27, 2026, America/New_York
+Read C8375-G2-RECOVERY-CONTEXT.md and ROUTER-RECOVERY-TEST-PLAN.md before
+this older October23 summary. Current clip last confirmed on U1; corrected
+short pairs fail repeatability332/7bytes; U2 still lacks a stable backup.
+Pi5/256GB now reported Ubuntu Server26.04.1 LTS. SSH credentials saved only
+in restricted .git/recovery-private/pi5-ssh.json; no login yet. Two new40cm
+SOIC16 clips and10cm Dupont cables received. Full Pi low-clock acquisition
+plan: c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md. No write selected.
+
+HISTORICAL OCTOBER23 STATE -- ROUTER DOES NOT BOOT AFTER RECOMMENDED ROMMON EXPERIMENT
 - Original development ROMMON was successfully backed up with TWO independent
   complete 32 MiB SPI reads. Both hashes match. Copies now verified on USB AND Mac.
 - Cisco-recommended 17.18(3r).s2.cp payload was programmed to the primary target.

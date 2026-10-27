@@ -4,10 +4,21 @@
   "user_confirmed": {
     "model": "RaspberryPi5, user-confirmed; OS model string not yet independently read",
     "microSD_capacity_GB": 256,
-    "current_OS": "User believes Ubuntu24 LTS Server; exact release/kernel not yet confirmed",
-    "reimage_offer": "User can reimage card, but no erasure/reimage selected"
+    "current_OS": "Owner now reports Ubuntu Server 26.04.1 LTS; supersedes earlier Ubuntu24 belief; no independent device inventory",
+    "reimage_offer": "User can reimage card, but no erasure/reimage selected",
+    "new_equipment": {
+      "SOIC16_clips": {
+        "count": 2,
+        "cable_length_cm_each": 40,
+        "status": "Received, owner report; model/fit/mapping unverified"
+      },
+      "Dupont_cables": {
+        "length_cm": 10,
+        "status": "Received, owner report"
+      }
+    }
   },
-  "recommendation": "Keep existing UbuntuServer24.04LTS initially; boot/read-only inventory before changing OS or buying equipment.",
+  "recommendation": "Preserve reported Ubuntu Server26.04.1 installation; read-only inventory with GPIO disconnected, then verify Pi/adapter interface and requested100kHz repeatability before full reads.",
   "sources": [
     {
       "url": "https://ubuntu.com/hardware/docs/boards/how-to/ubuntu_supported/raspberry-pi/",
@@ -24,7 +35,7 @@
   ],
   "first_stage": {
     "physical_setup": "Pi only: existing microSD, normal appropriate power supply and Ethernet. GPIO header empty, no connection to router/adapter. CH341A USB unplug requested, router remains normally unpowered/cables/CR2032 disconnected, clip last confirmed on U1.",
-    "access": "Ask hostname/IP+login username for existing SSH, or local monitor/keyboard console. No endpoint/credential supplied and no remote access attempted.",
+    "access": "SSH endpoint and login credentials supplied and stored privately; use saved record for read-only inventory. No login attempted.",
     "commands": [
       "cat /etc/os-release",
       "uname -r",
@@ -45,5 +56,24 @@
     "Power Pi off before GPIO wiring. Remove CH341A from adapter input; verify Pi\u2192adapter input source/ground and3.3V\u21941.8V signal translation with target disconnected.",
     "Reconfirm physical U1 target/router isolation and1.7\u20132.0V before read-only ID/bounded comparisons at requested100kHz."
   ],
-  "current_status": "Pi5/media availability confirmed by user; current OS/access and all device-side preparation unverified. No reimage/install/config/reboot/GPIO/router operation performed."
+  "current_status": "OS/model/media and new cable receipt are owner reports. Credentials saved privately; no SSH/config/install/reboot/GPIO/router operation performed.",
+  "updated_at": "2026-10-27T15:33:32.087306-04:00",
+  "OS_report_history": [
+    "Earlier owner belief: Ubuntu24 LTS Server",
+    "Updated owner report October27: Ubuntu Server26.04.1 LTS; no independent verification"
+  ],
+  "credential_storage": {
+    "path": ".git/recovery-private/pi5-ssh.json",
+    "directory_mode": "0700",
+    "file_mode": "0600",
+    "secret_registered_with_publication_guard": true,
+    "endpoint_and_credentials_in_public_record": false,
+    "verification": "Saved locally, not used for login"
+  },
+  "complete_plan": "c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md",
+  "harness_limitations": [
+    "Two new40cm clips are separate from unavailable/modified old35cm assembly.",
+    "40cm plus10cm would be about50cm before connectors/traces only if both are used; not measured.",
+    "100kHz is a requested starting point, not configured/measured; lower clock does not guarantee reliable longer wiring."
+  ]
 }

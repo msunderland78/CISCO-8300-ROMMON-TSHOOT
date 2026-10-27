@@ -1,0 +1,80 @@
+# Pi5 SPI acquisition plan — C8375-A
+
+Updated October 27, 2026, America/New_York. Task **P-03**; chassis **C8375-A / FDO2742M0FK**, Crestone/SoC2. This is a planned acquisition workflow; no Pi login, configuration, GPIO connection or router test has been performed.
+
+## Saved state and equipment
+
+The owner now reports **Raspberry Pi 5**, **256 GB microSD**, and **Ubuntu Server 26.04.1 LTS**. This supersedes the earlier belief that the card ran Ubuntu 24 LTS. Preserve the current installation; no reimage or EEPROM update is selected. The supplied SSH endpoint and credentials are saved only in the restricted local `.git/recovery-private/pi5-ssh.json` (directory 0700, file 0600). The password is registered with the local publication guard. Do not copy the credential record into public evidence.
+
+The owner confirms receipt of **two new SOIC-16 clips, each with a 40 cm cable**, plus **10 cm Dupont cables**. Keep these separate from both the earlier 35 cm assembly (unavailable or modified) and the direct-pin short harness photographed October 27. Label the new clips A/B before comparative captures. Their exact model, package fit, contact mapping and assembled length are unverified. A route using both a 40 cm ribbon and a 10 cm jumper would be approximately 50 cm before connectors/board traces; this is arithmetic, not a measured assembled path.
+
+Requesting a lower SPI clock may improve timing margin. It does not establish reliable contact, correct translation, acceptable loading or clean edges. Longer cables are a test variable, not an accepted fix. Prefer the shortest practical route and change one assembly at a time. The Pi's SPI clock is configurable; owning a Pi5 does not itself make the bus slower. Start with a requested **100 kHz**; actual clock has not been configured or measured.
+
+## Evidence that must survive the transition
+
+- Last confirmed physical target is **U1**, after comparison with U2. Last reported U1 P1 rail was **1.786 V DC**; adapter output4→P1-2 and output8→P1-1 were each **0.3 ohm**. These are historical measurements, not validation of a future Pi setup.
+- Router normal power, console/other cables and CR2032 were removed under the session setup. CH341A USB unplug was requested; confirmation is pending. Reconfirm actual chassis, chip, isolation and console/programmer ownership before any hardware interaction.
+- Corrected U1 short reads completed but differed at **332 bytes** in `0x001F0000–0x001FFFFF` and **7 bytes** in `0x01F30000–0x01F3FFFF`. Earlier U1 full read5/read6 matched each other but retain systematic accuracy concerns. See [U1 validation](acquisition-evidence/20261027-U1-comparison-partial-validation.json).
+- Both historical U2 full pairs failed repeatability: **3,897,877** and **1,775,520** differing bytes. Latest U2 short pair differed at **58,005** bytes in the lower region, while its upper region matched. Later probes failed ID despite CH341A initialization. No stable U2 backup exists. See [U2 short validation](acquisition-evidence/20261027-U2-short-harness-partial-validation.json).
+- The failed U1 command with the agent's `MT25QU156` typo stopped before hardware initialization; the corrected candidate is **MT25QU256**. Preserve the failed script/log. A software typo is not a chip failure.
+- Unloaded adapter zero-voltage reports were withdrawn after wrong probes were found; corrected outputs7/8→4 were both **1.803 V DC**. Later loaded values were about 1.7–1.8 V. No regulator fault was established.
+- Clip jaws hide the flash legs and connector blocks hide terminal metal. All proposed clip-side probing was withdrawn as inaccessible. Do not repeat those requests or use mux-routed header signals as direct substitutes for covered flash legs.
+- No cause, primary/golden bank mapping, restore image or write target is established. Main-array reads do not establish that U2 contains the desired IOS configuration. Preserve original captures; do not reconstruct or patch unique data.
+
+## 1. Inventory the Pi with its GPIO disconnected
+
+Use the saved SSH record or the Pi console. Verify host identity through normal SSH host-key handling; a changed key must be investigated. Capture only OS/kernel/model, SPI node/configuration inventory and flashrom version. The previously prepared read-only block is local at `.git/recovery-private/pi-preparation-20261027/PI5-INITIAL-CHECKS.txt`; it has not been executed on the Pi.
+
+Check the actual model and release, then inspect `/dev/spidev*`. A missing flashrom command or absent SPI node is setup information, not a router-chip failure. Select the **GPIO-header SPI controller** from actual device-tree/sysfs evidence; do not assume a numbered node or open a Pi internal boot-EEPROM controller. No raw Pi EEPROM access is part of this plan.
+
+Check installed/package flashrom version and `MT25QU256` support offline. Install a supported package if needed. If header SPI is disabled, inspect `/boot/firmware/config.txt` and its sections, preserve a backup, then enable the appropriate header SPI configuration and reboot as needed. Do not blindly append configuration or reimage a working card. Verify nodes again after any change. Validate partial-read syntax for that installed version without opening a programmer.
+
+## 2. Validate the Pi-to-adapter interface with the router disconnected
+
+Pi GPIO uses **3.3 V logic**; the flash requires **1.8 V power and signal translation**. The existing active adapter is a candidate for reuse, not a verified Pi interface. Power the Pi off before GPIO wiring, and remove the CH341A entirely from the adapter input. Establish the actual adapter input numbering, supply requirements, ground and translator directions before applying power. A 1.8 V supply alone does not translate SPI signals.
+
+For orientation/reference only, the expected GPIO-header SPI0 signals are:
+
+| Signal | Pi physical header pin | GPIO |
+| --- | --- | --- |
+| MOSI | 19 | GPIO10 |
+| MISO | 21 | GPIO9 |
+| CLK | 23 | GPIO11 |
+| CE0 / CS# | 24 | GPIO8 |
+
+These pin numbers are not an instruction to connect the target now. Confirm header orientation and actual configured function first. Verify the adapter input-side source and ground against its documented mapping, output-side supply and control levels, and signal translation, including returning MISO. Do not use Pi 3.3 V directly on the flash. Do not connect Pi and CH341A as simultaneous sources, or power the router normally while programming.
+
+The existing validated adapter **OUTPUT-to-package** mapping is retained below; it does not authenticate either new clip's ribbon/breakout mapping:
+
+| Adapter OUTPUT | Signal | U1/U2 SOIC-16 physical pin |
+| --- | --- | --- |
+| 1 | CS# | 7 |
+| 2 | MISO / DQ1 | 8 |
+| 3 | WP# / DQ2 | 9 |
+| 4 | GND | 10 |
+| 5 | MOSI / DQ0 | 15 |
+| 6 | CLK | 16 |
+| 7 | HOLD# / DQ3 | 1 |
+| 8 | VCC 1.8 V | 2 |
+
+RESET# is package pin3; no new jumper is selected. DNU pins remain unconnected. P1 pin1/common VCC and pin2/common ground are supported by prior measurements. Other header SPI paths pass through unresolved muxes. Validate each new assembly unpowered at accessible endpoints **before fitting it to the chip**; do not assume SOIC-8 numbering on a SOIC-16 package. Confirm residual voltage absent before resistance checks, correct meter inputs/mode and probes-together baseline. Do not cut/depin the assembly or invent inaccessible measurements.
+
+## 3. Identify, then compare bounded reads
+
+Reconfirm chassis **FDO2742M0FK**, physical **U1** unless deliberately changed, router power/cables/CR2032 isolation and exclusive programmer ownership. Record clip A/B or the existing short harness, wire route, actual assembled length and mapping evidence. Check loaded VCC against the documented **1.7–2.0 V** range using accessible P1 endpoints. A nominal DC reading does not measure switching transients. No voltage increase or speculative jumper is selected.
+
+Only after those checks, prepare a fresh private acquisition directory for that **physical chip and assembly**. Use the identified header node with flashrom `linux_spi` and `spispeed=100` (kHz), exact candidate `MT25QU256`, separate logs and no overwrite of existing evidence. Do not run a placeholder device path. Probe first; expected prior identity is **20 BB 19**, 32768 KiB. A zero/incorrect ID stops the acquisition; do not force detection.
+
+Read each of the same two 64 KiB regions independently at least twice: `001f0000–001fffff` and `01f30000–01f3ffff`. Check exact file sizes, SHA-256 and differing byte positions. Preserve failures and empty placeholders as failures. Test each clip separately with the same recorded settings; change one variable at a time. Even matching short regions are insufficient to establish whole-array accuracy.
+
+## 4. Preserve full backups before considering recovery writes
+
+After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.
+
+Only after stable full backups and physical bank/region analysis can a separate recovery-write decision specify the exact candidate hash, target, expected changed/preserved regions and readback verification. No write, erase, protection, OTP, fuse, TPM or provisioning change is selected now. Do not treat extracted configuration or a boot result as implied by a readable flash.
+
+## Handoff and sources
+
+[Active tracking plan](../ROUTER-RECOVERY-TEST-PLAN.md), [consolidated context](../C8375-G2-RECOVERY-CONTEXT.md), [detailed wiring/history](../C8375-CH341A-HEADER-WIRING.md), [Pi preparation status](acquisition-evidence/20261027-Pi5-preparation.json). Private acquisition pointers and a local resume copy are retained under `.git/recovery-private/`.
+
+The [official Pi GPIO/SPI documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html) supports the header and logic-level checks. The [flashrom v1.8.0 manual](https://raw.githubusercontent.com/flashrom/flashrom/v1.8.0/doc/classic_cli_manpage.rst) documents `linux_spi` and `spispeed` in kHz; check the actual Pi build before use. [Ubuntu Pi boot configuration](https://ubuntu.com/hardware/docs/boards/how-to/special_hardware/rpi-config-txt/) documents configuration location and section handling. These references do not verify the owner's installed OS, adapter or new harness.
