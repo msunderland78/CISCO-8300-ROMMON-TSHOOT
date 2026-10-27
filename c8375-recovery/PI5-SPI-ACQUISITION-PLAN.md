@@ -321,6 +321,8 @@ Agent stops further powered SPI work, verifies no programmer over SSH, then exec
 
 Next requested: after Pi supply unplug, retain U1clip/wires and normal router power/cables/CR2032 isolation. Meter staysDCV,blackP1pin2/GND: measureP1pin1,then safely accessibleU2pin2. **Await both residual readings before Ω/continuity or wiring changes.** If residual voltage remains, do not short/discharge speculatively; record it. Future unpowered supply/net mapping can distinguish rail coupling from signal back-powering only after this state is established. No U2VCCfeed, select/reset jumper, raised adapter voltage, router normal power, new SPI or firmware write selected. [Meter observations and shutdown evidence](acquisition-evidence/20261027-Pi5-U2-idle-CS-measurement.json).
 
+**Residual follow-up:** owner reports “with Pi off”,P1pin1→pin2=**0VDC**. U2pin2-toP1pin2 residual and explicit physical Pi-supply unplug confirmation remain pending; no resistance/continuity or wiring change selected yet.
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.

@@ -56,5 +56,13 @@
     "stdout": "",
     "stderr": "\n",
     "limitation": "SSH shutdown request only; Pi supply unplug and residual voltage not confirmed."
+  },
+  "residual_voltage_check": {
+    "recorded_at": "2026-10-27T19:40:51.247410-04:00",
+    "owner_report": "with pi off ... p1 pin 1 to pin 2 is 0 vdc",
+    "P1_pin1_to_pin2_VDC": 0.0,
+    "U2_pin2_to_P1_pin2_VDC": "pending",
+    "Pi_supply_physically_unplugged": "explicit confirmation requested; owner currently says Pi off",
+    "state_limit": "No resistance/continuity or wiring changes until unplug and both residual checks confirmed."
   }
 }
