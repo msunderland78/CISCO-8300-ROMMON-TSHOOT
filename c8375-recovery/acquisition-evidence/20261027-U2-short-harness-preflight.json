@@ -17,7 +17,7 @@
     "P1-1_to_P1-2_usb_powered_vdc": 1.787
   },
   "new_tool_model": "not specified",
-  "status": "First partial pair failed repeatability; next requested clip-reseat trial failed identification 00/00 before any samples. One fresh unchanged-wiring partial retry prepared.",
+  "status": "First sample pair failed repeatability; clip-reseat1 and unchanged retry1 both failed identification 00/00 before sample acquisition.",
   "next_diagnostic": {
     "state": "planned after successful ID",
     "regions": [
@@ -70,11 +70,23 @@
   },
   "historical_reconciliation": "October 25 U2 probes returned 00/00 and then 20/0000 before later successful 20 BB 19 identification and full reads. This initial failure does not establish permanent inability to communicate or a dead/erased chip. Both October 25 full pairs subsequently failed repeatability.",
   "next_step": {
-    "status": "one fresh unchanged-wiring sample retry prepared/copied, not run",
-    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/clip-reseat1/retry1",
-    "script_sha256": "adc09b5bd75a40347715b6209ed700e2188bf3ee50cea0ec8f031f513db20d70",
-    "preconditions": "Keep same U2 mapping and accepted adapter. Only CH341A USB powers target; router power/other cables disconnected, CR2032 removed. Ensure P1 1.7\u20132.0 V, monitor while command runs. No further reseating requested.",
-    "gating": "Every read probes first; script stops on an error. Fresh filenames, no overwrites. No new full captures selected."
+    "state": "Await three targeted user DC measurements; no further software command prepared/released",
+    "setup": "Keep clip seated, no flashrom process, normal router power/other cables disconnected and CR2032 removed; only CH341A USB power. DC volts, black P1-2/GND.",
+    "requested_red_endpoints": [
+      "P1-1/VCC",
+      "mapped accessible clip contact reaching U2 physical pin 3/RESET#",
+      "mapped accessible clip contact reaching U2 physical pin 1/HOLD#"
+    ],
+    "inaccessible_contact_rule": "Report inaccessible; do not probe beneath clip or infer numbering from breakout labels.",
+    "rationale": "Two consecutive post-requested-reseat attempts failed 00/00. Historical October 25 control readings (RESET 1.707 V, HOLD 1.770 V with prior VCC 1.759 V) describe an older setup and are not current measurements. Check current controls before repeating software retries.",
+    "not_selected": [
+      "full captures",
+      "voltage increase",
+      "router power",
+      "RESET/HOLD jumper",
+      "firmware write",
+      "OTP/protection/provisioning changes"
+    ]
   },
   "retry_command_status": "Copied to clipboard; not run by agent",
   "retry_identification_result": {
