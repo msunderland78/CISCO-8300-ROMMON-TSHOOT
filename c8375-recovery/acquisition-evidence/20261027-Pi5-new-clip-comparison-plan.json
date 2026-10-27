@@ -1,0 +1,36 @@
+{
+  "recorded_at": "2026-10-27T17:28:00.464618-04:00",
+  "task": "R-01-U1-NEW-CLIP-COMPARISON-PLAN",
+  "owner_question": "Keep current old/custom-wired short clip or try new longer factory-wired clip?",
+  "recommendation": "Try one new40cm clip next on same C8375-A/FDO2742M0FK/U1, retaining Pi/linux_spi0.0/requested100kHz and active1.8V adapter. Preserve current short/custom assembly and its verified baseline.",
+  "rationale": "Current clip already produced independently verified repeatable bounded reads; those still differ systematically from references. A different clip/contact/cable assembly offers independent read-path evidence. Further unchanged reads alone add little.",
+  "tradeoff": "Factory assembly may reduce custom-contact variability; greater cable length may reduce electrical margin. Neither advantage nor improvement is established. Entire assembly changes, so any result cannot isolate length versus contact construction.",
+  "baseline": {
+    "directory_record": "20261027-Pi5-key-access-and-independent-validation.json",
+    "regions": [
+      "001f0000:001fffff",
+      "01f30000:01f3ffff"
+    ],
+    "pair_different_bytes": [
+      0,
+      0
+    ],
+    "lower_sha256": "6c39b76271b961e11e745f09eede3b69c6181d704b40dadf21e8dc73400d4c84",
+    "upper_sha256": "e0c7d36013e11f91b484ea6d2c7d70b0acbb93611c50c96f014702f8b258d67e"
+  },
+  "physical_plan": [
+    "Shut down Pi and unplug supply before touching wires/clip; keep CH341A removed and router power/other cables/CR2032 isolated.",
+    "Label first new40cm clip New40cm-A, leaving second unused; current short clip remains separate and intact.",
+    "Inspect new clip/breakout while detached; verify pin1 orientation, wide SOIC16 fit and eight actual output-to-package connections. Factory assembly is not a pin-map guarantee. Do not infer mappings from ribbon color or force generic DIP8 hookup.",
+    "Retain Pi input harness/active1.8V adapter and requested100kHz; change only the clip/cable assembly on same physical U1.",
+    "Reconfirm chassis/U1/current isolation and exclusive programmer ownership, then verify loaded P1 supply1.7-2.0V.",
+    "ID first, then two independent reads of same two64KiB regions if ID and voltage acceptable; compare each new pair and against current-short baseline and references.",
+    "Stop on failed ID/voltage or unreliable pair; preserve failures. If different bytes appear, investigate changed path without treating either read as automatically correct. If same bytes appear, remaining bank/content/systematic errors still require analysis."
+  ],
+  "status": "Recommendation and controlled comparison plan only; no shutdown, clip change, measurement, probe or reads performed this turn. Exact new clip/model/mapping not yet inspected.",
+  "next_user_action": "Provide photo of new clip, cable connector and breakout/adapter detached before wiring selection; keep originals and previous baseline unchanged.",
+  "full_reads_selected": false,
+  "write_selected": false,
+  "source": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/doc/user_docs/in_system.rst",
+  "source_scope": "General cable-length/contact guidance only; external generic power/reset workarounds are not selected for this router."
+}
