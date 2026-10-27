@@ -259,6 +259,14 @@ Offline bit comparison finds all six recent4KiB samples only lose one bits relat
 
 These tests are **planned, not executed**. A loopback failure directs investigation upstream of the router; passing isolated tests followed by in-circuit failure points toward load/selection/control interactions without establishing a faulty clip. Do not join Pi3.3V GPIO directly to the1.8V flash. [Detailed test record and primary sources](acquisition-evidence/20261027-Pi5-software-diagnostic-next-steps.json).
 
+### Pi-only loopback completed — October 27, America/New_York
+
+Owner confirms Pi shut down/power unplugged, all Dupont cables removed, physical19→21jumper fitted, then Pi powered. No adapter/router lead remains on the header. Key-only SSH verifies expected host/kernel/SPI node and no active programmer. AI-assisted original [`pi_spi_loopback.py`](../scripts/pi_spi_loopback.py) is deployed with the SHA-verified direct-reader module, imported only for controller transfer support. It needs Linux/Python standard library, `pgrep` and sudo to openSPI; drops privileges for reporting. Import/default/help open no hardware; explicit `--isolated-loopback` is mandatory. **Arbitrary patterns are sent: never execute this utility with a flash chip connected.**
+
+The fixed mode0/eight-bit full-duplex matrix passes **144/144 transfers,166,644 compared bytes,zero byte/bit differences**. Requested rates100/50/10kHz each have48transfers: zeros,ones,55,AA,ramp,seeded pseudorandom; lengths4/17/517/4091;two passes. Every TX/RX SHA pair independently checked from the fetched report. Requested rate is not waveform measurement. No loopback/flashrom process remains. Offline suite passes26tests, including four new loopback tests. No packages, boot configuration or pinmux changed; SPI controller mode/rate settings used only for the test. Router not probed/read/written.
+
+**Next planned:** Pi shutdown/unplug; remove19→21jumper; reconnect the checked adapter input mapping/supply, keep entire router output harness disconnected, verify accessible OUTPUT5/MOSI→OUTPUT2/MISO jumper and mapping before powering. A separately labeled adapter-only run will test forward/return translation under light load. This Pi-only pass does not establish chip-select, flashrom split-phase transfers, loaded waveforms, clip correctness or router readability. [Matrix, timestamps and provenance](acquisition-evidence/20261027-Pi5-isolated-loopback-result.json).
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.
