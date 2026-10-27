@@ -17,7 +17,7 @@
     "P1-1_to_P1-2_usb_powered_vdc": 1.787
   },
   "new_tool_model": "not specified",
-  "status": "After further user clip/connections adjustment: rail1.787V, output7/output8 each\u22481.7\u20131.8V loaded; fresh guarded two-region partial retry copied, results pending.",
+  "status": "Adjusted-connections sample attempt failed chip ID00/00 after successful CH341A init; user USB reconnected, host sees1A86:5512, fresh guarded sample retry copied.",
   "next_diagnostic": {
     "state": "planned after successful ID",
     "regions": [
@@ -69,7 +69,7 @@
     "darwin_libusb_info": "Present in user paste; not in flashrom output log. Similar info also accompanied prior successful access; it does not establish a permission failure."
   },
   "historical_reconciliation": "October 25 U2 probes returned 00/00 and then 20/0000 before later successful 20 BB 19 identification and full reads. This initial failure does not establish permanent inability to communicate or a dead/erased chip. Both October 25 full pairs subsequently failed repeatability.",
-  "next_step": "Run freshly prepared two-region partial pair with monitored in-range supply; inspect outputs offline before selecting full reads.",
+  "next_step": "Run fresh USB-reconnect partial pair only while P1 remains1.7\u20132.0V; no full reads or firmware write.",
   "retry_command_status": "Copied to clipboard; not run by agent",
   "retry_identification_result": {
     "verified_at": "2026-10-27T10:28:07.656512-04:00",
@@ -342,7 +342,7 @@
       }
     ],
     "expected": "Two independent reads of both regions: four65536-byte samples, two logs, offline sizes/SHA256/byte comparison. Guard all existing outputs; stop on any failed probe/read. No majority vote.",
-    "state": "Prepared and copied to clipboard; not executed by agent; results pending",
+    "state": "Executed by user; CH341A initialized but ID00/00, no sample acquired",
     "flashrom_processes": [],
     "validation": "Unchanged previously dummy-verified read syntax; new shell sh -n and embedded Python AST checks pass. No hardware accessed.",
     "read_conditions": "Do not alter wiring while powered. Only CH341A USB powers target. Monitor P1 DC supply and unplug if outside1.7\u20132.0V. Keep router normal power/cables and CR2032 disconnected.",
@@ -352,7 +352,8 @@
       "HOLD/reset jumper",
       "voltage increase",
       "OTP/protection/provisioning changes"
-    ]
+    ],
+    "result": "c8375-recovery/acquisition-evidence/20261027-U2-connections-adjusted-no-id.json"
   },
   "previous_loaded_recheck_request": {
     "state": "Await fresh loaded adapter output7/output8 DC readings with corrected probes; prior regulator/reference checks canceled",
@@ -371,5 +372,15 @@
       "full capture",
       "firmware/protection/OTP/provisioning change"
     ]
+  },
+  "usb_reconnect_retry": {
+    "status": "fresh two-region/two-read command prepared/copied after user USB reconnect; not run by agent",
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/usb-reconnect-120935-EDT",
+    "script_sha256": "a8b9589299fb85864347bb65d4789c6f7d0099ba61482897978aec0c6962e8d3",
+    "syntax_checks": "sh -n and embedded Python AST pass; read syntax unchanged from prior dummy-only check",
+    "preconditions": "Same checked U2 harness, only CH341A USB power, normal router power/other cables and CR2032 disconnected. Verify/monitor P1 remains1.7\u20132.0V and leave wiring still.",
+    "stops_on_failed_identification": true,
+    "preserves_all_old_outputs": true,
+    "full_reads_selected": false
   }
 }

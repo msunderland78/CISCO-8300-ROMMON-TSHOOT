@@ -1,0 +1,49 @@
+{
+  "verified_at": "2026-10-27T12:09:35.057050-04:00",
+  "task": "R-01-U2-SHORT-HARNESS",
+  "target": "C8375-A / FDO2742M0FK / U2_CSPI",
+  "trial": "connections adjusted with reported loaded supply1.787V/output7 and8\u22481.7\u20131.8V",
+  "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/connections-adjusted-120654-EDT",
+  "result": "CH341A initialized successfully; flash-chip detection failed00/00, RDID byte0 parity violation, no sample acquired",
+  "log": {
+    "private_original": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/connections-adjusted-120654-EDT/U2-partial-read1.log",
+    "bytes": 897,
+    "sha256": "8f376435fc72f60c707d6be7286c15f3ca1228e0530a0213362a3b7778c0c9dc",
+    "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-connections-adjusted-no-id.log",
+    "runtime": "0min1sec"
+  },
+  "files": [
+    {
+      "private_path": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/connections-adjusted-120654-EDT/U2-PARTIAL-001f0000-read1.bin",
+      "bytes": 0,
+      "mode": "0o600",
+      "interpretation": "empty precreated placeholder, not a capture"
+    },
+    {
+      "private_path": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/connections-adjusted-120654-EDT/U2-PARTIAL-01f30000-read1.bin",
+      "bytes": 0,
+      "mode": "0o600",
+      "interpretation": "empty precreated placeholder, not a capture"
+    }
+  ],
+  "second_read_started": false,
+  "comparison_created": false,
+  "user_followup": "User reports USB unplug/replug after describing no CH341A detection; saved log distinguishes programmer initialization from failed flash-chip detection.",
+  "host_after_reconnect": {
+    "usb_product": "USB UART-LPT",
+    "VID_PID": "1A86:5512",
+    "flashrom_processes": 0,
+    "method": "read-only IOUSBHostDevice inventory and process names; no programmer access"
+  },
+  "next_trial": {
+    "status": "fresh two-region/two-read command prepared/copied after user USB reconnect; not run by agent",
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/usb-reconnect-120935-EDT",
+    "script_sha256": "a8b9589299fb85864347bb65d4789c6f7d0099ba61482897978aec0c6962e8d3",
+    "syntax_checks": "sh -n and embedded Python AST pass; read syntax unchanged from prior dummy-only check",
+    "preconditions": "Same checked U2 harness, only CH341A USB power, normal router power/other cables and CR2032 disconnected. Verify/monitor P1 remains1.7\u20132.0V and leave wiring still.",
+    "stops_on_failed_identification": true,
+    "preserves_all_old_outputs": true,
+    "full_reads_selected": false
+  },
+  "agent_programmer_access": false
+}
