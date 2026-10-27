@@ -36,7 +36,7 @@
     "method": "read-only IOUSBHostDevice inventory and process names; no programmer access"
   },
   "next_trial": {
-    "status": "fresh two-region/two-read command prepared/copied after user USB reconnect; not run by agent",
+    "status": "User-run USB-reconnect sample retry completed with failed chip identification00/00 before samples",
     "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/usb-reconnect-120935-EDT",
     "script_sha256": "a8b9589299fb85864347bb65d4789c6f7d0099ba61482897978aec0c6962e8d3",
     "syntax_checks": "sh -n and embedded Python AST pass; read syntax unchanged from prior dummy-only check",
@@ -45,5 +45,41 @@
     "preserves_all_old_outputs": true,
     "full_reads_selected": false
   },
-  "agent_programmer_access": false
+  "agent_programmer_access": false,
+  "usb_reconnect_result": {
+    "verified_at": "2026-10-27T12:11:50.539225-04:00",
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/usb-reconnect-120935-EDT",
+    "private_original_log": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/usb-reconnect-120935-EDT/U2-partial-read1.log",
+    "log_sha256": "d50e3b5a6350c1df20d879e635b6cccfccf89b00290a39118e1809a46ffa9bf3",
+    "log_bytes": 897,
+    "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-usb-reconnect-no-id.log",
+    "programmer_initialized": true,
+    "device_revision": "3.0.4",
+    "observed_flash_id": "00/00",
+    "rdid_parity_violation": true,
+    "samples": [
+      {
+        "private_path": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/usb-reconnect-120935-EDT/U2-PARTIAL-001f0000-read1.bin",
+        "bytes": 0,
+        "mode": "0o600",
+        "interpretation": "empty precreated placeholder"
+      },
+      {
+        "private_path": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/usb-reconnect-120935-EDT/U2-PARTIAL-01f30000-read1.bin",
+        "bytes": 0,
+        "mode": "0o600",
+        "interpretation": "empty precreated placeholder"
+      }
+    ],
+    "second_read_started": false,
+    "comparison_exists": false,
+    "runtime": "0min0sec",
+    "during_probe_voltage": "not separately supplied; most recent before tests1.787V P1, output7/8\u22481.7\u20131.8V"
+  },
+  "current_next_step": {
+    "state": "No further unchanged software retry prepared; USB unplug requested, U2 clip left seated",
+    "evidence_requested": "Current overview photo showing CH341A,1.8V adapter and connector blocks/lead routing; close-up showing U2 clip fit and chip pin1 orientation. No clip removal or hidden live probing requested.",
+    "purpose": "Current tool/clip model and assembled wiring have changed, with repeated no-ID failures despite reported in-range DC levels. Inspect actual setup to choose accessible MISO/CLK/CS/control-path verification endpoints rather than infer them from historical photos.",
+    "not_proven": "No dead/erased chip, adapter fault, cable-only cause or target bank assignment established. Earlier successful IDs remain part of history; both original full U2 pairs and first current lower-region samples failed repeatability."
+  }
 }
