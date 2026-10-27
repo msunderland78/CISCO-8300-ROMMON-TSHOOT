@@ -43,14 +43,14 @@
       "OUTPUT7/HOLD#"
     ],
     "expected": "Each approximately1.8V; 1.7-2.0V documented flash supply range",
-    "status": "Requested, no results at record creation"
+    "status": "Completed: owner reports1.804VDC for all three outputs; historical request retained"
   },
   "limitations": [
     "Cap exact model/wire gauge/approved combination and mechanical grip not established visually",
     "Continuity alone does not establish current capacity, loaded contact stability or reliable SPI",
     "No router-powered test, SPI identification, main-array acquisition or write selected/performed"
   ],
-  "next": "Wait for unloaded DC output values; keep router disconnected and powered wiring still. Before router attachment reconfirm chassis/U1/router isolation and check complete signal map. Power Pi off and unplug supply before connecting or moving wires.",
+  "next": "Owner to shut down Pi/unplug supply, check capped-junction grip with power off, reconnect same mapped U1 output harness and check input signal map; then power Pi only and report loaded P1-1 to P1-2 VDC. Stay within1.7-2.0V. No loaded result or SPI command yet.",
   "inspection_crop": {
     "location": ".git/recovery-private/pi-preparation-20261027/IMG_1283-header-right-inspection.png",
     "purpose": "Private non-generative header-end inspection only",
@@ -72,5 +72,34 @@
   },
   "sources": [
     "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html"
-  ]
+  ],
+  "unloaded_DC_result": {
+    "recorded_at": "2026-10-27T16:54:29.731057-04:00",
+    "source": "Owner: all read1.804vdc relative to output4",
+    "state": "Pi powered; CH341A removed; adapter output disconnected from router per preceding owner confirmation",
+    "mode": "DC volts",
+    "reference": "adapter OUTPUT4/GND",
+    "readings": [
+      {
+        "point": "adapter OUTPUT8/VCC",
+        "volts": 1.804
+      },
+      {
+        "point": "adapter OUTPUT3/WP#",
+        "volts": 1.804
+      },
+      {
+        "point": "adapter OUTPUT7/HOLD#",
+        "volts": 1.804
+      }
+    ],
+    "inference": "Unloaded rail and static WP#/HOLD# outputs are at nominal1.8V. Does not establish loaded voltage, dynamic translation/MISO behavior or reliable reads.",
+    "next": "Pi shutdown and supply unplug before reconnecting existing mapped U1 harness; then Pi-only power and loaded P1-1/VCC to P1-2/GND DC reading. No flashrom before acceptable loaded supply."
+  },
+  "router_reconfirmation": {
+    "recorded_at": "2026-10-27T16:54:29.731057-04:00",
+    "owner_response": "yes",
+    "confirmed": "Clip still on C8375-A/FDO2742M0FK/U1; normal router power/all other cables disconnected; CR2032 removed; no active console/programmer session",
+    "scope": "Owner confirmation, no independent physical inspection"
+  }
 }

@@ -62,6 +62,15 @@ Read-only SSH `sudo pinctrl get 8-11` reports GPIO9/10/11 as SPI0 MISO/MOSI/SCLK
 
 **Current requested measurement, not yet reported:** keep router disconnected and powered wires still. With meter in **DC volts**, black at **adapter OUTPUT4/GND**, measure red at **OUTPUT8/VCC**, **OUTPUT3/WP#**, then **OUTPUT7/HOLD#**. Expect approximately1.8V each. Do not perform continuity/resistance measurements while powered. No router attachment or flashrom command is selected from photographs/continuity alone. After acceptable unloaded levels, power Pi off/unplug before any target connection, reconfirm chassis/U1/router isolation and whole harness assignments, then check loaded target supply before an ID attempt.
 
+**Unloaded result now reported:** OUTPUT8/VCC, OUTPUT3/WP# and OUTPUT7/HOLD# are **each1.804VDC to OUTPUT4/GND**, owner-measured with Pi on and adapter output empty. This completes the static unloaded check; no loaded supply or dynamic SPI/MISO result exists. Owner then replied yes to reconfirming C8375-A/FDO2742M0FK/U1, router power/all other cables disconnected, CR2032 removed and no active console/programmer session.
+
+**Next user-performed step, not yet completed:**
+
+1. Run `sudo poweroff` on Pi, wait for shutdown and unplug its supply. With power absent, check the cap grips each junction wire gently without loosening any connection; correct any loose connection before proceeding.
+2. Reconnect the **same existing mapped U1 clip harness** to the adapter's **1.8V OUTPUT** in its checked orientation. Keep CH341A removed. Verify the Pi INPUT mapping above and OUTPUT-to-package mapping below; do not rebuild or renumber the clip based on wire colors. Router power/cables/CR2032 remain disconnected.
+3. Power the Pi alone. Do not move wires or start flashrom. Measure **DC volts, black router P1-2/GND, red P1-1/VCC**, and report the loaded value. Expected supply range **1.7–2.0V**; no increase or additional router supply is selected. If voltage collapses, leaves that range, or unexpected warming/activity occurs, disconnect Pi supply and preserve the failed observation.
+4. Only after an acceptable loaded reading, proceed to a fresh logged U1 identification at requested100kHz, then independent bounded reads if ID matches. A command's preparation does not establish execution; all original evidence stays unchanged.
+
 ### Available parts clarification and next isolated adapter check
 
 The owner supplied [IMG_1281](../Photos/IMG_1281.jpeg) and says these are all other parts besides Dupont cables. It shows loose pin headers and several SPI/package breakout boards. **No solderless breadboard is reported available**; the breadboard example below remains a contingent option, not the current setup. A loose pin-header strip does not join adjacent pins. None of these breakout boards has a measured four-contact common node or verified secure fan-out connection; do not invent one from the photo or wedge loose male jumpers into unsoldered holes.
