@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """AI-assisted original Pi SPI loopback diagnostic; no action without explicit flag.
 
-Use ONLY with every router/adapter lead removed from the Pi header and a jumper
-between physical pins 19 (MOSI) and 21 (MISO). Arbitrary test bytes are sent;
-this is not a flash-reading script and must never run against a flash chip.
+Use ONLY with the router fully disconnected. Pi-only mode uses a jumper between
+physical pins 19 (MOSI) and 21 (MISO), with all adapter leads removed. Adapter-only
+mode uses the checked adapter input harness and OUTPUT 2-to-5 jumper, with no
+router harness on the adapter. Arbitrary test bytes are sent; this is not a
+flash-reading script and must never run against a flash chip.
 Linux/Python standard library; pi_u1_direct_read.py must be beside this file.
 """
 import argparse
@@ -70,7 +72,9 @@ def run_matrix(transfer, report, save):
         print(f"Requested {speed // 1000} kHz: {failed}/48 transfers differ", flush=True)
 
 
-def acquire():
+def acquire(setup="pi-only"):
+    if setup not in ("pi-only", "adapter-only"):
+        raise ValueError("Unknown isolated loopback setup")
     os.umask(0o077)
     active = subprocess.run(["pgrep", "-x", "flashrom"], stdout=subprocess.DEVNULL)
     if active.returncode != 1:
@@ -83,10 +87,13 @@ def acquire():
             os.setgid(gid)
             os.setuid(uid)
         home = Path(pwd.getpwuid(os.getuid()).pw_dir)
-        directory = Path(tempfile.mkdtemp(prefix="Pi5-isolated-loopback-", dir=home))
+        prefix = "Pi5-isolated-loopback-" if setup == "pi-only" else "Pi5-adapter-loopback-"
+        directory = Path(tempfile.mkdtemp(prefix=prefix, dir=home))
         report = {
             "started_at": datetime.now().astimezone().isoformat(),
-            "setup": "Pi-only; all adapter/router GPIO leads removed; physical 19-to-21 jumper",
+            "setup": ("Pi-only; all adapter/router GPIO leads removed; physical 19-to-21 jumper"
+                      if setup == "pi-only" else
+                      "Adapter-only; checked Pi-to-adapter input wiring; OUTPUT 2-to-5 jumper; router harness fully disconnected"),
             "device": DEVICE, "mode": 0, "bits_per_word": 8,
             "transaction": "single full-duplex SPI_IOC_MESSAGE(1)",
             "directory": str(directory), "status": "started", "tests": [],
@@ -114,13 +121,16 @@ def acquire():
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--isolated-loopback", action="store_true",
+    setup = parser.add_mutually_exclusive_group()
+    setup.add_argument("--isolated-loopback", action="store_true",
                         help="confirm router and adapter fully disconnected from Pi header")
+    setup.add_argument("--adapter-loopback", action="store_true",
+                       help="confirm router harness disconnected and only OUTPUT 2-to-5 jumper fitted")
     args = parser.parse_args(argv)
-    if not args.isolated_loopback:
+    if not args.isolated_loopback and not args.adapter_loopback:
         parser.print_help()
         return 0
-    return acquire()
+    return acquire("adapter-only" if args.adapter_loopback else "pi-only")
 
 
 if __name__ == "__main__":

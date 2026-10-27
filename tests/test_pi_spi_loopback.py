@@ -46,6 +46,17 @@ class LoopbackTests(unittest.TestCase):
                     loopback.main(["--help"])
                 self.assertEqual(stopped.exception.code, 0)
 
+    def test_explicit_modes_are_exclusive_and_report_correct_setup(self):
+        with patch.object(loopback, "acquire", return_value=0) as acquire:
+            self.assertEqual(loopback.main(["--adapter-loopback"]), 0)
+            acquire.assert_called_once_with("adapter-only")
+            acquire.reset_mock()
+            self.assertEqual(loopback.main(["--isolated-loopback"]), 0)
+            acquire.assert_called_once_with("pi-only")
+            with contextlib.redirect_stderr(io.StringIO()):
+                with self.assertRaises(SystemExit):
+                    loopback.main(["--isolated-loopback", "--adapter-loopback"])
+
 
 if __name__ == "__main__":
     unittest.main()

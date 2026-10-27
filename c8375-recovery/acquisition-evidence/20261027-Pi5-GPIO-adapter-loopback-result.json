@@ -1,0 +1,283 @@
+{
+  "task_id": "R-01 / GPIO adapter-only control",
+  "date": "2026-10-27",
+  "timezone": "America/New_York",
+  "router_context": "C8375-A / FDO2742M0FK / U1; router remains disconnected from adapter",
+  "physical_state": "Same owner-confirmed adapter input harness and sole OUTPUT2-to5 jumper; no physical change after hardware SPI loopback.",
+  "installed_packages": {
+    "gpiod": "2.2.1-3build1",
+    "libgpiod3": "2.2.1-3build1",
+    "python3-libgpiod": "2.2.1-3build1",
+    "observed_python_gpiod_version": "2.2.0",
+    "apt_result": "3 new packages; zero upgrades/removals"
+  },
+  "line_inventory": {
+    "gpiod_version": "2.2.0",
+    "chips": [
+      {
+        "path": "/dev/gpiochip0",
+        "name": "gpiochip0",
+        "label": "pinctrl-rp1",
+        "num_lines": 54,
+        "lines": {
+          "8": {
+            "name": "GPIO8",
+            "consumer": "spi0 CS0",
+            "used": true,
+            "direction": "Direction.OUTPUT"
+          },
+          "9": {
+            "name": "GPIO9",
+            "consumer": null,
+            "used": false,
+            "direction": "Direction.INPUT"
+          },
+          "10": {
+            "name": "GPIO10",
+            "consumer": null,
+            "used": false,
+            "direction": "Direction.INPUT"
+          },
+          "11": {
+            "name": "GPIO11",
+            "consumer": null,
+            "used": false,
+            "direction": "Direction.INPUT"
+          }
+        }
+      },
+      {
+        "path": "/dev/gpiochip13",
+        "name": "gpiochip13",
+        "label": "gpio-brcmstb@107d508520",
+        "num_lines": 4
+      },
+      {
+        "path": "/dev/gpiochip10",
+        "name": "gpiochip10",
+        "label": "gpio-brcmstb@107d508500",
+        "num_lines": 32
+      },
+      {
+        "path": "/dev/gpiochip12",
+        "name": "gpiochip12",
+        "label": "gpio-brcmstb@107d517c20",
+        "num_lines": 6
+      },
+      {
+        "path": "/dev/gpiochip11",
+        "name": "gpiochip11",
+        "label": "gpio-brcmstb@107d517c00",
+        "num_lines": 15
+      }
+    ],
+    "spi0_device": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "spi0_driver": "/sys/bus/platform/drivers/dw_spi_mmio"
+  },
+  "source": "scripts/pi_gpio_loopback.py",
+  "installation": {
+    "directory": "/home/sundema/Pi5-gpio-loopback-tools-r99pg5_m",
+    "sha256": {
+      "pi_u1_direct_read.py": "71ae3e241bc287c1ba2e1faf72260e1da67ef24f1d4ef3073d534827d188dcf9",
+      "pi_spi_loopback.py": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405",
+      "pi_gpio_loopback.py": "68c7efe7a6b7778b2f9e55876a7e4b6de97e9968fd9f5fb86e3bed85c04cf508"
+    },
+    "help_exit_code": 0
+  },
+  "runtime_exit_code": 0,
+  "report": {
+    "started_at": "2026-10-27T18:55:06.969417-04:00",
+    "setup": "Adapter-only OUTPUT2-to5 jumper; router fully disconnected",
+    "method": "libgpiod GPIO software SPI, mode0/MSB-first; no SPI engine transfers",
+    "gpiod_version": "2.2.0",
+    "gpiochip": "/dev/gpiochip0",
+    "controller": "1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "CS_GPIO": 8,
+    "MISO_GPIO": 9,
+    "MOSI_GPIO": 10,
+    "CLK_GPIO": 11,
+    "requested_wait_seconds_per_phase": 0.0002,
+    "timing_limit": "Three waits per bit plus Python/Linux/GPIO overhead; no exact clock claim",
+    "directory": "/home/sundema/Pi5-adapter-gpio-loopback-_yfwxg3q",
+    "status": "passed",
+    "tests": [
+      {
+        "pattern": "zeros",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+        "rx_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "zeros",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+        "rx_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "ones",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "rx_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "ones",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "rx_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "55",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "3d9eae666b06b1a975071aca838b4bb5f27a8324eb2ddab0c8eccd71ceae6b50",
+        "rx_sha256": "3d9eae666b06b1a975071aca838b4bb5f27a8324eb2ddab0c8eccd71ceae6b50",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "55",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "3d9eae666b06b1a975071aca838b4bb5f27a8324eb2ddab0c8eccd71ceae6b50",
+        "rx_sha256": "3d9eae666b06b1a975071aca838b4bb5f27a8324eb2ddab0c8eccd71ceae6b50",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "aa",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "693e5f0f347a5d70acbb7baaab9beb988301b3e9588e32c73d7dcdfb7b2c4604",
+        "rx_sha256": "693e5f0f347a5d70acbb7baaab9beb988301b3e9588e32c73d7dcdfb7b2c4604",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "aa",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "693e5f0f347a5d70acbb7baaab9beb988301b3e9588e32c73d7dcdfb7b2c4604",
+        "rx_sha256": "693e5f0f347a5d70acbb7baaab9beb988301b3e9588e32c73d7dcdfb7b2c4604",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "ramp",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108",
+        "rx_sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "ramp",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108",
+        "rx_sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "pseudorandom",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "cb8ef19a7c568885a687e63ca917dbda87ae304165a6f17e8252e6c35a0b98e3",
+        "rx_sha256": "cb8ef19a7c568885a687e63ca917dbda87ae304165a6f17e8252e6c35a0b98e3",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "pseudorandom",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "cb8ef19a7c568885a687e63ca917dbda87ae304165a6f17e8252e6c35a0b98e3",
+        "rx_sha256": "cb8ef19a7c568885a687e63ca917dbda87ae304165a6f17e8252e6c35a0b98e3",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      }
+    ],
+    "driver_restored": true,
+    "finished_at": "2026-10-27T18:55:11.846971-04:00"
+  },
+  "independent_validation": {
+    "fetched_report_equals_execution_report": true,
+    "all_12_TX_RX_hashes_equal": true,
+    "bytes_compared": 768,
+    "different_bytes": 0,
+    "different_bits": 0,
+    "spi_device_exists_after_restore": true,
+    "driver_after_restore": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "active_programmer_process": false
+  },
+  "offline_tests": "30 tests pass; three new GPIO tests cover MSB-first mode0 edges/settling/sample order, deselection on failure and safe/explicit entry.",
+  "interpretation": "GPIO software SPI MOSI/MISO echo passes with adapter under isolated load. Requested200us waits per phase are not a measured clock; Linux scheduling/GPIO overhead applies. No translated clock/select behavior or router load established.",
+  "next_step": "Shut down/unplug Pi, remove OUTPUT2-to5 jumper, reconnect checked harness to same physical U1; refresh chassis/isolated router power/cables/CR2032, mapping/ownership and loaded P1 voltage before software-GPIO ID and bounded read. No full read/write selected.",
+  "sources": [
+    "https://libgpiod.readthedocs.io/en/v2.3.1/python_api.html",
+    "https://libgpiod.readthedocs.io/en/v2.3.1/python_line_settings.html",
+    "https://libgpiod.readthedocs.io/en/v2.3.1/python_line_request.html"
+  ]
+}
