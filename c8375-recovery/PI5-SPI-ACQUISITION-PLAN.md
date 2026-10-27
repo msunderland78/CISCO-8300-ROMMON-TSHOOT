@@ -54,6 +54,14 @@ The existing P-01 input mapping was user-confirmed October 24: ground→4; 3.3 V
 | 23 / GPIO11 | CLK | 6 |
 | 24 / GPIO8 | CE0 / CS# | 1 |
 
+### Current capped junction and unloaded output check — October 27
+
+New original [IMG_1282](../Photos/IMG_1282.jpeg) and [IMG_1283](../Photos/IMG_1283.jpeg) show a capped junction and a fitted Pi-to-adapter harness. The owner confirms white wire **Pi physical1/3.3V → capped junction → three black branches to adapter INPUT8/3/7**, CH341A removed, **Pi now powered on**, and **nothing on the adapter output**. Owner reports continuity among all four connectors; no exact resistance, fresh baseline or test power-off timing supplied. This changes the available setup: a breadboard is no longer necessarily required if this junction is secure and passes interface checks. Do not interpret cap appearance as verified wire-size compatibility or mechanical grip.
+
+Read-only SSH `sudo pinctrl get 8-11` reports GPIO9/10/11 as SPI0 MISO/MOSI/SCLK and GPIO8 output high/pull-up, consistent with inactive GPIO chip select. No pin setting changed and no SPI node opened. Earlier unprivileged pinctrl failure remains historical, now superseded by this successful privileged read-only query. [Harness evidence/original hashes](acquisition-evidence/20261027-Pi5-capped-junction-harness.json).
+
+**Current requested measurement, not yet reported:** keep router disconnected and powered wires still. With meter in **DC volts**, black at **adapter OUTPUT4/GND**, measure red at **OUTPUT8/VCC**, **OUTPUT3/WP#**, then **OUTPUT7/HOLD#**. Expect approximately1.8V each. Do not perform continuity/resistance measurements while powered. No router attachment or flashrom command is selected from photographs/continuity alone. After acceptable unloaded levels, power Pi off/unplug before any target connection, reconfirm chassis/U1/router isolation and whole harness assignments, then check loaded target supply before an ID attempt.
+
 ### Available parts clarification and next isolated adapter check
 
 The owner supplied [IMG_1281](../Photos/IMG_1281.jpeg) and says these are all other parts besides Dupont cables. It shows loose pin headers and several SPI/package breakout boards. **No solderless breadboard is reported available**; the breadboard example below remains a contingent option, not the current setup. A loose pin-header strip does not join adjacent pins. None of these breakout boards has a measured four-contact common node or verified secure fan-out connection; do not invent one from the photo or wedge loose male jumpers into unsoldered holes.

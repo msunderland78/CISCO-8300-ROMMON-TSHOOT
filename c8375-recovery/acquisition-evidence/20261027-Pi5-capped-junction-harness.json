@@ -1,0 +1,76 @@
+{
+  "recorded_at": "2026-10-27T16:51:12.338620-04:00",
+  "task": "P-03-PI-ADAPTER-HARNESS",
+  "originals": [
+    {
+      "path": "Photos/IMG_1282.jpeg",
+      "bytes": 9913375,
+      "sha256": "7b99eb93464c0bea7f8b3b26f8310cf4fb532d6010d4740ea049d23e8e0d3402"
+    },
+    {
+      "path": "Photos/IMG_1283.jpeg",
+      "bytes": 9345257,
+      "sha256": "ef245b6dd9c4763280f09df26881ee5a1f7aec62df7ff9e8995469b1c8615262"
+    }
+  ],
+  "photo_observations": [
+    "Adapter underside has fitted colored jumpers",
+    "White/light-colored wire and three black wires appear to meet beneath an insulated cap",
+    "Second photo shows colored wires attached to Pi GPIO header",
+    "Photo positions appear consistent with intended header layout but do not certify all pin identities or hidden contact quality"
+  ],
+  "user_confirmed": {
+    "Pi_state": "Powered back on by owner; supersedes pending unplugged-state assumption",
+    "CH341A": "Removed per grouped confirmation",
+    "router_connection": "Nothing connected to 1.8V adapter output; router target disconnected",
+    "power_junction_mapping": "Owner confirms white wire intended from Pi physical1/3.3V to capped junction; black branches to adapter INPUT8/3/7",
+    "junction_continuity": "Owner reports continuity between all four connectors; no exact ohms, fresh baseline, polarity or test power-off timing supplied"
+  },
+  "read_only_pin_inventory": {
+    "recorded_at": "2026-10-27T16:50:08.598201-04:00",
+    "command": "sudo pinctrl get 8-11 (read only)",
+    "returncode": 0,
+    "stdout": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "stderr": "\n"
+  },
+  "pin_interpretation": "GPIO9/10/11 report SPI0 MISO/MOSI/SCLK; GPIO8 reports output high with pull-up, consistent with inactive GPIO chip select. Query only; no programmer or SPI device opened and no GPIO setting changed.",
+  "pending_measurements": {
+    "mode": "DC volts while Pi is on, router output disconnected; no resistance measurement on powered assembly",
+    "reference": "adapter OUTPUT4/GND",
+    "points": [
+      "OUTPUT8/VCC",
+      "OUTPUT3/WP#",
+      "OUTPUT7/HOLD#"
+    ],
+    "expected": "Each approximately1.8V; 1.7-2.0V documented flash supply range",
+    "status": "Requested, no results at record creation"
+  },
+  "limitations": [
+    "Cap exact model/wire gauge/approved combination and mechanical grip not established visually",
+    "Continuity alone does not establish current capacity, loaded contact stability or reliable SPI",
+    "No router-powered test, SPI identification, main-array acquisition or write selected/performed"
+  ],
+  "next": "Wait for unloaded DC output values; keep router disconnected and powered wiring still. Before router attachment reconfirm chassis/U1/router isolation and check complete signal map. Power Pi off and unplug supply before connecting or moving wires.",
+  "inspection_crop": {
+    "location": ".git/recovery-private/pi-preparation-20261027/IMG_1283-header-right-inspection.png",
+    "purpose": "Private non-generative header-end inspection only",
+    "source": "Photos/IMG_1283.jpeg",
+    "source_dimensions": [
+      4032,
+      3024
+    ],
+    "crop_top_left_y_x": [
+      2100,
+      1700
+    ],
+    "crop_height_width": [
+      650,
+      1000
+    ],
+    "command": "sips -s format png -c 650 1000 --cropOffset 2100 1700 Photos/IMG_1283.jpeg --out .git/recovery-private/pi-preparation-20261027/IMG_1283-header-right-inspection.png",
+    "sha256": "1c8e7489bbb7160780f92acd57a724df2368c8fee37bf29d6e11615eb48ad941"
+  },
+  "sources": [
+    "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html"
+  ]
+}

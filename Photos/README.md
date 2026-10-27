@@ -67,3 +67,7 @@ The owner asks to avoid a custom three-way Dupont cable. Proposed method: one co
 
 
 [IMG_1281.jpeg](IMG_1281.jpeg) records the remaining available loose pin headers and SPI/package breakout boards. Owner reports these plus Dupont cables are all other parts; no breadboard is available. No four-contact common node or safe fan-out is established from appearance. The next proposed check is isolated adapter INPUT8→3 and INPUT8→7 resistance, with every adapter wire removed and all power disconnected; no values have been reported.
+
+## Pi-to-adapter harness with capped junction — October 27
+
+Original [IMG_1282.jpeg](IMG_1282.jpeg) shows the underside adapter wiring and a capped junction with three black wires and a white/light-colored feed. [IMG_1283.jpeg](IMG_1283.jpeg) shows the Pi header connections and adapter. Owner confirms intended white Pi1/3.3V→junction→INPUT8/3/7, continuity among all four junction connectors, Pi powered on, CH341A removed and adapter output empty. Photos do not certify hidden connections, cap grip or all pin numbers. Read-only pin-function inventory succeeded; unloaded OUTPUT8/3/7 DC levels to OUTPUT4 remain requested/pending. No router probe/read/write ran. [Evidence and original hashes](../c8375-recovery/acquisition-evidence/20261027-Pi5-capped-junction-harness.json).
