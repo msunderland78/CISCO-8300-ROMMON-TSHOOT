@@ -181,6 +181,11 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
+      "bytes": 897,
+      "path": "c8375-recovery/programmer-logs/20261027-U2-clip-reseat1-no-id.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 587,
       "path": "c8375-recovery/programmer-logs/20261027-U2-short-harness-initial-no-id.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
@@ -738,9 +743,9 @@
       "sha256": "a96d2f930878e06a3b87061e3e3b9f1ac43732188431fcb8b6879f2ab980401c"
     },
     {
-      "bytes": 92276,
+      "bytes": 92702,
       "path": "C8375-CH341A-HEADER-WIRING.md",
-      "sha256": "7003fce440ab278bc91785a315f353d6cf73b025152f1e236cbb2608805d0e86"
+      "sha256": "a2ab978376b0700e9a97ccb6e027b31414c84149415028dde0f291870c5b35eb"
     },
     {
       "bytes": 13235,
@@ -748,9 +753,9 @@
       "sha256": "dfb30c0fdb7f612d6eeddd9900a5dc9e7792424e6d5f1ced632d67350dfe8fec"
     },
     {
-      "bytes": 92940,
+      "bytes": 93366,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "5f51745ba3d87cb399efae0621de4983c786d66b171a76731290a3dea60cc35d"
+      "sha256": "c0760fd71513873ea5b2201a1df28bddf0c5d6cefa4c274bf2b2e331544d01f1"
     },
     {
       "bytes": 1992,
@@ -918,9 +923,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 191896,
+      "bytes": 192411,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "68e82e5c01a7aa643044d145fb8ad2081785048d8fb81d1c2a04863599f23dca"
+      "sha256": "235a4c8a7bf10ca3017915245a45c9fb09d1c85e771c2d40b01351c62e308392"
     },
     {
       "bytes": 6850655,
@@ -1118,14 +1123,19 @@
       "sha256": "a2352f520db5d595e19d40b17ebab427f17ba09f738e7f537f5c2d81c59f31a0"
     },
     {
-      "bytes": 8146,
-      "path": "c8375-recovery/acquisition-evidence/20261027-U2-short-harness-partial-validation.json",
-      "sha256": "cf5e8d583716698a2acff38a6de3c6a8d5c1222df4f6ae1115fa0f4146d3c577"
+      "bytes": 2591,
+      "path": "c8375-recovery/acquisition-evidence/20261027-U2-clip-reseat1-no-id.json",
+      "sha256": "26c36328bf1cb9e9b334b309e34955244c52572fde025eb0876d7a29bb95061c"
     },
     {
-      "bytes": 6169,
+      "bytes": 8333,
+      "path": "c8375-recovery/acquisition-evidence/20261027-U2-short-harness-partial-validation.json",
+      "sha256": "b842ed993ea0dc93693b052f6145432decd41ce6a44a8610afbca6a2bd462dc6"
+    },
+    {
+      "bytes": 6821,
       "path": "c8375-recovery/acquisition-evidence/20261027-U2-short-harness-preflight.json",
-      "sha256": "5e05d6c1221ac5f1ce32d447f32000029b22013b79ff14a2725cf98f96a5440e"
+      "sha256": "0203eebe832904a22956fda5ddd72a52d00cbe506f4c9ac2d856692a66b20cd1"
     },
     {
       "bytes": 172399,
@@ -2018,6 +2028,11 @@
       "sha256": "e4d6d4dc573803331652b6d7e030a01c0a5baf97f54820b63258f1046a9ec37c"
     },
     {
+      "bytes": 897,
+      "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-clip-reseat1-no-id.log",
+      "sha256": "d50e3b5a6350c1df20d879e635b6cccfccf89b00290a39118e1809a46ffa9bf3"
+    },
+    {
       "bytes": 587,
       "path": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-short-harness-initial-no-id.log",
       "sha256": "ad3619fdd191bf8f5a94cf5dd7bac4576e999720f25dcca7bbf939c53ee85978"
@@ -2145,6 +2160,7 @@
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-reseat1-partial-id.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-shorter-usb-read3.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261025-U2-shorter-usb-read4.log",
+    "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-clip-reseat1-no-id.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-short-harness-initial-no-id.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-short-harness-partial-read1.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-short-harness-partial-read2.log",
@@ -2163,8 +2179,8 @@
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 140,
-    "included_bytes_without_manifest": 526563029,
-    "included_files_without_manifest": 281
+    "excluded_local_files": 141,
+    "included_bytes_without_manifest": 526568723,
+    "included_files_without_manifest": 283
   }
 }

@@ -173,7 +173,7 @@
   "next_trial": {
     "created_at": "2026-10-27T10:32:04.770851-04:00",
     "target": "C8375-A / FDO2742M0FK / U2_CSPI",
-    "status": "planned, not performed",
+    "status": "First sample command executed and failed identification before acquisition; physical clip reseat not separately confirmed",
     "hypothesis": "Test changed clip seating without changing wire assignments, adapter or total cable path. Contact is a possible contributor, not a proven fault.",
     "preconditions": [
       "Unplug CH341A USB; normal router power/all other cables remain disconnected and CR2032 removed.",
@@ -184,8 +184,9 @@
     "script": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/clip-reseat1/RUN-U2-SAMPLES.sh",
     "script_sha256": "88a8b924c3eb592a60d537ceafd7aa291df95f3948edf094c6cf3cc660cc8b41",
     "copied_to_clipboard": true,
-    "executed": false,
+    "executed": true,
     "full_reads_selected": false,
-    "source_samples_preserved": true
+    "source_samples_preserved": true,
+    "result": "c8375-recovery/acquisition-evidence/20261027-U2-clip-reseat1-no-id.json"
   }
 }

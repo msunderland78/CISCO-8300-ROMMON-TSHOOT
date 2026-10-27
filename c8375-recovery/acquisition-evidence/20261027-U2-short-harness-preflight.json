@@ -17,7 +17,7 @@
     "P1-1_to_P1-2_usb_powered_vdc": 1.787
   },
   "new_tool_model": "not specified",
-  "status": "ID retry succeeded; two-region sample pair executed and FAILED lower-region repeatability; no new full capture",
+  "status": "First partial pair failed repeatability; next requested clip-reseat trial failed identification 00/00 before any samples. One fresh unchanged-wiring partial retry prepared.",
   "next_diagnostic": {
     "state": "planned after successful ID",
     "regions": [
@@ -69,7 +69,13 @@
     "darwin_libusb_info": "Present in user paste; not in flashrom output log. Similar info also accompanied prior successful access; it does not establish a permission failure."
   },
   "historical_reconciliation": "October 25 U2 probes returned 00/00 and then 20/0000 before later successful 20 BB 19 identification and full reads. This initial failure does not establish permanent inability to communicate or a dead/erased chip. Both October 25 full pairs subsequently failed repeatability.",
-  "next_step": "Planned one USB-off U2 clip-only reseat, then fresh two-region sample pair if loaded P1 supply remains 1.7\u20132.0 V. Command copied, trial not performed/confirmed. No full captures or write.",
+  "next_step": {
+    "status": "one fresh unchanged-wiring sample retry prepared/copied, not run",
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/clip-reseat1/retry1",
+    "script_sha256": "adc09b5bd75a40347715b6209ed700e2188bf3ee50cea0ec8f031f513db20d70",
+    "preconditions": "Keep same U2 mapping and accepted adapter. Only CH341A USB powers target; router power/other cables disconnected, CR2032 removed. Ensure P1 1.7\u20132.0 V, monitor while command runs. No further reseating requested.",
+    "gating": "Every read probes first; script stops on an error. Fresh filenames, no overwrites. No new full captures selected."
+  },
   "retry_command_status": "Copied to clipboard; not run by agent",
   "retry_identification_result": {
     "verified_at": "2026-10-27T10:28:07.656512-04:00",
@@ -114,5 +120,6 @@
     "mechanical_stability": "not separately answered",
     "usb_unplug": "requested; not confirmed",
     "interpretation": "Supports approximately normal DC supply at observed moments; no reported sustained collapse, but does not exclude brief dips or signal/control/contact problems."
-  }
+  },
+  "clip_reseat1_result": "c8375-recovery/acquisition-evidence/20261027-U2-clip-reseat1-no-id.json"
 }

@@ -1,0 +1,43 @@
+{
+  "verified_at": "2026-10-27T10:38:29.138773-04:00",
+  "task": "R-01-U2-SHORT-HARNESS",
+  "target": "C8375-A / FDO2742M0FK / U2_CSPI",
+  "trial": "clip-reseat1 requested, actual reseat and refreshed voltage not separately confirmed in pasted command result",
+  "result": "User first sample command failed at identification; no sample acquired",
+  "log": {
+    "private_original": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/clip-reseat1/U2-partial-read1.log",
+    "bytes": 897,
+    "sha256": "d50e3b5a6350c1df20d879e635b6cccfccf89b00290a39118e1809a46ffa9bf3",
+    "public_log": "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-clip-reseat1-no-id.log",
+    "programmer_initialized": true,
+    "observed_id": "00/00",
+    "rdid_parity_violation": true
+  },
+  "files": [
+    {
+      "private_path": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/clip-reseat1/U2-PARTIAL-001f0000-read1.bin",
+      "bytes": 0,
+      "mode": "0o600",
+      "interpretation": "empty placeholder precreated by script; not a chip capture"
+    },
+    {
+      "private_path": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/clip-reseat1/U2-PARTIAL-01f30000-read1.bin",
+      "bytes": 0,
+      "mode": "0o600",
+      "interpretation": "empty placeholder precreated by script; not a chip capture"
+    }
+  ],
+  "second_read_started": false,
+  "comparison_created": false,
+  "flashrom_processes": [],
+  "last_reported_voltage": "Repeated spot checks close to 1.787 V; no refreshed post-reseat or continuously observed value supplied",
+  "historical_context": "00/00 was followed by successful 20 BB 19 ID earlier today and October 25. This failure is not a dead/erased-chip diagnosis; earlier actual sample pair failed repeatability.",
+  "next_step": {
+    "status": "one fresh unchanged-wiring sample retry prepared/copied, not run",
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261027-102135-EDT-short-harness/clip-reseat1/retry1",
+    "script_sha256": "adc09b5bd75a40347715b6209ed700e2188bf3ee50cea0ec8f031f513db20d70",
+    "preconditions": "Keep same U2 mapping and accepted adapter. Only CH341A USB powers target; router power/other cables disconnected, CR2032 removed. Ensure P1 1.7\u20132.0 V, monitor while command runs. No further reseating requested.",
+    "gating": "Every read probes first; script stops on an error. Fresh filenames, no overwrites. No new full captures selected."
+  },
+  "agent_hardware_access": false
+}
