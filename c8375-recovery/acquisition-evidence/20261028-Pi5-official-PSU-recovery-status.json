@@ -1,0 +1,78 @@
+{
+  "task_id": "R-01 / Pi power-supply replacement and U2 control recovery",
+  "recorded_at": "2026-10-28T16:45:16.210305-04:00",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / FDO2742M0FK (prior setup; only power-supply change reported, fresh setup confirmation requested)",
+  "owner_report": {
+    "power_supply": "Official Raspberry Pi 5 USB-C power supply",
+    "running_for_a_while": true,
+    "P1_pin1_to_pin2_VDC": 1.786
+  },
+  "actions": "Read-only SSH/sysfs/process/firmware/pinctrl queries and recovery of prior incomplete report; no GPIO setting, SPI transfer, flash command or reboot issued.",
+  "current_host": {
+    "hostname": "PI-MATT-UBT",
+    "boot_id": "955d9bcf-8163-47ae-a1e3-76b78a025af0",
+    "uptime_seconds": 1024.23,
+    "spi_node": true,
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "programmer_process_check": {
+      "exit_code": 1,
+      "matches": ""
+    }
+  },
+  "root_diagnostics": {
+    "pinctrl": {
+      "exit_code": 0,
+      "stdout": "8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK",
+      "stderr": ""
+    },
+    "throttle": {
+      "exit_code": 0,
+      "stdout": "throttled=0x0",
+      "stderr": ""
+    },
+    "temperature": {
+      "exit_code": 0,
+      "stdout": "temp=43.3'C",
+      "stderr": ""
+    },
+    "5V_telemetry": {
+      "exit_code": 0,
+      "stdout": "EXT5V_V volt(24)=5.12282000V",
+      "stderr": ""
+    },
+    "3V3_telemetry": {
+      "exit_code": 0,
+      "stdout": "3V3_SYS_V volt(9)=3.31096100V",
+      "stderr": ""
+    }
+  },
+  "unprivileged_firmware_query": "Failed to open /dev/vcio; retried read-only query under sudo successfully. No device node created or permissions changed.",
+  "previous_control": {
+    "directory": "/home/sundema/C8375-U2-CS-U1meter-dfncki0e",
+    "original_report_sha256": "5a25c598477a3df8c1f8c1efb7a0cc6a52cd1b18f50a68134daa53981d597d44",
+    "report_started_at": "2026-10-28T16:02:13.330184-04:00",
+    "persisted_status": "started",
+    "persisted_hold": {
+      "phase": "U2 CS commanded low; SCLK commanded low",
+      "requested_seconds": 180,
+      "started_at": "2026-10-28T16:02:13.331420-04:00",
+      "pid": 1804,
+      "stop_file": "/home/sundema/C8375-U2-CS-U1meter-dfncki0e/stop",
+      "clock_pulses_commanded": 0,
+      "flash_bytes_sent": 0
+    },
+    "finished_at_present": false,
+    "driver_restored_present": false,
+    "interpretation": "Report stops at commanded-low phase; no saved release/cleanup completion. Later current boot ID differs from prior control boot, so current normal driver/high GPIO8 are post-reboot observations, not proof old cleanup ran. Unknown whether second SSH loss corresponded to reset before later owner PSU replacement."
+  },
+  "limits": [
+    "Owner supply voltage is a DC spot reading; no waveform/minimum capture.",
+    "Uptime is current-boot duration, not proof uninterrupted prior operation.",
+    "Current throttled=0x0 and firmware ADC values do not establish cause of earlier outages. ADC readings are telemetry, not external calibration.",
+    "1.786 V is within the documented 1.7\u20132.0 V chip range; this does not establish reliable independent chip selection.",
+    "Current U1 CS voltage after PSU change and fresh physical-setup confirmation pending."
+  ],
+  "next_step": "Keep wiring unchanged. Confirm only Pi PSU changed and short clip remains on U2 with router/CH341A/CR2032 isolation and no other programmer; meter idle bare U1 pin7/CS to P1 pin2/GND. No new CS hold or array read automatically follows.",
+  "private_retention": "Original incomplete control report recovered unchanged into restricted .git/recovery-private, hash checked; SSH diagnostic originals retained privately."
+}
