@@ -52,5 +52,19 @@
       "support": "Micron Figure 6 physical pinout, Table 1 CS high tri-states output, Table 47 thresholds, 1.7\u20132.0 V operating rail."
     }
   ],
-  "next_step": "Owner needs a physical resistor and secure breadboard/connector; assess spare-clip fit and mapping with Pi unplugged before implementing this conditional diagnostic. No hardware action until these dependencies and fresh state are established."
+  "next_step": "Resolve secure unused-CS access before final parts order: current close-up/clearance and suitable IC grabber or simultaneous spare-clip fit. Then obtain resistor/breadboard/compatible lead and follow fresh unpowered setup checks. No powered adjustment or hand-held contact for acquisition.",
+  "access_revision": {
+    "recorded_at": "2026-10-28T17:13:36.190582-04:00",
+    "owner_concern": "Two full clips may not fit on U1 and U2 simultaneously; asks whether parts should still be ordered.",
+    "finding": "Two full clips are optional. Only one secure connection to unused U1 pin7/CS is essential; source rail can be obtained from already mapped P1 pin1/VCC. No direct header CS contact has been established: historical P1pin8 paths are kilohm references, not CS continuity.",
+    "alternative_topology": "P1 physical pin1/VCC (existing target ~1.8 V rail) -> fixed 10 kOhm resistor/breadboard -> suitable insulated single-leg IC micrograbber -> unused U1 physical pin7/CS; programming clip remains on U2.",
+    "limits": "Meter access to bare U1pin7 exists, but secure grabber contact/clearance has not been validated. Historical IMG_1277 was inspected as geometry reference only; it shows an earlier clip arrangement and cannot certify current fit. No new photo or physical check performed.",
+    "procurement": "Resistor/breadboard remain useful for either topology. Hold final order until a suitable single-leg grabber/lead and current clearance are checked, so buying the passive parts alone does not imply readiness. No additional full SOIC clip needed for this alternative.",
+    "candidate_connector_reference": {
+      "url": "https://e-z-hook.com/industry-solutions/automotive/xkm-micro-test-hook-double-gripper-with-0-025-in-square-pins/",
+      "facts": "XKM has narrow double-hook nose and 0.025 inch square connection pins. This is a candidate style/connector reference, not verified physical fit on this chassis.",
+      "other_primary_reference": "https://www.pomonaelectronics.com/sites/default/files/2074413g-en-2019_Pomona_Catalog_w.pdf"
+    },
+    "next_information": "Current close-up showing U1, U2 and the programming clip in place, plus chosen grabber dimensions/product link, can support a fit decision without moving wiring or trying two clips powered."
+  }
 }
