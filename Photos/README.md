@@ -71,3 +71,18 @@ The owner asks to avoid a custom three-way Dupont cable. Proposed method: one co
 ## Pi-to-adapter harness with capped junction — October 27
 
 Original [IMG_1282.jpeg](IMG_1282.jpeg) shows the underside adapter wiring and a capped junction with three black wires and a white/light-colored feed. [IMG_1283.jpeg](IMG_1283.jpeg) shows the Pi header connections and adapter. Owner confirms intended white Pi1/3.3V→junction→INPUT8/3/7, continuity among all four junction connectors, Pi powered on, CH341A removed and adapter output empty. Photos do not certify hidden connections, cap grip or all pin numbers. Read-only pin-function inventory succeeded; unloaded OUTPUT8/3/7 DC levels to OUTPUT4 remain requested/pending. No router probe/read/write ran. [Evidence and original hashes](../c8375-recovery/acquisition-evidence/20261027-Pi5-capped-junction-harness.json).
+
+
+## U1/U2 access inspection — October 28
+
+Five original owner photographs are retained unchanged.
+
+| Original | Coverage |
+| --- | --- |
+| [IMG_1284.jpeg](IMG_1284.jpeg) | Overview of U1_CSPI/U2_CSPI, neighboring controller, U3/U4 and headers; both flash packages bare in photograph. |
+| [IMG_1285.jpeg](IMG_1285.jpeg) | P1_CSPI/P2_CSPI and U3/U4 region, with U2 and other connectors in view; no new electrical assignments established. |
+| [IMG_1286.jpeg](IMG_1286.jpeg) | Wider PSO/controller region with additional 16-lead package U11_IO; no part or bank/firmware identity inferred for that package. |
+| [IMG_1287.jpeg](IMG_1287.jpeg) | Close oblique U1/U2 package/lead rows and spacing; no clip or individual grabber fitted in photograph. |
+| [IMG_1289.jpeg](IMG_1289.jpeg) | Closest U1 view with U1_CSPI text above package, pin-1 marker at upper-right, U2 below. Under Micron SO16 top-view numbering, U1 pin7 is second lead from left on upper/outer row. |
+
+These images show both flash packages bare; present power and clip state require owner confirmation. No alternate CS header/pad or grabber fit is established visually. In IMG_1289 only, U1 pin7 is the second lead from the left on the upper row, using the visible upper-right pin1 marker and Micron Figure6 numbering. Owner confirmation of prior probe endpoint is requested; no earlier value is discarded. [Original hashes, observations and limits](../c8375-recovery/acquisition-evidence/20261028-Pi5-CS-access-new-photos.json).

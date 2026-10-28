@@ -1,0 +1,60 @@
+{
+  "task_id": "R-01 / alternative unused-chip select access",
+  "recorded_at": "2026-10-28T17:52:16.246370-04:00",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / FDO2742M0FK (session target; current assembly/power confirmation requested)",
+  "status": "Five originals inspected; no alternate CS pickup verified; power/residual and pin7 endpoint confirmation pending",
+  "photos": [
+    {
+      "file": "Photos/IMG_1284.jpeg",
+      "bytes": 12262950,
+      "sha256": "58f84bcea935875bc27c915a55b44a6c9876e60805f6d19efa23e881b13a85e4",
+      "visual_observation": "Overview of U1_CSPI/U2_CSPI, neighboring controller, U3/U4 and headers; both flash packages bare in photograph."
+    },
+    {
+      "file": "Photos/IMG_1285.jpeg",
+      "bytes": 11928530,
+      "sha256": "394e79cc84f7ff34c37b9d7ee753330f1d7e4c6a11005ce80583717a04355746",
+      "visual_observation": "P1_CSPI/P2_CSPI and U3/U4 region, with U2 and other connectors in view; no new electrical assignments established."
+    },
+    {
+      "file": "Photos/IMG_1286.jpeg",
+      "bytes": 12187530,
+      "sha256": "1fd9755cd6e2fedf3a085951a8ec257122564b4bce3205304235941617a94e75",
+      "visual_observation": "Wider PSO/controller region with additional 16-lead package U11_IO; no part or bank/firmware identity inferred for that package."
+    },
+    {
+      "file": "Photos/IMG_1287.jpeg",
+      "bytes": 10329640,
+      "sha256": "abaacc91cd6058140abc6b3b035e86cad4307f626f42ef4e653e73140d2c734c",
+      "visual_observation": "Close oblique U1/U2 package/lead rows and spacing; no clip or individual grabber fitted in photograph."
+    },
+    {
+      "file": "Photos/IMG_1289.jpeg",
+      "bytes": 9122555,
+      "sha256": "840faeebf1cdf92a520807826f837d0b18c42864eac8462bfcfb8ca25ca8a1ad",
+      "visual_observation": "Closest U1 view with U1_CSPI text above package, pin-1 marker at upper-right, U2 below. Under Micron SO16 top-view numbering, U1 pin7 is second lead from left on upper/outer row."
+    }
+  ],
+  "originals_preserved": "Read/view/hash only; originals unchanged. No image generation, sharpening, resampling, crop or annotation performed.",
+  "owner_report": {
+    "access": "Owner doubts simultaneous clips and pin7 narrow-grabber access.",
+    "continuity": "Owner held one probe at stated pin7 and tried unspecified other pins in beep mode; no beep. Chip, other endpoints, numerical resistances, lead check and unpowered state not supplied.",
+    "parts": "Owner intends to order solderless breadboard and 1% 1/2W resistor assortment including ten 10kOhm resistors; not reported received."
+  },
+  "observed_vs_unresolved": {
+    "clip_state": "Both U1/U2 bare in these photos. Do not carry forward previous U2-attached state as current without confirmation.",
+    "pin_numbering_check": "Requested confirmation that the U1 1.242V/0.489V and continuity readings were at second-from-left upper-row lead in IMG_1289. Prior readings preserved; no claim yet that they were wrong.",
+    "photo_limits": "No powered state, electrical contact, continuity, internal-layer routing, simultaneous clip fit or grabber clearance proved.",
+    "candidate_local_pickup": "Nearby vias/component ends could only substitute after verified same-net low resistance; no point assigned from proximity or photo alone.",
+    "headers": "Earlier P1/P2/U4 CS search did not establish a direct CS route and is not to be repeated as a broad scan. P1-8 is a kilohm reference, not CS.",
+    "other_flash_pins": "CS is not interchangeable with other flash signals. DNU pins must remain unconnected; RESET/HOLD alternatives require separate mapping/state qualification and are not selected."
+  },
+  "continuity_interpretation": "No beep alone is not a quantified open circuit; threshold depends on meter and resistance/semiconductor/mux paths. For safe net mapping use numerical ohms only after all sources removed and residual voltage zero, with lead baseline recorded.",
+  "next_step": "First establish present chassis/clip/power/cable/CR2032/exclusive-programmer state and confirm physical U1pin7 endpoint against IMG_1289. Then choose one targeted local alternative-contact check if a clear safe candidate exists; do not authorize broad blind probing or a powered jumper. Resistor proposal remains conditional on secure access.",
+  "actions": "Offline photo/record/source review only; no SSH, GPIO/SPI, firmware operation or new user-side resistance measurement initiated.",
+  "sources": [
+    "https://www.fluke.com/en-us/learn/blog/digital-multimeters/how-to-test-for-continuity",
+    "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf"
+  ]
+}
