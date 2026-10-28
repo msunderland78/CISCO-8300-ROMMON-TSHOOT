@@ -63,7 +63,18 @@ class CsHoldTests(unittest.TestCase):
                     hold.main(["--hold-u1-cs-low", "--seconds", "181"])
             acquire.assert_not_called()
             self.assertEqual(hold.main(["--hold-u1-cs-low", "--seconds", "120"]), 0)
-            acquire.assert_called_once_with(120)
+            acquire.assert_called_once_with(120, "u2-cs")
+
+    def test_supply_measurement_is_not_mislabeled_as_chip_select(self):
+        with patch.object(hold, "run_hardware", return_value=0) as run:
+            self.assertEqual(hold.acquire(120, "p1-vcc"), 0)
+            args = run.call_args.args
+            self.assertEqual(args[0], "C8375-U1-CS-P1VCC-")
+            self.assertIsNone(args[3]["physical_chip_measured"])
+            self.assertEqual(args[3]["meter_endpoints"]["red"], "P1 pin1/VCC")
+        with patch.object(hold, "run_hardware", side_effect=AssertionError("hardware action")):
+            with self.assertRaises(ValueError):
+                hold.acquire(120, "unknown")
 
 
 if __name__ == "__main__":

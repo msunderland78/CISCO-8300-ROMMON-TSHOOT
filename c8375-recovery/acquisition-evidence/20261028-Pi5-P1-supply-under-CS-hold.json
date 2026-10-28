@@ -1,0 +1,33 @@
+{
+  "task_id": "R-01 / supply-under-selection discriminator",
+  "date": "2026-10-28",
+  "timezone": "America/New_York",
+  "recorded_at": "2026-10-28T15:14:08.964900-04:00",
+  "chassis": "C8375-A / FDO2742M0FK / U1",
+  "status": "prepared; awaiting restored harness/idle voltage/ownership confirmation",
+  "source": "scripts/pi_u1_cs_hold.py",
+  "source_sha256": "97e211d7d2c96b8ab55ec184c01a6e171ebc71183d0036f49773d909067d55d7",
+  "prepared_command": "sudo python3 <fresh-deployment>/pi_u1_cs_hold.py --hold-u1-cs-low --seconds 120 --meter-point p1-vcc",
+  "meter": {
+    "mode": "DC volts",
+    "red": "P1pin1/VCC",
+    "black": "P1pin2/GND"
+  },
+  "physical_request": "Pi supply unplugged while reconnecting checked U1harness to adapter OUTPUT; OUTPUT2-to5loopback removed; same shortU1clip; CH341A/router power/other cables/CR2032 isolated; then power Pi/report idle voltage and confirm eight mappings/no competing programmer.",
+  "plan": "Use same bounded CS-only helper and stop-file/timeout cleanup; hold SCLKlow,zero bytes/opcodes; meter P1VCC at idle/asserted/released states.",
+  "purpose": "Check whether the common supply falls under the same static CS condition previously associated with U2CS falling. A stable result would narrow that static-test confound, not prove clocked-read transient margins.",
+  "validation": {
+    "offline_tests": 38,
+    "result": "passed",
+    "new_coverage": "Meter-point label/prefix/physical-measurement metadata and rejection of unknown endpoints, alongside existing no-clock/deselection/duration/entry tests.",
+    "remote_installation": "Not yet attempted; waiting for owner restored powered state."
+  },
+  "broader_read_plan": [
+    "Each chip must reproduce its own contents; U1 andU2 are not expected to have identical images.",
+    "Establish in-range supply during selection/read and valid independent chip selection/control; resolve board loading/interaction before full captures.",
+    "Repeat bounded reads across different addresses and transfer shapes; compare internally and evaluate reference plausibility without assuming old reference is current content.",
+    "Only after trustworthy bounded path: two fresh33554432-byte full captures per identified physical chip; compare hashes/bytes, preserve originals privately and keep U1/U2separate.",
+    "If in-circuit access remains inseparable, evaluate verified hardware isolation or professional off-board acquisition; no speculative jumper, selector change or write."
+  ],
+  "actions": "Local endpoint-label code/tests and evidence review only. No new GPIO/SPI/power/wiring/SSH action this checkpoint."
+}
