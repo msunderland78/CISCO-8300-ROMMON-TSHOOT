@@ -4,7 +4,7 @@
   "timezone": "America/New_York",
   "recorded_at": "2026-10-28T15:37:54.227989-04:00",
   "chassis": "C8375-A / FDO2742M0FK",
-  "status": "prepared/deployed; physical U1-toU2 move and loaded voltage/readiness pending",
+  "status": "U2setup confirmed; first control attempt never started because SSH connection failed; post-reboot baseline pending",
   "control_source": "scripts/pi_u2_cs_hold.py",
   "conditional_read_source": "scripts/pi_gpio_u2_read.py",
   "installation": {
@@ -29,5 +29,124 @@
   "shared_code_changes": "Timed callback gets validated physical-chip label; U1reader helpers accept validated U1/U2label for filenames/report/setup. Legacy U1CLI defaults unchanged. Historical executed-source hashes retained.",
   "validation": "42offline tests pass; four new reverse-control/physical-label/safe-entry/unknown-target tests. Fresh Pi-source hashes independently match local; help on both U2entrypoints passes without GPIO access.",
   "physical_request": "After Pi shutdown, physically unplug, move short clip U1\u2192U2, verify pin1 orientation/eight mapped paths, keep OUTPUT2-to5jumper removed and all normal router sources/cables/CR2032/CH341A disconnected. PowerPi,reportP1VCC/confirm FDO2742M0FK-U2/exclusive ownership; assess bare U1pin7access.",
-  "actions": "No U2GPIO/SPI/read performed; setup request pending."
+  "actions": "Read-only SSH source/process/pinctrl checks, control command attempt failed before remote execution, then read-only boot/journal/firmware diagnosis. No U2GPIO/SPI/control/flash read/write executed.",
+  "preparation_status": "prepared/deployed; physical U1-toU2 move and loaded voltage/readiness pending",
+  "owner_setup": {
+    "physical_target": "U2, short clip",
+    "owner_report": "u2clipconnected,checkedeverything,same router/setup",
+    "OUTPUT8_to_P1pin1_ohms": 0.3,
+    "OUTPUT4_to_P1pin2_ohms": 0.3,
+    "OUTPUT1_to_U1pin7_ohms": 9360,
+    "P1_VCC_before_outage_VDC": 1.778,
+    "idle_U1_CS_before_outage_VDC": 1.242,
+    "P1_VCC_after_reboot_VDC": 1.773
+  },
+  "read_only_preflight": {
+    "hostname": "PI-MATT-UBT",
+    "process_exit": 1,
+    "matches": "",
+    "spi_exists": true,
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "source_hashes": {
+      "pi_u1_direct_read.py": "71ae3e241bc287c1ba2e1faf72260e1da67ef24f1d4ef3073d534827d188dcf9",
+      "pi_spi_loopback.py": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405",
+      "pi_gpio_loopback.py": "422dcdbef11a082c03ebcee23a19d0861fe4847ae82a20c3bbfbc1303191e376",
+      "pi_u1_cs_hold.py": "37fea08e61ae90bb273319626c12b82c077c23dd5bc5d36a7606b513673ea32d",
+      "pi_gpio_u1_read.py": "916469af67cc8686551b2d4845005477e4eb73356cf9d9f84f035876cefa6411",
+      "pi_u2_cs_hold.py": "0dd397d6fc7a024b8efe8ee93de6a116e9962d33f6d2602e292a9e373e588576",
+      "pi_gpio_u2_read.py": "2f2667bb2999efcb175616c18b5d54b75bc9504adc1f168363c863bd41bf5496"
+    },
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n"
+  },
+  "first_control_attempt": {
+    "exit_code": 255,
+    "stdout": "",
+    "stderr": "ssh: connect to host 192.168.5.27 port 22: Operation timed out\n",
+    "stage": "SSH connection establishment; remote command not executed",
+    "reverse_control_ran": false
+  },
+  "unexpected_restart": {
+    "owner_report": "Pi turned off without deliberate owner shutdown; later back on; trigger uncertain",
+    "diagnostic_summary": {
+      "recorded_at": "2026-10-28T15:51:39.387061-04:00",
+      "directory": "/home/sundema/Pi5-restart-diagnostics-pcnz14ta",
+      "hostname": "PI-MATT-UBT",
+      "uptime_seconds": 110.04,
+      "boot_id": "9397d69e-380d-40da-b45a-289b44253d3f",
+      "kernel": "7.0.0-1020-raspi",
+      "sources": {
+        "boot-list": {
+          "exit_code": 0,
+          "bytes": 3424,
+          "boot_count": 36
+        },
+        "previous-boot": {
+          "exit_code": 0,
+          "bytes": 291510,
+          "classified_events": []
+        },
+        "current-kernel": {
+          "exit_code": 0,
+          "bytes": 464362,
+          "classified_events": []
+        }
+      },
+      "firmware_status": {
+        "get_throttled": {
+          "exit_code": 0,
+          "value": "throttled=0x0"
+        },
+        "measure_temp": {
+          "exit_code": 0,
+          "value": "temp=38.4'C"
+        }
+      },
+      "programmer_process_check_exit": 1
+    },
+    "postboot_power_snapshot": {
+      "recorded_at": "2026-10-28T15:55:45.962139-04:00",
+      "uptime_seconds": 356.6,
+      "boot_id": "9397d69e-380d-40da-b45a-289b44253d3f",
+      "firmware": {
+        "get_throttled": {
+          "exit_code": 0,
+          "value": "throttled=0x0",
+          "stderr": ""
+        },
+        "pmic_read_adc EXT5V_V": {
+          "exit_code": 0,
+          "value": "EXT5V_V volt(24)=5.43236000V",
+          "stderr": ""
+        },
+        "pmic_read_adc 3V3_SYS_V": {
+          "exit_code": 0,
+          "value": "3V3_SYS_V volt(9)=3.30724900V",
+          "stderr": ""
+        },
+        "pmic_read_adc 3V3_SYS_A": {
+          "exit_code": 0,
+          "value": "3V3_SYS_A current(1)=0.22153610A",
+          "stderr": ""
+        }
+      }
+    },
+    "previous_boot_sample_review": {
+      "previous_tail_records": 250,
+      "system_shutdown_target_event_count": 0,
+      "last_stopped_user_manager_is_not_system_shutdown": true,
+      "last_persisted_previous_boot_timestamp_UTC": "2026-10-28T19:46:06.081460+00:00",
+      "interpretation": "Recent reboot confirmed by fresh uptime/boot ID. Sampled previous tail includes ordinary user logout/service cleanup, not proof of orderly machine shutdown. No decisive cause or panic/undervoltage event found in collected samples; no cause assigned."
+    },
+    "private_original_log_hashes": {
+      "summary.json": "7da20869b4fb14c49800c361cd3a03419f2dc5a618da44c4b6a56ef6f73f600f",
+      "boot-list.log": "2cdcad022ff15822e495871ca4a24fc426d9008caa483f18ed727e9b21d515aa",
+      "measure_temp.log": "81e09120eef330066bc1ed1ca51bbae639ac9cd5425ba84e862da8f113044c3e",
+      "get_throttled.log": "9c9fa88318e6242649a0e5bb330afcaece0be57e2bfe4f536d35586630aced4b",
+      "current-kernel.log": "1bd877e7e4f8ccae94604be888c30a892e8bb2ea59a27b79d607025cad772eea",
+      "previous-boot.log": "8fd5fba5102de99141e0086a6fdfa98d94c99b452fa258a87c9b17a61a7545ba"
+    },
+    "private_retention": "Original journal/status files preserved onPi and imported into restricted .git/recovery-private; no raw journal published.",
+    "limits": "Current0x0status/38.4C and later ADC readings do not establish earlier power/temperature or cause. ADC values are firmware telemetry, not externally calibrated measurements. No decisive panic/shutdown/undervoltage cause found in collected samples."
+  },
+  "next_step": "Pi now reachable/stable across read-only checks with same bootID; ownerP1=1.773V. Request fresh idle U1pin7-toP1ground baseline after reboot and optionalPSUbrand/rating. Only then retry bounded CS-only control once with new evidence filenames; preserve failed attempt. No automatic U2read."
 }

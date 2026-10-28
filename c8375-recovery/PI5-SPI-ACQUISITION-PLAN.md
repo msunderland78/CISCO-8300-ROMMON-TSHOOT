@@ -389,6 +389,18 @@ Next reverse direction uses AI-assisted explicit [`pi_u2_cs_hold.py`](../scripts
 
 Pi shutdown request exits0 after verified no programmer. Owner physical action pending: unplugPi, move shortclipU1→U2, verify U2pin1orientation/all8mappings and samechassisFDO2742M0FK, keep loopback removed/normalrouterpower/cables/CR2032/CH341A isolated. ThenPi on, reportloadedP1VCC/exclusiveownership and whether bareU1pin7is safely accessible. No under-clip probing assumed. No pull-up/jumper/isolation modification/full capture/write selected. [U2prepared sources/deployment/limits](acquisition-evidence/20261028-Pi5-U2-reverse-control-preparation.json).
 
+### U2 setup / control connection failure and unexpected reboot — October28
+
+Owner confirms U2shortclip/checkedeverything, OUTPUT8→P1pin1=0.3Ω,OUTPUT4→P1pin2=0.3Ω,OUTPUT1→bareU1pin7=9360Ω, Pi-poweredP1=1.778V. Read-only preflight finds expected host, normaldriver/node,no programmer and all deployedSHA values equal local. IdleU1pin7-toP1ground=1.242V is reported before control.
+
+The attempted`pi_u2_cs_hold.py --hold-u2-cs-low --seconds180` SSH connection returns255 with **connect-to-port22 timeout**, before authentication/remote command execution. A separate normal-user report query times out20seconds; no live report is fetched. **The announced hold never starts**; no U2GPIO/SPI/clock/byte/test reading exists from this attempt. Failed invocation remains preserved under its original evidence filename; any retry must use new evidence names.
+
+Owner says Pi turned off without intentional shutdown and later returned, trigger uncertain. Read-only network checks initially find no ping/SSH response. Later key-only SSH succeeds: uptime110.04s/bootID9397d69e-380d-40da-b45a-289b44253d3f/kernel7.0.0-1020-raspi, current`get_throttled=0x0`,temp38.4C,no programmer. Another read-only sample at uptime356.6s has samebootID/0x0; firmwareADC reportsEXT5V5.43236V,3V3SYS3.307249V/0.2215361A. These are telemetry values, not externally calibrated voltage measurements or proof of the earlier cause. [Official status/ADC reference](https://www.raspberrypi.com/documentation/computers/os.html#vcgencmd).
+
+Previous boot last250journal records/current kernel and boot list are saved unchanged privately onPi and imported locally with hashes. Initial category scan finds no decisive panic/watchdog/undervoltage/shutdown cause. Sanitized review shows user-session cleanup at19:46:06UTC; that is not an orderly machine-shutdown record. No system shutdown-target event appears in this collected tail. Limited logs/current-clear flags cannot exclude a prior power or software fault. Do not attribute reboot to the unexecuted control.
+
+Owner postbootP1=**1.773V**. Next request fresh idleU1CS-toP1ground baseline and optionalPSUbrand/rating; current sameboot has remained reachable across read-only checks. Only after baseline/readiness, retry bounded no-clock control once with distinct result evidence. No automatic arrayread, package/firmware setting, jumper or voltage change. [Full metadata/failure/diagnostic limits](acquisition-evidence/20261028-Pi5-U2-reverse-control-preparation.json).
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.
