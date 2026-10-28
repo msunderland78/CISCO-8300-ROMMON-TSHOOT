@@ -325,6 +325,14 @@ Next requested: after Pi supply unplug, retain U1clip/wires and normal router po
 
 **Next user-side unpowered mapping, not yet measured:** with Pi power cable physically unplugged, all router sources/CR2032/CH341A removed and both residuals0VDC, leave U1clip/harness unchanged. MeterΩ with COM/VΩleads: first probes-together baseline; then **redactualU2pin2/VCC,blackP1pin1/VCC**. Request settled numericalΩorOL, noting drift. This tests the two supply points without assuming they share a rail. In-circuit semiconductor/adapter paths can affect resistance; a result alone will not establish back-power source. No SPI, powered Ω, speculative discharge/short/jumper or supply increase.
 
+### Supply measurement clarification — October28, America/New_York
+
+Owner corrects confusion about mode/power/endpoints: short clip remains onU1; withPi off, **Ω U2pin2↔P1pin1=0.3Ω**; afterPi powered, **DCV P1pin1↔P1pin2=1.727V**, and **“P1pin2 toU2 voltage”=1.737V**. The latter is interpreted in context as U2pin2/VCC-toP1ground but that omitted leg number is explicitly awaiting confirmation. Fresh lead baseline is not supplied; do not treat0.3Ω as calibrated trace resistance.
+
+The latest reported supply values differ only0.010V and are consistent with a low-resistance/shared supply relationship. **The earlier0.931V observation is retained, with endpoint/contact/state/time discrepancy unresolved; its underpower/back-power interpretation is superseded for current diagnosis, conditional on the1.737V endpoint.** No current evidence proves U2partial powering or a feed path. The verified exactAND relation remains, but does not by itself prove contention or assign bank contents.
+
+Read-only SSH verifies expected Pi, no programmer process, SPI node present and GPIO8outputhigh/GPIO9–11SPI0. No SPI/GPIO setting, package/configuration, shutdown, clip change or firmware operation. **Next: keep this same powered state; no further Ω/power cycle. Confirm1.737V endpoint and read fresh U2physicalpin7/CS-toP1pin2/GND inDCV.** No speculative jumper/supply adjustment. [Clarification, original wording and reconciliation](acquisition-evidence/20261028-Pi5-supply-measurement-clarification.json).
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.

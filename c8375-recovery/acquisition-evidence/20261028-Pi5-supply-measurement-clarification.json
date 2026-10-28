@@ -1,0 +1,57 @@
+{
+  "task_id": "R-01 / supply and selection clarification",
+  "date": "2026-10-28",
+  "timezone": "America/New_York",
+  "recorded_at": "2026-10-28T14:37:08.610372-04:00",
+  "chassis": "C8375-A / FDO2742M0FK (session identity; no new chassis change reported)",
+  "owner_current_state": "Short clip attached to U1; resistance taken Pi off; Pi subsequently powered for DC voltage measurements.",
+  "owner_clarification": "short clip attached to u1, power off on pi, resistance, from u2 pin 2 to p1 pin 1 is 0.3 ohms ... now with pi on, p1 pin 1 to p1 pin 2 = latest voltage = 1.727 and p1 pin 2 to u2 voltage = 1.737",
+  "measurements": [
+    {
+      "mode": "Resistance, Pi off",
+      "endpoints": [
+        "U2 physical pin2/VCC",
+        "P1 pin1/VCC"
+      ],
+      "ohms": 0.3,
+      "limits": "Fresh probes-together lead baseline and explicit physical unplug were requested but not separately supplied; prior both supply residuals0VDC. Do not infer exact conductor resistance."
+    },
+    {
+      "mode": "DC volts, Pi powered",
+      "endpoints": [
+        "P1 pin1/VCC",
+        "P1 pin2/GND"
+      ],
+      "VDC": 1.727
+    },
+    {
+      "mode": "DC volts, Pi powered",
+      "reported_endpoints": "P1 pin2 to U2 voltage",
+      "VDC": 1.737,
+      "interpreted_endpoints": [
+        "U2 physical pin2/VCC",
+        "P1 pin2/GND"
+      ],
+      "endpoint_status": "Context suggests U2pin2, but final U2 leg number omitted in owner clarification; explicit confirmation requested."
+    }
+  ],
+  "read_only_precheck": {
+    "hostname": "PI-MATT-UBT",
+    "process_exit": 1,
+    "matches": "",
+    "spi_exists": true,
+    "pinctrl": {
+      "exit_code": 0,
+      "stdout": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+      "stderr": "\n"
+    }
+  },
+  "reconciliation": {
+    "earlier_U2_VCC_VDC": 0.931,
+    "disposition": "Preserve as earlier owner observation with unresolved endpoint/contact/state/time discrepancy. It is superseded for current supply diagnosis by current clarified measurements, conditional on confirmation of the1.737V endpoint.",
+    "current_inference": "Reported0.3\u03a9 and close powered supply readings are consistent with a low-resistance/shared supply connection. Current evidence does not support treating U2 as presently0.931V or concluding signal back-powering.",
+    "CS_status": "Earlier U2CS0.33\u20130.35V remains historical; request fresh pin7 voltage in this same clarified powered state before applying thresholds. Exact4KiB AND result remains verified, electrical cause unresolved."
+  },
+  "next_step": "Keep current setup, normal router power/cables/CR2032/CH341A isolation and U1clip unchanged. No SPI. Confirm1.737V was U2pin2, then DCV redU2physicalpin7/CS,blackP1pin2/GND. No jumper, supply change or new \u03a9 check selected.",
+  "actions": "Read-only SSH process and pinctrl query only; no GPIO setting/SPI command, shutdown, firmware write or wiring change by agent."
+}

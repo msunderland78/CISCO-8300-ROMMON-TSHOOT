@@ -75,5 +75,10 @@
     "purpose": "Check unpowered low-resistance relationship between observed U2 supply and U1-fed P1 supply; no shared-rail assumption",
     "report": "Baseline plus settled numerical \u03a9/OL; note drift",
     "status": "Instructed/planned only; no resistance value supplied"
+  },
+  "subsequent_clarification": {
+    "date": "2026-10-28",
+    "evidence_path": "c8375-recovery/acquisition-evidence/20261028-Pi5-supply-measurement-clarification.json",
+    "status": "Earlier0.931V underpower interpretation superseded as current diagnosis: owner clarifies0.3\u03a9 Pi-off U2pin2-toP1pin1, then Pi-on P1=1.727V/U2reported1.737V (U2pin2 endpoint confirmation pending). Preserve prior observations; no back-power source established."
   }
 }
