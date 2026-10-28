@@ -55,10 +55,18 @@
     "inference": "These unpowered equivalents persist on remaining board plus attached clip/cable after adapter removal. This isolates adapter contribution for this resistance comparison; does not establish a powered adapter fault or exclude clip/cable."
   },
   "next_step": {
-    "status": "Assessing access, no new measurement yet",
+    "status": "Owner confirms accessible clip-side OUTPUT1 contact; two-polarity CS-to-CS \u03a9 readings requested and pending",
     "target": "Clip-harness contact normally mating adapter OUTPUT1, previously checked route to U1physicalpin7/CS",
     "purpose": "If safely accessible, a direct current CS-to-CS resistance check can distinguish a low-resistance tie from a resistive/semiconductor interaction without under-clip probing.",
     "condition": "Pi physically unplugged/adapter disconnected/board0V; leave U1clip seated and connector intact.",
-    "access_request": "Ask whether metal contact accessible without clip movement or connector dismantling. Do not assume free-terminal access; if inaccessible stop/revise endpoint."
+    "access_request": "Ask whether metal contact accessible without clip movement or connector dismantling. Do not assume free-terminal access; if inaccessible stop/revise endpoint.",
+    "access_confirmation": "yes i can measure output1 on the disconnected clip from the adapter",
+    "requested_measurement": {
+      "first": "RedactualU2pin7/CS,blackdisconnectedclip-harnessOUTPUT1contact(mappedU1pin7/CS)",
+      "second": "Swap probe polarity across the same two endpoints",
+      "condition": "All power disconnected, Pi physically unplugged, adapter detached, U1clip stays seated",
+      "report": "Settled \u03a9/OL and drift; not empty adapter socket"
+    },
+    "following_discriminator": "Before any pull-up/isolation change, plan a matched CS-only hold with meter on P1VCC-toGND to check for supply droop. Earlier VCC was measured before, not during, CS hold; \u03a9 readings do not exclude rail-mediated effects."
   }
 }

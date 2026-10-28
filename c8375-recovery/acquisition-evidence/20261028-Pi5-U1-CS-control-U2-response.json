@@ -116,5 +116,6 @@
     "U2_CS_to_GND_ohms": 4800,
     "U2_CS_to_VCC_ohms": 4350,
     "next": "Unpowered whole adapter-output disconnect comparison; no pull-up chosen."
-  }
+  },
+  "subsequent_control_qualification": "Current CS-only high-low-high association is observed, but no simultaneous VCC measurement exists. Supply droop during selection could also lower U2CS; rule this out with a matched no-clock supply-voltage hold before treating response as isolated direct CS coupling or selecting a pull-up. ExactAND data remains supporting evidence, not proof of two active outputs."
 }
