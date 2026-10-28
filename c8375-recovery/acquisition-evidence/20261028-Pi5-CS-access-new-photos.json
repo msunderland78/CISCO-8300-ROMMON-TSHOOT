@@ -3,7 +3,7 @@
   "recorded_at": "2026-10-28T17:52:16.246370-04:00",
   "timezone": "America/New_York",
   "chassis": "C8375-A / FDO2742M0FK (session target; current assembly/power confirmation requested)",
-  "status": "Five originals inspected; no alternate CS pickup verified; power/residual and pin7 endpoint confirmation pending",
+  "status": "Physical pin7 endpoint confirmed; clips removed/nothing connected per owner; numerical residual voltage pending before ohms",
   "photos": [
     {
       "file": "Photos/IMG_1284.jpeg",
@@ -43,18 +43,38 @@
     "parts": "Owner intends to order solderless breadboard and 1% 1/2W resistor assortment including ten 10kOhm resistors; not reported received."
   },
   "observed_vs_unresolved": {
-    "clip_state": "Both U1/U2 bare in these photos. Do not carry forward previous U2-attached state as current without confirmation.",
-    "pin_numbering_check": "Requested confirmation that the U1 1.242V/0.489V and continuity readings were at second-from-left upper-row lead in IMG_1289. Prior readings preserved; no claim yet that they were wrong.",
+    "clip_state": "Owner now confirms clips removed/Pi off/nothing connected, consistent with photos.",
+    "pin_numbering_check": "Owner confirms dot-side upper-row second-to-last lead/pin7 on both chips for prior measurements; earlier values retained, no misnumbering evidence.",
     "photo_limits": "No powered state, electrical contact, continuity, internal-layer routing, simultaneous clip fit or grabber clearance proved.",
     "candidate_local_pickup": "Nearby vias/component ends could only substitute after verified same-net low resistance; no point assigned from proximity or photo alone.",
     "headers": "Earlier P1/P2/U4 CS search did not establish a direct CS route and is not to be repeated as a broad scan. P1-8 is a kilohm reference, not CS.",
     "other_flash_pins": "CS is not interchangeable with other flash signals. DNU pins must remain unconnected; RESET/HOLD alternatives require separate mapping/state qualification and are not selected."
   },
   "continuity_interpretation": "No beep alone is not a quantified open circuit; threshold depends on meter and resistance/semiconductor/mux paths. For safe net mapping use numerical ohms only after all sources removed and residual voltage zero, with lead baseline recorded.",
-  "next_step": "First establish present chassis/clip/power/cable/CR2032/exclusive-programmer state and confirm physical U1pin7 endpoint against IMG_1289. Then choose one targeted local alternative-contact check if a clear safe candidate exists; do not authorize broad blind probing or a powered jumper. Resistor proposal remains conditional on secure access.",
+  "next_step": "Obtain actual DC residual voltage P1pin1-toP1pin2 before ohms. If zero, record lead baseline then the specific bare U1pin7-to-bare U2pin7 control, preferably both polarities. No alternate accessible pickup established yet; do not run a broad header/mux scan.",
   "actions": "Offline photo/record/source review only; no SSH, GPIO/SPI, firmware operation or new user-side resistance measurement initiated.",
   "sources": [
     "https://www.fluke.com/en-us/learn/blog/digital-multimeters/how-to-test-for-continuity",
     "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf"
-  ]
+  ],
+  "owner_endpoint_and_state_followup": {
+    "recorded_at": "2026-10-28T18:03:29.487713-04:00",
+    "owner_report": "Always used dot-side upper row on both chips, second-to-last lead/pin7. Clips removed, Pi turned off, nothing connected.",
+    "endpoint_result": "Confirms requested physical pin7 location for earlier voltage/continuity checks. No misnumbering correction indicated.",
+    "present_state": "Both clips removed; Pi off/nothing connected per owner. No competing session reported.",
+    "residual_voltage": "Requested DC measurement P1pin1-toP1pin2. Owner replied yes without numerical reading; actual displayed voltage remains pending. Do not record zero by inference.",
+    "control_interpretation": "Earlier control commanded selected-chip CS low with clock low; it did not lower programmed flash supply. Other-chip CS changed while reported P1 supply spots remained near1.77V. Association does not identify the board coupling path."
+  },
+  "next_bare_board_control": {
+    "status": "Planned only, gated on displayed residual0V and meter lead baseline",
+    "conditions": "Both clips and every programmer/adapter/router/Pi connection removed; router battery remains removed under session isolation. No competing session.",
+    "meter_mode": "Numerical ohms, only after residual DC check",
+    "readings": [
+      "Probes touching: lead baseline.",
+      "Red bare U1 physical pin7/CS, black bare U2 physical pin7/CS: settled numerical ohms/OL and any drift.",
+      "Reverse the same two probe polarities if feasible; report separately."
+    ],
+    "purpose": "Compare bare-board path with earlier9360Ohm clip-contact-to-other-chip measurements. This new no-clip topology separates remaining board path from clip/harness contributions; it does not locate a component or establish powered driver behavior.",
+    "not_a_header_scan": "No repeat of completed P1/P2/U4 matrices or tiny-mux probing."
+  }
 }

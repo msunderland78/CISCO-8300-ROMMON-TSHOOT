@@ -52,7 +52,7 @@
       "support": "Micron Figure 6 physical pinout, Table 1 CS high tri-states output, Table 47 thresholds, 1.7\u20132.0 V operating rail."
     }
   ],
-  "next_step": "Current photos show both flash packages bare. First establish present power/clip/ownership and confirm U1pin7 physical endpoint against IMG_1289; no substitute pickup or grabber fit verified. Resistor experiment remains conditional.",
+  "next_step": "Obtain numerical P1 residual DC voltage before ohms; physical pin7 confirmed. No substitute pickup or secure grabber fit verified. Resistor experiment remains conditional on secure contact.",
   "access_revision": {
     "recorded_at": "2026-10-28T17:13:36.190582-04:00",
     "owner_concern": "Two full clips may not fit on U1 and U2 simultaneously; asks whether parts should still be ordered.",
@@ -68,5 +68,6 @@
     "next_information": "Current close-up showing U1, U2 and the programming clip in place, plus chosen grabber dimensions/product link, can support a fit decision without moving wiring or trying two clips powered."
   },
   "latest_access_review": "20261028-Pi5-CS-access-new-photos.json",
-  "owner_parts_update": "Intends to order breadboard and 1% 1/2W resistor assortment including ten10kOhm parts; not received. Secure access remains unresolved."
+  "owner_parts_update": "Intends to order breadboard and 1% 1/2W resistor assortment including ten10kOhm parts; not received. Secure access remains unresolved.",
+  "endpoint_confirmation": "Owner confirms physical pin7 location on both chips; clips removed/Pi off/nothing connected. Actual residual-voltage reading still pending."
 }
