@@ -13,7 +13,9 @@ from pi_gpio_loopback import run_hardware
 from pi_u1_direct_read import START, LENGTH, CHUNK, read_packet
 
 
-def capture(spi, report, directory, save):
+def capture(spi, report, directory, save, chip="U1"):
+    if chip not in ("U1", "U2"):
+        raise ValueError("Unknown physical chip; no SPI transfer")
     samples = []
     report["samples"] = []
     report["identities"] = []
@@ -26,7 +28,7 @@ def capture(spi, report, directory, save):
         save()
         if identity != b"\x20\xbb\x19":
             raise ValueError("Incorrect chip ID; stop without force or automatic retry")
-        print(f"GPIO pass {number}/2: expected chip identified; reading fixed 4 KiB block", flush=True)
+        print(f"{chip} GPIO pass {number}/2: expected chip identified; reading fixed 4 KiB block", flush=True)
         output = bytearray()
         for address in range(START, START + LENGTH, CHUNK):
             packet = read_packet(address, CHUNK)
@@ -39,7 +41,7 @@ def capture(spi, report, directory, save):
         if len(output) != LENGTH:
             raise ValueError("Incomplete diagnostic sample")
         data = bytes(output)
-        name = f"U1-001f2000-GPIO-read{number}.bin"
+        name = f"{chip}-001f2000-GPIO-read{number}.bin"
         path = directory / name
         with path.open("xb") as stream:
             stream.write(data)
@@ -62,12 +64,14 @@ def capture(spi, report, directory, save):
     return not differences
 
 
-def acquire():
+def acquire(chip="U1"):
+    if chip not in ("U1", "U2"):
+        raise ValueError("Unknown physical chip; no hardware access")
     return run_hardware(
-        "C8375-U1-GPIO-target4KiB-",
-        "C8375-A/FDO2742M0FK/U1; short clip; checked translated harness; loopback jumper removed",
-        capture,
-        {"chassis": "C8375-A/FDO2742M0FK", "physical_chip": "U1",
+        f"C8375-{chip}-GPIO-target4KiB-",
+        f"C8375-A/FDO2742M0FK/{chip}; short clip; checked translated harness; loopback jumper removed",
+        lambda spi, report, directory, save: capture(spi, report, directory, save, chip),
+        {"chassis": "C8375-A/FDO2742M0FK", "physical_chip": chip,
          "start_address": hex(START), "bytes_per_sample": LENGTH, "chunk_bytes": CHUNK,
          "opcodes": ["0x9f RDID", "0x13 native four-byte READ"]},
     )

@@ -55,7 +55,7 @@
     "inference": "These unpowered equivalents persist on remaining board plus attached clip/cable after adapter removal. This isolates adapter contribution for this resistance comparison; does not establish a powered adapter fault or exclude clip/cable."
   },
   "next_step": {
-    "status": "One OL reported, polarity unspecified; prioritize matched P1 supply-under-selection check before any hardware bias change",
+    "status": "Corrected9360\u03a9 recorded; subsequent static P1supply hold completed; reverse U2-controlled/U1meter check prepared.",
     "target": "Clip-harness contact normally mating adapter OUTPUT1, previously checked route to U1physicalpin7/CS",
     "purpose": "If safely accessible, a direct current CS-to-CS resistance check can distinguish a low-resistance tie from a resistive/semiconductor interaction without under-clip probing.",
     "condition": "Pi physically unplugged/adapter disconnected/board0V; leave U1clip seated and connector intact.",
@@ -72,9 +72,13 @@
   "interchip_CS_report": {
     "owner_report": "output1 to u2pin7 is OL",
     "endpoint_context": "Disconnected clip-harness contact normally mating adapterOUTPUT1(mappedU1pin7/CS) to actualU2pin7; U1clip retained, adapter detached, unpowered procedure.",
-    "result": "OL",
+    "result": "9360\u03a9 (corrected by owner)",
     "probe_polarity": "Not specified in owner numeric reply; both directions not established",
     "reverse_polarity_status": "Requested previously; no separate result supplied",
-    "limits": "Does not identify infinite physical resistance, exclude contact/lead path, establish a broken clip or rule out powered interaction. Historical9360\u03a9 used opposite clip/chip endpoints and a different setup; retain separately."
+    "limits": "Current corrected reading is a resistive path, not a direct short/component identification; opposite probe polarity not separately supplied. Prior OL retained as explicitly corrected observation.",
+    "superseded_result": "OL; owner explicitly says this reading was wrong",
+    "ohms": 9360,
+    "correction_owner_report": "output1 toU2pin7=9360ohms,myOLreadingwaswrong",
+    "correction_recorded_at": "2026-10-28T15:37:54.223310-04:00"
   }
 }

@@ -4,7 +4,7 @@
   "timezone": "America/New_York",
   "recorded_at": "2026-10-28T15:14:08.964900-04:00",
   "chassis": "C8375-A / FDO2742M0FK / U1",
-  "status": "prepared; awaiting restored harness/idle voltage/ownership confirmation",
+  "status": "completed; no large DC supply drop observed in static control",
   "source": "scripts/pi_u1_cs_hold.py",
   "source_sha256": "97e211d7d2c96b8ab55ec184c01a6e171ebc71183d0036f49773d909067d55d7",
   "prepared_command": "sudo python3 <fresh-deployment>/pi_u1_cs_hold.py --hold-u1-cs-low --seconds 120 --meter-point p1-vcc",
@@ -20,7 +20,7 @@
     "offline_tests": 38,
     "result": "passed",
     "new_coverage": "Meter-point label/prefix/physical-measurement metadata and rejection of unknown endpoints, alongside existing no-clock/deselection/duration/entry tests.",
-    "remote_installation": "Not yet attempted; waiting for owner restored powered state."
+    "remote_installation": "Fresh deployment SHA verified, help passed; executed once withP1VCClabel; fetched report equals execution; normaldriver/node restored/no programmer."
   },
   "broader_read_plan": [
     "Each chip must reproduce its own contents; U1 andU2 are not expected to have identical images.",
@@ -29,5 +29,106 @@
     "Only after trustworthy bounded path: two fresh33554432-byte full captures per identified physical chip; compare hashes/bytes, preserve originals privately and keep U1/U2separate.",
     "If in-circuit access remains inseparable, evaluate verified hardware isolation or professional off-board acquisition; no speculative jumper, selector change or write."
   ],
-  "actions": "Local endpoint-label code/tests and evidence review only. No new GPIO/SPI/power/wiring/SSH action this checkpoint."
+  "actions": "One U1-CS-only/no-clock/no-byte hold120.041seconds; normalSPI0restored, sources/report verified; no firmware operation. U2tools prepared/deployed/help-only after test; shutdown accepted.",
+  "preparation_status": "prepared; awaiting restored harness/idle voltage/ownership confirmation",
+  "owner_restored_state": "Owner reports reconnected same router/short U1clip/same setup and Pi powered; idleP1=1.763V under prior requested checked mapping/loopback removal/router isolation/ownership conditions.",
+  "runtime": {
+    "exit_code": 0,
+    "installation": {
+      "directory": "/home/sundema/C8375-P1-CS-tools-87mccdip",
+      "sha256": {
+        "pi_u1_direct_read.py": "71ae3e241bc287c1ba2e1faf72260e1da67ef24f1d4ef3073d534827d188dcf9",
+        "pi_spi_loopback.py": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405",
+        "pi_gpio_loopback.py": "422dcdbef11a082c03ebcee23a19d0861fe4847ae82a20c3bbfbc1303191e376",
+        "pi_u1_cs_hold.py": "97e211d7d2c96b8ab55ec184c01a6e171ebc71183d0036f49773d909067d55d7"
+      },
+      "help_exit_code": 0
+    },
+    "report": {
+      "started_at": "2026-10-28T15:25:06.367843-04:00",
+      "setup": "C8375-A/FDO2742M0FK; short clip on U1; checked translated harness/isolation; meter red P1 pin1/VCC, black P1 pin2/GND",
+      "method": "CS-only GPIO control; no flash command or SCLK pulse",
+      "gpiod_version": "2.2.0",
+      "gpiochip": "/dev/gpiochip0",
+      "controller": "1f00050000.spi",
+      "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+      "CS_GPIO": 8,
+      "MISO_GPIO": 9,
+      "MOSI_GPIO": 10,
+      "CLK_GPIO": 11,
+      "requested_wait_seconds_per_phase": 0.0002,
+      "timing_limit": "Three waits per bit plus Python/Linux/GPIO overhead; no exact clock claim",
+      "directory": "/home/sundema/C8375-U1-CS-P1VCC-pidckisq",
+      "status": "passed",
+      "tests": [],
+      "chassis": "C8375-A/FDO2742M0FK",
+      "physical_chip_controlled": "U1",
+      "physical_chip_measured": null,
+      "meter_point": "p1-vcc",
+      "meter_endpoints": {
+        "red": "P1 pin1/VCC",
+        "black": "P1 pin2/GND"
+      },
+      "opcodes": [],
+      "limitation": "GPIO commands do not measure flash-side levels; meter observations recorded separately",
+      "hold": {
+        "phase": "U1 CS commanded high; SCLK commanded low",
+        "requested_seconds": 120,
+        "started_at": "2026-10-28T15:25:06.369072-04:00",
+        "pid": 1513,
+        "stop_file": "/home/sundema/C8375-U1-CS-P1VCC-pidckisq/stop",
+        "clock_pulses_commanded": 0,
+        "flash_bytes_sent": 0,
+        "end_reason": "bounded interval expired",
+        "elapsed_seconds": 120.041
+      },
+      "driver_restored": true,
+      "finished_at": "2026-10-28T15:27:06.411432-04:00"
+    }
+  },
+  "meter_observations": [
+    {
+      "phase": "Idle before control",
+      "P1_VDC": 1.763
+    },
+    {
+      "phase": "U1 select held low,clock held low",
+      "P1_VDC": 1.761
+    },
+    {
+      "phase": "Select released,driver restored",
+      "P1_VDC": 1.753,
+      "owner_comment": "it dropped ... not much, but a little"
+    }
+  ],
+  "deltas_V": {
+    "selected_minus_initial": -0.002,
+    "released_minus_initial": -0.01,
+    "range_of_three_spot_values": 0.01
+  },
+  "postflight": {
+    "process_exit": 1,
+    "active_processes": "",
+    "spi_exists": true,
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "post_pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n"
+  },
+  "active_phase_gpio_snapshot": {
+    "exit_code": 0,
+    "stdout": " 8: op dl pu | lo // GPIO8 = output\n 9: ip    pn | lo // GPIO9 = input\n10: op dl pn | lo // GPIO10 = output\n11: op dl pn | lo // GPIO11 = output\n",
+    "limitation": "Pi-side state only; does not measure flash-side waveform or voltage."
+  },
+  "interpretation": "Three reported static-phase readings stay within specified1.7\u20132.0V. Only2mV change when selected and10mV overall drift are observed; no large DC collapse in this trial. This narrows prior supply-droop confound, but different trials/reconnection states, no simultaneousU2CS/U2VCC measurement, no scope and no clocked-read load/transient coverage prevent a complete power-integrity conclusion.",
+  "shutdown_after_test": {
+    "precheck": {
+      "process_exit": 1,
+      "matches": ""
+    },
+    "shutdown_exit_code": 0,
+    "stdout": "",
+    "stderr": "\n",
+    "purpose": "Safe unplugged physical move from U1 to U2 after completed P1 static-supply test",
+    "limitation": "Shutdown acceptance is not physical power unplug confirmation."
+  },
+  "next_step": "Pi shutdown accepted; owner to physically unplug before moving short clip fromU1toU2. Reverse CS-only control will meter U1CS when U2selected; guarded U2bounded read prepared but conditional on qualified path/readiness."
 }

@@ -16,13 +16,16 @@ import time
 from pi_gpio_loopback import CS, CLK, run_hardware
 
 
-def hold_control(spi, report, directory, save, seconds, now=time.monotonic, sleep=time.sleep):
+def hold_control(spi, report, directory, save, seconds, now=time.monotonic, sleep=time.sleep,
+                 target_chip="U1"):
+    if target_chip not in ("U1", "U2"):
+        raise ValueError("Unknown physical chip; no GPIO change")
     spi.write(CLK, 0)
     started = now()
     try:
         spi.write(CS, 0)
         report["hold"] = {
-            "phase": "U1 CS commanded low; SCLK commanded low",
+            "phase": f"{target_chip} CS commanded low; SCLK commanded low",
             "requested_seconds": seconds,
             "started_at": datetime.now().astimezone().isoformat(),
             "pid": os.getpid(), "stop_file": str(directory / "stop"),
@@ -42,7 +45,7 @@ def hold_control(spi, report, directory, save, seconds, now=time.monotonic, slee
     finally:
         spi.write(CLK, 0)
         spi.write(CS, 1)
-        report.setdefault("hold", {})["phase"] = "U1 CS commanded high; SCLK commanded low"
+        report.setdefault("hold", {})["phase"] = f"{target_chip} CS commanded high; SCLK commanded low"
         report["hold"]["elapsed_seconds"] = round(now() - started, 3)
         save()
     return True
