@@ -1,6 +1,63 @@
 # Pi5 SPI acquisition plan — C8375-A
 
-Updated October 27, 2026, America/New_York. Task **P-03**; chassis **C8375-A / FDO2742M0FK**, Crestone/SoC2. Read-only SSH inventory is now complete; electrical setup and router acquisition remain planned.
+Updated **October 28, 2026**, America/New_York. Tasks **P-03 / R-01**; chassis **C8375-A / FDO2742M0FK**, Crestone/SoC2. **Stopped for the day; all disconnected/Pi off. Start with the end-of-day handoff below before using historical procedures.**
+
+## End-of-day handoff (2026-10-28)
+
+**Hardware work is stopped for the day at the owner's request. Do not reconnect, power up, open SSH/programmer/console sessions or start a background test as part of this handoff.** Current chassis is **C8375-A / FDO2742M0FK**. The router still does not boot normally; this Pi work has not produced a recovery-write, boot or configuration-recovery result. Normal router sources/cables, CR2032 and CH341A remain removed under the established isolation. Owner confirms **both clips removed, Pi off, everything disconnected**.
+
+### Final measurements and ordered parts
+
+The owner explicitly measured **P1 pin1/VCC to P1 pin2/GND = 0 VDC**, then **bare U1 physical pin7/CS to bare U2 physical pin7/CS = 9,350 Ω**. This is 10 Ω / approximately 0.11% below the earlier **9,360 Ω** clip-harness-to-other-chip readings. There is no basis to treat that small difference as a meaningful changed path without meter/repeatability information. The direct bare-board measurement establishes that the measured path persists without either clip/harness; it does not identify a discrete resistor, direct CS tie, powered driver or simultaneous output activity. A new lead baseline, reverse-polarity result and drift were not supplied. **No further measurements are requested today.** Earlier pending residual/endpoint prompts are superseded by this final report.
+
+The owner has **ordered all three**: a solderless breadboard, a **1% ½-watt resistor assortment including ten 10 kΩ resistors**, and an IC grabber. Parts have not been reported received. Grabber model, termination, arrival date and secure fit are unknown; do not assume the earlier example XKM was purchased. Half-watt is suitable for this proposed limited-current test. It is not necessary to order another full clip for the preferred topology.
+
+### Evidence and unresolved diagnosis
+
+- Repeated short captures sometimes match internally while differing with clip, clock or transaction shape. Matching captures alone do not prove accuracy. Pi-only and adapter-only loopbacks passed under light load; they do not certify loaded router waveforms or selection.
+- The two GPIO U1 4 KiB samples at `0x001F2000` match and **exactly equal the corresponding original-reference AND known-nonbooting-reference bytes**, SHA-256 `09327df0f66e6745229cc1681f50c8c301177615f7615abbabee8762f7c55171`. This is a verified mathematical relation, not proof of actual U1/U2 contents or bank identities. [GPIO result and reference checks](acquisition-evidence/20261027-Pi5-GPIO-U1-short-read.json).
+- With U1 controlled, unused U2 select was **1.242 → 0.478 → 1.242 V**, clock held low/no bytes. A separate supply-only hold showed **1.763 /1.761 /1.753 V** at P1. With U2 controlled, owner reported unused U1 select **0.489 V** and P1 **1.774 V**. These observations support investigating selection/shared-line interaction rather than another unchanged clock/clip sweep; component/coupling mechanism and fast behavior remain unresolved.
+- The first U2 control attempt never ran because SSH connection establishment failed. The later retry reached select-low but lost SSH; its recovered report is still `started` with no saved release/cleanup. Subsequent reboot and normal SPI0/GPIO8-high checks do not prove historical cleanup. No cause was established for the outages.
+- Owner replaced the Pi supply with the **official Pi 5 USB-C supply**. Later SSH showed normal SPI0/node, no programmer, `throttled=0x0`; last powered P1 **1.786 V**, unused U1 idle select still **1.242 V**, without demonstrated guaranteed-high margin. Pi is now off. Current-clear firmware status does not identify the earlier outage cause.
+- Five original access photographs (`IMG_1284/1285/1286/1287/1289`) are preserved unchanged. In `IMG_1289`, U1 pin1 dot is upper-right and **pin7 is second from left on the upper/outer row**, away from U2. Owner explicitly confirms that point on both chips for earlier readings. There is no current misnumbering finding and no electrically verified larger header/via CS contact. Previous broad P1/P2/U4 scans and inaccessible fine-mux probing are not to be restarted.
+
+### First test after parts arrive
+
+The **first intended active target is U2** through the checked short clip, Pi and 1.8 V adapter. The unused chip is U1. The proposed connection is:
+
+```text
+Mapped P1 pin1 / existing flash ~1.8 V rail
+    -> fixed 10 kΩ resistor on breadboard
+    -> insulated IC grabber
+    -> unused U1 physical pin7 / CS
+
+Pi -> checked 1.8 V adapter -> short programming clip on U2
+```
+
+This is an **unproven pull-up experiment**, not physical isolation or a validated repair. At 2 V the nominal maximum added resistor current is 0.2 mA (about 0.202 mA at the low end of 1% tolerance). The unpowered 4.35/4.8 kΩ readings are not two identified components and are not a validated powered divider model. The pull-up supply is the mapped **target rail**, never Pi3.3V/5V; no direct CS-to-VCC jumper, changed RESET/HOLD/selector state or added router power is selected.
+
+When the owner resumes:
+
+1. Reconfirm chassis, chip, actual power/cable/CR2032/CH341A state and exclusive programmer/console ownership. Inspect the delivered grabber/tip/termination. With all sources unplugged and residual0V, check the resistor value, meter baseline and breadboard connectivity/rail breaks.
+2. **Dry-fit clip on U2 and grabber on U1 pin7 while unpowered.** Establish stable single-leg contact, clearance, eight-signal mapping and no adjacent bridge/leg stress. Do not force the fit or substitute a hand-held acquisition contact. If the geometry fails, stop and reassess access before powering.
+3. If secure, assemble the diagram above and verify unpowered paths/no unintended shorts. Power only the checked Pi/adapter arrangement with the official supply. Verify P1 remains **1.7–2.0 V** and measure U1 idle select, with no SPI.
+4. If acceptable, prepare one bounded **no-clock/no-command U2 select control**; verify cleanup/report recovery even if SSH fails. Measure unused U1 CS through idle/asserted/released states and the supply, plus selected U2 CS at a safe accessible checked endpoint if available. Verify normal driver/node and no other programmer afterward. **No automatic array read follows.**
+5. If unused U1 CS still falls or power/contact is unstable, stop; do not automatically decrease resistance or increase voltage. If DC behavior is adequate, proceed only to qualified **U2-labelled bounded RDID/READ samples** across multiple addresses/transfer shapes and independent original-byte/reference comparisons. DC success cannot certify waveforms or whole-array accuracy.
+6. Stable, plausible bounded results precede separate pairs of **33,554,432-byte full reads per physical chip**, preserving originals/hashes/logs and unique board/security bytes before any write decision. The two chips may legitimately contain different data.
+
+**Mechanical asymmetry is a separate unresolved constraint.** The owner doubts a grabber can reach **U2 pin7 while a clip occupies U1**. Do not assume a successful U2-target/U1-grabber test proves that reverse arrangement or supplies a U1 backup. If U1 cannot be acquired with verified independent selection, assess a verified larger pickup, suitable rework assistance for a temporary lead/isolation, or off-board reads. No untrained leg lifting or trace cutting is planned.
+
+### Evidence, tools and local-only material
+
+[Final measurement/order/resume record](acquisition-evidence/20261028-C8375-A-end-of-day-handoff.json), [photo and bare-board evidence](acquisition-evidence/20261028-Pi5-CS-access-new-photos.json), [conditional resistor design](acquisition-evidence/20261028-Pi5-unused-CS-pullup-proposal.json), [U1-select response](acquisition-evidence/20261028-Pi5-U1-CS-control-U2-response.json), [supply-only hold](acquisition-evidence/20261028-Pi5-P1-supply-under-CS-hold.json), [U2 attempts/runtime/source hashes](acquisition-evidence/20261028-Pi5-U2-reverse-control-preparation.json), [official-PSU/recovered incomplete report](acquisition-evidence/20261028-Pi5-official-PSU-recovery-status.json).
+
+Pi inventory is **Pi5 Rev1.1 / Ubuntu26.04.1 LTS / kernel7.0.0-1020-raspi / flashrom1.6.0**. Use only header RP1 SPI0/CE0 **`/dev/spidev0.0`**; leave `/dev/spidev10.0` alone. Existing private SSH credentials/key remain restricted locally; do not expose values or request them again by default. Current Pi is off; all previous live connection/session IDs are historical. The established Pi/adapter wiring remains documented below and must be checked again after reconnection.
+
+Explicit U2 tools are [`pi_u2_cs_hold.py`](../scripts/pi_u2_cs_hold.py) and [`pi_gpio_u2_read.py`](../scripts/pi_gpio_u2_read.py), with source/deployment hashes in runtime evidence. **42 offline tests previously passed** after adding these utilities; no source change or hardware execution is part of this documentation handoff. Raw captures, credentials, journal/SSH diagnostics and the recovered incomplete report remain restricted beneath `.git/recovery-private`; public evidence retains hashes/metadata. Original photographs are public and unchanged. No configuration contents, credentials or raw dumps are added to this handoff.
+
+---
+
+The sections below retain chronological preparation and intermediate results. Earlier “next,” “pending,” “not executed” and “current” statements apply to their dated checkpoints; this end-of-day handoff takes precedence.
 
 ## Verified Pi inventory — October 27, approximately 16:06 EDT
 

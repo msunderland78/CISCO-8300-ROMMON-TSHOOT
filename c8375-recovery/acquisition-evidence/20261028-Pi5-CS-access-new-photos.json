@@ -3,7 +3,7 @@
   "recorded_at": "2026-10-28T17:52:16.246370-04:00",
   "timezone": "America/New_York",
   "chassis": "C8375-A / FDO2742M0FK (session target; current assembly/power confirmation requested)",
-  "status": "Physical pin7 endpoint confirmed; clips removed/nothing connected per owner; numerical residual voltage pending before ohms",
+  "status": "Owner0V residual and bare-board9350Ohm result reported; session stopped for day",
   "photos": [
     {
       "file": "Photos/IMG_1284.jpeg",
@@ -51,7 +51,7 @@
     "other_flash_pins": "CS is not interchangeable with other flash signals. DNU pins must remain unconnected; RESET/HOLD alternatives require separate mapping/state qualification and are not selected."
   },
   "continuity_interpretation": "No beep alone is not a quantified open circuit; threshold depends on meter and resistance/semiconductor/mux paths. For safe net mapping use numerical ohms only after all sources removed and residual voltage zero, with lead baseline recorded.",
-  "next_step": "Obtain actual DC residual voltage P1pin1-toP1pin2 before ohms. If zero, record lead baseline then the specific bare U1pin7-to-bare U2pin7 control, preferably both polarities. No alternate accessible pickup established yet; do not run a broad header/mux scan.",
+  "next_step": "User done for day: no hardware action. Resume only after parts arrive and owner resumes; inspect actual grabber fit on U1 with clip U2, then follow end-of-day handoff.",
   "actions": "Offline photo/record/source review only; no SSH, GPIO/SPI, firmware operation or new user-side resistance measurement initiated.",
   "sources": [
     "https://www.fluke.com/en-us/learn/blog/digital-multimeters/how-to-test-for-continuity",
@@ -66,7 +66,7 @@
     "control_interpretation": "Earlier control commanded selected-chip CS low with clock low; it did not lower programmed flash supply. Other-chip CS changed while reported P1 supply spots remained near1.77V. Association does not identify the board coupling path."
   },
   "next_bare_board_control": {
-    "status": "Planned only, gated on displayed residual0V and meter lead baseline",
+    "status": "Owner completed one bare-to-bare9350Ohm measurement after0VDC; fresh lead baseline/reverse polarity/drift not supplied. No further measurement requested today.",
     "conditions": "Both clips and every programmer/adapter/router/Pi connection removed; router battery remains removed under session isolation. No competing session.",
     "meter_mode": "Numerical ohms, only after residual DC check",
     "readings": [
@@ -76,5 +76,31 @@
     ],
     "purpose": "Compare bare-board path with earlier9360Ohm clip-contact-to-other-chip measurements. This new no-clip topology separates remaining board path from clip/harness contributions; it does not locate a component or establish powered driver behavior.",
     "not_a_header_scan": "No repeat of completed P1/P2/U4 matrices or tiny-mux probing."
-  }
+  },
+  "final_bare_board_measurement": {
+    "reported_at": "2026-10-28T18:53:12.741242-04:00",
+    "source": "Owner final session message; no additional agent hardware interaction",
+    "chassis": "C8375-A / FDO2742M0FK",
+    "physical_endpoints": "Bare U1 physical pin7/CS to bare U2 physical pin7/CS",
+    "state": "Owner confirms everything disconnected, both clips removed, Pi off; normal router sources/cables, CR2032 and CH341A remain removed under established session isolation.",
+    "sequence": "Owner explicitly measured P1 pin1-to-pin2 at 0 VDC before measuring CS-to-CS resistance.",
+    "P1_pin1_to_pin2_VDC": 0,
+    "U1_pin7_to_U2_pin7_ohms": 9350,
+    "polarity": "Not separately specified in final reading; earlier issued first direction redU1/blackU2. Reverse result not supplied.",
+    "fresh_lead_baseline": "Not separately supplied for this final measurement. Earlier baseline 0.3 ohm remains historical.",
+    "drift_or_meter_accuracy": "Not supplied; no uncertainty invented.",
+    "previous_clip_endpoint_reading_ohms": 9360,
+    "difference_ohms": -10,
+    "difference_percent_of_previous": -0.10683760683760683,
+    "interpretation": "Approximately 0.11% lower; no basis to regard this as a meaningful changed path without meter accuracy/repeatability evidence. Measured resistance persists directly through the board with clips/harness absent. This does not prove a discrete 9.35k resistor, a direct CS short, active-driver topology, simultaneous output activity, or absence of other clip/adapter effects during powered reads."
+  },
+  "owner_parts_ordered": {
+    "status": "Ordered by owner, not yet received/fit-tested",
+    "breadboard": "Solderless breadboard",
+    "resistors": "1% 1/2W assortment including ten 10kOhm resistors",
+    "grabber": "IC grabber ordered; exact model/lead termination not supplied. Do not assume earlier candidate XKM was purchased.",
+    "delivery": "No date supplied",
+    "mechanical_constraint": "Owner hopes grabber fits U1pin7 with clip on U2; doubts grabber can fit U2pin7 with clip on U1. Both directions remain physically unverified."
+  },
+  "end_of_day_handoff": "20261028-C8375-A-end-of-day-handoff.json"
 }

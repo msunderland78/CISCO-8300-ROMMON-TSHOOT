@@ -3,7 +3,7 @@
   "recorded_at": "2026-10-28T16:53:33.998755-04:00",
   "timezone": "America/New_York",
   "chassis": "C8375-A / FDO2742M0FK",
-  "status": "Engineering proposal only; no resistor installed, no chip/host interaction in this step",
+  "status": "User stopped for day; breadboard/resistors/grabber ordered, not received; preferred U2-target/U1-grabber test remains unassembled/unverified",
   "owner_inventory": "Owner confirms no resistors; asks whether Pi can supply variable resistance. Existing Dupont leads and spare full-size clips; breadboard/secure connection not confirmed.",
   "Pi_substitute": {
     "decision": "No suitable GPIO/software-only substitute for a passive pull-up to the flash rail.",
@@ -11,7 +11,7 @@
     "actions": "No GPIO mode/drive/pull/threshold change made."
   },
   "conditional_topology": {
-    "active_programmer_clip": "Existing short clip on U2 through checked 1.8 V adapter; unchanged.",
+    "active_programmer_clip": "NEXT intended setup: short clip on U2 via checked1.8Vadapter. CURRENT end state: both clips removed/everything disconnected/Pi off.",
     "auxiliary_access": "If both clips fit without stress, use spare full SOIC-16 clip on U1 with independently checked physical pin-to-terminal mapping. Only two leads used; other contacts externally disconnected/insulated.",
     "connection": "U1 physical pin 2/VCC -> resistor -> U1 physical pin 7/CS. This uses the existing target 1.8 V rail, not Pi 3.3 V/5 V.",
     "pin_number_warning": "Physical 16-pin Micron package numbers, not adapter OUTPUT numbers or assumed ribbon order.",
@@ -19,18 +19,25 @@
   },
   "candidate_first_diagnostic": {
     "resistance_ohms": 10000,
-    "component": "Through-hole fixed 10 kOhm resistor, 1/4 W, preferably 1% (5% also suitable after measurement). Small solderless breadboard provides secure Dupont/resistor connection.",
+    "component": "Fixed through-hole10kOhm1%1/2W resistor from owner-ordered assortment, small solderless breadboard and actual ordered ICgrabber; inspect/measured before use.",
     "nominal_current_if_CS_at_ground_at_2V_A": 0.0002,
     "maximum_current_at_2V_with_5percent_low_R_A": 0.0002105263157894737,
     "basis": "Conservative bounded added-current starting experiment, not inferred from unpowered 4.35/4.8 kOhm equivalents or claimed vendor-approved Cisco repair. Unknown board paths mean efficacy/safety cannot be guaranteed solely from resistor current.",
-    "not_selected": "No lower-resistance escalation, variable-potentiometer wiper, direct CS-to-VCC jumper, Pi pull-up or added power source."
+    "not_selected": "No lower-resistance escalation, variable-potentiometer wiper, direct CS-to-VCC jumper, Pi pull-up or added power source.",
+    "maximum_current_at_2V_with_1percent_low_R_A": 0.00020202020202020202
   },
   "staged_checks": [
-    "Obtain actual resistor and secure connection. Confirm spare clip and two clips physically fit before attachment.",
-    "Before wiring, reconfirm chassis/U2 and isolation/ownership; shut down/unplug Pi, verify zero residual voltage; verify resistor value, clip mapping and absence of unintended shorts. No under-clip or fine-mux probing.",
-    "Power only the checked Pi/adapter setup; check P1 supply and unused U1 CS with no clock/bytes. Verify resistor is connected to the flash rail.",
-    "Only if idle readings acceptable, use bounded no-clock U2 select-only control and meter unused U1 CS plus supply. Observe selected U2 CS low at an accessible checked endpoint if available. Stop if unused CS does not remain convincingly high; do not just decrease resistor value.",
-    "Passing DC control would justify only conditional bounded multi-address/transfer-shape reads with comparison against preserved references, not a firmware write or whole-array accuracy claim."
+    "Wait for owner to resume and parts to arrive. No additional hardware task, power-up, background SSH or tests today.",
+    "Reconfirm chassis FDO2742M0FK, board, physical target U2, current normal-power/cable/CR2032/CH341A isolation, Pi supply and exclusive programmer/console ownership. Current end state is all disconnected, not a live U2 harness.",
+    "With every source unplugged/residual0V, inspect actual grabber model/tip/termination and breadboard; meter the chosen fixed 10k resistor and record lead baseline. Verify breadboard five-hole groups/rail breaks rather than assuming layout.",
+    "Dry-fit programming clip on U2 and insulated single-leg grabber on unused U1pin7; confirm orientation, eight existing flash-signal routes and no bridge/leg stress. Pin7 is dot-side upper-row second from left in IMG_1289. Do not force fit or hold a loose connection by hand during acquisition.",
+    "If secure fit exists, assemble mapped P1pin1/flash1.8V -> fixed10k resistor on breadboard -> grabber -> U1physicalpin7/CS. Programming harness remains Pi->1.8Vadapter->U2. Pi3.3V/5V are not this pull-up source. Leave other pins unchanged; do not tie CS directly to VCC.",
+    "Verify unpowered resistor/connection paths and no unintended short before reconnecting only the checked official-PSU/Pi/adapter setup. Check loaded P1 rail 1.7\u20132.0V and U1 idle CS with no SPI. A 10k pull-up is an experimental limited load, not assured isolation/repair.",
+    "If baseline acceptable, prepare one bounded no-clock U2-CS control with cleanup/report retrieval that can be verified despite SSH loss. Meter U1CS during idle/asserted/released states and P1 supply; verify selected U2 CS at a safe accessible mapped endpoint when possible. Restore/check driver/node and exclusive ownership. No automatic read follows.",
+    "If U1CS still falls or connection/power is unstable, stop this bias approach; do not automatically decrease resistance, increase voltage, add speculative selector/reset jumpers or power the router normally with the programmer attached.",
+    "Only after independent selection is adequately supported, run explicitly requested U2-labelled bounded RDID/read-only samples at multiple addresses/transfer shapes and independently compare originals. Stable DC alone does not prove waveform quality or read accuracy.",
+    "If bounded acquisition is repeatable and plausible, plan separate pairs of full33554432-byte reads per physical chip, privately preserving originals/hashes/logs and unique board/security data before any write decision. U1/U2 contents need not match each other.",
+    "U1 acquisition is a separate unresolved access problem: do not assume the reverse grabber-onU2/clip-onU1 arrangement fits or is proven by U2 success. If inaccessible, evaluate a verified larger CS contact or suitable rework assistance for a temporary lead/isolation/off-board reading; do not improvise leg lifting/trace cutting."
   ],
   "limits": [
     "No resistor exists in current inventory, so no wiring/test can proceed yet.",
@@ -52,7 +59,7 @@
       "support": "Micron Figure 6 physical pinout, Table 1 CS high tri-states output, Table 47 thresholds, 1.7\u20132.0 V operating rail."
     }
   ],
-  "next_step": "Obtain numerical P1 residual DC voltage before ohms; physical pin7 confirmed. No substitute pickup or secure grabber fit verified. Resistor experiment remains conditional on secure contact.",
+  "next_step": "No further hardware today. Await parts/owner resumption, inspect actual single-pin grabber and dry-fit U1pin7 with U2clip. Follow end-of-day handoff; reverse layout is separately unresolved.",
   "access_revision": {
     "recorded_at": "2026-10-28T17:13:36.190582-04:00",
     "owner_concern": "Two full clips may not fit on U1 and U2 simultaneously; asks whether parts should still be ordered.",
@@ -68,6 +75,23 @@
     "next_information": "Current close-up showing U1, U2 and the programming clip in place, plus chosen grabber dimensions/product link, can support a fit decision without moving wiring or trying two clips powered."
   },
   "latest_access_review": "20261028-Pi5-CS-access-new-photos.json",
-  "owner_parts_update": "Intends to order breadboard and 1% 1/2W resistor assortment including ten10kOhm parts; not received. Secure access remains unresolved.",
-  "endpoint_confirmation": "Owner confirms physical pin7 location on both chips; clips removed/Pi off/nothing connected. Actual residual-voltage reading still pending."
+  "owner_parts_update": "ORDERED: breadboard,1%1/2W resistor assortment including ten10kOhm, and ICgrabber. Model/ETA/fit unreported. Not received/tested.",
+  "endpoint_confirmation": "Owner confirms physicalpin7 on both chips, then explicit P1residual0VDC and bare U1CS-toU2CS9350Ohm with all clips/cables removed.",
+  "owner_parts_ordered": {
+    "status": "Ordered by owner, not yet received/fit-tested",
+    "breadboard": "Solderless breadboard",
+    "resistors": "1% 1/2W assortment including ten 10kOhm resistors",
+    "grabber": "IC grabber ordered; exact model/lead termination not supplied. Do not assume earlier candidate XKM was purchased.",
+    "delivery": "No date supplied",
+    "mechanical_constraint": "Owner hopes grabber fits U1pin7 with clip on U2; doubts grabber can fit U2pin7 with clip on U1. Both directions remain physically unverified."
+  },
+  "current_planned_topology": {
+    "active_target": "U2 through existing short clip and checked1.8Vadapter",
+    "unused_chip": "U1",
+    "bias": "P1 pin1/target1.8V -> breadboard fixed10kOhm1%1/2W -> grabber -> U1physicalpin7/CS",
+    "purpose": "Keep unused U1 deselected while U2 is selected; assess effectiveness before any new acquisition.",
+    "state": "Not assembled/tested; grabber fit not established; no second full clip required for this topology.",
+    "asymmetry": "Reverse U1-target/U2-grabber arrangement doubted by owner and unverified; it is not an automatic next step."
+  },
+  "end_of_day_handoff": "20261028-C8375-A-end-of-day-handoff.json"
 }

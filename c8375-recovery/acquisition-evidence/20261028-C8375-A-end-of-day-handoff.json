@@ -1,0 +1,99 @@
+{
+  "task_id": "R-01 / C8375-A end-of-day handoff",
+  "recorded_at": "2026-10-28T18:53:12.741242-04:00",
+  "timezone": "America/New_York",
+  "session_date": "2026-10-28",
+  "owner_instruction": "Done for the day. Capture all context and breadboard/10k/grabber plan. Hardware work stops; documentation/sync only.",
+  "hardware_status": "STOPPED FOR DAY \u2014 all disconnected, clips removed, Pi off; owner P1 residual0V before final bare-board measurement.",
+  "router_status": "Still nonbooting; no recovery-write or functional-boot result from Pi acquisition work. Physical primary/golden bank roles and per-chip accurate full backups remain unresolved.",
+  "final_measurement": {
+    "reported_at": "2026-10-28T18:53:12.741242-04:00",
+    "source": "Owner final session message; no additional agent hardware interaction",
+    "chassis": "C8375-A / FDO2742M0FK",
+    "physical_endpoints": "Bare U1 physical pin7/CS to bare U2 physical pin7/CS",
+    "state": "Owner confirms everything disconnected, both clips removed, Pi off; normal router sources/cables, CR2032 and CH341A remain removed under established session isolation.",
+    "sequence": "Owner explicitly measured P1 pin1-to-pin2 at 0 VDC before measuring CS-to-CS resistance.",
+    "P1_pin1_to_pin2_VDC": 0,
+    "U1_pin7_to_U2_pin7_ohms": 9350,
+    "polarity": "Not separately specified in final reading; earlier issued first direction redU1/blackU2. Reverse result not supplied.",
+    "fresh_lead_baseline": "Not separately supplied for this final measurement. Earlier baseline 0.3 ohm remains historical.",
+    "drift_or_meter_accuracy": "Not supplied; no uncertainty invented.",
+    "previous_clip_endpoint_reading_ohms": 9360,
+    "difference_ohms": -10,
+    "difference_percent_of_previous": -0.10683760683760683,
+    "interpretation": "Approximately 0.11% lower; no basis to regard this as a meaningful changed path without meter accuracy/repeatability evidence. Measured resistance persists directly through the board with clips/harness absent. This does not prove a discrete 9.35k resistor, a direct CS short, active-driver topology, simultaneous output activity, or absence of other clip/adapter effects during powered reads."
+  },
+  "ordered_parts": {
+    "status": "Ordered by owner, not yet received/fit-tested",
+    "breadboard": "Solderless breadboard",
+    "resistors": "1% 1/2W assortment including ten 10kOhm resistors",
+    "grabber": "IC grabber ordered; exact model/lead termination not supplied. Do not assume earlier candidate XKM was purchased.",
+    "delivery": "No date supplied",
+    "mechanical_constraint": "Owner hopes grabber fits U1pin7 with clip on U2; doubts grabber can fit U2pin7 with clip on U1. Both directions remain physically unverified."
+  },
+  "preferred_first_experiment": {
+    "active_target": "U2 through existing short clip and checked1.8Vadapter",
+    "unused_chip": "U1",
+    "bias": "P1 pin1/target1.8V -> breadboard fixed10kOhm1%1/2W -> grabber -> U1physicalpin7/CS",
+    "purpose": "Keep unused U1 deselected while U2 is selected; assess effectiveness before any new acquisition.",
+    "state": "Not assembled/tested; grabber fit not established; no second full clip required for this topology.",
+    "asymmetry": "Reverse U1-target/U2-grabber arrangement doubted by owner and unverified; it is not an automatic next step."
+  },
+  "key_evidence": [
+    {
+      "path": "20261027-Pi5-GPIO-U1-short-read.json",
+      "result": "Two4096-byte U1 GPIO samples at001f2000 match each other and exactly equal original AND known-nonbooting reference block (SHA09327df0f66e6745229cc1681f50c8c301177615f7615abbabee8762f7c55171). Mathematical relation, not proof of bank identities or output-drive topology."
+    },
+    {
+      "path": "20261028-Pi5-U1-CS-control-U2-response.json",
+      "result": "U1 control: unused U2CS1.242 ->0.478 ->1.242V, no clocks/bytes; completed/restored."
+    },
+    {
+      "path": "20261028-Pi5-P1-supply-under-CS-hold.json",
+      "result": "Separate static U1 control supply spots1.763 idle/1.761 selected/1.753 released; no large DC rail collapse observed."
+    },
+    {
+      "path": "20261028-Pi5-U2-reverse-control-preparation.json",
+      "result": "First U2 attempt never ran (SSH connect failure). Later180s retry reached commanded-low phase; owner U1CS0.489V/P1supply1.774V; SSH loss prevented saved release/cleanup completion."
+    },
+    {
+      "path": "20261028-Pi5-official-PSU-recovery-status.json",
+      "result": "Owner replaces Pi PSU with official model. Post-reboot host normalSPI0/node/GPIO8high/no programmer;0x0 throttle flags. Recovered old hold report remains incomplete. Last powered P1=1.786V/U1idleCS1.242V, without demonstrated high margin. Power-supply swap is not proof of previous reboot cause."
+    },
+    {
+      "path": "20261028-Pi5-CS-access-new-photos.json",
+      "result": "Five originalsIMG1284/85/86/87/89 preserved and hashed. Owner confirms both physicalpin7 endpoints against pin1dot/upper-row geometry. Bare-board9350Ohm now recorded after0V residual."
+    },
+    {
+      "path": "20261028-Pi5-unused-CS-pullup-proposal.json",
+      "result": "Experimental10k bias, now owner-ordered parts/one-grabber preferred route; no efficacy/secure-fit claim."
+    }
+  ],
+  "resume_sequence": [
+    "Wait for owner to resume and parts to arrive. No additional hardware task, power-up, background SSH or tests today.",
+    "Reconfirm chassis FDO2742M0FK, board, physical target U2, current normal-power/cable/CR2032/CH341A isolation, Pi supply and exclusive programmer/console ownership. Current end state is all disconnected, not a live U2 harness.",
+    "With every source unplugged/residual0V, inspect actual grabber model/tip/termination and breadboard; meter the chosen fixed 10k resistor and record lead baseline. Verify breadboard five-hole groups/rail breaks rather than assuming layout.",
+    "Dry-fit programming clip on U2 and insulated single-leg grabber on unused U1pin7; confirm orientation, eight existing flash-signal routes and no bridge/leg stress. Pin7 is dot-side upper-row second from left in IMG_1289. Do not force fit or hold a loose connection by hand during acquisition.",
+    "If secure fit exists, assemble mapped P1pin1/flash1.8V -> fixed10k resistor on breadboard -> grabber -> U1physicalpin7/CS. Programming harness remains Pi->1.8Vadapter->U2. Pi3.3V/5V are not this pull-up source. Leave other pins unchanged; do not tie CS directly to VCC.",
+    "Verify unpowered resistor/connection paths and no unintended short before reconnecting only the checked official-PSU/Pi/adapter setup. Check loaded P1 rail 1.7\u20132.0V and U1 idle CS with no SPI. A 10k pull-up is an experimental limited load, not assured isolation/repair.",
+    "If baseline acceptable, prepare one bounded no-clock U2-CS control with cleanup/report retrieval that can be verified despite SSH loss. Meter U1CS during idle/asserted/released states and P1 supply; verify selected U2 CS at a safe accessible mapped endpoint when possible. Restore/check driver/node and exclusive ownership. No automatic read follows.",
+    "If U1CS still falls or connection/power is unstable, stop this bias approach; do not automatically decrease resistance, increase voltage, add speculative selector/reset jumpers or power the router normally with the programmer attached.",
+    "Only after independent selection is adequately supported, run explicitly requested U2-labelled bounded RDID/read-only samples at multiple addresses/transfer shapes and independently compare originals. Stable DC alone does not prove waveform quality or read accuracy.",
+    "If bounded acquisition is repeatable and plausible, plan separate pairs of full33554432-byte reads per physical chip, privately preserving originals/hashes/logs and unique board/security data before any write decision. U1/U2 contents need not match each other.",
+    "U1 acquisition is a separate unresolved access problem: do not assume the reverse grabber-onU2/clip-onU1 arrangement fits or is proven by U2 success. If inaccessible, evaluate a verified larger CS contact or suitable rework assistance for a temporary lead/isolation/off-board reading; do not improvise leg lifting/trace cutting."
+  ],
+  "tools_and_private_retention": {
+    "Pi": "RaspberryPi5Rev1.1 / Ubuntu26.04.1LTS / kernel7.0.0-1020-raspi / flashrom1.6.0; current Pi is OFF. HeaderRP1SPI0/CE0 /dev/spidev0.0; do not use/dev/spidev10.0.",
+    "U2_tools": "scripts/pi_u2_cs_hold.py and scripts/pi_gpio_u2_read.py; explicit entry flags, target-specific labels. Runtime deployment hashes/paths in reverse-control evidence. Do not import/run hardware helpers as documentation validation.",
+    "validation_history": "42 offline tests passed after U2-labelled utilities; no source changes or hardware tests in this documentation handoff.",
+    "access": "Existing restricted SSH credential/key record remains local in .git/recovery-private; do not expose values or ask owner to resend by default. Fresh reachability/state checks required when owner resumes.",
+    "originals": "Raw chip captures, SSH/journal diagnostics and recovered incomplete report retained privately; public evidence provides hashes/metadata. Original photos remain in Photos/ unchanged."
+  },
+  "do_not_repeat": [
+    "Completed broad P1/P2/U4 CS/header scans; tiny mux probing previously inaccessible.",
+    "Unchanged clock/clip/read retries that cannot establish accuracy.",
+    "Pi internal pull-up/drive-strength substitution for passive resistor to target1.8V.",
+    "Treating a repeatable pair or exact AND as proof of correct independent chip contents."
+  ],
+  "today_actions": "Owner reports final0V/9350Ohm measurement. Agent performs local handoff/evidence editing and guarded GitHub sync only; no SSH/programmer/console/GPIO/SPI or router change."
+}

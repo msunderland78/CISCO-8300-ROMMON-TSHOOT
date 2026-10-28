@@ -1,9 +1,26 @@
 C8375-E-G2 / CRESTONE RECOVERY CONTEXT
-Updated 2026-10-23, America/New_York
+Current handoff updated 2026-10-28, America/New_York; historical October23 summary retained
 Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
-CURRENT HANDOFF POINTER -- October 27, 2026, America/New_York
+CURRENT END-OF-DAY HANDOFF -- October 28, 2026, America/New_York
+Hardware work stopped at owner request. Read C8375-G2-RECOVERY-CONTEXT.md
+and c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md end-of-day section first.
+C8375-A/FDO2742M0FK still nonbooting; no Pi recovery write/boot result.
+Owner: all disconnected, both clips removed, Pi off; P1pin1-to2=0VDC,
+then bare U1pin7-to-bare U2pin7=9350ohms, versus earlier9360ohms.
+Physicalpin7 locations confirmed. No significant changed path established.
+ORDERED, not received: breadboard,1%1/2W resistor assortment including ten
+10kOhm, and ICgrabber (model/ETA/fit unknown). First proposed test is
+clip-onU2; P1pin1/target1.8V -> breadboard10k -> grabber -> unusedU1pin7.
+Secure fit/DC select-only checks precede any bounded reads. Reverse
+clip-onU1/grabber-onU2 is doubted by owner and remains unverified; do not
+assume U2 success establishes U1 acquisition. Earlier U2hold cleanup was
+not saved; later boot/normalSPIstate does not prove historical cleanup.
+Official Pi5 USB-C PSU installed; Pi now OFF. No further hardware today.
+Structured handoff: c8375-recovery/acquisition-evidence/20261028-C8375-A-end-of-day-handoff.json
+
+HISTORICAL HANDOFF POINTER -- October 27 (superseded above)
 Read C8375-G2-RECOVERY-CONTEXT.md and ROUTER-RECOVERY-TEST-PLAN.md before
 this older October23 summary. Current clip last confirmed on U1; corrected
 short pairs fail repeatability332/7bytes; U2 still lacks a stable backup.
