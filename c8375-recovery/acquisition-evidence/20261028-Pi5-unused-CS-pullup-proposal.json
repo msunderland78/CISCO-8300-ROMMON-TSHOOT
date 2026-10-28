@@ -1,0 +1,56 @@
+{
+  "task_id": "R-01 / conditional unused-chip CS pull-up feasibility",
+  "recorded_at": "2026-10-28T16:53:33.998755-04:00",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / FDO2742M0FK",
+  "status": "Engineering proposal only; no resistor installed, no chip/host interaction in this step",
+  "owner_inventory": "Owner confirms no resistors; asks whether Pi can supply variable resistance. Existing Dupont leads and spare full-size clips; breadboard/secure connection not confirmed.",
+  "Pi_substitute": {
+    "decision": "No suitable GPIO/software-only substitute for a passive pull-up to the flash rail.",
+    "reason": "RP1 pad settings enable pull-up/down and drive strength; they do not supply a configurable two-terminal resistor to an external 1.8 V rail. Pi 5 GPIO runs at 3.3 V; direct weak pull-up may overvoltage the flash if loading changes. Changing RP1 threshold registers does not change its physical supply.",
+    "actions": "No GPIO mode/drive/pull/threshold change made."
+  },
+  "conditional_topology": {
+    "active_programmer_clip": "Existing short clip on U2 through checked 1.8 V adapter; unchanged.",
+    "auxiliary_access": "If both clips fit without stress, use spare full SOIC-16 clip on U1 with independently checked physical pin-to-terminal mapping. Only two leads used; other contacts externally disconnected/insulated.",
+    "connection": "U1 physical pin 2/VCC -> resistor -> U1 physical pin 7/CS. This uses the existing target 1.8 V rail, not Pi 3.3 V/5 V.",
+    "pin_number_warning": "Physical 16-pin Micron package numbers, not adapter OUTPUT numbers or assumed ribbon order.",
+    "purpose": "Bias unused U1 CS high while U2 is selected; this is not physical isolation and may fail against board loading."
+  },
+  "candidate_first_diagnostic": {
+    "resistance_ohms": 10000,
+    "component": "Through-hole fixed 10 kOhm resistor, 1/4 W, preferably 1% (5% also suitable after measurement). Small solderless breadboard provides secure Dupont/resistor connection.",
+    "nominal_current_if_CS_at_ground_at_2V_A": 0.0002,
+    "maximum_current_at_2V_with_5percent_low_R_A": 0.0002105263157894737,
+    "basis": "Conservative bounded added-current starting experiment, not inferred from unpowered 4.35/4.8 kOhm equivalents or claimed vendor-approved Cisco repair. Unknown board paths mean efficacy/safety cannot be guaranteed solely from resistor current.",
+    "not_selected": "No lower-resistance escalation, variable-potentiometer wiper, direct CS-to-VCC jumper, Pi pull-up or added power source."
+  },
+  "staged_checks": [
+    "Obtain actual resistor and secure connection. Confirm spare clip and two clips physically fit before attachment.",
+    "Before wiring, reconfirm chassis/U2 and isolation/ownership; shut down/unplug Pi, verify zero residual voltage; verify resistor value, clip mapping and absence of unintended shorts. No under-clip or fine-mux probing.",
+    "Power only the checked Pi/adapter setup; check P1 supply and unused U1 CS with no clock/bytes. Verify resistor is connected to the flash rail.",
+    "Only if idle readings acceptable, use bounded no-clock U2 select-only control and meter unused U1 CS plus supply. Observe selected U2 CS low at an accessible checked endpoint if available. Stop if unused CS does not remain convincingly high; do not just decrease resistor value.",
+    "Passing DC control would justify only conditional bounded multi-address/transfer-shape reads with comparison against preserved references, not a firmware write or whole-array accuracy claim."
+  ],
+  "limits": [
+    "No resistor exists in current inventory, so no wiring/test can proceed yet.",
+    "A pull-up test measures response to a known limited load; it cannot identify a specific active driver or prove complete electrical isolation.",
+    "DMM spot measurements do not certify fast transitions/clocked signal margins.",
+    "If secure bias/control cannot be established, separately read chips off-board using suitable rework assistance; do not recommend inexperienced leg lifting/trace cutting."
+  ],
+  "sources": [
+    {
+      "url": "https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf",
+      "support": "RP1 GPIO supply bank, pad PUE/PDE and DRIVE controls; input threshold warning."
+    },
+    {
+      "url": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html",
+      "support": "Pi 5/RP1 GPIO electrical levels."
+    },
+    {
+      "url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+      "support": "Micron Figure 6 physical pinout, Table 1 CS high tri-states output, Table 47 thresholds, 1.7\u20132.0 V operating rail."
+    }
+  ],
+  "next_step": "Owner needs a physical resistor and secure breadboard/connector; assess spare-clip fit and mapping with Pi unplugged before implementing this conditional diagnostic. No hardware action until these dependencies and fresh state are established."
+}
