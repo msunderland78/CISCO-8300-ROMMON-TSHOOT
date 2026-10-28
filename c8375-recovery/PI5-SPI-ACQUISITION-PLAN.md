@@ -333,6 +333,18 @@ The latest reported supply values differ only0.010V and are consistent with a lo
 
 Read-only SSH verifies expected Pi, no programmer process, SPI node present and GPIO8outputhigh/GPIO9–11SPI0. No SPI/GPIO setting, package/configuration, shutdown, clip change or firmware operation. **Next: keep this same powered state; no further Ω/power cycle. Confirm1.737V endpoint and read fresh U2physicalpin7/CS-toP1pin2/GND inDCV.** No speculative jumper/supply adjustment. [Clarification, original wording and reconciliation](acquisition-evidence/20261028-Pi5-supply-measurement-clarification.json).
 
+### CS-only interaction control — October28,14:43:10–14:44:36EDT
+
+Owner explicitly confirms corrected groundreferenceP1pin2 (P2was typo), current idleU2pin7=1.242V, fresh C8375-A/FDO2742M0FK/U1 short-clip/harness/isolation/loopback-removal/ownership and probe readiness. Latest reported supplies areP1=1.727V/U2=1.737V; earlier0.931V supply and0.33–0.35VCS remain historical/unresolved observations, not current readings.
+
+AI-assisted original [`pi_u1_cs_hold.py`](../scripts/pi_u1_cs_hold.py) uses checked GPIO ownership/cleanup helper and sibling modules, Python/libgpiod v2 and sudo. Only explicit`--hold-u1-cs-low` acts; bounded10–180seconds(default120). It commands CLKlow,CS low, waits for timeout or private stop file, then deselects/restores SPI0. No transfer method or flash byte/opcode is called. Stop/timeout/exception cleanup and safe entry pass three new offline tests; total37pass. Fresh Pi deployment SHA256/help verified before execution.
+
+Owner measures **U2CS=1.242V before /0.478V during asserted U1-select control /1.242V after release** with redactualU2pin7/blackP1pin2. Read-only Pi snapshot during hold confirmsGPIO8low,GPIO10/11low,GPIO9input; no flash-side waveform is measured. Agent requests stop after meter result; callback ends after86.532seconds, normalSPI0driver/node and idleGPIO8high restored, no active programmer; fetched report independently matches execution. Generic inherited phase-wait metadata is unused in this callback; no bit-clock timing claim applies.
+
+At reportedU2VCC1.737V, MicronTable47 thresholds areVILmax0.5211V/VIHmin1.2159V. Held0.478V is in low range; idle1.242V has26.1mV nominal high margin. Supply was not simultaneously measured during hold, meter error/transients unknown. This state-dependent U2CS response together with exact4KiBAND result strongly supports investigating unintended simultaneous selection. No normal two-output drive, decoded command, physical bank contents/roles or exact coupling component is proved. Driver/pinmux ownership changes accompany the control; onlyCS is actively toggled andCLKheldlow. [Micron datasheet](https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf).
+
+After test, Pi shutdown request exits0; owner still must physically unplug and verifyP1VCC-toGND0VDC. Next **only after unpowered conditions**: Ωprobes-together baseline, redU2pin7/CS→blackP1pin2/GND, then redU2pin7→blackP1pin1/VCC; request settledΩ/OL/drift. Retain clip/harness/router isolation. No pull-up, direct select tie, supply change, new read or firmware write selected before evaluating bias/drive paths. [Runtime/meter/source/cleanup evidence](acquisition-evidence/20261028-Pi5-U1-CS-control-U2-response.json).
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.

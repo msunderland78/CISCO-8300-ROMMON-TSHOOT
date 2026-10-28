@@ -50,8 +50,15 @@
     "earlier_U2_VCC_VDC": 0.931,
     "disposition": "Preserve as earlier owner observation with unresolved endpoint/contact/state/time discrepancy. It is superseded for current supply diagnosis by current clarified measurements, conditional on confirmation of the1.737V endpoint.",
     "current_inference": "Reported0.3\u03a9 and close powered supply readings are consistent with a low-resistance/shared supply connection. Current evidence does not support treating U2 as presently0.931V or concluding signal back-powering.",
-    "CS_status": "Earlier U2CS0.33\u20130.35V remains historical; request fresh pin7 voltage in this same clarified powered state before applying thresholds. Exact4KiB AND result remains verified, electrical cause unresolved."
+    "CS_status": "Current confirmed-ground idleCS=1.242V supersedes earlier0.33\u20130.35V as current reading; prior observation retained. CS-only state control subsequently measured0.478V selected and1.242V after release; see linked control evidence."
   },
-  "next_step": "Keep current setup, normal router power/cables/CR2032/CH341A isolation and U1clip unchanged. No SPI. Confirm1.737V was U2pin2, then DCV redU2physicalpin7/CS,blackP1pin2/GND. No jumper, supply change or new \u03a9 check selected.",
-  "actions": "Read-only SSH process and pinctrl query only; no GPIO setting/SPI command, shutdown, firmware write or wiring change by agent."
+  "next_step": "Current supply clarification followed by completed CS-only test; see linked control evidence for shutdown/residual/unpowered-bias mapping next step.",
+  "actions": "Read-only SSH process and pinctrl query only; no GPIO setting/SPI command, shutdown, firmware write or wiring change by agent.",
+  "current_CS_followup": {
+    "meter_mode": "DC volts, Pi powered",
+    "red_probe": "ActualU2physicalpin7/CS",
+    "black_probe": "P1pin2/GND; owner explicitly corrects P2 typo",
+    "reported_VDC": 1.242,
+    "subsequent_control_evidence": "c8375-recovery/acquisition-evidence/20261028-Pi5-U1-CS-control-U2-response.json"
+  }
 }
