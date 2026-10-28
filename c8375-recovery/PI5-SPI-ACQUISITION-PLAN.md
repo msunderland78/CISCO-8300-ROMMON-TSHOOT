@@ -345,6 +345,16 @@ At reportedU2VCC1.737V, MicronTable47 thresholds areVILmax0.5211V/VIHmin1.2159V.
 
 After test, Pi shutdown request exits0; owner still must physically unplug and verifyP1VCC-toGND0VDC. Next **only after unpowered conditions**: Ωprobes-together baseline, redU2pin7/CS→blackP1pin2/GND, then redU2pin7→blackP1pin1/VCC; request settledΩ/OL/drift. Retain clip/harness/router isolation. No pull-up, direct select tie, supply change, new read or firmware write selected before evaluating bias/drive paths. [Runtime/meter/source/cleanup evidence](acquisition-evidence/20261028-Pi5-U1-CS-control-U2-response.json).
 
+### U2 select unpowered bias readings — October28, America/New_York
+
+Owner supplies requestedΩ values: **tip-to-tip0.3Ω; redU2physicalpin7/CS→blackP1pin2/GND4800Ω; redU2pin7→blackP1pin1/VCC4350Ω**. Conditions were issued as Pi physical unplug/all router sources removed/P1residual0V beforeΩ; this numeric reply does not separately restate unplug/residual or drift. Short U1clip/harness/adapter otherwise retained per instructions.
+
+No near-zero ohmic short from select to either rail is shown under these test conditions. Lead resistance is negligible at these kilohm values. The earlier U2pin2/VCC→P1pin1/VCC0.3Ω equals this lead baseline, supporting low-resistance common-supply relationship within meter resolution. Do not claim exactlyzero trace resistance.
+
+These are **in-circuit equivalents**, not identified4350Ωpull-up and4800Ωpull-down resistors. Parallel paths and unpowered IC/mux/adapter behavior can affect readings; no powered Thevenin resistance or simple divider has been established ([Fluke resistance guidance](https://www.fluke.com/en-us/learn/blog/digital-multimeters/how-to-measure-resistance)). Thus no pull-up/direct tie or voltage change is selected. Existing PI3CH480 identification/history is reference only; mux supply/enable/select routing and cause of coupling remain unresolved, with fine-mux/under-clip probing constraints retained.
+
+**Next unpowered isolation comparison, requested only:** Pi cable physically unplugged/all other sources removed/board0V; disconnect all eight clip-harness connections from the adapter OUTPUT, keeping the clip seated onU1 and wire order intact. Leave adapter disconnected. Repeat the same redU2pin7→blackP1pin2/GND and→blackP1pin1/VCC Ω readings. Report settled values/OL/drift. Stop if the entire harness cannot detach intact; do not assume free-contact access, depin, cut or disconnect a powered partial group. This separates adapter paths from remaining board+clip/harness paths; unchanged values do not isolate a component or exclude the clip. No new GPIO/SPI or router operation this checkpoint. [Owner results and comparison limits](acquisition-evidence/20261028-Pi5-U2-CS-unpowered-bias.json).
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.

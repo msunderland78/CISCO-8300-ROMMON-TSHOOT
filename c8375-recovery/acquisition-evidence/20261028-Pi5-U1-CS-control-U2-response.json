@@ -109,5 +109,12 @@
     "limitation": "Shutdown accepted only; owner must physically unplug supply and verify residual voltage."
   },
   "next_step": "Owner physically unplug Pi and verify P1VCC-toGND0VDC before \u03a9. Leave clip/harness unchanged. Obtain lead baseline, then redU2pin7/CS to blackP1pin2/GND, then blackP1pin1/VCC. Await settled \u03a9/OL/drift before any isolation/pull-up decision.",
-  "datasheet": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf (signal descriptionsp14;Table47p82)"
+  "datasheet": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf (signal descriptionsp14;Table47p82)",
+  "unpowered_bias_followup": {
+    "evidence_path": "c8375-recovery/acquisition-evidence/20261028-Pi5-U2-CS-unpowered-bias.json",
+    "lead_baseline_ohms": 0.3,
+    "U2_CS_to_GND_ohms": 4800,
+    "U2_CS_to_VCC_ohms": 4350,
+    "next": "Unpowered whole adapter-output disconnect comparison; no pull-up chosen."
+  }
 }

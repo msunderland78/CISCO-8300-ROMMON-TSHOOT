@@ -1,0 +1,48 @@
+{
+  "task_id": "R-01 / U2 select-path isolation",
+  "date": "2026-10-28",
+  "timezone": "America/New_York",
+  "recorded_at": "2026-10-28T14:56:27.168929-04:00",
+  "chassis": "C8375-A / FDO2742M0FK",
+  "setup": "Short clip on U1, U2 exposed; prior clip/harness/adapter configuration retained for initial resistance readings.",
+  "conditions": "Issued procedure requires Pi supply physically unplugged, router power/other cables/CR2032/CH341A removed, P1VCC-toGND0VDC before \u03a9. Owner reports requested \u03a9 values; unplug/residual/drift not separately restated in this numeric reply.",
+  "owner_report": "tip to tip0.3ohm, U2pin7 toP1pin2=4800ohms, U2pin7 toP1pin1=4350ohms",
+  "meter_mode": "\u03a9; issued polarity redU2pin7/CS,blackP1reference",
+  "measurements": [
+    {
+      "endpoints": "Probes touching",
+      "ohms": 0.3
+    },
+    {
+      "red": "U2physicalpin7/CS",
+      "black": "P1pin2/GND",
+      "ohms": 4800
+    },
+    {
+      "red": "U2physicalpin7/CS",
+      "black": "P1pin1/VCC",
+      "ohms": 4350
+    }
+  ],
+  "interpretation": [
+    "Lead contribution is negligible relative to kilohm readings; current measurements do not indicate a direct near-zero ohmic short fromCS to either rail.",
+    "These are whole in-circuit path readings, not isolated pull-up/pull-down component values or a verified two-resistor divider. Semiconductor/mux/adapter/parallel paths may affect results.",
+    "The earlier U2pin2-toP1pin1=0.3\u03a9 equals this reported lead baseline, supporting a low-resistance supply connection within meter resolution; exact trace resistance is not established.",
+    "Do not use4350\u03a9/4800\u03a9 alone to choose a pull-up or infer a guaranteed powered source impedance.",
+    "Prior measuredU2CS1.242\u21920.478\u21921.242V and exact4KiBAND result remain the stronger selection-interaction evidence; fault location unresolved."
+  ],
+  "next_isolation_comparison": {
+    "status": "Requested, not yet performed/reported",
+    "condition": "Pi physically unplugged/board0V/all other sources disconnected",
+    "change": "Detach all eight clip-harness connections from adapter OUTPUT; retain U1clip and clip/cable wire order. No partial powered disconnect.",
+    "measurements": "Repeat \u03a9 redU2pin7 to blackP1pin2/GND, then blackP1pin1/VCC; report settled values/OL/drift.",
+    "purpose": "Separate unpowered adapter contributions from remaining board plus still-attached clip/harness paths. Unchanged readings do not exonerate clip/harness or prove a powered board fault.",
+    "access_limit": "If entire harness cannot detach intact, stop and describe connector; no depinning/under-clip probing assumed."
+  },
+  "actions": "Offline evidence review and historical photo IMG_1277 inspection only; no new GPIO/SPI/host access, firmware operation, component change or powered test.",
+  "sources": [
+    "https://www.fluke.com/en-us/learn/blog/digital-multimeters/how-to-measure-resistance",
+    "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf"
+  ],
+  "no_selected_action": "No pull-up/direct tie, reset/selector jumper, increased supply, router normal power, new full read or write."
+}
