@@ -32,7 +32,7 @@
     "Prior measuredU2CS1.242\u21920.478\u21921.242V and exact4KiBAND result remain the stronger selection-interaction evidence; fault location unresolved."
   ],
   "next_isolation_comparison": {
-    "status": "Requested, not yet performed/reported",
+    "status": "Completed: owner reports unchanged within1\u20132\u03a9",
     "condition": "Pi physically unplugged/board0V/all other sources disconnected",
     "change": "Detach all eight clip-harness connections from adapter OUTPUT; retain U1clip and clip/cable wire order. No partial powered disconnect.",
     "measurements": "Repeat \u03a9 redU2pin7 to blackP1pin2/GND, then blackP1pin1/VCC; report settled values/OL/drift.",
@@ -44,5 +44,21 @@
     "https://www.fluke.com/en-us/learn/blog/digital-multimeters/how-to-measure-resistance",
     "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf"
   ],
-  "no_selected_action": "No pull-up/direct tie, reset/selector jumper, increased supply, router normal power, new full read or write."
+  "no_selected_action": "No pull-up/direct tie, reset/selector jumper, increased supply, router normal power, new full read or write.",
+  "adapter_disconnected_result": {
+    "recorded_at": "2026-10-28T14:59:55.403392-04:00",
+    "owner_report": "the numbers are exactly the same, within1or2ohms",
+    "procedure_context": "All eight clip-harness connections detached from adapter OUTPUT per request; short U1clip/cable retained; Pi/source isolation remains per unpowered procedure.",
+    "U2_CS_to_GND_ohms": "Approximately4800, unchanged within1\u20132\u03a9",
+    "U2_CS_to_VCC_ohms": "Approximately4350, unchanged within1\u20132\u03a9",
+    "limits": "Owner reports comparison rather than two new exact numerical values; no separate drift or photo supplied.",
+    "inference": "These unpowered equivalents persist on remaining board plus attached clip/cable after adapter removal. This isolates adapter contribution for this resistance comparison; does not establish a powered adapter fault or exclude clip/cable."
+  },
+  "next_step": {
+    "status": "Assessing access, no new measurement yet",
+    "target": "Clip-harness contact normally mating adapter OUTPUT1, previously checked route to U1physicalpin7/CS",
+    "purpose": "If safely accessible, a direct current CS-to-CS resistance check can distinguish a low-resistance tie from a resistive/semiconductor interaction without under-clip probing.",
+    "condition": "Pi physically unplugged/adapter disconnected/board0V; leave U1clip seated and connector intact.",
+    "access_request": "Ask whether metal contact accessible without clip movement or connector dismantling. Do not assume free-terminal access; if inaccessible stop/revise endpoint."
+  }
 }

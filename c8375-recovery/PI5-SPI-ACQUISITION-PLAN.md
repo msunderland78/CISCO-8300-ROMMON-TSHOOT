@@ -355,6 +355,14 @@ These are **in-circuit equivalents**, not identified4350Ωpull-up and4800Ωpull-
 
 **Next unpowered isolation comparison, requested only:** Pi cable physically unplugged/all other sources removed/board0V; disconnect all eight clip-harness connections from the adapter OUTPUT, keeping the clip seated onU1 and wire order intact. Leave adapter disconnected. Repeat the same redU2pin7→blackP1pin2/GND and→blackP1pin1/VCC Ω readings. Report settled values/OL/drift. Stop if the entire harness cannot detach intact; do not assume free-contact access, depin, cut or disconnect a powered partial group. This separates adapter paths from remaining board+clip/harness paths; unchanged values do not isolate a component or exclude the clip. No new GPIO/SPI or router operation this checkpoint. [Owner results and comparison limits](acquisition-evidence/20261028-Pi5-U2-CS-unpowered-bias.json).
 
+### Adapter-disconnected comparison result — October28, America/New_York
+
+Owner replies to the whole adapter OUTPUT disconnection procedure: **“the numbers are exactly the same,within1or2ohms.”** Record this as an unchanged comparison, not invented new exact values: U2CS→P1ground approximately4800Ω and→P1VCC approximately4350Ω. Short U1clip/cable remain attached; adapter no longer connects to the router side under this requested unpowered procedure. The previously supplied lead baseline is0.3Ω.
+
+These unpowered equivalents therefore persist on the **remaining board plus clip/cable**, rather than requiring adapter paths. This does not exclude clip contact/internal harness paths, prove a board component fault or characterize powered CS translation. No simple resistor-divider/pull-up value is established.
+
+Next assess accessible contact at the **disconnected clip-harness terminal normally mating adapter OUTPUT1**, whose documented checked route is U1physicalpin7/CS. If safely accessible, a fresh U2pin7-to-that-contact Ω check can distinguish a low-resistance tie from resistive/semiconductor interaction without contacting the covered U1leg. **Access assessment requested only:** Pi physically unplugged/adapter disconnected/board0V; retain U1clip and intact connector. No assumption that free-terminal metal is accessible; no depinning, clip-side/under-clip probing or improvised contact requested. If inaccessible, revise endpoint. No powered test, GPIO/SPI, resistor/jumper or firmware operation. [Reported isolation result and limits](acquisition-evidence/20261028-Pi5-U2-CS-unpowered-bias.json).
+
 ## 4. Preserve full backups before considering recovery writes
 
 After repeatable, plausible bounded reads, take two fresh independent **33,554,432-byte** full reads for the identified chip, compare bytes/hashes and retain both originals privately. Review plausibility and comparisons with historical references; matching captures alone do not exclude systematic read errors. Acquire and label U1 and U2 separately. A U1 result cannot certify U2.
