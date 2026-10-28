@@ -70,9 +70,22 @@
     "Owner supply voltage is a DC spot reading; no waveform/minimum capture.",
     "Uptime is current-boot duration, not proof uninterrupted prior operation.",
     "Current throttled=0x0 and firmware ADC values do not establish cause of earlier outages. ADC readings are telemetry, not external calibration.",
-    "1.786 V is within the documented 1.7\u20132.0 V chip range; this does not establish reliable independent chip selection.",
-    "Current U1 CS voltage after PSU change and fresh physical-setup confirmation pending."
+    "1.786 V is within the documented 1.7\u20132.0 V chip range; this does not establish reliable independent chip selection."
   ],
-  "next_step": "Keep wiring unchanged. Confirm only Pi PSU changed and short clip remains on U2 with router/CH341A/CR2032 isolation and no other programmer; meter idle bare U1 pin7/CS to P1 pin2/GND. No new CS hold or array read automatically follows.",
-  "private_retention": "Original incomplete control report recovered unchanged into restricted .git/recovery-private, hash checked; SSH diagnostic originals retained privately."
+  "next_step": "Stop unchanged SPI/read/hold retries. Reliable per-chip acquisition requires verified independent deselection/isolation. Evaluate a securely connected, current-limited bias/isolation method against mapped circuit loading before use; no pull-up resistor value or direct jumper is approved by these readings. If safe in-circuit isolation cannot be established, obtain separate off-board reads. Existing Dupont-only inventory and tiny-mux access limits remain constraints. No new hardware operation selected.",
+  "private_retention": "Original incomplete control report recovered unchanged into restricted .git/recovery-private, hash checked; SSH diagnostic originals retained privately.",
+  "idle_U1_CS_followup": {
+    "recorded_at": "2026-10-28T16:47:44.224983-04:00",
+    "mode": "DC volts",
+    "red": "Bare U1 physical pin7/CS",
+    "black": "P1 pin2/GND",
+    "owner_VDC": 1.242,
+    "setup_confirmation": "Owner supplied the requested value in response to combined unchanged-U2-setup/isolation and meter-endpoint question; no contrary state reported.",
+    "supply_reference_P1_VDC": 1.786,
+    "VIH_min_if_U1_VCC_equals_P1_V": 1.2502,
+    "nominal_margin_V": -0.0082,
+    "reference": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+    "table": "47, page 82",
+    "interpretation": "Reported idle CS remains 1.242 V after Pi supply replacement. It is nominally below the 0.7*VCC minimum-high threshold using the P1 supply reference; meter accuracy, different sample times and instantaneous U1 supply remain limits. This does not prove the chip recognizes low at idle, but reliable high/deselection is not demonstrated."
+  }
 }

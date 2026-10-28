@@ -149,7 +149,7 @@
     "private_retention": "Original journal/status files preserved onPi and imported into restricted .git/recovery-private; no raw journal published.",
     "limits": "Current0x0status/38.4C and later ADC readings do not establish earlier power/temperature or cause. ADC values are firmware telemetry, not externally calibrated measurements. No decisive panic/shutdown/undervoltage cause found in collected samples."
   },
-  "next_step": "See later official-PSU status: SSH recovered, current post-reboot SPI state verified; fresh U1-CS idle measurement and unchanged-setup confirmation requested. No automatic read/hold or new bias/jumper.",
+  "next_step": "Official-PSU follow-up U1 CS remains 1.242 V with P1 1.786 V, without demonstrated high margin. See later power/status evidence; pause unchanged reads/holds and evaluate verified bias/isolation or off-board acquisition. No new resistor value/jumper selected.",
   "reverse_control_retry1": {
     "recorded_at": "2026-10-28T16:08:48.476626-04:00",
     "preflight": {
@@ -212,6 +212,7 @@
     "evidence": "20261028-Pi5-official-PSU-recovery-status.json",
     "original_control_report": "Recovered incomplete, still at low phase; no saved cleanup.",
     "current_state": "After owner PSU swap/new boot, normal SPI0 driver/node, GPIO8 high and no active programmer verified. Old cleanup remains unverified.",
-    "P1_VCC_VDC": 1.786
+    "P1_VCC_VDC": 1.786,
+    "idle_U1_CS_VDC": 1.242
   }
 }
