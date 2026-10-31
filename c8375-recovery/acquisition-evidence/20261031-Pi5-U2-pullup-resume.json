@@ -47,7 +47,7 @@
       "lead_polarity": "Not explicitly supplied"
     },
     "limits": "Keep reported U2 identity; no substitution of U1 without owner correction. Actual resistor value, breadboard strip isolation and shutdown/residual checks not separately reported.",
-    "next_requested": "DC volts: black P1pin2/GND, red directly on P1/supply-side resistor leg; determine whether supply reaches actual resistor. Leave powered wiring unchanged.",
+    "next_requested": "No U2 control/read. Shut down/unplug Pi and verify residual0V before handling. Verify actual resistor out of circuit/with one leg isolated, expected9.9\u201310.1kOhm. No automatic stronger pull-up.",
     "agent_hardware_actions": "None",
     "prior_publication_workflow": "Commit0aaa4395380bde6607ba8a70a4578b1116f12f59 publication workflow41203924983 completed success.",
     "endpoint_correction": {
@@ -55,6 +55,12 @@
       "corrected_chip": "U1",
       "voltage_VDC": 1.242,
       "interpretation": "Earlier U2 label was an owner typo, now explicitly corrected; retain original report above. At P1 VCC1.782V, nominal VIHmin0.7*VCC=1.2474V, only5.4mV above the displayed U1 reading. Spot/meter uncertainty prevents a precise threshold verdict; no reliable high margin is demonstrated. Do not select U2/read yet."
+    },
+    "supply_side_confirmation": {
+      "owner_reply": "the numbers I gave you were the number ... 1.782",
+      "resistor_supply_side_VDC": 1.782,
+      "U1_side_VDC": 1.242,
+      "interpretation": "Reported resistor endpoints differ by0.540V. If actual series resistance is10kOhm, inferred DC current is54microamp; this does not identify a loading component or establish fast behavior. Reliable U1 high remains unproven."
     }
   }
 }

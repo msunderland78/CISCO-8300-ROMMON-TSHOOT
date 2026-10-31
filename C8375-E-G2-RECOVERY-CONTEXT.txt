@@ -4,7 +4,11 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Correction: owner explicitly means U1pin7=1.242VDC, not U2. No reliable
+Latest: owner confirms resistor supply-side1.782VDC/U1side1.242VDC.
+Supply reaches resistor; reliable U1high not established. No U2read.
+Next after Pi shutdown/unplug/residual0V: actual resistor ohms with one
+leg disconnected. No automatic lower resistance; verification pending.
+Earlier correction: owner explicitly means U1pin7=1.242VDC, not U2. No reliable
 high margin at supply1.782V (nominalVIHmin1.2474V). No U2control/read.
 Next DCV: black P1pin2/red actual P1-side resistor leg; wiring unchanged.
 Earlier follow-up (U2 label corrected above): resistor now wired P1pin1 -> breadboard10k -> U1pin7; Pi on.
