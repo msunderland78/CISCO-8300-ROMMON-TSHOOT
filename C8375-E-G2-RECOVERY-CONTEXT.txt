@@ -4,7 +4,10 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Follow-up: resistor now wired P1pin1 -> breadboard10k -> U1pin7; Pi on.
+Correction: owner explicitly means U1pin7=1.242VDC, not U2. No reliable
+high margin at supply1.782V (nominalVIHmin1.2474V). No U2control/read.
+Next DCV: black P1pin2/red actual P1-side resistor leg; wiring unchanged.
+Earlier follow-up (U2 label corrected above): resistor now wired P1pin1 -> breadboard10k -> U1pin7; Pi on.
 P1supply1.782VDC; reported U2pin7-to-P1ground1.242VDC. Do not relabel
 as U1 without correction. Next DCV: black P1pin2/red U1-side resistor
 node on breadboard; clarify U2/U1 endpoint. No new GPIO/SPI/read.

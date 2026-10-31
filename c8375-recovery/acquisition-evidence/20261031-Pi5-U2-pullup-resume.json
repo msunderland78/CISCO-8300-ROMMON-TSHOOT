@@ -47,8 +47,14 @@
       "lead_polarity": "Not explicitly supplied"
     },
     "limits": "Keep reported U2 identity; no substitution of U1 without owner correction. Actual resistor value, breadboard strip isolation and shutdown/residual checks not separately reported.",
-    "next_requested": "DC volts: black P1pin2/GND, red U1/grabber-side resistor connection on breadboard; report voltage and confirm whether preceding1.242V was U2 or U1 typo. Keep powered wiring still; no SPI/control/read yet.",
+    "next_requested": "DC volts: black P1pin2/GND, red directly on P1/supply-side resistor leg; determine whether supply reaches actual resistor. Leave powered wiring unchanged.",
     "agent_hardware_actions": "None",
-    "prior_publication_workflow": "Commit0aaa4395380bde6607ba8a70a4578b1116f12f59 publication workflow41203924983 completed success."
+    "prior_publication_workflow": "Commit0aaa4395380bde6607ba8a70a4578b1116f12f59 publication workflow41203924983 completed success.",
+    "endpoint_correction": {
+      "owner_statement": "I mean u1 pin 7 ... the reading you just asked for",
+      "corrected_chip": "U1",
+      "voltage_VDC": 1.242,
+      "interpretation": "Earlier U2 label was an owner typo, now explicitly corrected; retain original report above. At P1 VCC1.782V, nominal VIHmin0.7*VCC=1.2474V, only5.4mV above the displayed U1 reading. Spot/meter uncertainty prevents a precise threshold verdict; no reliable high margin is demonstrated. Do not select U2/read yet."
+    }
   }
 }
