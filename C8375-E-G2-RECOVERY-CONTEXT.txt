@@ -4,7 +4,22 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-CURRENT HANDOFF13:20EDT: Routerleftpowered/IOS26.2.1installmode,
+CURRENT HANDOFF13:33EDT (C8375-05, fan fix active):
+Owner reads PSU PWR-CC1-250WAC, serial LIT2852A9TJ; no400/760spare.
+Published C8375 default is400WAC, AC/PoE option760WAC;250WAC absent.
+Consistent with P0incompatible, but not proof of fan-cycle cause.
+IOS P0 EEPROM-data-not-initialized does not prove physical EEPROM erased.
+Four current missing cpa_sb_group_fan_algo_action_speed_control/error95
+pairs explain this trace path; optional fixed-chassis hook remains possible.
+No supported ramp-time setting established. Owner SSH works; fan menu offers
+status and SmartFan EEPROM diagnostics. Software status output requested.
+Native USB reopened13:24, read-only capture then closed13:33 after no further
+help replies; no router power/firmware/fan-policy change. Keep boot baseline.
+Next hardware test: known-good supported PSU when available, powered-down
+single-PSU replacement followed by identity and45minfan watch. No promised cure.
+Evidence: c8375-recovery/acquisition-evidence/20261031-C8375-fan-fix.json
+
+EARLIER CHECKPOINT13:20EDT: Routerleftpowered/IOS26.2.1installmode,
 51minuptime,R0/F0andbuilt-inmoduleok; ownerSSHworks. AgentnativeUSB
 captureclosed/portfree. Allenv/pfu/cmandtracelevelsNoticeverified.
 45minwatch12:35-13:20complete; repeatedchassisfanspikesup to11880RPM,

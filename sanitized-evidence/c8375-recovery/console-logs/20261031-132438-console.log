@@ -1,0 +1,407 @@
+
+Oct 31 17:24:18.235: %PKI-6-AUT
+[TX 2026-10-31T13:24:58.188620] b'\rterminal length 0\rshow version\rshow diag all eeprom\rshow environment all\r'
+
+CAT3875-G2#terminal length 0
+CAT3875-G2#show version
+Cisco IOS XE Software, Version 26.02.01
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT3875-G2 uptime is 56 minutes
+Uptime for this control processor is 57 minutes
+System returned to ROM by Reload Command
+System restarted at 12:28:32 EDT Sat Oct 31 2026
+System image file is "bootflash:packages.conf"
+Last reload reason: Reload Command
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Perpetual    essentials         essentials        
+
+The current crypto throughput level is 250000 kbps (Aggregate) 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3692651K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT3875-G2#show diag all eeprom
+MIDPLANE EEPROM data:
+
+	Product Identifier (PID) : C8375-E-G2
+	Version Identifier (VID) : V01 
+	PCB Serial Number        : FDO27380KFQ
+	Top Assy. Part Number    : 68-7625-01
+	Hardware Revision        : 1.0
+	CLEI Code                : CMM8K00ARA
+Power/Fan Module P0 EEPROM data is not initialized
+
+Power/Fan Module P1 EEPROM data is not initialized
+
+External PoE Module POE0 EEPROM data is not initialized
+
+External PoE Module POE1 EEPROM data is not initialized
+
+Slot R0 EEPROM data:
+
+	Product Identifier (PID) : C8375-E-G2
+	Version Identifier (VID) : V01 
+	PCB Serial Number        : FDO27380KFQ
+	Top Assy. Part Number    : 68-7625-01
+	Hardware Revision        : 1.0
+	CLEI Code                : CMM8K00ARA
+Slot F0 EEPROM data:
+
+	Product Identifier (PID) : C8375-E-G2
+	Version Identifier (VID) : V01 
+	PCB Serial Number        : FDO27380KFQ
+	Top Assy. Part Number    : 68-7625-01
+	Hardware Revision        : 1.0
+	CLEI Code                : CMM8K00ARA
+Slot 0 EEPROM data:
+
+	Product Identifier (PID) : C8375-E-G2
+	Version Identifier (VID) : V01 
+	PCB Serial Number        : FDO27380KFQ
+	Top Assy. Part Number    : 68-7625-01
+	Hardware Revision        : 1.0
+	CLEI Code                : CMM8K00ARA
+Slot 1 EEPROM data:
+
+	Product Identifier (PID) : C8375-E-G2
+	Version Identifier (VID) : V01 
+	PCB Serial Number        : FDO27380KFQ
+	Top Assy. Part Number    : 68-7625-01
+	Hardware Revision        : 1.0
+	CLEI Code                : CMM8K00ARA
+SPA EEPROM data for subslot 0/0:
+
+	Product Identifier (PID) : 4M-2xSFP+
+	Version Identifier (VID) : V01 
+	PCB Serial Number        : 
+	Top Assy. Part Number    : 68-2236-01
+	Top Assy. Revision       : A0  
+	Hardware Revision        : 2.2
+	CLEI Code                : CNUIAHSAAA
+SPA EEPROM data for subslot 0/1 is not available
+
+SPA EEPROM data for subslot 0/2 is not available
+
+SPA EEPROM data for subslot 0/3 is not available
+
+SPA EEPROM data for subslot 0/4 is not available
+
+SPA EEPROM data for subslot 0/5 is not available
+
+SPA EEPROM data for subslot 1/0 is not available
+
+SPA EEPROM data for subslot 1/1 is not available
+
+SPA EEPROM data for subslot 1/2 is not available
+
+SPA EEPROM data for subslot 1/3 is not available
+
+SPA EEPROM data for subslot 1/4 is not available
+
+SPA EEPROM data for subslot 1/5 is not available
+
+CAT3875-G2#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12198 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2497 mV
+ V: 1.8V                 R0              Normal          1797 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          33 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5400 RPM
+
+
+CAT3875-G2#
+[TX 2026-10-31T13:26:42.953069] b'show logging process cmand module cpa_nb,cpa_sb,cia_env internal start last 120 seconds\r'
+show logging process cmand module cpa_nb,cpa_sb,cia_env internal s$g process cmand module cpa_nb,cpa_sb,cia_env internal st         art last cmand module cpa_nb,cpa_sb,cia_env internal start last 1         20 secondle cpa_nb,cpa_sb,cia_env internal start last 120 seconds         
+Logging display requested on 2026/10/31 13:26:42 (EDT) for Hostname: [CAT3875-G2], Model: [C8375-E-G2], Version: [26.02], SN: [FDO27380KFQ], MD_SN: [FDO2742M0FK]
+
+Displaying logs from the last 0 days, 0 hours, 2 minutes, 0 seconds
+executing cmd on chassis: local; rp slot: 0;  location: local ...
+Unified Decoder Library Init .. DONE
+Found 1 UTF Streams
+
+2026/10/31 13:24:45.957215397 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:24:45.957217634 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:24:45.957237868 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:24:45.957269766 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 2 bay 0
+2026/10/31 13:24:45.957270625 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 3 bay 0
+2026/10/31 13:24:45.957271185 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 4 bay 0
+2026/10/31 13:24:45.957271744 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 5 bay 0
+2026/10/31 13:24:45.957295858 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [FAILED]: cpa_sb_group_fan_algo_action_speed_control implementation is not found
+2026/10/31 13:24:45.957296400 {cmand_R0-0}{255}: [cia_env] [6282]: (ERR): CIA failed cpa fan speed control by action, err 95
+2026/10/31 13:24:46.486430277 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:24:46.486520224 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:24:46.486529510 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:24:46.486530936 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:24:46.486546599 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:24:51.270354599 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:24:51.486689466 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:24:51.486752048 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:24:51.486763780 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:24:51.486765382 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:24:51.486770647 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:24:56.489563152 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:24:56.489627849 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:24:56.489639071 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:24:56.489640505 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:24:56.489645570 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:01.277118053 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:25:01.489502466 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:01.489565976 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:01.489576889 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:01.489578281 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:01.489583455 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:06.485918353 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:06.485984110 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:06.485994698 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:06.485996082 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:06.486012495 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:11.286581126 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:25:11.486961992 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:11.487021521 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:11.487032492 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:11.487033955 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:11.487039216 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:15.955872493 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:15.955874661 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:15.955893175 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:15.955909918 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 2 bay 0
+2026/10/31 13:25:15.955910828 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 3 bay 0
+2026/10/31 13:25:15.955911440 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 4 bay 0
+2026/10/31 13:25:15.955912051 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 5 bay 0
+2026/10/31 13:25:15.955934843 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [FAILED]: cpa_sb_group_fan_algo_action_speed_control implementation is not found
+2026/10/31 13:25:15.955935382 {cmand_R0-0}{255}: [cia_env] [6282]: (ERR): CIA failed cpa fan speed control by action, err 95
+2026/10/31 13:25:16.488980495 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:16.489053433 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:16.489062326 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:16.489063628 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:16.489070154 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:21.293806399 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:25:21.486172380 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:21.486230359 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:21.486241149 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:21.486253876 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:21.486259184 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:26.489787456 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:26.489848278 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:26.489859246 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:26.489860811 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:26.489871119 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:31.298247162 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:25:31.490436467 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:31.490496801 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:31.490511033 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:31.490512406 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:31.490518000 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:36.490050510 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:36.490124056 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:36.490136197 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:36.490137556 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:36.490142632 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:41.314050751 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:25:41.490393810 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:41.490504602 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:41.490517354 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:41.490530742 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:41.490535997 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:45.954288567 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:45.954290670 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:45.954309925 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:45.954329350 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 2 bay 0
+2026/10/31 13:25:45.954330227 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 3 bay 0
+2026/10/31 13:25:45.954330805 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 4 bay 0
+2026/10/31 13:25:45.954331347 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 5 bay 0
+2026/10/31 13:25:45.954354047 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [FAILED]: cpa_sb_group_fan_algo_action_speed_control implementation is not found
+2026/10/31 13:25:45.954354584 {cmand_R0-0}{255}: [cia_env] [6282]: (ERR): CIA failed cpa fan speed control by action, err 95
+2026/10/31 13:25:46.491481491 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:46.491598412 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:46.491615413 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:46.491617047 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:46.491623226 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:51.322498960 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:25:51.490829077 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:51.490897716 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:51.490909965 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:51.490911364 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:51.490916638 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:56.493540808 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:25:56.493603837 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:25:56.493614325 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:56.493615716 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:25:56.493620800 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:01.331051375 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:26:01.491388133 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:26:01.491451596 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:01.491461481 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:01.491462952 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:01.491469064 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:06.493619034 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:26:06.493684794 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:06.493694897 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:06.493696106 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:06.493701138 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:11.333788200 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:26:11.494009104 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:26:11.494071940 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:11.494083468 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:11.494085236 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:11.494090496 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:15.957799471 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:15.957801141 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:15.957821363 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:15.957840473 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 2 bay 0
+2026/10/31 13:26:15.957841305 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 3 bay 0
+2026/10/31 13:26:15.957841870 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 4 bay 0
+2026/10/31 13:26:15.957842439 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [SLOT_OBJ]: Did not find slot_obj_id for slot_type 2 slot 5 bay 0
+2026/10/31 13:26:15.957881503 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [FAILED]: cpa_sb_group_fan_algo_action_speed_control implementation is not found
+2026/10/31 13:26:15.957882025 {cmand_R0-0}{255}: [cia_env] [6282]: (ERR): CIA failed cpa fan speed control by action, err 95
+2026/10/31 13:26:16.494573963 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:26:16.494633280 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:16.494646611 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:16.494648161 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:16.494653702 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:21.335295302 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:26:21.495651505 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:26:21.495734336 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:21.495745834 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:21.495747042 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:21.495752045 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:26.497540204 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:26:26.497627269 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:26.497637667 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:26.497638960 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:26.497655993 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:31.340452537 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:26:31.496773589 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:26:31.496834467 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:31.496845556 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:31.496850966 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:31.496856314 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:36.497629173 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:26:36.497687180 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:36.497697570 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:36.497699224 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:36.497705484 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:41.345787291 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 0 slot type is supervisor pd_type 0x1187
+2026/10/31 13:26:41.498156737 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_PD_TYPE_GET]: CPA SB PD_TYPE_GET slot 0 pd_type 0x1187
+2026/10/31 13:26:41.498221912 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 3 slot type is linecard pd_type 0x1187
+2026/10/31 13:26:41.498232419 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:41.498233954 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [INVALID]: No Group ID is found for location:6
+2026/10/31 13:26:41.498240067 {cmand_R0-0}{255}: [cpa_sb] [6282]: (note): [SB_SLOT_PRESENCE]: Presence access type is 0 for slot 6 slot type is linecard pd_type 0x1187
+===========================================================
+======= Unified Trace Decoder Information/Statistics ======
+===========================================================
+----------------- Decoder Input Information ---------------
+===========================================================
+ Num of Unique Streams .. 1
+ Total UTF To Process ... 2
+ Total UTM To Process ... 177776
+ UTM Process Filter ..... cmand
+ MRST Filter Rules ...... 3
+===========================================================
+----------------- Decoder Output Information --------------
+===========================================================
+ First UTM TimeStamp ............... 2025/05/29 15:23:43.343433118
+ Last UTM TimeStamp ................ 2026/10/31 13:26:41.698229158
+ UTM [Skipped / Rendered / Total] .. 177608 / 168 / 177776
+ UTM [ENCODED] ..................... 168
+ UTM [PLAIN TEXT] .................. 0
+ UTM [DYN LIB] ..................... 0
+ UTM [MODULE ID] ................... 0
+ UTM [TDL TAN] ..................... 152
+ UTM [APP CONTEXT] ................. 0
+ UTM [MARKER] ...................... 0
+ UTM [PCAP] ........................ 0
+ UTM [LUID NOT FOUND] .............. 0
+ UTM Level [EMERGENCY / ALERT / CRITICAL / ERROR] .. 0 / 0 / 0 / 80
+ UTM Level [WARNING / NOTICE / INFO / DEBUG] ....... 0 / 88 / 0 / 0
+ UTM Level [VERBOSE / NOISE / INVALID] ............. 0 / 0 / 0
+===========================================================
+
+CAT3875-G2#
+[TX 2026-10-31T13:30:28.677588] b'show platform hardware slot P2 ?'
+show platform hardware slot P2 ?
+  fan  Fan commands
+
+CAT3875-G2#show platform hardware slot P2 
+[TX 2026-10-31T13:30:49.519915] b'fan ?'
+
+[TX 2026-10-31T13:31:09.366146] b'\x03show platform hardware slot P2 fan ?\r'
+
+[TX 2026-10-31T13:31:33.683001] b'\x11\x03\rshow clock\r'

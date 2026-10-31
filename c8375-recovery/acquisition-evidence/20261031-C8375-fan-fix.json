@@ -1,0 +1,74 @@
+{
+  "task_id": "C8375-05",
+  "recorded_at": "2026-10-31T13:32:38.019595-04:00",
+  "timezone": "America/New_York",
+  "chassis": {
+    "tracking_label": "C8375-A",
+    "pid": "C8375-E-G2",
+    "serial": "FDO2742M0FK"
+  },
+  "status": "Fan cycling unresolved; supported-PSU comparison awaits hardware; read-only software diagnostics continue through owner SSH.",
+  "physical_state": "Same normally powered router; programming fixture removed; cooling assemblies never removed; battery reinstallation followed owner readiness; owner SSH active. No PSU removed or cable changed during this diagnostic capture.",
+  "owner_psu_label": {
+    "model": "PWR-CC1-250WAC",
+    "serial": "LIT2852A9TJ",
+    "provenance": "Owner read physical label; not inferred from software inventory.",
+    "supported_spare_available": false
+  },
+  "vendor_comparison": {
+    "c8375_e_g2_default_ac": "PWR-CC1-400WAC",
+    "c8375_e_g2_ac_poe_option": "PWR-CC1-760WAC",
+    "c8375_e_g2_dc_option": "PWR-CC1-500WDC",
+    "inference": "Installed 250WAC is absent from the published C8375 support list. Consistent with P0 Unknown/incompatible; does not establish the cause of fan cycling on this early board.",
+    "sources": [
+      "https://www.cisco.com/c/en/us/products/collateral/networking/sdwan-routers/8000-secure-routers/8000-secure-router-og.html",
+      "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/hardware_installation-guide/secure-8300-series-hig/install-fru-8300-series-secure-routers/remove-and-replace-the-power-supplies.html"
+    ]
+  },
+  "fresh_live_queries": [
+    "show version",
+    "show diag all eeprom",
+    "show environment all",
+    "show logging process cmand module cpa_nb,cpa_sb,cia_env internal start last 120 seconds",
+    "show platform hardware slot P2 ?"
+  ],
+  "observed": {
+    "ios_version": "26.02.1",
+    "install_image": "bootflash:packages.conf",
+    "uptime_minutes": 56,
+    "configuration_register": "0x1822",
+    "p0_eeprom_cli": "Power/Fan Module P0 EEPROM data is not initialized",
+    "eeprom_interpretation": "IOS did not provide identity data. This is not proof that the physical EEPROM is erased; no initialization or EEPROM write is selected.",
+    "fan_help": "Owner SSH confirms P2 fan subcommands: eeprom (SmartFan EEPROM data), status (Fan software status). Status output requested; no tuning command shown in this menu.",
+    "current_cmand_pid": 6282,
+    "fan_trace": [
+      "2026/10/31 13:24:45.957295858 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [FAILED]: cpa_sb_group_fan_algo_action_speed_control implementation is not found",
+      "2026/10/31 13:24:45.957296400 {cmand_R0-0}{255}: [cia_env] [6282]: (ERR): CIA failed cpa fan speed control by action, err 95",
+      "2026/10/31 13:25:15.955934843 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [FAILED]: cpa_sb_group_fan_algo_action_speed_control implementation is not found",
+      "2026/10/31 13:25:15.955935382 {cmand_R0-0}{255}: [cia_env] [6282]: (ERR): CIA failed cpa fan speed control by action, err 95",
+      "2026/10/31 13:25:45.954354047 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [FAILED]: cpa_sb_group_fan_algo_action_speed_control implementation is not found",
+      "2026/10/31 13:25:45.954354584 {cmand_R0-0}{255}: [cia_env] [6282]: (ERR): CIA failed cpa fan speed control by action, err 95",
+      "2026/10/31 13:26:15.957881503 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [FAILED]: cpa_sb_group_fan_algo_action_speed_control implementation is not found",
+      "2026/10/31 13:26:15.957882025 {cmand_R0-0}{255}: [cia_env] [6282]: (ERR): CIA failed cpa fan speed control by action, err 95"
+    ],
+    "trace_interpretation": "Four consecutive missing-implementation/error95 pairs approximately 30 seconds apart explain this logged error path. The hook may be optional on a fixed chassis. No time-correlated causal link to RPM surges is established."
+  },
+  "console": {
+    "path": "c8375-recovery/console-logs/20261031-132438-console.log",
+    "public_path": "sanitized-evidence/c8375-recovery/console-logs/20261031-132438-console.log",
+    "bytes": 34489,
+    "sha256": "f1a8f2dd178eef9950c2a0f16d1bdf3ba5f0d035fe3494cecf2eb18cb2d8cee2",
+    "settings": "115200/8N1/no flow",
+    "opened_at": "2026-10-31T13:24:58.153502-04:00",
+    "closed_at": "2026-10-31T13:32:38.019595-04:00",
+    "ownership": "lsof free and exclusive open before capture; exclusive bridge closed and lsof free afterwards.",
+    "limitation": "Initial commands and first P2 help reply succeeded. Subsequent help, Ctrl-C and one XON/show-clock attempt had no received output. Owner SSH subsequently responds to the fan-help query; this was a native-console-path interruption, not evidence of router halt."
+  },
+  "changes": "Read-only show/help plus terminal pagination setting only. No firmware, cooling policy, EEPROM, security-state, power or fan-register change; no new debug levels.",
+  "next_steps": [
+    "Inspect fan software status through owner SSH; establish a supported interface before considering any tuning.",
+    "When available, compare a known-good supported PWR-CC1-400WAC with all other firmware/configuration held constant. Follow single-PSU shutdown and AC-disconnection procedure before replacement.",
+    "Capture boot, PSU inventory/state and at least 45 minutes of comparable RPM/temperature/owner observations; separate power recognition from fan steadiness.",
+    "If cycling persists with a recognized supported supply, pursue IOS/platform/CPLD policy compatibility for the exact board; preserve current recovered boot baseline."
+  ]
+}
