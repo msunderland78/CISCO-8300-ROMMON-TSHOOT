@@ -303,6 +303,13 @@
         "sha256": "a7e42ed2e2886911748506858a90b8338df13d2b0daac8ae76c6e4fd2ee4d5cb"
       }
     ],
-    "changes": "Read-only identity check; no module/driver/firmware/configuration change."
+    "changes": "Read-only identity check; no module/driver/firmware/configuration change.",
+    "owner_removal_followup": {
+      "recorded_at": "2026-10-31T14:09:16.597924-04:00",
+      "source": "Owner message in current session",
+      "report": "Owner removed the NIM-2FXS/4FXO and acknowledges the supported listing calls for NIM-2FXS/4FXOP.",
+      "verification": "Owner-reported physical removal only. No post-removal SSH inventory or fan capture in this documentation update.",
+      "effect_on_fan_investigation": "Earlier temperature-band cycles preceded insertion; removal does not by itself establish a fan fix."
+    }
   }
 }
