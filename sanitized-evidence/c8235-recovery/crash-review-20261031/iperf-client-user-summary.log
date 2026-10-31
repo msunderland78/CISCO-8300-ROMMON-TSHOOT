@@ -1,0 +1,11 @@
+Derived excerpt from owner-pasted Mac Terminal output; not a native byte capture.
+
+Mac to Ubuntu:
+iperf3 -c 192.168.5.3 -B 192.168.83.50 -t 60 -i 5 --get-server-output
+[  4]   0.00-60.01  sec  6.58 GBytes   942 Mbits/sec   33            sender
+[  4]   0.00-60.04  sec  6.58 GBytes   941 Mbits/sec                  receiver
+
+Ubuntu to Mac:
+iperf3 -c 192.168.5.3 -B 192.168.83.50 -R -t 60 -i 5 --get-server-output
+[  4]   0.00-60.01  sec  6.50 GBytes   930 Mbits/sec  2169            sender
+[  4]   0.00-60.01  sec  6.49 GBytes   930 Mbits/sec                  receiver

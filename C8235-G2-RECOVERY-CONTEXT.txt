@@ -10,6 +10,41 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+ROUTED TCP BASELINE COMPLETE — 2026-10-31, 17:09 EDT
+Two60-second single-stream tests completed, Mac192.168.83.50 (iperf3 3.22)
+throughB to Ubuntu192.168.5.3 (3.20), with verified direct return route.
+- Mac->Ubuntu: sender942Mb/s, receiver941Mb/s,6.58GBytes printed,33retransmissions.
+- Ubuntu->Mac (-R): sender/receiver930Mb/s,6.50/6.49GBytes printed,2169retransmissions.
+Rates/units are rounded iperf output. Current port6 uplink is1Gb/s; port7
+client link2.5Gb/s. These do not establish a2.5/10Gb/s router ceiling.
+
+During each load sample QFP processing6%; CPP PID20844 unchanged, no missed
+keepalives, no port CRC/input/output errors or queue drops, no new interface
+reset/carrier event. Last full health sample17:07:09 F0/0/0ok, RPHealthy,
+memory20%,CPU52C,main12V12103mV,power17W; keepalives1275/1275,miss0. Later
+17:08:25 1313/1313,miss0. No NIX/ATTACH output in filtered kernel check.
+Old standby-sensor/TPM warnings remain unresolved. Reverse retransmissions
+are not located: late-run/post-run QFP-drop counts matched, but historical
+nonzero counts and later background TTL/IPv6 drops exist. Do not claim zero
+TCP loss or blame a particular device. Asked30s reverse comparison at850Mb/s;
+not observed starting by17:08:25. Longer idle/forwarding/cold-boot/soak gates
+remain incomplete; RAM-only correction and unsaved router test config remain.
+
+Owner pasted matching client results. Preserved verified server snapshots
+and explicitly derived client summary, in throughput-results.json and REVIEW.md.
+Separate attempted Ubuntu-client->Mac-server connection was refused before
+transfer; Mac was already running the requested reverse client. Retain this
+control mistake separately; it is not a failed forwarding benchmark.
+
+Closed router-console-logs/20261031-165917-console.log (43404B/hash inJSON).
+Fresh private live-console/20261031-170847-console.log is active/exclusive;
+brief rotation gap. One-shot Ctrl-C on next UUID banner is armed to stop
+post-reset autoboot; no reboot induced. No automatic periodic polling.
+Ubuntu iperf listener remains bounded until about17:27; direct server route
+remains runtime-only until cleanup/reboot. Current cabling/configuration stays.
+Next capture paced comparison if owner runs it, then address the1Gb/s uplink
+and repeatable corrected boots/longer acceptance gates without claiming recovery.
+
 AWAITING FIRST THROUGHPUT RUN — 2026-10-31, 17:01 EDT
 Mac owner confirms iperf3 3.22 and route to192.168.5.3 via192.168.83.1/en5.
 Ubuntu iperf3 3.20 still listening; no test connection observed yet. Requested

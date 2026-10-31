@@ -1,0 +1,255 @@
+{
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "timezone": "America/New_York",
+  "updated_at": "2026-10-31T17:09:25.799763-04:00",
+  "configuration": "performance-setup.json",
+  "path": {
+    "client": "Mac 192.168.83.50, iperf3 3.22",
+    "client_route": "owner verified gateway192.168.83.1/interface en5",
+    "router_client_port": "Tw0/0/7 at2500Mbps/full duplex",
+    "router_uplink": "Tw0/0/6 at1000Mbps/full duplex",
+    "server": "Ubuntu192.168.5.3, iperf3 3.20; VMware guest4logicalCPUs",
+    "server_return_route": "192.168.83.0/24 via192.168.5.4 devens192; verified",
+    "nat": false
+  },
+  "tests": [
+    {
+      "id": "mac_to_ubuntu",
+      "state": "completed; server receiver summary observed",
+      "command": "iperf3 -c 192.168.5.3 -B 192.168.83.50 -t 60 -i 5 --get-server-output",
+      "protocol": "TCP",
+      "streams": 1,
+      "requested_seconds": 60,
+      "server_summary_seconds": 60.04,
+      "receiver_mbps_rounded": 941,
+      "receiver_transfer_printed": "6.58 GBytes",
+      "progress_observed_at": "2026-10-31T17:02:08-04:00",
+      "completion_observed_at": "2026-10-31T17:02:21-04:00",
+      "intervals": "Twelve approximately5-second intervals at941-942Mbit/s; final0.04s tail918Mbit/s",
+      "sender_retransmits": 33,
+      "router_during_load": {
+        "qfp_processing_load_5sec_percent": 6,
+        "qfp_input_bps_5sec": 1005289168,
+        "qfp_output_bps_5sec": 1005642208,
+        "qfp_note": "Aggregates data and return/control traffic; not single-link payload bitrate",
+        "keepalive_tx": 1126,
+        "keepalive_rx": 1126,
+        "keepalive_miss": 0,
+        "cpp_pid": 20844,
+        "cpu_celsius": 52,
+        "inlet_celsius": 34,
+        "outlet_celsius": 33,
+        "main_12v_mv": 12107,
+        "power_watts": 17
+      },
+      "router_after": {
+        "keepalive_tx": 1138,
+        "keepalive_rx": 1138,
+        "keepalive_miss": 0,
+        "cpp_pid": 20844,
+        "port6": {
+          "rx_packets": 2436625,
+          "rx_bytes": 401682492,
+          "tx_packets": 4948112,
+          "tx_bytes": 7399932475,
+          "interface_resets": 3,
+          "lost_carrier": 2
+        },
+        "port7": {
+          "rx_packets": 4948988,
+          "rx_bytes": 7400009166,
+          "tx_packets": 2436074,
+          "tx_bytes": 401638196,
+          "interface_resets": 2,
+          "lost_carrier": 2
+        },
+        "both_ports": {
+          "crc": 0,
+          "input_errors": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "no_buffer": 0,
+          "underruns": 0
+        },
+        "new_interface_resets": 0,
+        "new_lost_carrier": 0
+      },
+      "server_snapshot": {
+        "path": "c8235-recovery/crash-review-20261031/iperf-upload-server-snapshot.log",
+        "bytes": 1844,
+        "sha256": "cce52cb53064b808129d8e88715a8c28c05f2ff649749961b38d12135fb4c1d8",
+        "remote_snapshot_readback_match": true,
+        "scope": "Complete first test plus start and first5-second interval of second test; this partial second interval is not its final result."
+      },
+      "sender_mbps_rounded": 942,
+      "client_reported_sender_seconds": 60.01,
+      "client_reported_receiver_seconds": 60.04,
+      "client_reported_receiver_mbps": 941,
+      "sender_retransmission_interval": "33 in10.01-15.01s; zero in other reported intervals"
+    },
+    {
+      "id": "ubuntu_to_mac",
+      "state": "Completed; server and user-supplied Mac sender/receiver summaries agree",
+      "command": "iperf3 -c 192.168.5.3 -B 192.168.83.50 -R -t 60 -i 5 --get-server-output",
+      "protocol": "TCP",
+      "streams": 1,
+      "requested_seconds": 60,
+      "intermediate_observation": {
+        "elapsed_seconds": 40.01,
+        "interval_mbps_range": [
+          922,
+          933
+        ],
+        "sender_retransmits": "Present throughout; final total pending"
+      },
+      "server_summary_seconds": 60.01,
+      "sender_mbps_rounded": 930,
+      "sender_transfer_printed": "6.50 GBytes",
+      "sender_retransmits": 2169,
+      "completion_observed_at": "2026-10-31T17:04:53-04:00",
+      "intervals": "Twelve approximately5-second intervals at922-933Mbit/s; retransmits present in every interval",
+      "router_during_load": {
+        "qfp_processing_load_5sec_percent": 6,
+        "qfp_input_bps_5sec": 977801232,
+        "qfp_output_bps_5sec": 977969832,
+        "keepalive_tx": 1186,
+        "keepalive_rx": 1186,
+        "keepalive_miss": 0,
+        "cpp_pid": 20844
+      },
+      "router_after": {
+        "keepalive_tx": 1207,
+        "keepalive_rx": 1207,
+        "keepalive_miss": 0,
+        "cpp_pid": 20844,
+        "port6": {
+          "rx_packets": 7254189,
+          "rx_bytes": 7694338445,
+          "tx_packets": 5349299,
+          "tx_bytes": 7427111841,
+          "interface_resets": 3,
+          "lost_carrier": 2
+        },
+        "port7": {
+          "rx_packets": 5350218,
+          "rx_bytes": 7427191228,
+          "tx_packets": 7253355,
+          "tx_bytes": 7694273287,
+          "interface_resets": 2,
+          "lost_carrier": 2
+        },
+        "both_ports": {
+          "crc": 0,
+          "input_errors": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "no_buffer": 0,
+          "underruns": 0
+        },
+        "new_interface_resets": 0,
+        "new_lost_carrier": 0
+      },
+      "qfp_drop_observation": {
+        "late_run_and_post_run_counts_equal": true,
+        "packets": {
+          "Disabled": 8,
+          "IpTtlExceeded": 54,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 17,
+          "UnconfiguredIpv6Fia": 107
+        },
+        "limitation": "First QFP-drop sample was late in this run, not before it. These are cumulative nonzero counts, not proof of zero historical drops. No congestion/buffer-drop counter was shown."
+      },
+      "client_reported_receiver_mbps": 930,
+      "client_reported_receiver_seconds": 60.01,
+      "client_reported_receiver_transfer": "6.49 GBytes"
+    },
+    {
+      "id": "ubuntu_to_mac_paced850",
+      "state": "Requested; no third test connection observed as of17:08:25 EDT",
+      "command": "iperf3 -c 192.168.5.3 -B 192.168.83.50 -R -b 850M -t 30 -i 5 --get-server-output",
+      "protocol": "TCP",
+      "streams": 1,
+      "requested_seconds": 30,
+      "target_mbps": 850,
+      "purpose": "Compare retransmissions below current uplink saturation; does not identify physical drop location alone",
+      "pretrial_qfp_drops": {
+        "host_time": "2026-10-31T17:05:47-04:00",
+        "Disabled": 8,
+        "IpTtlExceeded": 56,
+        "Ipv4NoRoute": 77,
+        "Ipv6NoRoute": 17,
+        "UnconfiguredIpv6Fia": 108
+      }
+    }
+  ],
+  "limitations": [
+    "Limited by current1Gb/s uplink; does not measure2.5G/10G router ceiling",
+    "A60-second single-direction test is not the60-minute forwarding acceptance gate",
+    "Cumulative port counters were not cleared and include other traffic",
+    "Temporary RAM-only boot correction; no persistent recovery/cold-boot/overnight pass",
+    "Existing standby-sensor/TPM warnings unresolved"
+  ],
+  "validation": "Server observed connection from192.168.83.50; full60-second receiver summary and router port-byte increases support transit path; no CPP restart/missed keepalive/error-counter increase in samples.",
+  "failed_control_attempt": {
+    "owner_report": "Mac is listening",
+    "interpretation": "Agent attempted a separate Ubuntu client to Mac server; Mac was actually already running the reverse client test as proven by Ubuntu log",
+    "command": "iperf3 -c 192.168.83.50 -B 192.168.5.3 -t 60 -i 5 -J --get-server-output --connect-timeout 5000",
+    "result": "Connection refused immediately; zero interval/transfer result; not a router forwarding failure",
+    "private_json": "Ubuntu state directory ubuntu-to-mac.json; SSH log20261031-170401-180448-ssh.log",
+    "action": "No repeat; observe existing reverse test"
+  },
+  "interpretation": "Basic routed forwarding demonstrated in both directions near current1Gb/s link capacity without CPP restart, missed keepalives or port-error increase in samples. Reverse TCP retransmissions unresolved; separate rate-limited comparison requested. No hardware-loss location proven.",
+  "server_two_test_snapshot": {
+    "path": "c8235-recovery/crash-review-20261031/iperf-two-tests-server-snapshot.log",
+    "bytes": 3054,
+    "sha256": "057b57c0816c472e5b2dfa79adb6f2722bfa90f63dc9ee4498cf1a4417710507",
+    "remote_snapshot_readback_match": true,
+    "scope": "Complete tests1 and2 plus listening banner for test3; no third connection in this snapshot"
+  },
+  "client_summary_provenance": "Owner pasted full Mac Terminal output in conversation; selected summary rows transcribed into the derived excerpt below. This is not a byte-for-byte native terminal capture.",
+  "client_summary_excerpt": {
+    "path": "c8235-recovery/crash-review-20261031/iperf-client-user-summary.log",
+    "sha256": "430b45264fb8337de8d3dad0f318b3b5bc443c19abe0b2cc08bca5abe5504b5d",
+    "bytes": 568,
+    "derived": true
+  },
+  "final_health_so_far": {
+    "host_sample": "2026-10-31T17:07:09-04:00",
+    "F0": "ok, active",
+    "subslot_0_0": "ok",
+    "keepalive_tx": 1275,
+    "keepalive_rx": 1275,
+    "keepalive_miss": 0,
+    "cpp_pid": 20844,
+    "filtered_NIX_ATTACH_output": "none",
+    "RP": "Healthy",
+    "memory_used_percent": 20,
+    "cpu_celsius": 52,
+    "main_12v_mv": 12103,
+    "power_watts": 17
+  },
+  "router_capture": {
+    "path": "router-console-logs/20261031-165917-console.log",
+    "bytes": 43404,
+    "sha256": "1cdfdd976fd276ae13b9cef89995e19aaa0b564b9b878d9eb7d877430bd3e88e",
+    "closed": true,
+    "private_copy_equality": true
+  },
+  "last_observed_at": "2026-10-31T17:08:25-04:00",
+  "last_keepalive": {
+    "tx": 1313,
+    "rx": 1313,
+    "miss": 0
+  },
+  "qfp_drop_background_note": "Outside the completed tests, cumulative IpTtlExceeded and UnconfiguredIpv6Fia counts continued to rise under background traffic. These are not attributed to the TCP test; do not claim all QFP drops are zero.",
+  "active_followup_capture": {
+    "private_path": ".git/recovery-private/c8235-analysis-20261031/live-console/20261031-170847-console.log",
+    "started_at": "2026-10-31T17:08:47-04:00",
+    "state": "open, exclusive console owner",
+    "polling": "Passive capture plus explicit queries; no automatic periodic polling",
+    "one_shot_reboot_stop": "Armed Ctrl-C on next UUID Len: 0xC banner to stop autoboot after a reset; no reset induced",
+    "rotation_note": "Previous43404-byte capture closed/preserved; brief descriptor gap before this new capture"
+  }
+}

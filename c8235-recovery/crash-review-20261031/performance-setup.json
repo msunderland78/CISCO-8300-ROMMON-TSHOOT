@@ -2,8 +2,8 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "updated_at": "2026-10-31T17:01:46.577069-04:00",
-  "status": "Router configuration/live links/DHCP/reachability and both iperf endpoints prepared; first 60-second test requested, no test connection observed yet",
+  "updated_at": "2026-10-31T17:09:25.799763-04:00",
+  "status": "Configuration remains active; both60-second TCP directions completed near1Gb/s; reverse retransmissions unresolved; paced comparison pending",
   "owner_confirmation": "Same powered router; cover/cooling/battery unchanged; USB/console attached; exclusive console; prior 6-to-7 loopback cable removed.",
   "upstream_return_route": {
     "gateway": "192.168.5.1",
@@ -174,10 +174,10 @@
     "default_route_in_rib": true
   },
   "handoff": {
-    "capture": "Fresh private console capture active from16:59:17; this is console owner. Prior configuration/live-link captures closed and published sanitized.",
+    "capture": "16:59:17 capture closed/preserved; fresh exclusive private capture active from17:08:47, one-shot reboot stop armed",
     "power": "on; same corrected IOS",
     "connections": "Power/console/USB plus 5 network on port6 and 83 network on port7; owner confirms upstream route added",
-    "benchmark": "Mac iperf3 3.22 and route via83.1/en5 confirmed by owner; first bounded test command supplied; server has not observed a test connection.",
+    "benchmark": "Completed Mac->Ubuntu receiver941Mb/s/33sender retrans; Ubuntu->Mac receiver930Mb/s/2169sender retrans. Further paced comparison pending.",
     "ubuntu_server": "Bounded iperf3 server active on192.168.5.3:5201, automatic stop around17:27 EDT; runtime direct route remains until explicit cleanup/server reboot",
     "persistence": "Router test settings not saved to startup; RAM boot correction lost on reboot; Ubuntu packages installed, test service not enabled"
   },
@@ -333,15 +333,19 @@
     "private_path": ".git/recovery-private/c8235-analysis-20261031/live-console/20261031-165917-console.log",
     "started_at": "2026-10-31T16:59:17-04:00",
     "mode": "Passive serial capture; explicit CLI health/counter samples; no automatic periodic polling",
-    "closed": false
+    "closed": true,
+    "preserved_as": {
+      "path": "router-console-logs/20261031-165917-console.log",
+      "bytes": 43404,
+      "sha256": "1cdfdd976fd276ae13b9cef89995e19aaa0b564b9b878d9eb7d877430bd3e88e",
+      "closed": true,
+      "private_copy_equality": true
+    }
   },
   "next_test": {
-    "state": "requested from Mac operator, not observed starting yet",
-    "command": "iperf3 -c 192.168.5.3 -B 192.168.83.50 -t 60 -i 5 --get-server-output",
-    "parallel_streams": 1,
-    "duration_seconds": 60,
-    "direction": "Mac to Ubuntu",
-    "followup": "Capture results, reverse direction, then additional load/gates as justified"
+    "state": "Requested; not observed starting by17:08:25 EDT",
+    "command": "iperf3 -c 192.168.5.3 -B 192.168.83.50 -R -b 850M -t 30 -i 5 --get-server-output",
+    "purpose": "Check retransmission sensitivity to load"
   },
   "pre_test_sample": {
     "keepalive_tx": 1041,
@@ -369,5 +373,14 @@
       "output_errors": 0
     },
     "note": "Cumulative, not cleared. Includes earlier loopback and background client traffic; not an iperf result."
+  },
+  "throughput_results": "c8235-recovery/crash-review-20261031/throughput-results.json",
+  "active_followup_capture": {
+    "private_path": ".git/recovery-private/c8235-analysis-20261031/live-console/20261031-170847-console.log",
+    "started_at": "2026-10-31T17:08:47-04:00",
+    "state": "open, exclusive console owner",
+    "polling": "Passive capture plus explicit queries; no automatic periodic polling",
+    "one_shot_reboot_stop": "Armed Ctrl-C on next UUID Len: 0xC banner to stop autoboot after a reset; no reset induced",
+    "rotation_note": "Previous43404-byte capture closed/preserved; brief descriptor gap before this new capture"
   }
 }
