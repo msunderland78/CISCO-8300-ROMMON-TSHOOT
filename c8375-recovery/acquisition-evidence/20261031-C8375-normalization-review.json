@@ -232,7 +232,9 @@
       ],
       "status": "Offline-only unapproved intermediate lead; no flash, authentication, or compatibility conclusion."
     },
-    "interpretation": "All identifiedraws containobserveddifferentTIMheaderwords. FilenameRSA2K/RSA4KlabelsandmatchingSoC/size are not sufficient compatibility/authentication evidence. Staged17.15CRESTONEpayload extracted offline and retainedprivate/unapproved; no upload/write."
+    "interpretation": "All identifiedraws containobserveddifferentTIMheaderwords. FilenameRSA2K/RSA4KlabelsandmatchingSoC/size are not sufficient compatibility/authentication evidence. Staged17.15CRESTONEpayload extracted offline and retainedprivate/unapproved; no upload/write.",
+    "staged_capsule_prefix_version": "v17.15(1.13d).s2.cp.RSA2K",
+    "staged_version_limit": "Not the publishedminimum17.15(3.2r).s2.cp; no safebridge inference."
   },
   "production_compatibility_source": {
     "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html",
@@ -246,5 +248,9 @@
     "Resolvebootmeasurement/CPUUUIDintegrationwithcorrectboardfirmware; liveSUDIsigningdoesnotexplainChipGuardwarningbyitself.",
     "RetainEDACworkarounduntilthereisavendor-supportedfirmware/driverfixoradiscriminatingmaintenanceplan; donotre-enableknowncrashingdriverasroutinevalidation.",
     "Afteraboundedvalidatedupgradepath, recheckautomaticcoldboot,measurements,fanbehavior andcontrolledport/forwardingtests."
-  ]
+  ],
+  "production_core_count_confirmation": {
+    "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/software-config-guide/secure-8300-series-scg/overview.html",
+    "finding": "Cisco model table lists C8375-E-G2 as16core,16/32GB memory; current16corecount matches production corecount. Current8GiB differs from published memory options; physical topology/compatibility unresolved."
+  }
 }

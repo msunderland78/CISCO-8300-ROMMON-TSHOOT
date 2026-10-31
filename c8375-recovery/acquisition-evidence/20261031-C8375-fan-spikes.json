@@ -1,0 +1,524 @@
+{
+  "task_id": "C8375-03 / C8375-04",
+  "chassis": "C8375-A/FDO2742M0FK",
+  "date": "2026-10-31",
+  "timezone": "America/New_York",
+  "recorded_at": "2026-10-31T13:00:04.760542-04:00",
+  "status": "Delayed fan spikes reproduced after successful firmware restoration/IOS boot; controller cause unresolved, watch continuing.",
+  "owner_events": [
+    {
+      "host_recorded_at": "2026-10-31T12:53:31.393591-04:00",
+      "owner_report": "fan just spiked",
+      "telemetry_state": "Capturing fresh environmental/alarm/log readings; cause not established.",
+      "owner_followup": "it speeds up pretty high and then slows back down again ... about15to20seconds",
+      "fresh_capture": "All three P2fans11760/11820/11820RPM at12:53:31EDT, CPU38C, all listed sensorstatesNormal; subsequent12:53:58sample6000/6060/5880RPM, CPU36C. R0/F0online, no reboot, no new fan/temperature alarm in filteredlog."
+    },
+    {
+      "host_recorded_at": "2026-10-31T12:56:59.056024-04:00",
+      "owner_report": "just happened again",
+      "interpretation": "Second owner-reported spike; correlate with fresh telemetry before assigning cause."
+    },
+    {
+      "host_recorded_at": "2026-10-31T13:00:42.978474-04:00",
+      "owner_report": "happened again",
+      "interpretation": "Third owner-reported spike; fresh telemetry requested."
+    },
+    {
+      "host_recorded_at": "2026-10-31T13:03:11.427706-04:00",
+      "owner_report": "happening now",
+      "interpretation": "Fourth report; fresh environment and scopeddebugtrace requested."
+    }
+  ],
+  "baseline": "Chassis fans roughly5280-5400RPM, CPU38-39C afterwarmup; owner allgreenlights/steadylow initially.",
+  "observed_high_samples": [
+    {
+      "host_command_time": "2026-10-31T12:53:31.429038",
+      "fans": [
+        {
+          "fan": 0,
+          "state": "Normal",
+          "rpm": 11760
+        },
+        {
+          "fan": 1,
+          "state": "Normal",
+          "rpm": 11820
+        },
+        {
+          "fan": 2,
+          "state": "Normal",
+          "rpm": 11820
+        }
+      ],
+      "cpu_state": "Normal",
+      "cpu_celsius": 38,
+      "temperatures": {
+        "Inlet 1": {
+          "state": "Normal",
+          "celsius": 27
+        },
+        "Inlet 2": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 1": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 2": {
+          "state": "Normal",
+          "celsius": 30
+        },
+        "CPU": {
+          "state": "Normal",
+          "celsius": 38
+        },
+        "Working": {
+          "state": "Normal",
+          "celsius": 27
+        }
+      },
+      "power_watts": {
+        "R0": 35,
+        "P2": 4
+      },
+      "voltage_12v_mv": 12194,
+      "all_sensor_states_normal": true
+    },
+    {
+      "host_command_time": "2026-10-31T12:53:38.814427",
+      "fans": [
+        {
+          "fan": 0,
+          "state": "Normal",
+          "rpm": 11760
+        },
+        {
+          "fan": 1,
+          "state": "Normal",
+          "rpm": 11820
+        },
+        {
+          "fan": 2,
+          "state": "Normal",
+          "rpm": 11820
+        }
+      ],
+      "cpu_state": "Normal",
+      "cpu_celsius": 38,
+      "temperatures": {
+        "Inlet 1": {
+          "state": "Normal",
+          "celsius": 27
+        },
+        "Inlet 2": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 1": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 2": {
+          "state": "Normal",
+          "celsius": 30
+        },
+        "CPU": {
+          "state": "Normal",
+          "celsius": 38
+        },
+        "Working": {
+          "state": "Normal",
+          "celsius": 27
+        }
+      },
+      "power_watts": {
+        "R0": 35,
+        "P2": 4
+      },
+      "voltage_12v_mv": 12194,
+      "all_sensor_states_normal": true
+    },
+    {
+      "host_command_time": "2026-10-31T12:57:06.480720",
+      "fans": [
+        {
+          "fan": 0,
+          "state": "Normal",
+          "rpm": 11760
+        },
+        {
+          "fan": 1,
+          "state": "Normal",
+          "rpm": 11820
+        },
+        {
+          "fan": 2,
+          "state": "Normal",
+          "rpm": 11820
+        }
+      ],
+      "cpu_state": "Normal",
+      "cpu_celsius": 38,
+      "temperatures": {
+        "Inlet 1": {
+          "state": "Normal",
+          "celsius": 27
+        },
+        "Inlet 2": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 1": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 2": {
+          "state": "Normal",
+          "celsius": 30
+        },
+        "CPU": {
+          "state": "Normal",
+          "celsius": 38
+        },
+        "Working": {
+          "state": "Normal",
+          "celsius": 27
+        }
+      },
+      "power_watts": {
+        "R0": 35,
+        "P2": 4
+      },
+      "voltage_12v_mv": 12190,
+      "all_sensor_states_normal": true
+    },
+    {
+      "host_command_time": "2026-10-31T12:57:09.589198",
+      "fans": [
+        {
+          "fan": 0,
+          "state": "Normal",
+          "rpm": 11760
+        },
+        {
+          "fan": 1,
+          "state": "Normal",
+          "rpm": 11820
+        },
+        {
+          "fan": 2,
+          "state": "Normal",
+          "rpm": 11820
+        }
+      ],
+      "cpu_state": "Normal",
+      "cpu_celsius": 38,
+      "temperatures": {
+        "Inlet 1": {
+          "state": "Normal",
+          "celsius": 27
+        },
+        "Inlet 2": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 1": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 2": {
+          "state": "Normal",
+          "celsius": 30
+        },
+        "CPU": {
+          "state": "Normal",
+          "celsius": 38
+        },
+        "Working": {
+          "state": "Normal",
+          "celsius": 27
+        }
+      },
+      "power_watts": {
+        "R0": 35,
+        "P2": 4
+      },
+      "voltage_12v_mv": 12190,
+      "all_sensor_states_normal": true
+    },
+    {
+      "host_command_time": "2026-10-31T12:57:12.697944",
+      "fans": [
+        {
+          "fan": 0,
+          "state": "Normal",
+          "rpm": 11760
+        },
+        {
+          "fan": 1,
+          "state": "Normal",
+          "rpm": 11820
+        },
+        {
+          "fan": 2,
+          "state": "Normal",
+          "rpm": 11820
+        }
+      ],
+      "cpu_state": "Normal",
+      "cpu_celsius": 38,
+      "temperatures": {
+        "Inlet 1": {
+          "state": "Normal",
+          "celsius": 27
+        },
+        "Inlet 2": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 1": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 2": {
+          "state": "Normal",
+          "celsius": 30
+        },
+        "CPU": {
+          "state": "Normal",
+          "celsius": 38
+        },
+        "Working": {
+          "state": "Normal",
+          "celsius": 27
+        }
+      },
+      "power_watts": {
+        "R0": 35,
+        "P2": 4
+      },
+      "voltage_12v_mv": 12190,
+      "all_sensor_states_normal": true
+    },
+    {
+      "host_command_time": "2026-10-31T12:57:15.804233",
+      "fans": [
+        {
+          "fan": 0,
+          "state": "Normal",
+          "rpm": 11760
+        },
+        {
+          "fan": 1,
+          "state": "Normal",
+          "rpm": 11820
+        },
+        {
+          "fan": 2,
+          "state": "Normal",
+          "rpm": 11820
+        }
+      ],
+      "cpu_state": "Normal",
+      "cpu_celsius": 38,
+      "temperatures": {
+        "Inlet 1": {
+          "state": "Normal",
+          "celsius": 27
+        },
+        "Inlet 2": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 1": {
+          "state": "Normal",
+          "celsius": 26
+        },
+        "Outlet 2": {
+          "state": "Normal",
+          "celsius": 30
+        },
+        "CPU": {
+          "state": "Normal",
+          "celsius": 38
+        },
+        "Working": {
+          "state": "Normal",
+          "celsius": 27
+        }
+      },
+      "power_watts": {
+        "R0": 35,
+        "P2": 4
+      },
+      "voltage_12v_mv": 12190,
+      "all_sensor_states_normal": true
+    }
+  ],
+  "first_event_sample": {
+    "host_command_time": "2026-10-31T12:53:31.429038",
+    "fan_rpm": [
+      11760,
+      11820,
+      11820
+    ],
+    "cpu_celsius": 38,
+    "inlet1_celsius": 27,
+    "inlet2_celsius": 26,
+    "outlet1_celsius": 26,
+    "outlet2_celsius": 30,
+    "working_celsius": 27,
+    "voltage_12v_mv": 12194,
+    "r0_watts": 35,
+    "p2_watts": 4,
+    "all_sensor_states": "Normal"
+  },
+  "later_slowing_sample": {
+    "host_command_time": "2026-10-31T12:53:58.923087",
+    "fan_rpm": [
+      6000,
+      6060,
+      5880
+    ],
+    "cpu_celsius": 36,
+    "p2_watts": 1
+  },
+  "platform_during_event": "IOSresponsive; R0/F0active andbuilt-in0/0ok; no reboot. P0Unknown/incompatible/P1empty persist. Filteredalarm/logcheckaddsno newfan/temperaturealarm.",
+  "runtime_sensor_tables": {
+    "sensor_poll_milliseconds": 20000,
+    "cpu_normal_celsius": [
+      -4,
+      94
+    ],
+    "cpu_critical_min_celsius": 95,
+    "inlet1_normal_celsius": [
+      -2,
+      39
+    ],
+    "inlet1_minor_celsius": [
+      40,
+      41
+    ],
+    "inlet1_critical_min_celsius": 42,
+    "fan0_normal_rpm": [
+      2001,
+      27499
+    ],
+    "fan0_low_minor_max_rpm": 2000,
+    "fan0_high_minor_min_rpm": 27500,
+    "fan0_state_history": "No recorded state change in query; bothlow/highRPMremainNormal.",
+    "distinction": "Thesearealarmstateboundaries, not identifiedfanPWMtargets/hysteresis/dwelltimes. Normalstatusdoesnotestablishthatfancontrolisinappropriate."
+  },
+  "documentation_correction": "Modelguide saysenvironmentalreportsupdateevery60seconds; actualcurrentCPU/inlet/fan0tablesreportPoll20000ms. Currentruntime20secondvalue takesprecedence forthisfixture; cachedreadscanrepeat and do notprove exact physicaleventduration.",
+  "other_observations": {
+    "environment_counters": "Shutdown Override is on; Platform trace off; Reminder trace off;28activesensors,0restarted/cancelled/nullstates. No change issued; meaningofShutdownOverridefieldunresolved.",
+    "sensor_producer_consumer": "Producerallshowsfresh19:17:54routerclockdata including11820RPM; consumerallretainsboot18:49:44values including5340RPM. Thisisobservednotdiagnosed; consumermayupdateonstatechange. Do notinferstalecontrolbugwithoutsemantics.",
+    "cman_statistics": "CMAN IPC/register/inventory/chasfsTRUE; messageserror0; onechasfseventerrorreported, causeunspecified.",
+    "running_config_filter": "No line returned for thermal|fan|environment. Doesnotproveabsenceofinternalcontrols.",
+    "sampling": "20secondwatch; afterspikes, bounded~3secondqueryburst for~125seconds, thenresumeuntiloriginal45minwindowend.",
+    "audible_source": "AllthreechassisfanRPMsverifiedspiking;PSUfantelemetryunavailable."
+  },
+  "offline_vendor_inspection": "Extracted selectedunchangedfan/status/managerlibrariesfrominstalled26.2.1monopackage privately. SymbolnamesconfirmfanPWM/controlcurveandtimerlogicexists; noactualsupportedtuninginterfaceor safevaluesestablished. Vendorcodewasnotrun/imported.",
+  "commands": [
+    "show environment all",
+    "show platform",
+    "show facility-alarm status",
+    "show logging | include FAN|ENVIRONMENTAL|PEM|CMRP|POWER|TEMP",
+    "show environment table \"Temp: CPU\"",
+    "show environment table \"Temp: Inlet 1\"",
+    "show environment table \"RPM: fan0\"",
+    "show environment history \"RPM: fan0\"",
+    "show environment counters",
+    "show platform hardware slot R0 sensor producer all",
+    "show platform hardware slot R0 sensor consumer all",
+    "show platform software cman statistics"
+  ],
+  "raw_log": "c8375-recovery/console-logs/20261031-122359-console.log",
+  "public_log": "sanitized-evidence/c8375-recovery/console-logs/20261031-122359-console.log",
+  "next": "Observeadditionalcycles, obtainread-onlyfan-policy/chasfs/traceevidenceandphysicalPSUidentityifvisible; establishcontrolowner before anytuning. No fanoverride, PWMwrite, thermalthresholdchange orfirmwarewrite.",
+  "trace_window": {
+    "started_at": "2026-10-31T13:02:57.509416-04:00",
+    "planned_restore_at": "2026-10-31T13:09:57.509416-04:00",
+    "process": "chassis-manager",
+    "slot": "R0",
+    "modules": [
+      "env",
+      "pfu",
+      "cmand"
+    ],
+    "baseline_levels": {
+      "env": "Notice",
+      "pfu": "Notice",
+      "cmand": "Notice"
+    },
+    "requested_levels": "Debug",
+    "status": "Restored and independently verified through recovered nativeUSB console",
+    "restore_commands": [
+      "set platform software trace chassis-manager R0 env notice",
+      "set platform software trace chassis-manager R0 pfu notice",
+      "set platform software trace chassis-manager R0 cmand notice"
+    ],
+    "scope": "Only binary trace logging. No fan/PWM/temperature/thermalshutdown policy or firmware changes.",
+    "owner_restore_report": "I pasted them",
+    "owner_restore_report_at": "2026-10-31T13:07:31.905969-04:00",
+    "restored_verified_at": "2026-10-31T13:08:29.746372-04:00",
+    "verified_levels": {
+      "cmand": "Notice",
+      "env": "Notice",
+      "pfu": "Notice"
+    },
+    "console_issue": "Unbounded internal reverse-log decoder read retained historical records; interrupted read-only display and recovered prompt. No firmware operation was interrupted. Owner also pasted restore commands through SSH.",
+    "historical_log_limit": "Retained cmand records have incorrect/router times beyond currentbootclock; no oldfancontrolerror assigned as cause of current spikes."
+  },
+  "trace_level_evidence": [
+    {
+      "preceding_host_command": "2026-10-31T13:00:28.726892",
+      "module": "cmand",
+      "level": "Notice"
+    },
+    {
+      "preceding_host_command": "2026-10-31T13:00:28.726892",
+      "module": "env",
+      "level": "Notice"
+    },
+    {
+      "preceding_host_command": "2026-10-31T13:00:28.726892",
+      "module": "pfu",
+      "level": "Notice"
+    },
+    {
+      "preceding_host_command": "2026-10-31T13:02:56.331831",
+      "module": "cmand",
+      "level": "Debug"
+    },
+    {
+      "preceding_host_command": "2026-10-31T13:02:56.331831",
+      "module": "env",
+      "level": "Debug"
+    },
+    {
+      "preceding_host_command": "2026-10-31T13:02:56.331831",
+      "module": "pfu",
+      "level": "Debug"
+    },
+    {
+      "preceding_host_command": "2026-10-31T13:08:17.093639",
+      "module": "cmand",
+      "level": "Notice"
+    },
+    {
+      "preceding_host_command": "2026-10-31T13:08:17.093639",
+      "module": "env",
+      "level": "Notice"
+    },
+    {
+      "preceding_host_command": "2026-10-31T13:08:17.093639",
+      "module": "pfu",
+      "level": "Notice"
+    }
+  ],
+  "monitoring_gap": "Read-only reverse-log decoding occupied nativeUSB console after13:03:10; fresh environmental samples resume13:08:17. Raw console capture continued, but environmental query coverage was interrupted. Owner SSH remained usable; no router reboot performed.",
+  "live_event_update": "Fourth owner report13:03:11corroboratedbyfan11820/11880/11760RPM,CPU37C andNormalstates. Third owner report13:00:42 remainsseparatefromtelemetry; contemporaneouscachedsample5400RPM.",
+  "historical_trace_limit": "Unbounded decodedtrace included olderretainedcmandentries withrouterclock22:xxbeyondcurrentboot19:xx, includingerror95fancontrolfailures. Theseareunassignedhistoricalleads, not evidenceoflivecause. Large readonlydecodewasinterrupted; promptrecovered. Alltemporaryloglevelsrestored/verifiedbeforeplanneddeadline."
+}
