@@ -369,5 +369,30 @@
       }
     ],
     "hardware_overview_source": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/hardware_installation-guide/secure-8300-series-hig/overview-8300-series-secure-routers/hardware-features-of-cisco-8300-series-secure-routers.html"
+  },
+  "session_context_audit": {
+    "recorded_at": "2026-10-31T15:48:12.307174-04:00",
+    "scope": "Repository/local evidence audit only; no router connection, hardware test or firmware/configuration action.",
+    "reviewed_prior_commit": "7fe0ac9165e4f968e6446ac81210542259645acb",
+    "coverage_index": "C8375-G2-RECOVERY-CONTEXT.md#october-31-session-coverage",
+    "coverage": "Material actions, measurements, commands, decisions, intermediate failures, results, current state, corrections and next work; not a verbatim conversation archive.",
+    "checks": {
+      "today_evidence_json_files": 13,
+      "manifest_included_files_hashed": 388,
+      "manifest_mismatches": 0,
+      "today_raw_console_captures_with_sanitized_counterpart": 5,
+      "explicit_local_source_files_present": 35,
+      "explicit_sha256_reference_checks": 39,
+      "explicit_sha256_mismatches": 0,
+      "unresolved_explicit_local_path_references": 0,
+      "original_restore_bytes": 33554432,
+      "original_restore_sha256_matches": true,
+      "credentials_file_mode": "0600",
+      "private_parent_mode": "0700",
+      "credentials_tracked": false
+    },
+    "publication_boundary": "Original raw/private configurations, access credentials and private analysis remain local. Generated sanitized counterparts are public; unknown binary secret-detection limitations remain documented.",
+    "current_state_is_last_observed": "17.15.6/IMG C; original developmentROMMON; same250WPSU P1/incompatible/P0blank; routeron andfansunresolved; agentcapturesclosed.",
+    "next": "Offline firmware ownership/initialization comparison; no new firmware write selected. Reconfirm physical state/ownership before future live work."
   }
 }

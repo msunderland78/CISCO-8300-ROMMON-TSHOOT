@@ -4,6 +4,26 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
+AUDITED RESUME CHECKPOINT 15:48 EDT -- supersedes old current/pending labels.
+C8375-A/FDO2742M0FK: last observed ON with normal cover/cooling/blanks fitted,
+programming fixture removed. Same250W PSU now P1/incompatible, P0 blank fitted.
+Exact originalU2 restore/full readback verified; original developmentROMMON v9.2.1.
+CurrentIOS17.15.6 installmode IMG C, committed15:20:35 and coldbootverified;
+BOOTpackages.conf/confreg0x1822,16CPU/EDACblacklist retained. Stay17.15.6 per owner.
+Do NOT resume old rollback plan;26.2.1 recovery files/privateconfigs retained.
+Fan cycling unresolved across bothIOS and bothPSUslots. No validated EEM/quiet
+control.400W comparison unperformed/no spare; cure not established most likely.
+Measured0x003f is NIOSversion only; ENVMCUversion/policyownership unknown.
+ROMMON remains a possible initialization/compatibility contributor, unproven.
+No TPM bypass established or unique/security data changed. U1 not written;
+its new accurate independent full acquisition remains unresolved. Non-PNIM
+removed, blank fitted. AgentSSH/serial closed; ownerSSH untouched.
+SSH credentials local only: .git/recovery-private/c8375-router.env, mode0600.
+Next: offline exactSoC2 initialization/fan-policy mapping, no flash selected.
+All-day evidence index: C8375-G2-RECOVERY-CONTEXT.md, October31sessioncoverage.
+Audit: restorehash/matrix/manifest/source-retention checked; no router access.
+Older dated entries below retain intermediate failures and superseded plans.
+
 FAN FIRMWARE LAYER REVIEW 15:42 EDT: Offline only; no router action/flash.
 IOS supplies host environment/CPA/NIOS software. Hardware exposes controller
 state; complete effective fan-policy image/storage/load path remains unmapped.
