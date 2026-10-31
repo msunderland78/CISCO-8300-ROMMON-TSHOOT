@@ -338,11 +338,11 @@
     "environment_snapshot": "All listed sensors Normal; CPU31C; inlet22/23C; fan0/1/2 each5340RPM.",
     "remaining": "P0 Unknown/incompatible and P1empty persist; alarm table5critical: missingPSUbay1 plus4physicalportlinksdown. MissingPoE/transceivers informational. Historical ChipGuard UUID warning and unsupportedVDSP-CC also recur. RouterclockMay29,2025 incorrect.",
     "limitations": "Initial recovery milestone only; no new traffic test or extended stability qualification. Current audible fan behavior/STATUS follow-up pending. NativeUSB brief startup pause resolved without cable switch.",
-    "owner_followup": "All lights green; all fans currently steady low speed. Owner requests checking delayed cycling seen before. Fifteen-minute host-timed environmental/uptime sampling started around12:32EDT; result pending.",
-    "remaining_followup": "Extended fan observation running; P0incompatible/P1empty and other documented alarms persist."
+    "owner_followup": "OwnerSSHloginworks/alllightsgreen. Recurrentfanrisesconfirmedanddocumentedseparatelyafter45minwatch; temporarydiagnosticloggingfullyrestored.",
+    "remaining_followup": "Bootrecoveryverified; fansteadinessnotpassed. Currentcmandfan-controlstatus95andP0incompatible requirefurtherinvestigation; no newfirmwarecandidateestablished."
   },
   "fan_followup": {
-    "status": "45-minute extended watch running from around12:35EDT, planned end around13:20EDT.",
+    "status": "45minwatchcomplete; repeatedspikes5280-11880RPM. See20261031-C8375-fan-spikes.json and20261031-C8375-fan-telemetry.json.",
     "reason": "Owner uncertain prior cycling began5-15min or30min+; asks to monitor. Owner proposes ramp timing changes if cycling returns.",
     "sampling": "Read-only show environment all and uptime every20seconds; raw console capture retained. CLI sensor cache may refresh more slowly. No fan-control/thermal setting changed.",
     "documentation": [
@@ -358,5 +358,12 @@
     "inference": "No documented user ramp-time command found in reviewed model guides/search. This is not proof that firmware has no internal fan policy; hysteresis/dwell adjustment remains conditional on establishing cycling cause and a verified control interface.",
     "limitations": "Repeated cached readings are not independent physical samples; cannot exclude short audible surges. Owner audible observations separate. PSUincompatible remains a possible correlate, not established fan-cycling cause."
   },
-  "verification_scope_note": "The exact72fc3f full readback proves post-program original equality before fixture removal. Subsequent authorized ROMMON confreg0x1822/sync changes saved monitor settings; no later whole-array original-hash claim is made."
+  "verification_scope_note": "The exact72fc3f full readback proves post-program original equality before fixture removal. Subsequent authorized ROMMON confreg0x1822/sync changes saved monitor settings; no later whole-array original-hash claim is made.",
+  "handoff": {
+    "at": "2026-10-31T13:21:37.161832-04:00",
+    "router": "Poweredon,IOS26.2.1installmode,51minuptime,R0/F0active",
+    "console": "AgentnativeUSBcaptureclosed/portfree; ownerSSHworking",
+    "trace_levels": "env/pfu/cmandNotice",
+    "pending": "Fancontrol/PSU/productionROMMONcompatibility; independentaccurateU1backupstillnotobtained."
+  }
 }

@@ -24925,3 +24925,1592 @@ show logging process cmand start ?
 CAT3875-G2#show logging process cmand start                                  
 CAT3875-G2#show platform software process list R0 | include cmand
 cmand                   6282    6275      6282  S               20  34928       
+CAT3875-G2#show clock
+*17:10:38.431 UTC Sat Oct 31 2026
+CAT3875-G2#
+[TX 2026-10-31T13:10:48.049894] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12202 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          792 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5400 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 42 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:11:08.156721] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12198 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1797 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          33 Watts
+ P: Power                P2              Normal          0 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 42 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:11:28.408407] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          28 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          28 Celsius
+ V: 12V                  R0              Normal          12194 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1797 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          0 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 42 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:11:48.519649] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12186 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1797 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          849 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          37 Watts
+ P: Power                P2              Normal          4 Watts
+ RPM: fan0               P2              Normal          11820 RPM
+ RPM: fan1               P2              Normal          11820 RPM
+ RPM: fan2               P2              Normal          11820 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 43 minutes
+CAT3875-G2#
+*Oct 31 17:11:51.931: %SYS-4-INSECURE_WARNING: Module: NTP - Command: ntp server vrf Mgmt-intf 192.168.3.10 - Reason: NTP configuration lacks authentication, allowing potential time manipulation attacks - Remediation: Configure a valid auth key and make it trusted using the command - ntp trusted-key - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+CAT3875-G2#
+[TX 2026-10-31T13:12:02.841295] b'show logging process cmand start last ?\x15\rshow logging process cmand start timestamp ?\x15\rshow logging process cmand metadata ?\x15\r'
+show logging process cmand start last ?
+  <0-4294967295>  interval (default seconds)
+  boot            system boot time
+  clear           display all logs since last "clear logging"
+  marker          selects latest matching marker from list to start displaying
+                  logs from
+
+CAT3875-G2#show logging process cmand start last                                       
+CAT3875-G2#show logging process cmand start timestamp ?
+  WORD  eg. "2017/02/10 14:41:50.849425" - must be in UTC
+
+CAT3875-G2#show logging process cmand start timestamp                                            
+CAT3875-G2#show logging process cmand metadata ?
+  to-file  decode files stored in disk and write output to file
+  |        Output modifiers
+  <cr>     <cr>
+
+CAT3875-G2#show logging process cmand metadata                                     
+CAT3875-G2#
+[TX 2026-10-31T13:12:08.629412] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          36 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12194 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          849 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          6000 RPM
+ RPM: fan1               P2              Normal          6060 RPM
+ RPM: fan2               P2              Normal          5940 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 43 minutes
+CAT3875-G2#
+*Oct 31 17:12:18.603: %SYS-6-CLOCKUPDATE: System clock has been updated from 17:12:18 UTC Sat Oct 31 2026 to 12:12:18 EST Sat Oct 31 2026, configured from console by admin on vty0 (192.168.5.104).
+CAT3875-G2#
+[TX 2026-10-31T13:12:24.661865] b'show logging process cmand module pfu,env,cmand internal start last 60 seconds\r'
+show logging process cmand module pfu,env,cmand internal start las$g process cmand module pfu,env,cmand internal start last          60 seconcmand module pfu,env,cmand internal start last 60 second         s
+Logging display requested on 2026/10/31 12:12:24 (EST) for Hostname: [CAT3875-G2], Model: [C8375-E-G2], Version: [26.02], SN: [FDO27380KFQ], MD_SN: [FDO2742M0FK]
+
+Displaying logs from the last 0 days, 0 hours, 1 minutes, 0 seconds
+executing cmd on chassis: local; rp slot: 0;  location: local ...
+Unified Decoder Library Init .. DONE
+Found 1 UTF Streams
+
+2026/10/31 12:11:26.370760064 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:11:26.370763485 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:11:26.370770458 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:26.370772915 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:11:26.370820998 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:11:26.370977504 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:11:26.370981797 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:11:26.370994696 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:26.370995096 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:11:26.370995309 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:11:30.926224261 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld chassis
+2026/10/31 12:11:30.926225831 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia chassis
+2026/10/31 12:11:30.926226233 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:11:30.926226618 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:11:30.926228896 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:11:30.926229113 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:11:30.926250640 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:11:30.926250923 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:11:31.370731668 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:11:31.370734789 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:11:31.370740406 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:31.370743638 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:11:31.370786171 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:11:31.370923906 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:11:31.370928102 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:11:31.370940671 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:31.370940978 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:11:31.370941185 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:11:35.873852831 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld ehsa state
+2026/10/31 12:11:36.370637160 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:11:36.370640470 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:11:36.370646900 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:36.370649025 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:11:36.370693939 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:11:36.370824862 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:11:36.370829172 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:11:36.370843060 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:36.370843388 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:11:36.370843615 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:11:40.929759934 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld chassis
+2026/10/31 12:11:40.929761617 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia chassis
+2026/10/31 12:11:40.929762041 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:11:40.929762385 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:11:40.929774977 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:11:40.929775200 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:11:40.929796081 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:11:40.929796280 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:11:41.370246376 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:11:41.370249841 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:11:41.370256416 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:41.370260075 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:11:41.370311014 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:11:41.370447074 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:11:41.370451595 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:11:41.370464606 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:41.370465039 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:11:41.370465241 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:11:45.952979266 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld ehsa state
+2026/10/31 12:11:45.952983137 {cmand_R0-0}{255}: [cmand] [6282]: (note): Periodic fan ctrl action local_fan_action 0, remote_fan_action 0
+2026/10/31 12:11:45.952983818 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld ehsa state
+2026/10/31 12:11:45.952984269 {cmand_R0-0}{255}: [cmand] [6282]: (note): Periodic fan ctrl action setting to fan trays on modularchassis
+2026/10/31 12:11:45.953122326 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): error action fan speed control for modular chassis status 95
+2026/10/31 12:11:45.953122696 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Periodic fan ctrl action in modular chassis failed, err 95
+2026/10/31 12:11:46.373744503 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:11:46.373747756 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:11:46.373753704 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:46.373756380 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:11:46.373802935 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:11:46.373927461 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:11:46.373932197 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:11:46.373945496 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:46.373956549 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:11:46.373956751 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:11:50.934028201 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld chassis
+2026/10/31 12:11:50.934030068 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia chassis
+2026/10/31 12:11:50.934030485 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:11:50.934030824 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:11:50.934032578 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:11:50.934032771 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:11:50.934054381 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:11:50.934054591 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:11:51.374595644 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:11:51.374598738 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:11:51.374605352 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:51.374609261 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:11:51.374657116 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:11:51.374790288 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:11:51.374794710 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:11:51.374808585 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:51.374809065 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:11:51.374809263 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:11:56.374242596 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:11:56.374245991 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:11:56.374252755 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:56.374266952 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:11:56.374314141 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:11:56.374460769 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:11:56.374464807 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:11:56.374479043 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:11:56.374479432 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:11:56.374479641 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:12:00.938498103 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld chassis
+2026/10/31 12:12:00.938499820 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia chassis
+2026/10/31 12:12:00.938500242 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:12:00.938500596 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:12:00.938503192 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:12:00.938503387 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:12:00.938531511 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:12:00.938531710 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:12:01.375059172 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:12:01.375063393 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:12:01.375071592 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:12:01.375074207 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:12:01.375126454 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:12:01.375330623 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:12:01.375335015 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:12:01.375348914 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:12:01.375349227 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:12:01.375349424 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:12:05.874701529 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld ehsa state
+2026/10/31 12:12:06.375560456 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:12:06.375564115 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:12:06.375571075 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:12:06.375574856 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:12:06.375621262 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:12:06.375765363 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:12:06.375769903 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:12:06.375783252 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:12:06.375794168 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:12:06.375794374 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:12:10.944180847 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld chassis
+2026/10/31 12:12:10.944182522 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia chassis
+2026/10/31 12:12:10.944182846 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:12:10.944183188 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:12:10.944185550 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:12:10.944185748 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:12:10.944208137 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:12:10.944208335 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:12:11.376377433 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:12:11.376381096 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:12:11.376389055 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:12:11.376392725 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:12:11.376442020 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:12:11.376585917 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:12:11.376590539 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:12:11.376604541 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:12:11.376604928 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:12:11.376605133 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:12:15.950408982 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld ehsa state
+2026/10/31 12:12:15.950412606 {cmand_R0-0}{255}: [cmand] [6282]: (note): Periodic fan ctrl action local_fan_action 0, remote_fan_action 0
+2026/10/31 12:12:15.950473340 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld ehsa state
+2026/10/31 12:12:15.950474019 {cmand_R0-0}{255}: [cmand] [6282]: (note): Periodic fan ctrl action setting to fan trays on modularchassis
+2026/10/31 12:12:15.950551779 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): error action fan speed control for modular chassis status 95
+2026/10/31 12:12:15.950552071 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Periodic fan ctrl action in modular chassis failed, err 95
+2026/10/31 12:12:16.375389171 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:12:16.375393004 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:12:16.375399396 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:12:16.375402955 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:12:16.375447498 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:12:16.375791454 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:12:16.375795847 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:12:16.375810087 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:12:16.375810500 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:12:16.375810700 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+2026/10/31 12:12:20.951256620 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld chassis
+2026/10/31 12:12:20.951258153 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia chassis
+2026/10/31 12:12:20.951258648 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:12:20.951258990 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:12:20.951260688 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:12:20.951260884 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:12:20.951281568 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld fru detect
+2026/10/31 12:12:20.951281771 {cmand_R0-0}{255}: [cmand] [6282]: (note): Entered: cman cpld cia card detect
+2026/10/31 12:12:21.375662720 {cmand_R0-0}{255}: [cmand] [6282]: (note): In cman envmon cia system led timer handler
+2026/10/31 12:12:21.375665546 {cmand_R0-0}{255}: [cmand] [6282]: (note): cman envmon get system led slot 0
+2026/10/31 12:12:21.375671654 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:12:21.375674561 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current state of ssd LED with error:Invalid argument
+2026/10/31 12:12:21.375721981 {cmand_R0-0}{255}: [cmand] [6282]: (ERR):  Failed to retrieve cc/1
+2026/10/31 12:12:21.375870032 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get power redundancy state
+2026/10/31 12:12:21.375874853 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): No logo led in the system, rc 0
+2026/10/31 12:12:21.375889604 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to get current color of system LED with error:Invalid argument
+2026/10/31 12:12:21.375889910 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed to set system LED with error:Invalid argument
+2026/10/31 12:12:21.375890107 {cmand_R0-0}{255}: [cmand] [6282]: (ERR): Failed in handling system LED
+===========================================================
+======= Unified Trace Decoder Information/Statistics ======
+===========================================================
+----------------- Decoder Input Information ---------------
+===========================================================
+ Num of Unique Streams .. 1
+ Total UTF To Process ... 1
+ Total UTM To Process ... 71997
+ UTM Process Filter ..... cmand
+ MRST Filter Rules ...... 3
+===========================================================
+----------------- Decoder Output Information --------------
+===========================================================
+ First UTM TimeStamp ............... 2025/05/29 14:23:43.343433118
+ Last UTM TimeStamp ................ 2026/10/31 12:12:23.786868672
+ UTM [Skipped / Rendered / Total] .. 71815 / 182 / 71997
+ UTM [ENCODED] ..................... 182
+ UTM [PLAIN TEXT] .................. 0
+ UTM [DYN LIB] ..................... 0
+ UTM [MODULE ID] ................... 0
+ UTM [TDL TAN] ..................... 64
+ UTM [APP CONTEXT] ................. 0
+ UTM [MARKER] ...................... 0
+ UTM [PCAP] ........................ 0
+ UTM [LUID NOT FOUND] .............. 0
+ UTM Level [EMERGENCY / ALERT / CRITICAL / ERROR] .. 0 / 0 / 0 / 100
+ UTM Level [WARNING / NOTICE / INFO / DEBUG] ....... 0 / 82 / 0 / 0
+ UTM Level [VERBOSE / NOISE / INVALID] ............. 0 / 0 / 0
+===========================================================
+
+CAT3875-G2#
+*Oct 31 17:12:26.731: %SYS-6-CLOCKUPDATE: System clock has been updated from 12:12:26 EST Sat Oct 31 2026 to 13:12:26 EDT Sat Oct 31 2026, configured from console by admin on vty0 (192.168.5.104).
+CAT3875-G2#
+[TX 2026-10-31T13:12:28.894494] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12198 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1797 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1207 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          790 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 43 minutes
+CAT3875-G2#
+*Oct 31 17:12:37.563: %SYS-5-CONFIG_I: Configured from console by admin on vty0 (192.168.5.104)
+CAT3875-G2#
+[TX 2026-10-31T13:12:49.001343] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12198 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1797 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          792 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          33 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 44 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:13:09.109562] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12202 mV
+ V: 5V                   R0              Normal          4987 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          796 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          799 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          34 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 44 minutes
+CAT3875-G2#
+*Oct 31 17:13:16.252: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+CAT3875-G2#
+*Oct 31 17:13:24.834: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+CAT3875-G2#
+[TX 2026-10-31T13:13:29.375267] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12206 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          790 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5400 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 44 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:13:49.482269] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12194 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          33 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 45 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:14:09.591420] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12194 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          0 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 45 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:14:29.847634] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12194 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1102 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          849 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          36 Watts
+ P: Power                P2              Normal          4 Watts
+ RPM: fan0               P2              Normal          11760 RPM
+ RPM: fan1               P2              Normal          11880 RPM
+ RPM: fan2               P2              Normal          11820 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 45 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:14:49.954988] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          36 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12198 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          796 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          6000 RPM
+ RPM: fan1               P2              Normal          6060 RPM
+ RPM: fan2               P2              Normal          5940 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 46 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:14:51.267573] b'show environment all\rshow platform hardware slot R0 sensor producer 74\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          36 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12198 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          796 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          6000 RPM
+ RPM: fan1               P2              Normal          6060 RPM
+ RPM: fan2               P2              Normal          5940 RPM
+
+
+CAT3875-G2#show platform hardware slot R0 sensor producer 74
+Name: Temp: CPU
+Data: 36     State: 1
+Last Poll Time: 10/31/26 13:14:35
+
+State       Low      High     Margin   Poll   Remind   Action    Alarm     
+-------------------------------------------------------------------------
+Critical_L  -214748  -5       0        0      60       Record    Critical  
+Normal      -4       94       0        0      60       None      None      
+Critical    95       2147483  0        0      60       Record    Critical  
+
+CAT3875-G2#
+[TX 2026-10-31T13:15:10.061458] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12206 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3339 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2497 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          796 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          0 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 46 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:15:30.329512] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12206 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          795 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          33 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5400 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 46 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:15:50.439104] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12202 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          796 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 47 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:16:10.546517] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12194 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 47 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:16:30.833930] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12198 mV
+ V: 5V                   R0              Normal          4985 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          33 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5400 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 47 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:16:50.941351] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          28 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          28 Celsius
+ V: 12V                  R0              Normal          12190 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1797 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          795 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          33 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 48 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:17:11.051329] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12194 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          995 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          792 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          34 Watts
+ P: Power                P2              Normal          3 Watts
+ RPM: fan0               P2              Normal          11820 RPM
+ RPM: fan1               P2              Normal          11820 RPM
+ RPM: fan2               P2              Normal          11760 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 48 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:17:31.325928] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          36 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12194 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2497 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          792 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          6000 RPM
+ RPM: fan1               P2              Normal          6060 RPM
+ RPM: fan2               P2              Normal          6000 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 48 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:17:51.433660] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12206 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          792 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          33 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 49 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:18:11.539978] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12206 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3310 mV
+ V: 2.5V                 R0              Normal          2497 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1102 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          830 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          849 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 49 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:18:31.819567] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12210 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          795 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 50 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:18:51.927574] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12194 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3311 mV
+ V: 3.3V_USB             R0              Normal          3310 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1797 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 50 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:19:12.035707] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          28 Celsius
+ Temp: Inlet 2           R0              Normal          27 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          38 Celsius
+ Temp: Working           R0              Normal          28 Celsius
+ V: 12V                  R0              Normal          12202 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2497 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          792 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 50 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:19:32.307076] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12202 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3310 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          790 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          36 Watts
+ P: Power                P2              Normal          4 Watts
+ RPM: fan0               P2              Normal          11820 RPM
+ RPM: fan1               P2              Normal          11880 RPM
+ RPM: fan2               P2              Normal          11820 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 51 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:19:52.414117] b'show environment all\rshow version | include uptime\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          36 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12194 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2497 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          792 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          33 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          6000 RPM
+ RPM: fan1               P2              Normal          6060 RPM
+ RPM: fan2               P2              Normal          6000 RPM
+
+
+CAT3875-G2#show version | include uptime
+CAT3875-G2 uptime is 51 minutes
+CAT3875-G2#
+[TX 2026-10-31T13:20:17.415228] b'show version\rshow platform\rshow environment all\rshow platform software status control-processor brief\rshow platform software trace level chassis-manager R0\r'
+show version
+Cisco IOS XE Software, Version 26.02.01
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT3875-G2 uptime is 51 minutes
+Uptime for this control processor is 53 minutes
+System returned to ROM by Reload Command
+System image file is "bootflash:packages.conf"
+Last reload reason: Reload Command
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Perpetual    essentials         essentials        
+
+The current crypto throughput level is 250000 kbps (Aggregate) 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3692651K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT3875-G2#show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:52:26      
+ 0/0      4M-2xSFP+           ok                    00:51:25      
+1         C8375-E-G2          ok                    00:52:26      
+R0        C8375-E-G2          ok, active            00:52:26      
+F0        C8375-E-G2          ok, active            00:52:26      
+P0        Unknown             incompatible          00:51:41      
+P1        Unknown             empty                 never         
+P2        C8300-FAN-1R        ok                    00:51:41      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT3875-G2#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          27 Celsius
+ Temp: Inlet 2           R0              Normal          26 Celsius
+ Temp: Outlet 1          R0              Normal          27 Celsius
+ Temp: Outlet 2          R0              Normal          30 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          27 Celsius
+ V: 12V                  R0              Normal          12198 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2497 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1196 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          32 Watts
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5400 RPM
+ RPM: fan2               P2              Normal          5340 RPM
+
+
+CAT3875-G2#show platform software status control-processor brief
+Load Average
+ Slot  Status  1-Min  5-Min 15-Min
+  RP0 Healthy   5.22   5.19   4.65
+
+Memory (kB)
+ Slot  Status    Total     Used (Pct)     Free (Pct) Committed (Pct)
+  RP0 Healthy  7904552  4513112 (57%)  3391440 (43%)   3468752 (44%)
+
+CPU Utilization
+ Slot  CPU   User System   Nice   Idle    IRQ   SIRQ IOwait
+  RP0    0   1.10   2.10   0.00  96.40   0.40   0.00   0.00
+         1  12.88  10.18   0.00  74.02   2.89   0.00   0.00
+         2  11.38   9.49   0.00  76.22   2.89   0.00   0.00
+         3  12.11  11.81   0.00  73.27   2.80   0.00   0.00
+         4  13.38  12.98   0.00  70.82   2.79   0.00   0.00
+         5  14.08  11.68   0.00  71.32   2.89   0.00   0.00
+         6  12.98  11.08   0.00  73.02   2.89   0.00   0.00
+         7  13.80  11.50   0.00  71.80   2.90   0.00   0.00
+         8  13.20  12.20   0.00  71.70   2.90   0.00   0.00
+         9  12.70  11.80   0.00  72.60   2.90   0.00   0.00
+        10  14.81  12.61   0.00  69.76   2.80   0.00   0.00
+        11  25.37  20.07   0.00  51.64   2.89   0.00   0.00
+        12  37.50  31.20   0.00  29.30   2.00   0.00   0.00
+        13  14.00  12.70   0.00  70.40   2.90   0.00   0.00
+        14  15.18  11.88   0.00  70.32   2.59   0.00   0.00
+        15   4.40  13.50   0.00  78.90   3.20   0.00   0.00
+
+CAT3875-G2#show platform software trace level chassis-manager R0
+Module Name                     Trace Level      
+-----------------------------------------------
+bcrpgc                          Informational    
+bipc                            Notice           
+bsignal                         Notice           
+btrace                          Notice           
+btrace_ra                       Notice           
+cc_sm                           Notice           
+cdllib                          Notice           
+chasfs                          Notice           
+chasutil                        Notice           
+cia_bootstrap                   Notice           
+cia_button                      Notice           
+cia_cache                       Notice           
+cia_card                        Notice           
+cia_data                        Notice           
+cia_ehsa                        Notice           
+cia_env                         Notice           
+cia_fpd                         Notice           
+cia_fru                         Notice           
+cia_idprom                      Notice           
+cia_led                         Notice           
+cia_mgmt_port                   Notice           
+cia_pfu                         Notice           
+cia_platcap                     Notice           
+cia_plattimer                   Notice           
+cia_pwr_mgmt                    Notice           
+cia_tamper                      Notice           
+cia_timing_card                 Notice           
+cia_usb                         Notice           
+cli                             Notice           
+cmand                           Notice           
+cmanlib                         Notice           
+cmlib_msgs                      Notice           
+cmlib_util                      Notice           
+cpa_nb                          Notice           
+cpa_sb                          Notice           
+cpld                            Notice           
+cyan                            Notice           
+dashfpga                        Notice           
+env                             Notice           
+envlib                          Notice           
+errmsg                          Notice           
+evlib                           Notice           
+evutil                          Notice           
+flash                           Notice           
+fp_sm                           Notice           
+gold                            Notice           
+hwlib                           Notice           
+i2c                             Notice           
+idprom                          Notice           
+kgv_events                      Notice           
+lua-helper                      Notice           
+master_sm                       Notice           
+mqipc                           Notice           
+ngmod-common                    Notice           
+obfl-cli                        Notice           
+obfl-temp                       Notice           
+obfl-upt                        Notice           
+obfl-volt                       Notice           
+oir                             Notice           
+orchestrator                    Notice           
+orchestrator-lua                Notice           
+pfu                             Notice           
+portmap                         Notice           
+power                           Notice           
+sc-inv                          Notice           
+serdes                          Notice           
+services                        Notice           
+sw_wdog                         Notice           
+syshw                           Notice           
+tam_svcs                        Notice           
+tdl_cdlcore                     Notice           
+tdl_cm_c2w                      Notice           
+tdl_cm_common                   Notice           
+tdl_cm_env_monitor              Notice           
+tdl_cm_ios_rf                   Notice           
+tdl_cm_oir                      Notice           
+tdl_cm_psu                      Notice           
+tdl_cm_qos                      Notice           
+tdl_cm_reg                      Notice           
+tdl_cmrp_msgs                   Notice           
+tdl_mcp_diag_test               Notice           
+tdl_netclk                      Notice           
+tdl_sed                         Notice           
+tdl_tam_svcs                    Notice           
+tdl_tamper                      Notice           
+tdl_ui                          Notice           
+tdl_uipeer_comm_ui              Notice           
+tdllib                          Notice           
+uihandler                       Notice           
+uipeer                          Notice           
+uistatus                        Notice           
+vft                             Notice           
+wanpll                          Notice           
+
+CAT3875-G2#

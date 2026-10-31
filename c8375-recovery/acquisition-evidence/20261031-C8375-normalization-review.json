@@ -252,5 +252,21 @@
   "production_core_count_confirmation": {
     "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/software-config-guide/secure-8300-series-scg/overview.html",
     "finding": "Cisco model table lists C8375-E-G2 as16core,16/32GB memory; current16corecount matches production corecount. Current8GiB differs from published memory options; physical topology/compatibility unresolved."
-  }
+  },
+  "fan_followup": "45-minute watch completed with repeatedverifiedfanRPMspikes. See20261031-C8375-fan-spikes.json andtelemetryJSON; nofanpolicychanges.",
+  "current_trace_followup": {
+    "command": "show logging process cmand module pfu,env,cmand internal start last 60 seconds",
+    "live_process_identity": "show platform software process list R0 identifies current cmand PID6282; new scoped decode includes cmand records [6282] datedOctober31. Olderretainedrecords[6335]/May29 remainseparate.",
+    "result": "182currenttrace rows; periodic fan-control action for modular chassis reports status95/err95 twice in60seconds; repeatedFailedtogetpowerredundancystate/retrievecc/1 andLEDInvalidargument also appear.",
+    "fan_messages": [
+      "Periodic fan ctrl action local_fan_action 0, remote_fan_action 0",
+      "Periodic fan ctrl action setting to fan trays on modularchassis",
+      "error action fan speed control for modular chassis status 95",
+      "Periodic fan ctrl action in modular chassis failed, err 95"
+    ],
+    "scope": "Currentcontrollerpathfailureobserved; no causallinktotimeofspikeestablished. Genericoptionaloperationsmayreturnunsupported; vendorstatusmeaningstillrequiresconfirmation. Do notclaimchangingramptimewillfixit.",
+    "clock_reconciliation": "showclockat13:10hostshowsOct31,2026UTC; decoder renderedlocal12:11-12:12 underEST. At13:12:26hostlogrecordsowneradmin/vty0changingESTtoEDT. UsehostUTC-offsettimestamps, explicitrenderingandprocessidentityratherthanassumingrouterclockunchanged.",
+    "restoration": "Temporaryenv/pfu/cmandDebuglevelsrestoredandindependentlyverifiedNotice13:08:29EDT, beforeplanned13:09:57deadline."
+  },
+  "handoff": "RouterleftpoweredwithworkingIOS/ownerSSH; allselectedtracelevelsNotice; agentnativeUSBcaptureclosedcleanly. Productionfirmwarecompatibility/PSU/fancontrolcausesremainunresolved."
 }

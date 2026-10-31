@@ -76,7 +76,7 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
-      "bytes": 2353643,
+      "bytes": 2455805,
       "path": "c8375-recovery/console-logs/20261031-122359-console.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
@@ -843,14 +843,14 @@
       "sha256": "a620ae4c1c77cf0394d4a133419d3196d84b95294653508ece4838a2f7689598"
     },
     {
-      "bytes": 26555,
+      "bytes": 27324,
       "path": "C8375-E-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "527ff1adfcd60c1f9d6e431aeedc24f4b3e0e67fcf806b94e124a4a7f2100b35"
+      "sha256": "9b2a6ffd9163017736c0cb875ac0ddff2e4f02a4cbcc92a838d43cefebcae51c"
     },
     {
-      "bytes": 172375,
+      "bytes": 173855,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "b922e1009c0291e482b05c773a54fd6d445f2c14b7535435964217f384a9530d"
+      "sha256": "b3fcc608f6f1c8eb445f9e839b680dcf2f026e46180f904423614902af74e238"
     },
     {
       "bytes": 1992,
@@ -1018,9 +1018,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 23282,
+      "bytes": 23367,
       "path": "README.md",
-      "sha256": "b325c1aff152782f48f17872cc9f0c9ac7535ee8d332171f0d01d5b05a300b7e"
+      "sha256": "3cda959ab7b437f0ec1551625fab1ace3803000eabc0ee6fb8e6c38dbce2f2b1"
     },
     {
       "bytes": 3934,
@@ -1118,9 +1118,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 282261,
+      "bytes": 283855,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "fba06ba0718eb56b3a815051e70a135b472b145912e3887d56cde701ecba5666"
+      "sha256": "4166f54b50a3eb7393907c84ede3b9e5d88ff90987374a39de53def29fc2cdaf"
     },
     {
       "bytes": 6850655,
@@ -1263,9 +1263,9 @@
       "sha256": "b956ba64ffee87007fc6dff503cd9a35445721114d9c0368b20ef24c0b1615d9"
     },
     {
-      "bytes": 118524,
+      "bytes": 119959,
       "path": "c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md",
-      "sha256": "e302931cada41874ee048c33ecfd599d1b49cca49e5f6511104d3969a8f95655"
+      "sha256": "8199d2546530b29435446c76998075402ac3e98a35266b55b612c20d5d77178b"
     },
     {
       "bytes": 22807,
@@ -1493,19 +1493,24 @@
       "sha256": "0605e92a1e48e4aea2837e182d5a573093ccb0454c8a3abef4eff32e3d6e67df"
     },
     {
-      "bytes": 15683,
+      "bytes": 27858,
       "path": "c8375-recovery/acquisition-evidence/20261031-C8375-fan-spikes.json",
-      "sha256": "f41ee47bc987c640e5a802cfd553fbd16d0b3a4b9ae730e38e13d5de2b3b6373"
+      "sha256": "96a360bb242ddf5b62ba43f88fe9429a31823de3adc55cf57c4a7d5e618abd80"
     },
     {
-      "bytes": 13045,
+      "bytes": 185649,
+      "path": "c8375-recovery/acquisition-evidence/20261031-C8375-fan-telemetry.json",
+      "sha256": "d44d21a98212d07865ad2bd2bb46ca83cc7ace00cfaabf05418a99d30c9d50dd"
+    },
+    {
+      "bytes": 14908,
       "path": "c8375-recovery/acquisition-evidence/20261031-C8375-normalization-review.json",
-      "sha256": "84126a51889b0c600ce1874b7af70ecaae27912a0813150ed2f3c29deaa50e27"
+      "sha256": "96a3ddbe73e08b19458859b4c42a8f51ad0facec01018c4fbbd9b33e65d72bdb"
     },
     {
-      "bytes": 17395,
+      "bytes": 17799,
       "path": "c8375-recovery/acquisition-evidence/20261031-Pi5-U2-original-restore.json",
-      "sha256": "92d45c05d55f99422bb0c0d29d7bd0f2fec589ac9a851903a7e8636379b54759"
+      "sha256": "013bcfdf123fe9e8d233c60d0a7cc13cb9f665512180b50b4dc64a292c6f9341"
     },
     {
       "bytes": 13830,
@@ -2318,9 +2323,9 @@
       "sha256": "5aee6542fae7fbe8595c328c01498f6807523735695b4e4f429fe91a7868ac71"
     },
     {
-      "bytes": 2353574,
+      "bytes": 2455805,
       "path": "sanitized-evidence/c8375-recovery/console-logs/20261031-122359-console.log",
-      "sha256": "d5eb69694378095d63ccde4f33b988de7654ce58e735a6ed459cbb7ba44e275e"
+      "sha256": "2734ce23b27a1e9fce8a6c4756be6b24414ba31c47090fa8a0d9ec7259ff08ea"
     },
     {
       "bytes": 17870,
@@ -2774,7 +2779,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 160,
-    "included_bytes_without_manifest": 694404049,
-    "included_files_without_manifest": 379
+    "included_bytes_without_manifest": 694711734,
+    "included_files_without_manifest": 380
   }
 }

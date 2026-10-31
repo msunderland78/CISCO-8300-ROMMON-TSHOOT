@@ -106,7 +106,7 @@ Use actual session dates and time zones; several historical router clocks were i
 
 ## Hardware workflow
 
-**Active C8375-A acquisition uses a Pi 5, the checked 1.8 V adapter and short SOIC-16 clip on U2.** A 10 kΩ resistor and grabber hold unused U1's dedicated RESET# pin 3 low, after separate contact, supply and reset-net qualification. This produced matching samples against a saved reference through both GPIO and hardware SPI. The [current Pi acquisition plan](c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md) records the exact fixture and validation gates; the [older CH341A/header wiring sheet](C8375-CH341A-HEADER-WIRING.md) retains historical routing work.
+**The successful October31 C8375-A acquisition used a Pi5, the checked1.8Vadapter and shortSOIC-16clip onU2. The programming fixture has since been removed for the verified IOS boot.** A 10 kΩ resistor and grabber hold unused U1's dedicated RESET# pin 3 low, after separate contact, supply and reset-net qualification. This produced matching samples against a saved reference through both GPIO and hardware SPI. The [current Pi acquisition plan](c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md) records the exact fixture and validation gates; the [older CH341A/header wiring sheet](C8375-CH341A-HEADER-WIRING.md) retains historical routing work.
 
 The owner requires this C8375 work to keep chips and leads intact: no chip removal, leg lifting or trace cutting. The SOIC-16 clip, breadboard, resistors and grabber are now received and in use; earlier delivery expectations are historical. Current Pi work keeps the CH341A, normal router power/console/cables and CR2032 disconnected. Preserve the [original hardware photographs](Photos/README.md), and do not restart completed broad header scans.
 
