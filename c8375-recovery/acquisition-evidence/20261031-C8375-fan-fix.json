@@ -51,7 +51,40 @@
       "2026/10/31 13:26:15.957881503 {cmand_R0-0}{255}: [cpa_nb] [6282]: (ERR): [FAILED]: cpa_sb_group_fan_algo_action_speed_control implementation is not found",
       "2026/10/31 13:26:15.957882025 {cmand_R0-0}{255}: [cia_env] [6282]: (ERR): CIA failed cpa fan speed control by action, err 95"
     ],
-    "trace_interpretation": "Four consecutive missing-implementation/error95 pairs approximately 30 seconds apart explain this logged error path. The hook may be optional on a fixed chassis. No time-correlated causal link to RPM surges is established."
+    "trace_interpretation": "Four consecutive missing-implementation/error95 pairs approximately 30 seconds apart explain this logged error path. The hook may be optional on a fixed chassis. No time-correlated causal link to RPM surges is established.",
+    "owner_ssh_fan_eeprom": {
+      "command": "show platform hardware slot P2 fan eeprom",
+      "source": "Owner pasted live SSH output in this conversation.",
+      "common_fields": {
+        "cisco_cpn": "33-100267-01",
+        "cpn_revision": "A0",
+        "manufacturer": "NIDEC",
+        "manufacturer_part_number": "W38S12BS1B5-80A06",
+        "assembly_location": "NCDD"
+      },
+      "fans": [
+        {
+          "index": 0,
+          "serial": "NID2722BAZA"
+        },
+        {
+          "index": 1,
+          "serial": "NID2722BAYZ"
+        },
+        {
+          "index": 2,
+          "serial": "NID2722BAZ9"
+        }
+      ],
+      "index3": "All displayed identity fields blank.",
+      "warnings": "Command-substitution ignored-null-byte warnings on field reads.",
+      "interpretation": "Three installed fans return readable identity. Generic index3 output and shell warnings do not establish a fourth installed fan or an EEPROM fault."
+    },
+    "owner_ssh_fan_status": {
+      "command": "show platform hardware slot P2 fan status",
+      "result": "% Error: Command not supported",
+      "interpretation": "Command appears in help but is unimplemented on this platform; it is not a fan-failure report."
+    }
   },
   "console": {
     "path": "c8375-recovery/console-logs/20261031-132438-console.log",
@@ -66,9 +99,34 @@
   },
   "changes": "Read-only show/help plus terminal pagination setting only. No firmware, cooling policy, EEPROM, security-state, power or fan-register change; no new debug levels.",
   "next_steps": [
-    "Inspect fan software status through owner SSH; establish a supported interface before considering any tuning.",
+    "Inspect R0 hardware help through owner SSH or a separately verified saved SSH connection for controller diagnostics. Fan-status request proved unsupported; do not retry it as a fan-health test.",
     "When available, compare a known-good supported PWR-CC1-400WAC with all other firmware/configuration held constant. Follow single-PSU shutdown and AC-disconnection procedure before replacement.",
     "Capture boot, PSU inventory/state and at least 45 minutes of comparable RPM/temperature/owner observations; separate power recognition from fan steadiness.",
     "If cycling persists with a recognized supported supply, pursue IOS/platform/CPLD policy compatibility for the exact board; preserve current recovered boot baseline."
-  ]
+  ],
+  "updated_at": "2026-10-31T13:37:45.376113-04:00",
+  "offline_display_script_review": {
+    "source": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+    "squashfs_offset": 4096,
+    "member": "usr/binos/conf/mcp_fan_eeprom_cmd.sh",
+    "bytes": 2327,
+    "sha256": "c813377e95ed4fcd1675024b115d541ffd4bf4cb97ee319772fd71a86cc05ef3",
+    "method": "unsquashfs -cat; text read only. Never executed/imported. Vendor source retained privately.",
+    "findings": [
+      "Generic loop attempts fan indices0 through3. Early exits cover PROMETHIUM/PROMETHIUM-L at2 and RADIUM/THALLIUM at3; no CRESTONE-specific three-fan exit is present.",
+      "EEPROM fields are read by shell command substitution of cat on NIOS sysfs attributes; embedded NUL bytes explain the shell warnings. The display does not establish EEPROM integrity or fan-control health.",
+      "This script contains no fan-policy configuration or EEPROM-write operation."
+    ],
+    "limitation": "No live BOARD_SUBTYPE or raw sysfs bytes read. The fourth blank entry is consistent with generic enumeration, not proof of a missing fan."
+  },
+  "offline_controller_review": {
+    "metadata": ".git/recovery-private/console-20261031/fan-offline-policy/nios-extraction-metadata.json",
+    "method": "Offline extraction and string inventory only; no kernel module loaded or vendor code executed.",
+    "finding": "NIOS v2 modules expose names for fan-control table, temperature/barometric level, tray status and override. Names alone do not establish this board mapping, units, semantics or a supported tuning interface. No register/sysfs write selected."
+  },
+  "credential_access_review": {
+    "date": "2026-10-31",
+    "result": "Saved private SSH profile located for Pi only. Router configuration backups contain two type8 hashed local-account secrets, not usable plaintext passwords. No router login attempted; owner SSH app/profile requested.",
+    "credential_values": "Not included."
+  }
 }

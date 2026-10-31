@@ -12,7 +12,9 @@ IOS P0 EEPROM-data-not-initialized does not prove physical EEPROM erased.
 Four current missing cpa_sb_group_fan_algo_action_speed_control/error95
 pairs explain this trace path; optional fixed-chassis hook remains possible.
 No supported ramp-time setting established. Owner SSH works; fan menu offers
-status and SmartFan EEPROM diagnostics. Software status output requested.
+status and SmartFan EEPROM diagnostics. Status returns Command not supported. EEPROM output identifies3NIDEC fans;
+blankindex3/warnings explained by generic display script, not proven faults.
+R0 help/savedSSHclient details requested; only Pi SSH profile found.
 Native USB reopened13:24, read-only capture then closed13:33 after no further
 help replies; no router power/firmware/fan-policy change. Keep boot baseline.
 Next hardware test: known-good supported PSU when available, powered-down
