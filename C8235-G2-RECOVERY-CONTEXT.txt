@@ -10,6 +10,19 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+OWNER ENDPOINT DETAIL — recorded 2026-10-31, 17:18 EDT
+MacBook Air uses a USB-C to 2.5 Gb/s Ethernet adapter. Owner doubts its
+reliability; model/chipset/driver are unidentified. Adapter involvement is a
+hypothesis, not a diagnosed failure. Next compare a known-good adapter on the
+same Mac/port 7/cable/server, or another wired host if available. Record the
+replacement link rate, actual DHCP address and route; repeat the same paced
+850 Mb/s / 30-second reverse test with immediate counter baselines. If no
+replacement is available, use the same Mac/adapter against the same server
+with the router bypassed, documenting that path change. Availability asked;
+no cable/configuration change or further test performed yet. Keep the 2020
+uplink drops as separate evidence; they do not identify an adapter defect.
+This endpoint comparison takes priority before the longer load gate.
+
 PACED TCP AND OWNER BROWSER RESULT — recorded 2026-10-31, 17:16 EDT
 The requested reverse TCP comparison completed: Ubuntu sender 850 Mb/s,
 2.97 GBytes / 30.00 s, 123 retransmissions. Owner-pasted Mac output confirms

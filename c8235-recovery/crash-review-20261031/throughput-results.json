@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "updated_at": "2026-10-31T17:16:59.181931-04:00",
+  "updated_at": "2026-10-31T17:18:32.317599-04:00",
   "configuration": "performance-setup.json",
   "path": {
     "client": "Mac 192.168.83.50, iperf3 3.22",
@@ -388,6 +388,7 @@
     "counter_change_scope": "Port6 output drops and QFP TailDrop are now2020, versus0/no displayed TailDrop in earlier iperf samples. The interval spans intervening traffic, the owner browser test and the paced test. No test-specific attribution or explanation of the earlier reverse retransmissions is proven."
   },
   "next_steps": [
+    "Select available known-good adapter/wired endpoint or router-bypass control; record actual address, route and negotiated speed before comparison",
     "For another loss comparison, capture immediately before/after interface and QFP counters with one test active; do not tune firmware, MTU or offloads without locating the issue",
     "Prepare bounded listener duration and periodic router telemetry before the planned60-minute controlled forwarding gate; current listener auto-stops around17:27EDT",
     "Complete corrected cold boots and overnight soak before a stability claim; RAM correction remains temporary"
@@ -398,5 +399,18 @@
     "sha256": "b6399c12d9663619d4519e9ed7cf9a8fe18bdacfba72d16c028e3e1462748429",
     "derived": true,
     "provenance": "Owner pasted full Mac output; selected summary rows transcribed. Not a native terminal capture."
+  },
+  "endpoint_control": {
+    "owner_reported_at_record": "2026-10-31T17:18:32.317599-04:00",
+    "client_nic": "USB-C to2.5Gb/s Ethernet adapter on the MacBook Air",
+    "adapter_model_chipset_driver": "not identified",
+    "owner_observation": "Owner is unsure the adapter is fully reliable and suggests it may cause the retransmissions",
+    "status": "Hypothesis, not established adapter failure; replacement endpoint availability requested",
+    "preferred_comparison": "Same Mac with a known-good Ethernet adapter on router port7, retaining cable, server, router config and paced850Mb/s/30-second reverse test; record replacement link rate, DHCP address and route before testing",
+    "alternative_comparison": "A known-good wired computer on port7, documenting the changed host/OS/NIC as additional variables",
+    "fallback": "Same Mac/adapter/cable connected to the5-network, bypassing router; verify actual wired address/route and link rate, then repeat paced reverse test against the same Ubuntu server",
+    "measurement": "Take immediate before/after router interface/QFP counters when router remains in path; keep other bandwidth tests stopped. Compare retransmission rate and received throughput, not unequal-duration totals.",
+    "limits": "Router CRC counters do not measure all endpoint/USB/driver behavior. Existing2020 uplink output drops remain a separate observation and do not prove the Mac adapter caused loss.",
+    "priority": "Resolve the available endpoint control before the longer forwarding gate; no NIC offload, firmware or router tuning yet"
   }
 }
