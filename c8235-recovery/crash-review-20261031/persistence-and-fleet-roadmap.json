@@ -90,5 +90,10 @@
       "accessed": "2026-10-31",
       "supports": "IOS upgrade requires reboot; ROMMON is separately described software; startup and running configuration are distinct."
     }
-  ]
+  ],
+  "superseding_checkpoint": {
+    "recorded_at": "2026-10-31T18:51:42.866158-04:00",
+    "record": "c8235-recovery/crash-review-20261031/repeatable-boot.json",
+    "update": "Earlier manual-only assessment superseded by verified console-assisted warm and first cold boot. Standalone persistence remains unproven; two cold tests/long gates pending. Owner leaves B on and stops further cycles today."
+  }
 }

@@ -199,17 +199,17 @@
     "saved BOOT and configuration register"
   ],
   "pending": [
-    "Successful repeated corrected boot",
-    "Restore/compare running test config",
-    "Three cold boots",
-    "Standalone persistence",
-    "Defined idle/overnight gates"
+    "Cold boots2and3",
+    "Standalone persistence/intended saved boot target",
+    "Defined longer idle/overnight gates",
+    "Long forwarding gate deferred",
+    "Ubuntu temporary benchmark cleanup"
   ],
   "tool": "scripts/c8235_b_console_boot.py",
   "procedure": "experimental-recovery/c8235-b-bound16-20261031/CONSOLE-BOOT.txt",
   "validation": {
     "offline_tests": 15,
-    "hardware_test_status": "One complete automated warm boot passed, following a supervised corrected warm boot. Cold boots and standalone persistence pending."
+    "hardware_test_status": "One complete automatic warm boot and one automatic PowerOn cold boot passed; cold followed by304.45-second health observation. Two cold tests remain."
   },
   "source_evidence": {
     "closed_pre_restart": "router-console-logs/20261031-170847-console.log",
@@ -222,9 +222,286 @@
     {
       "number": 1,
       "armed_at": "2026-10-31T18:40:05-04:00",
-      "status": "Owner confirms on; capture/boot in progress; no pass yet",
+      "status": "PASS: complete automatic PowerOn cold boot and304.45-second observed-health interval; cold1of3 complete",
       "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602",
-      "owner_confirmation_recorded_at": "2026-10-31T18:40:59.478834-04:00"
+      "owner_confirmation_recorded_at": "2026-10-31T18:40:59.478834-04:00",
+      "reset_cause": "PowerOn",
+      "rommon_at": "2026-10-31T18:41:24.927793-04:00",
+      "hook_complete_at": "2026-10-31T18:42:13.367079-04:00",
+      "ios_prompt_at": "2026-10-31T18:43:18.215876-04:00",
+      "platform_ready_at": "2026-10-31T18:44:11.620708-04:00",
+      "health_interval_start": "2026-10-31T18:44:58.290879-04:00",
+      "earliest_finish": "2026-10-31T18:49:58.290879-04:00",
+      "initial_health": {
+        "cpp_pid": 21018,
+        "rx": 38,
+        "tx": 38,
+        "miss": 0,
+        "CPU_C": 52,
+        "main_12V_mV": 12131,
+        "power_W": 14,
+        "existing_warning": "12V_DG_ST Critical_Low/0mV; TPM startup self-test256 remains unresolved"
+      },
+      "health_interval_end": "2026-10-31T18:50:02.742472-04:00",
+      "health_interval_seconds": 304.451593,
+      "health_samples": [
+        {
+          "at": "2026-10-31T18:44:58.290879-04:00",
+          "rx": 38,
+          "tx": 38,
+          "miss": 0,
+          "cpp_pid": 21018
+        },
+        {
+          "at": "2026-10-31T18:46:32.141124-04:00",
+          "rx": 85,
+          "tx": 85,
+          "miss": 0,
+          "cpp_pid": 21018
+        },
+        {
+          "at": "2026-10-31T18:47:18.193948-04:00",
+          "rx": 108,
+          "tx": 108,
+          "miss": 0,
+          "cpp_pid": null
+        },
+        {
+          "at": "2026-10-31T18:50:02.742472-04:00",
+          "rx": 190,
+          "tx": 190,
+          "miss": 0,
+          "cpp_pid": 21018
+        }
+      ],
+      "scope": "Includes network restoration/reachability; not a new15-minute/60-minute pure-idle or overnight gate.",
+      "final_health": {
+        "cpp_pid": 21018,
+        "rx": 190,
+        "tx": 190,
+        "miss": 0,
+        "CPU_C": 52,
+        "main_12V_mV": 12123,
+        "power_W": 15,
+        "R0": "ok, active",
+        "F0": "ok, active",
+        "0/0": "ok",
+        "filtered_NIX_ATTACH_critical_matches": 0,
+        "existing_12V_DG_ST": "Critical_Low/0mV remains"
+      },
+      "console_snapshot": {
+        "path": "router-console-logs/20261031-185142-coldboot1-handoff-snapshot.log",
+        "bytes": 69982,
+        "sha256": "74749caafc7934c6bfca6db6fbd0b95712eda736a5ce819f49f095dbcf09f0a5",
+        "method": "Immutable byte-for-byte prefix of still-open private capture; prefix verified after copy"
+      },
+      "events": [
+        {
+          "time": "2026-10-31T18:40:05.219742-04:00",
+          "state": "console_open",
+          "port": "/dev/cu.usbserial-AL00F7EQ",
+          "baud": 115200
+        },
+        {
+          "time": "2026-10-31T18:40:05.220018-04:00",
+          "state": "trial_started",
+          "mode": "wait-reset",
+          "evidence": "/Users/games/Documents/SOFTWARE/.git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261031-184004",
+          "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
+        },
+        {
+          "time": "2026-10-31T18:41:24.927793-04:00",
+          "state": "autoboot_stopped",
+          "count": 1
+        },
+        {
+          "time": "2026-10-31T18:41:25.926992-04:00",
+          "state": "rommon_identity_pass",
+          "uuid": "13 FF FF 87 79 AD FB 7C 6D E0 81 A7"
+        },
+        {
+          "time": "2026-10-31T18:41:26.437541-04:00",
+          "state": "temporary_boot_parameter_verified"
+        },
+        {
+          "time": "2026-10-31T18:41:44.840756-04:00",
+          "state": "console_baud",
+          "baud": 9600
+        },
+        {
+          "time": "2026-10-31T18:41:45.406941-04:00",
+          "state": "console_baud",
+          "baud": 115200
+        },
+        {
+          "time": "2026-10-31T18:42:02.982300-04:00",
+          "state": "maintenance_identity_and_image_pass"
+        },
+        {
+          "time": "2026-10-31T18:42:04.504859-04:00",
+          "state": "ram_patch_verified",
+          "source_sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052",
+          "patch_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857"
+        },
+        {
+          "time": "2026-10-31T18:42:13.367079-04:00",
+          "state": "runtime_hook_complete"
+        },
+        {
+          "time": "2026-10-31T18:43:18.215876-04:00",
+          "state": "ios_prompt_reached",
+          "qualification": "Health/stability checks still required"
+        },
+        {
+          "time": "2026-10-31T18:44:11.620708-04:00",
+          "state": "platform_ready",
+          "qualification": "Boot readiness only; keepalive, config and stability checks still required"
+        },
+        {
+          "time": "2026-10-31T18:44:11.620839-04:00",
+          "state": "supervised_capture",
+          "controls": "JSON send/close; no automatic retries"
+        },
+        {
+          "time": "2026-10-31T18:44:58.291231-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:45:13.291619-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:45:14.398639-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:45:18.201633-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:46:05.963253-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:46:20.487790-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:46:21.795894-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:46:25.703878-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:46:26.810628-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:46:31.033267-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:46:32.141309-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:47:18.194018-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:50:02.742991-04:00",
+          "state": "supervised_command_sent"
+        }
+      ]
     }
-  ]
+  ],
+  "handoff": {
+    "owner_request": "Finish current five-minute observation, capture complete context, stop further cold cycles today; leave B powered on.",
+    "status": "Final: owner leaves B powered on, network restored, current five-minute cold observation passed; no further cycles today.",
+    "physical": "Same owner-confirmed B/assembly/cooling/battery, no probes/programmer. Power, RJ45 console, CISCO FILES USB, port7 direct3850Gi2/0/3VLAN5, port8twinax trunk retained.",
+    "console": {
+      "state": "Active exclusive passive capture with reset autoboot stop after the one-shot helper; no automatic retry/repatch or periodic health commands after handoff.",
+      "port": "/dev/cu.usbserial-AL00F7EQ",
+      "baud": "115200/8N1/no flow",
+      "pid_last_observed": 73008,
+      "tool_session_last_observed": 81146,
+      "source": ".git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261031-184004/console.log",
+      "events": ".git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261031-184004/events.jsonl",
+      "warning": "These handles are historical: recheck physical state and lsof/ownership before hardware access. Do not open a second console.",
+      "controls": {
+        "close": true,
+        "send_example": "show platform\r"
+      },
+      "snapshot": "router-console-logs/20261031-185142-coldboot1-handoff-snapshot.log",
+      "last_health_at": "2026-10-31T18:50:02.742472-04:00",
+      "last_ownership_check": "2026-10-31T18:51:13-04:00"
+    },
+    "boot": {
+      "current_image": "usb0:/c8kg2be-universalk9.26.02.01.SPA.bin",
+      "sha256": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456",
+      "ROMMON": "SDK112312-SoC1-SB-v12.1.22 / ROM0",
+      "UUID": "13 FF FF 87 79 AD FB 7C 6D E0 81 A7",
+      "register": "0x3922",
+      "saved_BOOT": "bootflash:packages.conf,12; (older17.18.3a install)",
+      "standalone_persistent": false,
+      "RAM_only": "Reboot loses launch_net.sh correction. Helper must be explicitly run again, with USB present. A saved script or write-memory cannot persist the RAM hook. Do not reuse old unproven USB C8235B16.sh."
+    },
+    "network": {
+      "restored_at": "2026-10-31T18:45:14-04:00",
+      "state": "Running-only; no startup save",
+      "port7": "TwoGigabitEthernet0/0/7 /192.168.5.4/24 /1Gfull /3850Gi2/0/3 VLAN5 untagged",
+      "port8": "TenGigabitEthernet0/0/8 /10Gfull /native.1(noIP), tagged.83=192.168.83.1/24; .5 absent",
+      "port6": "shutdown/noIP",
+      "default": "via192.168.5.1 throughTwoGigabitEthernet0/0/7",
+      "DHCP": "C8235_PERF83, .83.50-.225/24, gateway.83.1, DNS192.168.3.10 and208.67.222.222; exclusions.1-.49 and.226-.254",
+      "verification": "Native diff against pre-repeatable-running.cfg reports no changes. Initial route query preceded link convergence; later default installed. Both links/subinterfaces up/up. Router-toUbuntu from83.1 size1500/DF:4/5 initial then5/5. No new throughput run."
+    },
+    "USB_exports": {
+      "directory": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/",
+      "post_startup": {
+        "file": "post-repeatable-startup.cfg",
+        "bytes": 3127,
+        "sha512": "7351a8706582cd0e3875d115e132f3d485d1ee24a5c6361f989bb27b49f7a0d556c96cae334b9231e4bd171eb6c91ca081e4b02597f145633c670c9544028f59",
+        "comparison": "Matches pre-repeatable-startup.cfg exactly by size/hash"
+      },
+      "post_running": {
+        "file": "post-repeatable-running.cfg",
+        "bytes": 7527,
+        "sha512": "dab0c7e4044e0ae3b3650bef75f0949339a0eed6b3d38056e2f03c4eaedf71915e8d177f8e0a8e7e9b142fc30ff94cee5751bda15dd9f5ac8af5c83e14c55cda",
+        "comparison": "Native pre/post-file config diff reports no changes. Export hashes differ: semantic equivalence, not byte identity."
+      }
+    },
+    "Ubuntu": {
+      "fresh_readonly_check_at": "2026-10-31T18:45:51-04:00",
+      "evidence": "c8235-recovery/crash-review-20261031/ubuntu-session-handoff-20261031.log",
+      "no_change_this_check": true,
+      "root": "ens192192.168.5.3/24, default192.168.5.1; ens224 untouched(hasULAIPv6/noIPv4 observed)",
+      "task_route": "192.168.83.0/24 via192.168.5.4 devens192 proto static",
+      "namespace": "c8235-perf83: ens256/00:50:56:ad:5f:63/192.168.83.52/24, default192.168.83.1 metric1004",
+      "bounded_helpers": "dhcpcd timeout2332/daemon2335 and helpers, scheduled bound~19:07EDT; iperf3 timeout2539/server2540 bound192.168.5.3:5201, ~19:08EDT. Freshly observed18:45; do not assume later PIDs/state.",
+      "cleanup_pending": "Stop only verified task listener/DHCP, return ens256 to root namespace/networkd, remove exact task route when no longer needed; namespace/route are not cleaned by listener timeout. No cleanup done this turn. Preserve ens192/ens224.",
+      "private_helper": ".git/recovery-private/c8235-analysis-20261031/ubuntu-performance/run_ubuntu.py",
+      "credentials": "Existing restricted private store only; never publish/repeat values"
+    },
+    "next_session": [
+      "Reconfirm physical state and inspect current console owner/capture before opening serial.",
+      "Read this handoff, root C8235 context and active C8235-05 plan. Verify uptime/CPP/keepalive/environment and any reset captured since handoff.",
+      "Complete cold boots2and3 with explicit guarded helper; restore bench config only after0/0ready and compare natively.",
+      "Investigate standalone persistence separately; no persistent candidate or saved boot change is established. Each IOS release needs separate exact guards/review.",
+      "Defined longer idle/overnight gates remain incomplete. Powered-on time/passive logging alone is not an overnight stability pass. Performance remains deferred.",
+      "C: identify/record original firmware/boot independently. A: earlier TPM halt occurs before IOS; B RAM hook cannot fix it. Preserve unique data and validate compatible earlier SoC1 firmware/bank mapping before any candidate write."
+    ],
+    "date_rule": "Router clock is wrong (May2025). All session/gate times above use host America/New_York.",
+    "code_checkpoint": {
+      "commit": "f628e388946feb9f237b1278b30e5b0c5715fef6",
+      "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602",
+      "offline_tests": 15,
+      "CI": "https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT/actions/runs/41249323779",
+      "CI_result": "success; local/origin/live main match verified before final cold handoff update"
+    },
+    "recorded_at": "2026-10-31T18:51:42.866158-04:00"
+  },
+  "updated_at": "2026-10-31T18:51:42.866158-04:00"
 }

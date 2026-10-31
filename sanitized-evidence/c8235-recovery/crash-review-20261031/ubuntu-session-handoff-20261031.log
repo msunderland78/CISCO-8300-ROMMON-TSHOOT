@@ -1,0 +1,25 @@
+
+2026-10-31T22:45:51+00:00
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+ens192           UP             192.168.5.3/24 fe80::250:56ff:fead:fa7e/64 
+ens224           UP             fd04:7878:7878:61:250:56ff:fead:34b0/64 fd04:7878:7878:61::3/64 fe80::250:56ff:fead:34b0/64 
+docker0          DOWN           172.17.0.1/16 
+default via 192.168.5.1 dev ens192 proto static 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+192.168.5.0/24 dev ens192 proto kernel scope link src 192.168.5.3 
+192.168.83.0/24 via 192.168.5.4 dev ens192 proto static 
+c8235-perf83 (id: 0)
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+ens256           UP             192.168.83.52/24 fe80::250:56ff:fead:5f63/64 
+default via 192.168.83.1 dev ens256 proto dhcp src 192.168.83.52 metric 1004 
+192.168.83.0/24 dev ens256 proto dhcp scope link src 192.168.83.52 metric 1004 
+   2332 timeout         timeout --signal=TERM 5400s ip netns exec c8235-perf83 dhcpcd -4 -B -L -w -t 30 -f /dev/null -c /bin/true -I 01:00:50:56:ad:5f:63 ens256
+   2335 dhcpcd          dhcpcd: ens256 [ip4]
+   2337 dhcpcd          dhcpcd: [privileged proxy] ens256 [ip4]
+   2338 dhcpcd          dhcpcd: [control proxy] ens256 [ip4]
+   2345 dhcpcd          dhcpcd: [BPF ARP] ens256 192.168.83.52
+   2347 dhcpcd          dhcpcd: [BOOTP proxy] 192.168.83.52
+   2539 timeout         timeout --signal=TERM 5400s iperf3 -s -B 192.168.5.3 -p 5201 -i 5 --forceflush
+   2540 iperf3          iperf3 -s -B 192.168.5.3 -p 5201 -i 5 --forceflush
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                          
+LISTEN 0      4096     192.168.5.3:5201      0.0.0.0:*    users:(("iperf3",pid=2540,fd=3))

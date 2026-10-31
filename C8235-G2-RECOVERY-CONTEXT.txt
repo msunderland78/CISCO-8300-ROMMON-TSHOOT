@@ -10,6 +10,65 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+SESSION HANDOFF — 2026-10-31, 18:50 EDT — LEAVE B POWERED ON
+Owner stops after the current five-minute observation and chooses powered-on
+handoff. No further cold cycles today. Supersedes earlier pending/shut-port
+states below. Complete structured handoff (including private artifact/control
+paths, all backups, Ubuntu cleanup and fleet next steps):
+c8235-recovery/crash-review-20261031/repeatable-boot.json, handoff object.
+
+PASS: one complete automatic warm boot plus cold1of3. Owner confirmed off/on;
+native PowerOn and B UUID match. IOS18:43:18; R0/F0 active and0/0ok18:44:11.
+Observed interval18:44:58.290879–18:50:02.742472 EDT (304.45s): keepalives
+38->85->108->190, rx=tx, zero misses; CPP PID21018 unchanged. No filtered
+NIX/ATTACH/critical-process matches. CPU52C; main12V12131->12123mV, power14->15W.
+Existing12V_DG_ST0mV/Critical_Low and TPM self-test256 remain unresolved.
+Interval includes network restoration; no new15min/60min/overnight gate claimed.
+
+NETWORK RESTORED, RUNNING ONLY: port7/Tw0/0/7=192.168.5.4/24,1Gfull, direct
+3850Gi2/0/3 VLAN5. Port8/Te0/0/8=10Gfull; .1 native1/noIP; .83 tagged83=
+192.168.83.1/24; .5 absent. Port6shut/noIP. Default via5.1 onTw0/0/7.
+DHCP83.50-.225/24, gateway83.1, DNS3.10/208.67.222.222. Native current/pre
+and pre/post-file config diffs: NO CHANGES. Ports/subinterfaces up/up; default
+installed after link convergence. Ubuntu5.3 ping from83.1/1500DF:4/5 then5/5.
+USB diagnostic directory has pre/post-repeatable-running.cfg (7527B) and
+pre/post-repeatable-startup.cfg (3127B), hashes in JSON. Startup hash exactly
+unchanged. Running export hashes differ despite no native config differences.
+No startup save. Do not mistake semantic config equivalence for byte identity.
+
+STILL RAM-ONLY: verifiedUSB26.2.1; developmentROMMON unchanged. SavedBOOT still
+bootflash:packages.conf,12; (old17.18.3a), confreg0x3922. Reboot loses fix;
+write-memory or saving a script does not persist it. Use explicit B-only
+scripts/c8235_b_console_boot.py and experimental-recovery/c8235-b-bound16-20261031/CONSOLE-BOOT.txt.
+HelperSHA2560a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602;
+handles115200->9600->115200 and exact UUID/ROMMON/image/script/RAM guards.
+Do not reuse old unprovenUSB C8235B16.sh or generalize profile to another IOS.
+
+PASSIVE CONSOLE LEFT ACTIVE: /dev/cu.usbserial-AL00F7EQ,115200/8N1/no flow.
+PID73008/tool session81146 last observed18:51:13; recheck, never assume these
+handles remain valid or open a second owner. Source is private repeatable-boot/
+20261031-184004/console.log under .git/recovery-private/c8235-analysis-20261031/.
+JSON send/baud/close controls; after this one-shot boot no periodic polling.
+A later reset gets Ctrl-C/ROMMON stop, NOT automatic correction/retry. Reconfirm
+physical identity/assembly/battery/cables and console ownership next session.
+Immutable prefix router-console-logs/20261031-185142-coldboot1-handoff-snapshot.log,
+69982B SHA25674749caafc7934c6bfca6db6fbd0b95712eda736a5ce819f49f095dbcf09f0a5; public counterpart sanitized, raw original local.
+
+UBUNTU fresh READ-ONLY18:45:51: ens1925.3/default5.1; ens224 untouched with
+ULAIPv6/noIPv4 observed. Namespace c8235-perf83 retains ens256/MAC5f:63,
+83.52/default83.1; root runtime route83/24 via5.4 remains. Bounded DHCP and
+iperf5201 listener existed at check, bounds about19:07/19:08EDT. Namespace/
+route outlive those bounds. Cleanup NOT done; exact private helper, process
+checks and cleanup sequence are in JSON. Recheck before acting; preserve
+ens192/ens224. Credentials remain restricted/private and are not in handoff.
+
+NEXT SESSION: inspect fresh capture/uptime/CPP first; complete cold2and3 after
+physical confirmation, then separately investigate standalone persistence.
+Long idle/overnight gates remain open; leaving power on is not qualification.
+C needs independent identity/original-boot baseline. A's earlier TPM halt is
+before IOS; B's hook cannot fix that stage. No A/C firmware change today.
+All session times use host America/New_York; router clock remains wrong.
+
 GUARDED CONSOLE BOOT: FIRST COMPLETE WARM PASS — 2026-10-31, 18:40 EDT
 Owner confirmed same FGL2835LBHU/assembly/battery/cabling/free console. New
 scripts/c8235_b_console_boot.py explicitly owns the exclusive console; no
