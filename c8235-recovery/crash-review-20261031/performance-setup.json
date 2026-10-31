@@ -2,8 +2,8 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "updated_at": "2026-10-31T16:59:15.428462-04:00",
-  "status": "Configuration and live links verified; DHCP lease active; router-source reachability to Ubuntu passes; independent client throughput pending",
+  "updated_at": "2026-10-31T17:01:46.577069-04:00",
+  "status": "Router configuration/live links/DHCP/reachability and both iperf endpoints prepared; first 60-second test requested, no test connection observed yet",
   "owner_confirmation": "Same powered router; cover/cooling/battery unchanged; USB/console attached; exclusive console; prior 6-to-7 loopback cable removed.",
   "upstream_return_route": {
     "gateway": "192.168.5.1",
@@ -174,10 +174,10 @@
     "default_route_in_rib": true
   },
   "handoff": {
-    "capture": "Both configuration and live-link captures closed; no router monitor remains",
+    "capture": "Fresh private console capture active from16:59:17; this is console owner. Prior configuration/live-link captures closed and published sanitized.",
     "power": "on; same corrected IOS",
     "connections": "Power/console/USB plus 5 network on port6 and 83 network on port7; owner confirms upstream route added",
-    "benchmark": "Not started at this checkpoint; Mac route confirmed via83.1/en5, iperf installation/version pending",
+    "benchmark": "Mac iperf3 3.22 and route via83.1/en5 confirmed by owner; first bounded test command supplied; server has not observed a test connection.",
     "ubuntu_server": "Bounded iperf3 server active on192.168.5.3:5201, automatic stop around17:27 EDT; runtime direct route remains until explicit cleanup/server reboot",
     "persistence": "Router test settings not saved to startup; RAM boot correction lost on reboot; Ubuntu packages installed, test service not enabled"
   },
@@ -242,14 +242,15 @@
       "192.168.5.104",
       "192.168.5.132"
     ],
-    "iperf3_readiness": "Owner instructed brew install iperf3 and version/route check; results pending",
+    "iperf3_readiness": "iperf3 3.22, owner reported",
     "route_to_server": {
       "source": "owner-reported route -n get 192.168.5.3 output",
       "gateway": "192.168.83.1",
       "interface": "en5",
       "state": "intended test path confirmed by owner"
     },
-    "homebrew_version": "7.0.11, owner reported"
+    "homebrew_version": "7.0.11, owner reported",
+    "iperf3_version": "3.22"
   },
   "ubuntu_endpoint": {
     "ip": "192.168.5.3",
@@ -327,5 +328,46 @@
     "interface7": "down/down, enabled",
     "dhcp_bindings": 0,
     "default_route_in_rib": false
+  },
+  "active_capture": {
+    "private_path": ".git/recovery-private/c8235-analysis-20261031/live-console/20261031-165917-console.log",
+    "started_at": "2026-10-31T16:59:17-04:00",
+    "mode": "Passive serial capture; explicit CLI health/counter samples; no automatic periodic polling",
+    "closed": false
+  },
+  "next_test": {
+    "state": "requested from Mac operator, not observed starting yet",
+    "command": "iperf3 -c 192.168.5.3 -B 192.168.83.50 -t 60 -i 5 --get-server-output",
+    "parallel_streams": 1,
+    "duration_seconds": 60,
+    "direction": "Mac to Ubuntu",
+    "followup": "Capture results, reverse direction, then additional load/gates as justified"
+  },
+  "pre_test_sample": {
+    "keepalive_tx": 1041,
+    "keepalive_rx": 1041,
+    "keepalive_miss": 0,
+    "cpp_pid": 20844,
+    "port6": {
+      "rx_packets": 131538,
+      "rx_bytes": 178825703,
+      "tx_packets": 41114,
+      "tx_bytes": 11241576,
+      "resets": 3,
+      "crc": 0,
+      "input_errors": 0,
+      "output_errors": 0
+    },
+    "port7": {
+      "rx_packets": 41892,
+      "rx_bytes": 11304353,
+      "tx_packets": 131339,
+      "tx_bytes": 178804809,
+      "resets": 2,
+      "crc": 0,
+      "input_errors": 0,
+      "output_errors": 0
+    },
+    "note": "Cumulative, not cleared. Includes earlier loopback and background client traffic; not an iperf result."
   }
 }

@@ -10,6 +10,19 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+AWAITING FIRST THROUGHPUT RUN — 2026-10-31, 17:01 EDT
+Mac owner confirms iperf3 3.22 and route to192.168.5.3 via192.168.83.1/en5.
+Ubuntu iperf3 3.20 still listening; no test connection observed yet. Requested
+one stream/60s: iperf3 -c192.168.5.3 -B192.168.83.50 -t60 -i5 --get-server-output
+(spaces between option/value may be used). No performance number yet.
+Fresh exclusive console capture active since16:59:17 in restricted live-console
+20261031-165917-console.log; prior captures are closed/sanitized. This is the
+console owner. It captures unsolicited output, with explicit CLI samples;
+no automatic periodic polling. Pre-test1041/1041 keepalives, misses0, PID20844;
+latest light-traffic sample1063/1063, misses0. Both ports error-free.
+The next result must include actual iperf transfer, router counters/health,
+and the1Gb/s uplink limitation; do not count background downloads as a benchmark.
+
 PERFORMANCE ENDPOINT READINESS — 2026-10-31, 16:58 EDT
 Router configuration and live links/lease verified; no throughput run yet.
 Mac client192.168.83.50 is a separate laptop (this workspace is on5-network).
