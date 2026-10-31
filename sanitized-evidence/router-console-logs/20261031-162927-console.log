@@ -1,0 +1,985 @@
+
+[TX 2026-10-31T16:30:14.274233] b'\rshow platform\rshow platform software infra punt-keepalive\r'
+
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:06:43      
+ 0/0      8M-2xSFP+           ok                    00:05:58      
+R0        C8230X-8M2X         ok, active            00:06:43      
+F0        C8230X-8M2X         ok, active            00:06:43      
+P0        PWR-CC2-66WAC       ok                    00:06:11      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 2.000 sec ago
+Last punt keepalive sent                  = 2.000 sec ago
+punt keepalive rx count                   = 167
+punt keepalive tx count                   = 167
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-10-31T16:31:55.563626] b'show platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\r'
+show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.288 sec ago
+Last punt keepalive sent                  = 1.288 sec ago
+punt keepalive rx count                   = 218
+punt keepalive tx count                   = 218
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 381
+  Kernel time      : 427
+  Priority         : 20
+  Virtual bytes    : 2219212800
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46006
+  Major page faults: 606
+
+
+Router#
+[TX 2026-10-31T16:32:50.624074] b'show interfaces TwoGigabitEthernet0/0/7 switchport\rshow interfaces TwoGigabitEthernet0/0/6 | include line protocol|duplex|Duplex|CRC|errors\rshow interfaces TwoGigabitEthernet0/0/7 | include line protocol|duplex|Duplex|CRC|errors\r'
+show interfaces TwoGigabitEthernet0/0/7 switchport
+% Tw0/0/7 is not a switchable port
+Router#show interfaces TwoGigabitEthernet0/0/6 | include line protocol|duplex|Duplex|CRC|errors
+TwoGigabitEthernet0/0/6 is administratively down, line protocol is down 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 0 interface resets
+Router#show interfaces TwoGigabitEthernet0/0/7 | include line protocol|duplex|Duplex|CRC|errors
+TwoGigabitEthernet0/0/7 is administratively down, line protocol is down 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 0 interface resets
+Router#
+[TX 2026-10-31T16:33:24.777408] b'show platform software infra punt-keepalive\rshow platform\r'
+show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.496 sec ago
+Last punt keepalive sent                  = 0.496 sec ago
+punt keepalive rx count                   = 263
+punt keepalive tx count                   = 263
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:09:54      
+ 0/0      8M-2xSFP+           ok                    00:09:08      
+R0        C8230X-8M2X         ok, active            00:09:54      
+F0        C8230X-8M2X         ok, active            00:09:54      
+P0        PWR-CC2-66WAC       ok                    00:09:21      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#
+[TX 2026-10-31T16:34:42.483489] b'show platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\r'
+show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.200 sec ago
+Last punt keepalive sent                  = 0.200 sec ago
+punt keepalive rx count                   = 302
+punt keepalive tx count                   = 302
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 388
+  Kernel time      : 434
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46051
+  Major page faults: 606
+
+
+Router#
+[TX 2026-10-31T16:35:39.928340] b'show platform software infra punt-keepalive\rshow environment all | include Temp:|V: 12V|P: Power\r'
+show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.644 sec ago
+Last punt keepalive sent                  = 1.644 sec ago
+punt keepalive rx count                   = 330
+punt keepalive tx count                   = 330
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show environment all | include Temp:|V: 12V|P: Power
+ Temp: Inlet             R0              Normal          32 Celsius
+ Temp: Outlet            R0              Normal          31 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12119 mV
+ P: Power                R0              Normal          14 Watts
+Router#
+[TX 2026-10-31T16:37:37.888291] b'show platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\rshow logging | include NIX|ATTACH_RESOURCES|cpp_cp_svr|CRITICAL_PROCESS|PUNT_KEEPALIVE\r'
+show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.604 sec ago
+Last punt keepalive sent                  = 1.604 sec ago
+punt keepalive rx count                   = 389
+punt keepalive tx count                   = 389
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 393
+  Kernel time      : 441
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46094
+  Major page faults: 606
+
+
+Router#show logging | include NIX|ATTACH_RESOURCES|cpp_cp_svr|CRITICAL_PROCESS|PUNT_KEEPALIVE
+Router#
+[TX 2026-10-31T16:38:21.434130] b'show platform software infra punt-keepalive\rshow platform\r'
+show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.140 sec ago
+Last punt keepalive sent                  = 1.140 sec ago
+punt keepalive rx count                   = 411
+punt keepalive tx count                   = 411
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:14:50      
+ 0/0      8M-2xSFP+           ok                    00:14:05      
+R0        C8230X-8M2X         ok, active            00:14:50      
+F0        C8230X-8M2X         ok, active            00:14:50      
+P0        PWR-CC2-66WAC       ok                    00:14:18      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#
+[TX 2026-10-31T16:40:18.612017] b'show platform\rshow platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\rshow platform software dmesg slot R0 | include Request for NIX|ATTACH_RESOURCES\rshow environment all | include Temp:|V: 12V|P: Power\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:16:47      
+ 0/0      8M-2xSFP+           ok                    00:16:02      
+R0        C8230X-8M2X         ok, active            00:16:47      
+F0        C8230X-8M2X         ok, active            00:16:47      
+P0        PWR-CC2-66WAC       ok                    00:16:15      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.320 sec ago
+Last punt keepalive sent                  = 0.320 sec ago
+punt keepalive rx count                   = 470
+punt keepalive tx count                   = 470
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 399
+  Kernel time      : 448
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46131
+  Major page faults: 606
+
+
+Router#show platform software dmesg slot R0 | include Request for NIX|ATTACH_RESOURCES
+Router#show environment all | include Temp:|V: 12V|P: Power
+ Temp: Inlet             R0              Normal          32 Celsius
+ Temp: Outlet            R0              Normal          31 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12131 mV
+ P: Power                R0              Normal          14 Watts
+Router#
+[TX 2026-10-31T16:40:26.600890] b'copy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg\r'
+copy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg
+Destination filename [C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg]? 
+[TX 2026-10-31T16:40:30.295738] b'\r'
+
+6902 bytes copied in 0.244 secs (28287 bytes/sec)
+Router#
+[TX 2026-10-31T16:40:34.556512] b'verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg\r'
+verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg
+.Done!
+verify /sha512 (usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg) = 3ad204164a3929019cb5821d26e9c766931425e8617d14f62f27345796c0d804e9e400b70a5f3bff598c3ebb55c9b164ff203c47680256958217bcec3a376bb8
+
+
+Router#
+[TX 2026-10-31T16:40:37.855062] b'configure terminal\rinterface TwoGigabitEthernet0/0/6\rno shutdown\rinterface TwoGigabitEthernet0/0/7\rno shutdown\rend\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface TwoGigabitEthernet0/0/6
+Router(config-if)#no shutdown
+Router(config-if)#interface TwoGigabitEthernet0/0/7
+Router(config-if)#no shutdown
+Router(config-if)#end
+Router#
+*May 29 19:06:11.102: %SYS-5-CONFIG_I: Configured from console by console
+[TX 2026-10-31T16:40:46.244893] b'show interfaces TwoGigabitEthernet0/0/6\rshow interfaces TwoGigabitEthernet0/0/7\r'
+show interfaces TwoGigabitEthernet0/0/6
+TwoGigabitEthernet0/0/6 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda6 (bia e4a4.1c82.dda6)
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda7 (bia e4a4.1c82.dda7)
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#
+*May 29 19:06:18.821: %LINK-3-UPDOWN: Interface TwoGigabitEthernet0/0/6, changed state to up
+*May 29 19:06:18.833: %LINK-3-UPDOWN: Interface TwoGigabitEthernet0/0/7, changed state to up
+*May 29 19:06:19.821: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/6, changed state to up
+*May 29 19:06:19.833: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/7, changed state to up
+[TX 2026-10-31T16:41:00.059624] b'show cdp interface TwoGigabitEthernet0/0/6\rshow cdp neighbors\rshow platform software infra punt-keepalive\r'
+show cdp interface TwoGigabitEthernet0/0/6
+TwoGigabitEthernet0/0/6 is up, line protocol is up
+  Encapsulation ARPA
+  Sending CDP packets every 60 seconds
+  Holdtime is 180 seconds
+Router#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone, 
+                  D - Remote, C - CVTA, M - Two-port Mac Relay 
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+Router           Two 0/0/6         175             R S I  C8230X-8M Two 0/0/7
+Router           Two 0/0/7         175             R S I  C8230X-8M Two 0/0/6
+
+Total cdp entries displayed : 2
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.768 sec ago
+Last punt keepalive sent                  = 1.768 sec ago
+punt keepalive rx count                   = 490
+punt keepalive tx count                   = 490
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-10-31T16:41:34.917807] b'configure terminal\rinterface TwoGigabitEthernet0/0/6\rshutdown\rend\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface TwoGigabitEthernet0/0/6
+Router(config-if)#shutdown
+Router(config-if)#end
+Router#
+*May 29 19:07:08.155: %SYS-5-CONFIG_I: Configured from console by console
+*May 29 19:07:10.153: %LINK-5-CHANGED: Interface TwoGigabitEthernet0/0/6, changed state to administratively down
+*May 29 19:07:10.824: %LINK-3-UPDOWN: Interface TwoGigabitEthernet0/0/7, changed state to down
+*May 29 19:07:11.152: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/6, changed state to down
+*May 29 19:07:11.825: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/7, changed state to down
+[TX 2026-10-31T16:41:43.975842] b'show interfaces TwoGigabitEthernet0/0/6 | include line protocol\rshow interfaces TwoGigabitEthernet0/0/7 | include line protocol\r'
+show interfaces TwoGigabitEthernet0/0/6 | include line protocol
+TwoGigabitEthernet0/0/6 is administratively down, line protocol is down 
+Router#show interfaces TwoGigabitEthernet0/0/7 | include line protocol
+TwoGigabitEthernet0/0/7 is down, line protocol is down 
+Router#
+[TX 2026-10-31T16:41:46.796650] b'configure terminal\rinterface TwoGigabitEthernet0/0/6\rno shutdown\rend\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface TwoGigabitEthernet0/0/6
+Router(config-if)#no shutdown
+Router(config-if)#end
+Router#
+*May 29 19:07:20.029: %SYS-5-CONFIG_I: Configured from console by console
+*May 29 19:07:26.824: %LINK-3-UPDOWN: Interface TwoGigabitEthernet0/0/6, changed state to up
+*May 29 19:07:26.831: %LINK-3-UPDOWN: Interface TwoGigabitEthernet0/0/7, changed state to up
+*May 29 19:07:27.825: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/6, changed state to up
+*May 29 19:07:27.827: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/7, changed state to up
+[TX 2026-10-31T16:41:58.297554] b'show interfaces TwoGigabitEthernet0/0/6 | include line protocol|Duplex|packets input|packets output|CRC|output errors\rshow interfaces TwoGigabitEthernet0/0/7 | include line protocol|Duplex|packets input|packets output|CRC|output errors\rshow platform software infra punt-keepalive\rshow vrf\r'
+show interfaces TwoGigabitEthernet0/0/6 | include line protocol|Duplex|packets input|packets output|CRC|output errors
+TwoGigabitEthernet0/0/6 is up, line protocol is up 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+     9 packets input, 3357 bytes, 0 no buffer
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     10 packets output, 3420 bytes, 0 underruns
+     0 output errors, 0 collisions, 2 interface resets
+Router#show interfaces TwoGigabitEthernet0/0/7 | include line protocol|Duplex|packets input|packets output|CRC|output errors
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+     9 packets input, 3357 bytes, 0 no buffer
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     9 packets output, 3357 bytes, 0 underruns
+     0 output errors, 0 collisions, 1 interface resets
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.020 sec ago
+Last punt keepalive sent                  = 0.020 sec ago
+punt keepalive rx count                   = 520
+punt keepalive tx count                   = 520
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show vrf
+  Name                             Default RD                  Protocols   Interfaces
+  Mgmt-intf                        <not set>                   ipv4,ipv6   Gi0
+Router#
+[TX 2026-10-31T16:42:28.514844] b'configure terminal\rvrf definition C8235_LOOP_A\raddress-family ipv4\rexit-address-family\rexit\rvrf definition C8235_LOOP_B\raddress-family ipv4\rexit-address-family\rexit\rinterface TwoGigabitEthernet0/0/6\rvrf forwarding C8235_LOOP_A\rip address 192.0.2.1 255.255.255.252\rinterface TwoGigabitEthernet0/0/7\rvrf forwarding C8235_LOOP_B\rip address 192.0.2.2 255.255.255.252\rend\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#vrf definition C8235_LOOP_A
+Router(config-vrf)#address-family ipv4
+Router(config-vrf-af)#exit-address-family
+Router(config-vrf)#exit
+Router(config)#vrf definition C8235_LOOP_B
+Router(config-vrf)#address-family ipv4
+Router(config-vrf-af)#exit-address-family
+Router(config-vrf)#exit
+Router(config)#interface TwoGigabitEthernet0/0/6
+Router(config-if)#vrf forwarding C8235_LOOP_A
+Router(config-if)#ip address 192.0.2.1 255.255.255.252
+Router(config-if)#interface TwoGigabitEthernet0/0/7
+Router(config-if)#vrf forwarding C8235_LOOP_B
+Router(config-if)#ip address 192.0.2.2 255.255.255.252
+Router(config-if)#end
+Router#
+*May 29 19:08:01.818: %SYS-5-CONFIG_I: Configured from console by console
+[TX 2026-10-31T16:43:47.086331] b'show vrf\rshow ip route vrf C8235_LOOP_A\rshow ip route vrf C8235_LOOP_B\rshow running-config interface TwoGigabitEthernet0/0/6\rshow running-config interface TwoGigabitEthernet0/0/7\r'
+show vrf
+  Name                             Default RD                  Protocols   Interfaces
+  C8235_LOOP_A                     <not set>                   ipv4        Tw0/0/6
+  C8235_LOOP_B                     <not set>                   ipv4        Tw0/0/7
+  Mgmt-intf                        <not set>                   ipv4,ipv6   Gi0
+Router#show ip route vrf C8235_LOOP_A
+
+Routing Table: C8235_LOOP_A
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is not set
+
+      192.0.2.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.0.2.0/30 is directly connected, TwoGigabitEthernet0/0/6
+L        192.0.2.1/32 is directly connected, TwoGigabitEthernet0/0/6
+Router#show ip route vrf C8235_LOOP_B
+
+Routing Table: C8235_LOOP_B
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is not set
+
+      192.0.2.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.0.2.0/30 is directly connected, TwoGigabitEthernet0/0/7
+L        192.0.2.2/32 is directly connected, TwoGigabitEthernet0/0/7
+Router#show running-config interface TwoGigabitEthernet0/0/6
+Building configuration...
+
+Current configuration : 126 bytes
+!
+interface TwoGigabitEthernet0/0/6
+ vrf forwarding C8235_LOOP_A
+ ip address 192.0.2.1 255.255.255.252
+ negotiation auto
+end
+
+Router#show running-config interface TwoGigabitEthernet0/0/7
+Building configuration...
+
+Current configuration : 126 bytes
+!
+interface TwoGigabitEthernet0/0/7
+ vrf forwarding C8235_LOOP_B
+ ip address 192.0.2.2 255.255.255.252
+ negotiation auto
+end
+
+Router#
+[TX 2026-10-31T16:43:50.916680] b'ping vrf C8235_LOOP_A 192.0.2.2 source 192.0.2.1 repeat 5 timeout 1\rping vrf C8235_LOOP_B 192.0.2.1 source 192.0.2.2 repeat 5 timeout 1\rshow ip arp vrf C8235_LOOP_A\rshow ip arp vrf C8235_LOOP_B\r'
+ping vrf C8235_LOOP_A 192.0.2.2 source 192.0.2.1 repeat 5 timeout 1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.0.2.2, timeout is 1 seconds:
+Packet sent with a source address of 192.0.2.1 
+.!!!!
+Success rate is 80 percent (4/5), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T16:44:01.024561] b'ping vrf C8235_LOOP_B 192.0.2.1 source 192.0.2.2 repeat 5 timeout 1\r'
+ping vrf C8235_LOOP_B 192.0.2.1 source 192.0.2.2 repeat 5 timeout 1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.0.2.1, timeout is 1 seconds:
+Packet sent with a source address of 192.0.2.2 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/2/4 ms
+Router#
+[TX 2026-10-31T16:44:03.913621] b'show ip arp vrf C8235_LOOP_A\rshow ip arp vrf C8235_LOOP_B\rping vrf C8235_LOOP_A 192.0.2.2 source 192.0.2.1 repeat 100 timeout 1 size 1500 df-bit\r'
+show ip arp vrf C8235_LOOP_A
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  192.0.2.1               -   e4a4.1c82.dda6  ARPA   TwoGigabitEthernet0/0/6
+Internet  192.0.2.2               0   e4a4.1c82.dda7  ARPA   TwoGigabitEthernet0/0/6
+Router#show ip arp vrf C8235_LOOP_B
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  192.0.2.1               0   e4a4.1c82.dda6  ARPA   TwoGigabitEthernet0/0/7
+Internet  192.0.2.2               -   e4a4.1c82.dda7  ARPA   TwoGigabitEthernet0/0/7
+Router#ping vrf C8235_LOOP_A 192.0.2.2 source 192.0.2.1 repeat 100 timeout 1 size 1500 df-bit
+Type escape sequence to abort.
+Sending 100, 1500-byte ICMP Echos to 192.0.2.2, timeout is 1 seconds:
+Packet sent with a source address of 192.0.2.1 
+Packet sent with the DF bit set
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Success rate is 100 percent (100/100), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T16:44:12.371013] b'ping vrf C8235_LOOP_B 192.0.2.1 source 192.0.2.2 repeat 1000 timeout 1 size 1500 df-bit\r'
+ping vrf C8235_LOOP_B 192.0.2.1 source 192.0.2.2 repeat 1000 timeout 1 size 1500 df-bit
+Type escape sequence to abort.
+Sending 1000, 1500-byte ICMP Echos to 192.0.2.1, timeout is 1 seconds:
+Packet sent with a source address of 192.0.2.2 
+Packet sent with the DF bit set
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!
+Success rate is 100 percent (1000/1000), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T16:44:15.469494] b'ping vrf C8235_LOOP_A 192.0.2.2 source 192.0.2.1 repeat 1000 timeout 1 size 1500 df-bit\r'
+ping vrf C8235_LOOP_A 192.0.2.2 source 192.0.2.1 repeat 1000 timeout 1 size 1500 df-bit
+Type escape sequence to abort.
+Sending 1000, 1500-byte ICMP Echos to 192.0.2.2, timeout is 1 seconds:
+Packet sent with a source address of 192.0.2.1 
+Packet sent with the DF bit set
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!!!!!!
+Success rate is 100 percent (1000/1000), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T16:44:23.318441] b'show interfaces TwoGigabitEthernet0/0/6\rshow interfaces TwoGigabitEthernet0/0/7\rshow platform\rshow platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\rshow environment all\r'
+show interfaces TwoGigabitEthernet0/0/6
+TwoGigabitEthernet0/0/6 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda6 (bia e4a4.1c82.dda6)
+  Internet address is 192.0.2.1/30
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:07, output 00:00:07, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 85000 bits/sec, 8 packets/sec
+  5 minute output rate 85000 bits/sec, 8 packets/sec
+     2130 packets input, 3187669 bytes, 0 no buffer
+     Received 1 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 19 multicast, 0 pause input
+     2130 packets output, 3187359 bytes, 0 underruns
+     Output 2 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 2 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     1 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda7 (bia e4a4.1c82.dda7)
+  Internet address is 192.0.2.2/30
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:10, output 00:00:10, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 85000 bits/sec, 8 packets/sec
+  5 minute output rate 85000 bits/sec, 8 packets/sec
+     2129 packets input, 3187296 bytes, 0 no buffer
+     Received 2 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 18 multicast, 0 pause input
+     2130 packets output, 3187669 bytes, 0 underruns
+     Output 1 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     1 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:20:52      
+ 0/0      8M-2xSFP+           ok                    00:20:07      
+R0        C8230X-8M2X         ok, active            00:20:52      
+F0        C8230X-8M2X         ok, active            00:20:52      
+P0        PWR-CC2-66WAC       ok                    00:20:20      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.028 sec ago
+Last punt keepalive sent                  = 1.028 sec ago
+punt keepalive rx count                   = 592
+punt keepalive tx count                   = 592
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 407
+  Kernel time      : 458
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46208
+  Major page faults: 606
+
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          32 Celsius
+ Temp: Outlet            R0              Normal          31 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12115 mV
+ V: 5V                   R0              Normal          4961 mV
+ V: 3.3V_SB              R0              Normal          3328 mV
+ V: 3.3V_SFP             R0              Normal          3311 mV
+ V: 3.3V                 R0              Normal          3303 mV
+ V: 1.8V                 R0              Normal          1796 mV
+ V: 1.2V                 R0              Normal          1202 mV
+ V: 1.1V_DDR             R0              Normal          1106 mV
+ V: 0.75V_CORE           R0              Normal          763 mV
+ V: 0.75V_SYS            R0              Normal          854 mV
+ V: 0.8V_SW              R0              Normal          806 mV
+ V: 0.8V                 R0              Normal          805 mV
+ V: 0.75V                R0              Normal          754 mV
+ I: VP12P0_MB            R0              Normal          1408 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          16 Watts
+
+
+Router#
+[TX 2026-10-31T16:44:27.234446] b'configure terminal\rinterface TwoGigabitEthernet0/0/6\rshutdown\rno ip address\rno vrf forwarding\rinterface TwoGigabitEthernet0/0/7\rshutdown\rno ip address\rno vrf forwarding\rexit\rno vrf definition C8235_LOOP_A\rno vrf definition C8235_LOOP_B\rend\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface TwoGigabitEthernet0/0/6
+Router(config-if)#shutdown
+Router(config-if)#no ip address
+Router(config-if)#no vrf forwarding
+Router(config-if)#interface TwoGigabitEthernet0/0/7
+Router(config-if)#shutdown
+Router(config-if)#no ip address
+Router(config-if)#no vrf forwarding
+Router(config-if)#exit
+Router(config)#no vrf definition C8235_LOOP_A
+% IPv4 and IPv6 addresses from all interfaces in VRF C8235_LOOP_A have been removed
+Router(config)#no vrf definition C8235_LOOP_B
+% IPv4 and IPv6 addresses from all interfaces in VRF C8235_LOOP_B have been removed
+Router(config)#end
+Router#
+*May 29 19:10:00.523: %SYS-5-CONFIG_I: Configured from console by console
+[TX 2026-10-31T16:44:30.149437] b'show vrf\rshow running-config interface TwoGigabitEthernet0/0/6\rshow running-config interface TwoGigabitEthernet0/0/7\rshow interfaces TwoGigabitEthernet0/0/6 | include is administratively\rshow interfaces TwoGigabitEthernet0/0/7 | include is administratively\rcopy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-loopback-running.cfg\r'
+show vrf
+  Name                             Default RD                  Protocols   Interfaces
+  Mgmt-intf                        <not set>                   ipv4,ipv6   Gi0
+Router#show running-config interface TwoGigabitEthernet0/0/6
+Building configuration...
+
+Current configuration : 84 bytes
+!
+interface TwoGigabitEthernet0/0/6
+ no ip address
+ shutdown
+ negotiation auto
+end
+
+Router#show running-config interface TwoGigabitEthernet0/0/7
+Building configuration...
+
+Current configuration : 84 bytes
+!
+interface TwoGigabitEthernet0/0/7
+ no ip address
+ shutdown
+ negotiation auto
+end
+
+Router#show interfaces TwoGigabitEthernet0/0/6 | include is administratively
+TwoGigabitEthernet0/0/6 is administratively down, line protocol is down 
+Router#show interfaces TwoGigabitEthernet0/0/7 | include is administratively
+TwoGigabitEthernet0/0/7 is administratively down, line protocol is down 
+Router#copy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-loopback-running.cfg
+Destination filename [C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-loopback-running.cfg]? 
+*May 29 19:10:02.464: %LINK-5-CHANGED: Interface TwoGigabitEthernet0/0/6, changed state to administratively down
+*May 29 19:10:02.492: %LINK-5-CHANGED: Interface TwoGigabitEthernet0/0/7, changed state to administratively down
+*May 29 19:10:03.468: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/6, changed state to down
+*May 29 19:10:03.492: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/7, changed state to down
+[TX 2026-10-31T16:44:32.680780] b'\r'
+
+6902 bytes copied in 0.460 secs (15004 bytes/sec)
+Router#
+[TX 2026-10-31T16:44:35.634677] b'verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-loopback-running.cfg\r'
+verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-loopback-running.cfg
+.Done!
+verify /sha512 (usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-loopback-running.cfg) = e4090abd95bce66df2b2f83e1d743ab83daa9067ea57fab3aef240f01061d38537d3a56c963b0925a5898fd96d4dd009dc1f523654b6d8909a1a2d58482f90b7
+
+
+Router#
+[TX 2026-10-31T16:44:40.541772] b'show archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-loopback-running.cfg\r'
+show archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-loopback-running.cfg
+!Contextual Config Diffs:
+!No changes were found
+
+Router#
+[TX 2026-10-31T16:44:54.588874] b'show startup-config | include C8235_LOOP\rshow platform software status control-processor brief\rshow platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\rshow platform software dmesg slot R0 | include NIX|ATTACH_RESOURCES\rdir bootflash: | include bytes free\r'
+show startup-config | include C8235_LOOP
+Router#show platform software status control-processor brief
+Load Average
+ Slot  Status  1-Min  5-Min 15-Min
+  RP0 Healthy   2.00   1.78   1.44
+
+Memory (kB)
+ Slot  Status    Total     Used (Pct)     Free (Pct) Committed (Pct)
+  RP0 Healthy 16150604  3208848 (20%) 12941756 (80%)   3287700 (20%)
+
+CPU Utilization
+ Slot  CPU   User System   Nice   Idle    IRQ   SIRQ IOwait
+  RP0    0   1.90   3.50   0.00  93.78   0.70   0.10   0.00
+         1   0.00   0.00   0.00  99.90   0.10   0.00   0.00
+         2   0.00   0.00   0.00 100.00   0.00   0.00   0.00
+         3   0.00   0.00   0.00 100.00   0.00   0.00   0.00
+         4  13.00  20.40   0.00  61.90   4.70   0.00   0.00
+         5  12.91  18.31   0.00  64.16   4.60   0.00   0.00
+         6   4.90  10.40   0.00  81.60   3.10   0.00   0.00
+         7   0.00   0.00   0.00  94.90   5.10   0.00   0.00
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.324 sec ago
+Last punt keepalive sent                  = 0.324 sec ago
+punt keepalive rx count                   = 608
+punt keepalive tx count                   = 608
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 408
+  Kernel time      : 459
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46219
+  Major page faults: 606
+
+
+Router#show platform software dmesg slot R0 | include NIX|ATTACH_RESOURCES
+Router#dir bootflash: | include bytes free
+20229492736 bytes total (12797935616 bytes free)
+Router#

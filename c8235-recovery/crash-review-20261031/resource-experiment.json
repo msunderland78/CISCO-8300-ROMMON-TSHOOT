@@ -3,8 +3,8 @@
   "chassis": "C8235-B / FGL2835LBHU",
   "recorded_at": "2026-10-31T16:15:59.198277-04:00",
   "timezone": "America/New_York",
-  "state": "IOS26.2.1 operational; initial15-minute gate running, due16:40:11 EDT; active exclusive console capture in restricted private live-console directory",
-  "cables": "Power, RJ45 console, USB storage; owner subsequently connected a patch cable between physical ports6/7 while logical ports remain shutdown. Owner calls these flex ports; mapping to IOS must be confirmed.",
+  "state": "Initial 15-minute gate and 2.5Gb/s physical loopback passed; test config restored; powered in corrected IOS, console closed around 16:45 EDT",
+  "cables": "Power, RJ45 console, USB storage, physical 6-to-7 cable mapped by reciprocal CDP and carrier response to logical Tw0/0/6 and Tw0/0/7; both restored shutdown.",
   "image": {
     "file": "c8kg2be-universalk9.26.02.01.SPA.bin",
     "bytes": 1048008916,
@@ -55,6 +55,13 @@
       "bytes": 231522,
       "sha256": "c2e56a2a968e6466ff5ab0e88600a521e7f251235c6d08fd83026f9663e04961",
       "closed": true
+    },
+    {
+      "path": "router-console-logs/20261031-162927-console.log",
+      "bytes": 48790,
+      "sha256": "3047ca5a9e729ee72346681271e5684bfb4d2735a444bd2bcfc8e98d15309801",
+      "closed": true,
+      "private_source_copy_verified": true
     }
   ],
   "preservation": {
@@ -83,23 +90,36 @@
       "bytes": 6902,
       "sha512": "3ad204164a3929019cb5821d26e9c766931425e8617d14f62f27345796c0d804e9e400b70a5f3bff598c3ebb55c9b164ff203c47680256958217bcec3a376bb8",
       "location": "USB diagnostic directory; private"
+    },
+    "pre-loopback-running.cfg": {
+      "file": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg",
+      "bytes": 6902,
+      "sha512": "3ad204164a3929019cb5821d26e9c766931425e8617d14f62f27345796c0d804e9e400b70a5f3bff598c3ebb55c9b164ff203c47680256958217bcec3a376bb8"
+    },
+    "post-loopback-running.cfg": {
+      "bytes": 6902,
+      "sha512": "e4090abd95bce66df2b2f83e1d743ab83daa9067ea57fab3aef240f01061d38537d3a56c963b0925a5898fd96d4dd009dc1f523654b6d8909a1a2d58482f90b7",
+      "location": "USB diagnostic directory; private",
+      "native_pre_post_comparison": "No changes were found; hashes differ, byte equality not claimed"
     }
   },
   "rollback": "Reboot without wrapper; verify unsaved USER_BOOT_PARAM absent. No environment sync or confreg change. Persistent image and ROMMON unchanged.",
   "validation": [
-    "bash -n wrapper",
+    "bash -n authored wrapper locally and on router",
     "exact vendor-script hash on router matches offline extracted file",
-    "exact insertion anchor verified offline",
-    "USB wrapper hash matches authored file"
+    "exact insertion anchor verified offline and candidate RAM hash checked by --prepare-only",
+    "initial 16:15 USB wrapper hash matched its then-authored version 1e862ec1; retained as history",
+    "successful current version 45af8d05 transferred to RAM and hash-verified; not copied to USB in this phase",
+    "closed capture copies and kernel-derived snapshot hashes verified; 17 keepalive samples and packet totals checked offline"
   ],
-  "acceptance": "F0 and port module operational, kernel allocation errors absent; 15-minute gate running, longer gates unperformed. Owner requests physical mGig loopback before iperf.",
+  "acceptance": "15-minute operational gate passed; physical 2.5Gb/s link and bounded wire-path pings passed. Longer idle, external forwarding/load, corrected cold boots and overnight gates pending.",
   "initial_checkpoint_state": "maintenance shell; storage unmounted; console closed at 16:15:29 EDT; corrected IOS trial pending",
   "prepared_wrapper_at_1615": {
     "path": "experimental-recovery/c8235-b-bound16-20261031/boot-bound16.sh",
     "bytes": 2579,
     "sha256": "1e862ec1208b77707666dceeb9f007d20626f048d425cb163ea895b694c70650"
   },
-  "updated_at": "2026-10-31T16:31:55.522434-04:00",
+  "updated_at": "2026-10-31T16:46:00.527489-04:00",
   "transport_attempts": [
     {
       "method": "291-character ROMMON set command",
@@ -125,7 +145,7 @@
     "cpp_pid": 20844,
     "gate_started_at": "2026-10-31T16:25:11-04:00",
     "gate_due_at": "2026-10-31T16:40:11-04:00",
-    "gate_passed": false,
+    "gate_passed": true,
     "samples": [
       {
         "host_time": "16:25:11 EDT",
@@ -165,7 +185,9 @@
       "sha256": "85005c9fce4be30b2f05efcf0cd5982ffe78bbed4a8fd327244ee1d4e8fcaee5",
       "NIX_request_failed": 0,
       "ATTACH_RESOURCES": 0,
-      "flow_control_errors": 3
+      "flow_control_errors": 3,
+      "path": "c8235-recovery/crash-review-20261031/bound16-kernel-first.log",
+      "derivation": "Selected CLI kernel rows, CR-normalized; original console bytes preserved separately."
     },
     "limitations": [
       "No external forwarding test",
@@ -174,6 +196,27 @@
       "3CGX flow-control -1103 messages remain",
       "Capture descriptor rotation around16:29:27 creates short coverage gap"
     ],
-    "configuration_write_note": "IOS native PKI CONFIGAUTOSAVE occurred during startup. No agent write-memory command; raw preboot partitions and startup export retained."
+    "configuration_write_note": "IOS native PKI CONFIGAUTOSAVE occurred during startup. No agent write-memory command; raw preboot partitions and startup export retained.",
+    "gate_observed_pass_at": "2026-10-31T16:40:19-04:00",
+    "gate_duration_seconds": 908,
+    "gate_result": {
+      "F0": "ok, active",
+      "subslot_0_0": "ok",
+      "cpp_pid": 20844,
+      "tx": 470,
+      "rx": 470,
+      "miss": 0,
+      "NIX_or_ATTACH_failure_in_filtered_kernel_output": false
+    },
+    "final_sample": {
+      "host_command_time": "2026-10-31T16:44:54.588874-04:00",
+      "tx": 608,
+      "rx": 608,
+      "miss": 0,
+      "cpp_pid": 20844,
+      "bootflash_free_bytes": 12797935616
+    },
+    "all_samples": "c8235-recovery/crash-review-20261031/monitor-samples.json",
+    "physical_loopback": "c8235-recovery/crash-review-20261031/loopback-test.json"
   }
 }

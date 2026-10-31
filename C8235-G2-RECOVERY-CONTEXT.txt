@@ -10,7 +10,45 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-CORRECTED IOS BOOT CHECKPOINT — 2026-10-31, 16:30 EDT
+LOOPBACK AND INITIAL STABILITY RESULT — 2026-10-31, 16:45 EDT
+C8235-B / FGL2835LBHU passed the initial 15-minute operational gate:
+16:25:11–16:40:19 EDT, F0/0/0 operational, CPP PID 20844 unchanged,
+470/470 punt keepalives with zero misses. This supersedes the pending gate
+below. Last sample at 16:44:55: 608/608, zero misses, same CPP PID; RP Healthy,
+memory 20%, CPU 52 C, main 12 V 12115 mV, bootflash 12797935616 bytes free.
+The old standby-sensor and TPM warnings remain unresolved.
+
+Owner's cable between physical ports 6/7 maps to logical Tw0/0/6 and Tw0/0/7:
+both up/up at 2500 Mbps full duplex; reciprocal CDP and carrier loss on 7
+when 6 is shut down confirm the pair. Re-enabling 6 restores 2.5 Gb/s.
+Owner calls these flex ports; IOS reports both non-switchable. Preserve
+that distinction. Cable category is unknown; no external network attached.
+
+Temporary VRFs C8235_LOOP_A/B used 192.0.2.1/30 and 192.0.2.2/30, with no
+route leaks. Separate local routes, reciprocal ARP and physical counters
+support wire-path pings. Initial 100-byte test A->B was 4/5 (first packet
+lost; ARP discovery is an inference); B->A 5/5. All 2100 subsequent 1500-byte
+DF pings passed, including 1000 each direction, RTT 1/1/4 ms. Both ports
+have zero CRC/input/output errors. Deliberate link bounce accounts for the
+observed carrier events; this was not a line-rate/transit-throughput test.
+
+Removed test addresses/VRFs and restored both ports to shutdown/no IP/auto.
+Mgmt-intf retained. Native pre/post config comparison: no changes found.
+Both USB running exports are 6902 bytes but have different hashes; semantic
+equality is verified, byte equality is not. No agent config save. Raw logs
+and config exports remain private; generated sanitized logs are published.
+Capture router-console-logs/20261031-162927-console.log closed about 16:45;
+fresh lsof shows console free. Router remains powered in corrected IOS,
+power/console/USB plus self-cable connected; no monitor is left running.
+
+Evidence: c8235-recovery/crash-review-20261031/loopback-test.json,
+monitor-samples.json and REVIEW.md. Next: captured 60-minute idle gate,
+independent forwarding/load, then repeatable corrected cold boots and
+overnight soak. The correction is RAM-only and disappears on reboot.
+No persistent recovery claim; retain development ROMMON. No power cycle
+is needed to complete this loopback test.
+
+CORRECTED IOS BOOT CHECKPOINT — 2026-10-31, 16:30 EDT (historical)
 Supersedes the 16:15 maintenance state below. Long ROMMON command rejected;
 short automatic USB bootstrap reset before marker, cause unresolved. Returned
 to known maintenance entry with ;exec${IFS}/init continuation. Verified RAM

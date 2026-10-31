@@ -1,0 +1,247 @@
+{
+  "task": "C8235-05",
+  "subtest": "physical mGig cross-port loopback",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "status": "Passed 2.5Gb/s link, controlled re-negotiation and bounded wire-path ICMP; test configuration restored",
+  "timezone": "America/New_York",
+  "user_report": "Cable connected between physical Ethernet ports6 and7; owner calls them flex ports; category not provided",
+  "physical_to_logical_mapping": "Observed logical6/7 up after enabling only them; reciprocal CDP local6/remote7 and local7/remote6; shutdown6 removes carrier on7.",
+  "logical_endpoints": [
+    "TwoGigabitEthernet0/0/6",
+    "TwoGigabitEthernet0/0/7"
+  ],
+  "before": {
+    "each_endpoint": {
+      "shutdown": true,
+      "ip_address": null,
+      "negotiation": "auto",
+      "switchable": false,
+      "input_errors": 0,
+      "crc_errors": 0,
+      "output_errors": 0,
+      "interface_resets": 0
+    },
+    "reported_speed_while_down": "Full Duplex, 2500Mbps; this is NOT proof of negotiated link while administratively down"
+  },
+  "planned_change": [
+    "interface TwoGigabitEthernet0/0/6: no shutdown",
+    "interface TwoGigabitEthernet0/0/7: no shutdown"
+  ],
+  "rollback": [
+    "interface TwoGigabitEthernet0/0/6: shutdown",
+    "interface TwoGigabitEthernet0/0/7: shutdown"
+  ],
+  "constraints": [
+    "Do not save test configuration",
+    "Do not clear original counters; compare deltas",
+    "Confirm up/up and operational speed before reporting negotiation success",
+    "A physical loopback link check does not measure line-rate forwarding",
+    "No route leaking or bridging between endpoints if optional separate-VRF wire-path pings are used"
+  ],
+  "results": [
+    {
+      "phase": "enable",
+      "host_time": "2026-10-31T16:40:39-04:00",
+      "change": "no shutdown on logical6/7; no IP configuration"
+    },
+    {
+      "phase": "initial link",
+      "observed": "both up/up, full duplex2500Mbps, auto/RJ45, zero CRC/input/output errors",
+      "interface_resets": {
+        "6": 1,
+        "7": 1
+      }
+    },
+    {
+      "phase": "controlled one-end shutdown",
+      "observed": "logical6 administratively down and logical7 down; both protocols down"
+    },
+    {
+      "phase": "re-enable6",
+      "host_time": "2026-10-31T16:41:59-04:00",
+      "observed": "both up/up, full duplex2500Mbps; zero CRC/input/output errors; reciprocal CDP",
+      "packets": {
+        "6": {
+          "input": 9,
+          "output": 10,
+          "interface_resets": 2
+        },
+        "7": {
+          "input": 9,
+          "output": 9,
+          "interface_resets": 1
+        }
+      },
+      "keepalives": {
+        "tx": 520,
+        "rx": 520,
+        "miss": 0
+      }
+    }
+  ],
+  "pre_loopback_backup": {
+    "file": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg",
+    "bytes": 6902,
+    "sha512": "3ad204164a3929019cb5821d26e9c766931425e8617d14f62f27345796c0d804e9e400b70a5f3bff598c3ebb55c9b164ff203c47680256958217bcec3a376bb8"
+  },
+  "next_wire_test": {
+    "status": "completed; rolled back",
+    "existing_vrfs": [
+      "Mgmt-intf"
+    ],
+    "new_vrfs": [
+      "C8235_LOOP_A",
+      "C8235_LOOP_B"
+    ],
+    "addresses": {
+      "TwoGigabitEthernet0/0/6": "192.0.2.1/30 in C8235_LOOP_A",
+      "TwoGigabitEthernet0/0/7": "192.0.2.2/30 in C8235_LOOP_B"
+    },
+    "purpose": "VRF-aware pings must cross physical cable; no route leaking or bridging",
+    "rollback": "Shutdown both ports; remove test IP addresses and VRF forwarding; delete only C8235_LOOP_A/B. Original ports had no IP, no VRF, negotiation auto, shutdown.",
+    "routing_evidence": "Each VRF has its own /32 local address and connected /30 only; no route leaking. Reciprocal peer MAC ARP entries and physical packet counters observed.",
+    "tests": [
+      {
+        "host_time": "2026-10-31T16:43:50.916680-04:00",
+        "direction": "A to B",
+        "bytes": 100,
+        "sent": 5,
+        "received": 4,
+        "rtt_ms": [
+          1,
+          1,
+          4
+        ],
+        "note": "First packet lost; consistent with initial ARP discovery, not independently proven."
+      },
+      {
+        "host_time": "2026-10-31T16:44:01.024561-04:00",
+        "direction": "B to A",
+        "bytes": 100,
+        "sent": 5,
+        "received": 5,
+        "rtt_ms": [
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "host_time": "2026-10-31T16:44:03.913621-04:00",
+        "direction": "A to B",
+        "bytes": 1500,
+        "df_bit": true,
+        "sent": 100,
+        "received": 100,
+        "rtt_ms": [
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "host_time": "2026-10-31T16:44:12.371013-04:00",
+        "direction": "B to A",
+        "bytes": 1500,
+        "df_bit": true,
+        "sent": 1000,
+        "received": 1000,
+        "rtt_ms": [
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "host_time": "2026-10-31T16:44:15.469494-04:00",
+        "direction": "A to B",
+        "bytes": 1500,
+        "df_bit": true,
+        "sent": 1000,
+        "received": 1000,
+        "rtt_ms": [
+          1,
+          1,
+          4
+        ]
+      }
+    ],
+    "rtt_units": "min/avg/max milliseconds; timestamps are host command dispatch",
+    "commands": [
+      "ping vrf C8235_LOOP_A 192.0.2.2 source 192.0.2.1 repeat 5 timeout 1",
+      "ping vrf C8235_LOOP_B 192.0.2.1 source 192.0.2.2 repeat 5 timeout 1",
+      "ping vrf C8235_LOOP_A 192.0.2.2 source 192.0.2.1 repeat 100 timeout 1 size 1500 df-bit",
+      "ping vrf C8235_LOOP_B 192.0.2.1 source 192.0.2.2 repeat 1000 timeout 1 size 1500 df-bit",
+      "ping vrf C8235_LOOP_A 192.0.2.2 source 192.0.2.1 repeat 1000 timeout 1 size 1500 df-bit"
+    ],
+    "console_batch_note": "Commands queued after the first ping were not observed executing; reverse ping and ARP commands were resent after the prompt. Results count only observed replies."
+  },
+  "updated_at": "2026-10-31T16:46:00.527489-04:00",
+  "evidence": "sanitized-evidence/router-console-logs/20261031-162927-console.log",
+  "final_port_counters_before_rollback": {
+    "host_time": "2026-10-31T16:44:23.318441-04:00",
+    "6": {
+      "rx_packets": 2130,
+      "rx_bytes": 3187669,
+      "tx_packets": 2130,
+      "tx_bytes": 3187359,
+      "interface_resets": 2,
+      "lost_carrier": 1
+    },
+    "7": {
+      "rx_packets": 2129,
+      "rx_bytes": 3187296,
+      "tx_packets": 2130,
+      "tx_bytes": 3187669,
+      "interface_resets": 1,
+      "lost_carrier": 1
+    },
+    "both": {
+      "input_errors": 0,
+      "crc": 0,
+      "output_errors": 0,
+      "output_drops": 0,
+      "no_buffer": 0,
+      "underruns": 0
+    },
+    "note": "Counters not cleared; protocol traffic included. Resets/carrier events include deliberate administrative link changes; samples are sequential."
+  },
+  "restoration": {
+    "change_dispatched_at": "2026-10-31T16:44:27.234446-04:00",
+    "verified": "Both ports shutdown/no IP/no VRF/negotiation auto; only original Mgmt-intf remains; no C8235_LOOP entry in startup config filter.",
+    "native_config_comparison": "show archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-loopback-running.cfg usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-loopback-running.cfg",
+    "comparison_result": "No changes were found",
+    "post_config_file": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-loopback-running.cfg",
+    "post_config_bytes": 6902,
+    "post_config_sha512": "e4090abd95bce66df2b2f83e1d743ab83daa9067ea57fab3aef240f01061d38537d3a56c963b0925a5898fd96d4dd009dc1f523654b6d8909a1a2d58482f90b7",
+    "byte_equality": false,
+    "difference_limitation": "Native semantic comparison passes; differing file hashes remain recorded. Header timestamp variation is plausible but not directly inspected.",
+    "agent_save_to_startup": false
+  },
+  "final_health": {
+    "host_time": "2026-10-31T16:44:54.588874-04:00",
+    "keepalive_tx": 608,
+    "keepalive_rx": 608,
+    "keepalive_miss": 0,
+    "cpp_pid": 20844,
+    "RP": "Healthy",
+    "memory_used_percent": 20,
+    "bootflash_free_bytes": 12797935616,
+    "environment_sample_at": "2026-10-31T16:44:23.318441-04:00",
+    "cpu_celsius": 52,
+    "main_12v_mv": 12115,
+    "power_watts": 16,
+    "unresolved": "12V_DG_ST 0mV/Critical_Low; historical TPM self-test 256"
+  },
+  "handoff": {
+    "console": "capture closed around 16:45 EDT; lsof no owner",
+    "power": "on in corrected IOS",
+    "cables": "power, RJ45 console, USB storage, physical 6-to-7 patch cable; both test ports shutdown",
+    "background_monitor": false,
+    "limitations": [
+      "Not a transit-throughput or line-rate test",
+      "No 60-minute idle/traffic, corrected cold-boot or overnight gate complete",
+      "RAM-only boot correction is lost on reboot"
+    ]
+  }
+}
