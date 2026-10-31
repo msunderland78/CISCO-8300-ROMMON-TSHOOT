@@ -1,8 +1,10 @@
 # Pi5 SPI acquisition plan — C8375-A
 
-Updated **October 31, 2026**, America/New_York. Tasks **P-03 / R-01**; chassis **C8375-A / FDO2742M0FK**, Crestone/SoC2. **Owner resumed October31 with U2 clip/U1 grabber and Pi online. Read the current checkpoint before historical procedures.**
+Updated **October 31, 2026**, America/New_York. Tasks **P-03 / R-01**; chassis **C8375-A / FDO2742M0FK**, Crestone/SoC2. **Owner resumed October31 with U2 clip/U1 grabber. Read the current checkpoint for the latest power and measurement state before historical procedures.**
 
 ## Current checkpoint (2026-10-31)
+
+**Grabber reseated / assembled path0.9Ω — October 31, 2026, America/New_York (R-01):** owner reports grabber may have disconnected slightly during preceding approximately2Ω measurement, reseats it and now measures **0.9Ω from actual resistor U1-side output to actual U1pin7**. This supports a low-resistance assembled path. Preserve earlier3,170Ω/~2Ω/1.242V observations: movement is a possible contributor, not a proved sole cause; earlier powered voltage does not validate this newly reseated state. **Next:** secure complete circuit, meter in DCvolts, Pi-only power under established router/CR2032/CH341A isolation; black P1pin2/GND, red P1pin1 then U1-side resistor leg. Report both fresh voltages; no U2-select control/read yet. [Reseat evidence](acquisition-evidence/20261031-Pi5-U2-pullup-resume.json).
 
 **Isolated grabber path low resistance — October 31, 2026, America/New_York (R-01):** after clarified endpoints, owner reports **approximately2Ω, perhaps slightly less**, from free grabber-wire terminal→actual U1pin7 with breadboard excluded per requested protocol. A few ohms is adequate for this passive9,940Ω pull-up path; exactly0.3Ω is not a requirement. Preserve earlier **3,170Ω** with breadboard included as a different setup; cause of discrepancy is unresolved and assembled breadboard contact remains unchecked. **Next, Pi still unplugged:** reconnect grabber lead in the same connected strip as resistor U1-side leg, then meter **actual U1-side resistor leg→actual U1pin7**; a few ohms would establish this assembled path. No powered test/U2 control/read yet; no resistor-value change. [Isolated-path result](acquisition-evidence/20261031-Pi5-U2-pullup-resume.json).
 

@@ -90,5 +90,14 @@
     "interpretation": "Low-resistance wire/grabber contact is adequate for this passive10k pull-up path; exactly0.3ohm is not required. This does not validate SPI signals or acquisition. Earlier3170ohm included the breadboard node, so retain as different setup; origin of discrepancy unresolved.",
     "next_requested": "Keep Pi unplugged. Reconnect grabber lead into same connected breadboard strip as resistor U1-side leg; measure directly actual U1-side resistor leg to actual U1pin7. A few ohms would also establish assembled breadboard connection. No power/control/read until assembled path assessed.",
     "agent_hardware_actions": "None"
+  },
+  "reseated_assembled_grabber_path": {
+    "owner_report": "Grabber might have disconnected slightly during preceding~2ohm measurement; reseated; now0.9ohm from resistor output to actualU1pin7.",
+    "ohms": 0.9,
+    "endpoints": "Actual U1-side resistor leg/output to actual U1 physical pin7, assembled grabber path.",
+    "conditions": "Follows requested unpowered assembled-path check; not independently inspected.",
+    "interpretation": "Low-resistance assembled resistor-to-chip connection is now demonstrated by owner reading. Prior suspected movement makes earlier contact/voltage conclusions uncertain; not proof of the sole cause of3170ohm or earlier1.242V. Actual resistor9940ohm preserved.",
+    "next_requested": "With secure single-leg grabber and complete circuit, meter DCvolts before Pi-only power. Black P1pin2/GND, red P1pin1 then actual U1-side resistor leg. Refresh both voltages before any CS control/read. Router/CR2032/CH341A isolation unchanged under confirmed setup.",
+    "status": "Powered recheck requested, not yet reported; no agent hardware action or new U2 read."
   }
 }
