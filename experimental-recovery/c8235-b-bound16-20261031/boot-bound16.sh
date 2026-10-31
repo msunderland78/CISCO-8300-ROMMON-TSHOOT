@@ -1,14 +1,18 @@
 #!/bin/bash
 # AI-assisted diagnostic for physically confirmed C8235-B / FGL2835LBHU only.
-# Invoke explicitly as PID 1 from the verified 26.2.1 initramfs. Experimental.
+# Invoke explicitly in the verified 26.2.1 initramfs. Experimental.
+# --prepare-only applies/verifies the RAM patch, then returns to its caller.
 # Edits the RAM copy of launch_net.sh, never an image or internal filesystem.
 # A reboot without this wrapper restores ordinary startup.
 set -Eeuo pipefail
 
-[[ $$ == 1 ]] || { echo 'Refusing: this diagnostic must be initramfs PID 1'; exit 1; }
+mode=${1:-boot}
+[[ $mode == --prepare-only || ( $mode == boot && $$ == 1 ) ]] || exit 1
 exec </dev/ttyAMA0 >/dev/ttyAMA0 2>&1
 stty 115200
-trap 'echo "C8235_BOUND16_BOOTSTRAP_FAILED; maintenance shell only"; exec /bin/bash' ERR
+if [[ $mode == boot ]]; then
+    trap 'echo "C8235_BOUND16_BOOTSTRAP_FAILED; maintenance shell only"; exec /bin/bash' ERR
+fi
 echo C8235_BOUND16_BOOTSTRAP_BEGIN
 mkdir -p /proc /sys
 [[ -r /proc/self/status ]] || mount -t proc proc /proc
@@ -29,6 +33,7 @@ if [[ $FRU_SUB != ARATA ]]; then
     exit 1
 fi
 echo C8235_BOUND16_HOOK_BEGIN
+echo C8235_BOUND16_HOOK_BEGIN > /dev/ttyAMA0
 for c8235_vf in $(seq 16 31); do
     c8235_link=/sys/bus/pci/devices/0002:01:00.0/virtfn$c8235_vf
     [[ -L $c8235_link ]] || { echo 'C8235_BOUND16_HOOK_REFUSED: missing VF'; exit 1; }
@@ -44,16 +49,19 @@ for c8235_vf in $(seq 0 15); do
     [[ $(basename "$(readlink -f /sys/bus/pci/devices/$c8235_bdf/driver)") == rvu_nicvf ]] || exit 1
 done
 echo C8235_BOUND16_HOOK_COMPLETE
+echo C8235_BOUND16_HOOK_COMPLETE > /dev/ttyAMA0
 unset c8235_vf c8235_link c8235_bdf c8235_driver
 BOUND16_HOOK
 
 sed '93i\    source /c8235-bound16-hook.sh' "$target" > /launch_net.bound16
 bash -n /launch_net.bound16
+[[ $(busybox sha256sum /launch_net.bound16 | awk '{print $1}') == 32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857 ]]
 chmod 755 /launch_net.bound16
 mv /launch_net.bound16 "$target"
 busybox sha256sum "$target" /c8235-bound16-hook.sh
 echo C8235_BOUND16_BOOTSTRAP_READY
 cd /
-umount /mnt/diagnostic
+[[ $mode != --prepare-only ]] || exit 0
+umount /u
 trap - ERR
 exec /init

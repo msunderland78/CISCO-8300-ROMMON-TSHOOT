@@ -10,7 +10,34 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-CURRENT ANALYSIS CHECKPOINT — 2026-10-31, America/New_York
+CORRECTED IOS BOOT CHECKPOINT — 2026-10-31, 16:30 EDT
+Supersedes the 16:15 maintenance state below. Long ROMMON command rejected;
+short automatic USB bootstrap reset before marker, cause unresolved. Returned
+to known maintenance entry with ;exec${IFS}/init continuation. Verified RAM
+/prepare-bound16.sh SHA25645af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052;
+ran --prepare-only, status0, exact vendor/candidate hashes checked. Exit child
+shell16:22:49 starts PID1/init; hook BEGIN/COMPLETE both observed. No mounted
+storage during patch preparation; no ROMMON/image/confreg/security command.
+
+26.02.1 now has F0 ok,active and subslot0/0 ok. 15-minute first gate starts
+16:25:11, due16:40:11 or later; not complete at this checkpoint. CPP PID20844
+unchanged; keepalives167TX/167RX, zero misses at16:30:15. Native CLI dmesg
+1677 lines includes zero NIX/ATTACH failures, three CGX flow-control -1103
+messages. Runtime root shell asks consent token; not pursued. CPU52C, memory
+20%, main12V normal. Old12V_DG_ST0mV/Critical_Low and TPM256 remain unresolved.
+Confreg remains0x3922. IOS native PKI autosaved config; no agent write-memory.
+Startup2424B/running6902B exports private onUSB, nativeSHA512 in experimentJSON.
+
+Closed router-console-logs/20261031-161654-console.log around16:29:27; capture
+resumed in restricted live-console private directory, short coverage gap.
+Console is owned by the active capture. Router powered inIOS, USB attached.
+Owner asks physical loopback before iperf and reports cable between chassis
+ports6/7, labelled flex. IOSlogical6 says non-switchable; verify mapping by
+link observation. Bothlogical6/7 shutdown/noIP until initial idle gate finishes.
+Next record mGig link/duplex/counters, then further stability/forwarding gates.
+No cold-boot/overnight/persistent-fix claim. Current correction lives onlyRAM.
+
+INITIAL ANALYSIS CHECKPOINT — 2026-10-31, America/New_York
 Owner returns to the C8235s. B is FGL2835LBHU; A remains the separate
 pre-ROMMON TPM-halt case. C has no verified boot result; its earlier
 "Nonworking" milestone was unsupported and is corrected to untested.

@@ -854,6 +854,11 @@
       "bytes": 186128,
       "path": "router-console-logs/20261031-160639-console.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 231522,
+      "path": "router-console-logs/20261031-161654-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -888,9 +893,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 57398,
+      "bytes": 59254,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "4866cb46880f8ceb48c9a3df043b9ff5ea8d55e9bdb2dae680057427732cb9c2"
+      "sha256": "7a8985a761449098e6f4af6506e9519a84b18ffe7f9c346dc52ffe7af0e1426e"
     },
     {
       "bytes": 106687,
@@ -1073,9 +1078,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 23620,
+      "bytes": 23609,
       "path": "README.md",
-      "sha256": "09723a1e6f6d0450b53804dd0735c672331e6932709bc5008b81f071ef08bddb"
+      "sha256": "2e630c803ce41dca95c014abc98c58f46423609aab9f70aaad891efbc8d72f5d"
     },
     {
       "bytes": 3934,
@@ -1173,9 +1178,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 321122,
+      "bytes": 323022,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "9f1df9237cc29c984fa17f62143880da95be510f03aa7a82cd0be58e30d8a33e"
+      "sha256": "b0e1f27166898a4a67d6da8484a96c4204b00936f4802956f4f985aaeaa8b638"
     },
     {
       "bytes": 6850655,
@@ -1313,9 +1318,9 @@
       "sha256": "b3449fde6e72c571de6260f5758fb03a448ef7f7278d2130187a0acba691af9b"
     },
     {
-      "bytes": 16705,
+      "bytes": 21972,
       "path": "c8235-recovery/crash-review-20261031/REVIEW.md",
-      "sha256": "6626b0f59b6a8c492aeb170d9c61e6f770073874ad5ed6fdbd24fa7339b2d19f"
+      "sha256": "8b7dbe4994407869f30964f9b13515433c8221d0c9b63d0393fc380b10ce41a8"
     },
     {
       "bytes": 23310,
@@ -1323,9 +1328,9 @@
       "sha256": "69dfe9f1da7b93a13a47c30c6bd6ee0164d51d46e9c59001dc6d306bece75faf"
     },
     {
-      "bytes": 3247,
+      "bytes": 7494,
       "path": "c8235-recovery/crash-review-20261031/resource-experiment.json",
-      "sha256": "f0fb652d67df88b621dd3bdd41aeb548cb3b689e782c119b0e689db351ffd96e"
+      "sha256": "9d7590ef71b59136d78b8dc3534300f67e63a2ef14f5a459cc36758b58bb65a5"
     },
     {
       "bytes": 2942,
@@ -1998,9 +2003,9 @@
       "sha256": "8a63e68c3fa4bf8e9b23375302db8e3f4926e67a03b92a37aa41b6ed1954a9e6"
     },
     {
-      "bytes": 2579,
+      "bytes": 2936,
       "path": "experimental-recovery/c8235-b-bound16-20261031/boot-bound16.sh",
-      "sha256": "1e862ec1208b77707666dceeb9f007d20626f048d425cb163ea895b694c70650"
+      "sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052"
     },
     {
       "bytes": 80,
@@ -2753,6 +2758,11 @@
       "sha256": "758c0b3425f561eaacbb88f4f2f0c349112230ba6a99ce43e7fb3647509fd86b"
     },
     {
+      "bytes": 231526,
+      "path": "sanitized-evidence/router-console-logs/20261031-161654-console.log",
+      "sha256": "1361ebc78624b45a92d97bc3b14dbffc50c9f54e890c850ee5197034682c6f10"
+    },
+    {
       "bytes": 3720,
       "path": "scripts/make_programmer_inspection_crops.py",
       "sha256": "9635f8fdc895d09afa8732bb7b76042619192660eaa8b5b9bbcab3115971b868"
@@ -2935,12 +2945,13 @@
     "sanitized-evidence/router-console-logs/20261031-160037-console.log",
     "sanitized-evidence/router-console-logs/20261031-160040-console.log",
     "sanitized-evidence/router-console-logs/20261031-160543-console.log",
-    "sanitized-evidence/router-console-logs/20261031-160639-console.log"
+    "sanitized-evidence/router-console-logs/20261031-160639-console.log",
+    "sanitized-evidence/router-console-logs/20261031-161654-console.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 171,
-    "included_bytes_without_manifest": 695448225,
-    "included_files_without_manifest": 399
+    "excluded_local_files": 172,
+    "included_bytes_without_manifest": 695693367,
+    "included_files_without_manifest": 400
   }
 }
