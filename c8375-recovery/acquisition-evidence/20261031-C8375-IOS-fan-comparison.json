@@ -1,0 +1,67 @@
+{
+  "task_id": "C8375-05",
+  "recorded_at": "2026-10-31T14:30:13.600020-04:00",
+  "chassis": "C8375-A/C8375-E-G2/FDO2742M0FK",
+  "hypothesis": "Fan cycling may depend on IOS XE version/profile/input handling. MCU temperature-level correlation alone does not rule out an IOS bug. No matching fan bug identified in the reviewed26.2.x/26.1.x/17.15.x public release-note tables; absence there is not proof of no bug.",
+  "owner_steering": "Owner declines external-fan test and proposes IOS comparison; supplies17.15.6 thumb drive and confirms moving it to router and switching to RJ45 console.",
+  "physical_state": "Owner removed non-P voice NIM, replaced blanking plate, top cover/vents previously confirmed; normal power, programming fixture removed; USB storage usb0, native USB console unplugged, RJ45 console verified correct serial.",
+  "current_ios": "26.02.1 / install mode / IMG C26.02.01.0.263 / auto-abort inactive",
+  "candidate": {
+    "name": "c8kg2be-universalk9.17.15.06.SPA.bin",
+    "bytes": 954189596,
+    "sha256": "e7b25cf69fd98aa15eb20477ac56bdd574c03aeb6525f6a867c701c2afc01591",
+    "sha512": "1f70b481a1fb0c5ad1673e44ec776b7241296b87e30647ccddec0abf8f6dabad038c31394434c902579a07dc010a06006763d9490ebfbc94c402238d27111b30",
+    "source": "Owner USB, locally hashed on Mac before safe unmount; currently usb0 on router. Router-side hash pending.",
+    "integrity_authentication_compatibility": "Mac and router USB fingerprints match exactly; separate bootflash copy, package signature/platform validation and successful boot remain pending.",
+    "router_usb_sha512_matches": true,
+    "usb_verified_at": "2026-10-31T14:23:37.790784-04:00",
+    "bootflash_path": "bootflash:c8kg2be-universalk9.17.15.06.SPA.bin",
+    "bootflash_sha512_matches": true,
+    "bootflash_verified_at": "2026-10-31T14:27:42.291015-04:00"
+  },
+  "backups": "Running/startup configuration and current package-manifest text retained only under.git/recovery-private; original U2 SPI backup/readback already preserved. Router-side backup of current packages.conf planned before staging. Existing26.2.1 source and packages retained; no remove inactive or ROMMON command selected.",
+  "plan": [
+    "Verify USB-side SHA512 equals local fingerprint; copy candidate to a new bootflash file and verify destination.",
+    "Preserve current packages.conf as a new independently hash-verified bootflash file. Inspect installed package cohort/free space and inactive/rollback state.",
+    "Use three-step install: add older image first for validation, inspect staging result, then separately activate with rollback timer while retaining26.2.1 committed state. No automatic commit before comparison.",
+    "Capture boot, actual IOS/image path and known boot parameters, package state, MCU/profile/PSU identity, temperatures and fan behavior. Observe up to45minutes or stop early if cycling is reproduced.",
+    "Compare same hardware/configuration while recording temperature/power differences. A behavior difference establishes version dependence under test conditions, not automatically a confirmed Cisco defect."
+  ],
+  "technical_limitations": [
+    "Current development v9.2.1 ROMMON is below published production matrices for both releases; older IOS boot on this exact board is unproven. No ROMMON upgrade selected.",
+    "Rollback timer requires functioning installed IOS; serial console and saved26.2.1 manifest/source remain necessary if early boot fails.",
+    "17.15.6 may lack26.2 voice/security features; voice NIM is absent for the fan comparison."
+  ],
+  "sources": [
+    "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/software-config-guide/secure-8300-series-scg/isr9000swcfg-xe-16-12-book_chapter_0111.html",
+    "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/release-notes/17-15-x/release-notes-cisco-8300-series-secure-routers-release-17-15-x.html",
+    "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html"
+  ],
+  "status": "17.15.6 staged inactive and validated;26.2.1 still active/committed. Serial-ready; no activation or reboot yet.",
+  "rollback_manifest": {
+    "path": "bootflash:packages-26.2.1-before-fan-test-20261031.conf",
+    "bytes": 8405,
+    "sha512": "aed00702b34462f9f6ee911e6f3e4c1d72fef4d051739a06f782ae1e7cb4c37d58ee1ffc08f48f47a8b83708ccc47e66a753988e383be9d098405a9a81a8e891",
+    "verified_same_as_current_packages_conf": true,
+    "verified_at": "2026-10-31T14:24:29.768172-04:00",
+    "retention": "Existing26.2.1 packages and full source image retained; no inactive-package cleanup."
+  },
+  "configuration_comparison": "Running/startup account statements match; observed textual differences are certificate data/representation only. Original snapshots retained privately; startup has not been overwritten.",
+  "console": {
+    "port": "/dev/cu.usbserial-AL00F7EQ",
+    "settings": "115200/8N1/no flow",
+    "serial_verified": "FDO2742M0FK",
+    "raw_log": "c8375-recovery/console-logs/20261031-142112-console.log",
+    "native_usb": "Unplugged after input-path failure; owner confirms RJ45 and USB storage connected."
+  },
+  "staging": {
+    "command": "install add file bootflash:c8kg2be-universalk9.17.15.06.SPA.bin",
+    "started_at": "2026-10-31T14:27:42-04:00",
+    "completed_at": "2026-10-31T14:28:27-04:00",
+    "result": "SUCCESS; Add Passed on R0; image17.15.06.0.770 added.",
+    "independent_summary": "IMG C26.02.01.0.263; IMG I17.15.06.0.770; auto-abort inactive.",
+    "current_packages_conf_sha512_unchanged": true,
+    "boot_after_add": "BOOT=bootflash:packages.conf,12; confreg0x1822",
+    "signature_limit": "Add validation passed; no separate offline Cisco signature or vendor-digest authentication claimed."
+  }
+}

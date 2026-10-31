@@ -4,6 +4,23 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
+LATEST CHECKPOINT 14:30 EDT:17.15.6 add-only SUCCESS14:28:27EDT. Independent
+summary C26.02.01.0.263 / I17.15.06.0.770, timerinactive. Newbootflash SHA512
+matchesUSB/Mac; activepackages.conf still matches saved26.2.1 backup. BOOT/
+confregunchanged. Noactivation/reboot/commit yet; serial ready for comparison.
+
+CURRENT PREPARATION 14:26 EDT: Fan task now compares IOS versions at owner request;
+external-fan idea declined/no intervention. NIM absent in fresh SSH, blank fitted.
+17.15.6 ownerUSB fullbin954189596bytes hashed on Mac, then routerusb0 SHA512
+matches. Native USB input still unresponsive; unplugged and RJ45 console now
+verified115200/8N1, FDO2742M0FK/26.2.1/confreg0x1822. Currentmanifest8405bytes
+copied/hash-verified as bootflash:packages-26.2.1-before-fan-test-20261031.conf.
+Running/startup configs private;26.2.1 source/packages retained. Copy17.15.6 to
+newbootflash file started; no installadd/activate/reboot yet at this checkpoint.
+Next destinationverify, add-only validation, inspect, then controlled activation
+with rollback retained. No newROMMON command; devfirmware compatibility unproven.
+Evidence: c8375-recovery/acquisition-evidence/20261031-C8375-IOS-fan-comparison.json
+
 LATEST UPDATE 14:09 EDT: Owner reports non-P NIM-2FXS/4FXO removed and
 acknowledges NIM-2FXS/4FXOP support distinction. Earlier installed inventory
 is historical. No post-removal router access/inventory/fan test in this update.
