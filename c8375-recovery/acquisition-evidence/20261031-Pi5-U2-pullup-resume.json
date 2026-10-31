@@ -151,5 +151,11 @@
       "nominal_VIH_min_V": 1.2495,
       "nominal_high_margin_V": -0.0035
     }
+  },
+  "scope_update": {
+    "owner_rejects_chip_removal": true,
+    "new_review": "20261031-Pi5-noninvasive-control-review.json",
+    "current_power": "Owner explicitly confirms Pi off and physically unplugged in subsequent noninvasive review.",
+    "next_step": "Assess HOLD#/RESET# independent controls through separate noninvasive qualification; earlier off-board fallback excluded from current scope."
   }
 }

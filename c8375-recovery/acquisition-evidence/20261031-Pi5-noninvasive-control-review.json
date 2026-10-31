@@ -1,0 +1,47 @@
+{
+  "task_id": "R-01 / noninvasive in-circuit U2 acquisition review",
+  "recorded_date": "2026-10-31",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / FDO2742M0FK",
+  "owner_constraint": {
+    "statement": "Owner will not consider chip removal because of risk on the dense board and requests another method.",
+    "active_scope": "Keep chips and leads intact. No chip removal, leg lifting or trace cutting in this plan. Earlier off-board fallback recommendations are historical and outside current scope."
+  },
+  "review_correction": "10k/5.6k pull-up results fail to demonstrate reliable unused-U1 deselection, but do not prove all noninvasive alternatives exhausted. No guarantee an in-circuit alternative will succeed.",
+  "owner_current_state": {
+    "Pi": "Owner explicitly confirms turned off and physically unplugged.",
+    "access": "Owner expects meter access to U1pins1/3 with U2clip retained; actual successful probe access not yet measured.",
+    "wiring": "Retain short U2clip and U1pin7 grabber/nominal5.6k resistor; no new drive/jumper."
+  },
+  "primary_source": {
+    "url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+    "pages": "Figure6 p12; Table1 p14"
+  },
+  "candidates": [
+    {
+      "name": "Unused U1 HOLD#",
+      "physical_pin": 1,
+      "documented_behavior": "If enabled and applicable to current protocol, pauses communication and releases data outputs without requiring deselection.",
+      "qualification": "Function may be disabled by NVCR/EVCRbit4, QIO-SPI or DTR. Need independent U1 wiring, rail/loading/contact qualification and empirical output/read validation. Board independence/function not established; no grounding or register write selected."
+    },
+    {
+      "name": "Unused U1 dedicated RESET#",
+      "physical_pin": 3,
+      "documented_behavior": "Asserted reset releases outputs.",
+      "qualification": "Independent U1 control/net loading and current device state must be established. Historical breakout-reset readings with successful identification remain unresolved and are not current package-pin validation. No reset assertion selected."
+    }
+  ],
+  "other_board_option": {
+    "device": "Existing PI3CH480 mux route",
+    "source": "https://www.mouser.com/datasheet/2/322/PI3CH480-348795.pdf",
+    "basis": "Vendor documents disabling switches via enable control.",
+    "limits": "Actual CS route and safe accessible control/supply mapping unresolved; prior completed header/U4 scans and inaccessible fine-probing are not restarted. No selector/enable jumper selected."
+  },
+  "first_new_checks": {
+    "status": "Requested only, no results yet",
+    "procedure": "Verify P1pin1-to-pin2 residual0VDC before ohms. Then black at P1headerpin1/VCC, red sequentially actual U1pin1/HOLD# and actual U1pin3/RESET#. Report numerical ohms/OL; retain wiring.",
+    "purpose": "Screen for near-zero ties to flash VCC before considering any drive. These in-circuit equivalents do not establish discrete resistor values or independent control from U2.",
+    "later_requirements": "If viable, establish U1/U2 control-net independence using genuinely accessible verified endpoints, qualify driver/loading and secure contact, then separately plan limited no-clock control. No generic scan or speculative ground jumper."
+  },
+  "agent_hardware_actions": "None. Source/evidence review and repository maintenance only; no GPIO/SPI/SSH/programmer/array access or new powered experiment."
+}

@@ -4,7 +4,15 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: nominal5.6k installed; corrected U1pin7=1.246VDC and fresh
+Latest: owner rejects chip removal; intact-board plan excludes lifting
+legs/cutting traces. Earlier off-board fallback is outside current scope.
+Pi now explicitly OFF/physically unplugged. Assess independent U1HOLD
+pin1/RESETpin3 as candidate output-inhibit paths; no grounding selected.
+Owner expects probe access. First residual0V then ohms: blackP1header1/
+VCC, redactualU1pin1 thenpin3; results pending. Existing clip/grabber/
+5.6k retained. No broad scan/SPI/control/read. New review:
+c8375-recovery/acquisition-evidence/20261031-Pi5-noninvasive-control-review.json
+Earlier: nominal5.6k installed; corrected U1pin7=1.246VDC and fresh
 P1rail1.785VDC. NominalVIHmin1.2495V: no useful margin; meter uncertainty
 prevents definite logic-low verdict. U1 increased only4mV versus10k.
 Stop resistor escalation/no4.7k/2.2k, voltage increase or U2control/read.
