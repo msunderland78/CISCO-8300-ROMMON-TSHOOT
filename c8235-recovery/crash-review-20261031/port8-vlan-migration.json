@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "status": "Applied and verified:10Gb/s trunk, VLAN5 reachability, and VLAN83 DHCP address/gateway/DNS at Ubuntu. Forwarding test waits for owner migration of VM from1Gb/s host to10Gb/s host.",
+  "status": "Trunk/DHCP verified; VM migration and isolated endpoint setup completed; initial10G routed tests completed, see port8-performance.json",
   "owner_request": "New10Gb/s twinax on physical port8; 802.1Q tagged VLAN5 and83, VLAN1 native; continue VLAN5 while owner decides VLAN83 test endpoint",
   "old_interfaces": "TwoGigabitEthernet0/0/6 and0/0/7 now shutdown, no IP address or description; negotiation auto retained; no duplicate routed subnets",
   "default_route": {
@@ -36,6 +36,14 @@
       "router_binding_interface": "TenGigabitEthernet0/0/8.83",
       "verified_at": "2026-10-31T17:32:54-04:00",
       "lease_note": "Router clock is stale; displayed expiry not a host-clock date"
+    },
+    "current_client_after_vm_move": {
+      "address": "192.168.83.52/24",
+      "mac": "00:50:56:ad:5f:63",
+      "namespace": "c8235-perf83",
+      "interface": "ens256",
+      "router_binding_interface": "TenGigabitEthernet0/0/8.83",
+      "note": "Previous .51 observation above retained as pre-migration history"
     }
   },
   "nat": false,
@@ -58,7 +66,7 @@
     "If VLAN5 reachability fails, inspect tagged/native peer alignment and restore exact prior interface/default-route configuration if needed; preserve the failed outcome."
   ],
   "passive_observation": "Existing exclusive capture reported TRANSCEIVER-6-INSERTED in Te0/0/8; router clock is stale. Later console exec timeout occurred; no agent transmit or new connection for this observation.",
-  "updated_at": "2026-10-31T17:34:40.366112-04:00",
+  "updated_at": "2026-10-31T17:42:50.924834-04:00",
   "owner_confirmation": "Owner reconfirmed C8235-B/FGL2835LBHU, power/cover/cooling/battery/USB/console unchanged, no programmer/other console owner, only port8 twinax added; matching switch trunk VLAN5/83 tagged and VLAN1 native confirmed.",
   "applied_commands": {
     "stage_unnumbered_trunk": [
@@ -285,46 +293,16 @@
   ],
   "next_endpoint": {
     "owner_selected": "Second virtual NIC for Ubuntu server on VLAN83; owner attaching it",
-    "state": "Attached and identified by corrected owner MAC suffix5f:63; DHCP works. Owner now preparing shutdown/migration of VM to host with10Gb/s physical NICs. No guest networking mutation yet.",
+    "state": "Owner confirmed migrated/back; same MACs, DHCP now192.168.83.52. ens256 moved to c8235-perf83; direct return route restored. Short transit tests complete.",
     "plan": "Identify new interface/MAC and preserve existing ens192/VLAN5 SSH path. Put only the new vNIC in a separate Linux network namespace for a genuine path through the Cisco; two local IPs in the same namespace can bypass router.",
     "validation": "Check both endpoint routes, router subinterface/parent counters and hop path before any throughput claim",
     "scope_note": "A same-VM namespace test exercises routed trunk transit but shares host CPU/vSwitch/physical uplink resources; it is not an independent two-host maximum-capacity measurement.",
-    "current_root_namespace": {
-      "ens192": {
-        "mac": "00:50:56:ad:fa:7e",
-        "address": "192.168.5.3/24",
-        "role": "Original VLAN5/SSH path"
-      },
-      "ens224": {
-        "mac": "00:50:56:ad:34:b0",
-        "ipv4": "none observed",
-        "role": "Additional existing interface; purpose unconfirmed; untouched"
-      },
-      "ens256": {
-        "mac": "00:50:56:ad:5f:63",
-        "address": "192.168.83.51/24",
-        "driver": "vmxnet3",
-        "vnic_speed_mbps": 10000,
-        "queues_tx_rx": [
-          4,
-          4
-        ],
-        "role": "New owner-selected VLAN83 endpoint"
-      }
-    },
     "owner_host_link_report": "Current hypervisor host physical network is only1Gb/s; owner plans to move VM to a host with10Gb/s NICs. Guest-reported10Gb/s does not verify physical path.",
     "local_bypass_observed": {
       "command": "ip -4 route get 192.168.5.3 from 192.168.83.51",
       "result": "local192.168.5.3 from192.168.83.51 devlo; direct test in existing root namespace would bypass Cisco"
     },
-    "guest_changes_applied": false,
-    "migration_handoff": [
-      "Owner will cleanly shut down/migrate Ubuntu; no agent shutdown issued",
-      "Preserve VLAN5/83 port-group mappings and MACs if possible; leave Cisco powered to retain RAM correction",
-      "After VM is back, freshly identify MACs/interfaces/routes and physical uplink path",
-      "Restore runtime direct83-route via192.168.5.4 if absent after reboot; preserve unrelated guest networking",
-      "Create isolated test namespace only after identity/path checks, then verify router transit before load"
-    ],
+    "guest_changes_applied": true,
     "sources": {
       "ubuntu_inventory": {
         "path": "c8235-recovery/crash-review-20261031/ubuntu-vlan83-inventory-before-vm-move.log",
@@ -348,14 +326,50 @@
         "source_prefix_verified": true,
         "captured_at": "2026-10-31T17:34:40.366112-04:00"
       }
+    },
+    "performance_record": "c8235-recovery/crash-review-20261031/port8-performance.json",
+    "before_vm_move_root_namespace": {
+      "ens192": {
+        "mac": "00:50:56:ad:fa:7e",
+        "address": "192.168.5.3/24",
+        "role": "Original VLAN5/SSH path"
+      },
+      "ens224": {
+        "mac": "00:50:56:ad:34:b0",
+        "ipv4": "none observed",
+        "role": "Additional existing interface; purpose unconfirmed; untouched"
+      },
+      "ens256": {
+        "mac": "00:50:56:ad:5f:63",
+        "address": "192.168.83.51/24",
+        "driver": "vmxnet3",
+        "vnic_speed_mbps": 10000,
+        "queues_tx_rx": [
+          4,
+          4
+        ],
+        "role": "New owner-selected VLAN83 endpoint"
+      }
+    },
+    "migration_handoff_before_move": [
+      "Owner will cleanly shut down/migrate Ubuntu; no agent shutdown issued",
+      "Preserve VLAN5/83 port-group mappings and MACs if possible; leave Cisco powered to retain RAM correction",
+      "After VM is back, freshly identify MACs/interfaces/routes and physical uplink path",
+      "Restore runtime direct83-route via192.168.5.4 if absent after reboot; preserve unrelated guest networking",
+      "Create isolated test namespace only after identity/path checks, then verify router transit before load"
+    ],
+    "current_state": {
+      "root": "ens192 /00:50:56:ad:fa:7e /192.168.5.3/24; ens224 untouched",
+      "namespace": "c8235-perf83,ens256 /00:50:56:ad:5f:63 /192.168.83.52/24 by DHCP",
+      "root_route": "192.168.83.0/24 via192.168.5.4 devens192, runtime only",
+      "path": "Verified by gateway route lookups, TTL1 expiry at192.168.83.1 and full-size routed pings"
     }
   },
   "limitations": [
     "VLAN5 pings are router-originated reachability tests, not VLAN5-to83 transit throughput",
     "NativeVLAN1 is configured untagged without IP; no VLAN1 L3 service requested or tested",
-    "No10Gb/s forwarding benchmark or new long-duration gate completed",
     "RAM-only resource correction still lost on reboot; no startup save",
-    "VLAN83 DHCP/address/DNS path now verified; inter-VLAN throughput still untested on new topology. VM migration not yet confirmed complete."
+    "Short10G results now recorded separately;60-minute load, repeated corrected cold boots and overnight stability remain incomplete."
   ],
   "interfaces": {
     "parent": {
@@ -384,14 +398,20 @@
     }
   },
   "latest_keepalive": {
-    "tx": 2047,
-    "rx": 2047,
+    "tx": 2313,
+    "rx": 2313,
     "miss": 0,
-    "sample_context": "Router DHCP/ARP verification after new vNIC lease"
+    "sample_context": "After three port8 throughput tests"
   },
   "diagnostic_exit_notes": [
     "Ubuntu read-only details bundle exited4 because final systemctl is-active dhcpcd.service reported inactive; SSH itself worked.",
     "Unprivileged ethtool displayed vmxnet3/link details and also reported a netlink permission error; no privileged hardware statistic was inferred.",
     "networkd configured the new vNIC automatically from runtime zzzz-dracut-default.network; no agent netplan/networkd change."
-  ]
+  ],
+  "dhcp_verification_keepalive": {
+    "tx": 2047,
+    "rx": 2047,
+    "miss": 0,
+    "sample_context": "Router DHCP/ARP verification after new vNIC lease"
+  }
 }

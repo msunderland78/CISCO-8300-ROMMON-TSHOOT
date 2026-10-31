@@ -1,0 +1,792 @@
+{
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "timezone": "America/New_York",
+  "updated_at": "2026-10-31T17:42:50.924834-04:00",
+  "status": "Completed paced reverse850/30seconds and uncapped single-stream60seconds in each direction; no longer stability gate completed",
+  "topology": {
+    "router": "TenGigabitEthernet0/0/8,10Gb/s full duplex; tagged VLAN5/83",
+    "root_endpoint": "Ubuntu ens192,00:50:56:ad:fa:7e,192.168.5.3/24",
+    "isolated_endpoint": "Ubuntu namespace c8235-perf83,ens256,00:50:56:ad:5f:63,192.168.83.52/24 by DHCP",
+    "host_migration": "Owner confirms VM moved to10Gb/s host; same guest MACs, reboot observed; hypervisor physical link not independently inventoried",
+    "unrelated_interface": "ens224 /00:50:56:ad:34:b0 left untouched"
+  },
+  "guest_changes": {
+    "preflight": "Exact ens192/ens256 MACs, ens192 address, absence of test namespace and dhcpcd process checked",
+    "namespace": "c8235-perf83",
+    "moved_interface": "ens256 only; networkctl down then move, namespace lo/link up",
+    "root_route": "ip route add 192.168.83.0/24 via 192.168.5.4 dev ens192 proto static",
+    "backup_directory": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T",
+    "backups": "before-links.json,before-addresses.json,before-routes.json,before-networkctl.txt; root-only directory",
+    "rollback_on_setup_error": "Temporary trap would remove added route, move interface back and reconfigure it, delete created namespace; successful setup disarmed trap",
+    "persistent_config": "No netplan/networkd file or startup-service edits"
+  },
+  "dhcp_client": {
+    "command": "timeout --signal=TERM 5400s ip netns exec c8235-perf83 dhcpcd -4 -B -L -w -t 30 -f /dev/null -c /bin/true -I 01:00:50:56:ad:5f:63 ens256",
+    "started_at": "2026-10-31T17:37:16-04:00",
+    "automatic_stop_approximately": "2026-10-31T19:07:16-04:00",
+    "timeout_pid_at_start": 2332,
+    "log": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/dhcp.log",
+    "lease": "192.168.83.52/24,86400seconds,default route192.168.83.1",
+    "note": "Existing dhcpcd10.3.0 used; no package installation; no hooks run, avoiding host DNS/script writes; namespace remains after bounded client exits until cleanup/reboot"
+  },
+  "iperf_server": {
+    "command": "timeout --signal=TERM 5400s iperf3 -s -B 192.168.5.3 -p 5201 -i 5 --forceflush",
+    "directory": "/home/sundema/.local/state/c8235-performance-20261031/port8-nbhEXFPF",
+    "started_at": "2026-10-31T17:38:05-04:00",
+    "automatic_stop_approximately": "2026-10-31T19:08:05-04:00",
+    "timeout_pid_at_start": 2539,
+    "privilege": "Unprivileged login user; permanent service not enabled"
+  },
+  "path_proof": {
+    "root_route_to_83_52": "via192.168.5.4 devens192 src192.168.5.3",
+    "namespace_route_to_5_3": "via192.168.83.1 devens256 src192.168.83.52",
+    "ttl1_probe": "Two intentional TTL1 probes returned Time to live exceeded from192.168.83.1; expected errors, not a failed normal-ping test",
+    "namespace_to_root_ping": "10/10,1472byte payload/1500byteIPv4,DF,replyTTL63",
+    "root_to_namespace_ping": "5/5,replyTTL63",
+    "source_private_log": "20261031-173801-425857-ssh.log"
+  },
+  "tests": [
+    {
+      "id": "reverse850",
+      "state": "completed",
+      "command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.52 -R -b 850M -t 30 -i 5 -J --get-server-output",
+      "direction": "Root VLAN5 endpoint -> namespace VLAN83 endpoint through Cisco",
+      "streams": 1,
+      "protocol": "TCP",
+      "sender_seconds": 30.001083,
+      "sender_bytes": 3187671040,
+      "sender_bps": 850014925.1278695,
+      "sender_retransmits": 0,
+      "receiver_seconds": 30.000822,
+      "receiver_bytes": 3187539968,
+      "receiver_bps": 849987368.479437,
+      "remote_json": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/reverse850.json",
+      "router_before": {
+        "keepalive_tx_rx": 2205,
+        "miss": 0,
+        "cpp_pid": 20844,
+        "rx_packets": 1995,
+        "rx_bytes": 222552,
+        "tx_packets": 164,
+        "tx_bytes": 77315,
+        "output_drops": 0,
+        "crc": 0,
+        "input_errors": 0,
+        "output_errors": 0,
+        "interface_resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 49,
+        "qfp_drops": {
+          "Disabled": 9,
+          "IpTtlExceeded": 120,
+          "Ipv4NoAdj": 75,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 19,
+          "TailDrop": 2020,
+          "UnconfiguredIpv4Fia": 41,
+          "UnconfiguredIpv6Fia": 387
+        }
+      },
+      "router_during": {
+        "qfp_processing_5sec_percent": 4,
+        "qfp_input_bps_5sec": 891996984,
+        "qfp_output_bps_5sec": 891993456,
+        "keepalive_tx_rx": 2217,
+        "miss": 0,
+        "port8_output_drops": 0
+      },
+      "router_after": {
+        "keepalive_tx_rx": 2237,
+        "miss": 0,
+        "cpp_pid": 20844,
+        "rx_packets": 2257958,
+        "rx_bytes": 3345814447,
+        "tx_packets": 2255954,
+        "tx_bytes": 3345655809,
+        "output_drops": 0,
+        "crc": 0,
+        "input_errors": 0,
+        "output_errors": 0,
+        "interface_resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 51,
+        "qfp_drops": {
+          "Disabled": 9,
+          "IpTtlExceeded": 120,
+          "Ipv4NoAdj": 80,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 19,
+          "TailDrop": 2020,
+          "UnconfiguredIpv4Fia": 41,
+          "UnconfiguredIpv6Fia": 392
+        }
+      },
+      "interpretation": "850Mb/s received with zero TCP retransmissions; no new output/TailDrop or CRC/errors. Background NoAdj/IPv6/unknown-protocol counts rose; do not claim all router drop counters zero. Multiple path/endpoint changes mean this does not isolate old Mac adapter fault.",
+      "native_test_start": {
+        "protocol": "TCP",
+        "num_streams": 1,
+        "blksize": 131072,
+        "omit": 0,
+        "duration": 30,
+        "bytes": 0,
+        "blocks": 0,
+        "reverse": 1,
+        "tos": 0,
+        "target_bitrate": 850000000,
+        "bidir": 0,
+        "fqrate": 0,
+        "interval": 5
+      },
+      "iperf_start_timestamp": {
+        "time": "Sat, 31 Oct 2026 21:38:14 GMT",
+        "timesecs": 1793482694,
+        "timemillisecs": 1793482694234
+      },
+      "native_cpu_utilization_percent": {
+        "host_total": 3.0528744646146273,
+        "host_user": 0.11698225187551745,
+        "host_system": 2.93589221273911,
+        "remote_total": 3.696022377853605,
+        "remote_user": 0.14420809377259294,
+        "remote_system": 3.551814284081012
+      },
+      "artifact": {
+        "path": "c8235-recovery/crash-review-20261031/iperf-port8-reverse850.log",
+        "remote_path": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/reverse850.json",
+        "bytes": 5840,
+        "sha256": "bcb2c01bbf2bfc0201af428f94d4eda326698922017da38a89cb4602b4258522",
+        "remote_readback_hash_match": true
+      },
+      "intervals": [
+        {
+          "start": 0,
+          "end": 5.005017,
+          "seconds": 5.005016803741455,
+          "bytes": 531759104,
+          "bits_per_second": 849961748.144363,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 5.005017,
+          "end": 10.004807,
+          "seconds": 4.99979019165039,
+          "bytes": 531234816,
+          "bits_per_second": 850011373.4966846,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 10.004807,
+          "end": 15.005035,
+          "seconds": 5.00022792816162,
+          "bytes": 531234816,
+          "bits_per_second": 849936960.6862113,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 15.005035,
+          "end": 20.000853,
+          "seconds": 4.995818138122559,
+          "bytes": 530841600,
+          "bits_per_second": 850057524.6311774,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 20.000853,
+          "end": 25.005059,
+          "seconds": 5.00420618057251,
+          "bytes": 531759104,
+          "bits_per_second": 850099432.0568362,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 25.005059,
+          "end": 30.000822,
+          "seconds": 4.995762825012207,
+          "bytes": 530710528,
+          "bits_per_second": 849857043.4015,
+          "omitted": false,
+          "sender": false
+        }
+      ],
+      "source_version": "iperf 3.20"
+    },
+    {
+      "id": "reverse_unlimited60",
+      "state": "completed",
+      "command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.52 -R -t 60 -i 5 -J --get-server-output",
+      "direction": "Root VLAN5 endpoint -> namespace VLAN83 endpoint through Cisco",
+      "streams": 1,
+      "protocol": "TCP",
+      "sender_seconds": 60.006532,
+      "sender_bytes": 69905285120,
+      "sender_bps": 9319690079.07339,
+      "sender_retransmits": 5837,
+      "receiver_seconds": 60.005151,
+      "receiver_bytes": 69902532608,
+      "receiver_bps": 9319537598.763813,
+      "remote_json": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/reverse-unlimited60.json",
+      "router_before": "Prior reverse850 after sample; immediately preceding this run",
+      "router_during_samples": [
+        {
+          "qfp_processing_5sec_percent": 41,
+          "qfp_input_bps_5sec": 9822916432,
+          "qfp_output_bps_5sec": 9824726056,
+          "keepalive_tx_rx": 2248,
+          "miss": 0,
+          "cpu_celsius": 52,
+          "port8_output_drops": 0
+        },
+        {
+          "qfp_processing_5sec_percent": 41,
+          "qfp_input_bps_5sec": 9816007744,
+          "qfp_output_bps_5sec": 9818377616,
+          "keepalive_tx_rx": 2274,
+          "miss": 0,
+          "note": "Near run completion; five-second utilization window still reflects load"
+        }
+      ],
+      "router_after": {
+        "keepalive_tx_rx": 2277,
+        "miss": 0,
+        "cpp_pid": 20844,
+        "rx_packets": 51753787,
+        "rx_bytes": 76724277816,
+        "tx_packets": 51751565,
+        "tx_bytes": 76724102420,
+        "output_drops": 0,
+        "crc": 0,
+        "input_errors": 0,
+        "output_errors": 0,
+        "interface_resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 51,
+        "qfp_drops": {
+          "Disabled": 9,
+          "IpTtlExceeded": 120,
+          "Ipv4NoAdj": 80,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 19,
+          "TailDrop": 2020,
+          "UnconfiguredIpv4Fia": 41,
+          "UnconfiguredIpv6Fia": 392
+        }
+      },
+      "interpretation": "9.3195Gb/s received for60seconds, with5837 sender retransmissions; no sampled router port-error/output-drop or QFP TailDrop increase. Does not establish packet-loss location or long-duration stability.",
+      "native_test_start": {
+        "protocol": "TCP",
+        "num_streams": 1,
+        "blksize": 131072,
+        "omit": 0,
+        "duration": 60,
+        "bytes": 0,
+        "blocks": 0,
+        "reverse": 1,
+        "tos": 0,
+        "target_bitrate": 0,
+        "bidir": 0,
+        "fqrate": 0,
+        "interval": 5
+      },
+      "iperf_start_timestamp": {
+        "time": "Sat, 31 Oct 2026 21:39:25 GMT",
+        "timesecs": 1793482765,
+        "timemillisecs": 1793482765372
+      },
+      "native_cpu_utilization_percent": {
+        "host_total": 21.3930991051149,
+        "host_user": 0.6653357695987703,
+        "host_system": 20.72776500198435,
+        "remote_total": 23.184742211291415,
+        "remote_user": 0.30698984074170843,
+        "remote_system": 22.87775070406485
+      },
+      "artifact": {
+        "path": "c8235-recovery/crash-review-20261031/iperf-port8-reverse-unlimited60.log",
+        "remote_path": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/reverse-unlimited60.json",
+        "bytes": 9203,
+        "sha256": "fdf796a16b896cf98dda4c11150febd39ad268c36963ea66792388f0b37f4bfe",
+        "remote_readback_hash_match": true
+      },
+      "intervals": [
+        {
+          "start": 0,
+          "end": 5.004359,
+          "seconds": 5.004358768463135,
+          "bytes": 5827330048,
+          "bits_per_second": 9315607161.85759,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 5.004359,
+          "end": 10.004324,
+          "seconds": 4.99996519088745,
+          "bytes": 5843714048,
+          "bits_per_second": 9350007569.89317,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 10.004324,
+          "end": 15.004354,
+          "seconds": 5.000030040740967,
+          "bytes": 5828116480,
+          "bits_per_second": 9324930342.43661,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 15.004354,
+          "end": 20.004281,
+          "seconds": 4.999927043914795,
+          "bytes": 5802688512,
+          "bits_per_second": 9284437090.43669,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 20.004281,
+          "end": 25.005062,
+          "seconds": 5.000781059265137,
+          "bytes": 5850660864,
+          "bits_per_second": 9359595302.674183,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 25.005062,
+          "end": 30.004326,
+          "seconds": 4.999263763427734,
+          "bytes": 5834539008,
+          "bits_per_second": 9336637207.554836,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 30.004326,
+          "end": 35.005337,
+          "seconds": 5.00101089477539,
+          "bytes": 5834276864,
+          "bits_per_second": 9332956055.09699,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 35.005337,
+          "end": 40.004278,
+          "seconds": 4.99894094467163,
+          "bytes": 5819334656,
+          "bits_per_second": 9312908026.57363,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 40.004278,
+          "end": 45.004267,
+          "seconds": 4.99998903274536,
+          "bytes": 5855641600,
+          "bits_per_second": 9369047110.545076,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 45.004267,
+          "end": 50.005022,
+          "seconds": 5.0007548332214355,
+          "bytes": 5811077120,
+          "bits_per_second": 9296319957.771755,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 50.005022,
+          "end": 55.005132,
+          "seconds": 5.000110149383545,
+          "bytes": 5756682240,
+          "bits_per_second": 9210488678.06999,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 55.005132,
+          "end": 60.005151,
+          "seconds": 5.000019073486328,
+          "bytes": 5838471168,
+          "bits_per_second": 9341518233.735937,
+          "omitted": false,
+          "sender": false
+        }
+      ],
+      "source_version": "iperf 3.20"
+    },
+    {
+      "id": "forward_unlimited60",
+      "state": "completed",
+      "command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.52 -t 60 -i 5 -J --get-server-output",
+      "direction": "Namespace VLAN83 endpoint -> root VLAN5 endpoint through Cisco",
+      "streams": 1,
+      "protocol": "TCP",
+      "router_before": "Previous reverse_unlimited60 after sample",
+      "router_during_samples": [
+        {
+          "qfp_processing_5sec_percent": 39,
+          "qfp_input_bps_5sec": 9691043760,
+          "qfp_output_bps_5sec": 9693148752,
+          "keepalive_tx_rx": 2295,
+          "miss": 0,
+          "port8_output_drops": 0
+        }
+      ],
+      "router_after": {
+        "keepalive_tx_rx": 2313,
+        "miss": 0,
+        "cpp_pid": 20844,
+        "rx_packets": 100834212,
+        "rx_bytes": 149521245584,
+        "tx_packets": 100831792,
+        "tx_bytes": 149521056201,
+        "output_drops": 0,
+        "crc": 0,
+        "input_errors": 0,
+        "output_errors": 0,
+        "interface_resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 51,
+        "qfp_drops": {
+          "Disabled": 9,
+          "IpTtlExceeded": 120,
+          "Ipv4NoAdj": 80,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 19,
+          "TailDrop": 2020,
+          "UnconfiguredIpv4Fia": 41,
+          "UnconfiguredIpv6Fia": 394
+        }
+      },
+      "sender_seconds": 60.005163,
+      "sender_bytes": 69354782720,
+      "sender_bps": 9246508700.59298,
+      "receiver_seconds": 60.006407,
+      "receiver_bytes": 69354782720,
+      "receiver_bps": 9246317010.11527,
+      "sender_retransmits": 4461,
+      "native_test_start": {
+        "protocol": "TCP",
+        "num_streams": 1,
+        "blksize": 131072,
+        "omit": 0,
+        "duration": 60,
+        "bytes": 0,
+        "blocks": 0,
+        "reverse": 0,
+        "tos": 0,
+        "target_bitrate": 0,
+        "bidir": 0,
+        "fqrate": 0,
+        "interval": 5
+      },
+      "iperf_start_timestamp": {
+        "time": "Sat, 31 Oct 2026 21:40:39 GMT",
+        "timesecs": 1793482839,
+        "timemillisecs": 1793482839871
+      },
+      "native_cpu_utilization_percent": {
+        "host_total": 24.039010510936585,
+        "host_user": 0.29746757773049015,
+        "host_system": 23.741542933206095,
+        "remote_total": 22.398328752129,
+        "remote_user": 0.710465658682282,
+        "remote_system": 21.68786309344672
+      },
+      "artifact": {
+        "path": "c8235-recovery/crash-review-20261031/iperf-port8-forward-unlimited60.log",
+        "remote_path": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/forward-unlimited60.json",
+        "bytes": 11254,
+        "sha256": "b8191f02e4b82bf7781530c6297426f8daf3a87def0cc7ff6fe9ca0dec76fa36",
+        "remote_readback_hash_match": true
+      },
+      "intervals": [
+        {
+          "start": 0,
+          "end": 5.004861,
+          "seconds": 5.004860877990723,
+          "bytes": 5800329216,
+          "bits_per_second": 9271513206.70257,
+          "retransmits": 550,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 5.004861,
+          "end": 10.005081,
+          "seconds": 5.000219821929932,
+          "bytes": 5775163392,
+          "bits_per_second": 9239855202.639414,
+          "retransmits": 91,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 10.005081,
+          "end": 15.005494,
+          "seconds": 5.000412940979004,
+          "bytes": 5834801152,
+          "bits_per_second": 9334910889.751654,
+          "retransmits": 424,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 15.005494,
+          "end": 20.005026,
+          "seconds": 4.999532222747803,
+          "bytes": 5716049920,
+          "bits_per_second": 9146535580.25617,
+          "retransmits": 298,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 20.005026,
+          "end": 25.004785,
+          "seconds": 4.999759197235107,
+          "bytes": 5754585088,
+          "bits_per_second": 9207779592.55688,
+          "retransmits": 240,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 25.004785,
+          "end": 30.005024,
+          "seconds": 5.00023889541626,
+          "bytes": 5792858112,
+          "bits_per_second": 9268130156.437666,
+          "retransmits": 810,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 30.005024,
+          "end": 35.004784,
+          "seconds": 4.999760150909424,
+          "bytes": 5800329216,
+          "bits_per_second": 9280971952.136477,
+          "retransmits": 252,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 35.004784,
+          "end": 40.004785,
+          "seconds": 5.000000953674316,
+          "bytes": 5805572096,
+          "bits_per_second": 9288913581.88034,
+          "retransmits": 0,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 40.004785,
+          "end": 45.005038,
+          "seconds": 5.000253200531006,
+          "bytes": 5816057856,
+          "bits_per_second": 9305221352.2025,
+          "retransmits": 379,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 45.005038,
+          "end": 50.004799,
+          "seconds": 4.99976110458374,
+          "bytes": 5826019328,
+          "bits_per_second": 9322076325.060816,
+          "retransmits": 597,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 50.004799,
+          "end": 55.004776,
+          "seconds": 4.999977111816406,
+          "bytes": 5686689792,
+          "bits_per_second": 9098745317.95066,
+          "retransmits": 670,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 55.004776,
+          "end": 60.005163,
+          "seconds": 5.00038719177246,
+          "bytes": 5746327552,
+          "bits_per_second": 9193412160.490124,
+          "retransmits": 150,
+          "omitted": false,
+          "sender": true
+        }
+      ],
+      "source_version": "iperf 3.20"
+    }
+  ],
+  "limitations": [
+    "Same VM supplies both endpoints; CPU/vSwitch/uplink resources shared",
+    "One-port VLAN hairpin topology differs from earlier two-port Mac test",
+    "No long-duration or corrected-reboot gate completed",
+    "RAM-only router boot correction and old sensor/TPM issues remain"
+  ],
+  "cleanup_plan": [
+    "Stop only the identified test iperf server after verifying its current process/command; do not kill a reused PID",
+    "Stop namespace DHCP with ip netns exec c8235-perf83 dhcpcd -x ens256; ensure no benchmark remains in namespace",
+    "Move ens256 back to PID1 network namespace, delete empty test namespace, networkctl reconfigure/up ens256; preserve ens192/ens224",
+    "Remove exact runtime83-route via192.168.5.4 only if unchanged and test no longer needs it",
+    "Preserve private logs/configuration snapshots; cleanup not yet performed"
+  ],
+  "artifacts": {
+    "reverse850": {
+      "path": "c8235-recovery/crash-review-20261031/iperf-port8-reverse850.log",
+      "remote_path": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/reverse850.json",
+      "bytes": 5840,
+      "sha256": "bcb2c01bbf2bfc0201af428f94d4eda326698922017da38a89cb4602b4258522",
+      "remote_readback_hash_match": true
+    },
+    "reverse-unlimited60": {
+      "path": "c8235-recovery/crash-review-20261031/iperf-port8-reverse-unlimited60.log",
+      "remote_path": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/reverse-unlimited60.json",
+      "bytes": 9203,
+      "sha256": "fdf796a16b896cf98dda4c11150febd39ad268c36963ea66792388f0b37f4bfe",
+      "remote_readback_hash_match": true
+    },
+    "forward-unlimited60": {
+      "path": "c8235-recovery/crash-review-20261031/iperf-port8-forward-unlimited60.log",
+      "remote_path": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/forward-unlimited60.json",
+      "bytes": 11254,
+      "sha256": "b8191f02e4b82bf7781530c6297426f8daf3a87def0cc7ff6fe9ca0dec76fa36",
+      "remote_readback_hash_match": true
+    },
+    "dhcp": {
+      "path": "c8235-recovery/crash-review-20261031/iperf-port8-dhcp.log",
+      "remote_path": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/dhcp.log",
+      "bytes": 362,
+      "sha256": "4720cbdd97d3acaa557d4b8b9bd26074516432fbbc578dc7dc4a9f98555518a0",
+      "remote_readback_hash_match": true
+    },
+    "server-three-tests": {
+      "path": "c8235-recovery/crash-review-20261031/iperf-port8-server-three-tests.log",
+      "remote_path": "/home/sundema/.local/state/c8235-performance-20261031/port8-nbhEXFPF/after-initial-three-tests.log",
+      "bytes": 4057,
+      "sha256": "6b74958062181102132e887cd703023db3971555dc408500ba1ad161123a1500",
+      "remote_readback_hash_match": true
+    },
+    "after_vm_move": {
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port8-after-vm-move.log",
+      "bytes": 1667,
+      "sha256": "eb6aaa394f5343ac8c4aac68eda3fa71b5f05b768ab2ed621918ac21716d4412",
+      "private_source": "20261031-173639-894383-ssh.log",
+      "exact_stdout_copy": true
+    },
+    "namespace_setup": {
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port8-namespace-setup.log",
+      "bytes": 325,
+      "sha256": "f23dad1ab7d5503df027e4447a77724176c937e75cc58d086e48b1f9d0a0f8ae",
+      "private_source": "20261031-173716-856200-ssh.log",
+      "exact_stdout_copy": true
+    },
+    "namespace_verification": {
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port8-namespace-verification.log",
+      "bytes": 907,
+      "sha256": "2909f605aee384766384de05ac0f39a6ceff5e65a1e53ff6ccabab2b9b01ae6c",
+      "private_source": "20261031-173730-712308-ssh.log",
+      "exact_stdout_copy": true
+    },
+    "path_proof": {
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port8-path-proof.log",
+      "bytes": 1816,
+      "sha256": "c4163e58a2eee9a9d4aee91e0b3cc1945e4441ce22dedbf3a837c509d7e379b6",
+      "private_source": "20261031-173801-425857-ssh.log",
+      "exact_stdout_copy": true
+    }
+  },
+  "artifact_transfer": "Exact byte copies reconstructed from a private base64 transfer envelope and verified against remote SHA-256/byte counts; originals retained on Ubuntu and locally, public copies generated separately.",
+  "router_snapshot": {
+    "path": "router-console-logs/20261031-174250-port8-performance-snapshot.log",
+    "bytes": 87844,
+    "sha256": "c3f3bde06bb42e247460194c0f6388544fcb758e5f7c4eea5d8142b1615b780c",
+    "captured_at": "2026-10-31T17:42:50.924834-04:00",
+    "snapshot_of_open_private_capture": true,
+    "source_prefix_verified": true
+  },
+  "router_query_times": [
+    {
+      "time": "2026-10-31T17:37:30.097412-04:00",
+      "starts_with": "b'show ip dhcp binding\\rshow platform hardware qfp active statistics drop\\rshow inter"
+    },
+    {
+      "time": "2026-10-31T17:38:10.119269-04:00",
+      "starts_with": "b'show platform hardware qfp active statistics drop\\rshow interfaces TenGigabitEthern"
+    },
+    {
+      "time": "2026-10-31T17:38:32.785391-04:00",
+      "starts_with": "b'show platform hardware qfp active datapath utilization\\rshow platform software infr"
+    },
+    {
+      "time": "2026-10-31T17:39:13.237353-04:00",
+      "starts_with": "b'show platform hardware qfp active statistics drop\\rshow interfaces TenGigabitEthern"
+    },
+    {
+      "time": "2026-10-31T17:39:36.343528-04:00",
+      "starts_with": "b'show platform hardware qfp active datapath utilization\\rshow platform software infr"
+    },
+    {
+      "time": "2026-10-31T17:40:27.499654-04:00",
+      "starts_with": "b'show platform hardware qfp active datapath utilization\\rshow platform software infr"
+    },
+    {
+      "time": "2026-10-31T17:40:34.205856-04:00",
+      "starts_with": "b'show interfaces TenGigabitEthernet0/0/8\\rshow platform software infra punt-keepaliv"
+    },
+    {
+      "time": "2026-10-31T17:41:10.212626-04:00",
+      "starts_with": "b'show platform hardware qfp active datapath utilization\\rshow platform software infr"
+    },
+    {
+      "time": "2026-10-31T17:41:45.758031-04:00",
+      "starts_with": "b'show platform hardware qfp active statistics drop\\rshow interfaces TenGigabitEthern"
+    }
+  ],
+  "final_health": {
+    "F0": "ok, active",
+    "subslot_0_0": "ok",
+    "cpp_pid": 20844,
+    "keepalive_tx": 2313,
+    "keepalive_rx": 2313,
+    "miss": 0,
+    "cpu_celsius": 52,
+    "main_12v_mv": 12115,
+    "power_watts": 16,
+    "NIX_ATTACH_filter": "No matching output in final native CLI kernel query",
+    "existing_sensor": "12V_DG_ST0mV/Critical_Low persists; prior TPM concern unresolved"
+  },
+  "interpretation": "Paced reverse received849.987Mb/s with0 retransmissions; uncapped VLAN5->83 received9.31954Gb/s with5837 retransmissions; VLAN83->5 received9.24632Gb/s with4461 retransmissions. Same CPP and zero keepalive misses; port8 CRC/input/output errors/output drops zero. Global TailDrop2020 unchanged. Some background NoAdj/IPv6/unknown-protocol counts rose. Prior Mac adapter fault remains unproven because endpoint, host uplink and router path all changed.",
+  "next_steps": [
+    "Plan a60-minute monitored forwarding run with a defined rate/direction and continued console telemetry; this has not started",
+    "Complete remaining idle, corrected cold-boot and overnight gates before declaring stability",
+    "Keep exact current baseline before justified tuning; do not infer retransmission location from these counters alone"
+  ],
+  "handoff": {
+    "router": "Port8 trunk remains active; running-only configuration and RAM-only bound16 correction; no reboot/save",
+    "ubuntu": "Namespace c8235-perf83 withens256/.83.52 and rootens192/.5.3, runtime return route active; ens224 untouched",
+    "services": "Only bounded DHCP/server listeners remain; no throughput client active after three completed tests",
+    "dns": "DHCP advertised requested DNS options were verified before isolation; namespace benchmark uses numeric addresses and no resolver file was changed",
+    "console": "Original exclusive17:08:47 private capture remains open with one-shot post-reset stop; snapshots are immutable prefixes",
+    "expiry": "DHCP client bound to stop about19:07EDT, iperf listener about19:08EDT; namespace/route need explicit cleanup or reboot",
+    "cleanup": "Planned only; verify current identity/processes before any cleanup, do not use historical PIDs blindly"
+  }
+}

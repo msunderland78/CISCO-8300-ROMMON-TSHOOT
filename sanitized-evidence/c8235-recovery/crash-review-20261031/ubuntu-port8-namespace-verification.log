@@ -1,0 +1,22 @@
+
+dhcpcd-10.3.0 starting
+network namespace: c8235-perf83
+ens256: waiting for carrier
+ens256: carrier acquired
+ens256: soliciting a DHCP lease
+ens256: offered 192.168.83.52 from 192.168.83.1
+ens256: probing address 192.168.83.52/24
+ens256: leased 192.168.83.52 for 86400 seconds
+ens256: adding route to 192.168.83.0/24
+ens256: adding default route via 192.168.83.1
+lo               UNKNOWN        127.0.0.1/8 
+ens256           UP             192.168.83.52/24 
+default via 192.168.83.1 dev ens256 proto dhcp src 192.168.83.52 metric 1004 
+192.168.83.0/24 dev ens256 proto dhcp scope link src 192.168.83.52 metric 1004 
+192.168.5.3 via 192.168.83.1 dev ens256 src 192.168.83.52 uid 0 
+    cache 
+lo               UNKNOWN        127.0.0.1/8 
+ens192           UP             192.168.5.3/24 
+docker0          DOWN           172.17.0.1/16 
+192.168.83.51 via 192.168.5.4 dev ens192 src 192.168.5.3 uid 0 
+    cache 

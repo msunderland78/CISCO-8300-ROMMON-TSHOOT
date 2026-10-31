@@ -1,0 +1,9 @@
+
+Preflight: exact interface MACs and VLAN5 address match; test namespace absent; no dhcpcd process.
+192.168.5.4 dev ens192 src 192.168.5.3 uid 0 
+    cache 
+192.168.83.51 via 192.168.5.4 dev ens192 src 192.168.5.3 uid 0 
+    cache 
+c8235-perf83 (id: 0)
+STATE_DIR=/var/tmp/c8235-perf83-20261031.ZcVNbI9T
+DHCP_TIMEOUT_PID=2332

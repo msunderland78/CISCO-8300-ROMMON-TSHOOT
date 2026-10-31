@@ -415,6 +415,7 @@
   },
   "subsequent_topology_change": {
     "record": "c8235-recovery/crash-review-20261031/port8-vlan-migration.json",
-    "note": "Completed results above remain measurements of the old physical6/7 topology; owner now selected10Gb/s port8 trunk and a planned second Ubuntu vNIC. No new throughput result yet."
+    "note": "Completed results above remain measurements of old physical6/7 topology. New port8 trunk/Ubuntu namespace tests reached850Mb/s without retransmissions and9.32/9.25Gb/s with retransmissions; see separate port8-performance.json.",
+    "performance_record": "c8235-recovery/crash-review-20261031/port8-performance.json"
   }
 }

@@ -1,0 +1,29 @@
+ 21:36:39 up 0 min,  2 users,  load average: 0.00, 0.00, 0.00
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> 
+ens192           UP             00:50:56:ad:fa:7e <BROADCAST,MULTICAST,UP,LOWER_UP> 
+ens224           UP             00:50:56:ad:34:b0 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+ens256           UP             00:50:56:ad:5f:63 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+docker0          DOWN           fe:f7:65:17:e2:74 <NO-CARRIER,BROADCAST,MULTICAST,UP> 
+lo               UNKNOWN        127.0.0.1/8 
+ens192           UP             192.168.5.3/24 
+ens256           UP             192.168.83.52/24 metric 1024 
+docker0          DOWN           172.17.0.1/16 
+default via 192.168.5.1 dev ens192 proto static 
+default via 192.168.83.1 dev ens256 proto dhcp src 192.168.83.52 metric 1024 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+192.168.3.10 via 192.168.83.1 dev ens256 proto dhcp src 192.168.83.52 metric 1024 
+192.168.5.0/24 dev ens192 proto kernel scope link src 192.168.5.3 
+192.168.83.0/24 dev ens256 proto kernel scope link src 192.168.83.52 metric 1024 
+192.168.83.1 dev ens256 proto dhcp scope link src 192.168.83.52 metric 1024 
+208.67.222.222 via 192.168.83.1 dev ens256 proto dhcp src 192.168.83.52 metric 1024 
+192.168.5.4 dev ens192 src 192.168.5.3 uid 1000 
+    cache 
+State Recv-Q Send-Q Local Address:Port Peer Address:Port
+IDX LINK    TYPE     OPERATIONAL SETUP
+  1 lo      loopback carrier     unmanaged
+  2 ens192  ether    routable    configured
+  3 ens224  ether    routable    configured
+  4 ens256  ether    routable    configured
+  5 docker0 bridge   no-carrier  unmanaged
+
+5 links listed.

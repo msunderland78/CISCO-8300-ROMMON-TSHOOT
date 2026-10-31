@@ -10,6 +10,47 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+PORT 8 ROUTED PERFORMANCE COMPLETE — 2026-10-31, 17:43 EDT
+Owner confirms Ubuntu VM migrated/back on the 10G host. Same MACs/interfaces;
+ens256 DHCP changed to .83.52 and previous runtime return route was lost.
+Preserved guest link/address/route state, checked exact MACs, moved ONLY
+ens256 into c8235-perf83, restored root .83/24 via .5.4 on ens192. ens192/.5.3
+and ens224 remain in the root namespace. Existing dhcpcd runs in the test
+namespace with hooks disabled; no netplan/networkd configuration file edits.
+Root/namespace routes use Cisco .5.4/.83.1; intentional TTL1 probes expire at
+.83.1, full-size DF pings pass 10/10, opposite-direction pings pass 5/5.
+
+Three one-stream TCP tests through the same port8/VLAN5/83 trunk completed:
+- VLAN5 -> VLAN83, paced850Mb/s for30s: received849.987Mb/s,0 retransmissions.
+- VLAN5 -> VLAN83, uncapped60s: received9.31954Gb/s,5837 retransmissions.
+- VLAN83 -> VLAN5, uncapped60s: received9.24632Gb/s,4461 retransmissions.
+QFP load samples4% paced,41% reverse uncapped,39% forward uncapped. CPP20844
+unchanged; final keepalives2313/2313,miss0; F0/0/0 operational,CPU52C,main12V
+12115mV,power16W. Port8 CRC/input/output errors/output drops remain0; reset1
+from initial enable, lost carrier0. Global TailDrop2020 unchanged throughout.
+Some background NoAdj/IPv6/unknown-protocol counters rose. No NIX/ATTACH match
+in final filtered kernel query. Old sensor/TPM concerns remain unresolved.
+
+Native iperf JSON, immutable server snapshot, path proof and console prefix
+snapshot are preserved/hash-verified in port8-performance.json; public copies
+sanitized. Raw originals/private transfer records retained. The adapter alone
+is not isolated by this comparison because host/uplink/port/endpoint changed.
+One VM supplies both endpoints; these are short routed tests, not the60-minute
+forwarding or repeated-boot/overnight gates. No longer run is active.
+
+Current setup remains: port8 trunk, ports6/7 shut, running-only router config,
+RAM-only bound16 correction. Namespace c8235-perf83 holds ens256/.83.52;
+root ens192/.5.3 and runtime return route remain. DHCP timeoutPID2332 at start
+expires about19:07EDT; unprivileged iperf listener timeoutPID2539 at start
+expires about19:08EDT. Reverify processes before cleanup; never kill stale PIDs.
+Remote root state /var/tmp/c8235-perf83-20261031.ZcVNbI9T; unprivileged server
+state ~/.local/state/c8235-performance-20261031/port8-nbhEXFPF. No throughput
+client active. Namespace/route remain until cleanup/reboot; rollback plan in
+JSON. Private console capture from17:08:47 remains open/exclusive with reset
+stop; latest immutable prefix snapshot is20261031-174250-port8-performance-
+snapshot.log (87844B,hash inJSON). Next60-minute monitored load, then remaining
+idle/repeatable corrected cold-boot/overnight gates. No persistent-fix claim.
+
 VLAN 83 DHCP VERIFIED; OWNER MOVING UBUNTU VM — 2026-10-31, 17:35 EDT
 Owner corrected new vNIC suffix f5:63 to 5f:63. Ubuntu ens256 is
 00:50:56:ad:5f:63, vmxnet3, and automatically received 192.168.83.51/24,

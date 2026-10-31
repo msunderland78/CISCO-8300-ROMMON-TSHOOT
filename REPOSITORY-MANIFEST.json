@@ -36,6 +36,31 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
+      "bytes": 362,
+      "path": "c8235-recovery/crash-review-20261031/iperf-port8-dhcp.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 11254,
+      "path": "c8235-recovery/crash-review-20261031/iperf-port8-forward-unlimited60.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 9203,
+      "path": "c8235-recovery/crash-review-20261031/iperf-port8-reverse-unlimited60.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 5840,
+      "path": "c8235-recovery/crash-review-20261031/iperf-port8-reverse850.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 4057,
+      "path": "c8235-recovery/crash-review-20261031/iperf-port8-server-three-tests.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 4056,
       "path": "c8235-recovery/crash-review-20261031/iperf-three-tests-server-snapshot.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
@@ -48,6 +73,26 @@
     {
       "bytes": 1844,
       "path": "c8235-recovery/crash-review-20261031/iperf-upload-server-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 1667,
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port8-after-vm-move.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 325,
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port8-namespace-setup.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 907,
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port8-namespace-verification.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 1816,
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port8-path-proof.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
@@ -934,6 +979,11 @@
       "bytes": 53006,
       "path": "router-console-logs/20261031-173440-vlan83-dhcp-snapshot.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 87844,
+      "path": "router-console-logs/20261031-174250-port8-performance-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -968,9 +1018,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 76304,
+      "bytes": 79133,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "18f8180c5c6ce5d3571fdfb990ff5dc80b4bce010f0de1aabe88ffd10a08880e"
+      "sha256": "a65f3d037a24f34dd664b420d40f1c44e620730ba2c805fec1ac8529af5cddb6"
     },
     {
       "bytes": 106687,
@@ -1153,9 +1203,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 23857,
+      "bytes": 23976,
       "path": "README.md",
-      "sha256": "c272abb2c95a8004ebd0d4f74c27e490d97318127c13881bff7b8de16d19b80c"
+      "sha256": "78c8b823d28188dbc95e678dab9ce6232d25b56a328cf3fdb45080394c4e5e57"
     },
     {
       "bytes": 3934,
@@ -1253,9 +1303,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 338421,
+      "bytes": 340234,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "6d15288d46a4bb97a4aa1b1d600b3df538cab74e250a19dcde78250943ee31cd"
+      "sha256": "bc54c5daed155e1d76a86bceb318bc3820a5a1aa7b2dec6a2468f4b5e23b5794"
     },
     {
       "bytes": 6850655,
@@ -1393,9 +1443,9 @@
       "sha256": "b3449fde6e72c571de6260f5758fb03a448ef7f7278d2130187a0acba691af9b"
     },
     {
-      "bytes": 53935,
+      "bytes": 58999,
       "path": "c8235-recovery/crash-review-20261031/REVIEW.md",
-      "sha256": "e84c32d2ac4fb2c063da76dad3eeacf28313c76aa161fb110570d0f58805caa7"
+      "sha256": "875ca7788bd9409ee0c4662aabb69790d0f4c443bf67e7e3300915ce186303e8"
     },
     {
       "bytes": 23310,
@@ -1418,9 +1468,14 @@
       "sha256": "1a5274da25cdbc4305ded2f6847bd84e60c053dd004554820bc5d6d3199a90f6"
     },
     {
-      "bytes": 17576,
+      "bytes": 29547,
+      "path": "c8235-recovery/crash-review-20261031/port8-performance.json",
+      "sha256": "f7c25bdd90a89f7f9b3b742d74bfe65eae336a1203c42b45b4a50a1e097c6476"
+    },
+    {
+      "bytes": 18375,
       "path": "c8235-recovery/crash-review-20261031/port8-vlan-migration.json",
-      "sha256": "594fbdd826de33b4e8c13ced750c8daaea3131d8df758664112cfcc0dd6c0dfa"
+      "sha256": "1138fc38a37ff5f0f90594da5beac88c26c12d9909384efe231038097059e31c"
     },
     {
       "bytes": 9617,
@@ -1428,9 +1483,9 @@
       "sha256": "6586b1b5eb1f2d89911c8a342dadff6b4e7ce16fd229bd6fcc12c2497159276a"
     },
     {
-      "bytes": 19067,
+      "bytes": 19205,
       "path": "c8235-recovery/crash-review-20261031/throughput-results.json",
-      "sha256": "8f8aa2c300c31c478041e9bdf6f3ea328232b58d321ffe09a0034ee34355a1c4"
+      "sha256": "b00204c722b53ee61c4a577e7789c108f3a76b31ac6ec14f530d4bf65aa13bdd"
     },
     {
       "bytes": 2942,
@@ -2488,6 +2543,31 @@
       "sha256": "b6399c12d9663619d4519e9ed7cf9a8fe18bdacfba72d16c028e3e1462748429"
     },
     {
+      "bytes": 362,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-dhcp.log",
+      "sha256": "4720cbdd97d3acaa557d4b8b9bd26074516432fbbc578dc7dc4a9f98555518a0"
+    },
+    {
+      "bytes": 11254,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-forward-unlimited60.log",
+      "sha256": "b8191f02e4b82bf7781530c6297426f8daf3a87def0cc7ff6fe9ca0dec76fa36"
+    },
+    {
+      "bytes": 9203,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-reverse-unlimited60.log",
+      "sha256": "fdf796a16b896cf98dda4c11150febd39ad268c36963ea66792388f0b37f4bfe"
+    },
+    {
+      "bytes": 5840,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-reverse850.log",
+      "sha256": "bcb2c01bbf2bfc0201af428f94d4eda326698922017da38a89cb4602b4258522"
+    },
+    {
+      "bytes": 4057,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-server-three-tests.log",
+      "sha256": "6b74958062181102132e887cd703023db3971555dc408500ba1ad161123a1500"
+    },
+    {
       "bytes": 4056,
       "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-three-tests-server-snapshot.log",
       "sha256": "0f918163bc844a72e2cf6bf23aeaddf80dfd522bdced963c4831b565217abb89"
@@ -2501,6 +2581,26 @@
       "bytes": 1844,
       "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-upload-server-snapshot.log",
       "sha256": "cce52cb53064b808129d8e88715a8c28c05f2ff649749961b38d12135fb4c1d8"
+    },
+    {
+      "bytes": 1667,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-after-vm-move.log",
+      "sha256": "eb6aaa394f5343ac8c4aac68eda3fa71b5f05b768ab2ed621918ac21716d4412"
+    },
+    {
+      "bytes": 325,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-namespace-setup.log",
+      "sha256": "f23dad1ab7d5503df027e4447a77724176c937e75cc58d086e48b1f9d0a0f8ae"
+    },
+    {
+      "bytes": 907,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-namespace-verification.log",
+      "sha256": "2909f605aee384766384de05ac0f39a6ceff5e65a1e53ff6ccabab2b9b01ae6c"
+    },
+    {
+      "bytes": 1816,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-path-proof.log",
+      "sha256": "c4163e58a2eee9a9d4aee91e0b3cc1945e4441ce22dedbf3a837c509d7e379b6"
     },
     {
       "bytes": 3875,
@@ -2938,6 +3038,11 @@
       "sha256": "87868fa7b2c542465ec4da34ebd4ec149d21de94070d10bdef6fb74b264e0035"
     },
     {
+      "bytes": 87844,
+      "path": "sanitized-evidence/router-console-logs/20261031-174250-port8-performance-snapshot.log",
+      "sha256": "c3f3bde06bb42e247460194c0f6388544fcb758e5f7c4eea5d8142b1615b780c"
+    },
+    {
       "bytes": 3720,
       "path": "scripts/make_programmer_inspection_crops.py",
       "sha256": "9635f8fdc895d09afa8732bb7b76042619192660eaa8b5b9bbcab3115971b868"
@@ -3047,9 +3152,18 @@
     "sanitized-evidence/c8235-recovery/crash-review-20261031/evidence-excerpts.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-client-user-summary.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-paced850-client-user-summary.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-dhcp.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-forward-unlimited60.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-reverse-unlimited60.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-reverse850.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-server-three-tests.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-three-tests-server-snapshot.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-two-tests-server-snapshot.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-upload-server-snapshot.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-after-vm-move.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-namespace-setup.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-namespace-verification.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-path-proof.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-vlan83-dhcp-before-vm-move.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-vlan83-inventory-before-vm-move.log",
     "sanitized-evidence/c8375-recovery/historical-17.15.6-boot-2026-10-22.log",
@@ -3136,12 +3250,13 @@
     "sanitized-evidence/router-console-logs/20261031-165917-console.log",
     "sanitized-evidence/router-console-logs/20261031-1715-paced850-snapshot.log",
     "sanitized-evidence/router-console-logs/20261031-172949-port8-trunk-snapshot.log",
-    "sanitized-evidence/router-console-logs/20261031-173440-vlan83-dhcp-snapshot.log"
+    "sanitized-evidence/router-console-logs/20261031-173440-vlan83-dhcp-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261031-174250-port8-performance-snapshot.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 187,
-    "included_bytes_without_manifest": 696210872,
-    "included_files_without_manifest": 420
+    "excluded_local_files": 197,
+    "included_bytes_without_manifest": 696374456,
+    "included_files_without_manifest": 431
   }
 }
