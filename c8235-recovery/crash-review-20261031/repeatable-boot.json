@@ -1,0 +1,230 @@
+{
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "started_at": "2026-10-31T18:22:18-04:00",
+  "timezone": "America/New_York",
+  "physical_state": "Owner reconfirmed same assembled/cooling/battery, no probes/programmer, power/RJ45 console/CISCO FILES USB, port7 direct3850 VLAN5 and port8 twinax; no other console owner.",
+  "purpose": "Repeatable console-assisted application of existing RAM-only 26.2.1 correction; standalone persistence is separate and unproven.",
+  "preflight": {
+    "ios": "26.02.01",
+    "serial": "FGL2835LBHU",
+    "uptime_reported": "2 hours",
+    "register": "0x3922",
+    "saved_boot": "bootflash:packages.conf,12;",
+    "platform": "F0/R0 active; 0/0 ok",
+    "keepalives": {
+      "rx": 3637,
+      "tx": 3637,
+      "miss": 0
+    },
+    "usb_image_sha512": "a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c52115fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02"
+  },
+  "backups": [
+    {
+      "usb_path": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-repeatable-running.cfg",
+      "bytes": 7527,
+      "sha512": "85667be26b8e142b936919da63184390d4e077ab559bc714df677a361b5bb394a56396cbb57c89738d3699f0428261bf94ad572ecedefbf040b25a1ee52009eb"
+    },
+    {
+      "usb_path": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-repeatable-startup.cfg",
+      "bytes": 3127,
+      "sha512": "7351a8706582cd0e3875d115e132f3d485d1ee24a5c6361f989bb27b49f7a0d556c96cae334b9231e4bd171eb6c91ca081e4b02597f145633c670c9544028f59"
+    }
+  ],
+  "trials": [
+    {
+      "started_at": "2026-10-31T18:25:57-04:00",
+      "kind": "IOS warm reload",
+      "reload_at": "2026-10-31T18:26:37-04:00",
+      "rommon_at": "2026-10-31T18:27:31-04:00",
+      "result": "Stopped before booting IOS: duplicate ROMMON prompts falsely acknowledged following commands; readback guard refused. Full log shows parameter actually accepted. Fixed bounded quiescence before command. No retry loop.",
+      "console": "router-console-logs/20261031-182557-repeatable-boot.log"
+    },
+    {
+      "started_at": "2026-10-31T18:27:55-04:00",
+      "kind": "Explicit ROMMON warm reset",
+      "result": "ROMMON/profile and boot parameter passed; timed out at shell because host remained 115200 while opening ttyAMA0 selects 9600. Supervised 9600 CR reached sh-5.0#, then router/host restored to115200. No patch/init in this attempt.",
+      "console": "router-console-logs/20261031-182755-repeatable-boot.log",
+      "baud_recovery_console": "router-console-logs/20261031-182950-console.log"
+    },
+    {
+      "started_at": "2026-10-31T18:30:20-04:00",
+      "kind": "Maintenance-shell warm reset, delayed8seconds for exclusive console handoff",
+      "capture_handoff": "Initial wait-reset process interrupted at18:30:39 before ROMMON to include transmit-drain/baud timing hardening; fresh owner captures full later ROMMON banner. No automatic reboot retry.",
+      "capture_parts": [
+        "router-console-logs/20261031-183022-repeatable-boot.log",
+        ".git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261031-183039/console.log"
+      ],
+      "helper_sha256": "14fecf9ff0e9044f082a5179d5a5868335e0babe9f69ce3acd670d656e6551c7",
+      "result": "RAM preparation and runtime hook completed automatically; IOS welcome reached. Helper waited for period while router printed exclamation mark; operator ended capture and opened supervised console. Thus not a completed unattended helper pass.",
+      "console": "router-console-logs/20261031-183039-repeatable-boot.log",
+      "hook_complete_at": "2026-10-31T18:32:00-04:00",
+      "supervised_health": {
+        "console": "router-console-logs/20261031-183336-console.log",
+        "F0": "ok, active",
+        "R0": "ok, active",
+        "subslot_0_0": "booting initially, then ok",
+        "cpp_pid": 20913,
+        "keepalives": [
+          7,
+          19,
+          34,
+          50
+        ],
+        "miss_count": 0,
+        "nix_attach_critical_matches": 0,
+        "network_restore": "Full config merge attempted before 0/0 ready; interface/route commands rejected and duplicate certificate ignored. After 0/0 ready, restored only rejected interface/default-route commands. Native config diff reports no changes versus preserved running config. Ports7/8 and .8.83 up/up; DHCP pool/exclusions/options match. No startup save.",
+        "ping_ubuntu_from_83_1_1500_df": [
+          "4/5 initial",
+          "5/5 repeat"
+        ]
+      }
+    },
+    {
+      "started_at": "2026-10-31T18:35:11-04:00",
+      "kind": "IOS warm reload with corrected complete helper",
+      "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602",
+      "result": "PASS: complete one-shot console helper without operator boot-command intervention, through F0/R0 active and 0/0 ok. Not a cold boot or long stability gate.",
+      "private_capture": ".git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261031-183510/console.log",
+      "console": "router-console-logs/20261031-183510-repeatable-boot.log",
+      "console_bytes": 70253,
+      "console_sha256": "c2767cd5b1645d4abd4eae94d8883794054fcdab13724ee7e92230fdd18b9596",
+      "events": [
+        {
+          "time": "2026-10-31T18:35:11.047415-04:00",
+          "state": "console_open",
+          "port": "/dev/cu.usbserial-AL00F7EQ",
+          "baud": 115200
+        },
+        {
+          "time": "2026-10-31T18:35:11.047682-04:00",
+          "state": "trial_started",
+          "mode": "reload",
+          "evidence": "/Users/games/Documents/SOFTWARE/.git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261031-183510",
+          "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
+        },
+        {
+          "time": "2026-10-31T18:35:54.639826-04:00",
+          "state": "ios_preflight_pass",
+          "chassis": "FGL2835LBHU"
+        },
+        {
+          "time": "2026-10-31T18:35:55.599412-04:00",
+          "state": "reload_confirmed_without_save"
+        },
+        {
+          "time": "2026-10-31T18:36:49.925523-04:00",
+          "state": "autoboot_stopped",
+          "count": 1
+        },
+        {
+          "time": "2026-10-31T18:36:50.925008-04:00",
+          "state": "rommon_identity_pass",
+          "uuid": "13 FF FF 87 79 AD FB 7C 6D E0 81 A7"
+        },
+        {
+          "time": "2026-10-31T18:36:51.447693-04:00",
+          "state": "temporary_boot_parameter_verified"
+        },
+        {
+          "time": "2026-10-31T18:37:09.825309-04:00",
+          "state": "console_baud",
+          "baud": 9600
+        },
+        {
+          "time": "2026-10-31T18:37:10.384707-04:00",
+          "state": "console_baud",
+          "baud": 115200
+        },
+        {
+          "time": "2026-10-31T18:37:27.946187-04:00",
+          "state": "maintenance_identity_and_image_pass"
+        },
+        {
+          "time": "2026-10-31T18:37:29.422200-04:00",
+          "state": "ram_patch_verified",
+          "source_sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052",
+          "patch_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857"
+        },
+        {
+          "time": "2026-10-31T18:37:38.108123-04:00",
+          "state": "runtime_hook_complete"
+        },
+        {
+          "time": "2026-10-31T18:38:42.145699-04:00",
+          "state": "ios_prompt_reached",
+          "qualification": "Health/stability checks still required"
+        },
+        {
+          "time": "2026-10-31T18:39:35.451409-04:00",
+          "state": "platform_ready",
+          "qualification": "Boot readiness only; keepalive, config and stability checks still required"
+        },
+        {
+          "time": "2026-10-31T18:39:35.451552-04:00",
+          "state": "supervised_capture",
+          "controls": "JSON send/close; no automatic retries"
+        },
+        {
+          "time": "2026-10-31T18:39:44.835740-04:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-10-31T18:40:03.207656-04:00",
+          "state": "supervised_command_sent"
+        }
+      ],
+      "health": {
+        "cpp_pid": 21010,
+        "keepalive_initial": {
+          "rx": 20,
+          "tx": 20,
+          "miss": 0
+        },
+        "nix_attach_critical_matches": 0,
+        "saved_boot": "bootflash:packages.conf,12;",
+        "register": "0x3922",
+        "network": "Startup baseline: ports7/8 shut/unassigned. Running-only test networking not restored in this trial; restore after cold-boot series.",
+        "keepalive_final": {
+          "rx": 29,
+          "tx": 29,
+          "miss": 0
+        }
+      }
+    }
+  ],
+  "unchanged": [
+    "ROMMON/SPI/TPM/fuses",
+    "vendor image",
+    "saved BOOT and configuration register"
+  ],
+  "pending": [
+    "Successful repeated corrected boot",
+    "Restore/compare running test config",
+    "Three cold boots",
+    "Standalone persistence",
+    "Defined idle/overnight gates"
+  ],
+  "tool": "scripts/c8235_b_console_boot.py",
+  "procedure": "experimental-recovery/c8235-b-bound16-20261031/CONSOLE-BOOT.txt",
+  "validation": {
+    "offline_tests": 15,
+    "hardware_test_status": "One complete automated warm boot passed, following a supervised corrected warm boot. Cold boots and standalone persistence pending."
+  },
+  "source_evidence": {
+    "closed_pre_restart": "router-console-logs/20261031-170847-console.log",
+    "bytes": 214677,
+    "sha256": "22d329fe589d7568d7b70cf4356b8298563860ced280bd35f53422c18f48cc8a"
+  },
+  "correction_to_procedure": "Maintenance shell ttyAMA0 baud9600 was already documented in the October25 context (around line703); new helper omission caused the second transport stop. Host returns115200 after stty115200 and transmission drain.",
+  "no_agent_startup_save": true,
+  "cold_trials": [
+    {
+      "number": 1,
+      "armed_at": "2026-10-31T18:40:05-04:00",
+      "status": "Owner confirms on; capture/boot in progress; no pass yet",
+      "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602",
+      "owner_confirmation_recorded_at": "2026-10-31T18:40:59.478834-04:00"
+    }
+  ]
+}

@@ -1,0 +1,506 @@
+
+[TX 2026-10-31T18:33:41.255311] b'\renable\rterminal length 0\rterminal width 512\rshow platform\rshow platform software infra punt-keepalive\rshow platform software process list F0 | include cpp_cp_svr\rshow logging | include NIX|ATTACH_RESOURCES|CRITICAL_PROCESS|PUNT_KEEPALIVE\r'
+
+Router>enable
+Router#terminal length 0
+Router#terminal width 512
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:01:21      
+ 0/0      8M-2xSFP+           booting               00:00:35      
+R0        C8230X-8M2X         ok, active            00:01:21      
+F0        C8230X-8M2X         ok, active            00:01:21      
+P0        PWR-CC2-66WAC       ok                    00:00:49      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.116 sec ago
+Last punt keepalive sent                  = 0.116 sec ago
+punt keepalive rx count                   = 7
+punt keepalive tx count                   = 7
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 | include cpp_cp_svr
+cpp_cp_svr             20913   20905     20913  S               20  168144      
+Router#show logging | include NIX|ATTACH_RESOURCES|CRITICAL_PROCESS|PUNT_KEEPALIVE
+Router#
+[TX 2026-10-31T18:33:49.833573] b'copy usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-repeatable-running.cfg running-config\r'
+copy usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-repeatable-running.cfg running-config
+Destination filename [running-config]? 
+[TX 2026-10-31T18:33:53.002934] b'\r'
+
+A system RELOAD is required before templating state change
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 0D050030 
+  ^
+% Invalid input detected at '^' marker.
+
+  31312F30 2D060355 04030C26 494F532D 53656C66 2D536967 6E65642D 43657274 
+  ^
+% Invalid input detected at '^' marker.
+
+  69666963 6174652D 33343237 30393432 3830301E 170D3234 30323237 31373238 
+  ^
+% Invalid input detected at '^' marker.
+
+  30335A17 0D333430 32323631 37323830 335A3031 312F302D 06035504 030C2649 
+  ^
+% Invalid input detected at '^' marker.
+
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 34323730 
+  ^
+% Invalid input detected at '^' marker.
+
+  39343238 30308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  ^
+% Invalid input detected at '^' marker.
+
+  0A028201 0100B86B DE19D0E8 C62CB726 612BFDAA 727AEE0E F4C8016F C9F99E65 
+  ^
+% Invalid input detected at '^' marker.
+
+  A4318492 9125D313 C4294621 AA8FEC19 95A8FBEA 39AA17D9 1B9E2617 B7AB967D 
+  ^
+% Invalid input detected at '^' marker.
+
+  239F13DE E598283F 64E5E4D6 EC9A38FD E0EDF99F B4BCCA62 3F2907DD 04A609E9 
+  ^
+% Invalid input detected at '^' marker.
+
+  E019E4CC 1CC161AA 0687DBB4 FD5D965B A639C3AB 36E92CB6 0FBFBBE6 563C09D9 
+   ^
+% Invalid input detected at '^' marker.
+
+  D949A814 44945879 B0E6686F BD6D5065 E1AC2A2C C0DAB719 222BF3D8 E00CE573 
+   ^
+% Invalid input detected at '^' marker.
+
+  E59F51CA C12188F7 A7071771 AB8B219A 6CE6B4A1 EEFA88AF FC54E383 3F51623F 
+   ^
+% Invalid input detected at '^' marker.
+
+  872EA5E8 81EB77A4 8617FB62 D190FE67 1902DE92 5951B6D0 2E5A2717 B69F7442 
+  ^
+% Invalid input detected at '^' marker.
+
+  78871664 8CA2FF13 B3C04D54 09A1BCEA 3A16784E 05DCA85A 958FB6B7 A68D2F5E 
+  ^
+% Invalid input detected at '^' marker.
+
+  C70019A2 09290203 010001A3 53305130 1D060355 1D0E0416 04141C8D B2843CCE 
+   ^
+% Invalid input detected at '^' marker.
+
+  0387A0C7 410EDD2C 3642070E 4887301F 0603551D 23041830 1680141C 8DB2843C 
+  ^
+% Invalid input detected at '^' marker.
+
+  CE0387A0 C7410EDD 2C364207 0E488730 0F060355 1D130101 FF040530 030101FF 
+    ^
+% Invalid input detected at '^' marker.
+
+  300D0609 2A864886 F70D0101 0D050003 82010100 123CD6A0 FC57730C 2FE8A898 
+  ^
+% Invalid input detected at '^' marker.
+
+  65007007 2463E914 DD51504A 50B50606 AE59A886 A1DC7FF4 EE9F0AFC C1AB1ADC 
+  ^
+% Invalid input detected at '^' marker.
+
+  754190A7 63EAB592 291C49E1 4FB24470 66FEEA9F CFA63735 ABAA3D4C 0856591A 
+  ^
+% Invalid input detected at '^' marker.
+
+  7AB03E33 F94FCBC7 15855E71 B687E022 A5B2B24D EE7CC4B6 462160F1 F4246615 
+  ^
+% Invalid input detected at '^' marker.
+
+  6B4E4AC5 592F97FA B4765273 E44A7D8E 92B7A881 C80FBB64 39673D6C 9FD2B556 
+  ^
+% Invalid input detected at '^' marker.
+
+  23F4FBA3 DA6EA699 E3EEABFD 71BC7106 CFBAB39E 29F33C8F 4658B58C FF5F3A7F 
+  ^
+% Invalid input detected at '^' marker.
+
+  09242859 0ECA4C3B FD95BF9F 82D7B5B0 8F6D079F 69A51AEA 567BC5AC 774528E6 
+  ^
+% Invalid input detected at '^' marker.
+
+  4E29FA68 A62D86A7 0970AF3A 46E462A4 118568FD AC2CF4D9 2D0163F7 4733BF41 
+  ^
+% Invalid input detected at '^' marker.
+
+  CA43956D 32E77A6B F9646592 4D0750BE 4DAB4746
+   ^
+% Invalid input detected at '^' marker.
+
+  	quit
+   ^
+% Invalid input detected at '^' marker.
+
+interface TwoGigabitEthernet0/0/6
+           ^
+% Invalid input detected at '^' marker.
+
+ no ip address
+              ^
+% Invalid input detected at '^' marker.
+
+ shutdown
+         ^
+% Invalid input detected at '^' marker.
+
+ negotiation auto
+   ^
+% Invalid input detected at '^' marker.
+
+interface TwoGigabitEthernet0/0/7
+           ^
+% Invalid input detected at '^' marker.
+
+ description PERF_1G_COMPARE_UPLINK_192.168.5.0_24
+   ^
+% Invalid input detected at '^' marker.
+
+ ip address 192.168.5.4 255.255.255.0
+           ^
+% Invalid input detected at '^' marker.
+
+ negotiation auto
+   ^
+% Invalid input detected at '^' marker.
+
+interface TenGigabitEthernet0/0/8
+           ^
+% Invalid input detected at '^' marker.
+
+ description PERF_TRUNK_VLAN83_NATIVE1_1G_COMPARE
+   ^
+% Invalid input detected at '^' marker.
+
+ no ip address
+              ^
+% Invalid input detected at '^' marker.
+
+interface TenGigabitEthernet0/0/8.1
+           ^
+% Invalid input detected at '^' marker.
+
+ description NATIVE_VLAN1_UNNUMBERED
+   ^
+% Invalid input detected at '^' marker.
+
+ encapsulation dot1Q 1 native
+   ^
+% Invalid input detected at '^' marker.
+
+interface TenGigabitEthernet0/0/8.83
+           ^
+% Invalid input detected at '^' marker.
+
+ description PERF_VLAN83_LAN
+   ^
+% Invalid input detected at '^' marker.
+
+ encapsulation dot1Q 83
+   ^
+% Invalid input detected at '^' marker.
+
+ ip address 192.168.83.1 255.255.255.0
+           ^
+% Invalid input detected at '^' marker.
+
+interface TenGigabitEthernet0/0/9
+           ^
+% Invalid input detected at '^' marker.
+
+ no ip address
+              ^
+% Invalid input detected at '^' marker.
+
+ shutdown
+         ^
+% Invalid input detected at '^' marker.
+
+ negotiation auto
+   ^
+% Invalid input detected at '^' marker.
+
+ SECURITY WARNING - Module: RCMD, Command: ip rcmd domain-lookup , Reason: No encryption is configured, Description: Remote command (rcmd) service enabled - allows unencrypted remote command execution without proper authentication, Remediation: This is a legacy feature, please consider disabling it
+ SECURITY WARNING - Module: TFTP, Command: ip forward-protocol udp tftp , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: SNMP Host configured with insufficient authentication - missing privacy encryption, Remediation: This is a legacy feature, please consider disabling it
+ SECURITY WARNING - Module: TELNET, Command: ip telnet tos C0, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport enable , Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport flow level 16, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport receive window 4128, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport disconnect delay 0, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TFTP, Command: ip tftp source-interface GigabitEthernet0 , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: TFTP, Command: ip tftp arp-glean , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: TFTP, Command: ip tftp blocksize 512, Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: FTP, Command: ip ftp passive , Reason: No encryption is configured, Description: FTP service enabled - transmits credentials and data in plaintext, vulnerable to interception, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: HTTP, Command: ip http server , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: HTTP server enabled - unencrypted protocol vulnerable to eavesdropping and man-in-the-middle attacks, Remediation: Use http secure server to ensure secure web access
+ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/7 192.168.5.1
+                          ^
+% Invalid input detected at '^' marker.
+
+ SECURITY WARNING - Module: NTP, Command: ntp allow mode control 3, Reason: NTP allow mode control renders device susceptible to DDoS attacks, Description: Permits mode control packets rendering the device vulnerable to DDoS attacks, Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow
+Router#
+*May 29 18:50:23.232: % Multiple self signed certificates in config
+    certificate for trust point TP-self-signed-3427094280 ignored
+
+*May 29 18:50:23.781: %SYS-5-CONFIG_P: Configured programmatically by process Exec from console as console
+*May 29 18:50:23.785: %SYS-5-CONFIG_C: Running-config file is Modified 
+*May 29 18:50:28.041: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card F0 took 64 secs to boot
+*May 29 18:50:28.041: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 0 took 59 secs to boot
+*May 29 18:50:29.113: NGIOLite module 8M-2xSFP+ success read extended attr from conf file len: 1629
+
+*May 29 18:50:29.437: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/8
+*May 29 18:50:30.642: %SPA_OIR-6-ONLINECARD: SPA (8M-2xSFP+) online in subslot 0/0
+[TX 2026-10-31T18:34:06.485537] b'show platform\rshow ip interface brief\rshow platform software infra punt-keepalive\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:01:46      
+ 0/0      8M-2xSFP+           ok                    00:01:00      
+R0        C8230X-8M2X         ok, active            00:01:46      
+F0        C8230X-8M2X         ok, active            00:01:46      
+P0        PWR-CC2-66WAC       ok                    00:01:14      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                unassigned      YES NVRAM  administratively down down    
+Tw0/0/7                unassigned      YES NVRAM  administratively down down    
+Te0/0/8                unassigned      YES NVRAM  administratively down down    
+Te0/0/9                unassigned      YES NVRAM  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.024 sec ago
+Last punt keepalive sent                  = 1.024 sec ago
+punt keepalive rx count                   = 19
+punt keepalive tx count                   = 19
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-10-31T18:34:14.091271] b'configure terminal\rinterface TwoGigabitEthernet0/0/7\rdescription PERF_1G_COMPARE_UPLINK_192.168.5.0_24\rip address 192.168.5.4 255.255.255.0\rno shutdown\rinterface TenGigabitEthernet0/0/8\rdescription PERF_TRUNK_VLAN83_NATIVE1_1G_COMPARE\rno shutdown\rinterface TenGigabitEthernet0/0/8.1\rdescription NATIVE_VLAN1_UNNUMBERED\rencapsulation dot1Q 1 native\rinterface TenGigabitEthernet0/0/8.83\rdescription PERF_VLAN83_LAN\rencapsulation dot1Q 83\rip address 192.168.83.1 255.255.255.0\rexit\rip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/7 192.168.5.1\rend\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface TwoGigabitEthernet0/0/7
+Router(config-if)#description PERF_1G_COMPARE_UPLINK_192.168.5.0_24
+Router(config-if)#ip address 192.168.5.4 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#interface TenGigabitEthernet0/0/8
+Router(config-if)#description PERF_TRUNK_VLAN83_NATIVE1_1G_COMPARE
+Router(config-if)#no shutdown
+Router(config-if)#interface TenGigabitEthernet0/0/8.1
+Router(config-subif)#description NATIVE_VLAN1_UNNUMBERED
+Router(config-subif)#encapsulation dot1Q 1 native
+Router(config-subif)#interface TenGigabitEthernet0/0/8.83
+Router(config-subif)#description PERF_VLAN83_LAN
+Router(config-subif)#encapsulation dot1Q 83
+Router(config-subif)#ip address 192.168.83.1 255.255.255.0
+Router(config-subif)#exit
+Router(config)#ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/7 192.168.5.1
+Router(config)#end
+Router#
+[TX 2026-10-31T18:34:15.197274] b'show archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-repeatable-running.cfg system:running-config\rshow running-config | section dhcp\rshow ip interface brief\r'
+show archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-repeatable-running.cfg system:running-config
+
+*May 29 18:50:44.051: %SYS-5-CONFIG_I: Configured from console by console!Contextual Config Diffs:
+!No changes were found
+
+Router#show running-config | section dhcp
+ip dhcp excluded-address 192.168.83.1 192.168.83.49
+ip dhcp excluded-address 192.168.83.226 192.168.83.254
+ip dhcp pool C8235_PERF83
+ network 192.168.83.0 255.255.255.0
+ default-router 192.168.83.1 
+ dns-server 192.168.3.10 208.67.222.222 
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                unassigned      YES NVRAM  administratively down down    
+Tw0/0/7                192.168.5.4     YES manual down                  down    
+Te0/0/8                unassigned      YES NVRAM  down                  down    
+Te0/0/8.1              unassigned      YES unset  down                  down    
+Te0/0/8.83             192.168.83.1    YES manual down                  down    
+Te0/0/9                unassigned      YES NVRAM  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#
+*May 29 18:50:50.129: %LINK-3-UPDOWN: Interface TwoGigabitEthernet0/0/7, changed state to up
+*May 29 18:50:50.148: %LINK-3-UPDOWN: Interface TenGigabitEthernet0/0/8, changed state to up
+*May 29 18:50:51.129: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/7, changed state to up
+*May 29 18:50:51.149: %LINEPROTO-5-UPDOWN: Line protocol on Interface TenGigabitEthernet0/0/8, changed state to up
+*May 29 18:50:59.569: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+[TX 2026-10-31T18:34:35.946306] b'show ip interface brief\rshow platform software infra punt-keepalive\rshow platform software process list F0 | include cpp_cp_svr\rshow logging | include NIX|ATTACH_RESOURCES|CRITICAL_PROCESS|PUNT_KEEPALIVE\r'
+show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                unassigned      YES NVRAM  administratively down down    
+Tw0/0/7                192.168.5.4     YES manual up                    up      
+Te0/0/8                unassigned      YES NVRAM  up                    up      
+Te0/0/8.1              unassigned      YES unset  up                    up      
+Te0/0/8.83             192.168.83.1    YES manual up                    up      
+Te0/0/9                unassigned      YES NVRAM  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.476 sec ago
+Last punt keepalive sent                  = 0.476 sec ago
+punt keepalive rx count                   = 34
+punt keepalive tx count                   = 34
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 | include cpp_cp_svr
+cpp_cp_svr             20913   20905     20913  S               20  168912      
+Router#show logging | include NIX|ATTACH_RESOURCES|CRITICAL_PROCESS|PUNT_KEEPALIVE
+Router#
+[TX 2026-10-31T18:34:44.454458] b'ping 192.168.5.3 source 192.168.83.1 repeat 5 size 1500 df-bit\r'
+ping 192.168.5.3 source 192.168.83.1 repeat 5 size 1500 df-bit
+Type escape sequence to abort.
+Sending 5, 1500-byte ICMP Echos to 192.168.5.3, timeout is 2 seconds:
+Packet sent with a source address of 192.168.83.1 
+Packet sent with the DF bit set
+.!!!!
+Success rate is 80 percent (4/5), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T18:35:02.568410] b'ping 192.168.5.3 source 192.168.83.1 repeat 5 size 1500 df-bit\r'
+ping 192.168.5.3 source 192.168.83.1 repeat 5 size 1500 df-bit
+Type escape sequence to abort.
+Sending 5, 1500-byte ICMP Echos to 192.168.5.3, timeout is 2 seconds:
+Packet sent with a source address of 192.168.83.1 
+Packet sent with the DF bit set
+!!!!
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: RCMD - Command: ip rcmd domain-lookup  - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip forward-protocol udp tftp  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet tos C0 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport enable  - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport flow level 16 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport receive window 4128 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport disconnect delay 0 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.461: %SYS-4-INSECURE_CONFIG: Module: TFTP - Command: ip tftp source-interface GigabitEthernet0  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp arp-glean  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp blocksize 512 - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: FTP - Command: ip ftp passive  - Reason: No encryption is configured - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.461: %SYS-4-INSECURE_WARNING: Module: HTTP - Command: ip!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/2/4 ms
+Router# http server  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Use http secure server to ensure secure web access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: NTP - Command: ntp allow mode control 3 - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: RCMD - Command: ip rcmd domain-lookup  - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip forward-protocol udp tftp  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet tos C0 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport enable  - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport flow level 16 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport receive window 4128 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport disconnect delay 0 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_CONFIG: Module: TFTP - Command: ip tftp source-interface GigabitEthernet0  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp arp-glean  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp blocksize 512 - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: FTP - Command: ip ftp passive  - Reason: No encryption is configured - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: HTTP - Command: ip http server  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Use http secure server to ensure secure web access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 18:51:32.462: %SYS-4-INSECURE_WARNING: Module: NTP - Command: ntp allow mode control 3 - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+[TX 2026-10-31T18:35:09.231838] b'show bootvar\rshow platform software infra punt-keepalive\r'
+show bootvar
+BOOT variable = bootflash:packages.conf,12;
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x3922
+
+Standby not ready to show bootvar
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.756 sec ago
+Last punt keepalive sent                  = 1.756 sec ago
+punt keepalive rx count                   = 50
+punt keepalive tx count                   = 50
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+*May 29 18:51:37.589: %SMART_LIC-3-COMM_FAILED: Communications failure with the Cisco Smart License Utility (CSLU) : Unable to resolve server hostname/domain name 

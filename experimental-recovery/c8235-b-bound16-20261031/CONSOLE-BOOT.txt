@@ -1,0 +1,76 @@
+C8235-B guarded console boot — experimental, October 31, 2026 EDT
+
+Scope: FGL2835LBHU, Arata r2/A0, development SDK112312-SoC1-SB-v12.1.22,
+unmodified c8kg2be-universalk9.26.02.01.SPA.bin only. This is console-assisted
+reapplication of a RAM correction, not standalone persistence or an alternate
+firmware image. Other chassis and IOS versions need separate validation.
+
+Authored tool: scripts/c8235_b_console_boot.py (AI-assisted, Python 3 standard
+library, POSIX termios/fcntl/select and lsof). Its default/--plan and imports
+do not open a serial port. Tests: tests/test_c8235_b_console_boot.py.
+
+Before live use, reconfirm actual chassis, assembly/cooling/battery, all cables
+and console ownership under AGENTS.md. Preserve running/startup configuration
+and boot settings. Reload mode declines saving running configuration. Restore
+the preserved test configuration explicitly after boot, with a native diff.
+Close the prior console owner cleanly; the tool rejects an occupied port.
+
+Offline preview from repository root:
+  python3 scripts/c8235_b_console_boot.py --plan
+  python3 -m unittest discover -s tests -p 'test_c8235_b_console_boot.py' -v
+
+Explicit one-shot warm restart, using the freshly enumerated serial path:
+  python3 -u scripts/c8235_b_console_boot.py --reload-from-ios \
+    --port /dev/cu.usbserial-AL00F7EQ --confirmed-chassis FGL2835LBHU
+
+For a separately requested physical power cycle, use --wait-reset instead of
+--reload-from-ios; start capture before cycling. Initial boot banner must arrive
+within 180 seconds. The physical path shown here is historical, not an assertion
+that it remains the right or unowned device.
+
+If a supervised trial has stopped at ROMMON, --reset-from-rommon captures a
+fresh software reset/banner before retrying. It is a warm restart, not a cold
+boot. No automatic retry is performed. Preserve the failed trial first.
+
+Sequence and stop rules:
+1. Warm mode checks native IOS chassis/release/register and full USB SHA-512.
+2. Capture reset, stop autoboot after UUID, validate UUID/board/development
+   ROMMON. A reset seen later stops autoboot and fails the active sequence.
+3. Set/read back the known temporary USER_BOOT_PARAM; do not sync it. Explicitly
+   boot the named USB image into the same child maintenance shell used manually.
+4. Switch host to 9600 when the maintenance shell opens ttyAMA0, then set the
+   router and host back to 115200. This transition was observed October 25 and
+   reverified October 31. Verify PID1 continuation; mount USB read-only and check full
+   SHA-256 on every trial. Unmount it before the patch.
+5. Transfer exact existing boot-bound16.sh in bounded chunks to RAM; require
+   its SHA-256, syntax and prepare-only success, plus exact RAM target/hook
+   hashes. The existing script guards kernel, Arata, DTB VF count and vendor file.
+6. Only then exit the child shell. Require actual runtime hook BEGIN/COMPLETE
+   lines and IOS welcome/prompt (either observed punctuation). Poll show platform
+   at bounded intervals for up to 120 seconds until R0/F0 active and 0/0 ok.
+   A prompt alone is not an operational/stability pass. Wait for interfaces to
+   exist before any configuration restore. Full-config merge may report ignored
+   duplicate certificates; verify native config differences and correct rejected
+   interface/default-route commands only after 0/0 is ready.
+7. Retain passive private capture. No retry loop. Unexpected failures remain
+   at their observed stage for supervised recovery; never blindly send exit.
+
+The process prints event metadata only. Raw console capture/events remain in
+.git/recovery-private/c8235-analysis-20261031/repeatable-boot/<host timestamp>/.
+Supervised JSON controls on stdin accept {"send":"...\r"} or {"close":true}.
+The observed baud choices can be selected explicitly with {"baud":9600} or
+{"baud":115200}; after a failed trial the helper restores host 115200 so a
+later reset can be captured/stopped. A shell may still require host 9600.
+Commands/chunks are capped at 900 bytes. Inspect raw results privately with the
+repository sanitizer; publish immutable copies through repository_tools.
+
+After each boot: check F0/0/0, keepalives, CPP PID and NIX/ATTACH failures, then
+verify configuration/links/reachability. Record cold versus warm correctly.
+Required three cold boots, defined idle/overnight observation and standalone
+persistence are independent gates. See active C8235-05 plan and current results;
+do not infer completion from this procedure or offline unit tests.
+
+Rollback: reboot stops using the RAM patch; the helper's reset guard halts the
+next autoboot. Previously saved BOOT/register and all images are unchanged.
+Do not casually boot the older saved target: its uncorrected crash is known.
+No ROMMON/SPI/TPM/fuse/startup-config changes are part of this tool.

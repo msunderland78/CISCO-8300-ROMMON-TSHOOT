@@ -10,6 +10,40 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+GUARDED CONSOLE BOOT: FIRST COMPLETE WARM PASS — 2026-10-31, 18:40 EDT
+Owner confirmed same FGL2835LBHU/assembly/battery/cabling/free console. New
+scripts/c8235_b_console_boot.py explicitly owns the exclusive console; no
+hardware on import/default/--plan. Fifteen offline tests pass. It guards the
+SoC UUID/development ROMMON/profile, exact USB image and exact RAM patch,
+handles maintenance115200->9600->115200, transfers bounded chunks, and waits
+for runtime hook plus IOS and R0/F0/0/0 readiness. No retry loop or firmware /
+environment sync / startup save. Detailed procedure is
+experimental-recovery/c8235-b-bound16-20261031/CONSOLE-BOOT.txt.
+
+Earlier transport attempts stopped safely on duplicate ROMMON prompts and
+missing9600 transition; the latter was already in the October25 notes below.
+Another automatic RAM application reached IOS but needed manual welcome
+recognition (exclamation mark versus period). Its network restore was attempted
+before ports existed: rejected interface/route commands were reapplied after
+0/0 ready; native config diff then showed NO CHANGES versus preserved running
+config, and full-size Ubuntu ping passed5/5 after initial4/5. CPP20913 and
+keepalives7->50/zero misses. These intermediate failures remain in evidence.
+
+The final complete helper warm run began18:35:11, reached IOS18:38:42 and
+platform-ready18:39:35 without operator boot commands. CPP21010; keepalives
+20->29/zero misses; no filtered NIX/ATTACH/critical-process matches. Saved
+BOOT remains bootflash:packages.conf,12; and confreg0x3922. Running bench
+configuration does not persist: ports7/8 are now shut/unassigned. Backups
+pre-repeatable-running.cfg(7527B) and pre-repeatable-startup.cfg(3127B) are
+hash-verified in USB diagnostic directory; restore bench networking after
+cold tests. No claim that IOS never updates its own startup state.
+
+Cold boot1 of3 armed18:40:05; owner confirms the requested off10seconds/on.
+No cold pass, new15-minute/long soak, standalone persistence or permanent
+repair claimed. Current helper session/evidence is private repeatable-boot/
+20261031-184004; physical/console state must be rechecked at next interaction.
+Full evidence/status: c8235-recovery/crash-review-20261031/repeatable-boot.json.
+
 PERFORMANCE DEFERRED; BOOT PERSISTENCE / FLEET PLAN — 2026-10-31, 18:06 EDT
 Owner is satisfied with performance for now. Defer more throughput and switch
 counter comparisons. This checkpoint is OFFLINE REVIEW ONLY: no new router/
