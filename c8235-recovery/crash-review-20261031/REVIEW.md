@@ -61,3 +61,9 @@ The ordered bench procedure, acceptance criteria and pending checkboxes are main
 ## Subsequent console check — 15:58 EDT
 
 After the offline review, the owner confirmed B powered with RJ45 serial, identity/assembly/cooling and free console. A fresh ownership check found no process on the cu/tty port. Two bounded four-second reads at 115200/8N1/no flow (the second after one carriage return) received **zero bytes**. The exclusive descriptor was closed each time. No prompt, present IOS version or current crash was observed; no reboot or persistent setting changed. The next bench action is a controlled, captured power-on after confirming current cables/battery and that no transfer/write is active. Quiet serial alone does not prove a dead CPU. Exact capture hashes are in [analysis.json](analysis.json).
+
+## Captured power cycle — 16:00–16:02 EDT
+
+At the owner’s request, continuous logging was armed before the owner cycled power. Clear output identifies Arata r2 / A0, July 17, 2024 boot stub, 16 GB memory and the unchanged `SDK112312-SoC1-SB-v12.1.22` development ROMMON. The SoC UUID matches B’s October 25 capture. A one-shot Ctrl-C sequence stopped autoboot. Read-only `showmon -v`, `set` and `dir bootflash:` confirm PowerOn reset, Boot ROM0, `BOOT=bootflash:packages.conf,12;`, absent maintenance parameter and listed 17.18.3a image/packages. No IOS boot or stability test occurred. This supersedes the earlier inability to observe a prompt; it does not explain why the already-powered console was quiet.
+
+Final state: **powered at `rommon 4 >`**, capture closed cleanly and serial port free at 16:02:29 EDT. USB stays on Mac. [Sanitized continuous capture](../../sanitized-evidence/router-console-logs/20261031-160040-console.log). Next attach the verified USB for the selected diagnostic boot and inspect NIX allocations; no new firmware candidate or write is selected.

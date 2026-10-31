@@ -46,6 +46,20 @@ both descriptors closed. No prompt/current firmware or crash confirmed.
 Next: captured controlled power-on after the remaining state check.
 No reboot or persistent setting changed; silence does not prove dead CPU.
 
+FRESH POWER-CYCLE CHECKPOINT — 2026-10-31, 16:02 EDT
+Owner requested/confirmed power-cycle after capture was armed. Fresh output
+confirms Arata r2/A0, July 2024 boot stub and unchanged development ROMMON
+SDK112312-SoC1-SB-v12.1.22 / Boot ROM0 / PowerOn; UUID matches B. One-shot
+Ctrl-C at UUID banner stopped autoboot. Read showmon -v, set, dir bootflash:.
+BOOT remains bootflash:packages.conf,12; maintenance parameter absent;
+17.18.3a packages and 7947-byte packages.conf listed, not rehashed.
+No IOS boot, firmware write, config save or stability test in this step.
+Final rommon 4 >; router powered, capture closed, lsof port free at16:02:29.
+USB stays on Mac. Next attach USB for the chosen diagnostic boot and NIX
+allocation inventory. Capture: sanitized-evidence/router-console-logs/
+20261031-160040-console.log. Prior quiet-console check is retained history,
+not the current prompt state.
+
 HISTORICAL CHECKPOINT — 2026-10-25, 14:00 EDT
 C8235-B FGL2835LBHU: verified report archival/cleanup completed; normal USB
 26.2.1 still failed with CPP rc139 and reboot despite about 9.5 GB free.

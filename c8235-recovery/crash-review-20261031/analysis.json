@@ -427,7 +427,8 @@
     "symbol_limitation": "No full symbolic stack. Version-matched extracted libcpp_sbs.so has ldr x27,[x0] at 0x87e4; executable bytes at PC were not available in the filtered core to verify exact module equality."
   },
   "live_router_actions": [
-    "Subsequent bounded read-only serial check only; one carriage return; zero received bytes; no firmware/configuration change"
+    "Subsequent bounded read-only serial check only; one carriage return; zero received bytes; no firmware/configuration change",
+    "Owner controlled power-cycle with continuous capture; interrupted autoboot; read showmon -v, set, dir bootflash:; closed console with router at ROMMON"
   ],
   "methods": [
     "Python 3 standard library: byte copies, streamed SHA256, tarfile member reads without extractall, gzip decompression, bounded text/printable-string selection, ELF64 PT_NOTE/NT_FILE mapping",
@@ -502,5 +503,38 @@
       "bytes": 135304,
       "sha256": "dc365259691c7189f3d2b90a12bbfca360b3289c586bb111664d4fc2ef0dafae"
     }
-  ]
+  ],
+  "controlled_power_cycle": {
+    "window": "2026-10-31 16:00:40\u201316:02:29 America/New_York",
+    "authorization": "Owner asked whether to power-cycle; capture armed first; owner replied on after instructed off/wait/on",
+    "physical_target": "Owner-confirmed C8235-B FGL2835LBHU; fresh SoC UUID matches October 25 B capture",
+    "console": "/dev/cu.usbserial-AL00F7EQ, exclusive 115200/8N1/no flow",
+    "interruption": "One-shot three Ctrl-C bytes on UUID Len: 0xC; stopped Cisco autoboot",
+    "observed": {
+      "board": "mirabile-arata r2",
+      "silicon": "0xbd Pass A0 (alt pkg), MV-CN10208C-A0-HF240AG-xxxx-SCP",
+      "boot_stub": "2024-07-17 01:44:08",
+      "memory": "16 GB DDR5, 4800 MT/s, solder-down, non-ECC; initialization only, not a stress test",
+      "rommon": "SDK112312-SoC1-SB-v12.1.22 DEVELOPMENT, Boot ROM0",
+      "reset_cause": "PowerOn",
+      "soc_uuid": "13 FF FF 87 79 AD FB 7C 6D E0 81 A7",
+      "BOOT": "bootflash:packages.conf,12;",
+      "USER_BOOT_PARAM": "Absent in set output",
+      "installed_files": "17.18.03a image/packages and 7947-byte packages.conf listed; listing is not a new integrity check",
+      "final_prompt": "rommon 4 >"
+    },
+    "commands": [
+      "showmon -v",
+      "set",
+      "dir bootflash:"
+    ],
+    "scope": "No IOS boot, functional/stability result, firmware write, config save or boot-variable change. PCIe0 DETECT_QUIET training message observed; no populated-device or hardware-fault conclusion.",
+    "capture": {
+      "path": "router-console-logs/20261031-160040-console.log",
+      "bytes": 6785,
+      "sha256": "897d9e7e1d4bb6a359c032536b3935f5dec4455afdfd82f00cf99be84db323c2"
+    },
+    "final_state": "Router left powered at ROMMON; capture closed exit 0; fresh lsof finds no cu/tty owner; CISCO FILES remains on Mac",
+    "next": "Attach verified USB for a deliberately chosen normal/maintenance diagnostic boot and measure NIX resource allocations before any configuration/firmware experiment"
+  }
 }
