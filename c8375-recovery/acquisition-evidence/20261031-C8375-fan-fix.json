@@ -7,8 +7,8 @@
     "pid": "C8375-E-G2",
     "serial": "FDO2742M0FK"
   },
-  "status": "Fan cycling unresolved; supported-PSU comparison awaits hardware; read-only software diagnostics continue through owner SSH.",
-  "physical_state": "Same normally powered router; programming fixture removed; cooling assemblies never removed; battery reinstallation followed owner readiness; owner SSH active. No PSU removed or cable changed during this diagnostic capture.",
+  "status": "Fan cycling unresolved; two controller temperature-band transitions captured. Supported tuning/profile not established; supported-PSU comparison awaits hardware.",
+  "physical_state": "Same normally powered C8375-A; programming fixture removed; owner confirms top cover installed and vents clear. Final inventory newly reports an unsupported voice NIM insertion after the fan captures; owner confirmation requested.",
   "owner_psu_label": {
     "model": "PWR-CC1-250WAC",
     "serial": "LIT2852A9TJ",
@@ -99,12 +99,12 @@
   },
   "changes": "Read-only show/help plus terminal pagination setting only. No firmware, cooling policy, EEPROM, security-state, power or fan-register change; no new debug levels.",
   "next_steps": [
-    "Inspect R0 hardware help through owner SSH or a separately verified saved SSH connection for controller diagnostics. Fan-status request proved unsupported; do not retry it as a fan-health test.",
-    "When available, compare a known-good supported PWR-CC1-400WAC with all other firmware/configuration held constant. Follow single-PSU shutdown and AC-disconnection procedure before replacement.",
-    "Capture boot, PSU inventory/state and at least 45 minutes of comparable RPM/temperature/owner observations; separate power recognition from fan steadiness.",
-    "If cycling persists with a recognized supported supply, pursue IOS/platform/CPLD policy compatibility for the exact board; preserve current recovered boot baseline."
+    "Reconfirm the newly reported unsupported voice-NIM insertion before further live diagnostics; preserve the earlier fan captures as preceding that inventory change.",
+    "Establish the correct Crestone environmental-controller fan profile, active input, thresholds, hysteresis/delays and a supported adjustment/update method for this exact board. Current read-only data does not justify a guessed register or PWM write.",
+    "A known-good supported PWR-CC1-400WAC comparison remains useful for compatibility and PSU causality; owner has no spare. No purchase or cure promised.",
+    "After a justified correction, repeat boot/environment and sustained fan-stability qualification. Preserve working boot firmware and all unique security data."
   ],
-  "updated_at": "2026-10-31T13:37:45.376113-04:00",
+  "updated_at": "2026-10-31T14:00:32.286546-04:00",
   "offline_display_script_review": {
     "source": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
     "squashfs_offset": 4096,
@@ -126,7 +126,50 @@
   },
   "credential_access_review": {
     "date": "2026-10-31",
-    "result": "Saved private SSH profile located for Pi only. Router configuration backups contain two type8 hashed local-account secrets, not usable plaintext passwords. No router login attempted; owner SSH app/profile requested.",
-    "credential_values": "Not included."
+    "result": "Owner subsequently supplies router endpoint/login and explicitly requests an environment file. Stored only under .git/recovery-private/c8375-router.env, mode0600 within mode0700 private directory, absent from Git index; password registered privately with publication guard. Separate SSH authenticates and verifies FDO2742M0FK/IOS26.2.1/confreg0x1822. Owner SecureCRT session untouched. Credentials/endpoints omitted from public evidence.",
+    "credential_values": "Not included.",
+    "connection_method": "OpenSSH plus installed sshpass; password passed through inherited pipe descriptor, not argv; private known_hosts accepts first key and rejects changed keys. Initial intermittent authentication failures preserved privately; subsequent password-only SSH succeeds without router AAA/SSH changes."
+  },
+  "controller_comparison": {
+    "evidence": "20261031-C8375-fan-controller-samples.json",
+    "sample_count": 30,
+    "peak_rpm": 12540,
+    "finding": "Two independent rises accompany the vendor-named fan-temperature-level field0->1; it returns to0 before RPM fully decays. Table remains2, barometric level0, tray status1, n2h status0x0f00; n2h/h2n override fields remain0. Inlet/working values move27->28 and CPU37->38 around rises, but these co-vary, so the actual selected sensor/threshold and hysteresis are not isolated. This supports controller temperature-band cycling; it does not establish a defective policy, prove PSU causality, or validate a tuning write. Alarm Normal is distinct from these control bands.",
+    "derived_nios_envmcu_version": "0x003f",
+    "version_basis": "Driver global_nios_version accessor reads16bits at0x2. All snapshots have0x003f; vendor get_cur_envmcu_ver_info reads reg_dash_nios_version as current ENV MCU version. Derived from captured bytes/source, not a new MCU shell operation."
+  },
+  "installed_mcu_package_review": {
+    "source": "Read-only IOS more /binary and independent verify /sha512; no SCP server enabled.",
+    "bytes": 139264,
+    "sha256": "8a58ec1a5ac3b5584dd606eda826aaeb6210d6c1adb6dce718cd336c18ebe589",
+    "sha512": "1db569893a00d5df01f0f451a234fd8a51f289aec343a85c6e4f33c66153cd5e0cdd15aed183b466ce03f9f3ca6375d658ededcb23cbe584b5fb7983d7649d94",
+    "byte_order": "big",
+    "squashfs_offset": 4096,
+    "name": "c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg",
+    "scope": "Read from installed bootflash by more /binary, reconstructed offline and independently matched against router verify /sha512. No SCP service enabled.",
+    "inventory": [
+      ".pkginfo",
+      "firmware/SEQ_MCU_STYX.bin",
+      "firmware/SEQ_MCU_STYX.bin.md5",
+      "firmware/SEQ_MCU_STYX.bin.ver"
+    ],
+    "result": "This installed bundle has only a STYX sequencer image; no CRESTONE ENVMCU image or fan-policy update identified. Do not treat its generic mirabile_mcu filename as compatibility evidence.",
+    "limitations": "Byte integrity/transport verified; cryptographic package-signature authentication and firmware compatibility not independently established. Nothing programmed.",
+    "earlier_show_attempt": "show upgrade hw-programmable file failed creating /tmp/hwprg_upgrade_pub with Permission denied. No permission changes or retry through weakened protections."
+  },
+  "final_state": {
+    "host_time": "2026-10-31T14:00:32.286546-04:00",
+    "ios_uptime": "1 hour30 minutes at13:58EDT",
+    "cpu_celsius": 37,
+    "fans_rpm": [
+      5400,
+      5400,
+      5340
+    ],
+    "environment_states": "All reported Normal",
+    "p0": "Unknown/incompatible",
+    "r0_f0": "ok, active",
+    "agent_ssh": "Closed cleanly; router remains powered and owner SSH untouched. Credentials retained for next diagnostics.",
+    "new_inventory": "NIM-2FXS/4FXO in0/1, unsupported, physical insertion time33seconds at13:58:46EDT. Earlier two fan transitions precede this report. Owner confirmation pending."
   }
 }

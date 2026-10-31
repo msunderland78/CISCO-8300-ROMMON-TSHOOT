@@ -1,0 +1,1315 @@
+{
+  "task_id": "C8375-05",
+  "recorded_at": "2026-10-31T14:00:32.286546-04:00",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / C8375-E-G2 / FDO2742M0FK",
+  "method": "Read-only show environment all plus show platform hardware slot R0 fpga over a separate authenticated SSH VTY. Snapshot commands sequential, not atomic. One baseline plus12 snapshots at nominal10s, then17 at nominal5s, stopping after a captured peak and three following samples.",
+  "source_capture": {
+    "retained_local": ".git/recovery-private/fan-fix-20261031/interactive-20261031-134418-812570.raw",
+    "bytes": 399848,
+    "sha256": "1b84584dd9d8f047c86c60705dbaaa634cbcf23b16851fb5f669bf5f03c96468"
+  },
+  "parser": {
+    "retained_local": ".git/recovery-private/fan-fix-20261031/parse_controller.py",
+    "sha256": "0f7f1cc5c5e725b11817945d2a5292f12f3a14d46992d9deab0d147b8dc47f01",
+    "authorship": "AI-assisted original offline analysis; Python standard library; inert import; no hardware side effects.",
+    "validation": "Strict contiguous0x1ffe-byte dump reconstruction, including repeated-row expansion. Little-endian16-bit word interpretation independently checked against all three known fan CPN strings at0x7c0/840/8c0 in every snapshot. Named driver accessor disassembly supplies offsets and16/8-bit widths; no vendor code executed.",
+    "limitations": "No formal regression suite for this one-session private analysis. Status-bit meanings, exact policy tables/thresholds/delays, and which temperature input selects the level remain unverified."
+  },
+  "field_map": {
+    "n2h_fan1_to3_rpm": [
+      "0x260",
+      "0x262",
+      "0x264"
+    ],
+    "n2h_control": {
+      "status_u16": "0x2b0",
+      "table_u8": "0x2b2",
+      "temperature_level_u8": "0x2b3",
+      "barometric_level_u8": "0x2b4",
+      "tray_status_u8": "0x2b5",
+      "override_u8": "0x305"
+    },
+    "h2n_control": {
+      "status_u16": "0xa60",
+      "table_u8": "0xa62",
+      "override_u8": "0xab5"
+    },
+    "nios_version_u16": "0x2",
+    "temperature_u16_base": "0x240"
+  },
+  "vendor_source_provenance": [
+    {
+      "local_private_name": "nios_v2_iocomp.ko",
+      "bytes": 421999,
+      "sha256": "2c9d54026aa9176fd2fecc5a380fc5646411a182d75a99308f2975efd9b508cb"
+    },
+    {
+      "local_private_name": "nios_v2.ko",
+      "bytes": 200503,
+      "sha256": "85a82c642287eee54dbe24d736407f706aa19fb6aae33171ce9273579c74c323"
+    },
+    {
+      "local_private_name": "nios_v2_iocomp.ko.selected-disassembly.txt",
+      "bytes": 37373,
+      "sha256": "3304f12efa242b47c455483cc232ee4ab52cf011ffd3af8a02d2b3aa78ca1a37"
+    },
+    {
+      "local_private_name": "nios_v2.ko.selected-disassembly.txt",
+      "bytes": 2909,
+      "sha256": "2780356b90feb04361fd8d33bbb6d90ac49b92fc033be3dfcb05d72201e5de0e"
+    },
+    {
+      "local_private_name": "nios-fan-rpm-h2n-disassembly.txt",
+      "bytes": 39233,
+      "sha256": "0a87d883fc1a11cfd4300154f3a82940b807a1ed046a9171ad7e0db72528e093"
+    },
+    {
+      "local_private_name": "nios-temperature-disassembly.txt",
+      "bytes": 54578,
+      "sha256": "162ca980e5215efcc3ea9ac352790548b4602b5724422ee678976dbb7a0a0a27"
+    },
+    {
+      "local_private_name": "nios-version-disassembly.txt",
+      "bytes": 7093,
+      "sha256": "3ff17f90e0bb45e632e4b43709d108bd5c42847d18b011262d0aaeb9f9072f7c"
+    },
+    {
+      "local_private_name": "mcp_upgrade_hwprg_cmds.sh",
+      "bytes": 52797,
+      "sha256": "d423550a14cf0a0200021f9d851bf0c52f4c362ad69a3005a19f26abb1e72e1f"
+    }
+  ],
+  "sample_count": 30,
+  "two_sampled_rise_intervals": [
+    "2026-10-31T13:47:44-04:00 through13:48:14-04:00",
+    "2026-10-31T13:49:44-04:00 through13:50:10-04:00"
+  ],
+  "observed_peak_rpm": 12540,
+  "interpretation": "Two independent rises accompany the vendor-named fan-temperature-level field0->1; it returns to0 before RPM fully decays. Table remains2, barometric level0, tray status1, n2h status0x0f00; n2h/h2n override fields remain0. Inlet/working values move27->28 and CPU37->38 around rises, but these co-vary, so the actual selected sensor/threshold and hysteresis are not isolated. This supports controller temperature-band cycling; it does not establish a defective policy, prove PSU causality, or validate a tuning write. Alarm Normal is distinct from these control bands.",
+  "cache_observation": "CLI RPM samples can remain low while raw controller RPM is high, then report high after controller RPM starts falling. Treat cached displayed temperatures/RPM separately from each controller snapshot.",
+  "samples": [
+    {
+      "timestamp": "2026-10-31T13:44:36.832631-04:00",
+      "environment_before": null,
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5400
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:46:24.115302-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:46:23.009977-04:00",
+        "fans_rpm": [
+          11820,
+          11820,
+          11760
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 36,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:46:34.115667-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:46:33.012326-04:00",
+        "fans_rpm": [
+          6000,
+          6060,
+          6000
+        ],
+        "cpu_celsius": 36
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 36,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:46:44.119396-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:46:43.014116-04:00",
+        "fans_rpm": [
+          6000,
+          6060,
+          6000
+        ],
+        "cpu_celsius": 36
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:46:54.121974-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:46:53.016634-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:47:04.123319-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:47:03.017628-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:47:14.124814-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:47:13.019684-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5400
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 27,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:47:24.125416-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:47:23.021101-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:47:34.128555-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:47:33.023271-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5400
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 27,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:47:44.128808-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:47:43.025164-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5820,
+        5880,
+        5820
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 28,
+        "inlet2": 27,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 28,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 1,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:47:54.132040-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:47:53.027207-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 38
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        11160,
+        11280,
+        11160
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 1,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:48:04.135568-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:48:03.029923-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 38
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        11880,
+        11940,
+        11820
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:48:14.140193-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:48:13.033172-04:00",
+        "fans_rpm": [
+          11820,
+          11820,
+          11820
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        8460,
+        8340,
+        8400
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 36,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:48:50.182807-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:48:49.079101-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:48:54.082013-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:48:49.079101-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:48:59.084802-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:48:49.079101-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:04.086521-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:48:49.079101-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:10.194261-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:09.089560-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:14.090932-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:09.089560-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:19.094464-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:09.089560-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:24.096149-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:09.089560-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:30.201554-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:29.097825-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 38
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:34.099621-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:29.097825-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 38
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:39.100976-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:29.097825-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 38
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5400,
+        5400,
+        5340
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 28,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 28,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:44.102554-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:29.097825-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 38
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        5820,
+        5880,
+        5820
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 28,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 28,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 1,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:50.209815-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:49.105196-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 38
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        9720,
+        9720,
+        9720
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 38,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 1,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:54.105345-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:49.105196-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 38
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        11100,
+        11280,
+        11220
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 1,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:49:59.107535-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:49.105196-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 38
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        12480,
+        12540,
+        12480
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 37,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 1,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:50:04.111020-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:49:49.105196-04:00",
+        "fans_rpm": [
+          5400,
+          5400,
+          5340
+        ],
+        "cpu_celsius": 38
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        11880,
+        11940,
+        11820
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 36,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    },
+    {
+      "timestamp": "2026-10-31T13:50:10.218590-04:00",
+      "environment_before": {
+        "timestamp": "2026-10-31T13:50:09.112860-04:00",
+        "fans_rpm": [
+          11820,
+          11820,
+          11820
+        ],
+        "cpu_celsius": 37
+      },
+      "nios_version_raw_u16": 63,
+      "vendor_fan1_to3_raw": [
+        9780,
+        9960,
+        9840
+      ],
+      "vendor_temperatures_raw_u16": {
+        "inlet1": 27,
+        "inlet2": 26,
+        "outlet1": 27,
+        "outlet2": 30,
+        "working": 27,
+        "cpu_core": 36,
+        "cpu_pch": 0,
+        "dpcpu_core": 0
+      },
+      "n2h": {
+        "status_u16": 3840,
+        "table_u8": 2,
+        "temp_level_u8": 0,
+        "barometric_level_u8": 0,
+        "tray_status_u8": 1,
+        "override_u8": 0
+      },
+      "h2n": {
+        "status_u16": 0,
+        "table_u8": 0,
+        "override_u8": 0
+      }
+    }
+  ]
+}

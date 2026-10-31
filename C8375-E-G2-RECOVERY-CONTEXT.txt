@@ -4,7 +4,25 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-CURRENT HANDOFF13:33EDT (C8375-05, fan fix active):
+CURRENT HANDOFF14:01 EDT (C8375-05):
+Owner-supplied router SSH login saved only under .git/recovery-private/ as
+mode0600 environment variables; publication guard registers password privately.
+Separate SSH verifies FDO2742M0FK/IOS26.2.1/confreg0x1822; owner session untouched.
+30controller snapshots capture TWO temperature-level0->1->0 cycles; peak12540RPM.
+Table2/barometric0/tray1/status0x0f00/override0 fields stay unchanged. Inlet/
+working27-28C andCPU37-38C co-vary: active input/threshold/delays not isolated.
+Owner cover installed, vents clear. Derived NIOS/ENVMCU0x003f; installed26.2 MCU
+package independently copied/hash-verified, contains only SEQ_MCU_STYX, no
+Crestone ENVMCU update. No firmware/fan policy changed or safe tuning selected.
+Final13:58:90minuptime, CPU37C, fans5400/5400/5340, allstatesNormal, R0/F0active,
+P0incompatible. Newlyunsupported NIM-2FXS/4FXO in0/1 says33sec physical insertion;
+owner confirmation pending. Captured fan cycles precede this inventory change.
+Agent SSH closed, router remains powered. Next establish supported controller
+policy/correction; supported-PSU comparison still awaits hardware, no cure promised.
+Evidence: c8375-recovery/acquisition-evidence/20261031-C8375-fan-controller-samples.json
+and c8375-recovery/acquisition-evidence/20261031-C8375-fan-fix.json
+
+EARLIER CHECKPOINT13:33EDT (C8375-05, fan fix active):
 Owner reads PSU PWR-CC1-250WAC, serial LIT2852A9TJ; no400/760spare.
 Published C8375 default is400WAC, AC/PoE option760WAC;250WAC absent.
 Consistent with P0incompatible, but not proof of fan-cycle cause.
