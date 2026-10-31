@@ -7,7 +7,7 @@
     "pid": "C8375-E-G2",
     "serial": "FDO2742M0FK"
   },
-  "status": "Fan cycling persists on26.2.1 and17.15.6. Current17.15.6 held at owner request, IMG U / auto-abort inactive. No validated timing/profile adjustment or separate matching ENVMCU update identified; supported-PSU comparison awaits hardware.",
+  "status": "Fan cycling unresolved on both releases; no verified suppression EEM/actuator.17.15.6 now committed to preserve owner-selected release for the same-PSU slot comparison. Slot movement instructed but not yet owner-confirmed.",
   "physical_state": "C8375-A/FDO2742M0FK on normal router power; programming fixture removed, CR2032 restored, cover installed/vents clear. Unsupported non-P voice NIM removed, absent in fresh inventory, blank installed. NativeUSB console unplugged; RJ45 cable and USB storage attached. Agent RJ45 capture now closed and port verified free; owner SSH untouched.",
   "owner_psu_label": {
     "model": "PWR-CC1-250WAC",
@@ -97,14 +97,14 @@
     "ownership": "lsof free and exclusive open before capture; exclusive bridge closed and lsof free afterwards.",
     "limitation": "Initial commands and first P2 help reply succeeded. Subsequent help, Ctrl-C and one XON/show-clock attempt had no received output. Owner SSH subsequently responds to the fan-help query; this was a native-console-path interruption, not evidence of router halt."
   },
-  "changes": "Initial diagnostics were read-only. Subsequent authorized IOS comparison activated17.15.6; owner then requested retaining it, pending installabort declined and auto-abort stopped. No commit, ROMMON/CPLD/ENVMCU change, fan-policy/PWM/register/EEPROM write, fault injection, or security-state change.",
+  "changes": "Initial diagnostics read-only. Authorized IOS comparison activated17.15.6; owner requested retaining it, pending installabort was declined and auto-abort stopped. For subsequent owner-proposed PSUslot powercycle, installcommit succeeded15:20:35EDT and IMG C was independently verified. No ROMMON/CPLD/ENVMCU change, fan-policy/PWM/register/EEPROM write, EEM installation, fault injection or security-state change. Physical PSUmove/boot pending.",
   "next_steps": [
-    "Keep current17.15.6 runtime per owner instruction; do not execute superseded26.2.1 rollback plan. Current image remains uncommitted with auto-abort inactive; permanent reboot persistence is not qualified.",
+    "Current next hardware step is owner-proposed same-PSU P0-toP1 comparison with power off/AC removed and empty bay blanked; boot capture and P0/P1 recognition plus fan behavior remain unperformed.17.15.6 committed,26.2.1 recovery files retained.",
     "Identify a board-specific supported fan profile/control method or exact matching ENVMCU firmware candidate. Inspected diagnostic attributes/help do not provide a validated timing adjustment. Inspect any owner-supplied candidate offline before considering writes; do not guess raw registers.",
     "A supported PWR-CC1-400WAC comparison remains useful for compatibility and PSU causality; owner has no spare. No purchase or cure promised.",
     "After a justified correction, repeat sustained fan/environment and functional qualification. Preserve original boot firmware and all unique security data."
   ],
-  "updated_at": "2026-10-31T15:07:24.829489-04:00",
+  "updated_at": "2026-10-31T15:22:59.024798-04:00",
   "offline_display_script_review": {
     "source": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
     "squashfs_offset": 4096,
@@ -175,7 +175,8 @@
     ],
     "environment_states": "All displayed Normal",
     "router_power": "On; no later reboot or power action",
-    "qualification": "Fan cycling remains reproduced; no steady-fan or forwarding qualification."
+    "qualification": "Fan cycling remains reproduced; no steady-fan or forwarding qualification.",
+    "scope": "Historical15:06pre-commit snapshot; superseded install state in PSU-slot comparison evidence."
   },
   "owner_update_after_final_snapshot": {
     "recorded_at": "2026-10-31T14:09:16.597924-04:00",
@@ -200,9 +201,90 @@
   "current_ios_comparison": {
     "evidence": "c8375-recovery/acquisition-evidence/20261031-C8375-IOS-fan-comparison.json",
     "original_development_rommon_retained": true,
-    "owner_stay": "Do not resume superseded26.2.1 return plan; remain17.15.6 for current fan investigation.",
+    "owner_stay": "17.15.6 retained per owner instruction; install commit succeeded15:20:35EDT before planned PSU-slot power cycle. IMG C / auto-abort inactive.26.2.1 recovery files retained.",
     "readonly_interface_finding": "12 named NIOS fan attributes mode0444/no store callback; no validated ramp/hysteresis setting in inspected help. Does not establish absence of every internal API.",
     "controller": "Same derivedNIOS/ENVMCU0x003f/table2; peak12540RPM on both releases. Actual controlling sensor/hysteresis not isolated.",
     "bounded_current_trace": "Missing-group/error2 repeats; no error95 in inspected17.15.6 window. Neither proven causal."
+  },
+  "suppression_followup": {
+    "recorded_at": "2026-10-31T15:14:19.327293-04:00",
+    "owner_report": "Fan cycling is now going like crazy; requests concrete fix/suppression path and next steps.",
+    "scope": "Planning and offline/public-source review only in this follow-up. No new router connection, current health check, fan setting, firmware action or power action.",
+    "manual_suppression": "No verified C8375 steady-speed/quiet-mode or hysteresis command identified. Read-only named attributes and generic setter function-pointer names do not establish an available runtime override. Do not infer no internal API exists.",
+    "interpretation": "Prior all-three-fan peaks and temperature-level transitions are consistent with a controller switching bands. Exact controlling sensor, intended behavior and root cause remain unresolved; Normal alarm state does not establish an acoustic policy defect.",
+    "immediate_relief": "If owner cannot tolerate noise, powering off the whole router stops it. No shutdown performed. Do not disconnect/slow fans or suppress thermal protection; suppressing log messages does not suppress physical RPM. Current17.15.6 remains uncommitted, so any planned restart needs install/boot-state review.",
+    "next_tests": [
+      {
+        "priority": 1,
+        "step": "Borrow or obtain a known-good supported PWR-CC1-400WAC for a controlled comparison on17.15.6. Owner currently has no spare. Before changing the sole PSU, preserve/check install and boot state, reconfirm identity/assembly/ownership, shut down router and remove AC. No purchase/replacement authorized by this planning record.",
+        "acceptance": "Verify P0 recognized/ok, then capture RPM, temperature/controller state and owner audible report for at least45minutes. PSU recognition and cycle suppression are separate results. No guaranteed fix."
+      },
+      {
+        "priority": 2,
+        "step": "If cycling persists with supported PSU, obtain board-specific Cisco engineering/TAC guidance for fan-profile/ENVMCU compatibility or a supported minimum-speed/ramp/hysteresis override preserving thermal emergency response. No case/message sent.",
+        "questions": [
+          "Is the observed5.4k-to12.5k RPM cycling expected on Crestone r3 with vendorNIOS version0x003f/table2?",
+          "Is there a supported reversible steady/intermediate minimum-speed override with thermal fail-safe escalation, or a corrected hysteresis/profile?",
+          "What exact ENVMCU/profile package and prerequisites match this chassis/CPLD/development-ROMMON baseline? Inspect any candidate offline before a write."
+        ]
+      },
+      {
+        "priority": 3,
+        "step": "With current equipment, continue offline tracing of actual Crestone controller command implementations and profile provenance if needed. Generic symbols/offsets alone are not enough to justify a live write. No validated software-only fix presently established."
+      }
+    ],
+    "primary_sources": [
+      "https://www.cisco.com/c/en/us/products/collateral/networking/sdwan-routers/8000-secure-routers/8000-secure-router-og.html",
+      "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/hardware_installation-guide/secure-8300-series-hig/install-fru-8300-series-secure-routers/remove-and-replace-the-power-supplies.html",
+      "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/hardware_installation-guide/secure-8300-series-hig/overview-8300-series-secure-routers/hardware-features-of-cisco-8300-series-secure-routers.html"
+    ]
+  },
+  "eem_and_internal_interface_followup": {
+    "recorded_at": "2026-10-31T15:22:59.024798-04:00",
+    "owner_steering": "Owner asks whether EEM can suppress fans and reiterates no400WPSU available. Then proposes moving the same PSU into the second slot.",
+    "eem": "EEM can automate available CLI/actions, but no verified C8375 fan actuator/override is identified to automate. No suppression EEM script installed; monitoring alone would not suppress RPM.",
+    "offline_vendor_analysis": {
+      "provenance": "Selected libraries extracted offline from previously independently runtime-hash-matched17.15.6 mono package using unsquashfs -o4096 -cat. Symbols and disassembly via AppleLLVM objdump; vendor code not executed, patched or loaded.",
+      "generic_setters": "libcpa.so defines actual generic fan PWM wrappers. Its tray setter resolves a platform implementation via get_sb_impl_lib_handle/dlsym. libcpa_core_sb_com.so fan/tray setters lead to cpa_sb_sensor_pwm_percent_set, which formats a value and calls fs_write_acc on a selected sensor path. This is generic infrastructure, not a validated Crestone actuator.",
+      "platform_limit": "Inspected Mirabile common platform library exports fan status reads and generic setter pointer objects; selected fan data supplies NIOS RPM/status paths. No usable board-specific speed control endpoint established.",
+      "nios_ioctl": "Offline selectedNIOS driver ioctl recognizes two command branches: one returns event data, the other enqueues a fixed outbound type6/zero-length message. No configurable PWM/hysteresis payload identified in that handler. Fixed-message semantics and broader CPLD/internal interfaces remain unresolved; no ioctl sent.",
+      "scope": "No validated software-only fan suppression obtained. Read-only named attributes do not prove the entire hardware/control stack is read-only. No firmware/PWM/register write or fault injection.",
+      "artifacts": [
+        {
+          "local_only": ".git/recovery-private/ios-comparison-20261031/controller-research/libdash_fpga_api.so",
+          "bytes": 137744,
+          "sha256": "ac38eee27f24f29767a16487f3e86dee677d0a100c82406341b9727a9085050c"
+        },
+        {
+          "local_only": ".git/recovery-private/ios-comparison-20261031/controller-research/libcpa_core_sb_com.so",
+          "bytes": 274504,
+          "sha256": "24d072933103bdaed550d720ae264a9548a503b7bc4f11f85ba075548cac6093"
+        },
+        {
+          "local_only": ".git/recovery-private/ios-comparison-20261031/controller-research/libcm_env_monitor.so",
+          "bytes": 749000,
+          "sha256": "39d28a5289ed7953663a4ca4a249995d4faae023b47abaa0cb73d51049a9a4dd"
+        },
+        {
+          "local_only": ".git/recovery-private/ios-comparison-20261031/controller-research/cpa_sb_sensor_pwm_percent_set.excerpt.txt",
+          "bytes": 17793,
+          "sha256": "69a5a2fdb81df5abcd3f6d38af0e5990a4421f4a8cf0da988c5a892fcec4c703"
+        },
+        {
+          "local_only": ".git/recovery-private/ios-comparison-20261031/controller-research/cpa_fan_tray_speed_pwm_set.excerpt.txt",
+          "bytes": 30458,
+          "sha256": "1fb34a7777e9939600c6e6c9cc985466c49244d71728c3cd0696c57a279aec77"
+        },
+        {
+          "local_only": ".git/recovery-private/ios-comparison-20261031/controller-research/nios-ioctl.excerpt.txt",
+          "bytes": 14084,
+          "sha256": "b7366aa4e4d2d7a5e7109f69725bf0044537306fb52bbe4fdab3f34d7b46dc23"
+        }
+      ]
+    },
+    "sources": [
+      "https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/syst-mgmt/b-system-management/m_eem-policy-cli.html"
+    ],
+    "current_practical_test": "Same-PSU P0-toP1 slot comparison is now being prepared at owner request; see20261031-C8375-PSU-slot-comparison.json. Supported400W comparison remains deferred, not a prerequisite for offline research."
   }
 }

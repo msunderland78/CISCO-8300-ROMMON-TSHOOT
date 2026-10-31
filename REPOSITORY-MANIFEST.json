@@ -96,6 +96,11 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
+      "bytes": 7107,
+      "path": "c8375-recovery/console-logs/20261031-152008-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 17870,
       "path": "c8375-recovery/historical-17.15.6-boot-2026-10-22.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
@@ -858,14 +863,14 @@
       "sha256": "a620ae4c1c77cf0394d4a133419d3196d84b95294653508ece4838a2f7689598"
     },
     {
-      "bytes": 33587,
+      "bytes": 35243,
       "path": "C8375-E-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "0c9adc1abf3aefd6379e14355417a30700bf0255325c15f1ff12aec1e4a419c9"
+      "sha256": "bd37b5b623c62b4539383657c8511e863f99407b6c7d74db61e6664e1a9c55bb"
     },
     {
-      "bytes": 185446,
+      "bytes": 188776,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "add0854219cd84a6ee1a7a2ea6e1db10178b0aaf515e9bdba45ec976b5ed4aa9"
+      "sha256": "93e0126cf82c556a4f0907320824d6a85a0fcc3fdfbcf9a7bc2f7cded2e4ebe4"
     },
     {
       "bytes": 1992,
@@ -1033,9 +1038,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 23629,
+      "bytes": 23627,
       "path": "README.md",
-      "sha256": "bf918faa8b4f98601adb651e1a0244947880da1093ad74ce1cf12d2a6eb3362f"
+      "sha256": "f56d77fe4b86441a5f2c377a645196dfdd4d0ae35d7b0cf2cf19380096ad72e1"
     },
     {
       "bytes": 3934,
@@ -1133,9 +1138,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 301287,
+      "bytes": 305030,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "1aea244f9261532d31f079544ac242c387ed7614a3350990c77ec80e78e82ff0"
+      "sha256": "367fe0fdae0fa8b086f6a199de9f368728e78ffab68e3e992fa882922c733ad9"
     },
     {
       "bytes": 6850655,
@@ -1508,9 +1513,14 @@
       "sha256": "0605e92a1e48e4aea2837e182d5a573093ccb0454c8a3abef4eff32e3d6e67df"
     },
     {
-      "bytes": 24661,
+      "bytes": 25629,
       "path": "c8375-recovery/acquisition-evidence/20261031-C8375-IOS-fan-comparison.json",
-      "sha256": "722bf9cac48a297799ac74ffe2c2c82b17d536c2614f705af0283d9824aebb48"
+      "sha256": "851df01a31266177a83f91607d1f91df4c24bf7306ea822ff8408109eeb28325"
+    },
+    {
+      "bytes": 3765,
+      "path": "c8375-recovery/acquisition-evidence/20261031-C8375-PSU-slot-comparison.json",
+      "sha256": "b9e2e02f6fd34e252fcced83129714586d433b2a5740c61d86569cf386ba3601"
     },
     {
       "bytes": 31493,
@@ -1518,9 +1528,9 @@
       "sha256": "b369637fb7e73219643d47d2551f6df95c75a5217a0a6c39ab2c6f1755531a2c"
     },
     {
-      "bytes": 14572,
+      "bytes": 22388,
       "path": "c8375-recovery/acquisition-evidence/20261031-C8375-fan-fix.json",
-      "sha256": "a32d2dc8dd70c6b44f6117adac5f62f35a9f9f11865cd4e0d1123127b3e45c9c"
+      "sha256": "49b98aad5e84e5256d830cfe9ea6213a3151201a8f95c02ed5e668b1d2aa1da2"
     },
     {
       "bytes": 27858,
@@ -2373,6 +2383,11 @@
       "sha256": "f0646b861c97f7f71dd03757d89d2cbd41af956b4929e7e7d87a3c9e6646027a"
     },
     {
+      "bytes": 7107,
+      "path": "sanitized-evidence/c8375-recovery/console-logs/20261031-152008-console.log",
+      "sha256": "d4753de22a51514d4c7e59921d148dfbff2b0d4783813919d54a595bec579382"
+    },
+    {
       "bytes": 17870,
       "path": "sanitized-evidence/c8375-recovery/historical-17.15.6-boot-2026-10-22.log",
       "sha256": "d26c4dd7bc3a1d887165ace6c70c018371b695355bbe9e52b480c3b6ad028a79"
@@ -2769,6 +2784,7 @@
     "sanitized-evidence/c8375-recovery/console-logs/20261031-132438-console.log",
     "sanitized-evidence/c8375-recovery/console-logs/20261031-141854-console.log",
     "sanitized-evidence/c8375-recovery/console-logs/20261031-142112-console.log",
+    "sanitized-evidence/c8375-recovery/console-logs/20261031-152008-console.log",
     "sanitized-evidence/c8375-recovery/original-staged-firmware/original-startup-config.txt",
     "sanitized-evidence/c8375-recovery/original-staged-firmware/pre-rommon-current-running-20261023.txt",
     "sanitized-evidence/c8375-recovery/original-staged-firmware/pre-rommon-startup-20261023.txt",
@@ -2826,8 +2842,8 @@
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 163,
-    "included_bytes_without_manifest": 695026831,
-    "included_files_without_manifest": 386
+    "excluded_local_files": 164,
+    "included_bytes_without_manifest": 695055214,
+    "included_files_without_manifest": 388
   }
 }

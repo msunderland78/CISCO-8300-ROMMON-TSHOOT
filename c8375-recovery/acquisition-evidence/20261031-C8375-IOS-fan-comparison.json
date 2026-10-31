@@ -5,7 +5,7 @@
   "hypothesis": "Fan cycling may depend on IOS XE version/profile/input handling. MCU temperature-level correlation alone does not rule out an IOS bug. No matching fan bug identified in the reviewed26.2.x/26.1.x/17.15.x public release-note tables; absence there is not proof of no bug.",
   "owner_steering": "Owner declines external-fan test and proposes IOS comparison; supplies17.15.6 thumb drive and confirms moving it to router and switching to RJ45 console.",
   "physical_state": "Owner removed non-P voice NIM, replaced blanking plate, top cover/vents previously confirmed; normal power, programming fixture removed; USB storage usb0, native USB console unplugged, RJ45 console verified correct serial.",
-  "current_ios": "17.15.6 / install mode / IMG U17.15.06.0.770 / auto-abort inactive; uncommitted at owner request",
+  "current_ios": "17.15.6 / installmode / IMG C17.15.06.0.770 / auto-abortinactive; commitpassed15:20:35EDT for owner-requestedstay and planned PSUslot powercycle",
   "candidate": {
     "name": "c8kg2be-universalk9.17.15.06.SPA.bin",
     "bytes": 954189596,
@@ -30,7 +30,7 @@
     "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/release-notes/17-15-x/release-notes-cisco-8300-series-secure-routers-release-17-15-x.html",
     "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html"
   ],
-  "status": "17.15.6 retained at owner request; auto-abort stopped and uncommitted. Fan cycling reproduced on both releases. Exact-driver/live-help review found no validated timing adjustment or matching ENVMCU update; no fan-policy/raw-register write. Agent capture closed; router on.",
+  "status": "17.15.6 now committed at owner request to retain version across planned PSUslot test. Fan cycling persists; no validatedfanpolicy fix. Slot move/bootpending; see20261031-C8375-PSU-slot-comparison.json.",
   "rollback_manifest": {
     "path": "bootflash:packages-26.2.1-before-fan-test-20261031.conf",
     "bytes": 8405,
@@ -520,5 +520,15 @@
     "Capture boot, actual IOS/image path and known boot parameters, package state, MCU/profile/PSU identity, temperatures and fan behavior. Observe up to45minutes or stop early if cycling is reproduced.",
     "Compare same hardware/configuration while recording temperature/power differences. A behavior difference establishes version dependence under test conditions, not automatically a confirmed Cisco defect."
   ],
-  "current_plan": "Remain on17.15.6 per owner instruction; no automatic rollback. Identify a validated exact-board fan control/profile/update method; no guessed timing/register write. Fan problem remains unresolved."
+  "current_plan": "Remain on17.15.6 per owner instruction; no automatic rollback. Identify a validated exact-board fan control/profile/update method; no guessed timing/register write. Fan problem remains unresolved.",
+  "later_install_persistence": {
+    "reason": "Owner wants remain17.15.6; planned sole-PSU move requires powercycle. Earlier Ustate/timerstop did not establish persistence.",
+    "command": "install commit",
+    "issued_at": "2026-10-31T15:20:32.852297-04:00",
+    "success_at": "2026-10-31T15:20:35-04:00",
+    "post_verification": "show install summary and show install committed both IMG C17.15.06.0.770; timerinactive. BOOT/packages.conf and confreg0x1822 unchanged; rollback IDs2/1 listed.",
+    "retained_26_2_1": "Verified8405-byte packages-26.2.1-before-fan-test-20261031.conf stillpresent; no removeinactive/source/package deletion.",
+    "config_backups": "Freshpre-slotrunning/startup/rollbackcapture localonly under.git/recovery-private/fan-fix-20261031; no startupoverwrite.",
+    "limits": "Persistence is configured, not yet cold-boot verified. Commit is not a fanfix, forwardingqualification, or production-ROMMONcompatibility result. No new ROMMON/CPLD/ENVMCU write."
+  }
 }

@@ -4,6 +4,29 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
+PSU-SLOT PREPARATION 15:22 EDT: Owner proposes samePSU inemptyP1; fresh
+chassis/power/cover/fixture/RJ45/blank confirmed. P0incompatible/P1empty live.
+17.15.6 installcommit SUCCESS15:20:35EDT; summary andcommitted both IMG C,
+timerinactive, BOOTpackages.conf/confreg0x1822 unchanged. Freshconfigs private;
+26.2.1 backupmanifest stillpresent, no removal/startupoverwrite/fanpolicywrite.
+Owner instructed OFF/unplugAC, moveP0toP1/latch, blankP0, leaveOFF/reportdone.
+Physicalmove andpost-moveboot PENDING; captureopen. Slot test mayhelpdiagnose
+contacts/recognition butdoesnotmake250Wsupported orpromisefanfix.
+No verifiedfan-suppressionEEM: genericPWMcode needsplatformactuator; no usable
+Crestoneendpoint found. NoEEM/ioctl/PWMwrite. UnsupportedPSU comparison deferred.
+Evidence: c8375-recovery/acquisition-evidence/20261031-C8375-PSU-slot-comparison.json
+
+SUPPRESSION FOLLOW-UP 15:14 EDT: Owner says cycling increasingly disruptive.
+Offline/source review only; no fresh router read/change or shutdown. No verified
+quiet/steady-speed/hysteresis command found. Next practical test: known-good
+supported PWR-CC1-400WAC; recognition and45minfan stability checked separately.
+Owner has no spare; no purchase/replacement, no cure promised. If it persists,
+seek exact-board ENVMCU/profile guidance or supported reversible minimum-speed
+control retaining thermal escalation. Further existing-equipment work is offline
+implementation/profile tracing; no guessed live write. Powering off whole router
+is immediate noise relief if needed; review uncommitted install before restart.
+Details/questions: c8375-recovery/acquisition-evidence/20261031-C8375-fan-fix.json
+
 LATEST DIAGNOSTICS 15:07 EDT (C8375-05): 17.15.6 retained at owner request.
 15:06 verifies FDO2742M0FK, 29 min uptime, confreg0x1822, IMG U17.15.06.0.770,
 auto-abort inactive. CPU33C, fans8340/8460/8280RPM, all sensor states Normal.

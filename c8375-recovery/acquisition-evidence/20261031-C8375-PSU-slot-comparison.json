@@ -1,0 +1,62 @@
+{
+  "task_id": "C8375-05",
+  "recorded_at": "2026-10-31T15:22:59.024798-04:00",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / C8375-E-G2 / FDO2742M0FK / Crestone r3",
+  "status": "Prepared; owner instructed to move samePSU with routerOFF/ACunplugged and leaveOFF. Physical completion and post-move boot pending.",
+  "owner_physical_confirmation": "Samechassis onnormalpower, coverfitted, Pi/programmingfixturefullyremoved, RJ45consoleconnected. OtherPSUbayemptywithremovableblank.",
+  "psu": "Owner-label PWR-CC1-250WAC / LIT2852A9TJ; no supported400Wspare. Modelcompatibility not changed by moving slots.",
+  "fresh_pre_move": {
+    "host_verified_at": "2026-10-31T15:19:06.577556-04:00",
+    "uptime": "42minutes",
+    "p0": "Unknown/incompatible",
+    "p1": "Unknown/empty",
+    "p2": "C8300-FAN-1R / ok",
+    "r0_f0": "ok/active",
+    "configuration_register": "0x1822",
+    "boot": "bootflash:packages.conf,12;"
+  },
+  "install_persistence": {
+    "reason": "Owner wants remain17.15.6; planned sole-PSU move requires powercycle. Earlier Ustate/timerstop did not establish persistence.",
+    "command": "install commit",
+    "issued_at": "2026-10-31T15:20:32.852297-04:00",
+    "success_at": "2026-10-31T15:20:35-04:00",
+    "post_verification": "show install summary and show install committed both IMG C17.15.06.0.770; timerinactive. BOOT/packages.conf and confreg0x1822 unchanged; rollback IDs2/1 listed.",
+    "retained_26_2_1": "Verified8405-byte packages-26.2.1-before-fan-test-20261031.conf stillpresent; no removeinactive/source/package deletion.",
+    "config_backups": "Freshpre-slotrunning/startup/rollbackcapture localonly under.git/recovery-private/fan-fix-20261031; no startupoverwrite.",
+    "limits": "Persistence is configured, not yet cold-boot verified. Commit is not a fanfix, forwardingqualification, or production-ROMMONcompatibility result. No new ROMMON/CPLD/ENVMCU write."
+  },
+  "pre_power_off_environment": {
+    "host_query_at": "2026-10-31T15:21:06.327705-04:00",
+    "cpu_celsius": 33,
+    "inlet1_celsius": 28,
+    "working_celsius": 28,
+    "fans_rpm": [
+      8460,
+      8460,
+      8400
+    ],
+    "displayed_states": "AllNormal"
+  },
+  "console": {
+    "raw_log": "c8375-recovery/console-logs/20261031-152008-console.log",
+    "settings": "115200/8N1/no flow",
+    "state": "Open and exclusively owned by explicitcapture; no conflictingowner beforeopen. Freshserialverified."
+  },
+  "owner_steps": [
+    "Power switchOFF and unplugsoleACcord beforemovingPSU.",
+    "Move samePSU P0toP1, do notforce; verifylatch.",
+    "TransferremovedblanktoemptyP0; keepcoverfitted.",
+    "LeaveOFF/ACunplugged andreportcompletion before nextpower-on."
+  ],
+  "acceptance_plan": [
+    "Afterownerconfirmedmove, reconnectAC/poweron withRJ45capture. VerifyROMMON/17.15.6/Cstate andactualP0/P1recognition.",
+    "ComparefanRPM/controller/profile/temperatures andowner audiblereport; observeatleast45minutesorrecordearlyrecurrence afterIOSstartup. Bootfanramp aloneisnot a failure.",
+    "Slotrecognition, PSUmodelcompatibility, fansteadiness andcoldboot areseparateresults. Atemporarypostrebootquietperiod alone doesnot establish a slotfix."
+  ],
+  "interpretation": "Useful contact/slot/recognitioncomparison usingavailablehardware; notapromisedcure or supportedPSUtest. No physicalmove/powercycle/resultyet claimed.",
+  "sources": [
+    "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/hardware_installation-guide/secure-8300-series-hig/install-fru-8300-series-secure-routers/remove-and-replace-the-power-supplies.html",
+    "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/software-config-guide/secure-8300-series-scg/isr9000swcfg-xe-16-12-book_chapter_0111.html"
+  ]
+}
