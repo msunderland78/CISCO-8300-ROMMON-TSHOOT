@@ -4,7 +4,7 @@
   "timezone": "America/New_York",
   "chassis": "C8375-A/FDO2742M0FK",
   "physical_target": "U2",
-  "status": "Original U2 firmware restored; automatic verification and independently imported full readback pass. Router boot pending.",
+  "status": "Original U2 firmware restored and full readback verified; cold boot reaches original ROMMON, automatic install-mode IOS26.2.1 and responsive privileged prompt.",
   "owner_authorization": "Owner explicitly requests continuing to fix flash now after verified U2backups; existing recovery authorization continues. No new approval gate.",
   "target_basis": "Both current physicalU2full reads exactly match native spi0.0 failed-update verified readback68c695...fe88b. This content ties original active-device snapshot to U2 without assigning a primary/golden role.",
   "backup_evidence": "20261031-Pi5-U2-reset-held-full-reads.json",
@@ -302,8 +302,43 @@
     "purpose": "Power down after locally verified exact original U2 restore; physical unplug and zero rail voltage pending owner confirmation."
   },
   "boot_preparation": {
-    "owner_reports": "Heatsinks and fans never removed; CR2032 available. Native USB console preferred, RJ45 adapter fallback.",
-    "pending": "Physically unplug Pi and confirm P1 residual0V, remove every programming connection and reset fixture, reinstall CR2032, confirm chassis/console ownership and capture115200cold boot.",
-    "boot_status": "Not yet attempted after restoration."
+    "owner_reports": "P1 residual voltage zero; subsequently router ready to power on and native USB connected after fixture-removal/battery-reinstallation instructions. Heatsinks/fans never removed.",
+    "power_on": "Observed cold-boot output after capture started12:23:59EDT; owner confirms power on.",
+    "early_lights": "Owner: power/fan green, STATUS blinking red then solid red.",
+    "console": "Fresh /dev/cu.usbmodem84301; no prior lsof owner, exclusive1152008N1/no-flow capture.",
+    "raw_log": "c8375-recovery/console-logs/20261031-122359-console.log",
+    "public_log": "sanitized-evidence/c8375-recovery/console-logs/20261031-122359-console.log"
+  },
+  "boot_result": {
+    "recorded_at": "2026-10-31T12:30:24.262694-04:00",
+    "cold_boot": "PASS CRC32, SDK11.23.08 EBF, originalSDK112308-UEFI-ROMMON-SoC2-v9.2.1-Release DEVELOPMENT, PowerOn reset cause, interactive ROMMON prompt.",
+    "environment_observed": {
+      "BOOT": "bootflash:packages.conf,12;",
+      "USER_BOOT_PARAM": "maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init"
+    },
+    "commands": [
+      "set",
+      "dir bootflash:",
+      "confreg 0x1822",
+      "sync",
+      "reset",
+      "terminal length 0",
+      "show version",
+      "show install summary",
+      "show platform",
+      "show environment all",
+      "show facility-alarm status",
+      "show processes cpu sorted"
+    ],
+    "restart": "12:26:00EDT reset; automatic reading packages.conf, OS integrity/signature stages followed by kernel/IOS startup.",
+    "ios": "26.02.1 / show version26.02.01, CAT3875-G2# responsive by12:29EDT; serial FDO2742M0FK; system image bootflash:packages.conf; register0x1822.",
+    "install": "IMG C26.02.01.0.263; auto abort timer inactive.",
+    "cpu_memory": "Kernel16CPUs; physical8GiB. EDAC reporting-driver blacklist retained; not proof memory fault-free.",
+    "platform": "R0/F0 ok active, slots0/1ok, built-in0/0 4M-2xSFP+ initially booting thenok. P2 C8300-FAN-1R ok.",
+    "environment_snapshot": "All listed sensors Normal; CPU31C; inlet22/23C; fan0/1/2 each5340RPM.",
+    "remaining": "P0 Unknown/incompatible and P1empty persist; alarm table5critical: missingPSUbay1 plus4physicalportlinksdown. MissingPoE/transceivers informational. Historical ChipGuard UUID warning and unsupportedVDSP-CC also recur. RouterclockMay29,2025 incorrect.",
+    "limitations": "Initial recovery milestone only; no new traffic test or extended stability qualification. Current audible fan behavior/STATUS follow-up pending. NativeUSB brief startup pause resolved without cable switch.",
+    "owner_followup": "All lights green; all fans currently steady low speed. Owner requests checking delayed cycling seen before. Fifteen-minute host-timed environmental/uptime sampling started around12:32EDT; result pending.",
+    "remaining_followup": "Extended fan observation running; P0incompatible/P1empty and other documented alarms persist."
   }
 }

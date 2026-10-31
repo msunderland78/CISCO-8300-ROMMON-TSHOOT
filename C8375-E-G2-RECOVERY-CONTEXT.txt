@@ -4,7 +4,21 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: Original U2 restore VERIFIED, October31 11:56-12:11EDT.
+Latest: BOOT RECOVERY SUCCESS, October31 12:23-12:29EDT.
+Fresh native USB /dev/cu.usbmodem84301 at1152008N1/no flow captures
+originalSDK112308/v9.2.1 developmentROMMON and responsive prompt.
+BOOT/16CPU+EDAC parameters retained. confreg0x1822;sync;reset ->
+automatic bootflash:packages.conf -> IOS26.2.1 CAT3875-G2#.
+IMG C26.02.01.0.263, abort inactive, register0x1822, correct serial.
+R0/F0 and built-in4M-2xSFP+ ok. All sensors Normal, CPU31C, fans5340RPM.
+P0incompatible/P1empty persist; missingPSU+four link-down critical alarms.
+Historical ChipGuard warning/unsupportedVDSP-CC persist; no security edits.
+Initial STATUS red, power/fan green; later all lights green, fans steadylow.
+Owner asks delayed fan-cycling check;15minhost-timed sampling running12:32EDT.
+No new traffic test/extended stability. Incorrect routerclockMay29,2025.
+Raw capture c8375-recovery/console-logs/20261031-122359-console.log,
+public sanitized counterpart under sanitized-evidence/.
+Earlier: Original U2 restore VERIFIED, October31 11:56-12:11EDT.
 Automatic flashrom verify passes. Separate full33554432-byte readback
 imported locally: SHA25672fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107,
 zero original differences across all five regions. U1 not written.
