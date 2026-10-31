@@ -7,8 +7,8 @@
     "pid": "C8375-E-G2",
     "serial": "FDO2742M0FK"
   },
-  "status": "Fan cycling unresolved; two controller temperature-band transitions captured. Supported tuning/profile not established; supported-PSU comparison awaits hardware.",
-  "physical_state": "Owner now reports the unsupported NIM-2FXS/4FXO removed. Earlier confirmed configuration: C8375-A/FDO2742M0FK, programming fixture removed, top cover installed and vents clear. No new power/cable/assembly inspection or post-removal live check in this documentation update.",
+  "status": "Fan cycling persists on26.2.1 and17.15.6. Current17.15.6 held at owner request, IMG U / auto-abort inactive. No validated timing/profile adjustment or separate matching ENVMCU update identified; supported-PSU comparison awaits hardware.",
+  "physical_state": "C8375-A/FDO2742M0FK on normal router power; programming fixture removed, CR2032 restored, cover installed/vents clear. Unsupported non-P voice NIM removed, absent in fresh inventory, blank installed. NativeUSB console unplugged; RJ45 cable and USB storage attached. Agent RJ45 capture now closed and port verified free; owner SSH untouched.",
   "owner_psu_label": {
     "model": "PWR-CC1-250WAC",
     "serial": "LIT2852A9TJ",
@@ -97,14 +97,14 @@
     "ownership": "lsof free and exclusive open before capture; exclusive bridge closed and lsof free afterwards.",
     "limitation": "Initial commands and first P2 help reply succeeded. Subsequent help, Ctrl-C and one XON/show-clock attempt had no received output. Owner SSH subsequently responds to the fan-help query; this was a native-console-path interruption, not evidence of router halt."
   },
-  "changes": "Read-only show/help plus terminal pagination setting only. No firmware, cooling policy, EEPROM, security-state, power or fan-register change; no new debug levels.",
+  "changes": "Initial diagnostics were read-only. Subsequent authorized IOS comparison activated17.15.6; owner then requested retaining it, pending installabort declined and auto-abort stopped. No commit, ROMMON/CPLD/ENVMCU change, fan-policy/PWM/register/EEPROM write, fault injection, or security-state change.",
   "next_steps": [
-    "Owner reports the unsupported non-P voice NIM removed. Verify live inventory and present power/cable/assembly/console state before further hardware interaction. Fan policy remains unresolved; earlier cycles preceded insertion.",
-    "Establish the correct Crestone environmental-controller fan profile, active input, thresholds, hysteresis/delays and a supported adjustment/update method for this exact board. Current read-only data does not justify a guessed register or PWM write.",
-    "A known-good supported PWR-CC1-400WAC comparison remains useful for compatibility and PSU causality; owner has no spare. No purchase or cure promised.",
-    "After a justified correction, repeat boot/environment and sustained fan-stability qualification. Preserve working boot firmware and all unique security data."
+    "Keep current17.15.6 runtime per owner instruction; do not execute superseded26.2.1 rollback plan. Current image remains uncommitted with auto-abort inactive; permanent reboot persistence is not qualified.",
+    "Identify a board-specific supported fan profile/control method or exact matching ENVMCU firmware candidate. Inspected diagnostic attributes/help do not provide a validated timing adjustment. Inspect any owner-supplied candidate offline before considering writes; do not guess raw registers.",
+    "A supported PWR-CC1-400WAC comparison remains useful for compatibility and PSU causality; owner has no spare. No purchase or cure promised.",
+    "After a justified correction, repeat sustained fan/environment and functional qualification. Preserve original boot firmware and all unique security data."
   ],
-  "updated_at": "2026-10-31T14:09:16.597924-04:00",
+  "updated_at": "2026-10-31T15:07:24.829489-04:00",
   "offline_display_script_review": {
     "source": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
     "squashfs_offset": 4096,
@@ -158,6 +158,31 @@
     "earlier_show_attempt": "show upgrade hw-programmable file failed creating /tmp/hwprg_upgrade_pub with Permission denied. No permission changes or retry through weakened protections."
   },
   "final_state": {
+    "host_query_at": "2026-10-31T15:06:00.086312-04:00",
+    "identity": "FDO2742M0FK",
+    "ios_uptime": "29 minutes",
+    "configuration_register": "0x1822",
+    "installed": "IMG U17.15.06.0.770",
+    "auto_abort": "inactive",
+    "commit_issued": false,
+    "cpu_celsius": 33,
+    "inlet_1_celsius": 27,
+    "working_celsius": 27,
+    "fans_rpm": [
+      8340,
+      8460,
+      8280
+    ],
+    "environment_states": "All displayed Normal",
+    "router_power": "On; no later reboot or power action",
+    "qualification": "Fan cycling remains reproduced; no steady-fan or forwarding qualification."
+  },
+  "owner_update_after_final_snapshot": {
+    "recorded_at": "2026-10-31T14:09:16.597924-04:00",
+    "report": "Non-P voice NIM removed; owner acknowledges P-suffix model requirement.",
+    "verified_live": false
+  },
+  "pre_ios_comparison_final_state": {
     "host_time": "2026-10-31T14:00:32.286546-04:00",
     "ios_uptime": "1 hour30 minutes at13:58EDT",
     "cpu_celsius": 37,
@@ -172,9 +197,12 @@
     "agent_ssh": "Closed cleanly; router remains powered and owner SSH untouched. Credentials retained for next diagnostics.",
     "new_inventory": "Owner confirms installing the voice NIM. Fresh14:02EDT EEPROM reads NIM-2FXS/4FXO, V02, serial FOC2145106C in0/1; current runtime reports unsupported. Captured fan cycles precede insertion."
   },
-  "owner_update_after_final_snapshot": {
-    "recorded_at": "2026-10-31T14:09:16.597924-04:00",
-    "report": "Non-P voice NIM removed; owner acknowledges P-suffix model requirement.",
-    "verified_live": false
+  "current_ios_comparison": {
+    "evidence": "c8375-recovery/acquisition-evidence/20261031-C8375-IOS-fan-comparison.json",
+    "original_development_rommon_retained": true,
+    "owner_stay": "Do not resume superseded26.2.1 return plan; remain17.15.6 for current fan investigation.",
+    "readonly_interface_finding": "12 named NIOS fan attributes mode0444/no store callback; no validated ramp/hysteresis setting in inspected help. Does not establish absence of every internal API.",
+    "controller": "Same derivedNIOS/ENVMCU0x003f/table2; peak12540RPM on both releases. Actual controlling sensor/hysteresis not isolated.",
+    "bounded_current_trace": "Missing-group/error2 repeats; no error95 in inspected17.15.6 window. Neither proven causal."
   }
 }

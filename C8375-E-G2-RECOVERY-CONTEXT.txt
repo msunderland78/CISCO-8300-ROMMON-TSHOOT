@@ -4,12 +4,38 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-LATEST CHECKPOINT 14:30 EDT:17.15.6 add-only SUCCESS14:28:27EDT. Independent
+LATEST DIAGNOSTICS 15:07 EDT (C8375-05): 17.15.6 retained at owner request.
+15:06 verifies FDO2742M0FK, 29 min uptime, confreg0x1822, IMG U17.15.06.0.770,
+auto-abort inactive. CPU33C, fans8340/8460/8280RPM, all sensor states Normal.
+Same cycling already reproduced/12540RPM; no fan fix or 45-minute pass claimed.
+Hash-matched 17.15 driver: 12 named fan diagnostic attributes mode0444/no store
+callback. No validated timing/hysteresis command or matching ENVMCU update found;
+this does not exclude internal control APIs. No raw register/PWM/fault injection.
+Current bounded cmand trace has missing-group/error2, not the earlier error95;
+neither diagnostic is proven causal. Need board-specific control method/profile
+or firmware candidate; supported-PSU comparison still awaits hardware.
+USB physically attached but no filesystem prefix listed; no reseat/remount.
+Agent RJ45 capture closed cleanly, port free; router on and owner SSH untouched.
+No commit or further reboot; saved26.2.1 rollback material remains intact.
+
+CURRENT OWNER INSTRUCTION 14:47 EDT: Stay on17.15.6 and fix fans here.
+17.15.6 boot/SSH/install verified; samefan cycling/12540RPM reproduced.
+Pending installabort answered n14:45:00; FAILED abort is intentional decline,
+NO rollback/reboot. Autoabortstop SUCCESS14:45:14, summary timerinactive,
+IMG U17.15.06.0.770. NO commit. Do not resume superseded return-to26.2.1 plan.
+Saved26.2.1 manifest/source/packages and privateconfigs remain for later use.
+Current17.15.6 is uncommitted; permanent reboot persistence not asserted.
+
+EARLIER ACTIVATION CHECKPOINT 14:32 EDT: installactivate auto-abort-timer90 issued14:31:27,
+reloadprompt y14:31:45EDT.17.15.06 cohort listed; noROMMON/CPLD/ENVMCUpkg.
+RJ45captureactive; bootresultpending; no commit.26.2.1 rollbackfiles retained.
+
+EARLIER CHECKPOINT 14:30 EDT:17.15.6 add-only SUCCESS14:28:27EDT. Independent
 summary C26.02.01.0.263 / I17.15.06.0.770, timerinactive. Newbootflash SHA512
 matchesUSB/Mac; activepackages.conf still matches saved26.2.1 backup. BOOT/
 confregunchanged. Noactivation/reboot/commit yet; serial ready for comparison.
 
-CURRENT PREPARATION 14:26 EDT: Fan task now compares IOS versions at owner request;
+EARLIER PREPARATION 14:26 EDT: Fan task compares IOS versions at owner request;
 external-fan idea declined/no intervention. NIM absent in fresh SSH, blank fitted.
 17.15.6 ownerUSB fullbin954189596bytes hashed on Mac, then routerusb0 SHA512
 matches. Native USB input still unresponsive; unplugged and RJ45 console now

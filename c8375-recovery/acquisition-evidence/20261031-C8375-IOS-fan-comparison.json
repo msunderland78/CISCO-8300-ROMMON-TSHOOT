@@ -1,11 +1,11 @@
 {
   "task_id": "C8375-05",
-  "recorded_at": "2026-10-31T14:30:13.600020-04:00",
+  "recorded_at": "2026-10-31T14:47:13.495436-04:00",
   "chassis": "C8375-A/C8375-E-G2/FDO2742M0FK",
   "hypothesis": "Fan cycling may depend on IOS XE version/profile/input handling. MCU temperature-level correlation alone does not rule out an IOS bug. No matching fan bug identified in the reviewed26.2.x/26.1.x/17.15.x public release-note tables; absence there is not proof of no bug.",
   "owner_steering": "Owner declines external-fan test and proposes IOS comparison; supplies17.15.6 thumb drive and confirms moving it to router and switching to RJ45 console.",
   "physical_state": "Owner removed non-P voice NIM, replaced blanking plate, top cover/vents previously confirmed; normal power, programming fixture removed; USB storage usb0, native USB console unplugged, RJ45 console verified correct serial.",
-  "current_ios": "26.02.1 / install mode / IMG C26.02.01.0.263 / auto-abort inactive",
+  "current_ios": "17.15.6 / install mode / IMG U17.15.06.0.770 / auto-abort inactive; uncommitted at owner request",
   "candidate": {
     "name": "c8kg2be-universalk9.17.15.06.SPA.bin",
     "bytes": 954189596,
@@ -20,15 +20,8 @@
     "bootflash_verified_at": "2026-10-31T14:27:42.291015-04:00"
   },
   "backups": "Running/startup configuration and current package-manifest text retained only under.git/recovery-private; original U2 SPI backup/readback already preserved. Router-side backup of current packages.conf planned before staging. Existing26.2.1 source and packages retained; no remove inactive or ROMMON command selected.",
-  "plan": [
-    "Verify USB-side SHA512 equals local fingerprint; copy candidate to a new bootflash file and verify destination.",
-    "Preserve current packages.conf as a new independently hash-verified bootflash file. Inspect installed package cohort/free space and inactive/rollback state.",
-    "Use three-step install: add older image first for validation, inspect staging result, then separately activate with rollback timer while retaining26.2.1 committed state. No automatic commit before comparison.",
-    "Capture boot, actual IOS/image path and known boot parameters, package state, MCU/profile/PSU identity, temperatures and fan behavior. Observe up to45minutes or stop early if cycling is reproduced.",
-    "Compare same hardware/configuration while recording temperature/power differences. A behavior difference establishes version dependence under test conditions, not automatically a confirmed Cisco defect."
-  ],
   "technical_limitations": [
-    "Current development v9.2.1 ROMMON is below published production matrices for both releases; older IOS boot on this exact board is unproven. No ROMMON upgrade selected.",
+    "Working development v9.2.1 ROMMON is below published production matrices for both releases.17.15.6 has now booted on this board, but production compatibility remains unqualified. No ROMMON upgrade selected.",
     "Rollback timer requires functioning installed IOS; serial console and saved26.2.1 manifest/source remain necessary if early boot fails.",
     "17.15.6 may lack26.2 voice/security features; voice NIM is absent for the fan comparison."
   ],
@@ -37,7 +30,7 @@
     "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/release-notes/17-15-x/release-notes-cisco-8300-series-secure-routers-release-17-15-x.html",
     "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html"
   ],
-  "status": "17.15.6 staged inactive and validated;26.2.1 still active/committed. Serial-ready; no activation or reboot yet.",
+  "status": "17.15.6 retained at owner request; auto-abort stopped and uncommitted. Fan cycling reproduced on both releases. Exact-driver/live-help review found no validated timing adjustment or matching ENVMCU update; no fan-policy/raw-register write. Agent capture closed; router on.",
   "rollback_manifest": {
     "path": "bootflash:packages-26.2.1-before-fan-test-20261031.conf",
     "bytes": 8405,
@@ -52,7 +45,12 @@
     "settings": "115200/8N1/no flow",
     "serial_verified": "FDO2742M0FK",
     "raw_log": "c8375-recovery/console-logs/20261031-142112-console.log",
-    "native_usb": "Unplugged after input-path failure; owner confirms RJ45 and USB storage connected."
+    "native_usb": "Unplugged after input-path failure; owner confirms RJ45 and USB storage connected.",
+    "public_log": "sanitized-evidence/c8375-recovery/console-logs/20261031-142112-console.log",
+    "bytes": 172008,
+    "sha256": "f0646b861c97f7f71dd03757d89d2cbd41af956b4929e7e7d87a3c9e6646027a",
+    "capture_state": "Closed cleanly; bridge process exited0 and lsof returned no owner. Router remains powered; owner SSH untouched.",
+    "closure_verified_by": "2026-10-31T15:07:24.829489-04:00"
   },
   "staging": {
     "command": "install add file bootflash:c8kg2be-universalk9.17.15.06.SPA.bin",
@@ -63,5 +61,464 @@
     "current_packages_conf_sha512_unchanged": true,
     "boot_after_add": "BOOT=bootflash:packages.conf,12; confreg0x1822",
     "signature_limit": "Add validation passed; no separate offline Cisco signature or vendor-digest authentication claimed."
-  }
+  },
+  "activation": {
+    "command": "install activate auto-abort-timer 90",
+    "issued_at": "2026-10-31T14:31:27-04:00",
+    "confirmed_at": "2026-10-31T14:31:46.521107-04:00",
+    "prompt": "This operation may require a reload of the system. Do you want to proceed? [y/n]",
+    "response": "y",
+    "listed_package_cohort": "17.15.06: rpboot, mono and NIM/SM firmware packages; no ROMMON/CPLD/ENVMCU package listed.",
+    "state": "Activation passed and17.15.6 boot verified; owner subsequently requested retaining runtime and auto-abort was stopped. IMG U / no commit.",
+    "commit_issued": false,
+    "activation_passed_at": "2026-10-31T14:33:33-04:00",
+    "timer_reported_seconds": 5400,
+    "reload_started_at": "2026-10-31T14:33:39-04:00",
+    "early_boot": "Original SDK112308/11.23.08 bootstub, CRC32 PASS, mirabile-crestone r3/MV-CN10616-B0,16cores; PCIe/DRAM initialization underway.",
+    "initial_state_at_1432": "Activation/reload was in progress; boot not yet claimed at that checkpoint."
+  },
+  "boot_result": {
+    "host_verified_at": "2026-10-31T14:40:30.107635-04:00",
+    "console_prompt": "CAT3875-G2#",
+    "ssh_login": "Verified, same saved account/host key; endpoint/credentials omitted.",
+    "version": "17.15.6 RELEASE(fc2)",
+    "build": "17.15.06.0.770",
+    "image_path": "bootflash:packages.conf",
+    "configuration_register": "0x1822",
+    "install_state": "IMG U17.15.06.0.770",
+    "rollback_timer": "active,01:24:20 remaining at14:39EDT",
+    "rommon": "SDK112308/SoC2v9.2.1 development; historical ChipGuard UUID/incompatible-image warning recurs but boot continues.",
+    "kernel": "5.4.290",
+    "boot_parameters_verified": "maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init;16CPUs started, EDAC init explicitly blacklisted.",
+    "r0_f0": "ok,active",
+    "built_in_module": "4M-2xSFP+ online",
+    "psu_p0": "Unknown/incompatible persists",
+    "environment_initial": "All listed Normal; CPU36C,inlet27/25C; fans5400/5400/5340RPM",
+    "nios_version": "0x3f",
+    "fan_table": 2,
+    "n2h_override": 0,
+    "clock": "Router date reverted to Nov8,2022; use host timestamps. No clock setting or startup overwrite for comparison. A later authoritative-clock event is captured; agent did not set clock. Host timestamps remain canonical.",
+    "configuration_warning": "CONFIG_NEWER for saved26.2 config; private config loaded, SSH works. Full feature/config parity not asserted."
+  },
+  "comparison_result": {
+    "recorded_at": "2026-10-31T14:43:39.179746-04:00",
+    "owner_observation": "Same audible ramping already happened on17.15.6.",
+    "controller_samples": [
+      {
+        "timestamp": "2026-10-31T14:40:43.151737-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T14:40:42.045926-04:00",
+          "fans_rpm": [
+            5400,
+            5400,
+            5340
+          ],
+          "cpu_celsius": 37
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          12120,
+          12180,
+          12120
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 28,
+          "inlet2": 26,
+          "outlet1": 26,
+          "outlet2": 29,
+          "working": 28,
+          "cpu_core": 37,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 1,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      },
+      {
+        "timestamp": "2026-10-31T14:42:06.389483-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T14:42:05.284491-04:00",
+          "fans_rpm": [
+            11100,
+            11280,
+            11160
+          ],
+          "cpu_celsius": 35
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          12480,
+          12480,
+          12360
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 27,
+          "inlet2": 25,
+          "outlet1": 26,
+          "outlet2": 28,
+          "working": 27,
+          "cpu_core": 34,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 0,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      },
+      {
+        "timestamp": "2026-10-31T14:43:16.121170-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T14:42:05.284491-04:00",
+          "fans_rpm": [
+            11100,
+            11280,
+            11160
+          ],
+          "cpu_celsius": 35
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          12420,
+          12480,
+          12420
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 28,
+          "inlet2": 25,
+          "outlet1": 26,
+          "outlet2": 28,
+          "working": 28,
+          "cpu_core": 34,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 1,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      },
+      {
+        "timestamp": "2026-10-31T14:43:22.230035-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T14:42:05.284491-04:00",
+          "fans_rpm": [
+            11100,
+            11280,
+            11160
+          ],
+          "cpu_celsius": 35
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          12420,
+          12540,
+          12420
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 28,
+          "inlet2": 25,
+          "outlet1": 26,
+          "outlet2": 28,
+          "working": 28,
+          "cpu_core": 34,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 1,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      },
+      {
+        "timestamp": "2026-10-31T14:43:28.336890-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T14:42:05.284491-04:00",
+          "fans_rpm": [
+            11100,
+            11280,
+            11160
+          ],
+          "cpu_celsius": 35
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          12420,
+          12480,
+          12360
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 27,
+          "inlet2": 25,
+          "outlet1": 26,
+          "outlet2": 28,
+          "working": 27,
+          "cpu_core": 33,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 1,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      }
+    ],
+    "observed_peak_rpm": 12540,
+    "verdict": "Fan cycling reproduced on17.15.6; downgrade did not fix it. Same temperature-level transition/table2/NIOS0x3f/override0 observed. Not unique to26.2.1; shared software policy, controller firmware and unsupported PSU remain unresolved.",
+    "duration_limit": "Stopped early on reproduction rather than claiming a45-minute steady-fan pass. Captured readings are sequential and CLI may be cached; no external-fan intervention.",
+    "plan": "Superseded by owner instruction: remain on17.15.6; rollback confirmation declined; auto-abort timer stopped without commit."
+  },
+  "owner_stay_instruction": {
+    "recorded_at": "2026-10-31T14:47:13.495436-04:00",
+    "instruction": "Stay on17.15.6 for now and investigate fan fix here. Do not revert to26.2.1 on the previous plan.",
+    "pending_abort": "Declined with n at14:45:00EDT before reload approval. FAILED install_abort reflects intentional cancellation; no rollback/reboot occurred.",
+    "timer_stop": "install auto-abort-timer stop at14:45:13EDT; SUCCESS14:45:14EDT.",
+    "verified_state": "IMG U17.15.06.0.770; auto-abort inactive; sameFDO2742M0FK/confreg0x1822,9minuptime at14:46EDT.",
+    "commit": "Not issued; retain uncommitted running image for current investigation. No permanent/reboot-persistence claim."
+  },
+  "17_15_controller_interface_review": {
+    "recorded_at": "2026-10-31T15:00:57.204403-04:00",
+    "reference_mono": {
+      "bytes": 892178432,
+      "sha512": "d3fafaf41a7e2055540fc41c0810781c5764cf59604fe1212826cb0fd414739ae664921ad734b4aa86e33cbd5b372c2b1d600482d0572ead46b57c245e085759",
+      "independent_runtime_package_hash_matches": true
+    },
+    "live_help_findings": [
+      "test platform hardware slot P2 fan ? offers fault only; no fault injected.",
+      "set platform hardware ? lists custom-led/fed/qfp/rom-monitor/throughput-monitor, no fan control.",
+      "show platform software cman ? offers statistics; test platform software cman is unrecognized.",
+      "Global platform help offers no fan option; environment and platform hardware subcommands tested are unrecognized. Config mode exited; no cooling setting applied."
+    ],
+    "kernel_attribute_review": {
+      "method": "Offline ELF symbols and relocations; device_attribute layout checked by named show callback at +16; no vendor code executed.",
+      "attributes": [
+        {
+          "attribute": "dev_attr_h2n_fan_ctrl_fan_barom_level",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_barom_level",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_h2n_fan_ctrl_fan_table",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_table",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_h2n_fan_ctrl_fan_temp_level",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_temp_level",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_h2n_fan_ctrl_fan_tray_status",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_tray_status",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_h2n_fan_ctrl_override",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_h2n_structs_fan_ctrl_override",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_h2n_fan_ctrl_status",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_h2n_structs_fan_ctrl_status",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_n2h_fan_ctrl_fan_barom_level",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_barom_level",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_n2h_fan_ctrl_fan_table",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_table",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_n2h_fan_ctrl_fan_temp_level",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_temp_level",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_n2h_fan_ctrl_fan_tray_status",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_tray_status",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_n2h_fan_ctrl_override",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_n2h_structs_fan_ctrl_override",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        },
+        {
+          "attribute": "dev_attr_n2h_fan_ctrl_status",
+          "object_bytes": 32,
+          "mode_octal": "0o444",
+          "show_callback": "show_reg_n2h_structs_fan_ctrl_status",
+          "store_callback": null,
+          "raw_store_pointer": 0
+        }
+      ]
+    },
+    "scope": "These12 named NIOS diagnostic attributes are read-only; this does not prove every internal ioctl/API is read-only or that no undocumented tuning exists. No validated hysteresis/ramp interface found.",
+    "offline_library_review": "Fan API symbols ending_fp are data/function-pointer objects, not directly callable functions; initial disassembly-by-function attempt failed and symbol-table review corrected the interpretation. No vendor library executed or patched.",
+    "firmware_search": "No environmental-controller/hardware-programmable update file identified in project filename inventory or targeted public Cisco searches. Existing installed26.2 MCU package contained only a STYX sequencer image. No compatible Crestone ENVMCU candidate selected.",
+    "usb_observation": "17.15.6 show file systems lists no USB prefix and dir usb0 is rejected, despite the physical drive being left attached across the version change. No reseat/reformat or driver correction attempted; this limits current USB-side inventory.",
+    "artifacts": [
+      {
+        "retained_local": ".git/recovery-private/ios-comparison-20261031/controller-research/inspect_nios_attributes.py",
+        "bytes": 3403,
+        "sha256": "933203ab3fd291335d320b22d486f4b2a9b2e2347598407a755c1cb95a00c351"
+      },
+      {
+        "retained_local": ".git/recovery-private/ios-comparison-20261031/controller-research/nios-fan-attribute-metadata.json",
+        "bytes": 3181,
+        "sha256": "2cc06abcb01073ca6a53ca72bcd913b10a6f7ede9da1469202701e52b73b4a6a"
+      },
+      {
+        "retained_local": ".git/recovery-private/ios-comparison-20261031/controller-research/nios_v2.ko",
+        "bytes": 216918,
+        "sha256": "8ea2b51e6e0f120f5c67e7330c7ee7799299f74d0d4e48560e897b4ae917f167"
+      },
+      {
+        "retained_local": ".git/recovery-private/ios-comparison-20261031/controller-research/libcpa_core_sb_mirabile_common.so",
+        "bytes": 343936,
+        "sha256": "c52a6b17b206bf1388e6fa4ef34525207e8c692a30fc3d7ab01f050a134821f9"
+      },
+      {
+        "retained_local": ".git/recovery-private/ios-comparison-20261031/controller-research/cpa-core-symbols.txt",
+        "bytes": 155721,
+        "sha256": "2b07de191b807679785f0796b07d8c16fcda508367e3ff3ddbd17395e3012eed"
+      },
+      {
+        "retained_local": ".git/recovery-private/ios-comparison-20261031/controller-research/cpa-sb-init-disassembly.txt",
+        "bytes": 71332,
+        "sha256": "817fa2327044df278abbc2170cabd858944b5815f6c6f5291cd7df84bf21e26e"
+      }
+    ],
+    "next_requirement": "A documented board-compatible fan-control/profile interface or verified matching ENVMCU firmware is needed before changing timing. A recognized supported PSU comparison remains an independent unresolved test; owner has no spare.",
+    "changes": "Help/read-only inspection and install auto-abort timer cancellation only. No fan/PWM/temperature threshold, driver, firmware, EEPROM, fuse or security-state modification.",
+    "bounded_current_cmand_review": {
+      "host_recorded_at": "2026-10-31T15:06:01.290888-04:00",
+      "command": "show logging process cmand module cpa_nb,cpa_sb,cia_env internal start last 120 seconds",
+      "scope": "Existing log level only; no debug setting applied. Router clock became authoritative during this runtime; host capture markers remain canonical.",
+      "pid": [
+        "6065"
+      ],
+      "rendered_cmand_error_lines": 96,
+      "first_router_timestamp": "2026/10/31 15:03:36.774168757",
+      "last_router_timestamp": "2026/10/31 15:05:31.878851920",
+      "no_group_id_location_6": 48,
+      "no_group_id_location_1": 24,
+      "failed_group_id_error_2": 24,
+      "error95_lines": 0,
+      "interpretation": "17.15.6 has repeated missing-group/error2 diagnostics in this bounded window. The26.2.1 error95 is not reproduced in this window; neither diagnostic is proven causal for fan cycling."
+    }
+  },
+  "pre_comparison_ios": "26.02.1 / install mode / IMG C26.02.01.0.263 / auto-abort inactive",
+  "final_live_state": {
+    "host_query_at": "2026-10-31T15:06:00.086312-04:00",
+    "identity": "FDO2742M0FK",
+    "ios_uptime": "29 minutes",
+    "configuration_register": "0x1822",
+    "installed": "IMG U17.15.06.0.770",
+    "auto_abort": "inactive",
+    "commit_issued": false,
+    "cpu_celsius": 33,
+    "inlet_1_celsius": 27,
+    "working_celsius": 27,
+    "fans_rpm": [
+      8340,
+      8460,
+      8280
+    ],
+    "environment_states": "All displayed Normal",
+    "router_power": "On; no later reboot or power action",
+    "qualification": "Fan cycling remains reproduced; no steady-fan or forwarding qualification."
+  },
+  "pre_comparison_plan": [
+    "Verify USB-side SHA512 equals local fingerprint; copy candidate to a new bootflash file and verify destination.",
+    "Preserve current packages.conf as a new independently hash-verified bootflash file. Inspect installed package cohort/free space and inactive/rollback state.",
+    "Use three-step install: add older image first for validation, inspect staging result, then separately activate with rollback timer while retaining26.2.1 committed state. No automatic commit before comparison.",
+    "Capture boot, actual IOS/image path and known boot parameters, package state, MCU/profile/PSU identity, temperatures and fan behavior. Observe up to45minutes or stop early if cycling is reproduced.",
+    "Compare same hardware/configuration while recording temperature/power differences. A behavior difference establishes version dependence under test conditions, not automatically a confirmed Cisco defect."
+  ],
+  "current_plan": "Remain on17.15.6 per owner instruction; no automatic rollback. Identify a validated exact-board fan control/profile/update method; no guessed timing/register write. Fan problem remains unresolved."
 }
