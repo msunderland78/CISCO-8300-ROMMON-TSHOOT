@@ -1,9 +1,22 @@
 C8375-E-G2 / CRESTONE RECOVERY CONTEXT
-Current handoff updated 2026-10-28, America/New_York; historical October23 summary retained
+Current handoff updated 2026-10-31, America/New_York; historical October23 summary retained
 Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
-CURRENT END-OF-DAY HANDOFF -- October 28, 2026, America/New_York
+CURRENT RESUME -- October 31, 2026, America/New_York
+Owner confirms C8375-A/FDO2742M0FK and router/CR2032/CH341A isolation,
+exclusive ownership. Grabber on U1pin7; short clip on U2; Pi5 online.
+Breadboard and10kOhm1%1/2W resistor received; wiring requested, not
+reported complete. P1pin1->OUTPUT8=0.3ohm; P1pin2->OUTPUT4=0.3ohm;
+P1pin1-to2=1.776VDC. Fresh lead baseline/ohms power-state not supplied.
+After Pi shutdown/unplug/residual0V: P1pin1/target1.8V -> resistor ->
+grabber/U1pin7, using separate isolated breadboard strips for its legs.
+Verify unpowered series path/fit, then supply/idle U1CS before bounded
+no-clock U2-select test. No automatic reads/lower-resistance escalation.
+No new agent hardware action. Pull-up efficacy unproven.
+Evidence: c8375-recovery/acquisition-evidence/20261031-Pi5-U2-pullup-resume.json
+
+HISTORICAL END-OF-DAY HANDOFF -- October 28, 2026, America/New_York
 Hardware work stopped at owner request. Read C8375-G2-RECOVERY-CONTEXT.md
 and c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md end-of-day section first.
 C8375-A/FDO2742M0FK still nonbooting; no Pi recovery write/boot result.

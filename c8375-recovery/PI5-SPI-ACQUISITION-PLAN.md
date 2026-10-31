@@ -1,8 +1,12 @@
 # Pi5 SPI acquisition plan — C8375-A
 
-Updated **October 28, 2026**, America/New_York. Tasks **P-03 / R-01**; chassis **C8375-A / FDO2742M0FK**, Crestone/SoC2. **Stopped for the day; all disconnected/Pi off. Start with the end-of-day handoff below before using historical procedures.**
+Updated **October 31, 2026**, America/New_York. Tasks **P-03 / R-01**; chassis **C8375-A / FDO2742M0FK**, Crestone/SoC2. **Owner resumed October31 with U2 clip/U1 grabber and Pi online. Read the current checkpoint before historical procedures.**
 
-## End-of-day handoff (2026-10-28)
+## Current checkpoint (2026-10-31)
+
+**Resumed bench setup — October 31, 2026, America/New_York (R-01):** owner confirms C8375-A/FDO2742M0FK, normal router power/console/other cables, CR2032 and CH341A removed, exclusive programmer ownership. **Grabber is on U1 physical pin7, short clip on U2; Pi5 online/connected.** Breadboard and **10kΩ, 1% ½W resistor received**. Owner reports **P1pin1→OUTPUT8 =0.3Ω, P1pin2→OUTPUT4 =0.3Ω, P1pin1→pin2 =1.776VDC**; fresh lead baseline and resistance-test power state not supplied. Owner asks for resistor wiring; completed resistor installation is not reported. Proposed series path remains **P1pin1/existing target1.8V → fixed10kΩ → grabber/U1pin7**, keeping unused U1 deselected while Pi controls U2 CS. Shut down/unplug Pi and verify residual0V before wiring; resistor legs occupy separate isolated breadboard strips. Verify resistor/fit/paths unpowered, then supply and idle U1CS; only afterward consider one bounded no-clock U2-select control, with cleanup verified before reads. Pull-up efficacy remains unproven; no automatic lower-resistance escalation. **No new agent hardware access/read/write.** [Resume evidence](acquisition-evidence/20261031-Pi5-U2-pullup-resume.json).
+
+## Historical end-of-day handoff (2026-10-28)
 
 **Hardware work is stopped for the day at the owner's request. Do not reconnect, power up, open SSH/programmer/console sessions or start a background test as part of this handoff.** Current chassis is **C8375-A / FDO2742M0FK**. The router still does not boot normally; this Pi work has not produced a recovery-write, boot or configuration-recovery result. Normal router sources/cables, CR2032 and CH341A remain removed under the established isolation. Owner confirms **both clips removed, Pi off, everything disconnected**.
 

@@ -1,0 +1,38 @@
+{
+  "task_id": "R-01 / U2 acquisition unused-U1 pull-up experiment",
+  "recorded_date": "2026-10-31",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A / FDO2742M0FK",
+  "source": "Owner reports and follow-up confirmation in resumed session; no live hardware access by agent.",
+  "confirmed_isolation": "Owner answers yes to chassis identity, normal router power/console/other cables removed, CR2032 and CH341A removed, exclusive programmer ownership.",
+  "owner_reported_setup": {
+    "grabber": "Connected to U1 physical pin7",
+    "programming_clip": "Short clip on U2",
+    "parts": "Breadboard and 10kOhm 1/2W 1% resistor available",
+    "pi": "Pi5 online and connected; remote state not independently checked",
+    "resistor_installation": "Owner asks for exact wiring before proceeding; completed resistor circuit not reported."
+  },
+  "owner_measurements": [
+    {
+      "endpoints": "P1 pin1 to adapter OUTPUT8",
+      "value": 0.3,
+      "unit": "ohm"
+    },
+    {
+      "endpoints": "P1 pin2 to adapter OUTPUT4",
+      "value": 0.3,
+      "unit": "ohm"
+    },
+    {
+      "endpoints": "P1 pin1 to P1 pin2",
+      "value": 1.776,
+      "unit": "VDC"
+    }
+  ],
+  "measurement_limits": "Fresh lead baseline and power state during resistance measurements not supplied. No U1 CS voltage after pull-up, selected-state result or waveform evidence.",
+  "interpretation": "Reported supply is within Micron 1.7\u20132.0V range. At reported VCC, nominal VIH minimum is 1.2432V (0.7*VCC); this is a boundary, not demonstrated noise margin.",
+  "wiring_instruction": "After Pi shutdown, physical supply unplug and verified P1 residual0V: P1pin1/existing target1.8V -> fixed10kOhm resistor -> grabber/U1physicalpin7. Resistor legs occupy separate electrically isolated breadboard strips, with each wire sharing only its respective leg strip. Resistor nonpolar. No ground branch, direct CS-to-VCC jumper or Pi3.3V/5V feed. Short clip remains U2.",
+  "next_step": "Verify resistor value disconnected from circuit, secure single-leg grabber/clearance, breadboard series path and existing harness while unpowered; then Pi/adapter-only power, P1 voltage and idle U1pin7 voltage to P1pin2. Conditional bounded no-clock U2 select control precedes any array read.",
+  "limits": "10k pull-up efficacy unproven. If unused U1 still falls below a reliable high, stop rather than automatically reducing resistance. DC success does not establish clocked read accuracy. No new GPIO/SPI/SSH action, array read, firmware write or router boot performed.",
+  "source_url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf"
+}
