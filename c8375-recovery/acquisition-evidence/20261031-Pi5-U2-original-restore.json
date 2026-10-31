@@ -1,0 +1,181 @@
+{
+  "task_id": "C8375-02 / C8375-03",
+  "date": "2026-10-31",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A/FDO2742M0FK",
+  "physical_target": "U2",
+  "status": "Original-image restore running; write/verification results pending",
+  "owner_authorization": "Owner explicitly requests continuing to fix flash now after verified U2backups; existing recovery authorization continues. No new approval gate.",
+  "target_basis": "Both current physicalU2full reads exactly match native spi0.0 failed-update verified readback68c695...fe88b. This content ties original active-device snapshot to U2 without assigning a primary/golden role.",
+  "backup_evidence": "20261031-Pi5-U2-reset-held-full-reads.json",
+  "region_review": {
+    "candidate_sources_rehashed": [
+      {
+        "path": "c8375-recovery/restore-original-20261023/C8375-FDO2742M0FK-ORIGINAL-SPI-32MiB.bin",
+        "bytes": 33554432,
+        "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107"
+      },
+      {
+        "path": "c8375-recovery/spi-backups-20261023/current-spi0-cs0-32MiB-read1.bin",
+        "bytes": 33554432,
+        "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107"
+      },
+      {
+        "path": "c8375-recovery/spi-backups-20261023/current-spi0-cs0-32MiB-read2.bin",
+        "bytes": 33554432,
+        "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107"
+      }
+    ],
+    "target": "C8375-A/FDO2742M0FK/U2",
+    "current_full_sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+    "candidate_full_sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+    "regions": [
+      {
+        "name": "firmware_payload",
+        "start": "0x0",
+        "end_inclusive": "0xfcffff",
+        "bytes": 16580608,
+        "different_bytes": 4535379,
+        "selected_for_restore": true,
+        "original_sha256": "957298b795f8dc00c2cbcb290b77afdaebb2b75100f09b512f34ee27ddad9776",
+        "current_sha256": "cfcf1ae38c2886e9d28138d3428636c2c8345b903bbef522f8e9ebfb363ff985"
+      },
+      {
+        "name": "observed_preserved_gap",
+        "start": "0xfd0000",
+        "end_inclusive": "0x1000fff",
+        "bytes": 200704,
+        "different_bytes": 0,
+        "selected_for_restore": false,
+        "original_sha256": "f468c51fcf71e7817b399ef276649550fe15a0ee0dd915900301d9ddf44de2a7",
+        "current_sha256": "f468c51fcf71e7817b399ef276649550fe15a0ee0dd915900301d9ddf44de2a7"
+      },
+      {
+        "name": "upper_preserved_before_env",
+        "start": "0x1001000",
+        "end_inclusive": "0x1f2ffff",
+        "bytes": 15921152,
+        "different_bytes": 0,
+        "selected_for_restore": false,
+        "original_sha256": "f92453e134d61f3ce925cd36a3363618ebd3105e7458f1af7cf9bd86f45a3409",
+        "current_sha256": "f92453e134d61f3ce925cd36a3363618ebd3105e7458f1af7cf9bd86f45a3409"
+      },
+      {
+        "name": "monitor_environment",
+        "start": "0x1f30000",
+        "end_inclusive": "0x1f4ffff",
+        "bytes": 131072,
+        "different_bytes": 4,
+        "selected_for_restore": true,
+        "original_sha256": "5a8aef3dab7137f57a50e95eba85fc766206194b20ab7b42acedf78eb51decdd",
+        "current_sha256": "0c5ab73feb236c66f063762bef104e1fcae9b6e6ea01c02710a0c83aac8986ab"
+      },
+      {
+        "name": "upper_preserved_after_env",
+        "start": "0x1f50000",
+        "end_inclusive": "0x1ffffff",
+        "bytes": 720896,
+        "different_bytes": 0,
+        "selected_for_restore": false,
+        "original_sha256": "f7eee45125ebfc99b2de05a1a81476d44595d20ee71d13d106907f8c1aa9eff2",
+        "current_sha256": "f7eee45125ebfc99b2de05a1a81476d44595d20ee71d13d106907f8c1aa9eff2"
+      }
+    ],
+    "total_different_bytes": 4535383,
+    "preservation": "Every byte outside payload and monitor environment already matches exact same-chassis original. No image patch/reconstruction; full original is the source, with selected layout regions. Separate OTP/security provisioning not addressed."
+  },
+  "preflight": {
+    "directory": "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30",
+    "boot_id": "4e22732b-df81-4ab3-a259-24d34efc7327",
+    "readonly_id_status": [
+      {
+        "id": "20bb19",
+        "status": 2
+      },
+      {
+        "id": "20bb19",
+        "status": 2
+      }
+    ],
+    "source_match": true,
+    "initial_upload": "Failed before write because sudo-created staging directory was below root home; no SPI write occurred",
+    "initial_directory": "/root/C8375-U2-ORIGINAL-RESTORE-b1yhsofu"
+  },
+  "remote_candidate": {
+    "directory": "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30",
+    "image_bytes": 33554432,
+    "image_sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+    "layout": "00000000:00fcffff payload\n01f30000:01f4ffff environment\n"
+  },
+  "command_without_credentials": [
+    "sudo",
+    "-S",
+    "-p",
+    "",
+    "flashrom",
+    "-V",
+    "-p",
+    "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+    "-c",
+    "MT25QU256",
+    "-l",
+    "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/restore.layout",
+    "-i",
+    "payload",
+    "-i",
+    "environment",
+    "-w",
+    "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/original-72fc3f.bin",
+    "-o",
+    "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/write.log"
+  ],
+  "write_scope": "Use unmodified same-chassis original full image, select only payload00000000\u201300fcffff and environment01f30000\u201301f4ffff. Full automatic verification enabled; no force/noverify/wp/OTP/fuse options.",
+  "other_flash": "U1 held in reset via10k toGND; not a write target. A newly qualified full U1backup has not been obtained; historical U1captures retained with accuracy concerns. Do not mark both-chip backup task complete.",
+  "verification_plan": "After successful write/automatic verify, separate full32MiB readback into fresh private file; hash and byte-compare all bytes to72fc3f original, including preserved regions. Stop on failure; no automatic write retry.",
+  "source": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/doc/classic_cli_manpage.rst",
+  "runtime": "Not started",
+  "purpose": "Restore the exact pre-upgrade SDK112308/UEFI-ROMMON-SoC2-v9.2.1 original because17.18-3r prevented boot.17.18 is backup/reference evidence only, not the restore candidate.",
+  "runtime_at_checkpoint": {
+    "started_at": "2026-10-31T11:56:10.620805-04:00",
+    "target": "C8375-A/FDO2742M0FK/U2",
+    "status": "started",
+    "phase": "write_and_automatic_full_verify",
+    "directory": "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30",
+    "id_status_gate": {
+      "id": "20bb19",
+      "status": 2
+    },
+    "write_command_without_credentials": [
+      "sudo",
+      "-S",
+      "-p",
+      "",
+      "flashrom",
+      "-V",
+      "-p",
+      "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+      "-c",
+      "MT25QU256",
+      "-l",
+      "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/restore.layout",
+      "-i",
+      "payload",
+      "-i",
+      "environment",
+      "-w",
+      "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/original-72fc3f.bin",
+      "-o",
+      "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/write.log"
+    ],
+    "complete": false,
+    "observed_at": "2026-10-31T11:57:25.638331-04:00",
+    "log_stage": "initial-read",
+    "automatic_verify_reported": false,
+    "active_flashrom_pids": [
+      1808
+    ],
+    "boot_id": "4e22732b-df81-4ab3-a259-24d34efc7327"
+  },
+  "worker_source_sha256": "e21014568258db54feedf4f14b2b45b924f5777c315b110c47c7dffca4a3f17a",
+  "interruption_policy": "Detached worker survives SSH loss; no external kill timeout on erase/program. Stop after nonzero write result, no write retry. Independent readback uses bounded read-only timeout."
+}

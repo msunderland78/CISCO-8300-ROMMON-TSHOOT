@@ -4,7 +4,7 @@
   "timezone": "America/New_York",
   "chassis": "C8375-A/FDO2742M0FK",
   "physical_chip": "U2",
-  "status": "Full pair started; completion/size/hash/reference results pending",
+  "status": "Two full U2main-array backups independently validated; exact known-nonbooting reference match",
   "fixture": "Short U2clip, unusedU1RESETpin3 via nominal10k/measured9940ohm toP1ground; contact1.5ohm; old5.6k CS branch removed; normal router power/console/cables/CR2032/CH341A removed.",
   "fresh_owner_pre_full_VDC": {
     "P1rail": 1.783,
@@ -216,5 +216,146 @@
     "Read accuracy/whole-image identity, physical bank role, firmware compatibility, successful boot and stability are distinct.",
     "No firmware write, protection/OTP/TPM/fuse/security modification or router boot."
   ],
-  "next_step": "Complete/import pair, independently verify exact sizes/full hashes/byte equality/reference differences, check final Pi driver/process state and fixture voltages; preserve original bytes."
+  "next_step": "Continue owner-authorized original-image restoration to identifiedU2 after exact-region/provenance/write-path review.",
+  "runtime": {
+    "started_at": "2026-10-31T11:25:31.552445-04:00",
+    "physical_chip": "U2",
+    "mode": "full",
+    "requested_kHz": 1000,
+    "reads": [
+      {
+        "pass": 1,
+        "command_without_credentials": [
+          "sudo",
+          "-S",
+          "-p",
+          "",
+          "timeout",
+          "--signal=INT",
+          "--kill-after=10s",
+          "1200s",
+          "flashrom",
+          "-V",
+          "-p",
+          "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+          "-c",
+          "MT25QU256",
+          "-o",
+          "/home/sundema/C8375-U2-RESET-full-pair-thvnnwii/U2-read1.log",
+          "-r",
+          "/home/sundema/C8375-U2-RESET-full-pair-thvnnwii/U2-full-read1.bin"
+        ],
+        "status": "completed",
+        "samples": {
+          "full": {
+            "file": "U2-full-read1.bin",
+            "bytes": 33554432,
+            "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b"
+          }
+        },
+        "exit_code": 0
+      },
+      {
+        "pass": 2,
+        "command_without_credentials": [
+          "sudo",
+          "-S",
+          "-p",
+          "",
+          "timeout",
+          "--signal=INT",
+          "--kill-after=10s",
+          "1200s",
+          "flashrom",
+          "-V",
+          "-p",
+          "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+          "-c",
+          "MT25QU256",
+          "-o",
+          "/home/sundema/C8375-U2-RESET-full-pair-thvnnwii/U2-read2.log",
+          "-r",
+          "/home/sundema/C8375-U2-RESET-full-pair-thvnnwii/U2-full-read2.bin"
+        ],
+        "status": "completed",
+        "samples": {
+          "full": {
+            "file": "U2-full-read2.bin",
+            "bytes": 33554432,
+            "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b"
+          }
+        },
+        "exit_code": 0
+      }
+    ],
+    "directory": "/home/sundema/C8375-U2-RESET-full-pair-thvnnwii",
+    "status": "passed",
+    "flashrom_version": "flashrom v1.6.0 on Linux 7.0.0-1020-raspi (aarch64)\nflashrom is free software, get the source code at https://flashrom.org\n\n",
+    "pair_differences": {
+      "full": 0
+    },
+    "finished_at": "2026-10-31T11:34:34.745649-04:00",
+    "complete": true,
+    "observed_at": "2026-10-31T11:35:09.012184-04:00",
+    "boot_id": "fd0a05cd-ad0c-47f4-9267-44a3df9f491a"
+  },
+  "independent_validation": {
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261031-112531-EDT-reset-held-full-pair",
+    "samples": [
+      {
+        "file": "U2-full-read1.bin",
+        "bytes": 33554432,
+        "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+        "independently_verified_sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b"
+      },
+      {
+        "file": "U2-full-read2.bin",
+        "bytes": 33554432,
+        "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+        "independently_verified_sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b"
+      }
+    ],
+    "pair_different_bytes": 0,
+    "verified17_18_3r_reference_different_bytes": [
+      0,
+      0
+    ],
+    "saved_original_different_bytes": 4535383,
+    "reference_sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+    "private_file_sha256": {
+      "U2-full-read1.bin": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+      "U2-full-read2.bin": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+      "U2-pass1-stdout.log": "ad534a6745ffe6ed60ee1872ef4660934b61e69116334c0bec4838b2327b4cf3",
+      "U2-pass2-stdout.log": "da85a1a5f54751472997b7f3d1f2bc8dc7467a7837708dfa6d1a73d9b892e614",
+      "U2-read1.log": "54cf6df821ae816a9c9e3487ec2718897ddc27d95a4b5fd6281f8b708641cc6e",
+      "U2-read2.log": "5ecddeb942001cb53723512b16e6b310b35ad283a67d419c676faf78fe12ddb1",
+      "completion.json": "e5a836d874a0af81014cd24389d78564863aa01107436e31240a09a779a9ec28",
+      "launcher.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "progress.json": "e5a836d874a0af81014cd24389d78564863aa01107436e31240a09a779a9ec28",
+      "regions.layout": "3bdc7d71c35b7c951eb4a2a953563996c2176ed3dd803bd7782a7daa1d40e7bd"
+    },
+    "scope": "Full32MiB main array only; separate OTP not captured/modified; no physical bank-role assignment or firmware write."
+  },
+  "independent_postflight": {
+    "boot_id": "fd0a05cd-ad0c-47f4-9267-44a3df9f491a",
+    "busy_pids": [],
+    "spi_exists": true,
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "same_boot": true
+  },
+  "final_owner_VDC": {
+    "P1rail": 1.783,
+    "U1_reset_node": 0.021
+  },
+  "shutdown_checkpoint": {
+    "record": {
+      "requested_at": "2026-10-31T11:37:38.125762-04:00",
+      "command": "sudo shutdown -h now",
+      "exit_code": 0,
+      "physical_unplug": "Owner confirmation/residual reading pending"
+    },
+    "correction": "Agent prematurely chose a stop at acquisition; owner explicitly requests continuing flash repair. Pi brought back on, same fixture values1.783/0.021; no physical-unplug residual confirmation claimed."
+  }
 }
