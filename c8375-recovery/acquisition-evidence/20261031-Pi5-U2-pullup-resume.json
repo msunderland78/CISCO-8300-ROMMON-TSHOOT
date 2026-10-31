@@ -112,5 +112,30 @@
     "next_requested": "Keep existing resistor and powered wiring unchanged. Meter DCvolts directly across actual resistor legs, redP1side/blackU1side; expected about0.538V if latest rail/CS values also occur at resistor endpoints. Also inventory available2.2k\u201310k values. No replacement chosen, no automatic lower-resistance escalation, no U2control/read.",
     "source_url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
     "agent_hardware_actions": "None"
+  },
+  "direct_drop_confirmation": {
+    "owner_reply": "0.538 exactly",
+    "resistor_drop_VDC": 0.538,
+    "polarity": "Requested red actual P1-side resistor leg, black actual U1-side resistor leg",
+    "resistor_ohms": 9940,
+    "inferred_resistor_current_A": 5.4124748490945675e-05,
+    "interpretation": "Feed and current through installed resistor supported by direct drop and measured resistor. Unknown on-board sink/loading remains; no specific driver/component identified. Does not establish U1 reliable deselection or powered independent selection."
+  },
+  "available_resistors_ohms": [
+    2200,
+    4700,
+    5600,
+    10000
+  ],
+  "reviewed_5600ohm_comparison": {
+    "status": "Selected as one separate bounded DC diagnostic; not installed/measured yet",
+    "reason": "After confirming measured9940ohm resistor, assembled grabber0.9ohm, nominal1.780V rail, U1=1.242V and direct resistor drop0.538V, assess response to closest lower available fixed resistor. This is an explicit reviewed change after prerequisites, not automatic escalation from10k or unpowered-divider modelling.",
+    "nominal_ohms": 5600,
+    "tolerance_percent": 1,
+    "maximum_added_current_A_at_2V_and_1percent_low_R": 0.00036075036075036075,
+    "maximum_resistor_power_W_at_2V_and_1percent_low_R": 0.0007215007215007215,
+    "limits": "This resistor-current bound does not establish unknown on-board topology or guarantee a successful/high-margin result. Same target1.8V rail, no new supply/selector/reset/OTP/firmware action. No additional resistance decrease or control/read follows automatically. If little improvement or instability, stop and review isolation/off-board acquisition.",
+    "owner_instructions": "Shut down/unplug Pi; confirm P1residual0V. Measure loose5.6k approximately5.54\u20135.66k then replace10k in same two breadboard connections, keep grabber/clip still. Secure circuit, meter DCvolts, Pi-only power. Report actual resistor ohms, P1rail and U1-side resistor leg to P1ground. No SPI/read.",
+    "result": "Pending owner report; no agent hardware access."
   }
 }

@@ -4,7 +4,14 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest powered result: U1pin7-to-P1ground1.242VDC; P1rail1.780VDC.
+Latest: direct actual resistor drop0.538V with9940ohms implies54.1uA;
+U1 remains1.242V/rail1.780V. Feed/contact checks now support reviewed
+one-time5.6k DC comparison (closest lower available; max0.361mA at2V
+and1% lowR). Parts available2.2k/4.7k/5.6k/10k. Pi shutdown/unplug/0V
+before replacement; measure5.6k, install same connections, secure/DCV/
+Pi-only power then report ohms/rail/U1CS. Planned, not performed.
+No automatic lower value/U2control/read. Unknown load remains unresolved.
+Earlier powered result: U1pin7-to-P1ground1.242VDC; P1rail1.780VDC.
 No demonstrated reliable high (nominalVIHmin1.246V; uncertainty unresolved).
 Other resistors available, values pending. Keep10k: next DCV across actual
 resistor legs redP1side/blackU1side; expect~0.538V if feed connected.
