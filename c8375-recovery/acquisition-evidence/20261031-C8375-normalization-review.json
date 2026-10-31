@@ -1,0 +1,250 @@
+{
+  "task_id": "C8375-04",
+  "chassis": "C8375-A/FDO2742M0FK",
+  "date": "2026-10-31",
+  "timezone": "America/New_York",
+  "recorded_at": "2026-10-31T12:49:00.803886-04:00",
+  "scope": "Read-only compatibility/identity investigation while recovered router stays in IOS and fan watch continues. No reboot after initial recovery reset, new firmware write, TPM clear, or fuse/provisioning change.",
+  "owner_observation": "Owner reports SSH connection/login working after restoration; agent continues on nativeUSB console rather than taking over SSH.",
+  "working_boot_settings": {
+    "firmware": "SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Release DEVELOPMENT",
+    "USER_BOOT_PARAM": "maxcpus=16 failure_shell initcall_blacklist=octeontx_edac_init",
+    "BOOT": "bootflash:packages.conf,12;",
+    "configuration_register": "0x1822",
+    "explanation": [
+      "16CPUs reported by SCP and kernel; older maxcpus24 causedEL3 secondary-start exception. Keeping16 matches observed hardware, not a demonstrated loss of available cores.",
+      "EDAC initialization blacklisted after recorded driver crash reading firmwareRAS data; not a TPM bypass or proof of healthy memory.",
+      "failure_shell retained diagnostic setting; not identified as essential for normal startup.",
+      "Automatic install boot restored with1822; exact original U2 firmware restoration was decisive today."
+    ]
+  },
+  "fresh_hardware_identity": {
+    "processor": "MV-CN10616-B0-AAP / PassB0;16cores;8GiB detected",
+    "chassis": "C8375-E-G2/V01/FDO2742M0FK",
+    "pcb_serial": "FDO27380KFQ",
+    "pcb_part": "73-20702-06",
+    "hardware_revision": "1.0",
+    "board_revision": "05",
+    "fab_version": "06",
+    "top_assembly": "68-7625-01",
+    "deviation_number": 0,
+    "cpld": "2408272B",
+    "psu": "P0Unknown/incompatible; omitted from inventory. Physical PSU label not yet verified.",
+    "fan": "C8300-FAN-1R/V02; firmware reportsok",
+    "unsupported_subslot": "0/4VDSP-CC reportsunsupported/out of service; built-in0/0 andR0/F0ok"
+  },
+  "identity_and_measurement_checks": {
+    "chassis": "C8375-A/FDO2742M0FK",
+    "certificate_chain": "Device root/intermediate DER exactly match Cisco PKI crca2099/hasudi; openssl chain verification passes at Mac clock.",
+    "certificate_subject": "PID:C8375-E-G2 SN:FDO2742M0FK / ACT-2 Lite SUDI",
+    "checks": {
+      "sudi": {
+        "nonce": 384720519,
+        "signature_version": 1,
+        "signature_bytes": 256,
+        "signature_algorithm": "RSA PKCS1v1.5 / SHA256",
+        "signature_verified": true,
+        "wrong_nonce_rejected": true,
+        "report_sha256": "72a7fe363c699648c8cab5f2265b90b3989596794c69ebd9ac258412b205728b"
+      },
+      "integrity": {
+        "nonce": 384720519,
+        "signature_version": 1,
+        "signature_bytes": 256,
+        "signature_algorithm": "RSA PKCS1v1.5 / SHA256",
+        "signature_verified": true,
+        "wrong_nonce_rejected": true,
+        "report_sha256": "bbb1138b00c8740b28c64e659062af8e971afe780b94c8a4c4f871b579027fc8"
+      }
+    },
+    "boot_measurement_fields_available": false,
+    "expected_pcr_reconstruction_verified": false,
+    "conclusion": "Live SUDI private-key possession and signed PCR report authenticity verified; boot0/loader/OS measurements missing. Does not establish complete TPM health, release-ROMMON compatibility, or successful measured-boot validation.",
+    "source_algorithm": "https://raw.githubusercontent.com/CiscoDevNet/verifybiv-tool/master/VerifySignature.py",
+    "raw_log": "c8375-recovery/console-logs/20261031-122359-console.log"
+  },
+  "official_ca_sources": [
+    {
+      "url": "https://www.cisco.com/security/pki/certs/crca2099.pem",
+      "file": ".git/recovery-private/console-20261031/sudi-public-certificates/cisco-root-official.pem",
+      "sha256": "cacc8479dfad51ae7e7182ec5a1e2bf2564a353ff829d80bb6049a7e83867497"
+    },
+    {
+      "url": "https://www.cisco.com/security/pki/certs/hasudi.pem",
+      "file": ".git/recovery-private/console-20261031/sudi-public-certificates/cisco-ha-sudi-official.pem",
+      "sha256": "e31803df521914eb475fcaf456836d55cb99f508acbfe9ea5c5a032f3ae61541"
+    }
+  ],
+  "revocation_scope": "CRL/revocation status not checked; certificate dates/signatures/official-root match and fresh proof of possession are separate from full device/TPM health.",
+  "analysis_provenance": {
+    "source_private_path": ".git/recovery-private/console-20261031/biv-offline-verification/verify-live-biv-analysis.py",
+    "source_sha256": "a3bf81fbd0acdc11b0e297e9696eb60727aadb2fcb3fe6197599e640592a8200",
+    "authorship": "AI-assisted original one-session offline analysis, informed by CiscoDevNet reference algorithm; vendor verifier was read as source and not executed/imported.",
+    "dependencies": "Python3standardlibrary and localopenssl CLI; strictversion1 message packing, SHA256/PKCS1v1.5. No serial/programmer/network action in verifier.",
+    "executed_command": "python3 /private/tmp/c8375_verify_live_biv.py",
+    "validation": "Both captured signatures pass; both changed-nonce negative controls fail; root/intermediate DER exactly match CiscoPKI, leaf chain verifies. Missing boot measurements prevent expectedPCR reconstruction."
+  },
+  "failed_upgrade_evidence": [
+    {
+      "stage": "Packaged secure update",
+      "observed": "OriginalUEFI cannot Locate BIOS protection protocol; StartImage8; returns to originalROMMON.",
+      "interpretation": "Missing upgrade interface in originaldevelopment firmware is established for this path; no exact supportedbridge is identified."
+    },
+    {
+      "stage": "Native raw write and later no boot",
+      "observed": "Payload bytes exactly match vendorSoC2raw; extra upper writes repaired from original; full expected32MiBreadback68c695verified. October31 accurate physicalU2pair independentlymatches thatfailed-stateimage. No normal boot output aftersoft/cold reset. Exact original72fc3frestoration returnsSCP/ROMMON/IOS.",
+      "interpretation": "Simple payload corruption is not supported by readback. Compatibility/signing-format/earlyhardwareinitialization/bootroute remain alternatives; exactfailingstage unknown. CPU/EDACworkaroundsalreadyretainedbeforefailed17.18boot."
+    }
+  ],
+  "offline_artifact_comparison": {
+    "source_hashes_and_raw_header_words": {
+      "files": [
+        {
+          "path": "c8375-recovery/restore-original-20261023/C8375-FDO2742M0FK-ORIGINAL-SPI-32MiB.bin",
+          "bytes": 33554432,
+          "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+          "raw_header_observations": [
+            {
+              "offset": "0x10000",
+              "first_four_words": [
+                "0x54494d48",
+                "0x300001",
+                "0x1",
+                "0x940"
+              ],
+              "word9_zero_based": "0x0"
+            },
+            {
+              "offset": "0x20000",
+              "first_four_words": [
+                "0x54494d48",
+                "0x300001",
+                "0x1",
+                "0x420"
+              ],
+              "word9_zero_based": "0x0"
+            }
+          ]
+        },
+        {
+          "path": "ROMMON-extracted/soc2/mirabile_soc2_uefi64_rel_ios_upgrade_SPA.bin",
+          "bytes": 16580608,
+          "sha256": "cfcf1ae38c2886e9d28138d3428636c2c8345b903bbef522f8e9ebfb363ff985",
+          "raw_header_observations": [
+            {
+              "offset": "0x10000",
+              "first_four_words": [
+                "0x54494d48",
+                "0x300001",
+                "0x1",
+                "0x870"
+              ],
+              "word9_zero_based": "0x402"
+            },
+            {
+              "offset": "0x20000",
+              "first_four_words": [
+                "0x54494d48",
+                "0x300001",
+                "0x1",
+                "0x720"
+              ],
+              "word9_zero_based": "0x402"
+            }
+          ]
+        },
+        {
+          "path": "c8375-recovery/original-staged-firmware/SDK112310-UEFI-SoC2-SB-v11.2.7_RSA4K.img",
+          "bytes": 16580608,
+          "sha256": "5fba35fb4006cea0baf77a120b80830cfbe6bf392cf7fed1e4ae1f69b91549e5",
+          "raw_header_observations": [
+            {
+              "offset": "0x10000",
+              "first_four_words": [
+                "0x54494d48",
+                "0x300001",
+                "0x1",
+                "0x1154"
+              ],
+              "word9_zero_based": "0x402"
+            },
+            {
+              "offset": "0x20000",
+              "first_four_words": [
+                "0x54494d48",
+                "0x300001",
+                "0x1",
+                "0x720"
+              ],
+              "word9_zero_based": "0x402"
+            }
+          ]
+        },
+        {
+          "path": "c8375-recovery/original-staged-firmware/SDK112312-Prod-SoC2-v17.15.1_13d-cp-RSA2K.pkg",
+          "bytes": 5753916,
+          "sha256": "19eee4479d00c588b7775ab2c5234f01131cd8ea89ad1a095843317897660538",
+          "raw_header_observations": []
+        }
+      ],
+      "interpretation": "Raw observed header words only. No TIM signing algorithm inferred from undocumented field values; staged filename RSA labels are not compatibility proof. Files unchanged; no firmware write."
+    },
+    "staged_17_15_package_review": {
+      "source": "c8375-recovery/original-staged-firmware/SDK112312-Prod-SoC2-v17.15.1_13d-cp-RSA2K.pkg",
+      "iso_offset": 1084,
+      "listing_exit": 0,
+      "note": "Offline listing only; staged file is not an approved restore/upgrade candidate.",
+      "extracted_files": [
+        {
+          "path": ".git/recovery-private/console-20261031/staged-17.15-offline-review/unapproved-staged-17.15-latest.bin",
+          "archive_path": "rommon/esg/RP/CRESTONE/latest.bin",
+          "bytes": 16580608,
+          "sha256": "9f28f17689968529b9e5a4c286c1a52e9e1377fd3f270134a356cf7c9ecaba9a",
+          "raw_headers": [
+            {
+              "offset": "0x10000",
+              "first_four_words": [
+                "0x54494d48",
+                "0x300001",
+                "0x1",
+                "0xa54"
+              ],
+              "word9_zero_based": "0x402"
+            },
+            {
+              "offset": "0x20000",
+              "first_four_words": [
+                "0x54494d48",
+                "0x300001",
+                "0x1",
+                "0x420"
+              ],
+              "word9_zero_based": "0x402"
+            }
+          ]
+        },
+        {
+          "path": ".git/recovery-private/console-20261031/staged-17.15-offline-review/unapproved-staged-17.15-capsule.bin",
+          "archive_path": "rommon/esg/RP/CRESTONE/capsule.bin",
+          "bytes": 16605912,
+          "sha256": "c1c8d28794ae183c133e6773d21bc15e4e85c76b55209d687944e111e35f8de7"
+        }
+      ],
+      "status": "Offline-only unapproved intermediate lead; no flash, authentication, or compatibility conclusion."
+    },
+    "interpretation": "All identifiedraws containobserveddifferentTIMheaderwords. FilenameRSA2K/RSA4KlabelsandmatchingSoC/size are not sufficient compatibility/authentication evidence. Staged17.15CRESTONEpayload extracted offline and retainedprivate/unapproved; no upload/write."
+  },
+  "production_compatibility_source": {
+    "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html",
+    "table": "C8375-E-G2/26.2.1minimum17.15(3.2r).s2.cp, recommended17.18(3r).s2.cp",
+    "limit": "Productionmodel table is not a validated transition from this developmentROMMON/boardtuple."
+  },
+  "next_discriminating_steps": [
+    "Completeextendedfan/uptimewatch; preservePSU/chassisfan distinction and samplingcachelimit.",
+    "VerifyphysicalPSUlabel againstmodelrequirements at an appropriatephysicalcheckpoint; softwarePIDblankalone doesnotprovewronghardware.",
+    "Usefreshhardwaretuple, original/failedhashes, missingBIOSprotocolandTIMdifferences toidentifyaCisco-supported signedbridge/transitionfor thisrevision. No newflashcandidateapprovedbythisreview.",
+    "Resolvebootmeasurement/CPUUUIDintegrationwithcorrectboardfirmware; liveSUDIsigningdoesnotexplainChipGuardwarningbyitself.",
+    "RetainEDACworkarounduntilthereisavendor-supportedfirmware/driverfixoradiscriminatingmaintenanceplan; donotre-enableknowncrashingdriverasroutinevalidation.",
+    "Afteraboundedvalidatedupgradepath, recheckautomaticcoldboot,measurements,fanbehavior andcontrolledport/forwardingtests."
+  ]
+}

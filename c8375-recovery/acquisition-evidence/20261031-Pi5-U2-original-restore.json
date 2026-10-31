@@ -340,5 +340,23 @@
     "limitations": "Initial recovery milestone only; no new traffic test or extended stability qualification. Current audible fan behavior/STATUS follow-up pending. NativeUSB brief startup pause resolved without cable switch.",
     "owner_followup": "All lights green; all fans currently steady low speed. Owner requests checking delayed cycling seen before. Fifteen-minute host-timed environmental/uptime sampling started around12:32EDT; result pending.",
     "remaining_followup": "Extended fan observation running; P0incompatible/P1empty and other documented alarms persist."
-  }
+  },
+  "fan_followup": {
+    "status": "45-minute extended watch running from around12:35EDT, planned end around13:20EDT.",
+    "reason": "Owner uncertain prior cycling began5-15min or30min+; asks to monitor. Owner proposes ramp timing changes if cycling returns.",
+    "sampling": "Read-only show environment all and uptime every20seconds; raw console capture retained. CLI sensor cache may refresh more slowly. No fan-control/thermal setting changed.",
+    "documentation": [
+      {
+        "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/hardware_installation-guide/secure-8300-series-hig/overview-8300-series-secure-routers/hardware-features-of-cisco-8300-series-secure-routers.html",
+        "finding": "C8375-E-G2 chassis ventilation: temperature-sensor-controlled speed, fans continuously on, higher speeds as needed for ambient/altitude."
+      },
+      {
+        "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/software-config-guide/secure-8300-series-scg/isr9000swcfg-xe-16-12-book_chapter_01100.html",
+        "finding": "Environmental reports update every60seconds according to guide; debug example contains20second poll periods. Actual waveform/cache timing not independently established."
+      }
+    ],
+    "inference": "No documented user ramp-time command found in reviewed model guides/search. This is not proof that firmware has no internal fan policy; hysteresis/dwell adjustment remains conditional on establishing cycling cause and a verified control interface.",
+    "limitations": "Repeated cached readings are not independent physical samples; cannot exclude short audible surges. Owner audible observations separate. PSUincompatible remains a possible correlate, not established fan-cycling cause."
+  },
+  "verification_scope_note": "The exact72fc3f full readback proves post-program original equality before fixture removal. Subsequent authorized ROMMON confreg0x1822/sync changes saved monitor settings; no later whole-array original-hash claim is made."
 }
