@@ -1,0 +1,79 @@
+{
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "recorded_at": "2026-10-31T16:15:59.198277-04:00",
+  "timezone": "America/New_York",
+  "state": "maintenance shell; storage unmounted; console closed at 16:15:29 EDT; corrected IOS trial pending",
+  "cables": "power, RJ45 console, USB storage only; user confirmed no Ethernet",
+  "image": {
+    "file": "c8kg2be-universalk9.26.02.01.SPA.bin",
+    "bytes": 1048008916,
+    "sha256": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456"
+  },
+  "kernel": "6.6.95",
+  "native_limit": 128,
+  "cisco_arata_limit": 32,
+  "actual_af_vfs": 32,
+  "startup_expected_af_vfs": 16,
+  "native_allocations": 38,
+  "limited_trial_allocations": 32,
+  "limited_trial_failures": [
+    "PF0:VF5",
+    "PF0:VF6",
+    "PF0:VF7",
+    "PF0:VF8",
+    "PF0:VF9"
+  ],
+  "limited_trial_order": "lexicographic virtfn*; historical normal boot uses PCI order and fails VF27-31",
+  "retained_bound_af_vfs": "0-15",
+  "detached_af_vfs": "16-31",
+  "corrected_isolated_allocations": 21,
+  "sriov_count_change": "rejected unsupported twice; remains32",
+  "single_vf_test": "0002:01:04.0 / lbk31 / PF0:VF31 releases and reuses resource37",
+  "live_dtb_property": "/sys/firmware/devicetree/base/soc@0/pci@878020000000/rvu-admin@0/num-rvu-vfs: 00 00 00 20",
+  "vendor_script_sha256": "f7d617bd80362c4bc564fc2c848bd95ecf84251be0d11e1707a95ca301d8cdc4",
+  "ram_candidate_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857",
+  "authored_wrapper": {
+    "path": "experimental-recovery/c8235-b-bound16-20261031/boot-bound16.sh",
+    "bytes": 2579,
+    "sha256": "1e862ec1208b77707666dceeb9f007d20626f048d425cb163ea895b694c70650"
+  },
+  "captures": [
+    {
+      "path": "router-console-logs/20261031-160543-console.log",
+      "bytes": 52,
+      "sha256": "83de07f2789fba45e9d70965ef2663af20d63fb821a44bc316b6fd86c53a0498"
+    },
+    {
+      "path": "router-console-logs/20261031-160639-console.log",
+      "bytes": 186128,
+      "sha256": "7743755c50398636a02eded53ee58e8bd2e0e79aa3110b8d9f0fec448f88a24e"
+    }
+  ],
+  "preservation": {
+    "USB_directory": "C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC",
+    "mmcblk0p2-before.bin": {
+      "bytes": 33554432,
+      "sha256": "600f9931a67956c248088aeafcf621b1f1b08ef3aa0b5b8d0ccf8219ae90a1dd",
+      "source_equals_copy": true
+    },
+    "mmcblk0p3-before.bin": {
+      "bytes": 33554432,
+      "sha256": "600f9931a67956c248088aeafcf621b1f1b08ef3aa0b5b8d0ccf8219ae90a1dd",
+      "source_equals_copy": true
+    },
+    "packages-before.conf": {
+      "bytes": 7947,
+      "copy_sha256": "2be6ac7c40a203f220ec53ea591115a4dc989f6e015d296cbfd70e5d5005754a"
+    },
+    "limitations": "Raw partitions not decoded as startup config; copies remain on USB, never published."
+  },
+  "rollback": "Reboot without wrapper; verify unsaved USER_BOOT_PARAM absent. No environment sync or confreg change. Persistent image and ROMMON unchanged.",
+  "validation": [
+    "bash -n wrapper",
+    "exact vendor-script hash on router matches offline extracted file",
+    "exact insertion anchor verified offline",
+    "USB wrapper hash matches authored file"
+  ],
+  "acceptance": "IOS and forwarding not tested in this phase; maintenance survival is not stability"
+}

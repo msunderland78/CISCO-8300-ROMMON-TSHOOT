@@ -46,6 +46,31 @@ both descriptors closed. No prompt/current firmware or crash confirmed.
 Next: captured controlled power-on after the remaining state check.
 No reboot or persistent setting changed; silence does not prove dead CPU.
 
+RESOURCE EXPERIMENT CHECKPOINT — 2026-10-31, 16:15 EDT
+Supersedes the older USB-on-Mac/prompt status below. Owner moved CISCO FILES
+to B after safe eject and confirms only power, RJ45 console and USB storage;
+no Ethernet. USB 26.2.1 hash reverified. Unsaved maintenance-shell parameter
+boots kernel6.6.95, no IOS. Native drivers allocate 6 PFs +32 AF VFs at
+nix_maxlf128. Live device tree and PCI expose32 AF loopbacks; Cisco's exact
+26.2.1 ARATA launch_net.sh expects16 and sets nix_maxlf32 during rebind.
+Reproduced allocation exhaustion at32; unbinding VF16-31 and binding all
+VF0-15 yields21 successful allocations (5 PFs +16 VFs). A single-VF release
+reuses its slot. AF sriov_numvfs writes fail unsupported; advertised count
+remains32. This explains early allocation failure; CPP recovery still untested.
+
+Explicit runtime driver/devlink/bind tests followed the observed mismatch;
+no image/ROMMON/confreg/security write. Read internal ext4 ro,noload;
+13,508,984 KiB available. Preserved p2/p3 raw32MiB copies and packages.conf
+on USB diagnostic directory, matching hashes; not a decoded config export.
+Prepared experimental-recovery/c8235-b-bound16-20261031/boot-bound16.sh,
+syntax/USB hash checked. Next: one manual 26.2.1 boot with RAM-only startup
+hook detaching excess AF VFs before normal Cisco configuration, then assess
+F0/CPP. Restore by booting without wrapper; verify unsaved parameter absent.
+All storage synced/unmounted. Powered at maintenance shell, capture closed
+and port free16:15:29 EDT; no corrected IOS boot/stability result yet.
+Evidence: crash-review-20261031/REVIEW.md and resource-experiment.json;
+router-console-logs/20261031-160639-console.log (public sanitized counterpart).
+
 FRESH POWER-CYCLE CHECKPOINT — 2026-10-31, 16:02 EDT
 Owner requested/confirmed power-cycle after capture was armed. Fresh output
 confirms Arata r2/A0, July 2024 boot stub and unchanged development ROMMON
