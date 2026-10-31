@@ -10,14 +10,14 @@ The repository name mentions 8300; the project covers **both 8200 and 8300 work*
 
 ## Current recovery status
 
-The fleet overview retains dated hardware baselines; **C8375-A flash acquisition was updated October 31, 2026 (America/New_York)**. Check the active plan and current contexts for the latest fixture and results. Acquisition tests do not establish successful router boot.
+The fleet overview retains dated hardware baselines; **C8375-A original-firmware restoration was updated October 31, 2026 (America/New_York)**. Check the active plan and current contexts for the latest fixture and results. Acquisition tests do not establish successful router boot.
 
 | Device | What we know | Next evidence needed |
 | --- | --- | --- |
 | C8235-A: worked Arata unit | Console ID `FGL2835L42B`; newer firmware reaches a TPM manufacturing-status halt before Cisco ROMMON. No complete original primary development-flash backup is available. | Separate reads of both flash chips; identify surviving development code and physical bank routing |
 | C8235-B: other assembled unit | `FGL2835LBHU`, Arata r2, development ROMMON retained. Installed 17.18.3a and verified USB 26.2.1 reach CLI, then `cpp_cp_svr` fails with rc139 and F0 goes offline. 26.2.1 subsequently reloads after 300 seconds of missed keepalives. Maintenance Linux archived/verified and removed 59 reports, leaving about 10.6 GB available; the cleaned USB retest still failed with CPP rc139/F0 offline and reload while about 9.5 GB remained free. It is now stopped at ROMMON. Two matching read-only snapshots of one logical SPI device are preserved on USB; physical bank mapping remains unresolved. | Inspect the preserved fresh system report and initialization evidence; map and back up both physical flash chips |
 | C8235-C: disassembled unit | User confirms this remaining unit is taken apart; serial is pending. Earlier C8235 measurements were on another replica, rather than the primary-flashed unit. | Bind measurements to its actual serial and preserve both flash banks |
-| C8375-A: Crestone unit | Chassis `FDO2742M0FK`; no normal startup after the ROMMON experiment. Original snapshot retained; October31 two full physical U2reads exactly match the failed-update image, using unused U1RESET inhibit without board rework. | Restore the exact same-chassis original to identified U2, verify full readback, then cold-boot test; independent U1acquisition remains pending |
+| C8375-A: Crestone unit | Chassis `FDO2742M0FK`; no normal startup after the ROMMON experiment. Original snapshot retained; October31 two full physical U2reads exactly match the failed-update image, using unused U1RESET inhibit without board rework. | Exact same-chassis original restored to U2 October31; separate full readback matches byte for byte. Remove fixture and cold-boot test next; independent U1 acquisition remains pending |
 | C8300-A | Reported steady red STATUS with green power/fan indications and no console through either connection type. Full PID suffix and serial are pending. | Validate each console path separately, then inspect hardware and identify boot storage if still silent |
 
 The labels above are tracking IDs, not proof that a physical chassis has been labeled. A quiet console, an LED, or a matching flash readback alone does not establish the failing component or successful recovery.

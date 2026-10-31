@@ -4,7 +4,15 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: ORIGINAL pre-upgrade72fc3f image restore RUNNING11:56EDT,
+Latest: Original U2 restore VERIFIED, October31 11:56-12:11EDT.
+Automatic flashrom verify passes. Separate full33554432-byte readback
+imported locally: SHA25672fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107,
+zero original differences across all five regions. U1 not written.
+Pi shutdown accepted12:17EDT; physical unplug/0V/fixture removal pending.
+Cooling intact/battery available; native USB console first, RJ45 fallback.
+No post-restore router boot yet. Next remove fixture/reinstall battery,
+then capture115200/8N1/no-flow cold boot.
+Earlier: ORIGINAL pre-upgrade72fc3f image restore RUNNING11:56EDT,
 SDK112308/UEFI-ROMMON-SoC2-v9.2.1.17.18 is failed-state backup only.
 Source/original backups/gates checked, U2target/U1RESETlow. Selected
 payload+environment writes/full auto verify then independent fullreadback.

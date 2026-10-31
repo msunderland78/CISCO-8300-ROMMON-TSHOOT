@@ -4,7 +4,7 @@
   "timezone": "America/New_York",
   "chassis": "C8375-A/FDO2742M0FK",
   "physical_target": "U2",
-  "status": "Original-image restore running; write/verification results pending",
+  "status": "Original U2 firmware restored; automatic verification and independently imported full readback pass. Router boot pending.",
   "owner_authorization": "Owner explicitly requests continuing to fix flash now after verified U2backups; existing recovery authorization continues. No new approval gate.",
   "target_basis": "Both current physicalU2full reads exactly match native spi0.0 failed-update verified readback68c695...fe88b. This content ties original active-device snapshot to U2 without assigning a primary/golden role.",
   "backup_evidence": "20261031-Pi5-U2-reset-held-full-reads.json",
@@ -133,7 +133,7 @@
   "other_flash": "U1 held in reset via10k toGND; not a write target. A newly qualified full U1backup has not been obtained; historical U1captures retained with accuracy concerns. Do not mark both-chip backup task complete.",
   "verification_plan": "After successful write/automatic verify, separate full32MiB readback into fresh private file; hash and byte-compare all bytes to72fc3f original, including preserved regions. Stop on failure; no automatic write retry.",
   "source": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/doc/classic_cli_manpage.rst",
-  "runtime": "Not started",
+  "runtime": "Completed 2026-10-31T12:11:27-04:00; independently checked locally before Pi shutdown at12:17EDT.",
   "purpose": "Restore the exact pre-upgrade SDK112308/UEFI-ROMMON-SoC2-v9.2.1 original because17.18-3r prevented boot.17.18 is backup/reference evidence only, not the restore candidate.",
   "runtime_at_checkpoint": {
     "started_at": "2026-10-31T11:56:10.620805-04:00",
@@ -177,5 +177,133 @@
     "boot_id": "4e22732b-df81-4ab3-a259-24d34efc7327"
   },
   "worker_source_sha256": "e21014568258db54feedf4f14b2b45b924f5777c315b110c47c7dffca4a3f17a",
-  "interruption_policy": "Detached worker survives SSH loss; no external kill timeout on erase/program. Stop after nonzero write result, no write retry. Independent readback uses bounded read-only timeout."
+  "interruption_policy": "Detached worker survives SSH loss; no external kill timeout on erase/program. Stop after nonzero write result, no write retry. Independent readback uses bounded read-only timeout.",
+  "completion": {
+    "started_at": "2026-10-31T11:56:10.620805-04:00",
+    "target": "C8375-A/FDO2742M0FK/U2",
+    "status": "verified",
+    "phase": "finished",
+    "directory": "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30",
+    "id_status_gate": {
+      "id": "20bb19",
+      "status": 2
+    },
+    "write_command_without_credentials": [
+      "sudo",
+      "-S",
+      "-p",
+      "",
+      "flashrom",
+      "-V",
+      "-p",
+      "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+      "-c",
+      "MT25QU256",
+      "-l",
+      "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/restore.layout",
+      "-i",
+      "payload",
+      "-i",
+      "environment",
+      "-w",
+      "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/original-72fc3f.bin",
+      "-o",
+      "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/write.log"
+    ],
+    "write_exit_code": 0,
+    "readback_command_without_credentials": [
+      "sudo",
+      "-S",
+      "-p",
+      "",
+      "timeout",
+      "--signal=INT",
+      "--kill-after=10s",
+      "1200s",
+      "flashrom",
+      "-V",
+      "-p",
+      "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+      "-c",
+      "MT25QU256",
+      "-r",
+      "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/U2-restored-full-readback.bin",
+      "-o",
+      "/home/sundema/C8375-U2-ORIGINAL-RESTORE-45swd_30/readback.log"
+    ],
+    "readback_exit_code": 0,
+    "readback_bytes": 33554432,
+    "readback_sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+    "different_bytes_from_original": 0,
+    "finished_at": "2026-10-31T12:11:27.540235-04:00",
+    "complete": true,
+    "observed_at": "2026-10-31T12:13:00.346755-04:00",
+    "log_stage": "verify",
+    "automatic_verify_reported": true,
+    "active_flashrom_pids": [],
+    "boot_id": "4e22732b-df81-4ab3-a259-24d34efc7327"
+  },
+  "independent_local_validation": {
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261031-original-restore-readback",
+    "bytes": 33554432,
+    "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+    "different_bytes_from_exact_original": 0,
+    "regions": [
+      {
+        "name": "firmware_payload",
+        "bytes": 16580608,
+        "different_bytes_from_original": 0
+      },
+      {
+        "name": "observed_preserved_gap",
+        "bytes": 200704,
+        "different_bytes_from_original": 0
+      },
+      {
+        "name": "upper_preserved_before_env",
+        "bytes": 15921152,
+        "different_bytes_from_original": 0
+      },
+      {
+        "name": "monitor_environment",
+        "bytes": 131072,
+        "different_bytes_from_original": 0
+      },
+      {
+        "name": "upper_preserved_after_env",
+        "bytes": 720896,
+        "different_bytes_from_original": 0
+      }
+    ],
+    "private_file_sha256": {
+      "U2-restored-full-readback.bin": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+      "readback-stdout.log": "d39d18084b4afe3f40daa086cf41c6a87033cd4a7db5ec0465b0f8c9849464cd",
+      "readback.log": "171ea7c91ee790e770684786ad0917e12b3182946f26c93afa1f99b60ef80f6e",
+      "restore-completion.json": "6cd35d9a04dd40d160afbc3f9a8b8d07ceaaa41ee9ab48e7edbd0bf41352a49a",
+      "restore-launcher.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore-progress.json": "6cd35d9a04dd40d160afbc3f9a8b8d07ceaaa41ee9ab48e7edbd0bf41352a49a",
+      "restore.layout": "1ceca0f0c92635efea64bda86f102ed7b21ad489cf3de302c257add0feceab9d",
+      "write-once.lock": "e196eaa0b921c3f606c969dc26fc665531f57f4d4e30b83b4fa5c7ac131c6790",
+      "write-stdout.log": "c2d946230764eda300a44970c34d9d7bd0cbfaa3ef49b69643f90c50a7be1735",
+      "write.log": "b9e2c905704eed95dd6c1e49671a6d3827942713f576e3268545a6b5ea63a4b0"
+    }
+  },
+  "postflight": {
+    "boot_id": "4e22732b-df81-4ab3-a259-24d34efc7327",
+    "busy_pids": [],
+    "spi_exists": true,
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "same_boot": true
+  },
+  "shutdown": {
+    "requested_at": "2026-10-31T12:17:16.894551-04:00",
+    "exit_code": 0,
+    "purpose": "Power down after locally verified exact original U2 restore; physical unplug and zero rail voltage pending owner confirmation."
+  },
+  "boot_preparation": {
+    "owner_reports": "Heatsinks and fans never removed; CR2032 available. Native USB console preferred, RJ45 adapter fallback.",
+    "pending": "Physically unplug Pi and confirm P1 residual0V, remove every programming connection and reset fixture, reinstall CR2032, confirm chassis/console ownership and capture115200cold boot.",
+    "boot_status": "Not yet attempted after restoration."
+  }
 }
