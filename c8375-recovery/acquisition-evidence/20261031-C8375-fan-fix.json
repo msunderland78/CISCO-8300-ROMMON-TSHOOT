@@ -7,8 +7,8 @@
     "pid": "C8375-E-G2",
     "serial": "FDO2742M0FK"
   },
-  "status": "Fan cycling unresolved on both releases; no verified suppression EEM/actuator.17.15.6 now committed to preserve owner-selected release for the same-PSU slot comparison. Slot movement instructed but not yet owner-confirmed.",
-  "physical_state": "C8375-A/FDO2742M0FK on normal router power; programming fixture removed, CR2032 restored, cover installed/vents clear. Unsupported non-P voice NIM removed, absent in fresh inventory, blank installed. NativeUSB console unplugged; RJ45 cable and USB storage attached. Agent RJ45 capture now closed and port verified free; owner SSH untouched.",
+  "status": "Fan cycling unresolved on26.2.1 and17.15.6; samePSU P0\u2192P1 move failsfansteadiness andPSUrecognition.17.15.6/Cstate coldbootverified; no validatedEEM/override.",
+  "physical_state": "C8375-A/FDO2742M0FK onnormalpower, PSUlatchedP1 andP0blankfitted ownerconfirmed; coveron/ventsclear, programmerfixtureabsent, CR2032restored. Routerremains on; agentSSH/serialclosed, ownerSSHuntouched.",
   "owner_psu_label": {
     "model": "PWR-CC1-250WAC",
     "serial": "LIT2852A9TJ",
@@ -97,14 +97,13 @@
     "ownership": "lsof free and exclusive open before capture; exclusive bridge closed and lsof free afterwards.",
     "limitation": "Initial commands and first P2 help reply succeeded. Subsequent help, Ctrl-C and one XON/show-clock attempt had no received output. Owner SSH subsequently responds to the fan-help query; this was a native-console-path interruption, not evidence of router halt."
   },
-  "changes": "Initial diagnostics read-only. Authorized IOS comparison activated17.15.6; owner requested retaining it, pending installabort was declined and auto-abort stopped. For subsequent owner-proposed PSUslot powercycle, installcommit succeeded15:20:35EDT and IMG C was independently verified. No ROMMON/CPLD/ENVMCU change, fan-policy/PWM/register/EEPROM write, EEM installation, fault injection or security-state change. Physical PSUmove/boot pending.",
+  "changes": "IOS17.15.6 activated/committed andcoldbootverified. Owner moved samePSU P0\u2192P1 andblankedP0. NoROMMON/CPLD/ENVMCU orfan-policy/register/PWM/EEPROM/security-state write, noEEM/faultinjection. Capturesclosed; routeron.",
   "next_steps": [
-    "Current next hardware step is owner-proposed same-PSU P0-toP1 comparison with power off/AC removed and empty bay blanked; boot capture and P0/P1 recognition plus fan behavior remain unperformed.17.15.6 committed,26.2.1 recovery files retained.",
-    "Identify a board-specific supported fan profile/control method or exact matching ENVMCU firmware candidate. Inspected diagnostic attributes/help do not provide a validated timing adjustment. Inspect any owner-supplied candidate offline before considering writes; do not guess raw registers.",
-    "A supported PWR-CC1-400WAC comparison remains useful for compatibility and PSU causality; owner has no spare. No purchase or cure promised.",
-    "After a justified correction, repeat sustained fan/environment and functional qualification. Preserve original boot firmware and all unique security data."
+    "Keepcurrent17.15.6/P1setup whilepursuingvalidatedcontrolleractuator/profile/ENVMCUinfo; no viablefan-suppressionEEM identified.",
+    "Supported400WPSU comparison remains auseful compatibility/causalitytest whenavailable, notaproven ormostlikelyfanfix. Ownerhasnospare; nopurchase.",
+    "Afteranyjustifiedcorrection, recaptureatleast45minfan/environmentstability; boot/recognition/steadiness/forwardingremainseparate."
   ],
-  "updated_at": "2026-10-31T15:22:59.024798-04:00",
+  "updated_at": "2026-10-31T15:35:33.784306-04:00",
   "offline_display_script_review": {
     "source": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
     "squashfs_offset": 4096,
@@ -158,25 +157,29 @@
     "earlier_show_attempt": "show upgrade hw-programmable file failed creating /tmp/hwprg_upgrade_pub with Permission denied. No permission changes or retry through weakened protections."
   },
   "final_state": {
-    "host_query_at": "2026-10-31T15:06:00.086312-04:00",
+    "host_commands_at": "2026-10-31T15:32:35.157597-04:00",
     "identity": "FDO2742M0FK",
-    "ios_uptime": "29 minutes",
-    "configuration_register": "0x1822",
-    "installed": "IMG U17.15.06.0.770",
-    "auto_abort": "inactive",
-    "commit_issued": false,
-    "cpu_celsius": 33,
-    "inlet_1_celsius": 27,
-    "working_celsius": 27,
+    "ios": "17.15.6 / IMG C17.15.06.0.770 / auto-abortinactive",
+    "uptime": "6minutes",
+    "confreg": "0x1822",
+    "p0": "Unknown/empty",
+    "p1": "Unknown/incompatible",
+    "p2": "C8300-FAN-1R / ok",
+    "r0_f0": "ok/active",
+    "cpld": "2408272B",
+    "fpga_show_hw_programmable": "N/A",
+    "original_rommon": "SDK112308-UEFI-ROMMON-SoC2-v9.2.1 development retained",
+    "cpu_celsius": 34,
+    "inlet1_celsius": 28,
+    "working_celsius": 28,
     "fans_rpm": [
-      8340,
-      8460,
-      8280
+      5520,
+      5460,
+      5340
     ],
-    "environment_states": "All displayed Normal",
-    "router_power": "On; no later reboot or power action",
-    "qualification": "Fan cycling remains reproduced; no steady-fan or forwarding qualification.",
-    "scope": "Historical15:06pre-commit snapshot; superseded install state in PSU-slot comparison evidence."
+    "displayed_sensor_states": "AllNormal",
+    "physical": "Owner confirms samePSU fullylatchedP1, blankfittedP0, coverfitted; router remainspowered, fixtureabsent.",
+    "agent_connections": "SSH andRJ45capture bothclosed cleanly; serialportfree; ownerSSH untouched."
   },
   "owner_update_after_final_snapshot": {
     "recorded_at": "2026-10-31T14:09:16.597924-04:00",
@@ -286,5 +289,41 @@
       "https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/syst-mgmt/b-system-management/m_eem-policy-cli.html"
     ],
     "current_practical_test": "Same-PSU P0-toP1 slot comparison is now being prepared at owner request; see20261031-C8375-PSU-slot-comparison.json. Supported400W comparison remains deferred, not a prerequisite for offline research."
+  },
+  "pre_slot_final_state": {
+    "host_query_at": "2026-10-31T15:06:00.086312-04:00",
+    "identity": "FDO2742M0FK",
+    "ios_uptime": "29 minutes",
+    "configuration_register": "0x1822",
+    "installed": "IMG U17.15.06.0.770",
+    "auto_abort": "inactive",
+    "commit_issued": false,
+    "cpu_celsius": 33,
+    "inlet_1_celsius": 27,
+    "working_celsius": 27,
+    "fans_rpm": [
+      8340,
+      8460,
+      8280
+    ],
+    "environment_states": "All displayed Normal",
+    "router_power": "On; no later reboot or power action",
+    "qualification": "Fan cycling remains reproduced; no steady-fan or forwarding qualification.",
+    "scope": "Historical15:06pre-commit snapshot; superseded install state in PSU-slot comparison evidence."
+  },
+  "same_psu_slot_test": "Completed; c8375-recovery/acquisition-evidence/20261031-C8375-PSU-slot-comparison.json records17.15.6 coldboot/P1incompatible andearlycyclewithpeak12480RPM.",
+  "purchase_confidence": {
+    "owner_question": "Is gettingPWR-CC1-400WAC mostlikelythesolution?",
+    "answer": "Not establishedasmostlikely. It correctsa concrete publishedcompatibilitydiscrepancy, but no supportedPSUcomparison provesitcausesfan cycling. Bothslots were testedwiththesame250Wunit; controllerprofile/firmware alternativesremain. Preferborrow/returnabletest overa costlynonreturnablepurchase solelyfora fan cure. No purchase made."
+  },
+  "offline_cpld_script_review": {
+    "artifact": {
+      "local_only": ".git/recovery-private/ios-comparison-20261031/controller-research/mirabile_upgrade_hwprg_cpld.sh",
+      "bytes": 3241,
+      "sha256": "80e2ff3b5c391220603c6c58b583d2cc5ec1073f78234e485c3a095af4b4ba5c"
+    },
+    "provenance": "Extractedoffline fromhash-matched17.15.6 monowealreadyverified; notexecuted.",
+    "finding": "ThisparticularscriptdescribesAikido upgrade andcalls tam_fw_upgrade on cpld_upgrade.bin. It is not validatedas the fanENVMCU updater. Scriptpresence doesnotprove currentCLIselection orwhichallCPLDpackages affectfans.",
+    "decision": "Do not propose a genericCPLD/security-controller flash asfanfix fromname alone. Need exacttarget/compatibility/preservation andmatchedcandidate evidence."
   }
 }

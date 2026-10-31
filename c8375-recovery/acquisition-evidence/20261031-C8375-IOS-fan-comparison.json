@@ -30,7 +30,7 @@
     "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/release-notes/17-15-x/release-notes-cisco-8300-series-secure-routers-release-17-15-x.html",
     "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html"
   ],
-  "status": "17.15.6 now committed at owner request to retain version across planned PSUslot test. Fan cycling persists; no validatedfanpolicy fix. Slot move/bootpending; see20261031-C8375-PSU-slot-comparison.json.",
+  "status": "17.15.6 committed andsubsequentlycoldbootverified; P1PSUslot testdidnotfixfans. Runtimehealthy inrecordedstates, fullfunctionalqualificationpending.",
   "rollback_manifest": {
     "path": "bootflash:packages-26.2.1-before-fan-test-20261031.conf",
     "bytes": 8405,
@@ -530,5 +530,9 @@
     "retained_26_2_1": "Verified8405-byte packages-26.2.1-before-fan-test-20261031.conf stillpresent; no removeinactive/source/package deletion.",
     "config_backups": "Freshpre-slotrunning/startup/rollbackcapture localonly under.git/recovery-private/fan-fix-20261031; no startupoverwrite.",
     "limits": "Persistence is configured, not yet cold-boot verified. Commit is not a fanfix, forwardingqualification, or production-ROMMONcompatibility result. No new ROMMON/CPLD/ENVMCU write."
+  },
+  "subsequent_cold_boot_and_slot_test": {
+    "evidence": "c8375-recovery/acquisition-evidence/20261031-C8375-PSU-slot-comparison.json",
+    "result": "17.15.6/Cstate persisted throughactualownerPSUslot powercycle. P1incompatible andfancyclingrecurs; sourceprofilesunchanged."
   }
 }

@@ -3,7 +3,7 @@
   "recorded_at": "2026-10-31T15:22:59.024798-04:00",
   "timezone": "America/New_York",
   "chassis": "C8375-A / C8375-E-G2 / FDO2742M0FK / Crestone r3",
-  "status": "Prepared; owner instructed to move samePSU with routerOFF/ACunplugged and leaveOFF. Physical completion and post-move boot pending.",
+  "status": "Completedslotcomparison:17.15.6 coldboot/Cstate verified, P0empty/P1incompatible, fansteadinessFAILED withowner report andsixcontrollerframes. LeaveP1inplace; no fix achieved.",
   "owner_physical_confirmation": "Samechassis onnormalpower, coverfitted, Pi/programmingfixturefullyremoved, RJ45consoleconnected. OtherPSUbayemptywithremovableblank.",
   "psu": "Owner-label PWR-CC1-250WAC / LIT2852A9TJ; no supported400Wspare. Modelcompatibility not changed by moving slots.",
   "fresh_pre_move": {
@@ -41,7 +41,13 @@
   "console": {
     "raw_log": "c8375-recovery/console-logs/20261031-152008-console.log",
     "settings": "115200/8N1/no flow",
-    "state": "Open and exclusively owned by explicitcapture; no conflictingowner beforeopen. Freshserialverified."
+    "state": "Closedcleanly; portfree; routeron.",
+    "local_only": "c8375-recovery/console-logs/20261031-152008-console.log",
+    "bytes": 61993,
+    "sha256": "f41045d577772d816fe209f456e3d2ad9bb43da42b7af786122f30ee3730038e",
+    "public_log": "sanitized-evidence/c8375-recovery/console-logs/20261031-152008-console.log",
+    "closed_cleanly": true,
+    "port_free_verified_at": "2026-10-31T15:35:33.784306-04:00"
   },
   "owner_steps": [
     "Power switchOFF and unplugsoleACcord beforemovingPSU.",
@@ -58,5 +64,333 @@
   "sources": [
     "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/hardware_installation-guide/secure-8300-series-hig/install-fru-8300-series-secure-routers/remove-and-replace-the-power-supplies.html",
     "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/software-config-guide/secure-8300-series-scg/isr9000swcfg-xe-16-12-book_chapter_0111.html"
+  ],
+  "owner_move_report": {
+    "host_recorded_at": "2026-10-31T15:25:36.261349-04:00",
+    "report": "Moved and powered on.",
+    "scope": "Owner reports completed move/power-on; latch and P0blank confirmation separately pending. Exact AC-removal timing not independently observed."
+  },
+  "boot_progress": {
+    "first_host_observed_at": "2026-10-31T15:24:50-04:00",
+    "observed": "SCP original11.23.08, SPI0.CS0 source, bootstubCRC32PASS, Crestone r3/16cores and originalUEFI initialization; IOS/P1recognition/fanresult not yet reached."
+  },
+  "updated_at": "2026-10-31T15:35:33.784306-04:00",
+  "physical_post_move_confirmation": "Owner confirms P1latched/P0blankfitted afterpoweron. ExactAC-removal sequence remains owner-handled, not independently observed.",
+  "boot_result": {
+    "host_prompt_observed_at": "2026-10-31T15:27:13-04:00",
+    "ios": "17.15.6 fc2 / IMG C17.15.06.0.770",
+    "identity": "FDO2742M0FK",
+    "automatic_boot": "OriginalROMMON\u2192Linux5.4.290/16CPUs\u2192installedIOS, no agentboot intervention beyondReturn atIOSstartup. BOOTsettingspersisted.",
+    "usb_observation": "Boot now reports60062720K USBflash atusb0, unlike prioractivation runtime listing. No separateUSBfix performed.",
+    "clock": "RevertedNov8,2022; hosttimestampscanonical."
+  },
+  "initial_controller": {
+    "host_command_at": "2026-10-31T15:27:26-04:00",
+    "fans_rpm": [
+      5520,
+      5520,
+      5340
+    ],
+    "cpu_celsius": 35,
+    "inlet1_celsius": 26,
+    "working_celsius": 26,
+    "nios_version_raw_u16": 63,
+    "fan_table": 2,
+    "temperature_level": 0
+  },
+  "early_recurrence": {
+    "owner_report": "Currentlysteady initially, then it just did it afterIOSrestart.",
+    "first_captured_peak_at": "2026-10-31T15:30:07.888085-04:00",
+    "peak_rpm": 12480,
+    "samples": [
+      {
+        "timestamp": "2026-10-31T15:30:07.888085-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T15:30:07.459103-04:00",
+          "fans_rpm": [
+            10980,
+            10920,
+            10560
+          ],
+          "cpu_celsius": 37
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          12420,
+          12480,
+          12420
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 28,
+          "inlet2": 25,
+          "outlet1": 26,
+          "outlet2": 29,
+          "working": 28,
+          "cpu_core": 36,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 1,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      },
+      {
+        "timestamp": "2026-10-31T15:31:10.446906-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T15:31:10.016113-04:00",
+          "fans_rpm": [
+            8940,
+            8880,
+            8880
+          ],
+          "cpu_celsius": 34
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          10980,
+          10920,
+          10680
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 28,
+          "inlet2": 25,
+          "outlet1": 25,
+          "outlet2": 28,
+          "working": 28,
+          "cpu_core": 35,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 1,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      },
+      {
+        "timestamp": "2026-10-31T15:31:46.565800-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T15:31:46.140100-04:00",
+          "fans_rpm": [
+            12480,
+            12480,
+            12360
+          ],
+          "cpu_celsius": 34
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          10500,
+          10440,
+          10320
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 27,
+          "inlet2": 25,
+          "outlet1": 25,
+          "outlet2": 28,
+          "working": 27,
+          "cpu_core": 33,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 0,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      },
+      {
+        "timestamp": "2026-10-31T15:31:55.675351-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T15:31:55.248192-04:00",
+          "fans_rpm": [
+            12480,
+            12480,
+            12360
+          ],
+          "cpu_celsius": 34
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          5520,
+          5520,
+          5460
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 27,
+          "inlet2": 25,
+          "outlet1": 25,
+          "outlet2": 28,
+          "working": 27,
+          "cpu_core": 34,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 0,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      },
+      {
+        "timestamp": "2026-10-31T15:32:04.787635-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T15:32:04.355684-04:00",
+          "fans_rpm": [
+            8940,
+            8880,
+            8880
+          ],
+          "cpu_celsius": 34
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          5520,
+          5520,
+          5340
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 28,
+          "inlet2": 25,
+          "outlet1": 25,
+          "outlet2": 28,
+          "working": 28,
+          "cpu_core": 34,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 0,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      },
+      {
+        "timestamp": "2026-10-31T15:32:13.893891-04:00",
+        "environment_before": {
+          "timestamp": "2026-10-31T15:32:13.464202-04:00",
+          "fans_rpm": [
+            8940,
+            8880,
+            8880
+          ],
+          "cpu_celsius": 34
+        },
+        "nios_version_raw_u16": 63,
+        "vendor_fan1_to3_raw": [
+          5520,
+          5460,
+          5340
+        ],
+        "vendor_temperatures_raw_u16": {
+          "inlet1": 28,
+          "inlet2": 25,
+          "outlet1": 25,
+          "outlet2": 28,
+          "working": 28,
+          "cpu_core": 35,
+          "cpu_pch": 0,
+          "dpcpu_core": 0
+        },
+        "n2h": {
+          "status_u16": 3840,
+          "table_u8": 2,
+          "temp_level_u8": 0,
+          "barometric_level_u8": 0,
+          "tray_status_u8": 1,
+          "override_u8": 0
+        },
+        "h2n": {
+          "status_u16": 0,
+          "table_u8": 0,
+          "override_u8": 0
+        }
+      }
+    ],
+    "source": {
+      "local_only": ".git/recovery-private/fan-fix-20261031/interactive-20261031-152727-486853.raw",
+      "bytes": 84193,
+      "sha256": "77b7e3e25781efb3f24be13554929330542502597f067be90de40816d2377129"
+    },
+    "parser": {
+      "local_only": ".git/recovery-private/fan-fix-20261031/parse_controller.py",
+      "bytes": 3440,
+      "sha256": "0f7f1cc5c5e725b11817945d2a5292f12f3a14d46992d9deab0d147b8dc47f01"
+    },
+    "interpretation": "P1 move didnot prevent cycling: initial~5.5kRPM/temp-level0, owner-reportedcycle andcaptured~12.5kRPM/level1, then~5.5kRPM/level0. Sameversion0x003f/table2/status0x0f00/override0. Temperatures co-vary; controllinginput andcause notisolated.",
+    "duration": "Stopped onearlyreproduction; no45-minute steady-fan pass claimed."
+  },
+  "final_state": {
+    "host_commands_at": "2026-10-31T15:32:35.157597-04:00",
+    "identity": "FDO2742M0FK",
+    "ios": "17.15.6 / IMG C17.15.06.0.770 / auto-abortinactive",
+    "uptime": "6minutes",
+    "confreg": "0x1822",
+    "p0": "Unknown/empty",
+    "p1": "Unknown/incompatible",
+    "p2": "C8300-FAN-1R / ok",
+    "r0_f0": "ok/active",
+    "cpld": "2408272B",
+    "fpga_show_hw_programmable": "N/A",
+    "original_rommon": "SDK112308-UEFI-ROMMON-SoC2-v9.2.1 development retained",
+    "cpu_celsius": 34,
+    "inlet1_celsius": 28,
+    "working_celsius": 28,
+    "fans_rpm": [
+      5520,
+      5460,
+      5340
+    ],
+    "displayed_sensor_states": "AllNormal",
+    "physical": "Owner confirms samePSU fullylatchedP1, blankfittedP0, coverfitted; router remainspowered, fixtureabsent.",
+    "agent_connections": "SSH andRJ45capture bothclosed cleanly; serialportfree; ownerSSH untouched."
+  },
+  "next_steps": [
+    "Retain17.15.6/P1/normalcooling; no additional slot move justified by current result.",
+    "SupportedPSU comparison remains unperformed; bothslot failures withsamePSU do not test whether PSUmodel causes cycling. Owner hasno400Wspare.",
+    "Softwareprogress requires a validated exact-board controlleractuator/profile or matchingENVMCUfirmware. EEMalone cannot create that missing control. Do not assume a genericCPLDupgrade is a fanupdate."
   ]
 }

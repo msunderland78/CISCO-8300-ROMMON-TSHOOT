@@ -4,6 +4,19 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
+PSU-SLOT RESULT 15:35 EDT: Same250WPSU movedtoP1 andpoweredon; owner confirms
+latchedP1/P0blankfitted. Automatic17.15.6 coldboot/IMG C verified, serialsame,
+confreg0x1822. P0empty/P1incompatible; norecognitionfix. Initially~5520RPM/
+level0, thenownerreportsrecurrence. Sixrawframespeak12480RPM/level1 andreturn
+~5500RPM/level0. SameNIOS0x3f/table2/override0. EarlyfansteadinessFAIL, no45minpass.
+Final6minuptime/CPU34C/allstatesNormal/R0F0active. AgentSSH/serialclosedcleanly,
+portfree; routerON/P1 unchanged, ownerSSHuntouched. No furthermove indicated.
+400WAC iscorrectsupportedpart, NOT establishedasmostlikelyfanfix; borrowor
+returnabletest preferred. NoEEMactuatorvalidated. GenericCPLDscript describes
+Aikido/TAM update, notvalidatedfanENVMCU candidate; no execution/securitychange.
+Need exactboardcontrollerprofile/interface/firmware; no guaranteedquietfixyet.
+Evidence: c8375-recovery/acquisition-evidence/20261031-C8375-PSU-slot-comparison.json
+
 PSU-SLOT PREPARATION 15:22 EDT: Owner proposes samePSU inemptyP1; fresh
 chassis/power/cover/fixture/RJ45/blank confirmed. P0incompatible/P1empty live.
 17.15.6 installcommit SUCCESS15:20:35EDT; summary andcommitted both IMG C,
