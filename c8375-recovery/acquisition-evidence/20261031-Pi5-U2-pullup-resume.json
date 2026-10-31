@@ -128,7 +128,7 @@
     10000
   ],
   "reviewed_5600ohm_comparison": {
-    "status": "Owner reports5.6k installed and U1CS1.246V; current rail/actual resistor ohms not yet supplied",
+    "status": "5.6k installed, U1CS1.246V and current P1rail1.785V reported; resistor approach stopped without verified independent selection",
     "reason": "After confirming measured9940ohm resistor, assembled grabber0.9ohm, nominal1.780V rail, U1=1.242V and direct resistor drop0.538V, assess response to closest lower available fixed resistor. This is an explicit reviewed change after prerequisites, not automatic escalation from10k or unpowered-divider modelling.",
     "nominal_ohms": 5600,
     "tolerance_percent": 1,
@@ -141,12 +141,15 @@
       "owner_explicit_correction": "U1pin7 in immediately repeated corrected message",
       "U1_pin7_to_P1_ground_VDC": 1.246,
       "change_from_prior_10k_reading_V": 0.004,
-      "supply_VDC": "Pending current P1 reading; previous1.780V is historical for10k test",
+      "supply_VDC": 1.785,
       "actual_resistor_ohms": "Not reported",
-      "interpretation": "Only4mV difference from10k result. At prior1.780V supply, nominalVIHmin is1.246V, yielding no margin; current supply needed for matched threshold calculation. No valid independent selection or read demonstrated. Unknown loading/driver remains; do not infer a measured incremental resistance from unmatched samples.",
-      "next_requested": "Meter DCvolts P1pin1 toP1pin2 under unchanged5.6k setup, then owner shutdown/unplug Pi and leave hardware still. No more resistor reduction, SPI/CS control or read. Review verified isolation/off-board acquisition if independent selection cannot be established.",
+      "interpretation": "U1=1.246V at reportedP1=1.785V, nominalVIHmin1.2495V. Difference3.5mV is within unresolved meter/sampling uncertainty and does not prove logic low, but no useful guaranteed-high margin. Compared to prior10k, only4mV U1 change; cause of near-fixed level unidentified. No current waveform/control/read validation.",
+      "next_requested": "Owner shutdown/unplugPi, leave clip/grabber/5.6k wiring undisturbed. No4.7k/2.2k substitution, added voltage, U2control or read. Review verified electrical isolation of selection path or separate off-board acquisition with suitable rework assistance; no guessed selector state or inexperienced pin lifting. Poweroff not yet confirmed.",
       "poweroff_status": "Requested, not confirmed",
-      "agent_hardware_actions": "None"
+      "agent_hardware_actions": "None",
+      "supply_owner_reply": "1.785, in response to currentP1pin1-to-pin2 question",
+      "nominal_VIH_min_V": 1.2495,
+      "nominal_high_margin_V": -0.0035
     }
   }
 }

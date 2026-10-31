@@ -4,12 +4,13 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: nominal5.6k now installed; corrected U1pin7=1.246VDC (initial
-U2 label explicitly corrected). Only4mV above10k result. FreshP1rail
-and actual5.6k ohms not supplied. Stop lowering R/U2control/read. Next
-DCV P1pin1-to2, then owner shutdown/unplugPi and leave wiring still;
-poweroff unconfirmed. Independent selection remains unproven; review
-verified isolation/off-board acquisition rather than guessed jumpers.
+Latest: nominal5.6k installed; corrected U1pin7=1.246VDC and fresh
+P1rail1.785VDC. NominalVIHmin1.2495V: no useful margin; meter uncertainty
+prevents definite logic-low verdict. U1 increased only4mV versus10k.
+Stop resistor escalation/no4.7k/2.2k, voltage increase or U2control/read.
+Owner shutdown/unplugPi requested, not confirmed; leave wiring still.
+Next review verified selection-path isolation or separate off-board
+acquisition with suitable rework assistance; no speculative pin lifting.
 Earlier: direct actual resistor drop0.538V with9940ohms implies54.1uA;
 U1 remains1.242V/rail1.780V. Feed/contact checks now support reviewed
 one-time5.6k DC comparison (closest lower available; max0.361mA at2V
