@@ -1,0 +1,1053 @@
+
+[TX 2026-10-31T17:14:47.299108] b'show platform hardware qfp active datapath utilization\rshow platform software infra punt-keepalive\r'
+show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        80049        28035        14294         4695
+                 (bps)    892281352    312262696    151521808     46235272
+           Total (pps)        80049        28035        14294         4695
+                 (bps)    892281352    312262696    151521808     46235272
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        80080        28127        14303         4695
+                 (bps)    892472712    313332352    151659656     46252168
+           Total (pps)        80080        28127        14303         4695
+                 (bps)    892472712    313332352    151659656     46252168
+Processing: Load (pct)            4            1            1            0
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            5            3            3            8
+            Idle (pct)           95           97           97           91
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.972 sec ago
+Last punt keepalive sent                  = 0.972 sec ago
+punt keepalive rx count                   = 1504
+punt keepalive tx count                   = 1504
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-10-31T17:14:52.206280] b'show platform\rshow platform software process list F0 | include cpp\rshow interfaces TwoGigabitEthernet0/0/6\rshow interfaces TwoGigabitEthernet0/0/7\rshow platform hardware qfp active statistics drop\rshow platform software status control-processor brief\rshow environment all\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:51:21      
+ 0/0      8M-2xSFP+           ok                    00:50:35      
+R0        C8230X-8M2X         ok, active            00:51:21      
+F0        C8230X-8M2X         ok, active            00:51:21      
+P0        PWR-CC2-66WAC       ok                    00:50:49      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 | include cpp
+cpp_sp_svr             20006   19987     20006  S               20  57344       
+cpp_ha_top_leve        20337   20323     20337  S               20  43904       
+cpp_driver             20614   20601     20614  S               20  38528       
+cpp_cp_svr             20844   20837     20844  S               20  169844      
+Router#show interfaces TwoGigabitEthernet0/0/6
+TwoGigabitEthernet0/0/6 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda6 (bia e4a4.1c82.dda6)
+  Description: PERF_UPLINK_192.168.5.0_24
+  Internet address is 192.168.5.4/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 8/255, rxload 32/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:42, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 2020
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 127417000 bits/sec, 11272 packets/sec
+  5 minute output rate 33004000 bits/sec, 3807 packets/sec
+     10811111 packets input, 12848617286 bytes, 0 no buffer
+     Received 1727 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 1092 multicast, 0 pause input
+     6802860 packets output, 8958273776 bytes, 0 underruns
+     Output 8 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 3 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     2 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda7 (bia e4a4.1c82.dda7)
+  Description: PERF_LAN_192.168.83.0_24
+  Internet address is 192.168.83.1/24
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 12/255, rxload 3/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:33, output 00:00:37, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 33045000 bits/sec, 3810 packets/sec
+  5 minute output rate 127429000 bits/sec, 11270 packets/sec
+     6806368 packets input, 8961465272 bytes, 0 no buffer
+     Received 33 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 262 multicast, 0 pause input
+     10809361 packets output, 12848495680 bytes, 0 underruns
+     Output 4 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 2 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     2 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+Disabled                                        8                    2396  
+IpTtlExceeded                                  90                    6210  
+Ipv4NoRoute                                    77                    7396  
+Ipv6NoRoute                                    17                     952  
+TailDrop                                     2020                 3051416  
+UnconfiguredIpv6Fia                           184                   43649  
+
+Router#show platform software status control-processor brief
+Load Average
+ Slot  Status  1-Min  5-Min 15-Min
+  RP0 Healthy   2.88   2.42   2.19
+
+Memory (kB)
+ Slot  Status    Total     Used (Pct)     Free (Pct) Committed (Pct)
+  RP0 Healthy 16150604  3176600 (20%) 12974004 (80%)   3273156 (20%)
+
+CPU Utilization
+ Slot  CPU   User System   Nice   Idle    IRQ   SIRQ IOwait
+  RP0    0   2.10   3.70   0.00  93.29   0.80   0.10   0.00
+         1   0.00   0.00   0.00 100.00   0.00   0.00   0.00
+         2   0.00   0.00   0.00  99.90   0.10   0.00   0.00
+         3   0.00   0.00   0.00  99.90   0.09   0.00   0.00
+         4  99.49   0.50   0.00   0.00   0.00   0.00   0.00
+         5  98.60   0.69   0.00   0.49   0.19   0.00   0.00
+         6  97.80   0.80   0.00   1.20   0.20   0.00   0.00
+         7  99.90   0.00   0.00   0.00   0.10   0.00   0.00
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          35 Celsius
+ Temp: Outlet            R0              Normal          34 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12107 mV
+ V: 5V                   R0              Normal          4961 mV
+ V: 3.3V_SB              R0              Normal          3330 mV
+ V: 3.3V_SFP             R0              Normal          3310 mV
+ V: 3.3V                 R0              Normal          3303 mV
+ V: 1.8V                 R0              Normal          1796 mV
+ V: 1.2V                 R0              Normal          1201 mV
+ V: 1.1V_DDR             R0              Normal          1104 mV
+ V: 0.75V_CORE           R0              Normal          762 mV
+ V: 0.75V_SYS            R0              Normal          855 mV
+ V: 0.8V_SW              R0              Normal          806 mV
+ V: 0.8V                 R0              Normal          805 mV
+ V: 0.75V                R0              Normal          754 mV
+ I: VP12P0_MB            R0              Normal          1477 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          16 Watts
+
+
+Router#
+[TX 2026-10-31T17:15:33.670361] b'show platform hardware qfp active statistics drop\rshow platform software infra punt-keepalive\r'
+show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+Disabled                                        8                    2396  
+IpTtlExceeded                                  92                    6320  
+Ipv4NoRoute                                    77                    7396  
+Ipv6NoRoute                                    17                     952  
+TailDrop                                     2020                 3051416  
+UnconfiguredIpv6Fia                           189                   44239  
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.332 sec ago
+Last punt keepalive sent                  = 1.332 sec ago
+punt keepalive rx count                   = 1527
+punt keepalive tx count                   = 1527
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+*May 29 19:48:36.150: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/8
+*May 29 19:50:08.981: %ENVIRONMENTAL-1-ALERT: V: 12V_DG_ST, Location: R0, State: Critical_Low, Reading: 0 mV
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Router con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+*May 29 19:51:07.008: %SYS-6-TTY_EXPIRE_TIMER: (exec timer expired, tty 0 (NULL)), user 
+[TX 2026-10-31T17:27:41.263544] b'\rterminal length 0\rshow version | include uptime|Processor board|System image|Configuration register\rshow platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow ip interface brief\r'
+
+Router>terminal length 0
+Router>show version | include uptime|Processor board|System image|Configurati$n | include uptime|Processor board|System image|Configuratio         n registee uptime|Processor board|System image|Configuration register         
+Router uptime is 1 hour, 3 minutes
+System image file is "usb0:c8kg2be-universalk9.26.02.01.SPA.bin"
+Processor board ID FGL2835LBHU
+Configuration register is 0x3922
+Router>show platform
+             ^
+% Invalid input detected at '^' marker.
+
+Router>show platform software process list F0 name cpp_cp_svr
+             ^
+% Invalid input detected at '^' marker.
+
+Router>show platform software infra punt-keepalive
+             ^
+% Invalid input detected at '^' marker.
+
+Router>show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                192.168.5.4     YES manual up                    up      
+Tw0/0/7                192.168.83.1    YES manual up                    up      
+Te0/0/8                unassigned      YES unset  administratively down down    
+Te0/0/9                unassigned      YES unset  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router>
+[TX 2026-10-31T17:27:45.170679] b'enable\r'
+enable
+Router#
+[TX 2026-10-31T17:27:49.555031] b'show platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow running-config | section ^interface TenGigabitEthernet0/0/8\rshow interfaces TenGigabitEthernet0/0/8\rshow running-config interface TwoGigabitEthernet0/0/6\rshow running-config interface TwoGigabitEthernet0/0/7\rshow running-config | section ^ip dhcp\rshow running-config | include ^ip route|^ip nat|^vlan dot1q\rdir usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    01:04:18      
+ 0/0      8M-2xSFP+           ok                    01:03:33      
+R0        C8230X-8M2X         ok, active            01:04:18      
+F0        C8230X-8M2X         ok, active            01:04:18      
+P0        PWR-CC2-66WAC       ok                    01:03:46      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 491
+  Kernel time      : 564
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42557
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46961
+  Major page faults: 615
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.192 sec ago
+Last punt keepalive sent                  = 1.192 sec ago
+punt keepalive rx count                   = 1895
+punt keepalive tx count                   = 1895
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show running-config | section ^interface TenGigabitEthernet0/0/8
+interface TenGigabitEthernet0/0/8
+ no ip address
+ shutdown
+Router#show interfaces TenGigabitEthernet0/0/8
+TenGigabitEthernet0/0/8 is administratively down, line protocol is down 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda8 (bia e4a4.1c82.dda8)
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show running-config interface TwoGigabitEthernet0/0/6
+Building configuration...
+
+Current configuration : 137 bytes
+!
+interface TwoGigabitEthernet0/0/6
+ description PERF_UPLINK_192.168.5.0_24
+ ip address 192.168.5.4 255.255.255.0
+ negotiation auto
+end
+
+Router#show running-config interface TwoGigabitEthernet0/0/7
+Building configuration...
+
+Current configuration : 136 bytes
+!
+interface TwoGigabitEthernet0/0/7
+ description PERF_LAN_192.168.83.0_24
+ ip address 192.168.83.1 255.255.255.0
+ negotiation auto
+end
+
+Router#show running-config | section ^ip dhcp
+ip dhcp excluded-address 192.168.83.1 192.168.83.49
+ip dhcp excluded-address 192.168.83.226 192.168.83.254
+ip dhcp pool C8235_PERF83
+ network 192.168.83.0 255.255.255.0
+ default-router 192.168.83.1 
+ dns-server 192.168.3.10 208.67.222.222 
+Router#show running-config | include ^ip route|^ip nat|^vlan dot1q
+ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1
+Router#dir usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC
+Directory of usb0:/C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/
+
+387     -rwx             7310  May 29 2025 19:18:24 +00:00  performance-running.cfg
+386     -rwx             6902  May 29 2025 19:17:20 +00:00  pre-performance-running.cfg
+385     -rwx             6902  May 29 2025 19:10:06 +00:00  post-loopback-running.cfg
+384     -rwx             6902  May 29 2025 19:06:02 +00:00  pre-loopback-running.cfg
+383     -rwx             6902  May 29 2025 18:50:54 +00:00  running-at-bound16.cfg
+382     -rwx             2424  May 29 2025 18:50:40 +00:00  startup-at-bound16.cfg
+381     -rwx             2579   Jan 1 1980 00:00:00 +00:00  boot-bound16.sh
+380     -rwx             7947   Jan 1 1980 00:00:00 +00:00  packages-before.conf
+379     -rwx         33554432   Jan 1 1980 00:00:00 +00:00  mmcblk0p3-before.bin
+378     -rwx         33554432   Jan 1 1980 00:00:00 +00:00  mmcblk0p2-before.bin
+
+61489184768 bytes total (22967943168 bytes free)
+Router#
+[TX 2026-10-31T17:27:54.276246] b'copy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cfg\r'
+copy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-p$g-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-po         rt8-trunksb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-         running.cB-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cf         g
+Destination filename [C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cfg]? 
+[TX 2026-10-31T17:27:57.237689] b'\r'
+
+7292 bytes copied in 0.240 secs (30383 bytes/sec)
+Router#
+[TX 2026-10-31T17:28:00.185331] b'terminal width 512\rverify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cfg\rshow archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cfg\r'
+terminal width 512
+Router#verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cfg
+.Done!
+verify /sha512 (usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cfg) = 5d843c70b4010569ab0f042a4320aba7f4552d5d4ac2ca4955dc9d1b2aa8bd3cbc8d2fcccb674733a248b30ce438b68e92357228caf5fe40e44ffa96883b2424
+
+
+Router#show archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cfg
+!Contextual Config Diffs:
+interface TenGigabitEthernet0/0/8
+ -negotiation auto
+
+Router#
+[TX 2026-10-31T17:28:05.860100] b'configure terminal\rinterface TenGigabitEthernet0/0/8\rdescription PERF_TRUNK_VLAN5_VLAN83_NATIVE1\rno ip address\rinterface TenGigabitEthernet0/0/8.1\rdescription NATIVE_VLAN1_UNNUMBERED\rencapsulation dot1Q 1 native\rno ip address\rinterface TenGigabitEthernet0/0/8.5\rdescription PERF_VLAN5_UPLINK\rencapsulation dot1Q 5\rinterface TenGigabitEthernet0/0/8.83\rdescription PERF_VLAN83_LAN\rencapsulation dot1Q 83\rinterface TenGigabitEthernet0/0/8\rno shutdown\rend\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface TenGigabitEthernet0/0/8
+Router(config-if)#description PERF_TRUNK_VLAN5_VLAN83_NATIVE1
+Router(config-if)#no ip address
+Router(config-if)#interface TenGigabitEthernet0/0/8.1
+Router(config-subif)#description NATIVE_VLAN1_UNNUMBERED
+Router(config-subif)#encapsulation dot1Q 1 native
+Router(config-subif)#no ip address
+Router(config-subif)#interface TenGigabitEthernet0/0/8.5
+Router(config-subif)#description PERF_VLAN5_UPLINK
+Router(config-subif)#encapsulation dot1Q 5
+Router(config-subif)#interface TenGigabitEthernet0/0/8.83
+Router(config-subif)#description PERF_VLAN83_LAN
+Router(config-subif)#encapsulation dot1Q 83
+Router(config-subif)#interface TenGigabitEthernet0/0/8
+Router(config-if)#no shutdown
+Router(config-if)#end
+Router#
+*May 29 19:53:39.150: %SYS-5-CONFIG_I: Configured from console by console
+[TX 2026-10-31T17:28:08.533631] b'show interfaces TenGigabitEthernet0/0/8\rshow ip interface brief\rshow cdp neighbors TenGigabitEthernet0/0/8 detail\r'
+show interfaces TenGigabitEthernet0/0/8
+TenGigabitEthernet0/0/8 is down, line protocol is down 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda8 (bia e4a4.1c82.dda8)
+  Description: PERF_TRUNK_VLAN5_VLAN83_NATIVE1
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                192.168.5.4     YES manual up                    up      
+Tw0/0/7                192.168.83.1    YES manual up                    up      
+Te0/0/8                unassigned      YES unset  down                  down    
+Te0/0/8.1              unassigned      YES unset  down                  down    
+Te0/0/8.5              unassigned      YES unset  down                  down    
+Te0/0/8.83             unassigned      YES unset  down                  down    
+Te0/0/9                unassigned      YES unset  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show cdp neighbors TenGigabitEthernet0/0/8 detail
+
+Total cdp entries displayed : 0
+Router#
+*May 29 19:53:44.847: %LINK-3-UPDOWN: Interface TenGigabitEthernet0/0/8, changed state to up
+*May 29 19:53:45.849: %LINEPROTO-5-UPDOWN: Line protocol on Interface TenGigabitEthernet0/0/8, changed state to up
+[TX 2026-10-31T17:28:31.650989] b'show interfaces TenGigabitEthernet0/0/8\rshow inventory\rshow hw-module subslot 0/0 transceiver 8 idprom\rshow logging | include Te0/0/8|TRANSCEIVER|SFP|GBIC\r'
+show interfaces TenGigabitEthernet0/0/8
+TenGigabitEthernet0/0/8 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda8 (bia e4a4.1c82.dda8)
+  Description: PERF_TRUNK_VLAN5_VLAN83_NATIVE1
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:15, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 2000 bits/sec, 2 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     55 packets input, 7146 bytes, 0 no buffer
+     Received 22 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 33 multicast, 0 pause input
+     7 packets output, 2849 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show inventory
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO: Please use "show license UDI" to get serial number for licensing.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NAME: "Chassis", DESCR: "Cisco isr1000 Series Chassis"
+PID: C8230X-8M2X       , VID: V00  , SN: FGL2835LBHU
+
+NAME: "Power Supply Module 0", DESCR: "External 66W Power Supply Module"
+PID: PWR-CC2-66WAC     , VID: V02  , SN:            
+
+NAME: "module 0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID:      , SN:            
+
+NAME: "NIM subslot 0/0", DESCR: "8M-2xSFP+"
+PID: 8M-2xSFP+         , VID: V01  , SN:            
+
+NAME: "subslot 0/0 transceiver 8", DESCR: "10GE CU5M"
+PID: SFP-H10GB-CU5M      , VID: V03  , SN: MOC15490A3V     
+
+NAME: "module R0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID: V00  , SN: FOC28292GUW
+
+NAME: "module F0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID:      , SN:            
+
+
+Router#show hw-module subslot 0/0 transceiver 8 idprom
+IDPROM for transceiver Te0/0/8:
+  Description                               = SFP+ optics (type 130)
+  Transceiver Type:                         = 10GE CU5M (33)
+  Product Identifier (PID)                  = SFP-H10GB-CU5M      
+  Vendor Revision                           = 08  
+  Serial Number (SN)                        = MOC15490A3V     
+  Vendor Name                               = CISCO-MOLEX     
+  Vendor OUI (IEEE company ID)              = 00.09.3A (2362)
+  CLEI code                                 = COPQAA5JAB
+  Cisco part number                         = 37-0962-03
+  Vendor part number                        = 74752-9521      
+  Device State                              = Enabled.
+  Date code (yy/mm/dd)                      = 11/12/11
+  Connector type                            = Copper pigtail.
+  Encoding                                  = none
+  Nominal bitrate                           = 10GE (10300 Mbits/s)
+  Minimum bit rate as % of nominal bit rate = not specified
+  Maximum bit rate as % of nominal bit rate = not specified
+Router#show logging | include Te0/0/8|TRANSCEIVER|SFP|GBIC
+*May 29 2025 18:49:34.625: NGIOLite module 8M-2xSFP+ success read extended attr from conf file len: 1629
+*May 29 18:49:41.237: %SPA_OIR-6-OFFLINECARD: SPA (8M-2xSFP+) offline in subslot 0/0
+*May 29 18:50:38.822: NGIOLite module 8M-2xSFP+ success read extended attr from conf file len: 1629
+*May 29 18:50:39.394: %SPA_OIR-6-ONLINECARD: SPA (8M-2xSFP+) online in subslot 0/0
+*May 29 19:48:36.150: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/8
+Router#
+[TX 2026-10-31T17:28:40.279016] b'configure terminal\rinterface TwoGigabitEthernet0/0/6\rshutdown\rno ip address\rno description\rinterface TwoGigabitEthernet0/0/7\rshutdown\rno ip address\rno description\rinterface TenGigabitEthernet0/0/8.5\rip address 192.168.5.4 255.255.255.0\rinterface TenGigabitEthernet0/0/8.83\rip address 192.168.83.1 255.255.255.0\rexit\rno ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1\rip route 0.0.0.0 0.0.0.0 TenGigabitEthernet0/0/8.5 192.168.5.1\rend\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface TwoGigabitEthernet0/0/6
+Router(config-if)#shutdown
+Router(config-if)#no ip address
+Router(config-if)#no description
+Router(config-if)#interface TwoGigabitEthernet0/0/7
+Router(config-if)#shutdown
+Router(config-if)#no ip address
+Router(config-if)#no description
+Router(config-if)#interface TenGigabitEthernet0/0/8.5
+Router(config-subif)#ip address 192.168.5.4 255.255.255.0
+Router(config-subif)#interface TenGigabitEthernet0/0/8.83
+Router(config-subif)#ip address 192.168.83.1 255.255.255.0
+Router(config-subif)#exit
+Router(config)#no ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1
+Router(config)#ip route 0.0.0.0 0.0.0.0 TenGigabitEthernet0/0/8.5 192.168.5.1
+Router(config)#end
+Router#
+*May 29 19:54:13.529: %SYS-5-CONFIG_I: Configured from console by console
+[TX 2026-10-31T17:28:43.354430] b'show running-config | section ^interface TenGigabitEthernet0/0/8\rshow ip interface brief\rshow ip route\rshow ip dhcp pool C8235_PERF83\rshow running-config | section ^ip dhcp\rping 192.168.5.1 source 192.168.5.4 repeat 5 timeout 1\rping 192.168.5.3 source 192.168.5.4 repeat 5 timeout 1\rping 192.168.5.25 source 192.168.5.4 repeat 5 timeout 1\r'
+show running-config | section ^interface TenGigabitEthernet0/0/8
+interface TenGigabitEthernet0/0/8
+ description PERF_TRUNK_VLAN5_VLAN83_NATIVE1
+ no ip address
+interface TenGigabitEthernet0/0/8.1
+ description NATIVE_VLAN1_UNNUMBERED
+ encapsulation dot1Q 1 native
+interface TenGigabitEthernet0/0/8.5
+ description PERF_VLAN5_UPLINK
+ encapsulation dot1Q 5
+ ip address 192.168.5.4 255.255.255.0
+interface TenGigabitEthernet0/0/8.83
+ description PERF_VLAN83_LAN
+ encapsulation dot1Q 83
+ ip address 192.168.83.1 255.255.255.0
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                unassigned      YES manual administratively down down    
+Tw0/0/7                unassigned      YES manual administratively down down    
+Te0/0/8                unassigned      YES unset  up                    up      
+Te0/0/8.1              unassigned      YES unset  up                    up      
+Te0/0/8.5              192.168.5.4     YES manual up                    up      
+Te0/0/8.83             192.168.83.1    YES manual up                    up      
+Te0/0/9                unassigned      YES unset  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is 192.168.5.1 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 192.168.5.1, TenGigabitEthernet0/0/8.5
+      192.168.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.5.0/24 is directly connected, TenGigabitEthernet0/0/8.5
+L        192.168.5.4/32 is directly connected, TenGigabitEthernet0/0/8.5
+      192.168.83.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.83.0/24 is directly connected, TenGigabitEthernet0/0/8.83
+L        192.168.83.1/32 is directly connected, TenGigabitEthernet0/0/8.83
+Router#show ip dhcp pool C8235_PERF83
+
+Pool C8235_PERF83 :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 254
+ Leased addresses               : 1
+ Excluded addresses             : 78
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased/Excluded/Total
+ 192.168.83.51        192.168.83.1     - 192.168.83.254    1     / 78    / 254  
+Router#show running-config | section ^ip dhcp
+ip dhcp excluded-address 192.168.83.1 192.168.83.49
+ip dhcp excluded-address 192.168.83.226 192.168.83.254
+ip dhcp pool C8235_PERF83
+ network 192.168.83.0 255.255.255.0
+ default-router 192.168.83.1 
+ dns-server 192.168.3.10 208.67.222.222 
+Router#ping 192.168.5.1 source 192.168.5.4 repeat 5 timeout 1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.5.1, timeout is 1 seconds:
+Packet sent with a source address of 192.168.5.4 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/2/4 ms
+Router#
+*May 29 19:54:15.484: %LINK-5-CHANGED: Interface TwoGigabitEthernet0/0/6, changed state to administratively down
+*May 29 19:54:15.496: %LINK-5-CHANGED: Interface TwoGigabitEthernet0/0/7, changed state to administratively down
+*May 29 19:54:16.485: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/6, changed state to down
+*May 29 19:54:16.496: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/7, changed state to down
+[TX 2026-10-31T17:28:55.037769] b'ping 192.168.5.3 source 192.168.5.4 repeat 10 timeout 1 size 1500 df-bit\r'
+ping 192.168.5.3 source 192.168.5.4 repeat 10 timeout 1 size 1500 df-bit
+Type escape sequence to abort.
+Sending 10, 1500-byte ICMP Echos to 192.168.5.3, timeout is 1 seconds:
+Packet sent with a source address of 192.168.5.4 
+Packet sent with the DF bit set
+.!!!!!!!!!
+Success rate is 90 percent (9/10), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T17:28:57.860004] b'ping 192.168.5.3 source 192.168.5.4 repeat 10 timeout 1 size 1500 df-bit\r'
+ping 192.168.5.3 source 192.168.5.4 repeat 10 timeout 1 size 1500 df-bit
+Type escape sequence to abort.
+Sending 10, 1500-byte ICMP Echos to 192.168.5.3, timeout is 1 seconds:
+Packet sent with a source address of 192.168.5.4 
+Packet sent with the DF bit set
+!!!!!!!!!!
+Success rate is 100 percent (10/10), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T17:29:00.187205] b'ping 192.168.5.25 source 192.168.5.4 repeat 5 timeout 1\r'
+ping 192.168.5.25 source 192.168.5.4 repeat 5 timeout 1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.5.25, timeout is 1 seconds:
+Packet sent with a source address of 192.168.5.4 
+.!!!!
+Success rate is 80 percent (4/5), round-trip min/avg/max = 1/1/1 ms
+Router#
+[TX 2026-10-31T17:29:02.660620] b'ping 192.168.5.25 source 192.168.5.4 repeat 5 timeout 1\r'
+ping 192.168.5.25 source 192.168.5.4 repeat 5 timeout 1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.5.25, timeout is 1 seconds:
+Packet sent with a source address of 192.168.5.4 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T17:29:14.595908] b'show interfaces TenGigabitEthernet0/0/8.1\rshow interfaces TenGigabitEthernet0/0/8.5\rshow interfaces TenGigabitEthernet0/0/8.83\rshow ip arp\rshow ip dhcp binding\rshow platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\r'
+show interfaces TenGigabitEthernet0/0/8.1
+TenGigabitEthernet0/0/8.1 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda8 (bia e4a4.1c82.dda8)
+  Description: NATIVE_VLAN1_UNNUMBERED
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation 802.1Q Virtual LAN, Vlan ID  1.
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Keepalive not supported 
+  Last clearing of "show interface" counters never
+Router#show interfaces TenGigabitEthernet0/0/8.5
+TenGigabitEthernet0/0/8.5 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda8 (bia e4a4.1c82.dda8)
+  Description: PERF_VLAN5_UPLINK
+  Internet address is 192.168.5.4/24
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation 802.1Q Virtual LAN, Vlan ID  5.
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Keepalive not supported 
+  Last clearing of "show interface" counters never
+Router#show interfaces TenGigabitEthernet0/0/8.83
+TenGigabitEthernet0/0/8.83 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda8 (bia e4a4.1c82.dda8)
+  Description: PERF_VLAN83_LAN
+  Internet address is 192.168.83.1/24
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation 802.1Q Virtual LAN, Vlan ID  83.
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Keepalive not supported 
+  Last clearing of "show interface" counters never
+Router#show ip arp
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  192.168.5.1             0   c800.840c.77c7  ARPA   TenGigabitEthernet0/0/8.5
+Internet  192.168.5.3             0   0050.56ad.fa7e  ARPA   TenGigabitEthernet0/0/8.5
+Internet  192.168.5.4             -   e4a4.1c82.dda8  ARPA   TenGigabitEthernet0/0/8.5
+Internet  192.168.5.25            0   0050.56ad.f324  ARPA   TenGigabitEthernet0/0/8.5
+Internet  192.168.83.1            -   e4a4.1c82.dda8  ARPA   TenGigabitEthernet0/0/8.83
+Internet  192.168.83.50           0   Incomplete      ARPA   
+Router#show ip dhcp binding
+Bindings from all pools not associated with VRF:
+IP address      Client-ID/ 		Lease expiration 	Type       State      Interface
+		Hardware address/
+		User name
+192.168.83.50   016c.1ff7.570e.cb       May 30 2025 07:19 PM    Automatic  Active     TwoGigabitEthernet0/0/7
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.212 sec ago
+Last punt keepalive sent                  = 0.212 sec ago
+punt keepalive rx count                   = 1938
+punt keepalive tx count                   = 1938
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 496
+  Kernel time      : 566
+  Priority         : 20
+  Virtual bytes    : 2219790336
+  Resident pages   : 42589
+  Resident limit   : 18446744073709551615
+  Minor page faults: 47010
+  Major page faults: 615
+
+
+Router#
+[TX 2026-10-31T17:29:20.150122] b'show interfaces TenGigabitEthernet0/0/8 | include protocol|Mbps|errors|CRC|drops|resets|carrier\rshow platform\rshow environment all\rcopy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-port8-trunk-running.cfg\r'
+show interfaces TenGigabitEthernet0/0/8 | include protocol|Mbps|errors|CRC|drops|resets|carrier
+TenGigabitEthernet0/0/8 is up, line protocol is up 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 lost carrier, 0 no carrier, 0 pause output
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    01:05:49      
+ 0/0      8M-2xSFP+           ok                    01:05:03      
+R0        C8230X-8M2X         ok, active            01:05:49      
+F0        C8230X-8M2X         ok, active            01:05:49      
+P0        PWR-CC2-66WAC       ok                    01:05:17      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          35 Celsius
+ Temp: Outlet            R0              Normal          35 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12127 mV
+ V: 5V                   R0              Normal          4957 mV
+ V: 3.3V_SB              R0              Normal          3327 mV
+ V: 3.3V_SFP             R0              Normal          3308 mV
+ V: 3.3V                 R0              Normal          3303 mV
+ V: 1.8V                 R0              Normal          1796 mV
+ V: 1.2V                 R0              Normal          1201 mV
+ V: 1.1V_DDR             R0              Normal          1105 mV
+ V: 0.75V_CORE           R0              Normal          762 mV
+ V: 0.75V_SYS            R0              Normal          854 mV
+ V: 0.8V_SW              R0              Normal          807 mV
+ V: 0.8V                 R0              Normal          804 mV
+ V: 0.75V                R0              Normal          754 mV
+ I: VP12P0_MB            R0              Normal          1276 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          14 Watts
+
+
+Router#copy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-port8-trunk-running.cfg
+Destination filename [C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-port8-trunk-running.cfg]? 
+[TX 2026-10-31T17:29:22.759273] b'\r'
+
+7590 bytes copied in 0.968 secs (7841 bytes/sec)
+Router#
+[TX 2026-10-31T17:29:25.664638] b'verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-port8-trunk-running.cfg\rshow archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cfg usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-port8-trunk-running.cfg\rshow platform software infra punt-keepalive\r'
+verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-port8-trunk-running.cfg
+.Done!
+verify /sha512 (usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-port8-trunk-running.cfg) = 2d94ab942cc5dec4cdf54f1abbbaba06ef63c8bcd9280fb31bb7559a7a0e2c5d61ca5bb11ea088a4eb751ea4b2642e37b03c770256dc4b0b7b34a86419ae35a0
+
+
+Router#show archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cfg usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-port8-trunk-running.cfg
+!Contextual Config Diffs:
+interface TwoGigabitEthernet0/0/6
+ +no ip address
+ +shutdown
+interface TwoGigabitEthernet0/0/7
+ +no ip address
+ +shutdown
+interface TenGigabitEthernet0/0/8
+ +description PERF_TRUNK_VLAN5_VLAN83_NATIVE1
++interface TenGigabitEthernet0/0/8.1
+ +description NATIVE_VLAN1_UNNUMBERED
+ +encapsulation dot1Q 1 native
++interface TenGigabitEthernet0/0/8.5
+ +description PERF_VLAN5_UPLINK
+ +encapsulation dot1Q 5
+ +ip address 192.168.5.4 255.255.255.0
++interface TenGigabitEthernet0/0/8.83
+ +description PERF_VLAN83_LAN
+ +encapsulation dot1Q 83
+ +ip address 192.168.83.1 255.255.255.0
++ip route 0.0.0.0 0.0.0.0 TenGigabitEthernet0/0/8.5 192.168.5.1
+interface TwoGigabitEthernet0/0/6
+ -description PERF_UPLINK_192.168.5.0_24
+ -ip address 192.168.5.4 255.255.255.0
+interface TwoGigabitEthernet0/0/7
+ -description PERF_LAN_192.168.83.0_24
+ -ip address 192.168.83.1 255.255.255.0
+interface TenGigabitEthernet0/0/8
+ -shutdown
+-ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.568 sec ago
+Last punt keepalive sent                  = 1.568 sec ago
+punt keepalive rx count                   = 1943
+punt keepalive tx count                   = 1943
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-10-31T17:32:54.089080] b'show ip dhcp binding\rshow ip arp\rshow ip dhcp pool C8235_PERF83\rshow platform software infra punt-keepalive\r'
+show ip dhcp binding
+Bindings from all pools not associated with VRF:
+IP address      Client-ID/ 		Lease expiration 	Type       State      Interface
+		Hardware address/
+		User name
+192.168.83.50   016c.1ff7.570e.cb       May 30 2025 07:19 PM    Automatic  Active     TwoGigabitEthernet0/0/7
+192.168.83.51   0100.5056.ad5f.63       May 30 2025 07:57 PM    Automatic  Active     TenGigabitEthernet0/0/8.83
+Router#show ip arp
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  192.168.5.1             4   c800.840c.77c7  ARPA   TenGigabitEthernet0/0/8.5
+Internet  192.168.5.3             3   0050.56ad.fa7e  ARPA   TenGigabitEthernet0/0/8.5
+Internet  192.168.5.4             -   e4a4.1c82.dda8  ARPA   TenGigabitEthernet0/0/8.5
+Internet  192.168.5.25            3   0050.56ad.f324  ARPA   TenGigabitEthernet0/0/8.5
+Internet  192.168.83.1            -   e4a4.1c82.dda8  ARPA   TenGigabitEthernet0/0/8.83
+Internet  192.168.83.50           0   Incomplete      ARPA   
+Internet  192.168.83.51           1   0050.56ad.5f63  ARPA   TenGigabitEthernet0/0/8.83
+Router#show ip dhcp pool C8235_PERF83
+
+Pool C8235_PERF83 :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 254
+ Leased addresses               : 2
+ Excluded addresses             : 78
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased/Excluded/Total
+ 192.168.83.52        192.168.83.1     - 192.168.83.254    2     / 78    / 254  
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.692 sec ago
+Last punt keepalive sent                  = 1.692 sec ago
+punt keepalive rx count                   = 2047
+punt keepalive tx count                   = 2047
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#

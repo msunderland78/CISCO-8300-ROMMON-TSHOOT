@@ -10,6 +10,29 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+VLAN 83 DHCP VERIFIED; OWNER MOVING UBUNTU VM — 2026-10-31, 17:35 EDT
+Owner corrected new vNIC suffix f5:63 to 5f:63. Ubuntu ens256 is
+00:50:56:ad:5f:63, vmxnet3, and automatically received 192.168.83.51/24,
+gateway 192.168.83.1, DNS 192.168.3.10 / 208.67.222.222. Router binding/ARP
+match on Te0/0/8.83; DHCP now has old .50 plus new .51. Keepalives 2047/2047,
+misses 0. Thus VLAN 83 DHCP/option delivery is now verified, superseding the
+pending-client statement below. Original ens192 remains .5.3; additional
+ens224 (00:50:56:ad:34:b0, no IPv4 observed) is untouched.
+
+Both test addresses currently live in the default Ubuntu network namespace;
+route lookup to .5.3 from .83.51 returns local/dev lo, proving an ordinary
+same-host test would bypass the Cisco. No namespace or guest network mutation
+has been applied. Owner now reports physical host uplink only 1 Gb/s and is
+preparing to cleanly shut down/move the VM to a host with 10 Gb/s NICs.
+Hold Ubuntu commands until owner confirms return; no agent shutdown issued.
+Preserve VLAN port groups/MACs if possible and keep the Cisco powered.
+After return, freshly identify interfaces/MACs and routes, restore the
+runtime .83/24-via-.5.4 route if lost on reboot, and isolate only the new NIC
+before proving transit and testing. Guest-reported 10G is not host-link proof.
+Exact selected SSH outputs and router snapshot hashes are in
+port8-vlan-migration.json; originals remain private, public copies sanitized.
+The router configuration is complete; VM migration/10G forwarding test is not.
+
 PORT 8 VLAN TRUNK ACTIVE — 2026-10-31, 17:30 EDT
 Owner reconfirmed B/FGL2835LBHU, unchanged power/assembly/cooling/battery and
 exclusive console, with only port-8 twinax added; matching switch trunk

@@ -1,0 +1,94 @@
+● 5: ens256
+                   Link File: /usr/lib/systemd/network/99-default.link
+                Network File: /run/systemd/network/zzzz-dracut-default.network
+                       State: routable (configured)
+                Online state: online
+                        Type: ether
+                        Path: pci-0000:1b:00.0
+                      Driver: vmxnet3
+                      Vendor: VMware
+                       Model: VMXNET3 Ethernet Controller
+           Alternative Names: enp27s0
+                              enx005056ad5f63
+            Hardware Address: 00:50:56:ad:5f:63 (VMware, Inc.)
+                         MTU: 1500 (min: 60, max: 9190)
+                       QDisc: mq
+IPv6 Address Generation Mode: eui64
+    Number of Queues (Tx/Rx): 4/4
+            Auto negotiation: no
+                       Speed: 10Gbps
+                      Duplex: full
+                        Port: tp
+                     Address: 192.168.83.51 (DHCPv4 via 192.168.83.1)
+                              fe80::250:56ff:fead:5f63
+                     Gateway: 192.168.83.1
+                         DNS: 192.168.3.10
+                              208.67.222.222
+           Activation Policy: up
+         Required For Online: yes
+            DHCPv4 Client ID: 00:50:56:ad:5f:63
+          DHCPv6 Client DUID: DUID-EN/Vendor:0000ab1188c4aa4903a1ab44
+
+Oct 31 21:31:46 ubt-dc-dns-crt systemd-networkd[80195]: ens256: Configuring with /run/systemd/network/zzzz-dracut-default.network.
+Oct 31 21:31:46 ubt-dc-dns-crt systemd-networkd[80195]: ens256: Link UP
+Oct 31 21:31:46 ubt-dc-dns-crt systemd-networkd[80195]: ens256: Gained carrier
+Oct 31 21:31:48 ubt-dc-dns-crt systemd-networkd[80195]: ens256: Gained IPv6LL
+Oct 31 21:31:48 ubt-dc-dns-crt systemd-networkd[80195]: ens256: DHCPv4 address 192.168.83.51/24, gateway 192.168.83.1 acquired from 192.168.83.1
+local 192.168.83.51 dev lo src 192.168.83.51 uid 1000 
+    cache <local> 
+local 192.168.5.3 from 192.168.83.51 dev lo uid 1000 
+    cache <local> 
+driver: vmxnet3
+version: 1.9.0.0-k-NAPI
+firmware-version: 
+expansion-rom-version: 
+bus-info: 0000:1b:00.0
+supports-statistics: yes
+supports-test: no
+supports-eeprom-access: no
+supports-register-dump: yes
+supports-priv-flags: no
+Settings for ens256:
+	Supported ports: [ TP ]
+	Supported link modes:   1000baseT/Full
+	                        10000baseT/Full
+	Supported pause frame use: No
+	Supports auto-negotiation: No
+	Supported FEC modes: Not reported
+	Advertised link modes:  Not reported
+	Advertised pause frame use: No
+	Advertised auto-negotiation: No
+	Advertised FEC modes: Not reported
+	Speed: 10000Mb/s
+	Duplex: Full
+	Auto-negotiation: off
+	Port: Twisted Pair
+	PHYAD: 0
+	Transceiver: internal
+	MDI-X: Unknown
+	Link detected: yes
+netlink error: Operation not permitted
+dhcpcd 10.3.0
+Copyright (c) 2006-2025 Roy Marples
+Compiled in features: INET ARP ARPing IPv4LL INET6 DHCPv6 AUTH PRIVSEP
+usage: dhcpcd	[-146ABbDdEGgHJKLMNPpqTV]
+		[-C, --nohook hook] [-c, --script script]
+		[-e, --env value] [-F, --fqdn FQDN] [-f, --config file]
+		[-h, --hostname hostname] [-I, --clientid clientid]
+		[-i, --vendorclassid vendorclassid] [-j, --logfile logfile]
+		[-l, --leasetime seconds] [-m, --metric metric]
+		[-O, --nooption option] [-o, --option option]
+		[-Q, --require option] [-r, --request address]
+		[-S, --static value]
+		[-s, --inform address[/cidr[/broadcast_address]]] [--inform6]
+		[-t, --timeout seconds] [-u, --userclass class]
+		[-v, --vendor code, value] [-W, --whitelist address[/cidr]] [-w]
+		[--waitip [4 | 6]] [-y, --reboot seconds]
+		[-X, --blacklist address[/cidr]] [-Z, --denyinterfaces pattern]
+		[-z, --allowinterfaces pattern] [--inactive] [interface] [...]
+       dhcpcd	-n, --rebind [interface]
+       dhcpcd	-k, --release [interface]
+       dhcpcd	-U, --dumplease interface
+       dhcpcd	--version
+       dhcpcd	-x, --exit [interface]
+inactive
