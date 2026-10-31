@@ -8,7 +8,7 @@
     "serial": "FDO2742M0FK"
   },
   "status": "Fan cycling unresolved; two controller temperature-band transitions captured. Supported tuning/profile not established; supported-PSU comparison awaits hardware.",
-  "physical_state": "Same normally powered C8375-A; programming fixture removed; owner confirms top cover installed and vents clear. Final inventory newly reports an unsupported voice NIM insertion after the fan captures; owner confirmation requested.",
+  "physical_state": "Same normally powered C8375-A; programming fixture removed; owner confirms top cover installed and vents clear. Final inventory newly reports an unsupported voice NIM insertion after the fan captures; owner confirms insertion, with fresh EEPROM identifying the non-P module.",
   "owner_psu_label": {
     "model": "PWR-CC1-250WAC",
     "serial": "LIT2852A9TJ",
@@ -99,12 +99,12 @@
   },
   "changes": "Read-only show/help plus terminal pagination setting only. No firmware, cooling policy, EEPROM, security-state, power or fan-register change; no new debug levels.",
   "next_steps": [
-    "Reconfirm the newly reported unsupported voice-NIM insertion before further live diagnostics; preserve the earlier fan captures as preceding that inventory change.",
+    "Voice-module insertion is owner-confirmed. Preserve separate chronology: actual EEPROM PID lacks the P suffix in Cisco's supported NIM-2FXS/4FXOP listing. No voice-module state/firmware change performed; fan work remains active.",
     "Establish the correct Crestone environmental-controller fan profile, active input, thresholds, hysteresis/delays and a supported adjustment/update method for this exact board. Current read-only data does not justify a guessed register or PWM write.",
     "A known-good supported PWR-CC1-400WAC comparison remains useful for compatibility and PSU causality; owner has no spare. No purchase or cure promised.",
     "After a justified correction, repeat boot/environment and sustained fan-stability qualification. Preserve working boot firmware and all unique security data."
   ],
-  "updated_at": "2026-10-31T14:00:32.286546-04:00",
+  "updated_at": "2026-10-31T14:03:51.710231-04:00",
   "offline_display_script_review": {
     "source": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
     "squashfs_offset": 4096,
@@ -170,6 +170,6 @@
     "p0": "Unknown/incompatible",
     "r0_f0": "ok, active",
     "agent_ssh": "Closed cleanly; router remains powered and owner SSH untouched. Credentials retained for next diagnostics.",
-    "new_inventory": "NIM-2FXS/4FXO in0/1, unsupported, physical insertion time33seconds at13:58:46EDT. Earlier two fan transitions precede this report. Owner confirmation pending."
+    "new_inventory": "Owner confirms installing the voice NIM. Fresh14:02EDT EEPROM reads NIM-2FXS/4FXO, V02, serial FOC2145106C in0/1; current runtime reports unsupported. Captured fan cycles precede insertion."
   }
 }

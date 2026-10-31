@@ -268,5 +268,41 @@
     "clock_reconciliation": "showclockat13:10hostshowsOct31,2026UTC; decoder renderedlocal12:11-12:12 underEST. At13:12:26hostlogrecordsowneradmin/vty0changingESTtoEDT. UsehostUTC-offsettimestamps, explicitrenderingandprocessidentityratherthanassumingrouterclockunchanged.",
     "restoration": "Temporaryenv/pfu/cmandDebuglevelsrestoredandindependentlyverifiedNotice13:08:29EDT, beforeplanned13:09:57deadline."
   },
-  "handoff": "RouterleftpoweredwithworkingIOS/ownerSSH; allselectedtracelevelsNotice; agentnativeUSBcaptureclosedcleanly. Productionfirmwarecompatibility/PSU/fancontrolcausesremainunresolved."
+  "handoff": "RouterleftpoweredwithworkingIOS/ownerSSH; allselectedtracelevelsNotice; agentnativeUSBcaptureclosedcleanly. Productionfirmwarecompatibility/PSU/fancontrolcausesremainunresolved.",
+  "voice_module_followup_20261031": {
+    "recorded_at": "2026-10-31T14:03:51.710231-04:00",
+    "owner_confirmation": "Owner confirms installing voice NIM after fan-controller captures; expected IOS26.2.1 support.",
+    "fresh_commands": [
+      "show inventory",
+      "show diag all eeprom"
+    ],
+    "slot": "0/1",
+    "actual_eeprom": {
+      "pid": "NIM-2FXS/4FXO",
+      "vid": "V02",
+      "serial": "FOC2145106C",
+      "hardware_revision": "1.0",
+      "clei": "IP9IAUBCAB"
+    },
+    "runtime_state": "unsupported at13:58EDT; earlier fan cycles captured13:47\u201313:50EDT.",
+    "published_support": {
+      "listed_pid": "NIM-2FXS/4FXOP",
+      "starting_release": "26.1 in routing/CLI mode",
+      "source": "https://www.cisco.com/site/us/en/products/collateral/networking/sdwan-routers/8000-secure-routers/8300-series-secure-routers-ds.html"
+    },
+    "interpretation": "Published support covers the P-suffix model. Do not generalize it to the actual non-P EEPROM identity. This distinction is consistent with unsupported state; no new claim of module defect or fan causality.",
+    "private_captures": [
+      {
+        "path": ".git/recovery-private/fan-fix-20261031/ssh-20261031-140243-523247.raw",
+        "bytes": 1119,
+        "sha256": "204081befaf641b61b2dad9546154fa4a1d793ecc90e7b17393685faf4e6699e"
+      },
+      {
+        "path": ".git/recovery-private/fan-fix-20261031/ssh-20261031-140243-805860.raw",
+        "bytes": 2608,
+        "sha256": "a7e42ed2e2886911748506858a90b8338df13d2b0daac8ae76c6e4fd2ee4d5cb"
+      }
+    ],
+    "changes": "Read-only identity check; no module/driver/firmware/configuration change."
+  }
 }
