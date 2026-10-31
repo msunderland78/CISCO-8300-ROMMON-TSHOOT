@@ -4,7 +4,20 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest baseline: P1rail1.782V/HOLD-U1pin1=1.782V/RESET-U1pin3=1.732V.
+Latest: 11:01-11:02EDT first U2GPIO2x4KiB read PASS,20BB19 both,
+zero pair differences. P1rail1.783V/U1RESET0.021V before/after. Local
+import verified samples exactly equal17.18-3r reference block001f2000;
+new hashb1fd9c55...4286d1; historical AND differs3638bytes. Driver/node
+restored/GPIO8high/no programmer/same boot independently verified.
+One block only: no full backup/bank-role assignment/write/boot. Next
+qualify addresses/transfer shapes, leave reset wiring stable. Evidence:
+c8375-recovery/acquisition-evidence/20261031-Pi5-U2-reset-held-GPIO-read.json
+Earlier: actualU1RESETpin3->grabber-side10k leg contact1.5ohm. Before
+power require old5.6k branch removed, P1GND->10k->U1pin3, secure fit.
+Next DCV/Pi-only power blackP1pin2: redP1rail then reset-side resistor
+leg. Powered voltages pending; no U2read. Existing bounded U2reader
+source reviewed offline only; ID-gated2x4KiB, RDID/nativeREAD only.
+Earlier baseline: P1rail1.782V/HOLD-U1pin1=1.782V/RESET-U1pin3=1.732V.
 Current packageRESET high; older low breakout reading remains historical.
 Planned trial: Pi shutdown/unplug/0V, remove5.6k VCC->pin7 branch;
 P1pin2/GND -> known10k(9940ohm) -> grabber -> actualU1pin3RESET.

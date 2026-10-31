@@ -838,14 +838,14 @@
       "sha256": "a620ae4c1c77cf0394d4a133419d3196d84b95294653508ece4838a2f7689598"
     },
     {
-      "bytes": 21380,
+      "bytes": 22292,
       "path": "C8375-E-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "d7cdb2a51964b1205ad32c9e618c9acff7cb8c8aadf28da47ac45952e11cbd02"
+      "sha256": "77fb1eb88eb4697131df1f4ce1d7be2ae6e979498abbd368013fbf9d8bcf62c5"
     },
     {
-      "bytes": 160449,
+      "bytes": 162547,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "1b5235a2f4cd406c2821932f0972a4a9392c1ee683b4805a2d6a6e644ad2400c"
+      "sha256": "99e2f3ae2552ddc562fdaeea479f2642d6d1a45220d6e0f6aed2f81da90e469e"
     },
     {
       "bytes": 1992,
@@ -1113,9 +1113,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 266275,
+      "bytes": 268373,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "7ff5524cb69cb4690c72a8ed0edccc5872829bf165923bc48c59f6ff584588fc"
+      "sha256": "73bcaa630290895610ac760cf54a9beb4dec55e0498ab79613e15070ebef5937"
     },
     {
       "bytes": 6850655,
@@ -1258,9 +1258,9 @@
       "sha256": "b956ba64ffee87007fc6dff503cd9a35445721114d9c0368b20ef24c0b1615d9"
     },
     {
-      "bytes": 108279,
+      "bytes": 110347,
       "path": "c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md",
-      "sha256": "6a1498df1b608be70f579b27d77b359ac3cc8c6aeb4c800615fc1e088b9f343e"
+      "sha256": "06e593803f1e6448b98aebd14abce929b082543f761ebc50e99da67ee026f6d5"
     },
     {
       "bytes": 22807,
@@ -1493,9 +1493,14 @@
       "sha256": "b522c14cea5daa2018c986927dc1aa1b934e9fc99bfda505284eb88eeaf8ad5f"
     },
     {
-      "bytes": 8409,
+      "bytes": 9239,
+      "path": "c8375-recovery/acquisition-evidence/20261031-Pi5-U2-reset-held-GPIO-read.json",
+      "sha256": "f6b87475aa5790910b73d31fecc91f21c8dfc58dde8552cfa64624effe6d2700"
+    },
+    {
+      "bytes": 9936,
       "path": "c8375-recovery/acquisition-evidence/20261031-Pi5-noninvasive-control-review.json",
-      "sha256": "58d556a51380445260f0dcea00a9b21ce3ea7b1d59b02c46bdb90ff2d14751ef"
+      "sha256": "dc93513098d3c7dd24fb35f8942f22429c841cf66eff1cb3eee422604ceca052"
     },
     {
       "bytes": 172399,
@@ -2723,7 +2728,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 159,
-    "included_bytes_without_manifest": 691868971,
-    "included_files_without_manifest": 370
+    "included_bytes_without_manifest": 691886913,
+    "included_files_without_manifest": 371
   }
 }

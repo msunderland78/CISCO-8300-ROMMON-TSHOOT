@@ -9,9 +9,9 @@
   },
   "review_correction": "10k/5.6k pull-up results fail to demonstrate reliable unused-U1 deselection, but do not prove all noninvasive alternatives exhausted. No guarantee an in-circuit alternative will succeed.",
   "owner_current_state": {
-    "Pi": "Owner reports Pi-powered DC baseline; shutdown/unplug requested before any reset wiring change.",
+    "Pi": "On; same boot independently verified after read.",
     "access": "Owner supplied U1pin1/3-toVCC and actual reset-pair resistances in response to direct-pin checks; latter requested U2clip temporarily off.",
-    "wiring": "U2clip refit per requested baseline; existing U1pin7/5.6k until owner reports replacement by U1pin3/10k-toGND."
+    "wiring": "U2clip; unusedU1pin3 via nominal10k toP1ground, contact1.5ohm; owner freshly confirmed setup, reset held0.021V before/after capture."
   },
   "primary_source": {
     "url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
@@ -64,10 +64,9 @@
     "physical_limits": "Do not probe beneath covered U2legs or assume inaccessible clip contacts are available. Temporary clip removal leaves both chips soldered/intact."
   },
   "next_step": {
-    "status": "Powered baseline returned; superseded by unpowered reset pull-down assembly check",
-    "procedure": "With Pi unplugged refit same U2clip in checked orientation/wiring, secure with no bridges; keep U1grabber/resistor unchanged. Meter DCvolts, Pi-only power. BlackP1pin2/GND; redP1pin1 then actual U1flashpin3/RESET#. Report both voltages. No pin3 grounding/read.",
-    "purpose": "Establish normal reset-pin voltage and loaded target supply before designing any current-limited unused-U1 reset trial.",
-    "limits": "Do not infer safe pull-down resistance from unpowered Mohm values. No reset/HOLD assertion, voltage increase, GPIO/SPI/read or board rework performed by agent."
+    "status": "First U2block passed repeatability and exact reference comparison",
+    "next": "Qualify multi-address/transfer-shape path before full read pair; leave physical reset connection still.",
+    "evidence": "20261031-Pi5-U2-reset-held-GPIO-read.json"
   },
   "powered_control_baseline": {
     "owner_reported_VDC": {
@@ -79,7 +78,7 @@
     "interpretation": "RESET is high in this current package-pin measurement (nominalVIHmin1.2474V). HOLD level alone does not establish enabled function. Earlier October25 breakout-reset0\u20130.001V remains historical/unresolved and is not the current package-pin level."
   },
   "reset_pulldown_trial": {
-    "status": "Selected as limited-current no-SPI experiment; assembly/contact result pending",
+    "status": "DC reset qualification and first bounded U2read completed; wider validation pending",
     "basis": "U1RESET-toVCC5.67Mohm and reset-to-reset15.96Mohm show no hard unpowered ties; nativeU1RESET1.732V at VCC1.782V provides powered baseline. These observations permit a limited-load qualification but do not prove powered independence or output release.",
     "target": "Unused U1 physicalpin3/RESET#, while programmer clip remains U2",
     "connection": "P1pin2/GND -> previously measured9940ohm nominal10k resistor -> insulated grabber -> actualU1pin3/RESET#",
@@ -90,6 +89,33 @@
     "later_gate": "Only after contact/fit checked, meter DCV and Pi-only power to measure actual reset and VCC. At previous1.782V nominalVILmax0.5346V; require clear low margin, not a boundary reading. Supply stability plus lowRESET does not alone establish accurate U2 data; bounded RDID and cross-address/read-shape validation remain necessary.",
     "cleanup": "Make all attachment/removal changes with Pi supply unplugged/residual0V; keep a powered reset connection still.",
     "source_notes": "Micron pp12/14 dedicatedRESET/internalpullup/output release; Table47 thresholds. P76 notesRESET disabled during startup tVSL, so steady DC is not proof of reset coverage or waveforms throughout power ramp.",
-    "agent_hardware_actions": "None; new reset assertion not reported yet."
+    "agent_hardware_actions": "None; new reset assertion not reported yet.",
+    "assembly_contact_result": {
+      "owner_reply": "u1pin3 grabber resistance=1.5ohms",
+      "ohms": 1.5,
+      "requested_endpoints": "Actual U1pin3/RESET# to resistor leg attached to grabber, under requested unpowered assembly procedure",
+      "interpretation": "Low-resistance contact acceptable for passive10k reset pull-down. Full wiring/secure single-leg fit and old5.6k removal are conditions of next power-up instruction; no powered reset result yet."
+    },
+    "powered_test_request": {
+      "conditions": "Old5.6k branch removed; known10k fromP1pin2/GND toU1pin3; secure single-leg grabber and complete circuit. Switch meter DCvolts before Pi-only power; router/other-cable/CR2032/CH341A isolation retained.",
+      "measurements": "BlackP1pin2/GND; redP1pin1/VCC then redactual10k resistor grabber-side leg (reset node). Report both voltages, leave powered wiring still, no read.",
+      "limits": "Resistor-node voltage is a measured endpoint;1.5ohm contact supports equivalence to chip reset within small DC drop, not direct waveform proof. No CS/SPI/array operation follows automatically."
+    },
+    "powered_result": {
+      "P1rail_VDC": 1.783,
+      "U1_reset_node_VDC": 0.021,
+      "post_capture_same_values": true,
+      "nominal_VIL_max_V": 0.5349
+    },
+    "first_read_evidence": "20261031-Pi5-U2-reset-held-GPIO-read.json"
+  },
+  "reader_preparation_review": {
+    "action": "Read existing source only; no execution/import/deployment",
+    "files": [
+      "scripts/pi_gpio_u2_read.py",
+      "scripts/pi_gpio_u1_read.py"
+    ],
+    "behavior": "Existing U2 wrapper uses shared capture with20bb19 identification gate before each of two fixed4KiB samples at001f2000. Only0x9f RDID/0x13 native4-byte READ in capture.",
+    "limitations": "First diagnostic only; no whole-array accuracy/bank identity/complete backup inferred. Cross-address and transfer-shape qualification remains after initial result. Reset/supply/physical gates not yet passed."
   }
 }
