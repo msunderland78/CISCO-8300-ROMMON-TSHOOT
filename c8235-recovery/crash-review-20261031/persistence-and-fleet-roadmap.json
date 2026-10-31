@@ -1,0 +1,94 @@
+{
+  "tasks": [
+    "C8235-05",
+    "C8235-01",
+    "C8235-03"
+  ],
+  "recorded_at": "2026-10-31T18:06:03.859833-04:00",
+  "timezone": "America/New_York",
+  "scope": "Offline assessment and next-phase plan only. No new console/SSH commands, performance run, reboot, configuration save, service cleanup or firmware write.",
+  "owner_direction": "Performance testing sufficient for now; defer further throughput and switch-counter comparisons. Explain current function, permanence, version changes and transfer of findings to routers1/3.",
+  "router_labels": {
+    "router1": "C8235-A / FGL2835L42B",
+    "router2": "C8235-B / FGL2835LBHU",
+    "router3": "C8235-C / serial still unverified"
+  },
+  "last_observed_B": {
+    "record": "port7-3850-comparison.json",
+    "time": "2026-10-31 about17:59 EDT",
+    "assessment": "Operational routing/DHCP/VLAN/mGig/short10G function demonstrated under RAM-only correction; long-duration/repeated-boot/persistence and full feature qualification incomplete. No fresh live health claim in this assessment."
+  },
+  "root_cause_and_workaround": {
+    "observed": "Development boot environment exposes32 AF virtual loopbacks; exact26.2.1 ARATA startup budgets16 and sets32 total NIX resources. Isolated experiment reproduces exhaustion and missing packet-processing attachment.",
+    "correction": "RAM launch_net.sh hook leaves AF VFs16-31 unbound before Cisco VF discovery, retaining AF VFs0-15 and native32-resource limit. Hardware VF count remains32; sriov_numvfs change was rejected.",
+    "effect": "Corrected startup completes F0/ports and keepalives; no NIX/ATTACH failure in captured corrected kernel log. Original images and ROMMON unchanged."
+  },
+  "persistence": {
+    "permanent": false,
+    "validated_entry": "Manual maintenance-shell entry, guarded --prepare-only patch in RAM, then continue normal init.",
+    "automatic_entry": "Earlier overlong ROMMON command rejected and shortened automatic USB bootstrap reset before marker; unattended start is unproven.",
+    "power_cycle": "RAM correction is lost. Stored script alone is not automatic execution; saving IOS configuration does not persist this early RAM edit.",
+    "last_saved_boot_target": "bootflash:packages.conf,12; from earlier17.18.3a installation, not changed by one-time corrected USB26.2.1 boot. Recheck before any reboot; no new observation today.",
+    "test_network_configuration": "Running only; intended startup configuration and boot-register behavior still need explicit verification.",
+    "wrapper": {
+      "path": "experimental-recovery/c8235-b-bound16-20261031/boot-bound16.sh",
+      "sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052",
+      "kernel_guard": "6.6.95",
+      "board_guard": "arata / FRU_SUB ARATA",
+      "VF_property_guard": "00000020",
+      "vendor_script_sha256": "f7d617bd80362c4bc564fc2c848bd95ecf84251be0d11e1707a95ca301d8cdc4",
+      "modified_script_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857"
+    }
+  },
+  "release_change_policy": [
+    "Treat every different IOS image as a separate validation target; inspect exact startup script, kernel/driver, VF mapping and allocation policy, then adapt only a separately named guarded candidate if needed. Do not disable existing guards to force another image.",
+    "Activation/reboot loses the current RAM correction even when the retained USB script is unchanged. A target may fix the allocation logic itself, retain the mismatch or change it; none is established without examination.",
+    "Archived17.18.3a/26.1.1 and current uncorrected26.2.1 show related allocation failures; a simple downgrade is not an established fix.",
+    "Keep IOS-image changes separate from ROMMON/boot-firmware changes. Production compatibility recommendations do not establish prototype compatibility; A already demonstrates pre-ROMMON TPM halt after release ROMMON programming.",
+    "Before downgrade, inspect/back up IOx/application data. Cisco26.2.1 notes document loss of the6GB IOx persistent disk contents if an earlier image replaces it with4GB. Applicability to actual installed apps must be checked; no such cleanup/downgrade performed."
+  ],
+  "next_B_sequence": [
+    "Preserve the current working reference: exact IOS image, private running/startup exports, manual corrected-boot recipe, and existing logical SPI reads; identify/match both physical-bank backups before boot-firmware writes.",
+    "Develop and verify a repeatable version-checked pre-IOS correction entry for the same26.2.1 image. Distinguish a console-host-assisted replay from a genuinely unattended router boot. No standalone persistence method is established.",
+    "Preferred durable resolution is a verified compatible board/boot profile or IOS initialization fix; availability is unproven. Preserve exact originals. Any persistent image/firmware candidate needs separate integrity, authentication, compatibility and changed/preserved-region validation before a write; none is established. Whole-chip cloning or a production-ROMMON update is not an assumed cure.",
+    "Choose and verify intended startup network configuration and boot target separately. Current test settings and USB boot are not a permanent installation.",
+    "Once recovery entry is reproducible, complete three captured corrected cold boots, a defined idle interval and overnight observation. Previous60-minute forwarding gate remains deferred/incomplete at owner request; feature-specific validation follows intended use.",
+    "Investigate standby12V sensor and TPM self-test warning separately. No physical rail fault or defective TPM proved.",
+    "Close out temporary Ubuntu benchmark listener/DHCP namespace/routes with verified-process cleanup when switching bench phases; no cleanup executed in this planning-only review. Existing listener/client bounds remain about19:08/19:07EDT."
+  ],
+  "router_C_plan": [
+    "Identify actual serial/PID/revision, present assembly/battery/power/console ownership before connection; retain a separate record.",
+    "Capture untouched original firmware and baseline, preserve backups before changes, inspect exposed AF VF count and exact IOS allocation path.",
+    "If the same mismatch is verified, adapt the known RAM method with chassis/image-specific guards; do not automatically apply B-only script.",
+    "If C boots normally, preserve it as an independent comparison. If it fails earlier, follow that actual failure path. Use working-function, boot-repeatability and stability gates independently."
+  ],
+  "router_A_plan": {
+    "current_failure": "FGL2835L42B halts at TPM manufacturing-status access before Cisco ROMMON following release SoC1 flash; B correction runs later in IOS init and cannot repair that stage directly.",
+    "useful_transfer": "B demonstrates development firmware plus corrected IOS allocation can support functioning routing. This supports recovering a compatible earlier boot chain on A rather than assuming its original CPP crash required a production-ROMMON upgrade; A itself remains untested with the correction.",
+    "preserved_reference": "Two matching32MiB software reads of one logical B MTD exist on USB, SHA256cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857. Contents not fully classified; physical bank mapping/second-bank backup unresolved; not an approved A restore image.",
+    "next_steps": [
+      "Preserve stable full reads of A physical chips and identify existing primary/golden code without assumed selector/jumper mappings.",
+      "Compare A/B/C compatible SoC1 code regions, revisions and security requirements; preserve A unique manufacturing/environment/security data.",
+      "If a compatible original code candidate is established, document exact changed/preserved ranges and perform a separately validated restore/readback. No candidate selected in this review.",
+      "After A reaches ROMMON/IOS again, test for the same NIX mismatch and apply a separately verified correction only if needed."
+    ],
+    "excluded_shortcuts": [
+      "No whole-chip B-to-A clone",
+      "No TPM clear or copied TPM/provisioning data",
+      "No speculative fuses/lifecycle changes",
+      "No unverified golden-bank jumper or SoC2 hybrid reuse"
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html",
+      "accessed": "2026-10-31",
+      "supports": "C8235-G2 production ROMMON matrix and26.2.1 IOx persistent-disk downgrade behavior; not prototype certification or a known matched allocation fix."
+    },
+    {
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/software-config-guide/secure-8200-series-scg/isr9000swcfg-xe-16-12-book_chapter_0111.html",
+      "accessed": "2026-10-31",
+      "supports": "IOS upgrade requires reboot; ROMMON is separately described software; startup and running configuration are distinct."
+    }
+  ]
+}

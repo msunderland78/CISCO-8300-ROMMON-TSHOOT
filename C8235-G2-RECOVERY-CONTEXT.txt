@@ -10,6 +10,38 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+PERFORMANCE DEFERRED; BOOT PERSISTENCE / FLEET PLAN — 2026-10-31, 18:06 EDT
+Owner is satisfied with performance for now. Defer more throughput and switch
+counter comparisons. This checkpoint is OFFLINE REVIEW ONLY: no new router/
+Ubuntu command, cleanup, save, reboot, firmware write or test. Last measured
+router state remains the17:59 direct3850 result below; no fresh health claim.
+
+B is functional with the RAM-only internal AF-loopback correction. It is not
+permanently repaired: reload loses the launch_net.sh edit; a saved script or
+write-memory does not run/persist it. Only manual maintenance --prepare-only
+entry is validated; earlier automatic USB bootstrap failed. Last saved boot
+target remains the old bootflash:packages.conf installation; corrected26.2.1
+is the one-time USB boot. Test networking is running-only as well.
+Each alternate IOS requires fresh script/kernel/VF-profile review and separate
+validation; keep exact guards. Preserve development ROMMON: A's production-
+firmware TPM halt is an earlier boot-stage issue, not cured by B's IOS hook.
+Review IOx/data downgrade consequences before choosing another release.
+
+Next: preserve B's working reference/backups, make corrected boot repeatable
+and investigate standalone persistence, verify desired startup config/boot
+settings, then corrected cold boots and defined idle/overnight observation.
+Long loaded gate stays incomplete/deferred. Sensor/TPM warnings unresolved.
+C needs identity/revision/original-boot baseline before any correction; it may
+be a control. A needs stable physical-chip reads/mapping and compatible earlier
+code recovery preserving its own unique data before an IOS resource test.
+B's matching32MiB logical MTD pair is useful evidence, not both-chip backup or
+an approved A image. No new firmware candidate or write selected.
+
+Plan/details: c8235-recovery/crash-review-20261031/persistence-and-fleet-roadmap.json.
+Current cabling/config and passive capture remain as last observed. Temporary
+Ubuntu DHCP/listener bounds are still about19:07/19:08EDT; explicit cleanup
+is planned, not executed. No fresh physical-state confirmation is inferred.
+
 DIRECT CISCO 3850 COMPARISON COMPLETE — 2026-10-31, 17:59 EDT
 Owner clarifies the prior port 7 path used a desktop Netgear switch, then
 moves cabling directly to Cisco 3850 VLAN 5. Fresh B/FGL2835LBHU identity and
