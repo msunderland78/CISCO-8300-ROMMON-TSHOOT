@@ -10,7 +10,7 @@
   "review_correction": "10k/5.6k pull-up results fail to demonstrate reliable unused-U1 deselection, but do not prove all noninvasive alternatives exhausted. No guarantee an in-circuit alternative will succeed.",
   "owner_current_state": {
     "Pi": "Owner explicitly confirms turned off and physically unplugged.",
-    "access": "Owner expects meter access to U1pins1/3 with U2clip retained; actual successful probe access not yet measured.",
+    "access": "Owner supplied U1pin1/3-toVCC and actual reset-pair resistances in response to direct-pin checks; latter requested U2clip temporarily off.",
     "wiring": "Retain short U2clip and U1pin7 grabber/nominal5.6k resistor; no new drive/jumper."
   },
   "primary_source": {
@@ -38,10 +38,35 @@
     "limits": "Actual CS route and safe accessible control/supply mapping unresolved; prior completed header/U4 scans and inaccessible fine-probing are not restarted. No selector/enable jumper selected."
   },
   "first_new_checks": {
-    "status": "Requested only, no results yet",
+    "status": "Owner returned numerical resistance measurements under requested unpowered procedure",
     "procedure": "Verify P1pin1-to-pin2 residual0VDC before ohms. Then black at P1headerpin1/VCC, red sequentially actual U1pin1/HOLD# and actual U1pin3/RESET#. Report numerical ohms/OL; retain wiring.",
     "purpose": "Screen for near-zero ties to flash VCC before considering any drive. These in-circuit equivalents do not establish discrete resistor values or independent control from U2.",
-    "later_requirements": "If viable, establish U1/U2 control-net independence using genuinely accessible verified endpoints, qualify driver/loading and secure contact, then separately plan limited no-clock control. No generic scan or speculative ground jumper."
+    "later_requirements": "If viable, establish U1/U2 control-net independence using genuinely accessible verified endpoints, qualify driver/loading and secure contact, then separately plan limited no-clock control. No generic scan or speculative ground jumper.",
+    "results": [
+      {
+        "requested_polarity": "BlackP1headerpin1/VCC; redactualU1pin1/HOLD#",
+        "ohms": 4673
+      },
+      {
+        "requested_polarity": "BlackP1headerpin1/VCC; redactualU1pin3/RESET#",
+        "ohms": 5670000,
+        "owner_units": "5.67Mohm"
+      }
+    ],
+    "interpretation": "Neither reported path is near-baseline VCC continuity. These are in-circuit readings, not identified resistor values and not proof of independent U1/U2 control. Residual0V procedure requested; numerical residual not separately supplied."
   },
-  "agent_hardware_actions": "None. Source/evidence review and repository maintenance only; no GPIO/SPI/SSH/programmer/array access or new powered experiment."
+  "agent_hardware_actions": "None. Source/evidence review and repository maintenance only; no GPIO/SPI/SSH/programmer/array access or new powered experiment.",
+  "reset_pair_check": {
+    "requested_setup": "Pi unplugged; residual0V before ohms. Temporarily release only U2springclip, leave its wires attached and U1grabber/5.6k retained; measure actual U1pin3 to actual U2pin3.",
+    "owner_reported_ohms": 15960000,
+    "owner_units": "15.96Mohm",
+    "interpretation": "No low-resistance reset-to-reset connection shown in this unpowered setup. Does not establish powered independence, device state or output release. Reset candidate remains plausible and needs qualification.",
+    "physical_limits": "Do not probe beneath covered U2legs or assume inaccessible clip contacts are available. Temporary clip removal leaves both chips soldered/intact."
+  },
+  "next_step": {
+    "status": "Requested, powered baseline results pending",
+    "procedure": "With Pi unplugged refit same U2clip in checked orientation/wiring, secure with no bridges; keep U1grabber/resistor unchanged. Meter DCvolts, Pi-only power. BlackP1pin2/GND; redP1pin1 then actual U1flashpin3/RESET#. Report both voltages. No pin3 grounding/read.",
+    "purpose": "Establish normal reset-pin voltage and loaded target supply before designing any current-limited unused-U1 reset trial.",
+    "limits": "Do not infer safe pull-down resistance from unpowered Mohm values. No reset/HOLD assertion, voltage increase, GPIO/SPI/read or board rework performed by agent."
+  }
 }

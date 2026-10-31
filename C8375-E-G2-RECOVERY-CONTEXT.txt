@@ -4,7 +4,13 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: owner rejects chip removal; intact-board plan excludes lifting
+Latest: unpowered VCC->U1HOLDpin1=4673ohm; VCC->U1RESETpin3=5.67Mohm.
+With requested U2clip temporarily off, U1pin3->U2pin3=15.96Mohm: no
+low-resistance tie shown, powered independence unverified. Next Pi-off
+refit U2clip unchanged/checked, secure/DCV/Pi-only power; blackP1ground,
+redP1VCC then actualU1RESETpin3. Results pending. No grounding/read.
+Existing U1grabber/5.6k unchanged; no chip removal/lead lifting/cuts.
+Earlier: owner rejects chip removal; intact-board plan excludes lifting
 legs/cutting traces. Earlier off-board fallback is outside current scope.
 Pi now explicitly OFF/physically unplugged. Assess independent U1HOLD
 pin1/RESETpin3 as candidate output-inhibit paths; no grounding selected.
