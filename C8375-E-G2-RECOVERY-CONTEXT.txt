@@ -4,7 +4,14 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: unpowered VCC->U1HOLDpin1=4673ohm; VCC->U1RESETpin3=5.67Mohm.
+Latest baseline: P1rail1.782V/HOLD-U1pin1=1.782V/RESET-U1pin3=1.732V.
+Current packageRESET high; older low breakout reading remains historical.
+Planned trial: Pi shutdown/unplug/0V, remove5.6k VCC->pin7 branch;
+P1pin2/GND -> known10k(9940ohm) -> grabber -> actualU1pin3RESET.
+Check secure fit/no bridges and pin3->resistor signal-leg continuity;
+leave Pi OFF pending result. No reset assertion/SPI/read yet. Future
+lowRESET/supply/bounded-read gates retained; no chip rework or security write.
+Earlier: unpowered VCC->U1HOLDpin1=4673ohm; VCC->U1RESETpin3=5.67Mohm.
 With requested U2clip temporarily off, U1pin3->U2pin3=15.96Mohm: no
 low-resistance tie shown, powered independence unverified. Next Pi-off
 refit U2clip unchanged/checked, secure/DCV/Pi-only power; blackP1ground,
