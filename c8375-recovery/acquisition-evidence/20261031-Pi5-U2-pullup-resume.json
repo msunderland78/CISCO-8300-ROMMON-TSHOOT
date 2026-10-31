@@ -99,5 +99,18 @@
     "interpretation": "Low-resistance assembled resistor-to-chip connection is now demonstrated by owner reading. Prior suspected movement makes earlier contact/voltage conclusions uncertain; not proof of the sole cause of3170ohm or earlier1.242V. Actual resistor9940ohm preserved.",
     "next_requested": "With secure single-leg grabber and complete circuit, meter DCvolts before Pi-only power. Black P1pin2/GND, red P1pin1 then actual U1-side resistor leg. Refresh both voltages before any CS control/read. Router/CR2032/CH341A isolation unchanged under confirmed setup.",
     "status": "Powered recheck requested, not yet reported; no agent hardware action or new U2 read."
+  },
+  "post_reseat_powered_result": {
+    "supply_VDC": 1.78,
+    "U1_pin7_to_P1_ground_VDC": 1.242,
+    "owner_source": "u1 pin7 still read1.242 relative to p1pin2 ... p1pin1 to p1pin2 read1.780vdc",
+    "prior_contact_ohms": 0.9,
+    "resistor_measured_ohms": 9940,
+    "nominal_VIH_min_V": 1.246,
+    "interpretation": "No demonstrated guaranteed-high margin. Difference of4mV from nominal threshold is within unresolved meter/sampling uncertainty, not proof of logic low. Supply-side resistor feed after recent manipulations has not been reverified directly; board-loading/active-driver cause remains unresolved.",
+    "owner_inventory_update": "Owner has additional resistors/different values; exact values not supplied.",
+    "next_requested": "Keep existing resistor and powered wiring unchanged. Meter DCvolts directly across actual resistor legs, redP1side/blackU1side; expected about0.538V if latest rail/CS values also occur at resistor endpoints. Also inventory available2.2k\u201310k values. No replacement chosen, no automatic lower-resistance escalation, no U2control/read.",
+    "source_url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+    "agent_hardware_actions": "None"
   }
 }

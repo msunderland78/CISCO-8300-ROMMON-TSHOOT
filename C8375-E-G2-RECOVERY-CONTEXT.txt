@@ -4,7 +4,13 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: owner suspects grabber moved during~2ohm check, reseats it;
+Latest powered result: U1pin7-to-P1ground1.242VDC; P1rail1.780VDC.
+No demonstrated reliable high (nominalVIHmin1.246V; uncertainty unresolved).
+Other resistors available, values pending. Keep10k: next DCV across actual
+resistor legs redP1side/blackU1side; expect~0.538V if feed connected.
+Post-handling supply-side feed/current unverified. No lower value selected
+or U2control/read. Earlier results retained.
+Earlier: owner suspects grabber moved during~2ohm check, reseats it;
 actual resistor output->actualU1pin7 now0.9ohm, low assembled resistance.
 Earlier3,170ohm/~2ohm/1.242V retained; no sole cause proved. Next secure
 circuit/meterDCV/Pi-only power: blackP1pin2, redP1pin1 then U1-side
