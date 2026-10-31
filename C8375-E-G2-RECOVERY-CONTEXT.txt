@@ -4,7 +4,12 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: owner confirms resistor supply-side1.782VDC/U1side1.242VDC.
+Latest: resistor measured9940ohms (-0.6%, within1%); power/residual
+conditions not separately restated. Correct value does not prove contact.
+Next only unpowered/residual0V: reseat resistor, check U1side breadboard
+node->actualU1pin7 ohms if accessible without shifting grabber; if blocked,
+stop probing. No U2control/read or lower resistance. Result pending.
+Earlier: owner confirms resistor supply-side1.782VDC/U1side1.242VDC.
 Supply reaches resistor; reliable U1high not established. No U2read.
 Next after Pi shutdown/unplug/residual0V: actual resistor ohms with one
 leg disconnected. No automatic lower resistance; verification pending.

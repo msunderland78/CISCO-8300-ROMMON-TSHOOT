@@ -62,5 +62,15 @@
       "U1_side_VDC": 1.242,
       "interpretation": "Reported resistor endpoints differ by0.540V. If actual series resistance is10kOhm, inferred DC current is54microamp; this does not identify a loading component or establish fast behavior. Reliable U1 high remains unproven."
     }
+  },
+  "resistor_verification": {
+    "owner_reported_ohms": 9940,
+    "nominal_ohms": 10000,
+    "deviation_percent": -0.6,
+    "within_1percent_tolerance": true,
+    "measurement_conditions": "Reported in response to request to shut down/unplug Pi, verify residual0V, and measure with one resistor leg isolated; owner did not separately restate those conditions.",
+    "interpretation": "Correct resistor value does not establish actual breadboard-to-chip contact or reliable U1 deselection. Earlier reported1.782V/1.242V remain the last powered observations.",
+    "next_requested": "Pi physically unplugged and P1 residual0V before ohms. Reseat resistor unpowered; measure U1-side breadboard node to actual physical U1pin7 only if accessible without moving grabber/bridging adjacent pins. Report numerical ohms or blocked access. No repeat broad-header scan, lower-resistance change or U2 control/read.",
+    "agent_hardware_actions": "None"
   }
 }
