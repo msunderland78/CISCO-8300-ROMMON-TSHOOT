@@ -10,6 +10,36 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+DIRECT CISCO 3850 COMPARISON COMPLETE — 2026-10-31, 17:59 EDT
+Owner clarifies the prior port 7 path used a desktop Netgear switch, then
+moves cabling directly to Cisco 3850 VLAN 5. Fresh B/FGL2835LBHU identity and
+exclusive console ownership match. CDP identifies WS-C3850-48T, management
+192.168.5.1, peer Gi2/0/3, native VLAN 5, software 16.12.14. Port 7 remains
+1G full duplex; its reported input/output flow control is now off (was on).
+Port 8 remains 10G with VLAN 83/native 1. No agent configuration changes.
+Cable transition increments lost carrier to 4 before baseline; no later rise.
+
+Same Ubuntu endpoints/routes/server and exact three commands:
+- 5 -> 83, paced 850 Mb/s / 30 s: 849.973 Mb/s received, 60 retransmissions.
+- 5 -> 83, uncapped / 60 s: 940.127 Mb/s received, 2205 retransmissions.
+- 83 -> 5, uncapped / 60 s: 941.432 Mb/s received, zero retransmissions.
+Prior Netgear-path counts were 537 / 2644 / 0; reductions 88.8% / 16.6% in
+these single comparisons, not a demonstrated root cause or complete cure.
+Both ports CRC/input/output errors/output drops remain zero; TailDrop 2020
+unchanged. BadUidbSubIdx 1272->1644 and UnconfiguredIpv6Fia 421->422 rose.
+CPP PID 20844 unchanged, keepalives 2824/2824 with zero misses, QFP samples
+5%, F0/0/0 operational, CPU 52C, main12V 12107mV, power16W; no NIX/ATTACH
+matches. Initial full-size warm-up 4/5 then5/5 is retained separately.
+
+Evidence: port7-3850-comparison.json; native logs, server nine-test snapshot,
+and 192495-byte console prefix 20261031-175903-port7-3850-comparison-snapshot.log.
+Current direct3850 setup remains; no active test client; bounded DHCP/listener
+expire around19:07/19:08 EDT, namespace/route persist until cleanup/reboot.
+Passive exclusive capture/reset stop remains active. Next switch-local
+Gi2/0/3 transmit counters before tuning; no switch login/counters collected.
+RAM-only correction and running-only configuration remain; long gates and
+persistent recovery incomplete. The earlier Netgear results below are retained.
+
 PORT 7 1G COMPARISON COMPLETE — 2026-10-31, 17:52 EDT
 Owner confirmed 5-network cable moved to port7, port8 twinax retained.
 At17:46:09 moved192.168.5.4/24 to Tw0/0/7 (1Gb/s full duplex), removed

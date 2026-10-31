@@ -56,6 +56,26 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
+      "bytes": 11188,
+      "path": "c8235-recovery/crash-review-20261031/iperf-port7-3850-forward-unlimited60.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 9178,
+      "path": "c8235-recovery/crash-review-20261031/iperf-port7-3850-reverse-unlimited60.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 6085,
+      "path": "c8235-recovery/crash-review-20261031/iperf-port7-3850-reverse850.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 12018,
+      "path": "c8235-recovery/crash-review-20261031/iperf-port7-3850-server-nine-tests.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 362,
       "path": "c8235-recovery/crash-review-20261031/iperf-port8-dhcp.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
@@ -108,6 +128,21 @@
     {
       "bytes": 1206,
       "path": "c8235-recovery/crash-review-20261031/ubuntu-port7-1g-path-warmup.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 527,
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port7-3850-final-state.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 969,
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port7-3850-path-check.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 2252,
+      "path": "c8235-recovery/crash-review-20261031/ubuntu-port7-3850-warmup-and-paced-summary.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
@@ -1024,6 +1059,11 @@
       "bytes": 147627,
       "path": "router-console-logs/20261031-175149-port7-1g-comparison-snapshot.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 192495,
+      "path": "router-console-logs/20261031-175903-port7-3850-comparison-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1058,9 +1098,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 81082,
+      "bytes": 83103,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "fe53424f1e44e6a8ae118f84752bb7f092d667f3c2c7ba11b285812837f8d453"
+      "sha256": "4b673fcad3b7ce034a5fc1108af00522af13d7e11d53f099509499e4c87e7197"
     },
     {
       "bytes": 106687,
@@ -1243,9 +1283,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 23774,
+      "bytes": 23804,
       "path": "README.md",
-      "sha256": "cd852409d8c72557e7a985111d97922f5b68364b53dfc2178a12a03abc04e203"
+      "sha256": "512fc45da953660098b14c77e9cc7b733cbfea79a7ac6ec19ee46794909f1404"
     },
     {
       "bytes": 3934,
@@ -1343,9 +1383,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 342605,
+      "bytes": 344212,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "c9cba3d930ffd37fadfe0b2a6504031379337f062d4282eae2a3d28da09772be"
+      "sha256": "18aa5d94b39079e4c78a93f868ea7686945ad1638aa899f5772394cadafbb7ca"
     },
     {
       "bytes": 6850655,
@@ -1483,9 +1523,9 @@
       "sha256": "b3449fde6e72c571de6260f5758fb03a448ef7f7278d2130187a0acba691af9b"
     },
     {
-      "bytes": 65066,
+      "bytes": 70363,
       "path": "c8235-recovery/crash-review-20261031/REVIEW.md",
-      "sha256": "2ea0e9b077d47ccda5d73aeebabf88ff2c38d4d5b3d9bcf7218dfb1998baf02d"
+      "sha256": "5a007929a03f6f422f8e6139720ab83aa6ceebf8b63ee410d98fbc2f7c11d335"
     },
     {
       "bytes": 23310,
@@ -1508,9 +1548,14 @@
       "sha256": "1a5274da25cdbc4305ded2f6847bd84e60c053dd004554820bc5d6d3199a90f6"
     },
     {
-      "bytes": 60858,
+      "bytes": 61238,
       "path": "c8235-recovery/crash-review-20261031/port7-1g-comparison.json",
-      "sha256": "23c136d8ff17d214c56da7daf5a2c89170c1dcdc9d57368fc5960e5d54fec70a"
+      "sha256": "bfe1c3c3f0a3a8b06cf1f22d85da6fa8e1421f3e0d2547782ba2a97e9ae12a68"
+    },
+    {
+      "bytes": 59835,
+      "path": "c8235-recovery/crash-review-20261031/port7-3850-comparison.json",
+      "sha256": "4c885e23f25b59e5662cde3318ae73ac5b53450818f035baec7375508f5addab"
     },
     {
       "bytes": 29838,
@@ -2608,6 +2653,26 @@
       "sha256": "ee99fb9eebdcc7b4fea62cf3d17a51237ef8f0a1986a1d58bd01f49fe46dd65a"
     },
     {
+      "bytes": 11188,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-3850-forward-unlimited60.log",
+      "sha256": "7c3063250d5a4240ba43e85c1a666b1e10efdd45964bbcfb3b7c4ee6000d66cb"
+    },
+    {
+      "bytes": 9178,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-3850-reverse-unlimited60.log",
+      "sha256": "d4f731f75a92b0ca6ce50d4717685920a8f03418b68b82a564f9ecc781d6903a"
+    },
+    {
+      "bytes": 6085,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-3850-reverse850.log",
+      "sha256": "066941dee6ab9a89babe0605c836c7d8f50b2063fe45525719fde2c0892e601b"
+    },
+    {
+      "bytes": 12018,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-3850-server-nine-tests.log",
+      "sha256": "86692f22eb9ed0005c170b2157194eb7eaab76fb2ab4ed65ff235fa83a6ab97d"
+    },
+    {
       "bytes": 362,
       "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-dhcp.log",
       "sha256": "4720cbdd97d3acaa557d4b8b9bd26074516432fbbc578dc7dc4a9f98555518a0"
@@ -2661,6 +2726,21 @@
       "bytes": 1206,
       "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-1g-path-warmup.log",
       "sha256": "21690b12551db5c86bd24fc72eacb594c89f8052b8e7082e26e466b44bccb89f"
+    },
+    {
+      "bytes": 527,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-3850-final-state.log",
+      "sha256": "b2c1390ce7548b05b4fabb7bd4e7e4e72878d6f5a70accbc81e3283bf1173eeb"
+    },
+    {
+      "bytes": 969,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-3850-path-check.log",
+      "sha256": "b7f8bbd792667db8471e0e37fa89f8afd6d4f40af01714d1a24d8ad41636ceee"
+    },
+    {
+      "bytes": 2252,
+      "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-3850-warmup-and-paced-summary.log",
+      "sha256": "2b3cef6d9cc7bdb376fb41ffe71d741e8a62c1bdb94601ed5351be94e966bbdb"
     },
     {
       "bytes": 1667,
@@ -3128,6 +3208,11 @@
       "sha256": "1849124eadcc0614058948581a4314bd46564267109b25082ea830e424790ff6"
     },
     {
+      "bytes": 192495,
+      "path": "sanitized-evidence/router-console-logs/20261031-175903-port7-3850-comparison-snapshot.log",
+      "sha256": "e593e209776c1b17976f91e131beb8d850bd515398a7a8d650d160b849ba13dc"
+    },
+    {
       "bytes": 3720,
       "path": "scripts/make_programmer_inspection_crops.py",
       "sha256": "9635f8fdc895d09afa8732bb7b76042619192660eaa8b5b9bbcab3115971b868"
@@ -3241,6 +3326,10 @@
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-1g-reverse-unlimited60.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-1g-reverse850.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-1g-server-six-tests.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-3850-forward-unlimited60.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-3850-reverse-unlimited60.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-3850-reverse850.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-3850-server-nine-tests.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-dhcp.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-forward-unlimited60.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port8-reverse-unlimited60.log",
@@ -3252,6 +3341,9 @@
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-1g-final-state.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-1g-path-repeat.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-1g-path-warmup.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-3850-final-state.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-3850-path-check.log",
+    "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-3850-warmup-and-paced-summary.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-after-vm-move.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-namespace-setup.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port8-namespace-verification.log",
@@ -3344,12 +3436,13 @@
     "sanitized-evidence/router-console-logs/20261031-172949-port8-trunk-snapshot.log",
     "sanitized-evidence/router-console-logs/20261031-173440-vlan83-dhcp-snapshot.log",
     "sanitized-evidence/router-console-logs/20261031-174250-port8-performance-snapshot.log",
-    "sanitized-evidence/router-console-logs/20261031-175149-port7-1g-comparison-snapshot.log"
+    "sanitized-evidence/router-console-logs/20261031-175149-port7-1g-comparison-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261031-175903-port7-3850-comparison-snapshot.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 205,
-    "included_bytes_without_manifest": 696630470,
-    "included_files_without_manifest": 440
+    "excluded_local_files": 213,
+    "included_bytes_without_manifest": 696934352,
+    "included_files_without_manifest": 449
   }
 }

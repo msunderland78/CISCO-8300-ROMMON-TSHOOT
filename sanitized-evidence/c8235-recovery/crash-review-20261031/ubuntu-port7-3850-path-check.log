@@ -1,0 +1,21 @@
+
+Endpoint addresses and paths
+ens192           UP             192.168.5.3/24 
+ens256           UP             192.168.83.52/24 
+192.168.83.52 from 192.168.5.3 via 192.168.5.4 dev ens192 uid 0 
+    cache 
+192.168.5.3 from 192.168.83.52 via 192.168.83.1 dev ens256 uid 0 
+    cache 
+iperf sockets
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                          
+LISTEN 0      4096     192.168.5.3:5201      0.0.0.0:*    users:(("iperf3",pid=2540,fd=3))
+Full-size DF warmup
+PING 192.168.5.3 (192.168.5.3) from 192.168.83.52 : 1472(1500) bytes of data.
+1480 bytes from 192.168.5.3: icmp_seq=2 ttl=63 time=0.355 ms
+1480 bytes from 192.168.5.3: icmp_seq=3 ttl=63 time=0.260 ms
+1480 bytes from 192.168.5.3: icmp_seq=4 ttl=63 time=0.211 ms
+1480 bytes from 192.168.5.3: icmp_seq=5 ttl=63 time=0.239 ms
+
+--- 192.168.5.3 ping statistics ---
+5 packets transmitted, 4 received, 20% packet loss, time 828ms
+rtt min/avg/max/mdev = 0.211/0.266/0.355/0.054 ms

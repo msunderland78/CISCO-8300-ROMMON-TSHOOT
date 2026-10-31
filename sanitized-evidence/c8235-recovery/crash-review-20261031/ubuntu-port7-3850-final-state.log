@@ -1,0 +1,9 @@
+COMMAND: ip -4 route get 192.168.83.52 from 192.168.5.3
+192.168.83.52 from 192.168.5.3 via 192.168.5.4 dev ens192 uid 0 
+    cache 
+COMMAND: ip netns exec c8235-perf83 ip -4 route get 192.168.5.3 from 192.168.83.52
+192.168.5.3 from 192.168.83.52 via 192.168.83.1 dev ens256 uid 0 
+    cache 
+COMMAND: ss -tanp ( sport = :5201 or dport = :5201 )
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                          
+LISTEN 0      4096     192.168.5.3:5201      0.0.0.0:*    users:(("iperf3",pid=2540,fd=3))

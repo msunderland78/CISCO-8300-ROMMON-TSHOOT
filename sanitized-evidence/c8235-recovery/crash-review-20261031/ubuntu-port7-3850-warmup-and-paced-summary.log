@@ -1,0 +1,79 @@
+
+PING 192.168.5.3 (192.168.5.3) from 192.168.83.52 : 1472(1500) bytes of data.
+1480 bytes from 192.168.5.3: icmp_seq=1 ttl=63 time=0.256 ms
+1480 bytes from 192.168.5.3: icmp_seq=2 ttl=63 time=0.339 ms
+1480 bytes from 192.168.5.3: icmp_seq=3 ttl=63 time=0.281 ms
+1480 bytes from 192.168.5.3: icmp_seq=4 ttl=63 time=0.358 ms
+1480 bytes from 192.168.5.3: icmp_seq=5 ttl=63 time=0.264 ms
+
+--- 192.168.5.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 827ms
+rtt min/avg/max/mdev = 0.256/0.299/0.358/0.041 ms
+
+{
+  "file": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/port7-3850-reverse850.json",
+  "timestamp": {
+    "time": "Sat, 31 Oct 2026 21:55:56 GMT",
+    "timesecs": 1793483756,
+    "timemillisecs": 1793483756301
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.005443,
+          "seconds": 30.005443,
+          "bytes": 3188195328,
+          "bits_per_second": 850031196.806526,
+          "retransmits": 60,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.005018,
+          "seconds": 30.005018,
+          "bytes": 3187933184,
+          "bits_per_second": 849973343.5254064,
+          "sender": false
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 30.005443,
+      "seconds": 30.005443,
+      "bytes": 3188195328,
+      "bits_per_second": 850031196.806526,
+      "retransmits": 60,
+      "sender": false
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 30.005018,
+      "seconds": 30.005018,
+      "bytes": 3187933184,
+      "bits_per_second": 849973343.5254064,
+      "sender": false
+    },
+    "cpu_utilization_percent": {
+      "host_total": 4.787104619019452,
+      "host_user": 0.20539410216222856,
+      "host_system": 4.5817138494999226,
+      "remote_total": 3.7257035364279023,
+      "remote_user": 0.15315552539510577,
+      "remote_system": 3.5725480110327967
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "error": null
+}
