@@ -10,6 +10,79 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+PERFORMANCE ENDPOINT READINESS — 2026-10-31, 16:58 EDT
+Router configuration and live links/lease verified; no throughput run yet.
+Mac client192.168.83.50 is a separate laptop (this workspace is on5-network).
+Owner reports Homebrew7.0.11; instructed brew install iperf3, report version
+and route -n get192.168.5.3 gateway/interface. Owner subsequently confirms
+gateway192.168.83.1/interface en5, the intended path. Iperf installation/version
+remains pending; do not assume source binding alone validates the path.
+
+User supplied Ubuntu SSH credentials; kept only under restricted
+.git/recovery-private and registered for redaction. Ubuntu26.04.1/kernel7.0,
+VMware guest,4logicalCPUs; ens192 reports virtual10Gb/s (not host NIC proof).
+Installed iperf3/libiperf0 3.20-2 and libsctp1; no package upgrades/removals.
+Daemon choice false; iperf3.service remains inactive/disabled; UFW inactive,
+no firewall change. Added runtime route192.168.83.0/24 via192.168.5.4 ens192,
+verified reply path directly throughB; no netplan write. Remove this exact
+route after testing when unchanged; it does not expire with the server.
+
+Unprivileged iperf3 listening at192.168.5.3:5201, timeout1800s started16:57,
+automatic stop about17:27EDT. TimeoutPID101322, child101324; remote log beneath
+$HOME/.local/state/c8235-performance-20261031/session-021LNUxs/server.log.
+No permanent service. Exact commands/rollback/versions in performance-setup.json.
+
+Closed live capture router-console-logs/20261031-165401-console.log around
+16:58; console free, no monitor remains. Final keepalives996/996, misses0,
+CPP PID20844, port6 1Gb/s and port7 2.5Gb/s, zero CRC/input/output errors.
+Keep power/USB and current cabling. Test router configuration is running-only;
+boot correction remains RAM-only. Next verify Mac route/iperf3, collect port
+counters, start captured bounded TCP tests each direction, then longer gates.
+
+LIVE NETWORK VERIFICATION — 2026-10-31, 16:54 EDT
+Owner confirms both networks connected and return route added on 192.168.5.1.
+Port6 / 192.168.5.4 is up/up at 1000 Mbps full duplex; port7 / 192.168.83.1
+is up/up at 2500 Mbps full duplex. Both have zero CRC/input/output errors.
+DHCP has active lease 192.168.83.50 on port7; default route via 192.168.5.1
+is installed. Router-source ping from 192.168.83.1 to Ubuntu 192.168.5.3
+first returned4/5, then10/10 at1500 bytes/DF; source192.168.5.4 to client
+192.168.83.50 returned5/5. No independent client throughput measured yet.
+Current path is limited by 1Gb/s uplink, despite2.5Gb/s client link. Do not
+force speed based on the earlier self-link. Client OS/iperf3 readiness asked;
+direct Ubuntu route recommended to remove existing gateway from reply path.
+This supersedes the disconnected/no-lease setup checkpoints below.
+
+ROUTED PERFORMANCE SETUP — 2026-10-31, 16:53 EDT
+Owner reconfirms same B/FGL2835LBHU, normal assembly/cooling/battery,
+USB/console, no other terminal; prior 6-to-7 self-cable removed. Fresh
+115200 capture confirms same 26.2.1 USB boot, confreg 0x3922, CPP PID 20844,
+F0/0/0 operational and 811/811 keepalives, zero misses (27-minute uptime).
+
+Applied owner's requested running configuration:
+- Physical RJ45 Ethernet port 6 / Tw0/0/6: 192.168.5.4/24, existing 5 network.
+- Physical RJ45 Ethernet port 7 / Tw0/0/7: 192.168.83.1/24, separate client LAN.
+- Default route: 0.0.0.0/0 via 192.168.5.1, explicitly through Tw0/0/6.
+- DHCP C8235_PERF83: 192.168.83.50 through .225 inclusive, /24;
+  gateway 192.168.83.1; DNS 192.168.3.10 and 208.67.222.222.
+- Both ports enabled, auto negotiation. No NAT; owner chose routing and
+  can add upstream route 192.168.83.0/24 via 192.168.5.4 on 192.168.5.1.
+
+Native config readback/diff verifies only these intended additions and
+port enablement. DHCP pool reports 254 total, 78 excluded, 0 leased =176
+eligible addresses. Links currently down without cables; no DHCP client,
+reachability or performance result yet. Upstream route installation pending.
+Preserved private pre/post running exports on USB, hashes in
+c8235-recovery/crash-review-20261031/performance-setup.json. No agent startup
+save; test configuration and resource correction are not persistent.
+Next verify cabling/negotiated speeds, lease, routes and both-way reachability
+before iperf. A direct Ubuntu return route via 192.168.5.4 avoids adding the
+existing gateway to the measured reply path. Longer acceptance gates pending.
+
+Performance capture router-console-logs/20261031-165138-console.log closed
+around 16:53 EDT; final sample 866/866 keepalives, zero misses, CPP PID20844.
+Both ports still down/enabled, no leases, default route not in RIB until
+uplink carrier returns. No monitor remains; physical connection reply pending.
+
 LOOPBACK AND INITIAL STABILITY RESULT — 2026-10-31, 16:45 EDT
 C8235-B / FGL2835LBHU passed the initial 15-minute operational gate:
 16:25:11–16:40:19 EDT, F0/0/0 operational, CPP PID 20844 unchanged,

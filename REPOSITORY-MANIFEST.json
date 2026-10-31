@@ -869,6 +869,16 @@
       "bytes": 48790,
       "path": "router-console-logs/20261031-162927-console.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 17024,
+      "path": "router-console-logs/20261031-165138-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 13266,
+      "path": "router-console-logs/20261031-165401-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -903,9 +913,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 61645,
+      "bytes": 66353,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "ed12433a2a3419637d1ba60d804d07d7824c7abb4c3b008a19aee70d19ae5133"
+      "sha256": "4120b9b1a0021644fbcb3a2437b2688efa037dd0fce7fd3d05538d0aa4c20349"
     },
     {
       "bytes": 106687,
@@ -1088,9 +1098,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 23708,
+      "bytes": 23803,
       "path": "README.md",
-      "sha256": "8c8432c44dbfe8654c8ded66bf3c281dbf68c7c7fdc2b2c76f5201a00c9a8c65"
+      "sha256": "3312e677a852e7805f018e4fcfc6d0a937a9c23ecb05449c4c918e95b0a842ef"
     },
     {
       "bytes": 3934,
@@ -1188,9 +1198,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 326818,
+      "bytes": 330882,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "368054cd3441512edda6541184b37289b873e228d19a3d531ea5c265cda535d5"
+      "sha256": "3022f4d8574db9d06f68bca86ebbb42bea992d9b925dc3cdbce6fcf9aa2f17ae"
     },
     {
       "bytes": 6850655,
@@ -1328,9 +1338,9 @@
       "sha256": "b3449fde6e72c571de6260f5758fb03a448ef7f7278d2130187a0acba691af9b"
     },
     {
-      "bytes": 27031,
+      "bytes": 34972,
       "path": "c8235-recovery/crash-review-20261031/REVIEW.md",
-      "sha256": "612501e0a0564bf457c1295c09a7d8fb9bbb70960c044d8481012a80c9b2e855"
+      "sha256": "89f63f200f26265d82bfb475d482f2e09bd816fbbbb66933e902e75d3dd9ca24"
     },
     {
       "bytes": 23310,
@@ -1346,6 +1356,11 @@
       "bytes": 3636,
       "path": "c8235-recovery/crash-review-20261031/monitor-samples.json",
       "sha256": "b36f5143bcd7c5e67ccc260814f09daad438174e3abc9d208ca22959d8a9cde0"
+    },
+    {
+      "bytes": 12940,
+      "path": "c8235-recovery/crash-review-20261031/performance-setup.json",
+      "sha256": "0a1b8aaf1044ec5df72e88e74f082c7e4e03e997118fe2dce54739ecacf713f9"
     },
     {
       "bytes": 9617,
@@ -2793,6 +2808,16 @@
       "sha256": "3047ca5a9e729ee72346681271e5684bfb4d2735a444bd2bcfc8e98d15309801"
     },
     {
+      "bytes": 17024,
+      "path": "sanitized-evidence/router-console-logs/20261031-165138-console.log",
+      "sha256": "f965d24f230c47f57703d1619816e12e959277474cdba55d00f3773d35afa5fe"
+    },
+    {
+      "bytes": 13266,
+      "path": "sanitized-evidence/router-console-logs/20261031-165401-console.log",
+      "sha256": "a7c39ed0d5b9a315d16ecb8ee52856004729bc28ce5503a6afdcc491bf681abb"
+    },
+    {
       "bytes": 3720,
       "path": "scripts/make_programmer_inspection_crops.py",
       "sha256": "9635f8fdc895d09afa8732bb7b76042619192660eaa8b5b9bbcab3115971b868"
@@ -2978,12 +3003,14 @@
     "sanitized-evidence/router-console-logs/20261031-160543-console.log",
     "sanitized-evidence/router-console-logs/20261031-160639-console.log",
     "sanitized-evidence/router-console-logs/20261031-161654-console.log",
-    "sanitized-evidence/router-console-logs/20261031-162927-console.log"
+    "sanitized-evidence/router-console-logs/20261031-162927-console.log",
+    "sanitized-evidence/router-console-logs/20261031-165138-console.log",
+    "sanitized-evidence/router-console-logs/20261031-165401-console.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 174,
-    "included_bytes_without_manifest": 695901070,
-    "included_files_without_manifest": 404
+    "excluded_local_files": 176,
+    "included_bytes_without_manifest": 695961108,
+    "included_files_without_manifest": 407
   }
 }

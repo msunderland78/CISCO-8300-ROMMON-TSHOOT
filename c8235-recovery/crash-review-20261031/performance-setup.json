@@ -1,0 +1,331 @@
+{
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "timezone": "America/New_York",
+  "updated_at": "2026-10-31T16:59:15.428462-04:00",
+  "status": "Configuration and live links verified; DHCP lease active; router-source reachability to Ubuntu passes; independent client throughput pending",
+  "owner_confirmation": "Same powered router; cover/cooling/battery unchanged; USB/console attached; exclusive console; prior 6-to-7 loopback cable removed.",
+  "upstream_return_route": {
+    "gateway": "192.168.5.1",
+    "destination": "192.168.83.0/24",
+    "via": "192.168.5.4",
+    "state": "Owner confirms added on 192.168.5.1; gateway configuration not independently read"
+  },
+  "nat": false,
+  "ports": {
+    "6": {
+      "interface": "TwoGigabitEthernet0/0/6",
+      "description": "PERF_UPLINK_192.168.5.0_24",
+      "address": "192.168.5.4/24",
+      "role": "Existing 192.168.5 network, Ubuntu server 192.168.5.3 and gateway 192.168.5.1",
+      "shutdown": false,
+      "negotiation": "auto"
+    },
+    "7": {
+      "interface": "TwoGigabitEthernet0/0/7",
+      "description": "PERF_LAN_192.168.83.0_24",
+      "address": "192.168.83.1/24",
+      "role": "Separate 192.168.83 client/test network; router is default gateway",
+      "shutdown": false,
+      "negotiation": "auto"
+    }
+  },
+  "default_route": {
+    "prefix": "0.0.0.0/0",
+    "egress": "TwoGigabitEthernet0/0/6",
+    "via": "192.168.5.1",
+    "configuration_verified": true,
+    "installed_in_rib": true
+  },
+  "dhcp": {
+    "pool": "C8235_PERF83",
+    "subnet": "192.168.83.0/24",
+    "range_first": "192.168.83.50",
+    "range_last": "192.168.83.225",
+    "usable_leases": 176,
+    "excluded_ranges": [
+      [
+        "192.168.83.1",
+        "192.168.83.49"
+      ],
+      [
+        "192.168.83.226",
+        "192.168.83.254"
+      ]
+    ],
+    "default_router": "192.168.83.1",
+    "dns_servers": [
+      "192.168.3.10",
+      "208.67.222.222"
+    ],
+    "observed_total": 254,
+    "observed_excluded": 78,
+    "observed_leased": 1,
+    "configuration_verified": true,
+    "client_lease_verified": true,
+    "lease": {
+      "address": "192.168.83.50",
+      "interface": "TwoGigabitEthernet0/0/7",
+      "state": "Active",
+      "note": "Router DHCP binding observed; actual client-received mask/gateway/DNS options not yet read on client. Router clock is stale; displayed expiry not a host date."
+    }
+  },
+  "prechange": {
+    "ports": "Both shutdown/no IP/no VRF/auto; no DHCP pool, exclusions, static route or NAT config observed",
+    "running_backup": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-performance-running.cfg",
+    "bytes": 6902,
+    "sha512": "e4090abd95bce66df2b2f83e1d743ab83daa9067ea57fab3aef240f01061d38537d3a56c963b0925a5898fd96d4dd009dc1f523654b6d8909a1a2d58482f90b7",
+    "hash_matches": "post-loopback-running.cfg"
+  },
+  "boot_state": {
+    "image": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin",
+    "uptime_minutes_at_open": 27,
+    "confreg": "0x3922",
+    "F0": "ok, active",
+    "subslot_0_0": "ok",
+    "cpp_pid": 20844,
+    "keepalive_at_open": {
+      "tx": 811,
+      "rx": 811,
+      "miss": 0
+    },
+    "keepalive_after_config": {
+      "tx": 830,
+      "rx": 830,
+      "miss": 0
+    }
+  },
+  "persistence": "Active running configuration; no agent copy running-config startup-config/write memory. RAM-only resource correction still needed on every corrected boot.",
+  "commands_applied": [
+    "configure terminal",
+    "ip routing",
+    "service dhcp",
+    "ip dhcp excluded-address 192.168.83.1 192.168.83.49",
+    "ip dhcp excluded-address 192.168.83.226 192.168.83.254",
+    "ip dhcp pool C8235_PERF83",
+    "network 192.168.83.0 255.255.255.0",
+    "default-router 192.168.83.1",
+    "dns-server 192.168.3.10 208.67.222.222",
+    "exit",
+    "interface TwoGigabitEthernet0/0/6",
+    "description PERF_UPLINK_192.168.5.0_24",
+    "ip address 192.168.5.4 255.255.255.0",
+    "no shutdown",
+    "interface TwoGigabitEthernet0/0/7",
+    "description PERF_LAN_192.168.83.0_24",
+    "ip address 192.168.83.1 255.255.255.0",
+    "no shutdown",
+    "exit",
+    "ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1",
+    "end"
+  ],
+  "rollback_if_requested": [
+    "configure terminal",
+    "interface TwoGigabitEthernet0/0/6",
+    "shutdown",
+    "no ip address",
+    "no description",
+    "interface TwoGigabitEthernet0/0/7",
+    "shutdown",
+    "no ip address",
+    "no description",
+    "exit",
+    "no ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1",
+    "no ip dhcp pool C8235_PERF83",
+    "no ip dhcp excluded-address 192.168.83.1 192.168.83.49",
+    "no ip dhcp excluded-address 192.168.83.226 192.168.83.254",
+    "end"
+  ],
+  "rollback_note": "ip routing and service dhcp were default-enabled already; do not disable them as rollback. Remove only this named test configuration, preserving any later user changes.",
+  "performance_limitations": [
+    "Current links: uplink 1Gb/s, client side 2.5Gb/s; no line-rate result measured",
+    "A return route only on 192.168.5.1 adds that gateway to Ubuntu reply path; direct route on Ubuntu via 192.168.5.4 recommended for isolated router measurement",
+    "DHCP binding verified; client option receipt and client-originated transit traffic not yet verified",
+    "No iperf/load/60-minute traffic result; longer acceptance gates pending"
+  ],
+  "sources": [
+    "https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/ip-addressing/b-ip-addressing/m_config-dhcp-server-xe.html",
+    "https://www.cisco.com/c/en/us/support/docs/dial-access/floating-static-route/118263-technote-nexthop-00.html",
+    "https://software.es.net/iperf/invoking.html"
+  ],
+  "postchange_backup": {
+    "file": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg",
+    "bytes": 7310,
+    "sha512": "481c5cb37d30566519dcadf9fd98d7123980230907397a2291ca677290c255889e7ff28ff0cb14523be3fb9c181a7f6490dd34760cfcd8f4a0709c4101defae9",
+    "privacy": "USB only; not published"
+  },
+  "capture": {
+    "path": "router-console-logs/20261031-165138-console.log",
+    "bytes": 17024,
+    "sha256": "f965d24f230c47f57703d1619816e12e959277474cdba55d00f3773d35afa5fe",
+    "closed": true,
+    "private_copy_equality": true
+  },
+  "pre_post_diff": "Native contextual diff shows only the intended DHCP pool/exclusions, two interface descriptions/addresses/enablement, and default route.",
+  "final_health": {
+    "keepalive_tx": 996,
+    "keepalive_rx": 996,
+    "keepalive_miss": 0,
+    "cpp_pid": 20844,
+    "interface6": "up/up, 1000Mbps/full duplex",
+    "interface7": "up/up, 2500Mbps/full duplex",
+    "input_crc_output_errors_each_port": 0,
+    "dhcp_bindings": 1,
+    "default_route_in_rib": true
+  },
+  "handoff": {
+    "capture": "Both configuration and live-link captures closed; no router monitor remains",
+    "power": "on; same corrected IOS",
+    "connections": "Power/console/USB plus 5 network on port6 and 83 network on port7; owner confirms upstream route added",
+    "benchmark": "Not started at this checkpoint; Mac route confirmed via83.1/en5, iperf installation/version pending",
+    "ubuntu_server": "Bounded iperf3 server active on192.168.5.3:5201, automatic stop around17:27 EDT; runtime direct route remains until explicit cleanup/server reboot",
+    "persistence": "Router test settings not saved to startup; RAM boot correction lost on reboot; Ubuntu packages installed, test service not enabled"
+  },
+  "live_links": {
+    "observed_at": "2026-10-31T16:54:04-04:00",
+    "6": {
+      "state": "up/up",
+      "speed_mbps": 1000,
+      "duplex": "full",
+      "input_errors": 0,
+      "crc": 0,
+      "output_errors": 0
+    },
+    "7": {
+      "state": "up/up",
+      "speed_mbps": 2500,
+      "duplex": "full",
+      "input_errors": 0,
+      "crc": 0,
+      "output_errors": 0
+    },
+    "limitation": "Current path is constrained by the 1Gb/s uplink; earlier self-link at 2.5Gb/s does not establish peer capability. No forced-speed change."
+  },
+  "connectivity_tests": [
+    {
+      "command": "ping 192.168.5.3 source 192.168.83.1 repeat 5 timeout 1",
+      "sent": 5,
+      "received": 4,
+      "rtt_ms": [
+        1,
+        1,
+        4
+      ],
+      "note": "First packet lost; ARP discovery plausible, not packet-captured."
+    },
+    {
+      "command": "ping 192.168.5.3 source 192.168.83.1 repeat 10 timeout 1 size 1500 df-bit",
+      "sent": 10,
+      "received": 10,
+      "rtt_ms": [
+        1,
+        1,
+        4
+      ]
+    },
+    {
+      "command": "ping 192.168.83.50 source 192.168.5.4 repeat 5 timeout 1",
+      "sent": 5,
+      "received": 5,
+      "rtt_ms": [
+        1,
+        1,
+        4
+      ]
+    }
+  ],
+  "client": {
+    "ip": "192.168.83.50",
+    "os": "macOS laptop, owner confirmed",
+    "workspace_is_client": false,
+    "workspace_ips": [
+      "192.168.5.104",
+      "192.168.5.132"
+    ],
+    "iperf3_readiness": "Owner instructed brew install iperf3 and version/route check; results pending",
+    "route_to_server": {
+      "source": "owner-reported route -n get 192.168.5.3 output",
+      "gateway": "192.168.83.1",
+      "interface": "en5",
+      "state": "intended test path confirmed by owner"
+    },
+    "homebrew_version": "7.0.11, owner reported"
+  },
+  "ubuntu_endpoint": {
+    "ip": "192.168.5.3",
+    "os": "Ubuntu 26.04.1 LTS",
+    "kernel": "7.0.0-38-generic",
+    "virtualization": "vmware",
+    "logical_cpus": 4,
+    "interface": "ens192",
+    "vnic_reported_speed_mbps": 10000,
+    "vnic_limitation": "Virtual NIC speed does not establish physical host uplink capacity",
+    "before": {
+      "iperf3_installed": false,
+      "tcp_5201_listener": false,
+      "exact_83_route_present": false,
+      "route_to_client": "via 192.168.5.1 dev ens192"
+    },
+    "installation": {
+      "new_packages": [
+        "iperf3 3.20-2",
+        "libiperf0 3.20-2",
+        "libsctp1 1.0.21+dfsg-1build2"
+      ],
+      "upgraded": 0,
+      "removed": 0,
+      "daemon_choice": "iperf3/start_daemon false",
+      "service_active": false,
+      "service_enabled": false,
+      "note": "Official configured Ubuntu repositories; apt-get update then scoped install; other pending upgrades not applied."
+    },
+    "route_added": "ip route add 192.168.83.0/24 via 192.168.5.4 dev ens192 proto static",
+    "route_verified": "192.168.83.50 via 192.168.5.4 dev ens192 src 192.168.5.3",
+    "route_persistence": "Runtime only, not written to netplan; remains until removed or server reboot",
+    "route_cleanup_after_tests": "After verifying this exact test route is unchanged: ip route del 192.168.83.0/24 via 192.168.5.4 dev ens192 proto static",
+    "ufw": "inactive; no firewall rule changed",
+    "test_server": {
+      "command": "timeout --signal=TERM 1800s iperf3 -s -B 192.168.5.3 -p 5201 -i 5 --forceflush",
+      "state": "LISTEN verified",
+      "timeout_pid": 101322,
+      "iperf_pid": 101324,
+      "started_at_approximately": "2026-10-31T16:57:07-04:00",
+      "automatic_stop_approximately": "2026-10-31T17:27:07-04:00",
+      "remote_evidence_directory": "$HOME/.local/state/c8235-performance-20261031/session-021LNUxs",
+      "log": "server.log",
+      "run_as": "unprivileged login user",
+      "persistent_service": false
+    },
+    "authentication": "User-supplied credentials retained only in restricted .git/recovery-private; registered for publication redaction; no credential values in this record",
+    "private_runner": {
+      "path": ".git/recovery-private/c8235-analysis-20261031/ubuntu-performance/run_ubuntu.py",
+      "purpose": "Explicit SSH command runner with private ASKPASS, sanitized output, bounded timeout and private raw logs",
+      "dependencies": "Python standard library and local OpenSSH 10.3p1",
+      "validation": "Successful explicit read-only SSH inventory, scoped package installation, guarded route addition and bounded server startup; no import-time connection; no formal regression tests",
+      "sha256": "e97331c7caf515573b7e31843953b7cbd866b4229bf9ea9b46efaa4c63b2e0b1"
+    },
+    "ssh_logs": "Restricted ubuntu-performance directory; retained locally, not published"
+  },
+  "diagnostic_limitations": [
+    "show platform hardware throughput level is rejected by this IOS CLI; no throughput-license cap inferred",
+    "QFP datapath utilization is readable; initial processing load 0% during light traffic",
+    "Preexisting 12V_DG_ST Critical_Low remains; CPU52C/main12V12115mV at environment sample"
+  ],
+  "live_capture": {
+    "path": "router-console-logs/20261031-165401-console.log",
+    "bytes": 13266,
+    "sha256": "a7c39ed0d5b9a315d16ecb8ee52856004729bc28ce5503a6afdcc491bf681abb",
+    "closed": true,
+    "private_copy_equality": true
+  },
+  "post_config_no_cable_health": {
+    "keepalive_tx": 866,
+    "keepalive_rx": 866,
+    "keepalive_miss": 0,
+    "cpp_pid": 20844,
+    "interface6": "down/down, enabled",
+    "interface7": "down/down, enabled",
+    "dhcp_bindings": 0,
+    "default_route_in_rib": false
+  }
+}

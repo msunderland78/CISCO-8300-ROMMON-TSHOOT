@@ -1,0 +1,341 @@
+
+[TX 2026-10-31T16:51:41.493937] b'\rterminal length 0\rshow version | include uptime|Processor board|System image|Configuration register\rshow platform\rshow platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\rshow ip interface brief\rshow running-config interface TwoGigabitEthernet0/0/6\rshow running-config interface TwoGigabitEthernet0/0/7\r'
+
+Router#terminal length 0
+Router#show version | include uptime|Processor board|System image|Configuration register
+Router uptime is 27 minutes
+System image file is "usb0:c8kg2be-universalk9.26.02.01.SPA.bin"
+Processor board ID FGL2835LBHU
+Configuration register is 0x3922
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:28:10      
+ 0/0      8M-2xSFP+           ok                    00:27:25      
+R0        C8230X-8M2X         ok, active            00:28:10      
+F0        C8230X-8M2X         ok, active            00:28:10      
+P0        PWR-CC2-66WAC       ok                    00:27:38      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.296 sec ago
+Last punt keepalive sent                  = 1.296 sec ago
+punt keepalive rx count                   = 811
+punt keepalive tx count                   = 811
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 421
+  Kernel time      : 476
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46303
+  Major page faults: 606
+
+
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                unassigned      YES manual administratively down down    
+Tw0/0/7                unassigned      YES manual administratively down down    
+Te0/0/8                unassigned      YES unset  administratively down down    
+Te0/0/9                unassigned      YES unset  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show running-config interface TwoGigabitEthernet0/0/6
+Building configuration...
+
+Current configuration : 84 bytes
+!
+interface TwoGigabitEthernet0/0/6
+ no ip address
+ shutdown
+ negotiation auto
+end
+
+Router#show running-config interface TwoGigabitEthernet0/0/7
+Building configuration...
+
+Current configuration : 84 bytes
+!
+interface TwoGigabitEthernet0/0/7
+ no ip address
+ shutdown
+ negotiation auto
+end
+
+Router#
+[TX 2026-10-31T16:51:45.875043] b'show running-config | section ^ip dhcp\rshow running-config | include ^ip route|^ip routing|^no ip routing|^service dhcp|^no service dhcp|^ip nat\rshow ip dhcp pool\rshow ip route\rshow vrf\rcopy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-performance-running.cfg\r'
+show running-config | section ^ip dhcp
+Router#show running-config | include ^ip route|^ip routing|^no ip routing|^service dhcp|^no service dhcp|^ip nat
+Router#show ip dhcp pool
+Router#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is not set
+
+Router#show vrf
+  Name                             Default RD                  Protocols   Interfaces
+  Mgmt-intf                        <not set>                   ipv4,ipv6   Gi0
+Router#copy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-performance-running.cfg
+Destination filename [C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-performance-running.cfg]? 
+[TX 2026-10-31T16:51:48.303354] b'\r'
+
+6902 bytes copied in 0.260 secs (26546 bytes/sec)
+Router#
+[TX 2026-10-31T16:52:08.881470] b'verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-performance-running.cfg\r'
+verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-performance-running.cfg
+.Done!
+verify /sha512 (usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-performance-running.cfg) = e4090abd95bce66df2b2f83e1d743ab83daa9067ea57fab3aef240f01061d38537d3a56c963b0925a5898fd96d4dd009dc1f523654b6d8909a1a2d58482f90b7
+
+
+Router#
+[TX 2026-10-31T16:52:15.798067] b'configure terminal\rip routing\rservice dhcp\rip dhcp excluded-address 192.168.83.1 192.168.83.49\rip dhcp excluded-address 192.168.83.226 192.168.83.254\rip dhcp pool C8235_PERF83\rnetwork 192.168.83.0 255.255.255.0\rdefault-router 192.168.83.1\rdns-server 192.168.3.10 208.67.222.222\rexit\rinterface TwoGigabitEthernet0/0/6\rdescription PERF_UPLINK_192.168.5.0_24\rip address 192.168.5.4 255.255.255.0\rno shutdown\rinterface TwoGigabitEthernet0/0/7\rdescription PERF_LAN_192.168.83.0_24\rip address 192.168.83.1 255.255.255.0\rno shutdown\rexit\rip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1\rend\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#ip routing
+Router(config)#service dhcp
+Router(config)#ip dhcp excluded-address 192.168.83.1 192.168.83.49
+Router(config)#ip dhcp excluded-address 192.168.83.226 192.168.83.254
+Router(config)#ip dhcp pool C8235_PERF83
+Router(dhcp-config)#network 192.168.83.0 255.255.255.0
+Router(dhcp-config)#default-router 192.168.83.1
+Router(dhcp-config)#dns-server 192.168.3.10 208.67.222.222
+Router(dhcp-config)#exit
+Router(config)#interface TwoGigabitEthernet0/0/6
+Router(config-if)#description PERF_UPLINK_192.168.5.0_24
+Router(config-if)#ip address 192.168.5.4 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#interface TwoGigabitEthernet0/0/7
+Router(config-if)#description PERF_LAN_192.168.83.0_24
+Router(config-if)#ip address 192.168.83.1 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1
+Router(config)#end
+Router#
+*May 29 19:17:49.262: %SYS-5-CONFIG_I: Configured from console by console
+[TX 2026-10-31T16:52:18.450124] b'show running-config interface TwoGigabitEthernet0/0/6\rshow running-config interface TwoGigabitEthernet0/0/7\rshow running-config | section ^ip dhcp\rshow running-config | include ^ip route|^ip nat\rshow ip dhcp pool C8235_PERF83\rshow ip interface brief\rshow platform software infra punt-keepalive\r'
+show running-config interface TwoGigabitEthernet0/0/6
+Building configuration...
+
+Current configuration : 137 bytes
+!
+interface TwoGigabitEthernet0/0/6
+ description PERF_UPLINK_192.168.5.0_24
+ ip address 192.168.5.4 255.255.255.0
+ negotiation auto
+end
+
+Router#show running-config interface TwoGigabitEthernet0/0/7
+Building configuration...
+
+Current configuration : 136 bytes
+!
+interface TwoGigabitEthernet0/0/7
+ description PERF_LAN_192.168.83.0_24
+ ip address 192.168.83.1 255.255.255.0
+ negotiation auto
+end
+
+Router#show running-config | section ^ip dhcp
+ip dhcp excluded-address 192.168.83.1 192.168.83.49
+ip dhcp excluded-address 192.168.83.226 192.168.83.254
+ip dhcp pool C8235_PERF83
+ network 192.168.83.0 255.255.255.0
+ default-router 192.168.83.1 
+ dns-server 192.168.3.10 208.67.222.222 
+Router#show running-config | include ^ip route|^ip nat
+ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1
+Router#show ip dhcp pool C8235_PERF83
+
+Pool C8235_PERF83 :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (first/next)       : 0 / 0 
+ Total addresses                : 254
+ Leased addresses               : 0
+ Excluded addresses             : 78
+ Pending event                  : none
+ 1 subnet is currently in the pool :
+ Current index        IP address range                    Leased/Excluded/Total
+ 192.168.83.1         192.168.83.1     - 192.168.83.254    0     / 78    / 254  
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                192.168.5.4     YES manual down                  down    
+Tw0/0/7                192.168.83.1    YES manual down                  down    
+Te0/0/8                unassigned      YES unset  administratively down down    
+Te0/0/9                unassigned      YES unset  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.604 sec ago
+Last punt keepalive sent                  = 0.604 sec ago
+punt keepalive rx count                   = 830
+punt keepalive tx count                   = 830
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-10-31T16:52:49.684499] b'copy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg\r'
+copy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg
+Destination filename [C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg]? 
+[TX 2026-10-31T16:52:52.286611] b'\r'
+
+7310 bytes copied in 0.448 secs (16317 bytes/sec)
+Router#
+[TX 2026-10-31T16:52:55.553124] b'verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg\r'
+verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg
+.Done!
+verify /sha512 (usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg) = 481c5cb37d30566519dcadf9fd98d7123980230907397a2291ca677290c255889e7ff28ff0cb14523be3fb9c181a7f6490dd34760cfcd8f4a0709c4101defae9
+
+
+Router#
+[TX 2026-10-31T16:52:59.324184] b'show archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-performance-running.cfg usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg\r'
+show archive config differences usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-performance-running.cfg usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/performance-running.cfg
+!Contextual Config Diffs:
++ip dhcp excluded-address 192.168.83.1 192.168.83.49
++ip dhcp excluded-address 192.168.83.226 192.168.83.254
++ip dhcp pool C8235_PERF83
+ +network 192.168.83.0 255.255.255.0
+ +default-router 192.168.83.1
+ +dns-server 192.168.3.10 208.67.222.222
+interface TwoGigabitEthernet0/0/6
+ +description PERF_UPLINK_192.168.5.0_24
+ +ip address 192.168.5.4 255.255.255.0
+interface TwoGigabitEthernet0/0/7
+ +description PERF_LAN_192.168.83.0_24
+ +ip address 192.168.83.1 255.255.255.0
++ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1
+interface TwoGigabitEthernet0/0/6
+ -no ip address
+ -shutdown
+interface TwoGigabitEthernet0/0/7
+ -no ip address
+ -shutdown
+
+Router#
+[TX 2026-10-31T16:53:30.724283] b'show ip interface brief\rshow ip dhcp binding\rshow ip route 0.0.0.0\rshow platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\r'
+show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                192.168.5.4     YES manual down                  down    
+Tw0/0/7                192.168.83.1    YES manual down                  down    
+Te0/0/8                unassigned      YES unset  administratively down down    
+Te0/0/9                unassigned      YES unset  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show ip dhcp binding
+Bindings from all pools not associated with VRF:
+IP address      Client-ID/ 		Lease expiration 	Type       State      Interface
+		Hardware address/
+		User name
+Router#show ip route 0.0.0.0
+% Network not in table
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.428 sec ago
+Last punt keepalive sent                  = 0.428 sec ago
+punt keepalive rx count                   = 866
+punt keepalive tx count                   = 866
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 425
+  Kernel time      : 479
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46330
+  Major page faults: 606
+
+
+Router#

@@ -1,0 +1,266 @@
+
+[TX 2026-10-31T16:54:03.672502] b'\rshow ip interface brief\rshow interfaces TwoGigabitEthernet0/0/6 | include line protocol|Duplex|packets input|packets output|CRC|output errors\rshow interfaces TwoGigabitEthernet0/0/7 | include line protocol|Duplex|packets input|packets output|CRC|output errors\rshow ip dhcp binding\rshow ip route\rshow platform software infra punt-keepalive\r'
+
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                192.168.5.4     YES manual up                    up      
+Tw0/0/7                192.168.83.1    YES manual up                    up      
+Te0/0/8                unassigned      YES unset  administratively down down    
+Te0/0/9                unassigned      YES unset  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show interfaces TwoGigabitEthernet0/0/6 | include line protocol|Duplex|packets input|packets output|CRC|output errors
+TwoGigabitEthernet0/0/6 is up, line protocol is up 
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+     2803 packets input, 3575504 bytes, 0 no buffer
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     2866 packets output, 3435284 bytes, 0 underruns
+     0 output errors, 0 collisions, 3 interface resets
+Router#show interfaces TwoGigabitEthernet0/0/7 | include line protocol|Duplex|packets input|packets output|CRC|output errors
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+     3126 packets input, 3470679 bytes, 0 no buffer
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     2884 packets output, 3584867 bytes, 0 underruns
+     0 output errors, 0 collisions, 2 interface resets
+Router#show ip dhcp binding
+Bindings from all pools not associated with VRF:
+IP address      Client-ID/ 		Lease expiration 	Type       State      Interface
+		Hardware address/
+		User name
+192.168.83.50   016c.1ff7.570e.cb       May 30 2025 07:19 PM    Automatic  Active     TwoGigabitEthernet0/0/7
+Router#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is 192.168.5.1 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 192.168.5.1, TwoGigabitEthernet0/0/6
+      192.168.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.5.0/24 is directly connected, TwoGigabitEthernet0/0/6
+L        192.168.5.4/32 is directly connected, TwoGigabitEthernet0/0/6
+      192.168.83.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.83.0/24 is directly connected, TwoGigabitEthernet0/0/7
+L        192.168.83.1/32 is directly connected, TwoGigabitEthernet0/0/7
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.400 sec ago
+Last punt keepalive sent                  = 1.400 sec ago
+punt keepalive rx count                   = 882
+punt keepalive tx count                   = 882
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-10-31T16:54:12.975428] b'ping 192.168.5.3 source 192.168.83.1 repeat 5 timeout 1\r'
+ping 192.168.5.3 source 192.168.83.1 repeat 5 timeout 1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.5.3, timeout is 1 seconds:
+Packet sent with a source address of 192.168.83.1 
+.!!!!
+Success rate is 80 percent (4/5), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T16:54:18.371266] b'ping 192.168.5.3 source 192.168.83.1 repeat 10 timeout 1 size 1500 df-bit\r'
+ping 192.168.5.3 source 192.168.83.1 repeat 10 timeout 1 size 1500 df-bit
+Type escape sequence to abort.
+Sending 10, 1500-byte ICMP Echos to 192.168.5.3, timeout is 1 seconds:
+Packet sent with a source address of 192.168.83.1 
+Packet sent with the DF bit set
+!!!!!!!!!!
+Success rate is 100 percent (10/10), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T16:54:29.524088] b'ping 192.168.83.50 source 192.168.5.4 repeat 5 timeout 1\r'
+ping 192.168.83.50 source 192.168.5.4 repeat 5 timeout 1
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.83.50, timeout is 1 seconds:
+Packet sent with a source address of 192.168.5.4 
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-10-31T16:54:51.259715] b'show platform hardware throughput level\rshow platform hardware qfp active datapath utilization\rshow platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\rshow environment all | include Temp:|V: 12V|P: Power\r'
+show platform hardware throughput level
+                                         ^
+% Invalid input detected at '^' marker.
+
+Router#show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            9          205           44            6
+                 (bps)         6456      1151600       234304        34144
+           Total (pps)            9          205           44            6
+                 (bps)         6456      1151600       234304        34144
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            6          201           42            5
+                 (bps)        20848      1155104       241064        37984
+           Total (pps)            6          201           42            5
+                 (bps)        20848      1155104       241064        37984
+Processing: Load (pct)            0            0            0            0
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            2            2            1           12
+            Idle (pct)           98           98           98           87
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.984 sec ago
+Last punt keepalive sent                  = 0.984 sec ago
+punt keepalive rx count                   = 906
+punt keepalive tx count                   = 906
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 426
+  Kernel time      : 484
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46340
+  Major page faults: 606
+
+
+Router#show environment all | include Temp:|V: 12V|P: Power
+ Temp: Inlet             R0              Normal          33 Celsius
+ Temp: Outlet            R0              Normal          32 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12115 mV
+ P: Power                R0              Normal          16 Watts
+Router#
+[TX 2026-10-31T16:56:37.629684] b'show platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\r'
+show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.324 sec ago
+Last punt keepalive sent                  = 1.324 sec ago
+punt keepalive rx count                   = 959
+punt keepalive tx count                   = 959
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 431
+  Kernel time      : 487
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46357
+  Major page faults: 606
+
+
+Router#
+[TX 2026-10-31T16:57:51.391784] b'show platform software infra punt-keepalive\rshow platform software process list F0 name cpp_cp_svr\rshow interfaces TwoGigabitEthernet0/0/6 | include line protocol|Duplex|CRC|output errors\rshow interfaces TwoGigabitEthernet0/0/7 | include line protocol|Duplex|CRC|output errors\r'
+show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.084 sec ago
+Last punt keepalive sent                  = 1.084 sec ago
+punt keepalive rx count                   = 996
+punt keepalive tx count                   = 996
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20844
+  Parent process id: 20837
+  Group id         : 20844
+  Status           : S
+  Session id       : 18356
+  User time        : 433
+  Kernel time      : 490
+  Priority         : 20
+  Virtual bytes    : 2219614208
+  Resident pages   : 42269
+  Resident limit   : 18446744073709551615
+  Minor page faults: 46369
+  Major page faults: 606
+
+
+Router#show interfaces TwoGigabitEthernet0/0/6 | include line protocol|Duplex|CRC|output errors
+TwoGigabitEthernet0/0/6 is up, line protocol is up 
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 3 interface resets
+Router#show interfaces TwoGigabitEthernet0/0/7 | include line protocol|Duplex|CRC|output errors
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 output errors, 0 collisions, 2 interface resets
+Router#
