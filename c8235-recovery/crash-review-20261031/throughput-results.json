@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "updated_at": "2026-10-31T17:18:32.317599-04:00",
+  "updated_at": "2026-10-31T17:30:58.323416-04:00",
   "configuration": "performance-setup.json",
   "path": {
     "client": "Mac 192.168.83.50, iperf3 3.22",
@@ -411,6 +411,10 @@
     "fallback": "Same Mac/adapter/cable connected to the5-network, bypassing router; verify actual wired address/route and link rate, then repeat paced reverse test against the same Ubuntu server",
     "measurement": "Take immediate before/after router interface/QFP counters when router remains in path; keep other bandwidth tests stopped. Compare retransmission rate and received throughput, not unequal-duration totals.",
     "limits": "Router CRC counters do not measure all endpoint/USB/driver behavior. Existing2020 uplink output drops remain a separate observation and do not prove the Mac adapter caused loss.",
-    "priority": "Resolve the available endpoint control before the longer forwarding gate; no NIC offload, firmware or router tuning yet"
+    "priority": "Superseded as immediate next step by owner-selected port8 trunk and planned Ubuntu VLAN83 vNIC; adapter hypothesis remains unproven"
+  },
+  "subsequent_topology_change": {
+    "record": "c8235-recovery/crash-review-20261031/port8-vlan-migration.json",
+    "note": "Completed results above remain measurements of the old physical6/7 topology; owner now selected10Gb/s port8 trunk and a planned second Ubuntu vNIC. No new throughput result yet."
   }
 }

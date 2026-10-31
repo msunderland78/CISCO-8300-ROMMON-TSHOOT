@@ -2,8 +2,8 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "updated_at": "2026-10-31T17:09:25.799763-04:00",
-  "status": "Configuration remains active; both60-second TCP directions completed near1Gb/s; reverse retransmissions unresolved; paced comparison pending",
+  "updated_at": "2026-10-31T17:30:58.323416-04:00",
+  "status": "Historical two-port setup, superseded by the port8 trunk migration; fields below preserve the earlier setup and observations",
   "owner_confirmation": "Same powered router; cover/cooling/battery unchanged; USB/console attached; exclusive console; prior 6-to-7 loopback cable removed.",
   "upstream_return_route": {
     "gateway": "192.168.5.1",
@@ -382,5 +382,8 @@
     "polling": "Passive capture plus explicit queries; no automatic periodic polling",
     "one_shot_reboot_stop": "Armed Ctrl-C on next UUID Len: 0xC banner to stop autoboot after a reset; no reset induced",
     "rotation_note": "Previous43404-byte capture closed/preserved; brief descriptor gap before this new capture"
-  }
+  },
+  "superseded_at": "2026-10-31T17:30:21.170781-04:00",
+  "current_configuration": "c8235-recovery/crash-review-20261031/port8-vlan-migration.json",
+  "original_setup_last_updated_at": "2026-10-31T17:09:25.799763-04:00"
 }

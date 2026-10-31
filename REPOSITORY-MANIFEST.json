@@ -914,6 +914,11 @@
       "bytes": 11844,
       "path": "router-console-logs/20261031-1715-paced850-snapshot.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 50476,
+      "path": "router-console-logs/20261031-172949-port8-trunk-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -948,9 +953,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 72361,
+      "bytes": 74759,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "6ee803e658b14880f2885d181ff02d5bf81b3b0ac63c5b9853d1c6333fc0c7d2"
+      "sha256": "f158d2fb80154c797ac0db02b57ae763bb53c5de16b09c0afc987f3864f35436"
     },
     {
       "bytes": 106687,
@@ -1133,9 +1138,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 23906,
+      "bytes": 23789,
       "path": "README.md",
-      "sha256": "784fffb7f5ffa8b065bcdd3c93273bb99218a3a9c7995d1220cbe4956f6dcbed"
+      "sha256": "4c2e63880fcdbeaf82e2bae12a0cff95d8fa7819da563748c3922d2599745615"
     },
     {
       "bytes": 3934,
@@ -1233,9 +1238,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 335702,
+      "bytes": 337356,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "27a75a5437cb298934475216eb05a0df89e4099a1bb89f610293028563989142"
+      "sha256": "9de7016466a3c4a13fff5f453a393b19e906eb41cf5f38efd00110d846665d8c"
     },
     {
       "bytes": 6850655,
@@ -1373,9 +1378,9 @@
       "sha256": "b3449fde6e72c571de6260f5758fb03a448ef7f7278d2130187a0acba691af9b"
     },
     {
-      "bytes": 46094,
+      "bytes": 50915,
       "path": "c8235-recovery/crash-review-20261031/REVIEW.md",
-      "sha256": "5eb5c28530f3d8fde68387ab1ebcb2d676341105142f154d8cb2866878dca3ba"
+      "sha256": "b3ae963b7d9411331ae73b93773f947caa9a74a8579b87671c576981b31090b8"
     },
     {
       "bytes": 23310,
@@ -1393,9 +1398,14 @@
       "sha256": "b36f5143bcd7c5e67ccc260814f09daad438174e3abc9d208ca22959d8a9cde0"
     },
     {
-      "bytes": 15138,
+      "bytes": 15342,
       "path": "c8235-recovery/crash-review-20261031/performance-setup.json",
-      "sha256": "962dc67d8898c847ec4d96148aaff5f601be2b0437e9c6beada8bb23e519a673"
+      "sha256": "1a5274da25cdbc4305ded2f6847bd84e60c053dd004554820bc5d6d3199a90f6"
+    },
+    {
+      "bytes": 13615,
+      "path": "c8235-recovery/crash-review-20261031/port8-vlan-migration.json",
+      "sha256": "c3f72f88e4ed231f6767484d691cd81f7113ace5ee5f63255b9a3b7baa9161ad"
     },
     {
       "bytes": 9617,
@@ -1403,9 +1413,9 @@
       "sha256": "6586b1b5eb1f2d89911c8a342dadff6b4e7ce16fd229bd6fcc12c2497159276a"
     },
     {
-      "bytes": 18744,
+      "bytes": 19067,
       "path": "c8235-recovery/crash-review-20261031/throughput-results.json",
-      "sha256": "81be3299dd454bda2d5cc0e74b1ff55f89daa8e68f0f636d6d2d8304ae7396c3"
+      "sha256": "8f8aa2c300c31c478041e9bdf6f3ea328232b58d321ffe09a0034ee34355a1c4"
     },
     {
       "bytes": 2942,
@@ -2893,6 +2903,11 @@
       "sha256": "787c7adad1185c2343eb0d345814f40bb5e4ee6948b15a190b4d9b672e6ba8ca"
     },
     {
+      "bytes": 50476,
+      "path": "sanitized-evidence/router-console-logs/20261031-172949-port8-trunk-snapshot.log",
+      "sha256": "2fe7524ce46311d9bb85b04d0a104ea7340692dde3c753ffc267cd04671fd72d"
+    },
+    {
       "bytes": 3720,
       "path": "scripts/make_programmer_inspection_crops.py",
       "sha256": "9635f8fdc895d09afa8732bb7b76042619192660eaa8b5b9bbcab3115971b868"
@@ -3087,12 +3102,13 @@
     "sanitized-evidence/router-console-logs/20261031-165138-console.log",
     "sanitized-evidence/router-console-logs/20261031-165401-console.log",
     "sanitized-evidence/router-console-logs/20261031-165917-console.log",
-    "sanitized-evidence/router-console-logs/20261031-1715-paced850-snapshot.log"
+    "sanitized-evidence/router-console-logs/20261031-1715-paced850-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261031-172949-port8-trunk-snapshot.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 183,
-    "included_bytes_without_manifest": 696069269,
-    "included_files_without_manifest": 415
+    "excluded_local_files": 184,
+    "included_bytes_without_manifest": 696142643,
+    "included_files_without_manifest": 417
   }
 }

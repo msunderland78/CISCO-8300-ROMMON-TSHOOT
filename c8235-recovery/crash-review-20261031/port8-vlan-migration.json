@@ -1,0 +1,313 @@
+{
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "timezone": "America/New_York",
+  "status": "Applied and verified:10Gb/s parent/subinterfaces up; VLAN5 reachable; VLAN83 client/DHCP path pending endpoint",
+  "owner_request": "New10Gb/s twinax on physical port8; 802.1Q tagged VLAN5 and83, VLAN1 native; continue VLAN5 while owner decides VLAN83 test endpoint",
+  "old_interfaces": "TwoGigabitEthernet0/0/6 and0/0/7 now shutdown, no IP address or description; negotiation auto retained; no duplicate routed subnets",
+  "default_route": {
+    "prefix": "0.0.0.0/0",
+    "via": "192.168.5.1",
+    "egress": "TenGigabitEthernet0/0/8.5",
+    "configuration_verified": true,
+    "installed_in_rib": true
+  },
+  "dhcp": {
+    "pool": "C8235_PERF83",
+    "range": "192.168.83.50-192.168.83.225/24",
+    "gateway": "192.168.83.1",
+    "dns": [
+      "192.168.3.10",
+      "208.67.222.222"
+    ],
+    "change": "Preserve pool/exclusions; verify after migration; actual VLAN83 client validation awaits endpoint",
+    "configuration_verified": true,
+    "actual_vlan83_client_verified": false,
+    "retained_old_lease": "192.168.83.50 remains associated with old Tw0/0/7 in DHCP table; this does not prove a VLAN83 client exchange. Binding not cleared."
+  },
+  "nat": false,
+  "persistence": "Running configuration only in this recovery trial; no startup save or reboot planned",
+  "references": [
+    "https://www.cisco.com/c/en/us/td/docs/routers/ios/config/17-x/lan-wan/b-lan-wan/m_lsw-conf-rout-vlan.html",
+    "https://www.man7.org/linux/man-pages/man8/ip-netns.8.html"
+  ],
+  "validation_planned": [
+    "Read exact live interface name/config, transceiver and health",
+    "Preserve and hash prechange running configuration privately on USB",
+    "Apply scoped interface/address/default-route migration",
+    "Verify encapsulation/native mapping,10Gb/s link, route and VLAN5 reachability",
+    "Preserve and hash postchange configuration; inspect native config diff",
+    "Record VLAN83 end-to-end/DHCP validation as pending until a client is available"
+  ],
+  "staging_plan": [
+    "After live baseline, create the unnumbered parent and native/tagged subinterfaces, then enable parent and verify10Gb/s link while ports6/7 still carry the old subnets.",
+    "After link verification, remove addresses and shut ports6/7, assign existing addresses to8.5/8.83, replace fully specified default route, then verify VLAN5 reachability.",
+    "If VLAN5 reachability fails, inspect tagged/native peer alignment and restore exact prior interface/default-route configuration if needed; preserve the failed outcome."
+  ],
+  "passive_observation": "Existing exclusive capture reported TRANSCEIVER-6-INSERTED in Te0/0/8; router clock is stale. Later console exec timeout occurred; no agent transmit or new connection for this observation.",
+  "updated_at": "2026-10-31T17:30:21.170781-04:00",
+  "owner_confirmation": "Owner reconfirmed C8235-B/FGL2835LBHU, power/cover/cooling/battery/USB/console unchanged, no programmer/other console owner, only port8 twinax added; matching switch trunk VLAN5/83 tagged and VLAN1 native confirmed.",
+  "applied_commands": {
+    "stage_unnumbered_trunk": [
+      "configure terminal",
+      "interface TenGigabitEthernet0/0/8",
+      "description PERF_TRUNK_VLAN5_VLAN83_NATIVE1",
+      "no ip address",
+      "interface TenGigabitEthernet0/0/8.1",
+      "description NATIVE_VLAN1_UNNUMBERED",
+      "encapsulation dot1Q 1 native",
+      "no ip address",
+      "interface TenGigabitEthernet0/0/8.5",
+      "description PERF_VLAN5_UPLINK",
+      "encapsulation dot1Q 5",
+      "interface TenGigabitEthernet0/0/8.83",
+      "description PERF_VLAN83_LAN",
+      "encapsulation dot1Q 83",
+      "interface TenGigabitEthernet0/0/8",
+      "no shutdown",
+      "end"
+    ],
+    "migrate_after_link_check": [
+      "configure terminal",
+      "interface TwoGigabitEthernet0/0/6",
+      "shutdown",
+      "no ip address",
+      "no description",
+      "interface TwoGigabitEthernet0/0/7",
+      "shutdown",
+      "no ip address",
+      "no description",
+      "interface TenGigabitEthernet0/0/8.5",
+      "ip address 192.168.5.4 255.255.255.0",
+      "interface TenGigabitEthernet0/0/8.83",
+      "ip address 192.168.83.1 255.255.255.0",
+      "exit",
+      "no ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1",
+      "ip route 0.0.0.0 0.0.0.0 TenGigabitEthernet0/0/8.5 192.168.5.1",
+      "end"
+    ]
+  },
+  "application_times": {
+    "staged_at": "2026-10-31T17:28:05.860100-04:00",
+    "migrated_at": "2026-10-31T17:28:40.279016-04:00"
+  },
+  "prechange_backup": {
+    "path": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-running.cfg",
+    "bytes": 7292,
+    "sha512": "5d843c70b4010569ab0f042a4320aba7f4552d5d4ac2ca4955dc9d1b2aa8bd3cbc8d2fcccb674733a248b30ce438b68e92357228caf5fe40e44ffa96883b2424",
+    "privacy": "Original configuration on attached USB only; no config contents published",
+    "difference_from_earlier_performance_export": "Native diff shows negotiation auto absent only on port8 before this migration; observed after twinax insertion. Cause not independently established."
+  },
+  "postchange_backup": {
+    "path": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-port8-trunk-running.cfg",
+    "bytes": 7590,
+    "sha512": "2d94ab942cc5dec4cdf54f1abbbaba06ef63c8bcd9280fb31bb7559a7a0e2c5d61ca5bb11ea088a4eb751ea4b2642e37b03c770256dc4b0b7b34a86419ae35a0",
+    "privacy": "Original configuration on attached USB only; no config contents published"
+  },
+  "native_config_diff": "Only intended removal of ports6/7 IPs/descriptions, shutdown of6/7, enable/description of8, creation of8.1/8.5/8.83 with encapsulation/IPs, and default-route egress replacement. DHCP unchanged.",
+  "transceiver": {
+    "interface": "TenGigabitEthernet0/0/8",
+    "pid": "SFP-H10GB-CU5M",
+    "vid": "V03",
+    "serial": "MOC15490A3V",
+    "vendor": "CISCO-MOLEX",
+    "vendor_part": "74752-9521",
+    "cisco_part": "37-0962-03",
+    "reported_media": "H10GB-CU5M",
+    "reported_speed_mbps": 10000,
+    "duplex": "full",
+    "link_type_reported": "force-up",
+    "flow_control_after_enable": "input/output on"
+  },
+  "connectivity_results": [
+    {
+      "source": "192.168.5.4",
+      "destination": "192.168.5.1",
+      "sent": 5,
+      "received": 5,
+      "size_bytes": 100
+    },
+    {
+      "source": "192.168.5.4",
+      "destination": "192.168.5.3",
+      "sent": 10,
+      "received": 9,
+      "size_bytes": 1500,
+      "df": true,
+      "note": "First packet lost; ARP discovery plausible but not packet-captured"
+    },
+    {
+      "source": "192.168.5.4",
+      "destination": "192.168.5.3",
+      "sent": 10,
+      "received": 10,
+      "size_bytes": 1500,
+      "df": true
+    },
+    {
+      "source": "192.168.5.4",
+      "destination": "192.168.5.25",
+      "sent": 5,
+      "received": 4,
+      "size_bytes": 100,
+      "note": "First packet lost; ARP discovery plausible but not packet-captured"
+    },
+    {
+      "source": "192.168.5.4",
+      "destination": "192.168.5.25",
+      "sent": 5,
+      "received": 5,
+      "size_bytes": 100
+    }
+  ],
+  "arp": "Gateway192.168.5.1, Ubuntu192.168.5.3 and speed-test192.168.5.25 resolve on Te0/0/8.5; old Mac192.168.83.50 incomplete after port7 shutdown.",
+  "health": {
+    "initial_cpp_pid": 20844,
+    "final_cpp_pid": 20844,
+    "initial_keepalive": {
+      "tx": 1895,
+      "rx": 1895,
+      "miss": 0
+    },
+    "final_keepalive": {
+      "tx": 1943,
+      "rx": 1943,
+      "miss": 0
+    },
+    "F0": "ok, active",
+    "subslot_0_0": "ok",
+    "cpu_celsius": 52,
+    "main_12v_mv": 12127,
+    "power_watts": 14,
+    "port8_input_errors": 0,
+    "port8_crc": 0,
+    "port8_output_errors": 0,
+    "port8_output_drops": 0,
+    "port8_interface_resets": 1,
+    "port8_lost_carrier": 0,
+    "port8_reset_note": "Increased0->1 with initial enable; remained1 afterward",
+    "existing_warnings": "12V_DG_ST0mV/Critical_Low persists; prior TPM concern unresolved"
+  },
+  "intermediate_outcomes": [
+    "Console exec had timed out to Router>; initial privileged show commands rejected until enable; no authentication change.",
+    "First post-enable port8 sample was down/down; it subsequently linked up after about6 seconds in router-relative timestamps. No extra speed/config change required.",
+    "Two ping commands initially queued after another ping did not yield results; only separately issued commands with observed summaries count as tests."
+  ],
+  "capture_snapshot": {
+    "recorded_at": "2026-10-31T17:29:49.128361-04:00",
+    "path": "router-console-logs/20261031-172949-port8-trunk-snapshot.log",
+    "bytes": 50476,
+    "sha256": "2fe7524ce46311d9bb85b04d0a104ea7340692dde3c753ffc267cd04671fd72d",
+    "snapshot_of_open_private_capture": true,
+    "source_prefix_verified": true,
+    "provenance": "Exact immutable byte-prefix snapshot of still-open private17:08:47 capture; includes earlier paced evidence plus migration. Original capture remains exclusive and armed for post-reset stop."
+  },
+  "timeline": [
+    {
+      "time": "2026-10-31T17:27:49.555031-04:00",
+      "starts_with": "b'show platform\\rshow platform software process list F0 name cpp_cp_svr\\rshow platfor"
+    },
+    {
+      "time": "2026-10-31T17:27:54.276246-04:00",
+      "starts_with": "b'copy running-config usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port8-trunk-ru"
+    },
+    {
+      "time": "2026-10-31T17:28:00.185331-04:00",
+      "starts_with": "b'terminal width 512\\rverify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre"
+    },
+    {
+      "time": "2026-10-31T17:28:05.860100-04:00",
+      "starts_with": "b'configure terminal\\rinterface TenGigabitEthernet0/0/8\\rdescription PERF_TRUNK_VLAN5"
+    },
+    {
+      "time": "2026-10-31T17:28:08.533631-04:00",
+      "starts_with": "b'show interfaces TenGigabitEthernet0/0/8\\rshow ip interface brief\\rshow cdp neighbor"
+    },
+    {
+      "time": "2026-10-31T17:28:31.650989-04:00",
+      "starts_with": "b'show interfaces TenGigabitEthernet0/0/8\\rshow inventory\\rshow hw-module subslot 0/0"
+    },
+    {
+      "time": "2026-10-31T17:28:40.279016-04:00",
+      "starts_with": "b'configure terminal\\rinterface TwoGigabitEthernet0/0/6\\rshutdown\\rno ip address\\rno "
+    },
+    {
+      "time": "2026-10-31T17:28:43.354430-04:00",
+      "starts_with": "b'show running-config | section ^interface TenGigabitEthernet0/0/8\\rshow ip interface"
+    },
+    {
+      "time": "2026-10-31T17:29:14.595908-04:00",
+      "starts_with": "b'show interfaces TenGigabitEthernet0/0/8.1\\rshow interfaces TenGigabitEthernet0/0/8."
+    },
+    {
+      "time": "2026-10-31T17:29:20.150122-04:00",
+      "starts_with": "b'show interfaces TenGigabitEthernet0/0/8 | include protocol|Mbps|errors|CRC|drops|re"
+    },
+    {
+      "time": "2026-10-31T17:29:25.664638-04:00",
+      "starts_with": "b'verify /sha512 usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/post-port8-trunk-runnin"
+    }
+  ],
+  "rollback_if_needed_after_rechecking_no_later_changes": [
+    "configure terminal",
+    "interface TenGigabitEthernet0/0/8",
+    "shutdown",
+    "no description",
+    "exit",
+    "no interface TenGigabitEthernet0/0/8.83",
+    "no interface TenGigabitEthernet0/0/8.5",
+    "no interface TenGigabitEthernet0/0/8.1",
+    "no ip route 0.0.0.0 0.0.0.0 TenGigabitEthernet0/0/8.5 192.168.5.1",
+    "interface TwoGigabitEthernet0/0/6",
+    "description PERF_UPLINK_192.168.5.0_24",
+    "ip address 192.168.5.4 255.255.255.0",
+    "no shutdown",
+    "interface TwoGigabitEthernet0/0/7",
+    "description PERF_LAN_192.168.83.0_24",
+    "ip address 192.168.83.1 255.255.255.0",
+    "no shutdown",
+    "exit",
+    "ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/6 192.168.5.1",
+    "end"
+  ],
+  "next_endpoint": {
+    "owner_selected": "Second virtual NIC for Ubuntu server on VLAN83; owner attaching it",
+    "state": "Attachment not yet confirmed; no guest network change made",
+    "plan": "Identify new interface/MAC and preserve existing ens192/VLAN5 SSH path. Put only the new vNIC in a separate Linux network namespace for a genuine path through the Cisco; two local IPs in the same namespace can bypass router.",
+    "validation": "Check both endpoint routes, router subinterface/parent counters and hop path before any throughput claim",
+    "scope_note": "A same-VM namespace test exercises routed trunk transit but shares host CPU/vSwitch/physical uplink resources; it is not an independent two-host maximum-capacity measurement."
+  },
+  "limitations": [
+    "VLAN5 pings are router-originated reachability tests, not VLAN5-to83 transit throughput",
+    "VLAN83 native DHCP/client path not yet verified; subinterface up/up follows parent state",
+    "NativeVLAN1 is configured untagged without IP; no VLAN1 L3 service requested or tested",
+    "No10Gb/s forwarding benchmark or new long-duration gate completed",
+    "RAM-only resource correction still lost on reboot; no startup save"
+  ],
+  "interfaces": {
+    "parent": {
+      "interface": "TenGigabitEthernet0/0/8",
+      "physical_port": 8,
+      "address": null,
+      "speed_verification": "Observed up/up,10000Mbps/full duplex at17:28:31; same at17:29:20"
+    },
+    "native": {
+      "interface": "TenGigabitEthernet0/0/8.1",
+      "vlan": 1,
+      "native_untagged": true,
+      "address": null
+    },
+    "vlan5": {
+      "interface": "TenGigabitEthernet0/0/8.5",
+      "vlan": 5,
+      "tagged": true,
+      "address": "192.168.5.4/24"
+    },
+    "vlan83": {
+      "interface": "TenGigabitEthernet0/0/8.83",
+      "vlan": 83,
+      "tagged": true,
+      "address": "192.168.83.1/24"
+    }
+  }
+}

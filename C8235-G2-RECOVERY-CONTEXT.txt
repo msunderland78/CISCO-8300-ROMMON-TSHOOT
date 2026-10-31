@@ -10,6 +10,44 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+PORT 8 VLAN TRUNK ACTIVE — 2026-10-31, 17:30 EDT
+Owner reconfirmed B/FGL2835LBHU, unchanged power/assembly/cooling/battery and
+exclusive console, with only port-8 twinax added; matching switch trunk
+confirmed. TenGigabitEthernet0/0/8 is up at 10 Gb/s full duplex using Cisco
+SFP-H10GB-CU5M / MOC15490A3V. Staged unnumbered subinterfaces first, verified
+link, then moved addresses/default route at 17:28:40 EDT:
+- Te0/0/8.1: encapsulation dot1Q 1 native, no IP address.
+- Te0/0/8.5: tagged VLAN 5, 192.168.5.4/24.
+- Te0/0/8.83: tagged VLAN 83, 192.168.83.1/24.
+- Default route via 192.168.5.1 on Te0/0/8.5.
+- Ports 6/7: shutdown, no IP or description. Their previous cables may remain.
+- DHCP pool/exclusions unchanged: .83.50-.225, gateway .83.1, original DNS.
+All subinterfaces up/up; VLAN 83 client/DHCP transit is not yet verified.
+The retained .83.50 binding still names old port 7; do not count it as a new
+VLAN 83 lease. Native VLAN 1 has no configured Layer 3 service.
+
+VLAN 5 gateway ping 5/5; Ubuntu first 1500-byte DF run 9/10 then 10/10;
+speed-test server first 4/5 then 5/5. First-packet losses retained; ARP is
+plausible but not captured. ARP entries use Te0/0/8.5. Port 8 remains free
+of CRC/input/output errors/drops; one initial-enable reset, no lost carrier.
+F0/0/0 operational, unchanged CPP 20844, final keepalives 1943/1943/misses 0,
+CPU 52 C, main 12 V 12127 mV, power 14 W. Existing sensor/TPM issues remain.
+
+Pre/post configuration exports are private on USB, 7292/7590 bytes with
+SHA-512 recorded in port8-vlan-migration.json. Native diff matches only the
+requested interface/address/route migration. Running only; no startup save
+or reboot. RAM correction remains temporary. Exact immutable snapshot:
+router-console-logs/20261031-172949-port8-trunk-snapshot.log, 50476 bytes;
+original private 17:08:47 capture remains open/exclusive with reset stop.
+
+Owner now plans a second Ubuntu virtual NIC on VLAN 83, superseding the Mac
+adapter comparison as immediate next step. Attachment not yet confirmed.
+Identify its MAC/interface, keep ens192/VLAN 5 unchanged, and use a separate
+Linux network namespace so same-host traffic actually traverses the Cisco.
+Do not infer a new 10G throughput result or a sustained stability pass.
+The old bounded iperf listener was due to expire about 17:27; recheck before
+reuse. No guest network changes have been made for the new vNIC yet.
+
 OWNER ENDPOINT DETAIL — recorded 2026-10-31, 17:18 EDT
 MacBook Air uses a USB-C to 2.5 Gb/s Ethernet adapter. Owner doubts its
 reliability; model/chipset/driver are unidentified. Adapter involvement is a
