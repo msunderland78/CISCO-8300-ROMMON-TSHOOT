@@ -1,0 +1,223 @@
+
+[TX 2026-10-31T17:14:47.299108] b'show platform hardware qfp active datapath utilization\rshow platform software infra punt-keepalive\r'
+show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        80049        28035        14294         4695
+                 (bps)    892281352    312262696    151521808     46235272
+           Total (pps)        80049        28035        14294         4695
+                 (bps)    892281352    312262696    151521808     46235272
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        80080        28127        14303         4695
+                 (bps)    892472712    313332352    151659656     46252168
+           Total (pps)        80080        28127        14303         4695
+                 (bps)    892472712    313332352    151659656     46252168
+Processing: Load (pct)            4            1            1            0
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            5            3            3            8
+            Idle (pct)           95           97           97           91
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.972 sec ago
+Last punt keepalive sent                  = 0.972 sec ago
+punt keepalive rx count                   = 1504
+punt keepalive tx count                   = 1504
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-10-31T17:14:52.206280] b'show platform\rshow platform software process list F0 | include cpp\rshow interfaces TwoGigabitEthernet0/0/6\rshow interfaces TwoGigabitEthernet0/0/7\rshow platform hardware qfp active statistics drop\rshow platform software status control-processor brief\rshow environment all\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:51:21      
+ 0/0      8M-2xSFP+           ok                    00:50:35      
+R0        C8230X-8M2X         ok, active            00:51:21      
+F0        C8230X-8M2X         ok, active            00:51:21      
+P0        PWR-CC2-66WAC       ok                    00:50:49      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 | include cpp
+cpp_sp_svr             20006   19987     20006  S               20  57344       
+cpp_ha_top_leve        20337   20323     20337  S               20  43904       
+cpp_driver             20614   20601     20614  S               20  38528       
+cpp_cp_svr             20844   20837     20844  S               20  169844      
+Router#show interfaces TwoGigabitEthernet0/0/6
+TwoGigabitEthernet0/0/6 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda6 (bia e4a4.1c82.dda6)
+  Description: PERF_UPLINK_192.168.5.0_24
+  Internet address is 192.168.5.4/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 8/255, rxload 32/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:42, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 2020
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 127417000 bits/sec, 11272 packets/sec
+  5 minute output rate 33004000 bits/sec, 3807 packets/sec
+     10811111 packets input, 12848617286 bytes, 0 no buffer
+     Received 1727 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 1092 multicast, 0 pause input
+     6802860 packets output, 8958273776 bytes, 0 underruns
+     Output 8 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 3 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     2 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dda7 (bia e4a4.1c82.dda7)
+  Description: PERF_LAN_192.168.83.0_24
+  Internet address is 192.168.83.1/24
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 12/255, rxload 3/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:33, output 00:00:37, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 33045000 bits/sec, 3810 packets/sec
+  5 minute output rate 127429000 bits/sec, 11270 packets/sec
+     6806368 packets input, 8961465272 bytes, 0 no buffer
+     Received 33 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 262 multicast, 0 pause input
+     10809361 packets output, 12848495680 bytes, 0 underruns
+     Output 4 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 2 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     2 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+Disabled                                        8                    2396  
+IpTtlExceeded                                  90                    6210  
+Ipv4NoRoute                                    77                    7396  
+Ipv6NoRoute                                    17                     952  
+TailDrop                                     2020                 3051416  
+UnconfiguredIpv6Fia                           184                   43649  
+
+Router#show platform software status control-processor brief
+Load Average
+ Slot  Status  1-Min  5-Min 15-Min
+  RP0 Healthy   2.88   2.42   2.19
+
+Memory (kB)
+ Slot  Status    Total     Used (Pct)     Free (Pct) Committed (Pct)
+  RP0 Healthy 16150604  3176600 (20%) 12974004 (80%)   3273156 (20%)
+
+CPU Utilization
+ Slot  CPU   User System   Nice   Idle    IRQ   SIRQ IOwait
+  RP0    0   2.10   3.70   0.00  93.29   0.80   0.10   0.00
+         1   0.00   0.00   0.00 100.00   0.00   0.00   0.00
+         2   0.00   0.00   0.00  99.90   0.10   0.00   0.00
+         3   0.00   0.00   0.00  99.90   0.09   0.00   0.00
+         4  99.49   0.50   0.00   0.00   0.00   0.00   0.00
+         5  98.60   0.69   0.00   0.49   0.19   0.00   0.00
+         6  97.80   0.80   0.00   1.20   0.20   0.00   0.00
+         7  99.90   0.00   0.00   0.00   0.10   0.00   0.00
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          35 Celsius
+ Temp: Outlet            R0              Normal          34 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12107 mV
+ V: 5V                   R0              Normal          4961 mV
+ V: 3.3V_SB              R0              Normal          3330 mV
+ V: 3.3V_SFP             R0              Normal          3310 mV
+ V: 3.3V                 R0              Normal          3303 mV
+ V: 1.8V                 R0              Normal          1796 mV
+ V: 1.2V                 R0              Normal          1201 mV
+ V: 1.1V_DDR             R0              Normal          1104 mV
+ V: 0.75V_CORE           R0              Normal          762 mV
+ V: 0.75V_SYS            R0              Normal          855 mV
+ V: 0.8V_SW              R0              Normal          806 mV
+ V: 0.8V                 R0              Normal          805 mV
+ V: 0.75V                R0              Normal          754 mV
+ I: VP12P0_MB            R0              Normal          1477 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          16 Watts
+
+
+Router#
+[TX 2026-10-31T17:15:33.670361] b'show platform hardware qfp active statistics drop\rshow platform software infra punt-keepalive\r'
+show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+Disabled                                        8                    2396  
+IpTtlExceeded                                  92                    6320  
+Ipv4NoRoute                                    77                    7396  
+Ipv6NoRoute                                    17                     952  
+TailDrop                                     2020                 3051416  
+UnconfiguredIpv6Fia                           189                   44239  
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.332 sec ago
+Last punt keepalive sent                  = 1.332 sec ago
+punt keepalive rx count                   = 1527
+punt keepalive tx count                   = 1527
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#

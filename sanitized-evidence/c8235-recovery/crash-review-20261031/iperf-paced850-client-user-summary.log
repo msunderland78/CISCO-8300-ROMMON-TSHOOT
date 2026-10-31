@@ -1,0 +1,6 @@
+Derived summary transcribed from owner-pasted Mac Terminal output, received 2026-10-31, America/New_York.
+This is not a byte-for-byte native terminal capture.
+
+iperf3 -c 192.168.5.3 -B 192.168.83.50 -R -b 850M -t 30 -i 5 --get-server-output
+[  4]   0.00-30.00  sec  2.97 GBytes   850 Mbits/sec  123            sender
+[  4]   0.00-30.00  sec  2.97 GBytes   850 Mbits/sec                  receiver

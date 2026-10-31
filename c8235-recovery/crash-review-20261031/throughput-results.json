@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "updated_at": "2026-10-31T17:09:25.799763-04:00",
+  "updated_at": "2026-10-31T17:16:59.181931-04:00",
   "configuration": "performance-setup.json",
   "path": {
     "client": "Mac 192.168.83.50, iperf3 3.22",
@@ -167,7 +167,7 @@
     },
     {
       "id": "ubuntu_to_mac_paced850",
-      "state": "Requested; no third test connection observed as of17:08:25 EDT",
+      "state": "Completed; verified Ubuntu sender summary and matching owner-pasted Mac sender/receiver summaries",
       "command": "iperf3 -c 192.168.5.3 -B 192.168.83.50 -R -b 850M -t 30 -i 5 --get-server-output",
       "protocol": "TCP",
       "streams": 1,
@@ -181,7 +181,50 @@
         "Ipv4NoRoute": 77,
         "Ipv6NoRoute": 17,
         "UnconfiguredIpv6Fia": 108
-      }
+      },
+      "progress_observed_at": "2026-10-31T17:14:36-04:00",
+      "completion_observed_at": "2026-10-31T17:14:55-04:00",
+      "server_summary_seconds": 30.0,
+      "sender_mbps_rounded": 850,
+      "sender_transfer_printed": "2.97 GBytes",
+      "sender_retransmits": 123,
+      "five_second_sender_retransmits": [
+        4,
+        22,
+        61,
+        27,
+        4,
+        5
+      ],
+      "five_second_sender_mbps_rounded": [
+        850,
+        850,
+        850,
+        850,
+        850,
+        850
+      ],
+      "comparison": {
+        "unrestricted_retransmits_per_second": 36.143976003999335,
+        "paced_retransmits_per_second": 4.1,
+        "reduction_percent_per_second": 88.6564776394652,
+        "limitation": "Different run lengths; this compares retransmissions per second, not packet-loss percentage. One pair of runs suggests load sensitivity without isolating its cause."
+      },
+      "router_load_sample": {
+        "host_query_at": "2026-10-31T17:14:47.299108-04:00",
+        "qfp_processing_5sec_percent": 4,
+        "qfp_input_bps_5sec": 892281352,
+        "qfp_output_bps_5sec": 892472712,
+        "keepalive_tx": 1504,
+        "keepalive_rx": 1504,
+        "keepalive_miss": 0,
+        "limitation": "Five-second aggregate datapath sample near the end of the transfer, including data and return/control traffic; not one-link TCP payload bitrate."
+      },
+      "counter_baseline_limitation": "Existing pretrial_qfp_drops was sampled at17:05:47, well before this run and the intervening browser test. No immediately preceding counter sample isolates paced-run drops.",
+      "client_reported_receiver_mbps": 850,
+      "client_reported_receiver_seconds": 30.0,
+      "client_reported_receiver_transfer": "2.97 GBytes",
+      "client_reported_sender_retransmits": 123
     }
   ],
   "limitations": [
@@ -200,7 +243,7 @@
     "private_json": "Ubuntu state directory ubuntu-to-mac.json; SSH log20261031-170401-180448-ssh.log",
     "action": "No repeat; observe existing reverse test"
   },
-  "interpretation": "Basic routed forwarding demonstrated in both directions near current1Gb/s link capacity without CPP restart, missed keepalives or port-error increase in samples. Reverse TCP retransmissions unresolved; separate rate-limited comparison requested. No hardware-loss location proven.",
+  "interpretation": "Short routed TCP tests remain operational with unchanged CPP and no missed keepalives. Pacing reverse traffic to850Mb/s reduced retransmissions per second by about89%, but123 retransmissions remain. New cumulative2020 uplink output drops/TailDrop appeared across an unsampled interval; do not attribute them to one test or rewrite earlier zero-drop samples. Owner-reported browser981/985Mb/s is a distinct comparison, not a loss-free or long-duration pass.",
   "server_two_test_snapshot": {
     "path": "c8235-recovery/crash-review-20261031/iperf-two-tests-server-snapshot.log",
     "bytes": 3054,
@@ -237,10 +280,10 @@
     "closed": true,
     "private_copy_equality": true
   },
-  "last_observed_at": "2026-10-31T17:08:25-04:00",
+  "last_observed_at": "2026-10-31T17:15:33.670361-04:00",
   "last_keepalive": {
-    "tx": 1313,
-    "rx": 1313,
+    "tx": 1527,
+    "rx": 1527,
     "miss": 0
   },
   "qfp_drop_background_note": "Outside the completed tests, cumulative IpTtlExceeded and UnconfiguredIpv6Fia counts continued to rise under background traffic. These are not attributed to the TCP test; do not claim all QFP drops are zero.",
@@ -251,5 +294,109 @@
     "polling": "Passive capture plus explicit queries; no automatic periodic polling",
     "one_shot_reboot_stop": "Armed Ctrl-C on next UUID Len: 0xC banner to stop autoboot after a reset; no reset induced",
     "rotation_note": "Previous43404-byte capture closed/preserved; brief descriptor gap before this new capture"
+  },
+  "server_three_test_snapshot": {
+    "path": "c8235-recovery/crash-review-20261031/iperf-three-tests-server-snapshot.log",
+    "bytes": 4056,
+    "sha256": "0f918163bc844a72e2cf6bf23aeaddf80dfd522bdced963c4831b565217abb89",
+    "remote_snapshot_readback_match": true,
+    "scope": "Complete tests1,2,3 and listening banner for test4; no fourth test connection in snapshot"
+  },
+  "router_paced_snapshot": {
+    "path": "router-console-logs/20261031-1715-paced850-snapshot.log",
+    "bytes": 11844,
+    "sha256": "787c7adad1185c2343eb0d345814f40bb5e4ee6948b15a190b4d9b672e6ba8ca",
+    "snapshot_of_open_private_capture": true,
+    "source_prefix_verified": true,
+    "tx_timestamps": [
+      "2026-10-31T17:14:47.299108",
+      "2026-10-31T17:14:52.206280",
+      "2026-10-31T17:15:33.670361"
+    ],
+    "captured_at": "2026-10-31T17:15:40.907984-04:00",
+    "provenance": "Exact byte-prefix copy of the still-open private17:08:47 console capture; original capture remains active. This is an immutable snapshot, not a closed full-session capture."
+  },
+  "owner_reported_comparisons": [
+    {
+      "id": "openspeedtest_192_168_5_25",
+      "recorded_at": "2026-10-31T17:15:40.907984-04:00",
+      "service": "OpenSpeedTest, as described by owner",
+      "server": "192.168.5.25:3000",
+      "client": "Owner MacBook",
+      "download_server_to_mac_mbps": 981,
+      "upload_mac_to_server_mbps": 985,
+      "provenance": "Owner reported displayed rates in conversation; no native result or agent-captured transfer",
+      "run_time": null,
+      "duration_seconds": null,
+      "limitations": [
+        "Different server and test method from the Ubuntu iperf comparison",
+        "Exact client route to192.168.5.25, server return path, concurrency and byte accounting not independently verified",
+        "No retransmission statistics supplied; does not establish loss-free forwarding or complete a sustained stability gate"
+      ]
+    }
+  ],
+  "followup_health": {
+    "host_query_at": "2026-10-31T17:14:52.206280-04:00",
+    "F0": "ok, active",
+    "subslot_0_0": "ok",
+    "cpp_pid": 20844,
+    "RP": "Healthy",
+    "memory_used_percent": 20,
+    "cpu_celsius": 52,
+    "main_12v_mv": 12107,
+    "power_watts": 16,
+    "ports": {
+      "Tw0/0/6": {
+        "speed_mbps": 1000,
+        "duplex": "full",
+        "total_output_drops": 2020,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "interface_resets": 3,
+        "lost_carrier": 2
+      },
+      "Tw0/0/7": {
+        "speed_mbps": 2500,
+        "duplex": "full",
+        "total_output_drops": 0,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "interface_resets": 2,
+        "lost_carrier": 2
+      }
+    },
+    "qfp_drops": {
+      "Disabled": 8,
+      "IpTtlExceeded": 90,
+      "Ipv4NoRoute": 77,
+      "Ipv6NoRoute": 17,
+      "TailDrop": 2020,
+      "UnconfiguredIpv6Fia": 184
+    },
+    "qfp_taildrop_octets": 3051416,
+    "repeat_query_at": "2026-10-31T17:15:33.670361-04:00",
+    "repeat_qfp_drops": {
+      "Disabled": 8,
+      "IpTtlExceeded": 92,
+      "Ipv4NoRoute": 77,
+      "Ipv6NoRoute": 17,
+      "TailDrop": 2020,
+      "UnconfiguredIpv6Fia": 189
+    },
+    "counter_change_scope": "Port6 output drops and QFP TailDrop are now2020, versus0/no displayed TailDrop in earlier iperf samples. The interval spans intervening traffic, the owner browser test and the paced test. No test-specific attribution or explanation of the earlier reverse retransmissions is proven."
+  },
+  "next_steps": [
+    "For another loss comparison, capture immediately before/after interface and QFP counters with one test active; do not tune firmware, MTU or offloads without locating the issue",
+    "Prepare bounded listener duration and periodic router telemetry before the planned60-minute controlled forwarding gate; current listener auto-stops around17:27EDT",
+    "Complete corrected cold boots and overnight soak before a stability claim; RAM correction remains temporary"
+  ],
+  "client_paced_summary_excerpt": {
+    "path": "c8235-recovery/crash-review-20261031/iperf-paced850-client-user-summary.log",
+    "bytes": 396,
+    "sha256": "b6399c12d9663619d4519e9ed7cf9a8fe18bdacfba72d16c028e3e1462748429",
+    "derived": true,
+    "provenance": "Owner pasted full Mac output; selected summary rows transcribed. Not a native terminal capture."
   }
 }
