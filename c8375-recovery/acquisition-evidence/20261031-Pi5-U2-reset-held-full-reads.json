@@ -1,0 +1,220 @@
+{
+  "task_id": "R-01 / full U2 acquisition after reset-inhibit qualification",
+  "date": "2026-10-31",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A/FDO2742M0FK",
+  "physical_chip": "U2",
+  "status": "Full pair started; completion/size/hash/reference results pending",
+  "fixture": "Short U2clip, unusedU1RESETpin3 via nominal10k/measured9940ohm toP1ground; contact1.5ohm; old5.6k CS branch removed; normal router power/console/cables/CR2032/CH341A removed.",
+  "fresh_owner_pre_full_VDC": {
+    "P1rail": 1.783,
+    "U1_reset_node": 0.021
+  },
+  "preflight": {
+    "boot_id": "fd0a05cd-ad0c-47f4-9267-44a3df9f491a",
+    "busy_pids": [],
+    "spi_exists": true,
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "free_bytes": 236814770176,
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n"
+  },
+  "qualification": {
+    "GPIO_evidence": "20261031-Pi5-U2-reset-held-GPIO-read.json",
+    "matrix_evidence": "20261031-Pi5-U2-reset-read-matrix.json",
+    "flashrom_region_runtime": {
+      "started_at": "2026-10-31T11:21:38.520467-04:00",
+      "physical_chip": "U2",
+      "mode": "two64KiBregions",
+      "requested_kHz": 1000,
+      "reads": [
+        {
+          "pass": 1,
+          "command_without_credentials": [
+            "sudo",
+            "-S",
+            "-p",
+            "",
+            "timeout",
+            "--signal=INT",
+            "--kill-after=10s",
+            "180s",
+            "flashrom",
+            "-V",
+            "-p",
+            "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+            "-c",
+            "MT25QU256",
+            "-o",
+            "/home/sundema/C8375-U2-RESET-flashrom-regions-q755xjbp/U2-read1.log",
+            "-l",
+            "/home/sundema/C8375-U2-RESET-flashrom-regions-q755xjbp/regions.layout",
+            "-r",
+            "-i",
+            "lower:/home/sundema/C8375-U2-RESET-flashrom-regions-q755xjbp/U2-lower-read1.bin",
+            "-i",
+            "upper:/home/sundema/C8375-U2-RESET-flashrom-regions-q755xjbp/U2-upper-read1.bin"
+          ],
+          "status": "completed",
+          "samples": {
+            "lower": {
+              "file": "U2-lower-read1.bin",
+              "bytes": 65536,
+              "sha256": "8dad2eea81d0986e115195255fec6d8e4d9f7da83d09541be7e0b899e333cbd1"
+            },
+            "upper": {
+              "file": "U2-upper-read1.bin",
+              "bytes": 65536,
+              "sha256": "231a8d2a53af5df6886b6810d898631351fbb56f29b1a2282dcb4226406c21e1"
+            }
+          },
+          "exit_code": 0
+        },
+        {
+          "pass": 2,
+          "command_without_credentials": [
+            "sudo",
+            "-S",
+            "-p",
+            "",
+            "timeout",
+            "--signal=INT",
+            "--kill-after=10s",
+            "180s",
+            "flashrom",
+            "-V",
+            "-p",
+            "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+            "-c",
+            "MT25QU256",
+            "-o",
+            "/home/sundema/C8375-U2-RESET-flashrom-regions-q755xjbp/U2-read2.log",
+            "-l",
+            "/home/sundema/C8375-U2-RESET-flashrom-regions-q755xjbp/regions.layout",
+            "-r",
+            "-i",
+            "lower:/home/sundema/C8375-U2-RESET-flashrom-regions-q755xjbp/U2-lower-read2.bin",
+            "-i",
+            "upper:/home/sundema/C8375-U2-RESET-flashrom-regions-q755xjbp/U2-upper-read2.bin"
+          ],
+          "status": "completed",
+          "samples": {
+            "lower": {
+              "file": "U2-lower-read2.bin",
+              "bytes": 65536,
+              "sha256": "8dad2eea81d0986e115195255fec6d8e4d9f7da83d09541be7e0b899e333cbd1"
+            },
+            "upper": {
+              "file": "U2-upper-read2.bin",
+              "bytes": 65536,
+              "sha256": "231a8d2a53af5df6886b6810d898631351fbb56f29b1a2282dcb4226406c21e1"
+            }
+          },
+          "exit_code": 0
+        }
+      ],
+      "directory": "/home/sundema/C8375-U2-RESET-flashrom-regions-q755xjbp",
+      "status": "passed",
+      "flashrom_version": "flashrom v1.6.0 on Linux 7.0.0-1020-raspi (aarch64)\nflashrom is free software, get the source code at https://flashrom.org\n\n",
+      "pair_differences": {
+        "lower": 0,
+        "upper": 0
+      },
+      "finished_at": "2026-10-31T11:21:41.014181-04:00"
+    },
+    "flashrom_region_independent_validation": {
+      "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261031-112138-EDT-reset-held-flashrom-regions",
+      "all_samples_match_reference": true,
+      "samples": [
+        {
+          "file": "U2-lower-read1.bin",
+          "bytes": 65536,
+          "sha256": "8dad2eea81d0986e115195255fec6d8e4d9f7da83d09541be7e0b899e333cbd1",
+          "pass": 1,
+          "start": "0x1f0000",
+          "reference_different_bytes": 0
+        },
+        {
+          "file": "U2-upper-read1.bin",
+          "bytes": 65536,
+          "sha256": "231a8d2a53af5df6886b6810d898631351fbb56f29b1a2282dcb4226406c21e1",
+          "pass": 1,
+          "start": "0x1f30000",
+          "reference_different_bytes": 0
+        },
+        {
+          "file": "U2-lower-read2.bin",
+          "bytes": 65536,
+          "sha256": "8dad2eea81d0986e115195255fec6d8e4d9f7da83d09541be7e0b899e333cbd1",
+          "pass": 2,
+          "start": "0x1f0000",
+          "reference_different_bytes": 0
+        },
+        {
+          "file": "U2-upper-read2.bin",
+          "bytes": 65536,
+          "sha256": "231a8d2a53af5df6886b6810d898631351fbb56f29b1a2282dcb4226406c21e1",
+          "pass": 2,
+          "start": "0x1f30000",
+          "reference_different_bytes": 0
+        }
+      ],
+      "full_reference_sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b"
+    },
+    "region_worker_source_sha256": "da59c34949f9292860d5bae2d7bb9d69d0a933c4a231bc296ba73387d3c98b97"
+  },
+  "launch": {
+    "directory": "/home/sundema/C8375-U2-RESET-full-pair-thvnnwii",
+    "worker_pid": 10155,
+    "worker_source_sha256": "48ca7e14acd31c208fdd62dd55a22d091f221cb66bfd39d1f49ebc80e7f41ee2",
+    "method": "Detached Python3 standard-library worker; existing key SSH, sudo password only encrypted stdin/memory; GNUtimeout1200s SIGINT/10s SIGKILL per pass; exactMT25QU256/read-only flashrom flags; no overwriting originals",
+    "expected_bytes_per_capture": 33554432,
+    "passes": 2,
+    "requested_kHz": 1000
+  },
+  "progress_at_checkpoint": {
+    "started_at": "2026-10-31T11:25:31.552445-04:00",
+    "physical_chip": "U2",
+    "mode": "full",
+    "requested_kHz": 1000,
+    "reads": [
+      {
+        "pass": 1,
+        "command_without_credentials": [
+          "sudo",
+          "-S",
+          "-p",
+          "",
+          "timeout",
+          "--signal=INT",
+          "--kill-after=10s",
+          "1200s",
+          "flashrom",
+          "-V",
+          "-p",
+          "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+          "-c",
+          "MT25QU256",
+          "-o",
+          "/home/sundema/C8375-U2-RESET-full-pair-thvnnwii/U2-read1.log",
+          "-r",
+          "/home/sundema/C8375-U2-RESET-full-pair-thvnnwii/U2-full-read1.bin"
+        ],
+        "status": "started",
+        "samples": {}
+      }
+    ],
+    "directory": "/home/sundema/C8375-U2-RESET-full-pair-thvnnwii",
+    "status": "started",
+    "flashrom_version": "flashrom v1.6.0 on Linux 7.0.0-1020-raspi (aarch64)\nflashrom is free software, get the source code at https://flashrom.org\n\n",
+    "complete": false,
+    "observed_at": "2026-10-31T11:26:47.991265-04:00",
+    "boot_id": "fd0a05cd-ad0c-47f4-9267-44a3df9f491a"
+  },
+  "raw_retention": "Original region/raw full acquisitions and logs remain private onPi and beneath .git/recovery-private; no binary data printed/published.",
+  "limitations": [
+    "No complete backup exists from this new pair until actual complete sizes/hashes/comparison verified.",
+    "Read accuracy/whole-image identity, physical bank role, firmware compatibility, successful boot and stability are distinct.",
+    "No firmware write, protection/OTP/TPM/fuse/security modification or router boot."
+  ],
+  "next_step": "Complete/import pair, independently verify exact sizes/full hashes/byte equality/reference differences, check final Pi driver/process state and fixture voltages; preserve original bytes."
+}

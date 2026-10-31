@@ -1,0 +1,1926 @@
+{
+  "task_id": "R-01 / U2 reset-held read path qualification",
+  "date": "2026-10-31",
+  "timezone": "America/New_York",
+  "chassis": "C8375-A/FDO2742M0FK",
+  "physical_chip": "U2",
+  "status": "Matrix and independent flashrom-region reference checks passed; full pair started",
+  "source": "scripts/pi_u2_read_matrix.py",
+  "authorship": "AI-assisted original utility; Python3 standard library, sibling native-reader helper; not vendor code",
+  "source_change": "Helper make_transfer gains bounded optionalmax_speed\u22641MHz, legacy100k default preserved; matrix explicitly sets1MHz controller maximum and per-message requested rates",
+  "command": "sudo python3 pi_u2_read_matrix.py --read --u1-reset-low",
+  "validation": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "tests": 48,
+    "result": "passed",
+    "new_tests": 6,
+    "scope": "Native addresses across16MiB; chunk equivalence; wrong-ID stop; mismatch stop; original/private file preservation; inert default/help; reset acknowledgement; explicit controller maximum"
+  },
+  "deployment": {
+    "directory": "/home/sundema/C8375-U2-RESET-matrix-tools-hqhf6izy",
+    "sources": {
+      "pi_u1_direct_read.py": "a9931f4108bc8501cbaa9f25ec656f6b2a9b9b501b11f14125da250a5ea7873e",
+      "pi_u2_read_matrix.py": "d2be80c5b1909dc0a669eb46e94c4e4328c84cc541ef6dc29b8fd9c2e6095932"
+    },
+    "help_exit": 0,
+    "boot_id": "fd0a05cd-ad0c-47f4-9267-44a3df9f491a",
+    "source_match": true,
+    "same_boot": true
+  },
+  "runtime": {
+    "started_at": "2026-10-31T11:16:24.858478-04:00",
+    "command_without_credentials": [
+      "sudo",
+      "-S",
+      "-p",
+      "",
+      "timeout",
+      "--signal=INT",
+      "--kill-after=10s",
+      "120s",
+      "python3",
+      "/home/sundema/C8375-U2-RESET-matrix-tools-hqhf6izy/pi_u2_read_matrix.py",
+      "--read",
+      "--u1-reset-low"
+    ],
+    "exit_code": 0,
+    "reader_report": {
+      "started_at": "2026-10-31T11:16:24.957609-04:00",
+      "chassis": "C8375-A/FDO2742M0FK",
+      "physical_chip": "U2",
+      "unused_chip_control": "Owner-confirmed U1pin3 RESET low through10k toP1ground",
+      "device": "/dev/spidev0.0",
+      "directory": "/home/sundema/C8375-U2-RESET-matrix-uqu0burn",
+      "status": "passed",
+      "method": "Single full-duplex SPI_IOC_MESSAGE(1), mode0/MSB-first",
+      "requested_hz": [
+        100000,
+        500000,
+        1000000
+      ],
+      "chunk_bytes": [
+        64,
+        512
+      ],
+      "addresses": [
+        "0x0",
+        "0x1f2000",
+        "0x6e0000",
+        "0xfff800",
+        "0x1002000",
+        "0x1f30000",
+        "0x1fff000"
+      ],
+      "bytes_per_sample": 4096,
+      "opcodes": [
+        "0x9f RDID",
+        "0x13 native four-byte READ"
+      ],
+      "timing_limit": "Requested clocks only; no actual edge-rate measurement",
+      "limitation": "Bounded validation is not a full backup or physical bank-role assignment",
+      "samples": [
+        {
+          "file": "U2-00000000-100000Hz-64B-read1.bin",
+          "start": "0x0",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-100000Hz-64B-read2.bin",
+          "start": "0x0",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-100000Hz-512B-read1.bin",
+          "start": "0x0",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-100000Hz-512B-read2.bin",
+          "start": "0x0",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-001f2000-100000Hz-64B-read1.bin",
+          "start": "0x1f2000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-001f2000-100000Hz-64B-read2.bin",
+          "start": "0x1f2000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-001f2000-100000Hz-512B-read1.bin",
+          "start": "0x1f2000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-001f2000-100000Hz-512B-read2.bin",
+          "start": "0x1f2000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-006e0000-100000Hz-64B-read1.bin",
+          "start": "0x6e0000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-006e0000-100000Hz-64B-read2.bin",
+          "start": "0x6e0000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-006e0000-100000Hz-512B-read1.bin",
+          "start": "0x6e0000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-006e0000-100000Hz-512B-read2.bin",
+          "start": "0x6e0000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-00fff800-100000Hz-64B-read1.bin",
+          "start": "0xfff800",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00fff800-100000Hz-64B-read2.bin",
+          "start": "0xfff800",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00fff800-100000Hz-512B-read1.bin",
+          "start": "0xfff800",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00fff800-100000Hz-512B-read2.bin",
+          "start": "0xfff800",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-100000Hz-64B-read1.bin",
+          "start": "0x1002000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-100000Hz-64B-read2.bin",
+          "start": "0x1002000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-100000Hz-512B-read1.bin",
+          "start": "0x1002000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-100000Hz-512B-read2.bin",
+          "start": "0x1002000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01f30000-100000Hz-64B-read1.bin",
+          "start": "0x1f30000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01f30000-100000Hz-64B-read2.bin",
+          "start": "0x1f30000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01f30000-100000Hz-512B-read1.bin",
+          "start": "0x1f30000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01f30000-100000Hz-512B-read2.bin",
+          "start": "0x1f30000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01fff000-100000Hz-64B-read1.bin",
+          "start": "0x1fff000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01fff000-100000Hz-64B-read2.bin",
+          "start": "0x1fff000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01fff000-100000Hz-512B-read1.bin",
+          "start": "0x1fff000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01fff000-100000Hz-512B-read2.bin",
+          "start": "0x1fff000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-500000Hz-64B-read1.bin",
+          "start": "0x0",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-500000Hz-64B-read2.bin",
+          "start": "0x0",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-500000Hz-512B-read1.bin",
+          "start": "0x0",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-500000Hz-512B-read2.bin",
+          "start": "0x0",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-001f2000-500000Hz-64B-read1.bin",
+          "start": "0x1f2000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-001f2000-500000Hz-64B-read2.bin",
+          "start": "0x1f2000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-001f2000-500000Hz-512B-read1.bin",
+          "start": "0x1f2000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-001f2000-500000Hz-512B-read2.bin",
+          "start": "0x1f2000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-006e0000-500000Hz-64B-read1.bin",
+          "start": "0x6e0000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-006e0000-500000Hz-64B-read2.bin",
+          "start": "0x6e0000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-006e0000-500000Hz-512B-read1.bin",
+          "start": "0x6e0000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-006e0000-500000Hz-512B-read2.bin",
+          "start": "0x6e0000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-00fff800-500000Hz-64B-read1.bin",
+          "start": "0xfff800",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00fff800-500000Hz-64B-read2.bin",
+          "start": "0xfff800",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00fff800-500000Hz-512B-read1.bin",
+          "start": "0xfff800",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00fff800-500000Hz-512B-read2.bin",
+          "start": "0xfff800",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-500000Hz-64B-read1.bin",
+          "start": "0x1002000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-500000Hz-64B-read2.bin",
+          "start": "0x1002000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-500000Hz-512B-read1.bin",
+          "start": "0x1002000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-500000Hz-512B-read2.bin",
+          "start": "0x1002000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01f30000-500000Hz-64B-read1.bin",
+          "start": "0x1f30000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01f30000-500000Hz-64B-read2.bin",
+          "start": "0x1f30000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01f30000-500000Hz-512B-read1.bin",
+          "start": "0x1f30000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01f30000-500000Hz-512B-read2.bin",
+          "start": "0x1f30000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01fff000-500000Hz-64B-read1.bin",
+          "start": "0x1fff000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01fff000-500000Hz-64B-read2.bin",
+          "start": "0x1fff000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01fff000-500000Hz-512B-read1.bin",
+          "start": "0x1fff000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01fff000-500000Hz-512B-read2.bin",
+          "start": "0x1fff000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-1000000Hz-64B-read1.bin",
+          "start": "0x0",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-1000000Hz-64B-read2.bin",
+          "start": "0x0",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-1000000Hz-512B-read1.bin",
+          "start": "0x0",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00000000-1000000Hz-512B-read2.bin",
+          "start": "0x0",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-001f2000-1000000Hz-64B-read1.bin",
+          "start": "0x1f2000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-001f2000-1000000Hz-64B-read2.bin",
+          "start": "0x1f2000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-001f2000-1000000Hz-512B-read1.bin",
+          "start": "0x1f2000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-001f2000-1000000Hz-512B-read2.bin",
+          "start": "0x1f2000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+        },
+        {
+          "file": "U2-006e0000-1000000Hz-64B-read1.bin",
+          "start": "0x6e0000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-006e0000-1000000Hz-64B-read2.bin",
+          "start": "0x6e0000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-006e0000-1000000Hz-512B-read1.bin",
+          "start": "0x6e0000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-006e0000-1000000Hz-512B-read2.bin",
+          "start": "0x6e0000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30"
+        },
+        {
+          "file": "U2-00fff800-1000000Hz-64B-read1.bin",
+          "start": "0xfff800",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00fff800-1000000Hz-64B-read2.bin",
+          "start": "0xfff800",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00fff800-1000000Hz-512B-read1.bin",
+          "start": "0xfff800",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-00fff800-1000000Hz-512B-read2.bin",
+          "start": "0xfff800",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-1000000Hz-64B-read1.bin",
+          "start": "0x1002000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-1000000Hz-64B-read2.bin",
+          "start": "0x1002000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-1000000Hz-512B-read1.bin",
+          "start": "0x1002000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01002000-1000000Hz-512B-read2.bin",
+          "start": "0x1002000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01f30000-1000000Hz-64B-read1.bin",
+          "start": "0x1f30000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01f30000-1000000Hz-64B-read2.bin",
+          "start": "0x1f30000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01f30000-1000000Hz-512B-read1.bin",
+          "start": "0x1f30000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01f30000-1000000Hz-512B-read2.bin",
+          "start": "0x1f30000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10"
+        },
+        {
+          "file": "U2-01fff000-1000000Hz-64B-read1.bin",
+          "start": "0x1fff000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01fff000-1000000Hz-64B-read2.bin",
+          "start": "0x1fff000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01fff000-1000000Hz-512B-read1.bin",
+          "start": "0x1fff000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 1,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        },
+        {
+          "file": "U2-01fff000-1000000Hz-512B-read2.bin",
+          "start": "0x1fff000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pass": 2,
+          "bytes": 4096,
+          "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6"
+        }
+      ],
+      "identities": [
+        {
+          "requested_hz": 100000,
+          "address": "0x0",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x0",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x0",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x0",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1f2000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1f2000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1f2000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1f2000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x6e0000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x6e0000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x6e0000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x6e0000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0xfff800",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0xfff800",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0xfff800",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0xfff800",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1002000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1002000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1002000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1002000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1f30000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1f30000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1f30000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1f30000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1fff000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1fff000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1fff000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 100000,
+          "address": "0x1fff000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x0",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x0",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x0",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x0",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1f2000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1f2000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1f2000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1f2000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x6e0000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x6e0000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x6e0000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x6e0000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0xfff800",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0xfff800",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0xfff800",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0xfff800",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1002000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1002000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1002000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1002000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1f30000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1f30000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1f30000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1f30000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1fff000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1fff000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1fff000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 500000,
+          "address": "0x1fff000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x0",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x0",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x0",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x0",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1f2000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1f2000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1f2000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1f2000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x6e0000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x6e0000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x6e0000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x6e0000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0xfff800",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0xfff800",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0xfff800",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0xfff800",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1002000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1002000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1002000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1002000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1f30000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1f30000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1f30000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1f30000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1fff000",
+          "chunk_bytes": 64,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1fff000",
+          "chunk_bytes": 64,
+          "pass": 2,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1fff000",
+          "chunk_bytes": 512,
+          "pass": 1,
+          "id": "20bb19"
+        },
+        {
+          "requested_hz": 1000000,
+          "address": "0x1fff000",
+          "chunk_bytes": 512,
+          "pass": 2,
+          "id": "20bb19"
+        }
+      ],
+      "comparisons": [
+        {
+          "start": "0x0",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x0",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f2000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f2000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x6e0000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x6e0000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0xfff800",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0xfff800",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1002000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1002000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f30000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f30000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1fff000",
+          "requested_hz": 100000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1fff000",
+          "requested_hz": 100000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x0",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x0",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f2000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f2000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x6e0000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x6e0000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0xfff800",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0xfff800",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1002000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1002000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f30000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f30000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1fff000",
+          "requested_hz": 500000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1fff000",
+          "requested_hz": 500000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x0",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x0",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f2000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f2000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x6e0000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x6e0000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0xfff800",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0xfff800",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1002000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1002000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f30000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1f30000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1fff000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 64,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        },
+        {
+          "start": "0x1fff000",
+          "requested_hz": 1000000,
+          "chunk_bytes": 512,
+          "pair_different_bytes": 0,
+          "baseline_different_bytes": [
+            0,
+            0
+          ]
+        }
+      ],
+      "finished_at": "2026-10-31T11:16:38.448308-04:00"
+    },
+    "finished_at": "2026-10-31T11:16:38.490995-04:00"
+  },
+  "independent_validation": {
+    "private_directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261031-111624-EDT-reset-held-matrix",
+    "samples_imported_and_hashed": 84,
+    "all_samples_match_verified_17_18_3r_reference": true,
+    "reference": {
+      "path": "c8375-recovery/spi-backups-20261023/verified-17.18-3r-readback.bin",
+      "bytes": 33554432,
+      "sha256": "68c6951158b146645bfb7767489010ed6b6f3314d00b4f13b226d0440f5fe88b",
+      "block_sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1"
+    },
+    "addresses": {
+      "0x0": {
+        "samples": 12,
+        "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6",
+        "reference_different_bytes": 0,
+        "distinct_byte_values": 1
+      },
+      "0x1f2000": {
+        "samples": 12,
+        "sha256": "b1fd9c554778128413269079039bd7eb7a29181a90ac04cb29ef3660cf4286d1",
+        "reference_different_bytes": 0,
+        "distinct_byte_values": 256
+      },
+      "0x6e0000": {
+        "samples": 12,
+        "sha256": "873710369ede3a53b7f688738cc708760a1d1735d8dac92e335e76966d45de30",
+        "reference_different_bytes": 0,
+        "distinct_byte_values": 256
+      },
+      "0xfff800": {
+        "samples": 12,
+        "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6",
+        "reference_different_bytes": 0,
+        "distinct_byte_values": 1
+      },
+      "0x1002000": {
+        "samples": 12,
+        "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6",
+        "reference_different_bytes": 0,
+        "distinct_byte_values": 1
+      },
+      "0x1f30000": {
+        "samples": 12,
+        "sha256": "ceba51dde9cedc825f71b77620e4f4b3c03ff6f6bec91fae60002905aa476a10",
+        "reference_different_bytes": 0,
+        "distinct_byte_values": 74
+      },
+      "0x1fff000": {
+        "samples": 12,
+        "sha256": "f47a8ec3e9aff2318d896942282ad4fe37d6391c82914f54a5da8a37de1300c6",
+        "reference_different_bytes": 0,
+        "distinct_byte_values": 1
+      }
+    }
+  },
+  "private_retention": {
+    "directory": ".git/recovery-private/acquisitions/C8375-FDO2742M0FK/U2/20261031-111624-EDT-reset-held-matrix",
+    "files": 87,
+    "mode": "0700directory/0600files; original bytes retained"
+  },
+  "limitations": [
+    "Clocks are requests, not measured wire frequencies.",
+    "Four chosen blocks are constant; their matching alone does not demonstrate address independence. Nonconstant blocks including upper01f30000 also match reference.",
+    "No full U2backup, physical primary/golden mapping, write or router boot."
+  ],
+  "next_step": "FullU2pair running; final validation pending.",
+  "references": [
+    "https://docs.kernel.org/spi/spidev.html",
+    "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf"
+  ],
+  "flashrom_region_evidence": "20261031-Pi5-U2-reset-held-full-reads.json"
+}

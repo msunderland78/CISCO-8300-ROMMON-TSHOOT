@@ -55,7 +55,9 @@ def read_block(transfer, speed):
     return bytes(output)
 
 
-def make_transfer(fd):
+def make_transfer(fd, max_speed=100000):
+    if type(max_speed) is not int or not 1 <= max_speed <= 1000000:
+        raise ValueError("Controller maximum must be between 1 Hz and 1 MHz")
     if ctypes.sizeof(SpiTransfer) != 32 or SpiTransfer.speed_hz.offset != 20:
         raise RuntimeError("Unexpected Linux SPI ioctl structure layout")
     libc = ctypes.CDLL(None, use_errno=True)
@@ -72,7 +74,7 @@ def make_transfer(fd):
     # Controller settings only. These ioctls do not send flash commands.
     ioctl(0x40016B01, ctypes.c_uint8(0))       # SPI_IOC_WR_MODE, mode 0
     ioctl(0x40016B03, ctypes.c_uint8(8))       # SPI_IOC_WR_BITS_PER_WORD
-    ioctl(0x40046B04, ctypes.c_uint32(100000)) # SPI_IOC_WR_MAX_SPEED_HZ
+    ioctl(0x40046B04, ctypes.c_uint32(max_speed)) # SPI_IOC_WR_MAX_SPEED_HZ
 
     def transfer(packet, speed):
         tx = (ctypes.c_uint8 * len(packet)).from_buffer_copy(packet)

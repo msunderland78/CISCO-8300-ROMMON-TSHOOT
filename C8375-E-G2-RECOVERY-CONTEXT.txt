@@ -4,7 +4,20 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: 11:01-11:02EDT first U2GPIO2x4KiB read PASS,20BB19 both,
+Latest: 11:25EDT FULL U2pair started, not yet complete; expected2x
+33,554,432bytes. Prior flashrom2x64KiBregion pairs0/0diff and all4
+exact reference matches after private import. Fresh P1rail1.783V and
+U1RESET0.021V; same boot/normal driver/no competitor/space checked.
+Keep fixture still; full validation pending. No write/bank role/boot.
+Evidence: c8375-recovery/acquisition-evidence/20261031-Pi5-U2-reset-held-full-reads.json
+Earlier: hardwareSPI matrix11:16EDT84x4KiB PASS,7addresses/64+512byte
+chunks/requested100+500+1000kHz,84validIDs/42equalgroups. All84 original
+imports locally hashed/exact reference-block matches. Some blocks constant;
+upper1f30000 nonconstant.48offline tests passed/new tool source hashed.
+Next flashrom2x64KiB pairs to qualify that path before fullU2backup.
+Reset fixture unchanged; no write/bank-role assignment/boot. Evidence:
+c8375-recovery/acquisition-evidence/20261031-Pi5-U2-reset-read-matrix.json
+Earlier: 11:01-11:02EDT first U2GPIO2x4KiB read PASS,20BB19 both,
 zero pair differences. P1rail1.783V/U1RESET0.021V before/after. Local
 import verified samples exactly equal17.18-3r reference block001f2000;
 new hashb1fd9c55...4286d1; historical AND differs3638bytes. Driver/node
