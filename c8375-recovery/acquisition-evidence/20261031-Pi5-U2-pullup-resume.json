@@ -34,5 +34,21 @@
   "wiring_instruction": "After Pi shutdown, physical supply unplug and verified P1 residual0V: P1pin1/existing target1.8V -> fixed10kOhm resistor -> grabber/U1physicalpin7. Resistor legs occupy separate electrically isolated breadboard strips, with each wire sharing only its respective leg strip. Resistor nonpolar. No ground branch, direct CS-to-VCC jumper or Pi3.3V/5V feed. Short clip remains U2.",
   "next_step": "Verify resistor value disconnected from circuit, secure single-leg grabber/clearance, breadboard series path and existing harness while unpowered; then Pi/adapter-only power, P1 voltage and idle U1pin7 voltage to P1pin2. Conditional bounded no-clock U2 select control precedes any array read.",
   "limits": "10k pull-up efficacy unproven. If unused U1 still falls below a reliable high, stop rather than automatically reducing resistance. DC success does not establish clocked read accuracy. No new GPIO/SPI/SSH action, array read, firmware write or router boot performed.",
-  "source_url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf"
+  "source_url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+  "powered_followup": {
+    "date": "2026-10-31",
+    "timezone": "America/New_York",
+    "owner_report": "Resistor wired P1pin1 -> breadboard -> resistor -> U1pin7; Pi powered back on.",
+    "supply_VDC": 1.782,
+    "pin7_measurement": {
+      "reported_chip": "U2",
+      "ground": "P1pin2",
+      "voltage_VDC": 1.242,
+      "lead_polarity": "Not explicitly supplied"
+    },
+    "limits": "Keep reported U2 identity; no substitution of U1 without owner correction. Actual resistor value, breadboard strip isolation and shutdown/residual checks not separately reported.",
+    "next_requested": "DC volts: black P1pin2/GND, red U1/grabber-side resistor connection on breadboard; report voltage and confirm whether preceding1.242V was U2 or U1 typo. Keep powered wiring still; no SPI/control/read yet.",
+    "agent_hardware_actions": "None",
+    "prior_publication_workflow": "Commit0aaa4395380bde6607ba8a70a4578b1116f12f59 publication workflow41203924983 completed success."
+  }
 }

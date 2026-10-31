@@ -4,6 +4,11 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
+Follow-up: resistor now wired P1pin1 -> breadboard10k -> U1pin7; Pi on.
+P1supply1.782VDC; reported U2pin7-to-P1ground1.242VDC. Do not relabel
+as U1 without correction. Next DCV: black P1pin2/red U1-side resistor
+node on breadboard; clarify U2/U1 endpoint. No new GPIO/SPI/read.
+Earlier same-day setup:
 Owner confirms C8375-A/FDO2742M0FK and router/CR2032/CH341A isolation,
 exclusive ownership. Grabber on U1pin7; short clip on U2; Pi5 online.
 Breadboard and10kOhm1%1/2W resistor received; wiring requested, not

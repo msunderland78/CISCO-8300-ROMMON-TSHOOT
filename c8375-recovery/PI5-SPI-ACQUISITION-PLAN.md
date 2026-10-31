@@ -4,9 +4,13 @@ Updated **October 31, 2026**, America/New_York. Tasks **P-03 / R-01**; chassis *
 
 ## Current checkpoint (2026-10-31)
 
+**Resistor installed / idle measurement pending clarification — October 31, 2026, America/New_York (R-01):** owner reports **P1pin1 → breadboard → 10kΩ resistor → U1pin7**, Pi back on, **P1pin1-to-pin2 =1.782VDC** and **P1pin2-to-U2pin7 =1.242VDC**. Preserve the reported **U2** endpoint; this is not a measured U1 pull-up result. Actual resistor value, isolated breadboard strips and shutdown/residual checks were not separately reported. **Next: black probe P1pin2/GND, red at the U1/grabber-side resistor node on the breadboard in DC volts; obtain voltage and clarify whether previous U2 label was intentional.** Keep powered connections still. No GPIO/SPI control or array read; pull-up effectiveness remains unresolved. [Updated resume evidence](acquisition-evidence/20261031-Pi5-U2-pullup-resume.json).
+
 **Resumed bench setup — October 31, 2026, America/New_York (R-01):** owner confirms C8375-A/FDO2742M0FK, normal router power/console/other cables, CR2032 and CH341A removed, exclusive programmer ownership. **Grabber is on U1 physical pin7, short clip on U2; Pi5 online/connected.** Breadboard and **10kΩ, 1% ½W resistor received**. Owner reports **P1pin1→OUTPUT8 =0.3Ω, P1pin2→OUTPUT4 =0.3Ω, P1pin1→pin2 =1.776VDC**; fresh lead baseline and resistance-test power state not supplied. Owner asks for resistor wiring; completed resistor installation is not reported. Proposed series path remains **P1pin1/existing target1.8V → fixed10kΩ → grabber/U1pin7**, keeping unused U1 deselected while Pi controls U2 CS. Shut down/unplug Pi and verify residual0V before wiring; resistor legs occupy separate isolated breadboard strips. Verify resistor/fit/paths unpowered, then supply and idle U1CS; only afterward consider one bounded no-clock U2-select control, with cleanup verified before reads. Pull-up efficacy remains unproven; no automatic lower-resistance escalation. **No new agent hardware access/read/write.** [Resume evidence](acquisition-evidence/20261031-Pi5-U2-pullup-resume.json).
 
-## Historical end-of-day handoff (2026-10-28)
+## End-of-day handoff (2026-10-28)
+
+**Historical checkpoint; October31 resumption above takes precedence.**
 
 **Hardware work is stopped for the day at the owner's request. Do not reconnect, power up, open SSH/programmer/console sessions or start a background test as part of this handoff.** Current chassis is **C8375-A / FDO2742M0FK**. The router still does not boot normally; this Pi work has not produced a recovery-write, boot or configuration-recovery result. Normal router sources/cables, CR2032 and CH341A remain removed under the established isolation. Owner confirms **both clips removed, Pi off, everything disconnected**.
 
