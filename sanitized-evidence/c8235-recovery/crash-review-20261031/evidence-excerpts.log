@@ -1,0 +1,127 @@
+Derived offline excerpts; reviewed 2026-10-31 America/New_York. Router clocks are incorrect. No hardware interaction. Original bytes retained privately.
+
+ARCHIVE Router_RP_0-system-report_20240227-172946-UTC.tar.gz
+MEMBER /tmp/Router_RP_0-bootuplog-20240227-172946-UTC.log
+MEMBER SHA256 e499f684063a7d4d295ebc6b537b138d1f94a6fb3c2449810a13f92436c2e6cb
+4530: Tue 2024-02-27 17:28:17 UTC Router_RP_0 audit[18920]: ANOM_ABEND auid=4294967295 uid=0 gid=0 ses=4294967295 subj=system_u:system_r:polaris_cpp_cp_t:s0 pid=18920 comm="cpp_cp_svr" exe="/tmp/sw/mount/c8kg2be-mono-universalk9.17.18.03a.SPA.pkg/usr/cpp/bin/cpp_cp_svr" sig=11 res=1
+4531: Tue 2024-02-27 17:28:17 UTC Router_RP_0 audit.service[1175]: type=ANOM_ABEND msg=audit(1709054897.576:158): auid=4294967295 uid=0 gid=0 ses=4294967295 subj=system_u:system_r:polaris_cpp_cp_t:s0 pid=18920 comm="cpp_cp_svr" exe="/tmp/sw/mount/c8kg2be-mono-universalk9.17.18.03a.SPA.pkg/usr/cpp/bin/cpp_cp_svr" sig=11 res=1
+4535: Tue 2024-02-27 17:28:52 UTC Router_RP_0 sai_stage1.service[18911]: %PMAN-3-PROCHOLDDOWN: F0/0: cpp_cp_svr: The process cpp_cp_svr has been helddown (rc 139)
+
+ARCHIVE Router_RP_0-system-report_20250108-182657-UTC.tar.gz
+MEMBER /tmp/Router_RP_0-bootuplog-20250108-182657-UTC.log
+MEMBER SHA256 875dd41df6b824dfec0bc15c33a2496b9e7788c525210e72a63be575d69785d7
+4702: Wed 2025-01-08 18:25:31 UTC Router_RP_0 audit[19628]: ANOM_ABEND auid=4294967295 uid=0 gid=0 ses=4294967295 subj=system_u:system_r:polaris_cpp_cp_t:s0 pid=19628 comm="cpp_cp_svr" exe="/tmp/sw/mount/c8kg2be-mono-universalk9.26.01.01.SPA.pkg/usr/cpp/bin/cpp_cp_svr" sig=11 res=1
+4703: Wed 2025-01-08 18:25:31 UTC Router_RP_0 audit.service[1252]: type=ANOM_ABEND msg=audit(1736360731.296:161): auid=4294967295 uid=0 gid=0 ses=4294967295 subj=system_u:system_r:polaris_cpp_cp_t:s0 pid=19628 comm="cpp_cp_svr" exe="/tmp/sw/mount/c8kg2be-mono-universalk9.26.01.01.SPA.pkg/usr/cpp/bin/cpp_cp_svr" sig=11 res=1
+4707: Wed 2025-01-08 18:26:09 UTC Router_RP_0 sai_stage1.service[19622]: %PMAN-3-PROCHOLDDOWN: F0/0: cpp_cp_svr: The process cpp_cp_svr has been helddown (rc 139)
+
+ARCHIVE cleaned-retest-system-report_20250529-185359-UTC.tar.gz
+MEMBER /bootflash/pd_info/dmesg_output-20250529-185235-UTC.log
+MEMBER SHA256 dbce8be083a8bef3fe8f8a1bea3ca0b8bd008451035b2ff65ba13562fb7d0c8d
+391: [   12.294858] rvu_af 0002:01:00.0: Request for NIX0 failed
+392: [   12.294865] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF27
+396: [   12.304152] rvu_af 0002:01:00.0: Request for NIX0 failed
+397: [   12.304157] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF28
+401: [   12.313241] rvu_af 0002:01:00.0: Request for NIX0 failed
+402: [   12.313246] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF29
+406: [   12.321987] rvu_af 0002:01:00.0: Request for NIX0 failed
+407: [   12.321991] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF30
+411: [   12.331202] rvu_af 0002:01:00.0: Request for NIX0 failed
+412: [   12.331206] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF31
+695: [   47.465435] rvu_af 0002:01:00.0: Request for NIX0 failed
+696: [   47.465445] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF1:VF2
+702: [   47.511738] rvu_af 0002:01:00.0: Request for NIX0 failed
+703: [   47.511748] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF1:VF3
+709: [   47.640758] rvu_af 0002:01:00.0: Request for NIX0 failed
+710: [   47.640768] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF4:VF0
+1748: [  216.020561] rvu_af 0002:01:00.0: Request for NIX0 failed
+1749: [  216.020572] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF1
+1750: [  216.357729] rvu_af 0002:01:00.0: Request for NIX0 failed
+1751: [  216.357743] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF1
+1752: [  216.692608] rvu_af 0002:01:00.0: Request for NIX0 failed
+1753: [  216.692622] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF1
+1754: [  217.028902] rvu_af 0002:01:00.0: Request for NIX0 failed
+1755: [  217.028915] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF1
+1756: [  217.366295] rvu_af 0002:01:00.0: Request for NIX0 failed
+1757: [  217.366307] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF1
+1758: [  217.701847] rvu_af 0002:01:00.0: Request for NIX0 failed
+1759: [  217.701863] rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF1
+
+ARCHIVE cleaned-retest-system-report_20250529-185359-UTC.tar.gz
+MEMBER /tmp/Router_RP_0-bootuplog-20250529-185359-UTC.log
+MEMBER SHA256 93ecd4738fde6696b4662ce97014dadbaaa7748c7566402715f404fa66757170
+1865: Thu 2025-05-29 18:48:31 UTC localhost kernel: rvu_af 0002:01:00.0: Request for NIX0 failed
+1866: Thu 2025-05-29 18:48:31 UTC localhost kernel: rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF27
+1871: Thu 2025-05-29 18:48:31 UTC localhost kernel: rvu_af 0002:01:00.0: Request for NIX0 failed
+1872: Thu 2025-05-29 18:48:31 UTC localhost kernel: rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF28
+1877: Thu 2025-05-29 18:48:31 UTC localhost kernel: rvu_af 0002:01:00.0: Request for NIX0 failed
+1878: Thu 2025-05-29 18:48:31 UTC localhost kernel: rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF29
+1883: Thu 2025-05-29 18:48:31 UTC localhost kernel: rvu_af 0002:01:00.0: Request for NIX0 failed
+1884: Thu 2025-05-29 18:48:31 UTC localhost kernel: rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF30
+1889: Thu 2025-05-29 18:48:31 UTC localhost kernel: rvu_af 0002:01:00.0: Request for NIX0 failed
+1890: Thu 2025-05-29 18:48:31 UTC localhost kernel: rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF31
+3462: Thu 2025-05-29 18:49:07 UTC RP_0 kernel: rvu_af 0002:01:00.0: Request for NIX0 failed
+3463: Thu 2025-05-29 18:49:07 UTC RP_0 kernel: rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF1:VF2
+3469: Thu 2025-05-29 18:49:07 UTC RP_0 kernel: rvu_af 0002:01:00.0: Request for NIX0 failed
+3470: Thu 2025-05-29 18:49:07 UTC RP_0 kernel: rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF1:VF3
+3478: Thu 2025-05-29 18:49:07 UTC RP_0 kernel: rvu_af 0002:01:00.0: Request for NIX0 failed
+3479: Thu 2025-05-29 18:49:07 UTC RP_0 kernel: rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF4:VF0
+4887: Thu 2025-05-29 18:51:57 UTC Router_RP_0 kernel: rvu_af 0002:01:00.0: Request for NIX0 failed
+4888: Thu 2025-05-29 18:51:57 UTC Router_RP_0 kernel: rvu_af 0002:01:00.0: Error -28 when processing message ATTACH_RESOURCES (0x2) from PF0:VF1
+4897: Thu 2025-05-29 18:51:58 UTC Router_RP_0 audit[20780]: ANOM_ABEND auid=4294967295 uid=0 gid=0 ses=4294967295 subj=system_u:system_r:polaris_cpp_cp_t:s0 pid=20780 comm="cpp_cp_svr" exe="/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/cpp/bin/cpp_cp_svr" sig=11 res=1
+4898: Thu 2025-05-29 18:51:58 UTC Router_RP_0 audit.service[1162]: type=ANOM_ABEND msg=audit(1748544718.396:162): auid=4294967295 uid=0 gid=0 ses=4294967295 subj=system_u:system_r:polaris_cpp_cp_t:s0 pid=20780 comm="cpp_cp_svr" exe="/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/cpp/bin/cpp_cp_svr" sig=11 res=1
+4902: Thu 2025-05-29 18:52:34 UTC Router_RP_0 sai_stage1.service[20766]: %PMAN-3-PROCHOLDDOWN: F0/0: cpp_cp_svr: The process cpp_cp_svr has been helddown (rc 139)
+4924: Thu 2025-05-29 18:52:53 UTC Router_RP_0 pvp:[28455]: %PMAN-0-PROCFAILCRIT: F0/0: pvp: A critical process cpp_cp_svr has failed (rc 139)
+4937: Thu 2025-05-29 18:53:15 UTC Router_RP_0 audit[19354]: ANOM_ABEND auid=4294967295 uid=0 gid=0 ses=4294967295 subj=system_u:system_r:polaris_fman_fp_t:s0 pid=19354 comm="fman_fp_image" exe="/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/binos/bin/fman_fp_64ledp" sig=6 res=1
+4955: Thu 2025-05-29 18:53:15 UTC Router_RP_0 audit.service[1162]: type=ANOM_ABEND msg=audit(1748544795.792:164): auid=4294967295 uid=0 gid=0 ses=4294967295 subj=system_u:system_r:polaris_fman_fp_t:s0 pid=19354 comm="fman_fp_image" exe="/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/binos/bin/fman_fp_64ledp" sig=6 res=1
+4959: Thu 2025-05-29 18:53:54 UTC Router_RP_0 pvp:[31945]: %PMAN-5-EXITACTION: F0/0: pvp: Process manager is exiting: Critical process cpp_cp_svr fault on fp_0_0 (rc=139)
+4960: Thu 2025-05-29 18:53:55 UTC Router_RP_0 audit[23764]: ANOM_ABEND auid=4294967295 uid=0 gid=0 ses=4294967295 subj=system_u:system_r:polaris_ngiolite_t:s0 pid=23764 comm="ngiolite" exe="/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/binos/bin/ngiolite" sig=11 res=1
+4961: Thu 2025-05-29 18:53:55 UTC Router_RP_0 audit.service[1162]: type=ANOM_ABEND msg=audit(1748544835.016:165): auid=4294967295 uid=0 gid=0 ses=4294967295 subj=system_u:system_r:polaris_ngiolite_t:s0 pid=23764 comm="ngiolite" exe="/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/binos/bin/ngiolite" sig=11 res=1
+4972: Thu 2025-05-29 18:53:59 UTC Router_RP_0 pvp:[319]: %PMAN-5-EXITACTION: R0/0: pvp: Process manager is exiting: reload fru action requested
+
+ARCHIVE cleaned-retest-system-report_20250529-185359-UTC.tar.gz
+MEMBER /bootflash/core/Router_RP_0_cpp_cp_svr_20780_20250529-185158-UTC.core.gz.coregen.dbg
+MEMBER SHA256 660353ca5cc881a99ee371d028cf4a7c069a16630f8669a3a763efb954844a56
+4: [INFO]:  Available system memory: freeram:11084873728, freeswap:0, bufferram:15376384, memunit:1
+10: [INFO]:  corefile name: /tmp/corelink/Router_RP_0_cpp_cp_svr_20780_20250529-185158-UTC.core.gz  (progress: /tmp/corelink/Router_RP_0_cpp_cp_svr_20780_1748544718.gz.TEMP_IN_PROGRESS)
+2655: [INFO]:  --- done elastic coredump --- (/tmp/corelink/Router_RP_0_cpp_cp_svr_20780_20250529-185158-UTC.core.gz)  (36.446)
+
+DERIVED PRINTABLE STRINGS (not a complete binary trace decode)
+MEMBER /harddisk/tracelogs/qfpxucodexmirabile_F0-0.19727_0.20250529184935.bin.gz
+SHA256 21c7315c68eafb8d078605f08c1386f67c1a66c85dc45f275f79212b0c301039
+2025/05/29 18:49:57.988351151 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#32/fpe4:config: Attach failed, port by name failed (dev_name=0002:02:00.1, devargs=<none>, port_name=0002:02:00.1) after 50 of 50 attempts - att_rc=-28, port_rc=-22
+2025/05/29 18:49:57.988369894 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#0/fpe4:config: Static Interface Add:(0002:02:00.1) failed-err=-28
+2025/05/29 18:50:15.030795478 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#32/fpe5:config: Attach failed, port by name failed (dev_name=0002:02:00.2, devargs=<none>, port_name=0002:02:00.2) after 50 of 50 attempts - att_rc=-28, port_rc=-22
+2025/05/29 18:50:15.030811178 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#0/fpe5:config: Static Interface Add:(0002:02:00.2) failed-err=-28
+2025/05/29 18:50:32.111465368 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#32/fpe6:config: Attach failed, port by name failed (dev_name=0002:02:00.3, devargs=<none>, port_name=0002:02:00.3) after 50 of 50 attempts - att_rc=-28, port_rc=-22
+2025/05/29 18:50:32.111481094 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#0/fpe6:config: Static Interface Add:(0002:02:00.3) failed-err=-28
+2025/05/29 18:50:49.192537166 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#32/fpe7:config: Attach failed, port by name failed (dev_name=0002:02:00.4, devargs=<none>, port_name=0002:02:00.4) after 50 of 50 attempts - att_rc=-28, port_rc=-22
+2025/05/29 18:50:49.192552621 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#0/fpe7:config: Static Interface Add:(0002:02:00.4) failed-err=-28
+2025/05/29 18:51:06.281140957 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#32/fpe8:config: Attach failed, port by name failed (dev_name=0002:05:00.1, devargs=<none>, port_name=0002:05:00.1) after 50 of 50 attempts - att_rc=-28, port_rc=-22
+2025/05/29 18:51:06.281155741 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#0/fpe8:config: Static Interface Add:(0002:05:00.1) failed-err=-28
+2025/05/29 18:51:23.359191734 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#32/fpe9:config: Attach failed, port by name failed (dev_name=0002:06:00.1, devargs=<none>, port_name=0002:06:00.1) after 50 of 50 attempts - att_rc=-28, port_rc=-22
+2025/05/29 18:51:23.359208743 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#0/fpe9:config: Static Interface Add:(0002:06:00.1) failed-err=-28
+2025/05/29 18:51:40.456880995 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#32/l2_mod:config: Attach failed, port by name failed (dev_name=0002:03:00.1, devargs=<none>, port_name=0002:03:00.1) after 50 of 50 attempts - att_rc=-28, port_rc=-22
+2025/05/29 18:51:40.456896857 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#0/l2_mod:config: Static Interface Add:(0002:03:00.1) failed-err=-28
+2025/05/29 18:51:57.367387745 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#32/lbk_ipc_dp:config: Attach failed, port by name failed (dev_name=0002:01:00.2, devargs=<none>, port_name=0002:01:00.2) after 50 of 50 attempts - att_rc=-28, port_rc=-22
+2025/05/29 18:51:57.367403513 [(null)] [19727]: UUID: 0, ra: 0, (ERR):Port#0/lbk_ipc_dp:config: Static Interface Add:(0002:01:00.2) failed-err=-28
+2025/05/29 18:51:58.130423985 [ulord-dp] [19727:26649]: UUID: 0, ra: 0, (ERR):Intf fpe4 cannot be added in event mode while the event device is started
+
+OFFLINE LLDB CORE INSPECTION
+SOURCE Router_RP_0_cpp_cp_svr_20780_20250529-185158-UTC.core
+(lldb) thread list
+Process 20780 stopped
+* thread #1: tid = 20780, 0x0000ffff804c87e4, name = 'cpp_cp_svr', stop reason = SIGSEGV: address not mapped to object (fault address=0x0)
+(lldb) bt
+* thread #1, name = 'cpp_cp_svr', stop reason = SIGSEGV: address not mapped to object (fault address=0x0)
+   * frame #0: 0x0000ffff804c87e4 
+(lldb) register read pc lr sp x0 x1 x2
+      pc = 0x0000ffff804c87e4
+      lr = 0x0000ffff80e8fff8
+      sp = 0x0000ffffc7a6f8b0
+      x0 = 0x0000000000000000
+      x1 = 0x0000aaaac921b5e0
+      x2 = 0x0000000000000000
+
+BASELINE CRASHINFO SHA256 c17f32b9dc886f163cb5cb7790e7fbe30193556baf029c9e5647c55e7ee05ed1
+229: UNIX-EXT-SIGNAL: Aborted(6), Process = PuntInject Keepalive Process
+283: UNIX-EXT-SIGNAL: Aborted(6), Process = PuntInject Keepalive Process

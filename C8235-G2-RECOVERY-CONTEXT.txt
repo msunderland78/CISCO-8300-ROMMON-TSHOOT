@@ -1,5 +1,5 @@
 C8235-G2 / ARATA PROTOTYPE ROUTER — RECOVERY CONTEXT
-Updated: 2026-10-25, America/New_York
+Updated: 2026-10-31, America/New_York
 Workspace: /Users/games/Documents/SOFTWARE
 
 START HERE
@@ -10,7 +10,43 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-CURRENT CHECKPOINT — 2026-10-25, 14:00 EDT
+CURRENT ANALYSIS CHECKPOINT — 2026-10-31, America/New_York
+Owner returns to the C8235s. B is FGL2835LBHU; A remains the separate
+pre-ROMMON TPM-halt case. C has no verified boot result; its earlier
+"Nonworking" milestone was unsupported and is corrected to untested.
+USB CISCO FILES contains the October 25 archive. Forty-eight private copies
+(531,659,680 bytes) match source/destination SHA256; 45 also match the old
+archive inventory. Twenty compressed reports triaged, 19 parsed; 173239 has
+a tar parse failure despite valid gzip and is retained without repair.
+
+The cleaned 26.2.1 report shows NIX0/ATTACH_RESOURCES -28 failures from early
+boot, repeated QFP failures attaching fpe4-fpe9/l2_mod/lbk_ipc_dp, then a
+completed CPP core with SIGSEGV at address zero. Allocation failure is the
+leading initialization/compatibility clue, not proof of damaged hardware.
+Core PC maps to libcpp_sbs.so; full symbolic stack remains unavailable.
+Older 17.18.3a and historical 26.1.1 reports show the same resource failure;
+reports overlap and the older per-file serial/date are not independently
+confirmed. Cleanup corrected storage exhaustion but did not cure CPP.
+
+Evidence: c8235-recovery/crash-review-20261031/REVIEW.md and analysis.json.
+Plan C8235-05: current baseline/resource inventory, reversible config
+control, independent C baseline, then one justified supported image/profile
+comparison. Preserve development ROMMON; production firmware already halted
+A at TPM manufacturing status. No speculative TPM/reset/whole-chip clone.
+Original reports/cores and scratch work remain in restricted
+.git/recovery-private/c8235-analysis-20261031/; USB sources unchanged.
+
+Owner now reports B powered with RJ45 serial, confirms identity, fitted
+cover/cooling, no programmer/probes/jumpers and no other console terminal.
+Coin-cell confirmation was bundled; other network-cable details were not
+separately enumerated. USB storage remains on Mac for offline review.
+At 15:58 EDT fresh ownership check found the cu/tty port free. Two four-
+second reads at 115200/8N1/no flow, second after one CR, received no bytes;
+both descriptors closed. No prompt/current firmware or crash confirmed.
+Next: captured controlled power-on after the remaining state check.
+No reboot or persistent setting changed; silence does not prove dead CPU.
+
+HISTORICAL CHECKPOINT — 2026-10-25, 14:00 EDT
 C8235-B FGL2835LBHU: verified report archival/cleanup completed; normal USB
 26.2.1 still failed with CPP rc139 and reboot despite about 9.5 GB free.
 Ten-minute capture complete; last confirmed powered at Cisco ROMMON.
