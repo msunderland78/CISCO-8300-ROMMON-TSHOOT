@@ -4,7 +4,12 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: requested U1-side breadboard->actualU1pin7 path reads3170ohms,
+Latest: isolated free grabber wire->actualU1pin7 about2ohms or less;
+adequate for passive10k path. Earlier3170ohms included breadboard; cause
+unresolved. Next Pi still unplugged: reconnect wire alongside resistor
+U1-side leg in same connected strip, meter actual leg->actualU1pin7.
+Assembled path pending; no power/U2control/read or resistor change.
+Earlier: requested U1-side breadboard->actualU1pin7 path reads3170ohms,
 not direct near-baseline continuity. Node/wire/grabber/probe path unresolved.
 Do not infer flash fault or insufficient10k against board loading. Next
 unpowered/residual0V: unplug only grabber wire breadboard end, leave hook

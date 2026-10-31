@@ -80,5 +80,15 @@
     "interpretation": "Not near-baseline continuity for the intended direct wire/grabber path. Wrong breadboard node, wire/connector or grabber contact/probe endpoints remain possible; does not establish failed flash or identify board loading. Earlier breadboard-side voltage cannot be assumed equal to actual chip voltage until contact is established.",
     "next_requested": "Pi unplugged and P1residual0V. Remove only grabber wire breadboard end, retain grabber on U1pin7; meter free wire terminal to actual U1pin7 in ohms if safely accessible. This isolates wire/grabber path from breadboard/resistor/alternate board paths. Expected near lead baseline if direct contact; do not force access.",
     "status": "Direct isolated-wire check pending; no power, U2 control, SPI/read or resistor change by agent."
+  },
+  "isolated_grabber_path_followup": {
+    "owner_report": "closer to2ohms maybe slightly less",
+    "approximate_ohms": 2,
+    "precision": "Approximate, no exact minimum or fresh lead baseline supplied.",
+    "requested_endpoints": "Free grabber-wire metal terminal, disconnected from breadboard, to actual U1 physical pin7 with hook retained.",
+    "conditions": "Owner responds to explicit Pi-unplugged/residual0V protocol; current power/endpoint conditions not independently inspected.",
+    "interpretation": "Low-resistance wire/grabber contact is adequate for this passive10k pull-up path; exactly0.3ohm is not required. This does not validate SPI signals or acquisition. Earlier3170ohm included the breadboard node, so retain as different setup; origin of discrepancy unresolved.",
+    "next_requested": "Keep Pi unplugged. Reconnect grabber lead into same connected breadboard strip as resistor U1-side leg; measure directly actual U1-side resistor leg to actual U1pin7. A few ohms would also establish assembled breadboard connection. No power/control/read until assembled path assessed.",
+    "agent_hardware_actions": "None"
   }
 }
