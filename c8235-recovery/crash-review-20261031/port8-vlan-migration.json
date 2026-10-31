@@ -413,5 +413,9 @@
     "rx": 2047,
     "miss": 0,
     "sample_context": "Router DHCP/ARP verification after new vNIC lease"
+  },
+  "subsequent_1g_comparison": {
+    "record": "port7-1g-comparison.json",
+    "state": "Supersedes current-port assignments in this migration record: port7 now 192.168.5.4/24 at1G, Te8.5 deleted, default route via port7; Te8.83 and native1 unchanged. No startup save."
   }
 }

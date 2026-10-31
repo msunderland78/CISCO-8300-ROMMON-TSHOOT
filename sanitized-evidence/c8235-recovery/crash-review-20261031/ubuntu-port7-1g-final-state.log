@@ -1,0 +1,16 @@
+
+Root route
+192.168.83.52 from 192.168.5.3 via 192.168.5.4 dev ens192 uid 0 
+    cache 
+Namespace route
+192.168.5.3 from 192.168.83.52 via 192.168.83.1 dev ens256 uid 0 
+    cache 
+iperf TCP sockets
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                          
+LISTEN 0      4096     192.168.5.3:5201      0.0.0.0:*    users:(("iperf3",pid=2540,fd=3))
+Namespace processes
+   2335       14:32 dhcpcd
+   2337       14:32 dhcpcd
+   2338       14:32 dhcpcd
+   2345       14:31 dhcpcd
+   2347       14:26 dhcpcd

@@ -10,6 +10,35 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+PORT 7 1G COMPARISON COMPLETE — 2026-10-31, 17:52 EDT
+Owner confirmed 5-network cable moved to port7, port8 twinax retained.
+At17:46:09 moved192.168.5.4/24 to Tw0/0/7 (1Gb/s full duplex), removed
+Te0/0/8.5 and moved default route via192.168.5.1 to Tw0/0/7. Port8 retains
+VLAN83/.83.1 and unnumbered native1 at10G; port6 stays shut; DHCP unchanged.
+Pre/post USB exports hashed and native diff verified; no startup save/reboot.
+Same Ubuntu root ens192/.5.3 and isolated ens256/.83.52 endpoints as10G test.
+Warm-up full-size ping4/5 then5/5, reverse5/5; routes and new port7 MAC verified.
+
+One TCP stream: 5->83 paced850/30s received849.987Mb/s,537 retransmissions;
+5->83 uncapped60s received936.771Mb/s,2644 retransmissions; 83->5 uncapped60s
+received941.421Mb/s,ZERO retransmissions. Both router ports CRC/input/output
+errors/output drops remain0; no added resets/carrier/pause; TailDrop2020
+unchanged. Other counters: BadUidbSubIdx333->710,UnconfiguredIpv6Fia406->409.
+Not all drops are zero; possible unused VLAN5 background is unproven.
+QFP load samples4/6/5%, CPP20844 unchanged, keepalives2611/2611/miss0,
+F0/0/0 operational,CPU52C,main12V12115mV,power16W; no filtered NIX/ATTACH.
+Mac adapter absent: retransmissions do not require it, but its reliability
+and the old/new loss cause remain unresolved. Next identify switch/port and
+bracket switch1G-egress queue/drop/error/pause counters before tuning.
+
+Evidence/hashes/deltas/rollback: port7-1g-comparison.json. Console snapshot
+20261031-175149-port7-1g-comparison-snapshot.log is an immutable147627-byte
+prefix of the still-open private17:08:47 capture. No active throughput client;
+namespace, route, bounded DHCP/listener remain (about19:07/19:08EDT expiry).
+Current config is port7=5-network, port8=VLAN83/native1; this supersedes the
+prior port8-only handoff below. RAM correction remains temporary; no long
+forwarding/idle, corrected cold-boot or overnight gate completed by this test.
+
 PORT 8 ROUTED PERFORMANCE COMPLETE — 2026-10-31, 17:43 EDT
 Owner confirms Ubuntu VM migrated/back on the 10G host. Same MACs/interfaces;
 ens256 DHCP changed to .83.52 and previous runtime return route was lost.

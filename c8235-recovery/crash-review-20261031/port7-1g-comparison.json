@@ -1,0 +1,1921 @@
+{
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "timezone": "America/New_York",
+  "updated_at": "2026-10-31T17:52:12.234131-04:00",
+  "status": "Completed three routed TCP comparisons; current 1G port7 / 10G VLAN83 port8 configuration remains active",
+  "owner_request": "Remove port8 VLAN5 subinterface, move 192.168.5.4/24 to physical port7, and repeat at 1 Gb/s to investigate drops without the Mac adapter",
+  "owner_cabling_confirmation": "5-network cable moved from port6 to port7; Mac cable removed from port7 if present; port8 twinax retained",
+  "configuration": {
+    "port7": {
+      "interface": "TwoGigabitEthernet0/0/7",
+      "address": "192.168.5.4/24",
+      "speed_mbps": 1000,
+      "duplex": "full",
+      "negotiation": "auto",
+      "description": "PERF_1G_COMPARE_UPLINK_192.168.5.0_24",
+      "state": "up/up"
+    },
+    "port8": {
+      "interface": "TenGigabitEthernet0/0/8",
+      "speed_mbps": 10000,
+      "description": "PERF_TRUNK_VLAN83_NATIVE1_1G_COMPARE",
+      "retained_subinterfaces": [
+        ".1 nativeVLAN1/noIP",
+        ".83 taggedVLAN83/192.168.83.1/24"
+      ],
+      "removed_subinterface": "TenGigabitEthernet0/0/8.5",
+      "note": "IOS brief listing retains a deleted/down tombstone; running-config and route table no longer use it"
+    },
+    "default_route": "ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/7 192.168.5.1",
+    "dhcp": "C8235_PERF83 pool/exclusions unchanged",
+    "persistence": "Running only; no startup save or reboot"
+  },
+  "endpoints": "Same migrated Ubuntu root ens192/192.168.5.3 and c8235-perf83 namespace ens256/192.168.83.52; same server and DHCP processes as 10G comparison; no guest changes",
+  "prechange_backup": {
+    "path": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-port7-1g-compare.cfg",
+    "bytes": 7590,
+    "sha512": "2d94ab942cc5dec4cdf54f1abbbaba06ef63c8bcd9280fb31bb7559a7a0e2c5d61ca5bb11ea088a4eb751ea4b2642e37b03c770256dc4b0b7b34a86419ae35a0",
+    "matches": "post-port8-trunk-running.cfg"
+  },
+  "postchange_backup": {
+    "path": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/port7-1g-compare.cfg",
+    "bytes": 7527,
+    "sha512": "85667be26b8e142b936919da63184390d4e077ab559bc714df677a361b5bb394a56396cbb57c89738d3699f0428261bf94ad572ecedefbf040b25a1ee52009eb"
+  },
+  "native_diff": "Only port7 enable/description/address, port8 description, removal of8.5 and default-route egress change",
+  "reachability": {
+    "gateway_ping": "5/5 from192.168.5.4",
+    "namespace_to_root_first": "4/5,1500byteIPv4/DF; first packet loss retained, ARP/MAC transition plausible not captured",
+    "root_to_namespace": "5/5",
+    "root_neighbour_for_5_4": "e4:a4:1c:82:dd:a7 onens192, confirming new port7 MAC",
+    "repeat": "5/5 full-size IPv4/DF, reply TTL63; 17:47:09 EDT private SSH log retained"
+  },
+  "tests": [
+    {
+      "id": "reverse850",
+      "state": "completed",
+      "protocol": "TCP",
+      "streams": 1,
+      "direction": "VLAN5/root -> VLAN83/namespace",
+      "command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.52 -R -b 850M -t 30 -i 5 -J --get-server-output",
+      "source_version": "iperf 3.20",
+      "native_test_start": {
+        "protocol": "TCP",
+        "num_streams": 1,
+        "blksize": 131072,
+        "omit": 0,
+        "duration": 30,
+        "bytes": 0,
+        "blocks": 0,
+        "reverse": 1,
+        "tos": 0,
+        "target_bitrate": 850000000,
+        "bidir": 0,
+        "fqrate": 0,
+        "interval": 5
+      },
+      "iperf_start_timestamp": {
+        "time": "Sat, 31 Oct 2026 21:48:50 GMT",
+        "timesecs": 1793483330,
+        "timemillisecs": 1793483330324
+      },
+      "sender_seconds": 30.004745,
+      "sender_bytes": 3188064256,
+      "sender_bps": 850016024.065527,
+      "sender_retransmits": 537,
+      "receiver_seconds": 30.004543,
+      "receiver_bytes": 3187933184,
+      "receiver_bps": 849986799.399011,
+      "native_cpu_utilization_percent": {
+        "host_total": 5.108314265623877,
+        "host_user": 0.31286629390082027,
+        "host_system": 4.79544463903282,
+        "remote_total": 3.551394244198194,
+        "remote_user": 0.12065755853131392,
+        "remote_system": 3.43073668566688
+      },
+      "intervals": [
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 0,
+              "end": 5.005028,
+              "seconds": 5.005027770996094,
+              "bytes": 531759104,
+              "bits_per_second": 849959885.6677992,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 0,
+            "end": 5.005028,
+            "seconds": 5.005027770996094,
+            "bytes": 531759104,
+            "bits_per_second": 849959885.6677992,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 5.005028,
+              "end": 10.004549,
+              "seconds": 4.999520778656006,
+              "bytes": 531103744,
+              "bits_per_second": 849847443.406804,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 5.005028,
+            "end": 10.004549,
+            "seconds": 4.999520778656006,
+            "bytes": 531103744,
+            "bits_per_second": 849847443.406804,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 10.004549,
+              "end": 15.004543,
+              "seconds": 4.999993801116943,
+              "bytes": 531234816,
+              "bits_per_second": 849976759.3813064,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 10.004549,
+            "end": 15.004543,
+            "seconds": 4.999993801116943,
+            "bytes": 531234816,
+            "bits_per_second": 849976759.3813064,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 15.004543,
+              "end": 20.005033,
+              "seconds": 5.000490188598633,
+              "bytes": 531365888,
+              "bits_per_second": 850102078.7306664,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 15.004543,
+            "end": 20.005033,
+            "seconds": 5.000490188598633,
+            "bytes": 531365888,
+            "bits_per_second": 850102078.7306664,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 20.005033,
+              "end": 25.004546,
+              "seconds": 4.999513149261475,
+              "bytes": 531234816,
+              "bits_per_second": 850058475.9193583,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 20.005033,
+            "end": 25.004546,
+            "seconds": 4.999513149261475,
+            "bytes": 531234816,
+            "bits_per_second": 850058475.9193583,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 25.004546,
+              "end": 30.004543,
+              "seconds": 4.99999713897705,
+              "bytes": 531234816,
+              "bits_per_second": 849976191.9602783,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 25.004546,
+            "end": 30.004543,
+            "seconds": 4.99999713897705,
+            "bytes": 531234816,
+            "bits_per_second": 849976191.9602783,
+            "omitted": false,
+            "sender": false
+          }
+        }
+      ],
+      "router_before": {
+        "at": "2026-10-31T17:48:43.999725-04:00",
+        "port7": {
+          "rx_packets": 6813381,
+          "rx_bytes": 8963532808,
+          "tx_packets": 10815936,
+          "tx_bytes": 12852901983,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 3,
+          "lost_carrier": 3,
+          "unknown_protocol_drops": 0,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "port8": {
+          "rx_packets": 100835357,
+          "rx_bytes": 149521351446,
+          "tx_packets": 100831816,
+          "tx_bytes": 149521073757,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 51,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 333,
+          "Disabled": 14,
+          "IpTtlExceeded": 120,
+          "Ipv4NoAdj": 80,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 19,
+          "TailDrop": 2020,
+          "UnconfiguredIpv4Fia": 62,
+          "UnconfiguredIpv6Fia": 406
+        },
+        "keepalive_rx": 2522,
+        "keepalive_tx": 2522,
+        "keepalive_miss": 0,
+        "cpp_pid": 20844
+      },
+      "router_after": {
+        "at": "2026-10-31T17:49:20.414883-04:00",
+        "port7": {
+          "rx_packets": 8975825,
+          "rx_bytes": 12220848074,
+          "tx_packets": 10980616,
+          "tx_bytes": 12863781518,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 3,
+          "lost_carrier": 3,
+          "unknown_protocol_drops": 0,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "port8": {
+          "rx_packets": 101000148,
+          "rx_bytes": 149532897757,
+          "tx_packets": 102994285,
+          "tx_bytes": 152787189066,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 51,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 408,
+          "Disabled": 14,
+          "IpTtlExceeded": 120,
+          "Ipv4NoAdj": 80,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 19,
+          "TailDrop": 2020,
+          "UnconfiguredIpv4Fia": 62,
+          "UnconfiguredIpv6Fia": 406
+        },
+        "keepalive_rx": 2541,
+        "keepalive_tx": 2541,
+        "keepalive_miss": 0
+      },
+      "router_during": [
+        {
+          "at": "2026-10-31T17:48:53.785673-04:00",
+          "keepalive_rx": 2527,
+          "keepalive_tx": 2527,
+          "keepalive_miss": 0,
+          "qfp_load_5s_pct": 0
+        },
+        {
+          "at": "2026-10-31T17:49:02.575305-04:00",
+          "qfp_load_5s_pct": 4
+        }
+      ],
+      "counter_deltas": {
+        "port7": {
+          "tx_bytes": 10879535,
+          "resets": 0,
+          "output_drops": 0,
+          "tx_packets": 164680,
+          "pause_input": 0,
+          "output_errors": 0,
+          "lost_carrier": 0,
+          "rx_bytes": 3257315266,
+          "crc": 0,
+          "input_errors": 0,
+          "rx_packets": 2162444,
+          "pause_output": 0,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "tx_bytes": 3266115309,
+          "resets": 0,
+          "output_drops": 0,
+          "tx_packets": 2162469,
+          "pause_input": 0,
+          "output_errors": 0,
+          "lost_carrier": 0,
+          "rx_bytes": 11546311,
+          "crc": 0,
+          "input_errors": 0,
+          "rx_packets": 164791,
+          "pause_output": 0,
+          "unknown_protocol_drops": 0
+        },
+        "qfp_drops": {
+          "UnconfiguredIpv4Fia": 0,
+          "TailDrop": 0,
+          "Ipv4NoAdj": 0,
+          "Ipv4NoRoute": 0,
+          "IpTtlExceeded": 0,
+          "BadUidbSubIdx": 75,
+          "UnconfiguredIpv6Fia": 0,
+          "Disabled": 0,
+          "Ipv6NoRoute": 0
+        }
+      },
+      "artifact": {
+        "original": "c8235-recovery/crash-review-20261031/iperf-port7-1g-reverse850.log",
+        "public": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-1g-reverse850.log",
+        "bytes": 6093,
+        "sha256": "b2ac9ffe955eca1931e5f3e35f999fc64748bd3429f8d503c02be91a79fedc9c"
+      }
+    },
+    {
+      "id": "reverse-unlimited60",
+      "state": "completed",
+      "protocol": "TCP",
+      "streams": 1,
+      "direction": "VLAN5/root -> VLAN83/namespace",
+      "command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.52 -R -t 60 -i 5 -J --get-server-output",
+      "source_version": "iperf 3.20",
+      "native_test_start": {
+        "protocol": "TCP",
+        "num_streams": 1,
+        "blksize": 131072,
+        "omit": 0,
+        "duration": 60,
+        "bytes": 0,
+        "blocks": 0,
+        "reverse": 1,
+        "tos": 0,
+        "target_bitrate": 0,
+        "bidir": 0,
+        "fqrate": 0,
+        "interval": 5
+      },
+      "iperf_start_timestamp": {
+        "time": "Sat, 31 Oct 2026 21:49:26 GMT",
+        "timesecs": 1793483366,
+        "timemillisecs": 1793483366425
+      },
+      "sender_seconds": 60.005456,
+      "sender_bytes": 7027294208,
+      "sender_bps": 936887366.775448,
+      "sender_retransmits": 2644,
+      "receiver_seconds": 60.005077,
+      "receiver_bytes": 7026376704,
+      "receiver_bps": 936770960.76387,
+      "native_cpu_utilization_percent": {
+        "host_total": 5.181358168027207,
+        "host_user": 0.2744676890158547,
+        "host_system": 4.906892145491955,
+        "remote_total": 2.0851769503171367,
+        "remote_user": 0.05182361824779975,
+        "remote_system": 2.033354998584379
+      },
+      "intervals": [
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 0,
+              "end": 5.005069,
+              "seconds": 5.0050687789917,
+              "bytes": 586153984,
+              "bits_per_second": 936896590.0493926,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 0,
+            "end": 5.005069,
+            "seconds": 5.0050687789917,
+            "bytes": 586153984,
+            "bits_per_second": 936896590.0493926,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 5.005069,
+              "end": 10.005044,
+              "seconds": 4.999975204467773,
+              "bytes": 584843264,
+              "bits_per_second": 935753862.9030128,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 5.005069,
+            "end": 10.005044,
+            "seconds": 4.999975204467773,
+            "bytes": 584843264,
+            "bits_per_second": 935753862.9030128,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 10.005044,
+              "end": 15.00503,
+              "seconds": 4.999986171722412,
+              "bytes": 585498624,
+              "bits_per_second": 936800389.2671654,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 10.005044,
+            "end": 15.00503,
+            "seconds": 4.999986171722412,
+            "bytes": 585498624,
+            "bits_per_second": 936800389.2671654,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 15.00503,
+              "end": 20.000524,
+              "seconds": 4.99549388885498,
+              "bytes": 585236480,
+              "bits_per_second": 937223014.2139436,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 15.00503,
+            "end": 20.000524,
+            "seconds": 4.99549388885498,
+            "bytes": 585236480,
+            "bits_per_second": 937223014.2139436,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 20.000524,
+              "end": 25.005032,
+              "seconds": 5.004508018493652,
+              "bytes": 586416128,
+              "bits_per_second": 937420622.899128,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 20.000524,
+            "end": 25.005032,
+            "seconds": 5.004508018493652,
+            "bytes": 586416128,
+            "bits_per_second": 937420622.899128,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 25.005032,
+              "end": 30.003526,
+              "seconds": 4.9984941482543945,
+              "bytes": 586285056,
+              "bits_per_second": 938338689.3906776,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 25.005032,
+            "end": 30.003526,
+            "seconds": 4.9984941482543945,
+            "bytes": 586285056,
+            "bits_per_second": 938338689.3906776,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 30.003526,
+              "end": 35.005029,
+              "seconds": 5.001502990722656,
+              "bytes": 585105408,
+              "bits_per_second": 935887326.8060718,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 30.003526,
+            "end": 35.005029,
+            "seconds": 5.001502990722656,
+            "bytes": 585105408,
+            "bits_per_second": 935887326.8060718,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 35.005029,
+              "end": 40.005055,
+              "seconds": 5.0000262260437,
+              "bytes": 585498624,
+              "bits_per_second": 936792884.7257732,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 35.005029,
+            "end": 40.005055,
+            "seconds": 5.0000262260437,
+            "bytes": 585498624,
+            "bits_per_second": 936792884.7257732,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 40.005055,
+              "end": 45.005022,
+              "seconds": 4.999967098236084,
+              "bytes": 584450048,
+              "bits_per_second": 935126230.260492,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 40.005055,
+            "end": 45.005022,
+            "seconds": 4.999967098236084,
+            "bytes": 584450048,
+            "bits_per_second": 935126230.260492,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 45.005022,
+              "end": 50.000434,
+              "seconds": 4.99541187286377,
+              "bytes": 584974336,
+              "bits_per_second": 936818586.155373,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 45.005022,
+            "end": 50.000434,
+            "seconds": 4.99541187286377,
+            "bytes": 584974336,
+            "bits_per_second": 936818586.155373,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 50.000434,
+              "end": 55.005028,
+              "seconds": 5.00459384918213,
+              "bytes": 585760768,
+              "bits_per_second": 936356932.2944796,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 50.000434,
+            "end": 55.005028,
+            "seconds": 5.00459384918213,
+            "bytes": 585760768,
+            "bits_per_second": 936356932.2944796,
+            "omitted": false,
+            "sender": false
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 55.005028,
+              "end": 60.005077,
+              "seconds": 5.000049114227295,
+              "bytes": 586153984,
+              "bits_per_second": 937837162.1704903,
+              "omitted": false,
+              "sender": false
+            }
+          ],
+          "sum": {
+            "start": 55.005028,
+            "end": 60.005077,
+            "seconds": 5.000049114227295,
+            "bytes": 586153984,
+            "bits_per_second": 937837162.1704903,
+            "omitted": false,
+            "sender": false
+          }
+        }
+      ],
+      "router_before": {
+        "at": "2026-10-31T17:49:20.414883-04:00",
+        "port7": {
+          "rx_packets": 8975825,
+          "rx_bytes": 12220848074,
+          "tx_packets": 10980616,
+          "tx_bytes": 12863781518,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 3,
+          "lost_carrier": 3,
+          "unknown_protocol_drops": 0,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "port8": {
+          "rx_packets": 101000148,
+          "rx_bytes": 149532897757,
+          "tx_packets": 102994285,
+          "tx_bytes": 152787189066,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 51,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 408,
+          "Disabled": 14,
+          "IpTtlExceeded": 120,
+          "Ipv4NoAdj": 80,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 19,
+          "TailDrop": 2020,
+          "UnconfiguredIpv4Fia": 62,
+          "UnconfiguredIpv6Fia": 406
+        },
+        "keepalive_rx": 2541,
+        "keepalive_tx": 2541,
+        "keepalive_miss": 0
+      },
+      "router_after": {
+        "at": "2026-10-31T17:50:26.526440-04:00",
+        "port7": {
+          "rx_packets": 13734345,
+          "rx_bytes": 19424620157,
+          "tx_packets": 11356689,
+          "tx_bytes": 12888704647,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 3,
+          "lost_carrier": 3,
+          "unknown_protocol_drops": 0,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "port8": {
+          "rx_packets": 101376400,
+          "rx_bytes": 149559338388,
+          "tx_packets": 107752636,
+          "tx_bytes": 160009948970,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 51,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 555,
+          "Disabled": 14,
+          "IpTtlExceeded": 120,
+          "Ipv4NoAdj": 80,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 19,
+          "TailDrop": 2020,
+          "UnconfiguredIpv4Fia": 62,
+          "UnconfiguredIpv6Fia": 406
+        },
+        "keepalive_rx": 2574,
+        "keepalive_tx": 2574,
+        "keepalive_miss": 0
+      },
+      "router_during": [
+        {
+          "at": "2026-10-31T17:49:37.612382-04:00",
+          "keepalive_rx": 2549,
+          "keepalive_tx": 2549,
+          "keepalive_miss": 0,
+          "qfp_load_5s_pct": 6
+        },
+        {
+          "at": "2026-10-31T17:49:45.925876-04:00",
+          "cpp_pid": 20844,
+          "qfp_load_5s_pct": 6
+        },
+        {
+          "at": "2026-10-31T17:50:10.755278-04:00",
+          "keepalive_rx": 2566,
+          "keepalive_tx": 2566,
+          "keepalive_miss": 0,
+          "qfp_load_5s_pct": 6
+        }
+      ],
+      "counter_deltas": {
+        "port7": {
+          "tx_bytes": 24923129,
+          "resets": 0,
+          "output_drops": 0,
+          "tx_packets": 376073,
+          "pause_input": 0,
+          "output_errors": 0,
+          "lost_carrier": 0,
+          "rx_bytes": 7203772083,
+          "crc": 0,
+          "input_errors": 0,
+          "rx_packets": 4758520,
+          "pause_output": 0,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "tx_bytes": 7222759904,
+          "resets": 0,
+          "output_drops": 0,
+          "tx_packets": 4758351,
+          "pause_input": 0,
+          "output_errors": 0,
+          "lost_carrier": 0,
+          "rx_bytes": 26440631,
+          "crc": 0,
+          "input_errors": 0,
+          "rx_packets": 376252,
+          "pause_output": 0,
+          "unknown_protocol_drops": 0
+        },
+        "qfp_drops": {
+          "UnconfiguredIpv4Fia": 0,
+          "TailDrop": 0,
+          "Ipv4NoAdj": 0,
+          "Ipv4NoRoute": 0,
+          "IpTtlExceeded": 0,
+          "BadUidbSubIdx": 147,
+          "UnconfiguredIpv6Fia": 0,
+          "Disabled": 0,
+          "Ipv6NoRoute": 0
+        }
+      },
+      "artifact": {
+        "original": "c8235-recovery/crash-review-20261031/iperf-port7-1g-reverse-unlimited60.log",
+        "public": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-1g-reverse-unlimited60.log",
+        "bytes": 9173,
+        "sha256": "0cc51d24034c9900d8049d748df37640e3db22fdd66740d06b7220062a0bb009"
+      }
+    },
+    {
+      "id": "forward-unlimited60",
+      "state": "completed",
+      "protocol": "TCP",
+      "streams": 1,
+      "direction": "VLAN83/namespace -> VLAN5/root",
+      "command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.52 -t 60 -i 5 -J --get-server-output",
+      "source_version": "iperf 3.20",
+      "native_test_start": {
+        "protocol": "TCP",
+        "num_streams": 1,
+        "blksize": 131072,
+        "omit": 0,
+        "duration": 60,
+        "bytes": 0,
+        "blocks": 0,
+        "reverse": 0,
+        "tos": 0,
+        "target_bitrate": 0,
+        "bidir": 0,
+        "fqrate": 0,
+        "interval": 5
+      },
+      "iperf_start_timestamp": {
+        "time": "Sat, 31 Oct 2026 21:50:31 GMT",
+        "timesecs": 1793483431,
+        "timemillisecs": 1793483431344
+      },
+      "sender_seconds": 60.005487,
+      "sender_bytes": 7065174016,
+      "sender_bps": 941937061.9890144,
+      "sender_retransmits": 0,
+      "receiver_seconds": 60.0384,
+      "receiver_bytes": 7065174016,
+      "receiver_bps": 941420692.8898838,
+      "native_cpu_utilization_percent": {
+        "host_total": 1.9153753955362445,
+        "host_user": 0.04529151324731768,
+        "host_system": 1.8700855487659762,
+        "remote_total": 5.236445254429744,
+        "remote_user": 0.2933739024795147,
+        "remote_system": 4.943074683151538
+      },
+      "intervals": [
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 0,
+              "end": 5.005023,
+              "seconds": 5.005023002624512,
+              "bytes": 591921152,
+              "bits_per_second": 946123367.16872,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6044672,
+              "rtt": 31225,
+              "rttvar": 811,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 0,
+            "end": 5.005023,
+            "seconds": 5.005023002624512,
+            "bytes": 591921152,
+            "bits_per_second": 946123367.16872,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 5.005023,
+              "end": 10.004267,
+              "seconds": 4.999244213104248,
+              "bytes": 589037568,
+              "bits_per_second": 942602590.1371055,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6095872,
+              "rtt": 25827,
+              "rttvar": 360,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 5.005023,
+            "end": 10.004267,
+            "seconds": 4.999244213104248,
+            "bytes": 589037568,
+            "bits_per_second": 942602590.1371055,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 10.004267,
+              "end": 15.004263,
+              "seconds": 4.999996185302734,
+              "bytes": 588251136,
+              "bits_per_second": 941202535.680548,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6085632,
+              "rtt": 26764,
+              "rttvar": 713,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 10.004267,
+            "end": 15.004263,
+            "seconds": 4.999996185302734,
+            "bytes": 588251136,
+            "bits_per_second": 941202535.680548,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 15.004263,
+              "end": 20.005012,
+              "seconds": 5.000749111175537,
+              "bytes": 588382208,
+              "bits_per_second": 941270509.5484188,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6209536,
+              "rtt": 27864,
+              "rttvar": 792,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 15.004263,
+            "end": 20.005012,
+            "seconds": 5.000749111175537,
+            "bytes": 588382208,
+            "bits_per_second": 941270509.5484188,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 20.005012,
+              "end": 25.00427,
+              "seconds": 4.999258041381836,
+              "bytes": 587988992,
+              "bits_per_second": 940922012.2392002,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6220800,
+              "rtt": 30384,
+              "rttvar": 910,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 20.005012,
+            "end": 25.00427,
+            "seconds": 4.999258041381836,
+            "bytes": 587988992,
+            "bits_per_second": 940922012.2392002,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 25.00427,
+              "end": 30.005026,
+              "seconds": 5.000755786895752,
+              "bytes": 588251136,
+              "bits_per_second": 941059569.5018497,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6209536,
+              "rtt": 32165,
+              "rttvar": 949,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 25.00427,
+            "end": 30.005026,
+            "seconds": 5.000755786895752,
+            "bytes": 588251136,
+            "bits_per_second": 941059569.5018497,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 30.005026,
+              "end": 35.005065,
+              "seconds": 5.000039100646973,
+              "bytes": 588251136,
+              "bits_per_second": 941194457.337558,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6220800,
+              "rtt": 33070,
+              "rttvar": 894,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 30.005026,
+            "end": 35.005065,
+            "seconds": 5.000039100646973,
+            "bytes": 588251136,
+            "bits_per_second": 941194457.337558,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 35.005065,
+              "end": 40.005321,
+              "seconds": 5.000256061553955,
+              "bytes": 589561856,
+              "bits_per_second": 943250663.5538642,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6214656,
+              "rtt": 26275,
+              "rttvar": 2109,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 35.005065,
+            "end": 40.005321,
+            "seconds": 5.000256061553955,
+            "bytes": 589561856,
+            "bits_per_second": 943250663.5538642,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 40.005321,
+              "end": 45.004952,
+              "seconds": 4.99963092803955,
+              "bytes": 588382208,
+              "bits_per_second": 941481027.64972,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6220800,
+              "rtt": 26544,
+              "rttvar": 2061,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 40.005321,
+            "end": 45.004952,
+            "seconds": 4.99963092803955,
+            "bytes": 588382208,
+            "bits_per_second": 941481027.64972,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 45.004952,
+              "end": 50.004943,
+              "seconds": 4.999990940093994,
+              "bytes": 588382208,
+              "bits_per_second": 941413238.623091,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6209536,
+              "rtt": 26224,
+              "rttvar": 2052,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 45.004952,
+            "end": 50.004943,
+            "seconds": 4.999990940093994,
+            "bytes": 588382208,
+            "bits_per_second": 941413238.623091,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 50.004943,
+              "end": 55.004942,
+              "seconds": 4.999999046325684,
+              "bytes": 588382208,
+              "bits_per_second": 941411712.3600342,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6220800,
+              "rtt": 26545,
+              "rttvar": 2015,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 50.004943,
+            "end": 55.004942,
+            "seconds": 4.999999046325684,
+            "bytes": 588382208,
+            "bits_per_second": 941411712.3600342,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        },
+        {
+          "streams": [
+            {
+              "socket": 5,
+              "start": 55.004942,
+              "end": 60.005487,
+              "seconds": 5.000545024871826,
+              "bytes": 588251136,
+              "bits_per_second": 941099233.1022205,
+              "retransmits": 0,
+              "snd_cwnd": 4238296,
+              "snd_wnd": 6220800,
+              "rtt": 26199,
+              "rttvar": 428,
+              "pmtu": 1500,
+              "reorder": 0,
+              "omitted": false,
+              "sender": true
+            }
+          ],
+          "sum": {
+            "start": 55.004942,
+            "end": 60.005487,
+            "seconds": 5.000545024871826,
+            "bytes": 588251136,
+            "bits_per_second": 941099233.1022205,
+            "retransmits": 0,
+            "omitted": false,
+            "sender": true
+          }
+        }
+      ],
+      "router_before": {
+        "at": "2026-10-31T17:50:26.526440-04:00",
+        "port7": {
+          "rx_packets": 13734345,
+          "rx_bytes": 19424620157,
+          "tx_packets": 11356689,
+          "tx_bytes": 12888704647,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 3,
+          "lost_carrier": 3,
+          "unknown_protocol_drops": 0,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "port8": {
+          "rx_packets": 101376400,
+          "rx_bytes": 149559338388,
+          "tx_packets": 107752636,
+          "tx_bytes": 160009948970,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 51,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 555,
+          "Disabled": 14,
+          "IpTtlExceeded": 120,
+          "Ipv4NoAdj": 80,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 19,
+          "TailDrop": 2020,
+          "UnconfiguredIpv4Fia": 62,
+          "UnconfiguredIpv6Fia": 406
+        },
+        "keepalive_rx": 2574,
+        "keepalive_tx": 2574,
+        "keepalive_miss": 0
+      },
+      "router_after": {
+        "at": "2026-10-31T17:51:42.102751-04:00",
+        "port7": {
+          "rx_packets": 14377248,
+          "rx_bytes": 19677471131,
+          "tx_packets": 16249004,
+          "tx_bytes": 20276897782,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 3,
+          "lost_carrier": 3,
+          "unknown_protocol_drops": 0,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "port8": {
+          "rx_packets": 106268900,
+          "rx_bytes": 156967114429,
+          "tx_packets": 108395307,
+          "tx_bytes": 160265240239,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "output_drops": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 51,
+          "pause_input": 0,
+          "pause_output": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 710,
+          "Disabled": 14,
+          "IpTtlExceeded": 120,
+          "Ipv4NoAdj": 80,
+          "Ipv4NoRoute": 77,
+          "Ipv6NoRoute": 19,
+          "TailDrop": 2020,
+          "UnconfiguredIpv4Fia": 62,
+          "UnconfiguredIpv6Fia": 409
+        },
+        "keepalive_rx": 2611,
+        "keepalive_tx": 2611,
+        "keepalive_miss": 0
+      },
+      "router_during": [
+        {
+          "at": "2026-10-31T17:50:36.428406-04:00",
+          "qfp_drops": {
+            "BadUidbSubIdx": 555,
+            "Disabled": 14,
+            "IpTtlExceeded": 120,
+            "Ipv4NoAdj": 80,
+            "Ipv4NoRoute": 77,
+            "Ipv6NoRoute": 19,
+            "TailDrop": 2020,
+            "UnconfiguredIpv4Fia": 62,
+            "UnconfiguredIpv6Fia": 406
+          },
+          "keepalive_rx": 2579,
+          "keepalive_tx": 2579,
+          "keepalive_miss": 0,
+          "qfp_load_5s_pct": 3
+        },
+        {
+          "at": "2026-10-31T17:50:47.308599-04:00",
+          "port7": {
+            "rx_packets": 13990237,
+            "rx_bytes": 19651925515,
+            "tx_packets": 12448884,
+            "tx_bytes": 14525076359,
+            "input_errors": 0,
+            "crc": 0,
+            "output_errors": 0,
+            "output_drops": 0,
+            "resets": 3,
+            "lost_carrier": 3,
+            "unknown_protocol_drops": 0,
+            "pause_input": 0,
+            "pause_output": 0
+          },
+          "qfp_drops": {
+            "BadUidbSubIdx": 597,
+            "Disabled": 14,
+            "IpTtlExceeded": 120,
+            "Ipv4NoAdj": 80,
+            "Ipv4NoRoute": 77,
+            "Ipv6NoRoute": 19,
+            "TailDrop": 2020,
+            "UnconfiguredIpv4Fia": 62,
+            "UnconfiguredIpv6Fia": 406
+          },
+          "qfp_load_5s_pct": 5
+        },
+        {
+          "at": "2026-10-31T17:51:05.892298-04:00",
+          "keepalive_rx": 2593,
+          "keepalive_tx": 2593,
+          "keepalive_miss": 0,
+          "qfp_load_5s_pct": 5
+        }
+      ],
+      "counter_deltas": {
+        "port7": {
+          "tx_bytes": 7388193135,
+          "resets": 0,
+          "output_drops": 0,
+          "tx_packets": 4892315,
+          "pause_input": 0,
+          "output_errors": 0,
+          "lost_carrier": 0,
+          "rx_bytes": 252850974,
+          "crc": 0,
+          "input_errors": 0,
+          "rx_packets": 642903,
+          "pause_output": 0,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "tx_bytes": 255291269,
+          "resets": 0,
+          "output_drops": 0,
+          "tx_packets": 642671,
+          "pause_input": 0,
+          "output_errors": 0,
+          "lost_carrier": 0,
+          "rx_bytes": 7407776041,
+          "crc": 0,
+          "input_errors": 0,
+          "rx_packets": 4892500,
+          "pause_output": 0,
+          "unknown_protocol_drops": 0
+        },
+        "qfp_drops": {
+          "UnconfiguredIpv4Fia": 0,
+          "TailDrop": 0,
+          "Ipv4NoAdj": 0,
+          "Ipv4NoRoute": 0,
+          "IpTtlExceeded": 0,
+          "BadUidbSubIdx": 155,
+          "UnconfiguredIpv6Fia": 3,
+          "Disabled": 0,
+          "Ipv6NoRoute": 0
+        }
+      },
+      "artifact": {
+        "original": "c8235-recovery/crash-review-20261031/iperf-port7-1g-forward-unlimited60.log",
+        "public": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-1g-forward-unlimited60.log",
+        "bytes": 11201,
+        "sha256": "751726651036fa9b2ed6ef40f4bd91319d4b015966ef4270a0cbd41de2bd490f"
+      }
+    }
+  ],
+  "baseline_reference": "port8-performance.json",
+  "limitations": [
+    "Mac adapter absent, but changed router interface, topology and1G bottleneck are not isolated to a single cause by themselves",
+    "Port counters include historical use and background traffic; compare measured deltas without clearing",
+    "No long stability gate completed; RAM correction remains temporary"
+  ],
+  "rollback_plan": [
+    "Preserved pre-port7-1g-compare.cfg matches the prior 10G configuration; no rollback executed.",
+    "For a later return to the 10G trunk, remove Tw0/0/7 address and default route, shut Tw0/0/7, recreate Te0/0/8.5 with dot1Q 5 and 192.168.5.4/24, and restore default route through Te0/0/8.5 via 192.168.5.1. Verify routes/ARP/transit before testing. Keep Te0/0/8.83 and native .1 intact.",
+    "Do not reload: RAM-only bound16 correction would be lost. Current configuration has not been saved to startup."
+  ],
+  "path_artifacts": [
+    {
+      "source_private_log": "20261031-174641-172574-ssh.log",
+      "original": "c8235-recovery/crash-review-20261031/ubuntu-port7-1g-path-warmup.log",
+      "public": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-1g-path-warmup.log",
+      "bytes": 1206,
+      "sha256": "21690b12551db5c86bd24fc72eacb594c89f8052b8e7082e26e466b44bccb89f"
+    },
+    {
+      "source_private_log": "20261031-174709-866541-ssh.log",
+      "original": "c8235-recovery/crash-review-20261031/ubuntu-port7-1g-path-repeat.log",
+      "public": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-1g-path-repeat.log",
+      "bytes": 533,
+      "sha256": "76a630dd979b589e42b36737d1957998a703eca91ec7d5491373db0e384b0546"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://www.cisco.com/c/en/us/support/docs/routers/asr-1000-series-aggregation-services-routers/110531-asr-packet-drop.html",
+      "purpose": "General QFP tail-drop/egress congestion context; ASR reference is not proof of this prototype cause."
+    },
+    {
+      "url": "https://www.cisco.com/c/dam/en/us/td/docs/routers/csr1000/technical_references/CSR-Packet-Flow-Troubleshooting-Guide.pdf",
+      "purpose": "General BadUidbSubIdx definition: received frame cannot map to configured interface. VLAN5 still allowed on switch after router .5 deletion is a hypothesis, not captured packet evidence."
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "iperf-port7-1g-reverse850.log",
+      "source": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/port7-1g-reverse850.json",
+      "bytes": 6093,
+      "sha256": "b2ac9ffe955eca1931e5f3e35f999fc64748bd3429f8d503c02be91a79fedc9c",
+      "original": "c8235-recovery/crash-review-20261031/iperf-port7-1g-reverse850.log",
+      "public": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-1g-reverse850.log"
+    },
+    {
+      "name": "iperf-port7-1g-reverse-unlimited60.log",
+      "source": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/port7-1g-reverse-unlimited60.json",
+      "bytes": 9173,
+      "sha256": "0cc51d24034c9900d8049d748df37640e3db22fdd66740d06b7220062a0bb009",
+      "original": "c8235-recovery/crash-review-20261031/iperf-port7-1g-reverse-unlimited60.log",
+      "public": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-1g-reverse-unlimited60.log"
+    },
+    {
+      "name": "iperf-port7-1g-forward-unlimited60.log",
+      "source": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/port7-1g-forward-unlimited60.json",
+      "bytes": 11201,
+      "sha256": "751726651036fa9b2ed6ef40f4bd91319d4b015966ef4270a0cbd41de2bd490f",
+      "original": "c8235-recovery/crash-review-20261031/iperf-port7-1g-forward-unlimited60.log",
+      "public": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-1g-forward-unlimited60.log"
+    },
+    {
+      "name": "iperf-port7-1g-server-six-tests.log",
+      "source": "/var/tmp/c8235-perf83-20261031.ZcVNbI9T/server-after-port7-1g-tests.log",
+      "bytes": 8037,
+      "sha256": "ee99fb9eebdcc7b4fea62cf3d17a51237ef8f0a1986a1d58bd01f49fe46dd65a",
+      "original": "c8235-recovery/crash-review-20261031/iperf-port7-1g-server-six-tests.log",
+      "public": "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-port7-1g-server-six-tests.log"
+    },
+    {
+      "original": "c8235-recovery/crash-review-20261031/ubuntu-port7-1g-final-state.log",
+      "public": "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-port7-1g-final-state.log",
+      "bytes": 536,
+      "sha256": "7ffb576bf02dec32e0dba0e3b95b734039495c096f17e2f92948d16f4fa9a86f",
+      "source_private_log": "20261031-175149-344177-ssh.log"
+    }
+  ],
+  "artifact_transfer": {
+    "private_envelope": "20261031-175143-882496-ssh.log",
+    "remote_hash_and_bytes_verified": true,
+    "server_snapshot": "Immutable copy includes previous three 10G tests plus these three 1G tests; no active client after completion"
+  },
+  "router_snapshot": {
+    "path": "router-console-logs/20261031-175149-port7-1g-comparison-snapshot.log",
+    "bytes": 147627,
+    "sha256": "1849124eadcc0614058948581a4314bd46564267109b25082ea830e424790ff6",
+    "captured_at": "2026-10-31T17:51:49.595682-04:00",
+    "snapshot_of_open_private_capture": true,
+    "source_prefix_verified": true
+  },
+  "router_telemetry": [
+    {
+      "at": "2026-10-31T17:48:43.999725-04:00",
+      "port7": {
+        "rx_packets": 6813381,
+        "rx_bytes": 8963532808,
+        "tx_packets": 10815936,
+        "tx_bytes": 12852901983,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "output_drops": 0,
+        "resets": 3,
+        "lost_carrier": 3,
+        "unknown_protocol_drops": 0,
+        "pause_input": 0,
+        "pause_output": 0
+      },
+      "port8": {
+        "rx_packets": 100835357,
+        "rx_bytes": 149521351446,
+        "tx_packets": 100831816,
+        "tx_bytes": 149521073757,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "output_drops": 0,
+        "resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 51,
+        "pause_input": 0,
+        "pause_output": 0
+      },
+      "qfp_drops": {
+        "BadUidbSubIdx": 333,
+        "Disabled": 14,
+        "IpTtlExceeded": 120,
+        "Ipv4NoAdj": 80,
+        "Ipv4NoRoute": 77,
+        "Ipv6NoRoute": 19,
+        "TailDrop": 2020,
+        "UnconfiguredIpv4Fia": 62,
+        "UnconfiguredIpv6Fia": 406
+      },
+      "keepalive_rx": 2522,
+      "keepalive_tx": 2522,
+      "keepalive_miss": 0,
+      "cpp_pid": 20844
+    },
+    {
+      "at": "2026-10-31T17:48:53.785673-04:00",
+      "keepalive_rx": 2527,
+      "keepalive_tx": 2527,
+      "keepalive_miss": 0,
+      "qfp_load_5s_pct": 0
+    },
+    {
+      "at": "2026-10-31T17:49:02.575305-04:00",
+      "qfp_load_5s_pct": 4
+    },
+    {
+      "at": "2026-10-31T17:49:20.414883-04:00",
+      "port7": {
+        "rx_packets": 8975825,
+        "rx_bytes": 12220848074,
+        "tx_packets": 10980616,
+        "tx_bytes": 12863781518,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "output_drops": 0,
+        "resets": 3,
+        "lost_carrier": 3,
+        "unknown_protocol_drops": 0,
+        "pause_input": 0,
+        "pause_output": 0
+      },
+      "port8": {
+        "rx_packets": 101000148,
+        "rx_bytes": 149532897757,
+        "tx_packets": 102994285,
+        "tx_bytes": 152787189066,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "output_drops": 0,
+        "resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 51,
+        "pause_input": 0,
+        "pause_output": 0
+      },
+      "qfp_drops": {
+        "BadUidbSubIdx": 408,
+        "Disabled": 14,
+        "IpTtlExceeded": 120,
+        "Ipv4NoAdj": 80,
+        "Ipv4NoRoute": 77,
+        "Ipv6NoRoute": 19,
+        "TailDrop": 2020,
+        "UnconfiguredIpv4Fia": 62,
+        "UnconfiguredIpv6Fia": 406
+      },
+      "keepalive_rx": 2541,
+      "keepalive_tx": 2541,
+      "keepalive_miss": 0
+    },
+    {
+      "at": "2026-10-31T17:49:37.612382-04:00",
+      "keepalive_rx": 2549,
+      "keepalive_tx": 2549,
+      "keepalive_miss": 0,
+      "qfp_load_5s_pct": 6
+    },
+    {
+      "at": "2026-10-31T17:49:45.925876-04:00",
+      "cpp_pid": 20844,
+      "qfp_load_5s_pct": 6
+    },
+    {
+      "at": "2026-10-31T17:50:10.755278-04:00",
+      "keepalive_rx": 2566,
+      "keepalive_tx": 2566,
+      "keepalive_miss": 0,
+      "qfp_load_5s_pct": 6
+    },
+    {
+      "at": "2026-10-31T17:50:26.526440-04:00",
+      "port7": {
+        "rx_packets": 13734345,
+        "rx_bytes": 19424620157,
+        "tx_packets": 11356689,
+        "tx_bytes": 12888704647,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "output_drops": 0,
+        "resets": 3,
+        "lost_carrier": 3,
+        "unknown_protocol_drops": 0,
+        "pause_input": 0,
+        "pause_output": 0
+      },
+      "port8": {
+        "rx_packets": 101376400,
+        "rx_bytes": 149559338388,
+        "tx_packets": 107752636,
+        "tx_bytes": 160009948970,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "output_drops": 0,
+        "resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 51,
+        "pause_input": 0,
+        "pause_output": 0
+      },
+      "qfp_drops": {
+        "BadUidbSubIdx": 555,
+        "Disabled": 14,
+        "IpTtlExceeded": 120,
+        "Ipv4NoAdj": 80,
+        "Ipv4NoRoute": 77,
+        "Ipv6NoRoute": 19,
+        "TailDrop": 2020,
+        "UnconfiguredIpv4Fia": 62,
+        "UnconfiguredIpv6Fia": 406
+      },
+      "keepalive_rx": 2574,
+      "keepalive_tx": 2574,
+      "keepalive_miss": 0
+    },
+    {
+      "at": "2026-10-31T17:50:36.428406-04:00",
+      "qfp_drops": {
+        "BadUidbSubIdx": 555,
+        "Disabled": 14,
+        "IpTtlExceeded": 120,
+        "Ipv4NoAdj": 80,
+        "Ipv4NoRoute": 77,
+        "Ipv6NoRoute": 19,
+        "TailDrop": 2020,
+        "UnconfiguredIpv4Fia": 62,
+        "UnconfiguredIpv6Fia": 406
+      },
+      "keepalive_rx": 2579,
+      "keepalive_tx": 2579,
+      "keepalive_miss": 0,
+      "qfp_load_5s_pct": 3
+    },
+    {
+      "at": "2026-10-31T17:50:47.308599-04:00",
+      "port7": {
+        "rx_packets": 13990237,
+        "rx_bytes": 19651925515,
+        "tx_packets": 12448884,
+        "tx_bytes": 14525076359,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "output_drops": 0,
+        "resets": 3,
+        "lost_carrier": 3,
+        "unknown_protocol_drops": 0,
+        "pause_input": 0,
+        "pause_output": 0
+      },
+      "qfp_drops": {
+        "BadUidbSubIdx": 597,
+        "Disabled": 14,
+        "IpTtlExceeded": 120,
+        "Ipv4NoAdj": 80,
+        "Ipv4NoRoute": 77,
+        "Ipv6NoRoute": 19,
+        "TailDrop": 2020,
+        "UnconfiguredIpv4Fia": 62,
+        "UnconfiguredIpv6Fia": 406
+      },
+      "qfp_load_5s_pct": 5
+    },
+    {
+      "at": "2026-10-31T17:51:05.892298-04:00",
+      "keepalive_rx": 2593,
+      "keepalive_tx": 2593,
+      "keepalive_miss": 0,
+      "qfp_load_5s_pct": 5
+    },
+    {
+      "at": "2026-10-31T17:51:31.469450-04:00",
+      "keepalive_rx": 2606,
+      "keepalive_tx": 2606,
+      "keepalive_miss": 0,
+      "cpp_pid": 20844
+    },
+    {
+      "at": "2026-10-31T17:51:42.102751-04:00",
+      "port7": {
+        "rx_packets": 14377248,
+        "rx_bytes": 19677471131,
+        "tx_packets": 16249004,
+        "tx_bytes": 20276897782,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "output_drops": 0,
+        "resets": 3,
+        "lost_carrier": 3,
+        "unknown_protocol_drops": 0,
+        "pause_input": 0,
+        "pause_output": 0
+      },
+      "port8": {
+        "rx_packets": 106268900,
+        "rx_bytes": 156967114429,
+        "tx_packets": 108395307,
+        "tx_bytes": 160265240239,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "output_drops": 0,
+        "resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 51,
+        "pause_input": 0,
+        "pause_output": 0
+      },
+      "qfp_drops": {
+        "BadUidbSubIdx": 710,
+        "Disabled": 14,
+        "IpTtlExceeded": 120,
+        "Ipv4NoAdj": 80,
+        "Ipv4NoRoute": 77,
+        "Ipv6NoRoute": 19,
+        "TailDrop": 2020,
+        "UnconfiguredIpv4Fia": 62,
+        "UnconfiguredIpv6Fia": 409
+      },
+      "keepalive_rx": 2611,
+      "keepalive_tx": 2611,
+      "keepalive_miss": 0
+    }
+  ],
+  "final_health": {
+    "cpp_pid": 20844,
+    "keepalive_rx": 2611,
+    "keepalive_tx": 2611,
+    "keepalive_miss": 0,
+    "F0": "ok, active",
+    "subslot_0_0": "ok",
+    "cpu_celsius": 52,
+    "main_12v_millivolts": 12115,
+    "power_watts": 16,
+    "kernel_nix_attach_filtered_query": "No matching lines",
+    "historical_warning": "12V_DG_ST still 0mV/Critical_Low; old TPM self-test concern unresolved; no new physical voltage measurement"
+  },
+  "interpretation": [
+    "The same Ubuntu endpoints were retained from the 10G test, with only router port/VLAN5 path and 1G bottleneck changed. One VM still supplies both separated network stacks.",
+    "5-to-83 paced850 run: 849.987 Mb/s received with 537 retransmissions in30s. Uncapped5-to-83:936.771 Mb/s with2644 retransmissions in60s. 83-to-5:941.421 Mb/s withzero retransmissions in60s.",
+    "Both physical interfaces retain zero CRC/input/output errors and output drops in all bracket samples; reset/carrier/pause counters do not increase. Global TailDrop2020 does not increase during any test.",
+    "BadUidbSubIdx increases333 to710 across the test brackets and UnconfiguredIpv6Fia406 to409; therefore not every router drop counter is zero. Deleted VLAN5 still allowed by the switch is a plausible background-frame source, not packet-captured proof or attribution to the tested TCP flows.",
+    "Retransmissions occur without the Mac adapter. This rules out the adapter as a necessary condition for these new retransmissions, but does not certify the adapter or prove that the older and newer losses have the same cause.",
+    "The 1G path direction is useful for localization: inspect switch egress toward router port7 and VM/host networking. No switch counters, packet-loss capture or root cause established. Do not claim a router defect or loss-free network.",
+    "No extra paced forward test was needed after the uncapped forward test completed with zero retransmissions and zero new interface/output drops. Long stability gates remain unperformed."
+  ],
+  "next_steps": [
+    "Identify switch and physical port feeding router port7; collect transmit queue/drop/error/pause counters bracketing a repeat of the same reverse test before changing offloads or buffers.",
+    "If switch evidence is inconclusive, compare packet captures at the Ubuntu sender/receiver and an appropriate switch observation point; consider finer sender pacing as a separate controlled variable.",
+    "After resolving the short-test scope, execute a defined 60-minute monitored forwarding gate, remaining idle gate, three corrected cold boots and overnight soak; do not count mixed uptime as a gate."
+  ],
+  "handoff": {
+    "router": "Leave current port7 192.168.5.4/24 at1G and port8 taggedVLAN83/.83.1 plus native1 active; port6 shut; default via192.168.5.1 onport7. Running only; bound16 correction remains RAM only.",
+    "ubuntu": "Root ens192/.5.3 and namespace c8235-perf83/ens256/.83.52 routes reverified; no active iperf client; bounded listener and DHCP remain until about19:08/19:07 EDT respectively. No guest networking changes during this comparison.",
+    "console": "Exclusive private17:08:47 capture remains active with one-shot post-reset stop. No periodic polling unattended.",
+    "cleanup_reference": "port8-performance.json cleanup_plan; verify current processes rather than historical PIDs; not executed."
+  },
+  "analysis_method": {
+    "description": "AI-assisted Python standard-library offline parsing of existing console TX-delimited responses and native iperf JSON. Baseline/after samples selected around native UTC test timestamps; deltas checked against raw captures. No hardware/network side effects in this analysis. Private one-off helpers retained locally.",
+    "helpers": [
+      {
+        "filename": "parse_port7_telemetry.py",
+        "sha256": "cfdeef73a28cfa85341c23595182cdb912ef6f3e858d4a362e299e5b7b115d48"
+      },
+      {
+        "filename": "collate_port7.py",
+        "sha256": "a987a6f9306f2938b835d30a676756f4657d4af0b75982d7f8c42c998fb7a3f1"
+      }
+    ]
+  }
+}

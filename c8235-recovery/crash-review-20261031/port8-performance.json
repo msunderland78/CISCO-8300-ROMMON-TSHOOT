@@ -788,5 +788,9 @@
     "console": "Original exclusive17:08:47 private capture remains open with one-shot post-reset stop; snapshots are immutable prefixes",
     "expiry": "DHCP client bound to stop about19:07EDT, iperf listener about19:08EDT; namespace/route need explicit cleanup or reboot",
     "cleanup": "Planned only; verify current identity/processes before any cleanup, do not use historical PIDs blindly"
+  },
+  "subsequent_test": {
+    "record": "port7-1g-comparison.json",
+    "state": "Port8 VLAN5 removed at owner request; 192.168.5.4 and default route moved to 1G port7. Port8 VLAN83/native1 retained. Earlier 10G results and handoff are historical; ongoing comparison recorded separately."
   }
 }
