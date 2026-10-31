@@ -4,7 +4,13 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: direct actual resistor drop0.538V with9940ohms implies54.1uA;
+Latest: nominal5.6k now installed; corrected U1pin7=1.246VDC (initial
+U2 label explicitly corrected). Only4mV above10k result. FreshP1rail
+and actual5.6k ohms not supplied. Stop lowering R/U2control/read. Next
+DCV P1pin1-to2, then owner shutdown/unplugPi and leave wiring still;
+poweroff unconfirmed. Independent selection remains unproven; review
+verified isolation/off-board acquisition rather than guessed jumpers.
+Earlier: direct actual resistor drop0.538V with9940ohms implies54.1uA;
 U1 remains1.242V/rail1.780V. Feed/contact checks now support reviewed
 one-time5.6k DC comparison (closest lower available; max0.361mA at2V
 and1% lowR). Parts available2.2k/4.7k/5.6k/10k. Pi shutdown/unplug/0V

@@ -128,7 +128,7 @@
     10000
   ],
   "reviewed_5600ohm_comparison": {
-    "status": "Selected as one separate bounded DC diagnostic; not installed/measured yet",
+    "status": "Owner reports5.6k installed and U1CS1.246V; current rail/actual resistor ohms not yet supplied",
     "reason": "After confirming measured9940ohm resistor, assembled grabber0.9ohm, nominal1.780V rail, U1=1.242V and direct resistor drop0.538V, assess response to closest lower available fixed resistor. This is an explicit reviewed change after prerequisites, not automatic escalation from10k or unpowered-divider modelling.",
     "nominal_ohms": 5600,
     "tolerance_percent": 1,
@@ -136,6 +136,17 @@
     "maximum_resistor_power_W_at_2V_and_1percent_low_R": 0.0007215007215007215,
     "limits": "This resistor-current bound does not establish unknown on-board topology or guarantee a successful/high-margin result. Same target1.8V rail, no new supply/selector/reset/OTP/firmware action. No additional resistance decrease or control/read follows automatically. If little improvement or instability, stop and review isolation/off-board acquisition.",
     "owner_instructions": "Shut down/unplug Pi; confirm P1residual0V. Measure loose5.6k approximately5.54\u20135.66k then replace10k in same two breadboard connections, keep grabber/clip still. Secure circuit, meter DCvolts, Pi-only power. Report actual resistor ohms, P1rail and U1-side resistor leg to P1ground. No SPI/read.",
-    "result": "Pending owner report; no agent hardware access."
+    "result": {
+      "owner_initial_endpoint_label": "U2pin7",
+      "owner_explicit_correction": "U1pin7 in immediately repeated corrected message",
+      "U1_pin7_to_P1_ground_VDC": 1.246,
+      "change_from_prior_10k_reading_V": 0.004,
+      "supply_VDC": "Pending current P1 reading; previous1.780V is historical for10k test",
+      "actual_resistor_ohms": "Not reported",
+      "interpretation": "Only4mV difference from10k result. At prior1.780V supply, nominalVIHmin is1.246V, yielding no margin; current supply needed for matched threshold calculation. No valid independent selection or read demonstrated. Unknown loading/driver remains; do not infer a measured incremental resistance from unmatched samples.",
+      "next_requested": "Meter DCvolts P1pin1 toP1pin2 under unchanged5.6k setup, then owner shutdown/unplug Pi and leave hardware still. No more resistor reduction, SPI/CS control or read. Review verified isolation/off-board acquisition if independent selection cannot be established.",
+      "poweroff_status": "Requested, not confirmed",
+      "agent_hardware_actions": "None"
+    }
   }
 }
