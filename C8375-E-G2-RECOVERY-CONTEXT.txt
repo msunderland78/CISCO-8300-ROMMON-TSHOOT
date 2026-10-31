@@ -4,7 +4,13 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
-Latest: resistor measured9940ohms (-0.6%, within1%); power/residual
+Latest: requested U1-side breadboard->actualU1pin7 path reads3170ohms,
+not direct near-baseline continuity. Node/wire/grabber/probe path unresolved.
+Do not infer flash fault or insufficient10k against board loading. Next
+unpowered/residual0V: unplug only grabber wire breadboard end, leave hook
+on U1pin7, measure free terminal->actualpin7 if safely accessible. Pending.
+No power/U2control/read or resistor change.
+Earlier: resistor measured9940ohms (-0.6%, within1%); power/residual
 conditions not separately restated. Correct value does not prove contact.
 Next only unpowered/residual0V: reseat resistor, check U1side breadboard
 node->actualU1pin7 ohms if accessible without shifting grabber; if blocked,

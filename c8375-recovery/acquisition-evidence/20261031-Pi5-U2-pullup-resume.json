@@ -72,5 +72,13 @@
     "interpretation": "Correct resistor value does not establish actual breadboard-to-chip contact or reliable U1 deselection. Earlier reported1.782V/1.242V remain the last powered observations.",
     "next_requested": "Pi physically unplugged and P1 residual0V before ohms. Reseat resistor unpowered; measure U1-side breadboard node to actual physical U1pin7 only if accessible without moving grabber/bridging adjacent pins. Report numerical ohms or blocked access. No repeat broad-header scan, lower-resistance change or U2 control/read.",
     "agent_hardware_actions": "None"
+  },
+  "grabber_path_check": {
+    "owner_reported_ohms": 3170,
+    "requested_endpoints": "U1-side breadboard node to actual U1 physical pin7 after resistor reseat",
+    "measurement_conditions": "Reported in response to Pi-unplugged/residual0V instruction; owner did not separately restate conditions/endpoints.",
+    "interpretation": "Not near-baseline continuity for the intended direct wire/grabber path. Wrong breadboard node, wire/connector or grabber contact/probe endpoints remain possible; does not establish failed flash or identify board loading. Earlier breadboard-side voltage cannot be assumed equal to actual chip voltage until contact is established.",
+    "next_requested": "Pi unplugged and P1residual0V. Remove only grabber wire breadboard end, retain grabber on U1pin7; meter free wire terminal to actual U1pin7 in ohms if safely accessible. This isolates wire/grabber path from breadboard/resistor/alternate board paths. Expected near lead baseline if direct contact; do not force access.",
+    "status": "Direct isolated-wire check pending; no power, U2 control, SPI/read or resistor change by agent."
   }
 }
