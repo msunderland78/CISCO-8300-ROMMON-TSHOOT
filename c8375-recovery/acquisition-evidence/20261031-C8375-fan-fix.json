@@ -103,7 +103,7 @@
     "Supported400WPSU comparison remains auseful compatibility/causalitytest whenavailable, notaproven ormostlikelyfanfix. Ownerhasnospare; nopurchase.",
     "Afteranyjustifiedcorrection, recaptureatleast45minfan/environmentstability; boot/recognition/steadiness/forwardingremainseparate."
   ],
-  "updated_at": "2026-10-31T15:35:33.784306-04:00",
+  "updated_at": "2026-10-31T15:42:39.244360-04:00",
   "offline_display_script_review": {
     "source": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
     "squashfs_offset": 4096,
@@ -206,7 +206,7 @@
     "original_development_rommon_retained": true,
     "owner_stay": "17.15.6 retained per owner instruction; install commit succeeded15:20:35EDT before planned PSU-slot power cycle. IMG C / auto-abort inactive.26.2.1 recovery files retained.",
     "readonly_interface_finding": "12 named NIOS fan attributes mode0444/no store callback; no validated ramp/hysteresis setting in inspected help. Does not establish absence of every internal API.",
-    "controller": "Same derivedNIOS/ENVMCU0x003f/table2; peak12540RPM on both releases. Actual controlling sensor/hysteresis not isolated.",
+    "controller": "NIOS version register0x003f/table2 retained, with measured fan-band cycling on bothIOSreleases. ENVMCU firmware version has not been independently read; earlier NIOS/ENVMCU shorthand is corrected in firmware_layer_review.",
     "bounded_current_trace": "Missing-group/error2 repeats; no error95 in inspected17.15.6 window. Neither proven causal."
   },
   "suppression_followup": {
@@ -325,5 +325,49 @@
     "provenance": "Extractedoffline fromhash-matched17.15.6 monowealreadyverified; notexecuted.",
     "finding": "ThisparticularscriptdescribesAikido upgrade andcalls tam_fw_upgrade on cpld_upgrade.bin. It is not validatedas the fanENVMCU updater. Scriptpresence doesnotprove currentCLIselection orwhichallCPLDpackages affectfans.",
     "decision": "Do not propose a genericCPLD/security-controller flash asfanfix fromname alone. Need exacttarget/compatibility/preservation andmatchedcandidate evidence."
+  },
+  "firmware_layer_review": {
+    "recorded_at": "2026-10-31T15:42:39.244360-04:00",
+    "question": "Is fan control part of IOS XE or ROMMON, and could the restored development ROMMON cause cycling?",
+    "scope": "Offline source/log review and primary Cisco documentation only. No new router connection, hardware test, programmer access, configuration change or firmware write.",
+    "verified": [
+      "IOS XE contains cmand/environment software, CPA fan interfaces and NIOS host driver. Exact17.15.6 reference mono was independently hash matched to the running installed package in prior work.",
+      "Hardware snapshots expose NIOS version register0x0002=0x003f, fan table2 and temperature-level0/1 correlated with RPM transitions. This establishes observable controller state, not the location of the complete effective fan-policy binary.",
+      "The26.2 Crestone MCU-access config separately names SEQ_MCU and ENVMCU I2C targets; ENVMCU flags include mcu_nios_stop and nios_watchdog. This is vendor configuration evidence, not a new live bus probe or independent firmware-version read.",
+      "Cold-boot capture from restored original SPI shows SCP11.23.08 starting/loading AP/MCP/ECP and UEFI, then SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Release DEVELOPMENT and installedIOS. The SPI firmware bundle includes more than the ROMMON prompt.",
+      "BothIOS26.2.1 and17.15.6 cycling observations use the same restored development ROMMON. No successful controlled fan comparison under a production ROMMON exists.17.18 firmware previously failed to boot."
+    ],
+    "naming_correction": {
+      "earlier_shorthand": "Earlier summaries used NIOS/ENVMCU0x003f.",
+      "corrected": "0x003f is the vendor-named NIOS version register. It is not an independently verified ENVMCU firmware version; the MCU config distinguishes the components. Retain earlier wording as historical interpretation, not a second measured version.",
+      "effect": "An unchanged NIOS version register does not prove every environmental-controller firmware component or policy is identical. No independent ENVMCU firmware version or effective-policy image/storage mapping is established."
+    },
+    "inference": "Fan management is layered across host software and onboard control/firmware. Development boot firmware could contribute through initialization or firmware/hardware compatibility; no direct causal fan path from ROMMON has been demonstrated. Do not claim ROMMON is irrelevant after IOS starts, or that it has been proven responsible.",
+    "production_matrix": {
+      "source": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/release-notes/17-15-x/release-notes-cisco-8300-series-secure-routers-release-17-15-x.html",
+      "scope": "Cisco17.15.x compatibility table lists C8375-E-G2/17.15.3a with minimum/recommended17.15(3.1r). The restored2023 development bundle is outside that listed production baseline; this mismatch alone does not prove a fan defect."
+    },
+    "unknowns": [
+      "Which component executes the fan-band policy and where its complete code/tables are stored.",
+      "Whether the SPI/ROMMON bundle loads or changes NIOS/ENVMCU policy, or leaves initialization state that influences it.",
+      "Whether production firmware compatible with this exact r3 board changes the behavior.",
+      "How much the unsupported PSU contributes to the controller behavior."
+    ],
+    "next_read_only_work": "Map the firmware ownership/load path and compare fan/NIOS/ENVMCU initialization between the saved original and available exact SoC2 production packages. Staged SoC2 images are leads only, not approved compatible restore choices. Preserve original/unique data; validate target/candidate/preservation before any later write. No new ROMMON flash selected.",
+    "evidence": [
+      {
+        "local_only": ".git/recovery-private/console-20261031/fan-offline-policy/mcu_config_CRESTONE.json",
+        "source_scope": "Extracted26.2 vendor Crestone config; not assumed loaded in17.15 runtime.",
+        "bytes": 738,
+        "sha256": "fff5e81eedd96d0641d3a41951f4973fe15690ff2a2c94653cd30c7e4dda75bf"
+      },
+      {
+        "raw_log": "c8375-recovery/console-logs/20261031-152008-console.log",
+        "public_log": "sanitized-evidence/c8375-recovery/console-logs/20261031-152008-console.log",
+        "bytes": 61993,
+        "sha256": "f41045d577772d816fe209f456e3d2ad9bb43da42b7af786122f30ee3730038e"
+      }
+    ],
+    "hardware_overview_source": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/hardware_installation-guide/secure-8300-series-hig/overview-8300-series-secure-routers/hardware-features-of-cisco-8300-series-secure-routers.html"
   }
 }

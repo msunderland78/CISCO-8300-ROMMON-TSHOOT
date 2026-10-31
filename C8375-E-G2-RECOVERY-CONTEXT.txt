@@ -4,6 +4,19 @@ Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 
 CURRENT RESUME -- October 31, 2026, America/New_York
+FAN FIRMWARE LAYER REVIEW 15:42 EDT: Offline only; no router action/flash.
+IOS supplies host environment/CPA/NIOS software. Hardware exposes controller
+state; complete effective fan-policy image/storage/load path remains unmapped.
+Original SPI bundle loads SCP/MCP/ECP/UEFI as well as development ROMMON.
+Both IOS tests kept that same ROMMON, so its initialization/compatibility role
+is NOT ruled out; no fan causality demonstrated. Published17.15.x production
+baseline is17.15(3.1r), outside current2023devbundle. Next map/comparefirmware
+ownership/initialization offline; stagedSoC2 files remain unvalidated leads.
+CORRECTION: measured0x003f is NIOSversion only, NOT an independently verified
+ENVMCUversion. Earlier NIOS/ENVMCU shorthand is historical interpretation;
+26.2CrestoneMCUconfig separately namesENVMCU andNIOScontrols. No newbusprobe.
+Evidence/correction: c8375-recovery/acquisition-evidence/20261031-C8375-fan-fix.json
+
 PSU-SLOT RESULT 15:35 EDT: Same250WPSU movedtoP1 andpoweredon; owner confirms
 latchedP1/P0blankfitted. Automatic17.15.6 coldboot/IMG C verified, serialsame,
 confreg0x1822. P0empty/P1incompatible; norecognitionfix. Initially~5520RPM/
