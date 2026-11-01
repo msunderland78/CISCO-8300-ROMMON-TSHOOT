@@ -10,6 +10,29 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A 99 OHM RESISTOR / UNPOWERED SUPPLY WIRING — 2026-11-01, 14:01 EST
+Owner reports 100 ohm nominal, 1/2 W, 1% resistor measured 99 ohms and breadboard
+available. Measurement was requested with resistor isolated; no fresh lead
+correction, meter precision or actual powered current inferred. With prior
+1.802 V, ideal maximum current through 99 ohms is about 18.2 mA and dissipation
+0.0328 W if full source voltage drops across it. This is a diagnostic series
+limit, not a qualified flash programming supply or a U2901 RESET pull-down.
+
+Next requested, all power unplugged and both converter OUTPUT 8-to-4 and J2507
+8-to-2 verified 0 V: remove entire clip cable from adapter; keep clip off board
+and RESET grabber loose. Use two separate otherwise unused breadboard contact
+strips for the resistor. One leg -> blue -> J2507-8/VCC. Other leg -> jumper
+with its adapter end deliberately loose (later OUTPUT 8, NOT connected yet).
+OUTPUT 4 -> purple -> J2507-2/GND. Pi-to-converter INPUT wiring unchanged.
+Measure loose source tip to J2507-8 (about 99 ohms) and OUTPUT 4 to J2507-2
+(near lead/contact baseline). Keeping source end loose avoids an adapter-side
+parallel path during the series check. These are new-path checks, not repeats
+of the prior clip connections. Leave source loose/Pi off after reporting.
+Actual wiring, residual voltages and both path results pending; no powered
+trial, reset assertion, SPI access or flash read/write. Router own power,
+cables/battery remain disconnected, cooling off. Failure cause unresolved.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A DETACHED CLIP CONTROL PASSES — 2026-11-01, 13:57 EST
 Owner explicitly confirms the Pi starts normally with the clip fully connected
 through the adapter but completely off the router board. The requested startup

@@ -91,7 +91,7 @@
     "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c",
     "closed": true
   },
-  "handoff": "A: owner confirms Pi starts normally with complete adapter/clip cable attached but clip fully off router. U2900-connected startup still fails after reseating; previous brief rail ~0.1 V retained, no new voltage from detached-clip trial. No bench supply available. Next obtain isolated resistance of available 100 ohm or 220 ohm resistor, then qualify supply-only wiring through J2507 with all clip/SPI contacts removed before any bounded-current trial. No wiring/power instruction for that trial issued yet. Keep Pi unplugged and router own power/cables/battery disconnected, cooling removed, U2901 RESET grabber free; no reset resistor or flash/SPI access.",
+  "handoff": "A: full detached Pi/converter/clip setup starts; connected U2900 setup fails. Owner has 100 ohm, 1/2 W, 1% resistor measured 99 ohms and breadboard; no bench supply. Next requested unpowered supply-only assembly: remove clip entirely, 99 ohms in blue J2507-8 VCC path with source jumper left loose, OUTPUT 4 direct to purple J2507-2 ground. Verify residual 0 V first; report loose source tip-to-J2507-8 and OUTPUT 4-to-J2507-2 resistances. Actual wiring/readings pending; Pi off and source disconnected, no powered trial yet. Router power/cables/battery absent, cooling off, RESET grabber free; no SPI/read/write.",
   "recovery_scope": "Existing recovery authorization retained; read-only preservation first. No speculative TPM clear, provisioning change, golden selector, jumper, or cross-chassis full-chip clone.",
   "external_acquisition_preparation": {
     "equipment": "Owner confirms prior Pi5,1.8Vadapter andSOIC16clip setup available.",
