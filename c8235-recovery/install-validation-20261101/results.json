@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "timezone": "America/New_York",
   "chassis": "C8235-B / FGL2835LBHU",
-  "status": "Install-mode automatic startup/network and all package hashes PASS; five-minute warm check active and cold test pending",
+  "status": "Install-mode warm boot and307.210592-second check PASS; cold capture armed and owner asked to cycle",
   "owner_request": "lets try install mode now",
   "physical_confirmation": "Owner confirms powered on, USB storage absent, cooling/battery/assembly/console/port7/8 unchanged; no programmer/probes or terminal app",
   "capture": ".git/recovery-private/c8235-install-20261101/20261101-091632/console.log",
@@ -140,7 +140,7 @@
   "trials": [
     {
       "kind": "saved autonomous install-mode warm boot",
-      "status": "IN PROGRESS",
+      "status": "PASS saved autonomous install-mode warm boot and five-minute sampled operational check",
       "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-092332-one-autoboot/console.log",
       "observer_session": 7165,
       "armed_at": "2026-11-01T09:23:32.835296-05:00",
@@ -176,7 +176,7 @@
       },
       "platform_ready_at": "2026-11-01T09:27:13.027893-05:00",
       "health": {
-        "status": "IN PROGRESS five-minute sampled operational/CPP check",
+        "status": "PASS five-minute sampled operational/CPP and network checks",
         "started_at": "2026-11-01T09:27:13.027893-05:00",
         "due_no_earlier_than": "2026-11-01T09:32:13.027893-05:00",
         "samples": [
@@ -200,6 +200,27 @@
             "rx": 77,
             "tx": 77,
             "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:30:30.307737-05:00",
+            "CPP": 20841,
+            "rx": 115,
+            "tx": 115,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:31:24.748734-05:00",
+            "CPP": 20841,
+            "rx": 143,
+            "tx": 143,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:32:20.238485-05:00",
+            "CPP": 20841,
+            "rx": 170,
+            "tx": 170,
+            "miss": 0
           }
         ],
         "initial_environment": {
@@ -213,7 +234,21 @@
           "12V_DG_ST": "0mV/Critical_Low"
         },
         "early_network": "Ports7/8 and IPs restored automatically, initial default route not yet installed; later convergence check pending",
-        "control_processor": "RP0 Healthy, memory20% at09:29:13"
+        "control_processor": "RP0 Healthy, memory20% at09:29:13",
+        "finished_at": "2026-11-01T09:32:20.238485-05:00",
+        "interval_seconds": 307.210592,
+        "filtered_error_recurrence": "No captured NIX/ATTACH_RESOURCES/CRITICAL_PROCESS/PUNT_KEEPALIVE matches",
+        "final_environment": {
+          "inlet_C": 35,
+          "outlet_C": 34,
+          "CPU_C": 52,
+          "main12V_mV": 12135,
+          "5V_mV": 4965,
+          "current_mA": 1230,
+          "power_W": 15,
+          "12V_DG_ST": "0mV/Critical_Low"
+        },
+        "unexpected_resets": 0
       },
       "early_configuration": "Before port readiness running diff temporarily omitted not-yet-created interfaces; after ready09:27:13 only intended +boot system bootflash:packages.conf remains. No corrective configuration issued.",
       "network": {
@@ -226,7 +261,8 @@
           "port8": 2
         },
         "ping": "1500-byte DF to192.168.5.3 from192.168.83.1: initial4/5 at09:28:12, repeat5/5 at09:28:18",
-        "native_configuration_diffs": "Only +boot system bootflash:packages.conf; original bundle fallback retained; no network configuration change"
+        "native_configuration_diffs": "Only +boot system bootflash:packages.conf; original bundle fallback retained; no network configuration change",
+        "final_counters": "Both ports stay up/up with errors/drops0, cumulative reset counts1/2 unchanged"
       },
       "operational_snapshot": {
         "raw_local": "router-console-logs/20261101-092827-C8235-B-install-ready-snapshot.log",
@@ -234,7 +270,24 @@
         "bytes": 80176,
         "sha256": "21d90f925d86b526df31cb54ccf703de55882d0dcc846181b6d8507b6e61e873",
         "scope": "Immutable prefix; warm five-minute check and main package hash remain active"
+      },
+      "evidence": {
+        "raw_local": "router-console-logs/20261101-092332-C8235-B-install-autonomous-warm.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-092332-C8235-B-install-autonomous-warm.log",
+        "bytes": 109137,
+        "sha256": "97839d2c484a9543017ddcae89dd7e832e7dce2c7db784d81834db410cad8f68",
+        "closed_at": "2026-11-01T09:32:53.680832-05:00",
+        "exit": 0
       }
+    },
+    {
+      "kind": "autonomous install-mode cold boot with USB absent",
+      "status": "ARMED; owner power-cycle confirmation and boot evidence pending",
+      "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-093231-one-autoboot/console.log",
+      "observer_session": 95928,
+      "armed_at": "2026-11-01T09:32:31.468404-05:00",
+      "requested_action": "Power off running IOS10seconds and back on; USB stays disconnected, console/Ethernet/cooling/assembly unchanged",
+      "startup_TX_intended": 0
     }
   ],
   "installed_packages": {
@@ -264,5 +317,19 @@
     },
     "bootflash_free_bytes": 11638743040,
     "result": "PASS full native SHA512 for all14 files, matching exact original bundle extraction"
+  },
+  "post_install_backups": {
+    "startup": {
+      "path": "bootflash:C8235B-INSTALL-STARTUP.cfg",
+      "bytes": 3925,
+      "sha512": "0be8586e9b1513f823ff3c0941aacba812427dff6e863c5eb0a64876407123b455086d584e404361ea2292eb0eb7ceb3c7c934338fbe84eb0d5a79c60c927af3",
+      "native_diff": "No changes versus saved startup"
+    },
+    "manifest": {
+      "path": "bootflash:C8235B-INSTALL-packages.conf",
+      "bytes": 8405,
+      "sha512": "aed00702b34462f9f6ee911e6f3e4c1d72fef4d051739a06f782ae1e7cb4c37d58ee1ffc08f48f47a8b83708ccc47e66a753988e383be9d098405a9a81a8e891"
+    },
+    "old_manifest": "Reverified identical to pre-conversion SHA512; old17.18.3a packages also still listed"
   }
 }

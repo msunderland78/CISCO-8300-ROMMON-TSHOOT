@@ -10,6 +10,16 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+INSTALL WARM CHECK PASS; COLD CAPTURE ARMED — 2026-11-01,09:32 EST
+Autonomous packages.conf startup and all14 installed hashes pass. Warm check
+307.210592seconds: CPP20841 unchanged, keepalives17->170/zero misses, network
+restored, ports1G/10G error-free, ping4/5 then5/5. Configuration diff only adds
+packages.conf; original bundle fallback and old17.18.3a files remain. New
+startup/manifest backups/hash/native diffs verified. Main readings populated;
+12V_DG_ST/TPM unresolved. Warm capture closed; cold observer95928 armed09:32:31.
+Owner asked off10seconds/on, USB stays absent. Cold test result remains pending.
+Evidence: c8235-recovery/install-validation-20261101/results.json
+
 INSTALL-MODE STARTUP VERIFIED; HEALTH CHECK ACTIVE — 2026-11-01,09:28 EST
 B automatically boots packages.conf with unchanged B4 and no USB. IOS confirms
 26.2.1 / bootflash:packages.conf, IMG C26.02.01.0.263 and inactive rollback timer.

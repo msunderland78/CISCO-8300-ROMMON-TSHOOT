@@ -1261,6 +1261,11 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
+      "bytes": 109137,
+      "path": "router-console-logs/20261101-092332-C8235-B-install-autonomous-warm.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 21787,
       "path": "router-console-logs/20261101-092618-C8235-B-install-warm-welcome-snapshot.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
@@ -1303,9 +1308,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 120807,
+      "bytes": 121492,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "92b5f0c28bf1916da53b8667fcfd897f2662cd4dd1e6eabd6a45430a0d2a888b"
+      "sha256": "fb54850ae96810897719c9c3a06e8840fd8232dcc65cc6225320ea1250a83aec"
     },
     {
       "bytes": 106687,
@@ -1588,9 +1593,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 373951,
+      "bytes": 374754,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "06f0a96f38215080c5776e39b097db87c54a61390afe09d37d359c530880ce8d"
+      "sha256": "7159dc1638ae2e39bc18819965aaeefe67cb7fb71eccad24c923270f8d648b0e"
     },
     {
       "bytes": 6850655,
@@ -1818,9 +1823,9 @@
       "sha256": "67051e851e6c3180bc6e0cdfcac1617ba8bd35ac043b5d718023382afbcfd866"
     },
     {
-      "bytes": 14487,
+      "bytes": 17332,
       "path": "c8235-recovery/install-validation-20261101/results.json",
-      "sha256": "9549682184f35c95c3d0a2351b4d005694007536f0c66f48f159daf7f9bba45f"
+      "sha256": "da8ec5af8f1d2293c73a5ed5a320984b708194e30d05dc5067a3892a5ff5d0b3"
     },
     {
       "bytes": 2942,
@@ -2498,9 +2503,9 @@
       "sha256": "f79dc8e74fe7dda791cb190347b66bbea1fba2abe870b41050dd880c934b3dbe"
     },
     {
-      "bytes": 3292,
+      "bytes": 3779,
       "path": "experimental-recovery/c8235-b-bootflash-20261101/INSTALL.txt",
-      "sha256": "c057bbeecb3db2ffd00b6a0dda19c642b909379b591fef96b3ad13f352e43ff1"
+      "sha256": "3261e7ce0daae419b6e0063321dd6ce95b048b0271c79a4c6c2b75459ab099bd"
     },
     {
       "bytes": 2507,
@@ -3718,6 +3723,11 @@
       "sha256": "6e23280e9707003a9a42921492c8ef8385f1a64a521592573efa5828770c5d2f"
     },
     {
+      "bytes": 109137,
+      "path": "sanitized-evidence/router-console-logs/20261101-092332-C8235-B-install-autonomous-warm.log",
+      "sha256": "97839d2c484a9543017ddcae89dd7e832e7dce2c7db784d81834db410cad8f68"
+    },
+    {
       "bytes": 21787,
       "path": "sanitized-evidence/router-console-logs/20261101-092618-C8235-B-install-warm-welcome-snapshot.log",
       "sha256": "43d07b1431dd8473ab8b8bb38ceccffb76ec52191b8ff2940f1469ce09ecea14"
@@ -4007,13 +4017,14 @@
     "sanitized-evidence/router-console-logs/20261101-090742-C8235-B-no-USB-cold-operational-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-091632-C8235-B-install-conversion.log",
     "sanitized-evidence/router-console-logs/20261101-091844-C8235-B-install-preflight-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261101-092332-C8235-B-install-autonomous-warm.log",
     "sanitized-evidence/router-console-logs/20261101-092618-C8235-B-install-warm-welcome-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-092827-C8235-B-install-ready-snapshot.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 254,
-    "included_bytes_without_manifest": 700406303,
-    "included_files_without_manifest": 514
+    "excluded_local_files": 255,
+    "included_bytes_without_manifest": 700520260,
+    "included_files_without_manifest": 515
   }
 }

@@ -1,10 +1,17 @@
 C8235-B / FGL2835LBHU — install-mode validation
 2026-11-01, America/New_York; task C8235-05
 
-STATUS: IN PROGRESS, NOT YET A VERIFIED INSTALL-MODE BOOT
-The owner requests install mode using packages.conf, without USB storage.
-Native one-step conversion succeeded. First autonomous install boot is underway.
-The working B4 loader and C8235FIX1 remain unchanged.
+STATUS: WARM INSTALL-MODE BOOT VERIFIED; COLD TEST PENDING
+Native conversion succeeded. Autonomous packages.conf boot applies unchanged
+B4/C8235FIX1 and reaches26.2.1/IMG C with rollback timer inactive, without USB.
+Only TX through IOS welcome was the initiating reset. All14 installed package
+SHA512 hashes match the exact extracted source; generated manifest references
+that package set. Old17.18.3a files/manifest and .bin fallback remain preserved.
+The307.210592-second warm check passes: CPP20841 unchanged, keepalives17->170
+with zero misses, ports1G/10G full with zero errors/drops, default/IPs restored,
+full-size DF ping4/5 then5/5. Main telemetry populated;12V_DG_ST/TPM unresolved.
+Warm capture closed; cold observer95928 armed09:32:31EST. Owner asked off10s/on
+with USB still disconnected. Cold result is pending; do not claim a cold pass.
 
 RATIONALE
 Read-only extraction of the exact bundle's rpboot package confirms that its
@@ -34,13 +41,12 @@ parameter and BOOT=bootflash:packages.conf,12; followed by the original .bin
 fallback. No subsequent setting edit. Fresh observer7165 armed09:23:32 for
 automatic startup after native reset. No install-mode boot pass claimed yet.
 
-VALIDATION STILL REQUIRED
-Confirm saved BOOT points to bootflash:packages.conf and B4 parameter is intact.
-Verify automatic B4 guards, RAM correction, unmount and runtime hook markers.
-Verify IOS system image packages.conf, installed/committed 26.2.1, exact package
-bytes, platform readiness, unchanged CPP and matched keepalives without misses.
-Check saved network/configuration, ports, route, ping and environmental readings.
-Then capture an owner cold boot without USB and a sampled operational interval.
+REMAINING VALIDATION
+Warm startup, saved boot readback, installed state, all package hashes, network
+and five-minute health check passed. Fresh startup and manifest backups are
+bootflash:C8235B-INSTALL-STARTUP.cfg and C8235B-INSTALL-packages.conf; hashes
+and native comparisons pass. Capture owner cold boot without USB and a sampled
+operational interval, rechecking packages.conf source and restored network.
 Longer qualification and the separate sensor/TPM findings remain unresolved.
 
 RECOVERY
