@@ -10,6 +10,15 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+INSTALL COLD STARTUP PASS; HEALTH CHECK ACTIVE — 2026-11-01,09:36 EST
+Owner confirms power off/on with USB still absent. Native PowerOn/B identity
+and zero TX through IOS welcome verified. Exact B4/hook automatic; IOS uses
+packages.conf/26.2.1/IMG C, rollback inactive, loader/manifest/startup unchanged.
+R0/F0/0/0 ready09:36:22, CPP20841 and keepalives17/17/zero misses. Cold five-minute
+check due09:41:22. Network/default restored, ports1G/10G error-free, ping4/5 then5/5.
+Main readings populated; standby12V/TPM256 unresolved. Capture95928 remains active.
+Evidence: c8235-recovery/install-validation-20261101/results.json
+
 INSTALL WARM CHECK PASS; COLD CAPTURE ARMED — 2026-11-01,09:32 EST
 Autonomous packages.conf startup and all14 installed hashes pass. Warm check
 307.210592seconds: CPP20841 unchanged, keepalives17->170/zero misses, network
