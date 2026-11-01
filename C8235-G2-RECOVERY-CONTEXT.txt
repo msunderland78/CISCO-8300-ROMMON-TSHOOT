@@ -10,6 +10,54 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+CURRENT HANDOFF: BOOTFLASH BOOT WITHOUT USB VERIFIED — 2026-11-01, 09:12 EST
+C8235-B / FGL2835LBHU remains powered on in IOS 26.02.1 from bootflash.
+USB STORAGE IS DISCONNECTED AND IS NO LONGER REQUIRED FOR THIS SETUP.
+The current mode is BUNDLE; the owner's final target remains INSTALL MODE
+using packages.conf. That conversion and its early correction are not yet tested.
+
+One-time internal boot passed a 318.854156-second check. Saved autonomous warm
+startup then passed, followed by a physical cold cycle from running IOS with
+USB storage removed. Native PowerOn/B UUID verified; ZERO console transmissions
+through cold IOS welcome. B4 checks the internal read-only mount and exact
+inputs, reapplies the original RAM correction, unmounts bootflash and starts
+normal init. IOS confirms the internal image; no USB filesystem is listed.
+
+Cold operational check: 09:06:30.131093–09:11:44.612608 EST = 314.481515 seconds.
+CPP PID 21034 unchanged; matched keepalives 21 -> 58 -> 89 -> 120 -> 179,
+zero misses. R0/F0 active and 0/0 operational; no filtered NIX/ATTACH/critical/
+punt recurrence or unexpected reset. Port 7/.5.4 restores at 1G full duplex,
+port 8/native1 + VLAN83/.83.1 at 10G full duplex, default via .5.1 installed.
+Both ports have zero sampled input/CRC/output errors and output drops; reset
+counts remain 1/1. Full-size DF ping was 4/5 then 5/5. Startup native diff has
+no changes versus its saved export; running diff only the intended boot line.
+
+TELEMETRY: readings returned on this cold boot and remained populated through
+the final sample: inlet/outlet 35/34 C, CPU 52 C, main12V 12127 mV, 5V 4965 mV,
+current 1233 mA, power 14 W. Other listed voltage rails report Normal except
+12V_DG_ST, still 0 mV/Critical_Low. Earlier all-zero samples are retained.
+The intermittent cause is unresolved; do not claim USB removal repaired sensors.
+TPM self-test 256 remains. Longer controlled idle/load and broader qualification
+remain incomplete, with further performance work deferred.
+
+Saved BOOT: bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;
+Exact B4 USER_BOOT_PARAM saved with native sync at 08:56:19; confreg 0x3922.
+Keep these internal files unchanged: the exact image above, B4 and C8235FIX1.
+Existing USB image/B3/C8235FIX1 remain intact as the disconnected recovery set.
+Original IOS bytes, ROMMON code, old packages.conf/package set and board/security
+data are preserved. No TPM/fuse/provisioning operation was performed.
+
+Capture closed cleanly at 09:12:06 EST; lsof confirms console port free.
+No further power cycle is needed for this test. No unattended monitor remains.
+Current evidence: c8235-recovery/bootflash-validation-20261101/results.json
+Current procedure: experimental-recovery/c8235-b-bootflash-20261101/BOOTFLASH.txt
+Closed raw capture (local only):
+router-console-logs/20261101-090053-C8235-B-no-USB-autonomous-cold.log
+59,786 bytes; SHA256 645f58414c275e4bcaea279656933b076abb72ef7db500ed5a655e8da51a7aee
+Public counterpart:
+sanitized-evidence/router-console-logs/20261101-090053-C8235-B-no-USB-autonomous-cold.log
+Earlier USB-required and pending states below are dated, superseded history.
+
 NO-USB COLD STARTUP VERIFIED; CHECK ACTIVE — 2026-11-01, 09:07 EST
 Owner confirms USB storage removed during requested cold cycle from running IOS.
 NativePowerOn/B UUID09:03:25; ZERO TX through IOS welcome. Automatic internal

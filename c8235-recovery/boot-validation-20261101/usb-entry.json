@@ -565,5 +565,13 @@
       "B-only exact-image workaround, not a cross-chassis/general-image fix"
     ],
     "local_only": "Original raw captures/configuration backups; publish only sanitizer-generated evidence"
+  },
+  "superseding_internal_boot": {
+    "at": "2026-11-01T09:12:06.291616-05:00",
+    "record": "c8235-recovery/bootflash-validation-20261101/results.json",
+    "result": "Saved autonomous bootflash warm and USB-absent cold boot PASS, with314.481515-second cold check; USB no longer required for current B/exact26.2.1 setup",
+    "mode": "Bundle; final owner target install mode using packages.conf remains pending",
+    "environment": "Main sensor readings returned on latest cold boot; earlier intermittent all-zero reporting,12V_DG_ST and TPM remain unresolved",
+    "history": "Earlier USB-required handoff remains a dated record; USB files retained as recovery option"
   }
 }

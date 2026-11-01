@@ -1,7 +1,14 @@
 C8235-B / FGL2835LBHU — experimental automatic USB correction
 2026-11-01, America/New_York; task C8235-05
 
-VERIFIED STATUS — 2026-11-01, 08:28 EST
+SUPERSEDING BOOTFLASH HANDOFF — 2026-11-01, 09:12 EST
+Current B boots from internal storage without USB, verified by autonomous warm
+and physical USB-absent cold tests. This document retains the earlier USB B3
+setup as a recovery option. See ../c8235-b-bootflash-20261101/BOOTFLASH.txt and
+c8235-recovery/bootflash-validation-20261101/results.json for current settings.
+Final install-mode conversion remains pending; current internal mode is bundle.
+
+HISTORICAL USB VERIFIED STATUS — 2026-11-01, 08:28 EST
 Saved autonomous warm and cold boots both pass. Native PowerOn and B identity
 were verified on the cold boot, with ZERO host transmissions through the IOS
 welcome. The exact correction is reapplied automatically; the saved bench

@@ -8,7 +8,7 @@
   },
   "timezone": "America/New_York",
   "started_at": "2026-11-01T08:40:33.244358-05:00",
-  "status": "PASS autonomous no-USB cold startup/network; five-minute check in progress",
+  "status": "PASS autonomous cold boot with USB physically absent and five-minute operational check",
   "physical_confirmation": "Owner reconfirmed identical powered-on B assembly/cooling/battery/cables, no probes/programmer or terminal owner",
   "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-084033-bootflash/console.log",
   "console": {
@@ -75,7 +75,7 @@
       "prototype_limits": "Published production ROMMON recommendations do not establish compatibility with this Arata r2 development unit. Preserve existing ROMMON; validate early-hook/package behavior and any installer firmware actions separately."
     }
   },
-  "updated_at": "2026-11-01T08:44:39.523767-05:00",
+  "updated_at": "2026-11-01T09:12:06.291616-05:00",
   "deployment": {
     "completed_by": "2026-11-01T08:44:39.523767-05:00",
     "native_hash_checks": {
@@ -270,7 +270,7 @@
     },
     {
       "kind": "autonomous cold boot with USB physically absent",
-      "status": "PASS autonomous no-USB cold startup/network; five-minute check in progress",
+      "status": "PASS autonomous cold boot with USB physically absent and five-minute operational check",
       "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-090053-one-autoboot/console.log",
       "observer_session": 53265,
       "armed_at": "2026-11-01T09:00:53.883801-05:00",
@@ -314,7 +314,7 @@
       "USB_CLI_observation": "dir usb0: rejected by parser; show file systems captured separately, no USB storage prefix listed",
       "platform_ready_at": "2026-11-01T09:06:30.131093-05:00",
       "health": {
-        "status": "IN PROGRESS",
+        "status": "PASS five-minute sampled operational/CPP and network check after USB-absent cold boot",
         "scope": "Five-minute sampled operational/CPP check after no-USB cold boot",
         "started_at": "2026-11-01T09:06:30.131093-05:00",
         "due_no_earlier_than": "2026-11-01T09:11:30.131093-05:00",
@@ -332,6 +332,27 @@
             "rx": 58,
             "tx": 58,
             "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:08:45.526913-05:00",
+            "CPP": 21034,
+            "rx": 89,
+            "tx": 89,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:09:48.430348-05:00",
+            "CPP": 21034,
+            "rx": 120,
+            "tx": 120,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:11:44.612608-05:00",
+            "CPP": 21034,
+            "rx": 179,
+            "tx": 179,
+            "miss": 0
           }
         ],
         "environment_initial": {
@@ -347,7 +368,26 @@
           "12V_DG_ST_state": "Critical_Low",
           "other_listed_voltage_rails": "Normal",
           "qualification": "Broad telemetry returned on this boot; prior all-zero samples remain valid observations. Cause unproved; no assertion that USB removal fixed sensors."
-        }
+        },
+        "finished_at": "2026-11-01T09:11:44.612608-05:00",
+        "interval_seconds": 314.481515,
+        "filtered_error_recurrence": "No matches in captured NIX/ATTACH_RESOURCES/CRITICAL_PROCESS/PUNT_KEEPALIVE queries",
+        "unexpected_resets": 0,
+        "environment_final": {
+          "at": "2026-11-01T09:11:44.612608-05:00",
+          "inlet_C": 35,
+          "outlet_C": 34,
+          "CPU_C": 52,
+          "main12V_mV": 12127,
+          "fiveV_mV": 4965,
+          "main_current_mA": 1233,
+          "power_W": 14,
+          "12V_DG_ST_mV": 0,
+          "12V_DG_ST_state": "Critical_Low",
+          "other_listed_voltage_rails": "Normal",
+          "qualification": "Telemetry remained populated during this cold check; prior intermittent all-zero condition/cause unresolved, TPM warning unchanged"
+        },
+        "control_processor": "RP0 Healthy, memory20% at09:07:42; full per-core CPU sample retained in capture"
       },
       "network": {
         "restored_without_configuration": true,
@@ -360,7 +400,8 @@
         },
         "ping": "1500-byte DF to192.168.5.3 from192.168.83.1: initial4/5 at09:06:58, repeat5/5 at09:07:05",
         "startup_native_diff": "No changes versus internal startup export",
-        "running_native_diff": "Only intended +bootflash/-usb0 boot line versus pre-internal running export"
+        "running_native_diff": "Only intended +bootflash/-usb0 boot line versus pre-internal running export",
+        "final_counters": "Both ports remain up/up with input/CRC/output errors and output drops0; cumulative interface resets stay1/1"
       },
       "operational_snapshot": {
         "raw_local": "router-console-logs/20261101-090742-C8235-B-no-USB-cold-operational-snapshot.log",
@@ -368,6 +409,14 @@
         "bytes": 47890,
         "sha256": "51c880c3f5ccb76f4b62d275b03fe4d139529a1663c5ed2ec16640ee0c54318f",
         "scope": "Cold readiness/network and initial environmental sample; five-minute check still active"
+      },
+      "evidence": {
+        "raw_local": "router-console-logs/20261101-090053-C8235-B-no-USB-autonomous-cold.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-090053-C8235-B-no-USB-autonomous-cold.log",
+        "bytes": 59786,
+        "sha256": "645f58414c275e4bcaea279656933b076abb72ef7db500ed5a655e8da51a7aee",
+        "closed_at": "2026-11-01T09:12:06.291616-05:00",
+        "exit": 0
       }
     }
   ],
@@ -387,9 +436,8 @@
       "previous_after_reload": "BOOT changed to internal; old saved B3 USB parameter remained until explicit set/sync",
       "parameter": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/B4&&exec${IFS}bash$IFS/u/B4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0"
     },
-    "pending": [
-      "Owner cold cycle from running IOS with USB physically removed, then five-minute check"
-    ]
+    "pending": [],
+    "result": "Saved internal boot entry and B4 parameter verified across autonomous warm and physical USB-absent cold startup"
   },
   "internal_operational_snapshot": {
     "raw_local": "router-console-logs/20261101-085508-C8235-B-internal-operational-snapshot.log",
@@ -405,5 +453,26 @@
     "closed_at": "2026-11-01T08:56:33.406431-05:00",
     "exit": 0,
     "console_free_check": "lsof no cu/tty owners"
+  },
+  "handoff": {
+    "at": "2026-11-01T09:12:06.291616-05:00",
+    "router": "Powered on in26.02.1 from bootflash, bundle mode; USB storage remains physically disconnected",
+    "console": "Capture closed exit0; lsof confirms no cu/tty owner",
+    "no_further_power_cycle_for_this_test": true,
+    "required_internal_files": [
+      "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin",
+      "bootflash:B4",
+      "bootflash:C8235FIX1"
+    ],
+    "USB_recovery": "Existing exact image/B3/C8235FIX1 remain intact on disconnected USB drive; retained as recovery option",
+    "next_milestone": "Owner-requested install mode using packages.conf; not yet converted or validated",
+    "remaining": [
+      "Investigate intermittent all-zero environmental telemetry; current cold readings returned,12V_DG_ST still0/Critical_Low",
+      "TPM self-test256 warning unresolved",
+      "Longer controlled idle/load and wider feature qualification incomplete; performance deferred",
+      "B-only exact-image correction; not a general version/chassis repair"
+    ],
+    "preserved": "Original vendor image bytes, old17.18.3a packages.conf/packages, ROMMON code, confreg0x3922 and board/security data; no TPM/fuse/provisioning changes",
+    "local_only": "Raw console captures and configuration backups; public logs generated only by sanitizer"
   }
 }

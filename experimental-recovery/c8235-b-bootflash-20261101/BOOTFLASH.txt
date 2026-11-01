@@ -5,17 +5,30 @@ FINAL OWNER TARGET: INSTALL MODE USING packages.conf
 The internal .bin/bundle boot below is an intermediate validation step.
 Install-mode package selection and early correction are not yet validated.
 
-STATUS — 2026-11-01, 09:01 EST
-One-time bootflash bundle boot and318.854156-second operational check PASS.
-Saved autonomous internal warm boot also PASS, with no console intervention
-after reset through IOS welcome; network/default restore, ping4/5 then5/5.
-B4 runs from internal storage, checks exact inputs, applies the unchanged RAM
-correction, unmounts bootflash and continues normal init. Saved internal IOS
-boot entry and exact B4 parameter (native sync08:56:19) now survive restart.
-Fresh observer is armed for owner cold cycle from running IOS with USB storage
-physically removed. That cold test and five-minute check remain PENDING.
-All-zero sensor reporting/TPM remain unresolved. Original USB recovery files
-and existing17.18.3a packages.conf/package set remain unchanged.
+VERIFIED STATUS — 2026-11-01, 09:12 EST
+Bootflash startup WITHOUT USB is verified on C8235-B / exact IOS26.2.1.
+One-time internal boot passed a318.854156-second check; saved autonomous warm
+startup passed; owner then powered off running IOS, removed USB storage and
+powered on. Cold nativePowerOn/B identity and ZERO console TX through IOS
+welcome are captured. B4 reapplies the unchanged RAM correction automatically.
+The314.481515-second cold check passed: CPP21034 unchanged, keepalives21 to179
+with zero misses, R0/F0 active and0/0 ready, saved network/default restored,
+ports1G/10G up with zero sampled errors/drops, full-size DF ping4/5 then5/5.
+
+Current mode remains BUNDLE. Final owner target is INSTALL MODE using
+packages.conf; correct package deployment/early-hook behavior remain untested.
+Existing packages.conf still points to17.18.3a; do not select it expecting the
+currently validated26.2.1 runtime. Original packages and USB files are preserved.
+
+Main telemetry returned on the USB-absent cold boot: final main12V12127mV,
+5V4965mV,inlet/outlet35/34C,CPU52C,power14W. 12V_DG_ST remains0/Critical_Low.
+Prior intermittent all-zero samples and TPM256 warning remain unresolved;
+USB removal is not established as a sensor repair. Longer qualification remains.
+
+Router is powered on with USB storage disconnected. Capture closed09:12:06 EST;
+console port is free. No further power cycle is needed for this test.
+Keep all three internal inputs below unchanged; retain USB as a recovery set.
+Evidence: c8235-recovery/bootflash-validation-20261101/results.json.
 
 INPUTS
 bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
@@ -25,7 +38,7 @@ SHA256 45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052
 bootflash:B4 = auto-bootflash.sh
 SHA256 39cd7902bcbe93b70e9769d89593113cb4ba1cf4926d7a377366fc20f7524b5a
 
-CANDIDATE PARAMETER (239-byte complete set command)
+VERIFIED SAVED PARAMETER (239-byte complete set command)
 set USER_BOOT_PARAM "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/B4&&exec${IFS}bash$IFS/u/B4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0"
 
 The command mounts /dev/mmcblk0p1 at /u as ext4 ro,noload. B4 copies itself to
@@ -34,19 +47,27 @@ image/source/patch/hook hashes, then unmounts /u before exec /init. No image
 patch, ROMMON-code update, security-data edit or journal replay is requested.
 Guard failure holds maintenance; do not exit PID1 or leave a reset loop running.
 
-VALIDATION SEQUENCE
-1. Confirm B physical state/identity and exclusive 115200 8N1 console.
-2. Preserve working startup/USB setup; add new files to internal storage only
-   after checking names absent and space available. Verify native full hashes.
-3. At identified ROMMON, set only the temporary candidate parameter and boot
-   the exact internal image manually. Do not sync the parameter yet.
-4. Verify loader, correction, IOS/platform, five-minute CPP/keepalive check,
-   saved network and configuration diffs. Retain environmental/TPM findings.
-5. Only after that pass, save the intended internal boot entry and parameter,
-   verify autonomous warm startup, then capture a cold boot from running IOS
-   with USB disconnected while powered off.
-6. Verify native PowerOn, internal source, automatic correction, operational
-   interval and network restoration with no post-boot configuration.
+COMPLETED CONFIGURATION AND VALIDATION
+1. Fresh physical B identity/state and exclusive115200/8N1 console confirmed.
+   Original working startup/running exports preserved on USB; native diffs and
+   SHA512 hashes verified. New files added without overwriting old packages.
+2. Exact1,048,008,916-byte image, original2936-byte correction and2507-byte B4
+   deployed to bootflash. All native full SHA512 checks match expected sources.
+   Temporary HTTP source for B4 was stopped after verified transfer.
+3. One-time bootflash image/unsaved B4 parameter automatically reached IOS;
+   five-minute operational check passed before saved selection was changed.
+4. Reviewed sole running delta replaces the USB boot entry with
+   boot system bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
+   Saved08:54:24 [OK]. BOOT is
+   bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12; confreg remains0x3922.
+   Fresh ROMMON identity/readback then native sync08:56:19 saved B4 parameter.
+5. Autonomous warm reset passed, followed by cold PowerOn from running IOS
+   with USB physically removed. No cold host TX through IOS welcome. Internal
+   source and absence of USB filesystem confirmed in IOS; network restores.
+6. Cold startup native diff against bootflash:C8235B-INTERNAL-STARTUP.cfg
+   has no changes; running diff against bootflash:C8235B-PRE-INTERNAL.cfg
+   has only the intended internal boot entry. Original USB backups retained.
+   Full paths, sizes, hashes, timestamps, samples and captures are in results.json.
 
 RECOVERY
 Keep the existing USB image/B3/C8235FIX1 intact. If internal startup fails,
@@ -59,8 +80,11 @@ The guarded console helper is another established assisted fallback.
 
 LIMITS
 B-only and exact 26.2.1; not an arbitrary-version or cross-chassis repair.
-All-zero sensor telemetry/TPM warning and longer qualification remain separate.
+Intermittent all-zero sensor reporting,12V_DG_ST/TPM and longer qualification
+remain separate; latest cold readings returned without a diagnosed cause.
 Read-only noload may expose an unrecovered filesystem after abrupt power loss;
 full file hashes and guards must pass. Do not suppress a filesystem error.
 Original packages/configuration backups and original USB loader stay preserved.
 Evidence: c8235-recovery/bootflash-validation-20261101/results.json.
+
+Mount reference: https://docs.kernel.org/6.6/admin-guide/ext4.html
