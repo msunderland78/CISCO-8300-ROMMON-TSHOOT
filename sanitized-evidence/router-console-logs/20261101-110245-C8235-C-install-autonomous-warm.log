@@ -1,0 +1,1462 @@
+
+[TX 2026-11-01T11:02:50.238479-05:00] b'reset\r'
+reset
+
+Resetting .......
+
+
+=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2024-07-17 01:44:08
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+PCIe0: LTSSM DETECT_QUIET, Link Errors Detected During Training
+PCIe1: Link active, 1 lanes, speed gen3
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+DRAM: 16 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.0C 20240622-0651 00000000
+npc_mkex-cn10xx.fw   version: 01.0E.00 20240501-0640 00000000
+uefi.bin             version: 0B.17.0C 20240622-0651 00000000
+bl31.bin             version: 0B.17.0C 20240622-0651 00000000
+bl2.bin              version: 0B.17.0C 20240622-0651 00000000
+gserp-cn10xx.fw      version: 01.01.0C 20240501-0640 00000000
+gserm-cn10xx.fw      version: 01.01.0A 20240501-0640 00000000
+init.bin             version: 0B.17.0C 20240622-0651 00000000
+ecp_bl1.bin          version: 0C.17.0C 20240501-0638 00000000
+mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000
+scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000
+rom-script0.fw       version: 0B.17.0C 20240622-0651 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL2: Built : 18:42:08, Jul 16 2024
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x3f9ffffff (16272MB)
+NOTICE:  LMT Memory Region: 0x3fa000000 to 0x3feffffff (80MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x3ff000000 to 0x3ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL31: Built : 18:42:53, Jul 16 2024
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+
+SecureBoot: BL34: running keyphase-cisco-bootstub version
+SecureBoot: ...D01.00
+SecureBoot: BL34: call SpiNorInit
+SecureBoot: Dual/Octal mode not supported in UEFI. Use x1
+SecureBoot: BL34: Call LDWM verifier
+ ...flash initialization
+ ...verify bootloader
+ ...load verification map from flash
+ ......vmap.flashaddr=====0x00b50000
+ ......vmap.platform_id===0x4c445731
+ ...load image data
+ ......flashload_bootimage_seg0:
+ .........seg_addr========0x00601000
+ .........seg_size========0x00280000
+ .........mem_addr========0x04000000
+ ...code signing results:
+ ......return_code========0x00000000
+ ......key_index==========0x00000002
+ ......key_type===========0x00000002
+ ...bootloader image verified successfully
+  
+Board Identifier: mirabile-arata, Revision: r2, Serial Number: unknown
+
+System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE
+Copyright (c) 1994-2024 by cisco Systems, Inc.
+Compiled Tue Jul 16 18:38:18 2024 by rmaladi
+
+
+!!! NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY !!!
+Boot ROM0
+
+Last reset cause: ResetRequest
+SoC1 platform with 16661504 Kbytes of main memory
+
+Soc UUID: 13 FF FF 87 79 AD FB 83 CA 80 82 43 
+UUID Len: 0xC
+
+........
+
+boot: reading file packages.conf
+#
+
+#######################################################################
+
+network: failed to parse subnet for IPv0
+EFI stub: Booting Linux Kernel...
+EFI stub: EFI_RNG_PROTOCOL unavailable
+EFI stub: Using DTB from configuration table
+EFI stub: Exiting boot services...
+C8235_INTERNAL_BOOTFLASH_ENTRY
+C8235_INTERNAL_RAM_ENTRY pid=1
+C8235_INTERNAL_INPUT_HASHES_PASS
+C8235_BOUND16_BOOTSTRAP_BEGIN
+32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857  /usr/binos/bin/launch_net.sh
+ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4  /c8235-bound16-hook.sh
+C8235_BOUND16_BOOTSTRAP_READY
+C8235_INTERNAL_READY: bootflash unmounted; exec /init from PID 1
+C8235_BOUND16_HOOK_BEGIN
+C8235_BOUND16_HOOK_COMPLETE
+This platform requires a rommon update but it must be done manually
+Detected old ROMMON version SDK112312-SoC1-SB-v12.1.22, manual upgrade required
+May 29 18:48:52.208: %BOOT-5-OPMODE_LOG: R0/0: binos: System booted in AUTONOMOUS mode
+
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           Cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+
+
+This software version supports only Smart Licensing as the software licensing mechanism.
+
+
+Please read the following carefully before proceeding. By downloading,
+installing, and/or using any Cisco software product, application, feature,
+license, or license key (collectively, the "Software"), you accept and
+agree to the following terms. If you do not agree, do not proceed and do not
+use this Software.
+
+This Software and its use are governed by Cisco's General Terms and any 
+relevant supplemental terms found at
+https://www.cisco.com/site/us/en/about/legal/contract-experience/index.html.
+If you have a negotiated agreement with Cisco that includes this Software, the
+terms of that agreement apply as well. In the event of a conflict, the order 
+of precedence stated in your negotiated agreement controls.
+
+Cisco Software is licensed on a term and/or subscription-basis. The license to
+the Software is valid only for the duration of the specified term, or in the
+case of a subscription-based license, only so long as all required subscription
+payments are current and fully paid-up. While Cisco may provide you
+licensing-related alerts, it is your sole responsibility to monitor your usage.
+Using Cisco Software without a valid license is not permitted and may result in
+fees charged to your account. Cisco reserves the right to terminate access to,
+or restrict the functionality of, any Cisco Software, or any features thereof,
+that are being used without a valid license.
+
+
+cisco C8230X-8M2X (1RU) processor with 7788651K/6147K bytes of memory.
+Processor board ID FGL2835L41Z
+Router operating mode: Autonomous
+1 Virtual Ethernet interface
+8 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+16777216K bytes of physical memory.
+20249599K bytes of flash memory at bootflash:.
+60062720K bytes of USB flash at usb0:.
+
+ SECURITY WARNING - Module: RCMD, Command: ip rcmd domain-lookup , Reason: No encryption is configured, Description: Remote command (rcmd) service enabled - allows unencrypted remote command execution without proper authentication, Remediation: This is a legacy feature, please consider disabling it
+ SECURITY WARNING - Module: TFTP, Command: ip forward-protocol udp tftp , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: SNMP Host configured with insufficient authentication - missing privacy encryption, Remediation: This is a legacy feature, please consider disabling it
+ SECURITY WARNING - Module: TELNET, Command: ip telnet tos C0, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport enable , Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport flow level 16, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport receive window 4128, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport disconnect delay 0, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TFTP, Command: ip tftp source-interface GigabitEthernet0 , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: TFTP, Command: ip tftp arp-glean , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: TFTP, Command: ip tftp blocksize 512, Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: FTP, Command: ip ftp passive , Reason: No encryption is configured, Description: FTP service enabled - transmits credentials and data in plaintext, vulnerable to interception, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: HTTP, Command: ip http server , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: HTTP server enabled - unencrypted protocol vulnerable to eavesdropping and man-in-the-middle attacks, Remediation: Use http secure server to ensure secure web access
+
+ WARNING: ** NOTICE **  The H.323 protocol is no longer supported from IOS-XE release 17.6.1. Please consider using SIP for multimedia applications.
+
+
+
+Press RETURN to get started!
+
+
+*May 29 2025 18:49:15.223: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*May 29 2025 18:49:15.224: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module Integrity Test
+*May 29 2025 18:49:15.232: %CRYPTO-5-SELF_TEST_END: Crypto Integrity self-test completed successfully
+       All tests passed.
+*May 29 2025 18:49:15.566: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*May 29 2025 18:49:16.557: %IOSD_INFRA-6-IFS_DEVICE_OIR: Device usb0 added
+*May 29 2025 18:49:16.884: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*May 29 2025 18:49:20.143: NGIOLite module 8M-2xSFP+ success read extended attr from conf file len: 1629
+
+*May 29 2025 18:49:21.427: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*May 29 2025 18:49:21.968: %TLSCLIENT-5-TLSCLIENT_IOS: TLS Client is IOS based
+*May 29 2025 18:49:22.002: %SSH-4-SSH_COMPLIANCE_SSH_RSA_DISABLED: Please note that ssh-rsa algorithm stands disabled from IOS-XE release 17.16.1 onwards and will not be part of the preferred publickey or hostkey algorithms by default. Users may choose to configure them explicitly if required
+*May 29 2025 18:49:22.019: %SPANTREE-5-EXTENDED_SYSID: Extended SysId enabled for type vlan
+*May 29 2025 18:49:22.077: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*May 29 2025 18:49:22.130: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_ENFORCED: Cisco PSB security compliance is being enforced
+*May 29 2025 18:49:22.169: %CUBE-3-LICENSING:  SIP trunking (CUBE) licensing is now based on dynamic sessions counting, static license capacity configuration through 'mode border-element license capacity' would be ignored.
+*May 29 2025 18:49:22.170: %SIP-5-LICENSING: CUBE license reporting period has been set to the minimum value of 8 hours.
+*May 29 2025 18:49:22.209: %VOICE_HA-7-STATUS: CUBE HA-supported platform detected.
+*May 29 2025 18:49:23.324: %CRYPTO_SL_TP_LEVELS-6-PLATFORM_BASED_LIC: Platform Based License Support, throughput is un-throttledIOSd ipc listen handler status 0Last reload reason is set to "Image Install "
+*May 29 2025 18:49:23.399: %LINK-3-UPDOWN: Interface EOBC0, changed state to up
+*May 29 2025 18:49:23.418: %LINK-3-UPDOWN: Interface Lsmpi0, changed state to up
+*May 29 2025 18:49:23.419: %LINEPROTO-5-UPDOWN: Line protocol on Interface LI-Null0, changed state to up
+*May 29 2025 18:49:23.419: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+*May 29 2025 18:49:23.420: %LINK-3-UPDOWN: Interface LIIN0, changed state to up
+*May 29 2025 18:49:23.420: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to down
+*May 29 2025 18:49:23.422: %IOSXE_RP_ALARM-6-INFO: ASSERT CRITICAL GigabitEthernet0 Physical Port Link Down 
+*May 29 2025 18:49:23.627: %PNP-6-PNP_DISCOVERY_STARTED: PnP Discovery startedIOSD CMAN IPC BR notification receivedcman channel UP, remote location -1/0/0/0IOSD-CMAN IPC setting TDL domian and handleIOSD CMAN IPC setting TDL domaincman channel, local location -1/0/0/0TDL domain set iosd_cmrp.rp_0_0_rp_0_0
+*May 29 2025 18:48:22.292: %IOSXE-3-PLATFORM: R0/0: kernel: tpm tpm0: A TPM error (256) occurred attempting the self test
+*May 29 2025 18:48:22.294: %IOSXE-3-PLATFORM: R0/0: kernel: mdio_thunder 0000:01:01.3: Couldn't translate address for "mdio0_uio"
+*May 29 2025 18:48:22.319: %IOSXE-3-PLATFORM: R0/0: kernel: arm-scmi firmware:scmi: SCMI protocol 19 not implemented
+*May 29 2025 18:48:22.319: %IOSXE-3-PLATFORM: R0/0: kernel: arm-scmi firmware:scmi: SCMI protocol 20 not implemented
+*May 29 2025 18:48:22.319: %IOSXE-3-PLATFORM: R0/0: kernel: arm-scmi firmware:scmi: SCMI protocol 21 not implemented
+*May 29 2025 18:48:52.205: %BOOT-5-OPMODE_LOG: R0/0: binos: System booted in AUTONOMOUS mode
+*May 29 2025 18:49:23.729: yang-infra: Initializing PKI on RF active
+*May 29 2025 18:49:23.729: yang-infra: Skipping PKI initialization because netconf-yang is disabled
+*May 29 2025 18:49:24.013: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*May 29 2025 18:49:24.208: %IOSXE_MGMTVRF-6-CREATE_SUCCESS_INFO: Management vrf Mgmt-intf created with ID 1, ipv4 table-id 0x1, ipv6 table-id 0x1E000001
+*May 29 2025 18:49:24.263: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*May 29 2025 18:49:24.413: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
+*May 29 2025 18:49:24.414: %LINEPROTO-5-UPDOWN: Line protocol on Interface EOBC0, changed state to up
+*May 29 2025 18:49:24.460: %LINEPROTO-5-UPDOWN: Line protocol on Interface Lsmpi0, changed state to up
+*May 29 2025 18:49:24.461: %LINEPROTO-5-UPDOWN: Line protocol on Interface LIIN0, changed state to up
+*May 29 2025 18:49:24.461: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to down
+*May 29 2025 18:49:24.704: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*May 29 2025 18:49:26.429: %SYS-7-NVRAM_INIT_WAIT_TIME: Waited 0 seconds for NVRAM to be available
+*May 29 2025 18:49:26.641: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named TP-self-signed-691797532 has been generated or imported by crypto config
+*May 29 2025 18:49:26.651: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named NETCONF_SSH_RSA_KEY has been generated or imported by crypto config
+*May 29 2025 18:49:26.652: yang-infra: Default hostkey created (NETCONF_SSH_RSA_KEY)
+*May 29 2025 18:49:26.655: %SYS-6-PRIVCFG_DECRYPT_SUCCESS: Successfully apply the private config file
+*May 29 2025 18:49:26.752: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: TP-self-signed-691797532 created successfully
+*May 29 2025 18:49:26.756: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created successfully
+*May 29 2025 18:49:26.772: yang-infra: self-signed cert inserted(TP-self-signed-691797532)
+*May 29 2025 18:49:26.954: %SYS-4-SYSTEM_SECURITY_MODE_CHANGE: System Security Mode Changed from SECURE to INSECURE
+*May 29 2025 18:49:26.955: %SYS-5-CONFIG_I: Configured from console by vty0
+*May 29 2025 18:49:26.991: %SYS-5-CONFIG_I: Configured from memory by console
+*May 29 2025 18:49:26.996: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/0, interfaces disabled
+*May 29 2025 18:49:26.996: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/4, interfaces disabled
+*May 29 2025 18:49:27.006: %SPA_OIR-6-OFFLINECARD: SPA (8M-2xSFP+) offline in subslot 0/0
+*May 29 2025 18:49:27.008: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*May 29 2025 18:49:27.054: %IOSXE_OIR-6-INSCARD: Card (fp) inserted in slot F0
+*May 29 2025 18:49:27.054: %IOSXE_OIR-6-ONLINECARD: Card (fp) online in slot F0
+*May 29 2025 18:49:27.083: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 0
+*May 29 2025 18:49:27.090: %IOSXE_RP_PAE_NOT-4-PAE_STARTUP_DELAY: Product Analytics will start in 7 days, configure "no product-analytics" to disable
+*May 29 2025 18:49:27.090: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*May 29 2025 18:49:27.099: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*May 29 2025 18:49:27.219: %SYS-4-MASTER_KEY_NOT_PRESENT: The master key is not configured, so passwords/secrets might not be encrypted. To ensure secure network operations, it is highly recommended to configure the master key. Please note that future system upgrades will be blocked until the master key is configured.Configure the master key by using the following command: "key config-key password-encrypt <encryption-key>"
+*May 29 2025 18:49:28.841: %LINK-5-CHANGED: Interface GigabitEthernet0, changed state to administratively down
+*May 29 2025 18:49:30.167: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 0
+*May 29 2025 18:49:30.189: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*May 29 2025 18:49:30.190: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*May 29 2025 18:49:30.221: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/4
+*May 29 2025 18:49:32.339: Tamper: wait on boolean for tamper event to fetch
+*May 29 2025 18:49:32.339: %SYS-5-RESTART: System restarted --
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+*May 29 2025 18:49:32.941: %PNP-6-PNP_BEST_UDI_UPDATE: Best UDI [PID:C8230X-8M2X,VID:V00,SN:FGL2835L41Z] identified via (entity-mibs)
+*May 29 2025 18:49:32.941: %PNP-6-PNP_CDP_UPDATE: Device UDI [PID:C8230X-8M2X,VID:V00,SN:FGL2835L41Z] identified for CDP
+*May 29 2025 18:49:32.941: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Startup Config Present)
+*May 29 2025 18:49:33.086: %SYS-6-BOOTTIME: Time taken to reboot after reload = 4294966529 seconds
+*May 29 2025 18:49:33.877: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 0 times and closed 0 times during power down. There is no last known/marked event.
+*May 29 2025 18:49:33.879: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 0 times and closed 0 times during power up. There is no last known/marked event.
+*May 29 2025 18:49:37.098: %SYS-5-CONFIG_P: Configured programmatically by process EPM CREATE DEFAULT CWA URL ACL from console as console
+*May 29 2025 18:49:37.684: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 29 2025 18:49:37.684: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*May 29 2025 18:49:42.024: %SPA_OIR-6-ONLINECARD: SPA (VDSP-CC) online in subslot 0/4
+*May 29 2025 18:49:42.536: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 29 2025 18:49:42.536: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*May 29 2025 18:49:42.544: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI created successfully
+*May 29 2025 18:49:42.551: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CISCO_IDEVID_SUDI has been generated or imported by pki-sudi
+*May 29 2025 18:49:42.577: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI0 created successfully
+*May 29 2025 18:49:42.590: %PKI-2-NON_AUTHORITATIVE_CLOCK: PKI functions can not be initialized until an authoritative time source, like NTP, can be obtained.
+*May 29 2025 18:49:43.949: %LINK-3-UPDOWN: Interface Service-Engine0/4/0, changed state to up
+*May 29 2025 18:49:44.949: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/4/0, changed state to up
+*May 29 2025 18:49:53.732: %ENVIRONMENTAL-1-ALERT: V: 12V_DG_ST, Location: R0, State: Critical_Low, Reading: 0 mV
+[TX 2026-11-01T11:05:48.340582-05:00] b'\r'
+
+Router>
+[TX 2026-11-01T11:05:51.692967-05:00] b'enable\r'
+enable
+Password: 
+[TX 2026-11-01T11:05:55.011959-05:00] b'[REDACTED]\r'
+
+Router#
+[TX 2026-11-01T11:05:58.432724-05:00] b'terminal length 0\rterminal width 512\rshow version\rshow platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow install summary\rshow bootvar\rshow environment all\r'
+terminal length 0
+Router#terminal width 512
+Router#show version
+Cisco IOS XE Software, Version 26.02.01
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+Router uptime is 0 minutes
+Uptime for this control processor is 2 minutes
+System returned to ROM by LocalSoftADR
+System image file is "bootflash:packages.conf"
+Last reload reason: Image Install 
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Perpetual    essentials         essentials        
+
+The current crypto throughput level is 250000 kbps (Aggregate) 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8230X-8M2X (1RU) processor with 7788651K/6147K bytes of memory.
+Processor board ID FGL2835L41Z
+Router operating mode: Autonomous
+1 Virtual Ethernet interface
+8 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+16777216K bytes of physical memory.
+20249599K bytes of flash memory at bootflash:.
+60062720K bytes of USB flash at usb0:.
+
+Configuration register is 0x3922
+
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:01:21      
+ 0/0      8M-2xSFP+           booting               00:00:35      
+R0        C8230X-8M2X         ok, active            00:01:21      
+F0        C8230X-8M2X         ok, active            00:01:21      
+P0        PWR-CC2-66WAC       ok                    00:00:48      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20621
+  Parent process id: 20614
+  Group id         : 20621
+  Status           : S
+  Session id       : 18202
+  User time        : 380
+  Kernel time      : 386
+  Priority         : 20
+  Virtual bytes    : 2218659840
+  Resident pages   : 40478
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44113
+  Major page faults: 604
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.896 sec ago
+Last punt keepalive sent                  = 0.896 sec ago
+punt keepalive rx count                   = 6
+punt keepalive tx count                   = 6
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show install summary
+[ R0 ] Installed Package(s) Information:
+State (St): I - Inactive, U - Activated & Uncommitted,
+            C - Activated & Committed, D - Deactivated & Uncommitted
+--------------------------------------------------------------------------------
+Type  St   Filename/Version
+--------------------------------------------------------------------------------
+IMG   C    26.02.01.0.263
+
+--------------------------------------------------------------------------------
+Auto abort timer: inactive
+--------------------------------------------------------------------------------
+
+
+Router#show bootvar
+BOOT variable = bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x3922
+
+Standby not ready to show bootvar
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          35 Celsius
+ Temp: Outlet            R0              Normal          34 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12115 mV
+ V: 5V                   R0              Normal          4945 mV
+ V: 3.3V_SB              R0              Normal          3323 mV
+ V: 3.3V_SFP             R0              Normal          3302 mV
+ V: 3.3V                 R0              Normal          3299 mV
+ V: 1.8V                 R0              Normal          1792 mV
+ V: 1.2V                 R0              Normal          1193 mV
+ V: 1.1V_DDR             R0              Normal          1099 mV
+ V: 0.75V_CORE           R0              Normal          757 mV
+ V: 0.75V_SYS            R0              Normal          848 mV
+ V: 0.8V_SW              R0              Normal          801 mV
+ V: 0.8V                 R0              Normal          800 mV
+ V: 0.75V                R0              Normal          749 mV
+ I: VP12P0_MB            R0              Normal          1193 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          14 Watts
+
+
+Router#
+[TX 2026-11-01T11:06:05.529767-05:00] b'verify /sha512 bootflash:C4\rverify /sha512 bootflash:C8235CFIX1\rverify /sha512 bootflash:packages.conf\rmore bootflash:packages.conf\r'
+verify /sha512 bootflash:C4
+.Done!
+verify /sha512 (bootflash:C4) = b0216d05a92d3cff755fd35e0cbad777070be05aca2738b64124d30276c6016f075e14489880e399db9c6d6154aeb70bb0e68b7411d4bf57c8ee4090d30b3b4c
+
+
+Router#verify /sha512 bootflash:C8235CFIX1
+.Done!
+verify /sha512 (bootflash:C8235CFIX1) = 4ff8d92eee7f4d139e6da82810ec42e0a0bf910feba0c5d9a77de0e894b1db1337593bdeeea7dab6f32eaf4a5abc3270225ac5a194df01358afacb84b295f93b
+
+
+Router#verify /sha512 bootflash:packages.conf
+.Done!
+verify /sha512 (bootflash:packages.conf) = aed00702b34462f9f6ee911e6f3e4c1d72fef4d051739a06f782ae1e7cb4c37d58ee1ffc08f48f47a8b83708ccc47e66a753988e383be9d098405a9a81a8e891
+
+
+Router#more bootflash:packages.conf
+#! /usr/binos/bin/packages_conf.sh
+
+sha1sum: 0e8f1221a24b633208b3afd161fb3f2ee1ea353e
+
+sha256sum: b0334b773f571ce86cdc7c868461bb699ded3dd1991b96941abce284663b12e5
+
+# sha1sum above - used to verify that this file is not corrupted.
+
+#
+# package.conf: provisioned software file for build 2026-09-22_20.09
+#
+
+# NOTE: Editing this file by hand is not recommended. It is generated
+#       as part of the build process, and is subject to boot-time
+#       consistency checks. Automatically-produced package files are
+#       guaranteed to pass those checks. Manually-maintained ones are
+#       not. Because "nfs" and "mount" directives are processed first,
+#       regardless of their position in the file, the recommended
+#       approach is to keep a separate file containing JUST your
+#       personal "nfs" and "mount" directives, and to append it to the
+#       automatically-generated file.
+#
+#     Note further that when SHA-1 checksum verification is enabled,
+#     you will NOT be able to alter this file without updating the
+#     SHA-1 sum.
+
+#
+# This file can contain three types of entries:
+#
+
+#
+# NFS directives (optional)
+#     notes:    NFS directives are processed before all others (mount, iso).
+#               Multiple NFS directives may appear so long as they do not
+#               conflict -- that is, specify the same source or mountpoint.
+#     syntax:   nfs <IP ADDRESS>:<REMOTE_PATH> <LOCAL_MOUNTPOINT>
+#     example:  nfs 127.0.0.1:/auto/some/nfs/path /auto/some/nfs/path
+#
+
+#
+# mount directives (optional)
+#     notes:    mount directives are processed after 'nfs' and before 'iso'.
+#               One mount directive may appear for each F/S/B/P tuple
+#     syntax:   mount FRU SLOT BAY   PACKAGE_NAME   NFS_PATH
+#     example:  mount rp 0 0 rp_base /auto/some/nfs/path/abs_soft/rp_base.ppc
+#
+#               The specified NFS_PATH must
+#               reference the NFS mounts created earlier.
+#
+#               Mount directives cause the package-specific mount link to
+#               be set to the specified path instead of to the mountpoint
+#               in sw for the corresponding ISO.
+#
+
+#
+# iso directives (mandatory)
+#     notes:    iso directives are processed last: any package for which
+#               a 'mount' directive does not appear will be mounted.
+#               One iso directive may appear for each F/S/B/P tuple.
+#     syntax:   iso FRU SLOT BAY   PACKAGE_NAME  PACKAGE_FILE.bin
+#     example:  iso rp 0 0 rp_base rp_base.ppc.bin
+#
+#               PACKAGE_FILE.bin is a path relative to the packages.conf
+#               file.  Although it supports sub-directories for development
+#               purposes, in deployment the files will always be managed
+#               as in the same directory as packages.conf so as to
+#               guarantee that name collisions cannot occur.
+#
+# Note that the RP 0/1 distinction is a convenience for development
+# and testing as it allows us to have a packages.conf describe a
+# SW load that varies depending on whether the RP finds itself in
+# slot 0 or 1.
+#
+# The ISSU process *must* update *both* RP slots simultaneously so that
+# the RP will behave predictably whichever slot it finds itself on [e.g.,
+# if package X is upgraded, and the RP is ejected and put into either
+# slot of a new chassis, we expect to see the upgraded X without regard
+# to slot].
+#
+
+boot   rp 0 0   rp_boot c8kg2be-rpboot.26.02.01.SPA.pkg
+
+iso   rp 0 0   rp_base c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   rp 0 1   rp_base c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   rp 0 0   rp_daemons c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   rp 0 1   rp_daemons c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   rp 0 0   rp_iosd c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   rp 0 1   rp_iosd c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   rp 0 0   rp_security c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   rp 0 1   rp_security c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   rp 0 0   rp_webui c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   rp 0 1   rp_webui c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   fp 0 0   fp c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   fp 0 1   fp c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   cc 0 0   cc c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 1   cc c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   cc 0 0   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 1   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 2   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 3   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 4   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 5   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   cc 1 0   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 1 1   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 1 2   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 1 3   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 2 0   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 2 1   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 2 2   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 2 3   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 3 0   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 3 1   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 3 2   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 3 3   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_mirabile_mcu c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_mirabile_mcu c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_nim_shdsl c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_nim_shdsl c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_sm_async c8kg2be-firmware_sm_async.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_sm_async c8kg2be-firmware_sm_async.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_ngwic_t1e1 c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_ngwic_t1e1 c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_prince c8kg2be-firmware_prince.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_prince c8kg2be-firmware_prince.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_sm_1t3e3 c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_sm_1t3e3 c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_nim_async c8kg2be-firmware_nim_async.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_nim_async c8kg2be-firmware_nim_async.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_nim_xdsl c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_nim_xdsl c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_sm_nim_adpt c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_sm_nim_adpt c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_pse_si3470a c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_pse_si3470a c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_sm_dsp_sp2700 c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_sm_dsp_sp2700 c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_dsp_analogbri c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_dsp_analogbri c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg
+
+
+#
+# -start- superpackage .pkginfo
+#
+# pkginfo: Name: rp_super
+# pkginfo: BuildTime: 2026-09-22_20.09
+# pkginfo: ReleaseDate: Tue-22-Sep-26-19:45
+# pkginfo: .BuildArch: arm64
+# pkginfo: BootArchitecture: arm64
+# pkginfo: .BootArch: arm64
+# pkginfo: RouteProcessor: mirabile
+# pkginfo: Platform: C8KG2BE
+# pkginfo: User: mcpre
+# pkginfo: PackageName: universalk9
+# pkginfo: Build: 26.02.01
+# pkginfo: .SupportedBoards: mirabile
+# pkginfo: .InstallModel: 
+# pkginfo: .PackageRole: rp_super
+# pkginfo: .RestartRole: rp_super
+# pkginfo: CardTypes: 
+# pkginfo: .CardTypes: 
+# pkginfo: .BuildPath: /nobackup/mcpre/s2c-build-ws/binos/linkfarm/mirabile_universalk9-stage/img/rp_super_universalk9
+# pkginfo: .Version: 26.02.01.0.263.1790107759..IOSXE
+# pkginfo: .ControllerVersion: 26.2
+# pkginfo: .InstallVersion: 1.0.0
+# pkginfo: .InstallCapCommitSupport: yes
+# pkginfo: .PKGUID: ed57fdb654ccf593d1a235dae8133b16f79c5c42
+# pkginfo: .SW_DESCRIPTION: V262_1_FC3-0-gcdab22eca498e
+#
+# -end- superpackage .pkginfo
+#
+
+
+Router#
+[TX 2026-11-01T11:06:08.792838-05:00] b'show platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow archive config differences bootflash:C8235C-PRE-INSTALL-running.cfg system:running-config\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:01:31      
+ 0/0      8M-2xSFP+           booting               00:00:45      
+R0        C8230X-8M2X         ok, active            00:01:31      
+F0        C8230X-8M2X         ok, active            00:01:31      
+P0        PWR-CC2-66WAC       ok                    00:00:58      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20621
+  Parent process id: 20614
+  Group id         : 20621
+  Status           : S
+  Session id       : 18202
+  User time        : 380
+  Kernel time      : 386
+  Priority         : 20
+  Virtual bytes    : 2218659840
+  Resident pages   : 40478
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44120
+  Major page faults: 604
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.036 sec ago
+Last punt keepalive sent                  = 1.036 sec ago
+punt keepalive rx count                   = 11
+punt keepalive tx count                   = 11
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show archive config differences bootflash:C8235C-PRE-INSTALL-running.cfg system:running-config
+!Contextual Config Diffs:
++system mode insecure
++boot system bootflash:packages.conf
++boot system bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
+interface TwoGigabitEthernet0/0/0
+ +shutdown
+interface TwoGigabitEthernet0/0/1
+ +shutdown
+interface TwoGigabitEthernet0/0/2
+ +shutdown
+interface TwoGigabitEthernet0/0/3
+ +shutdown
+interface TwoGigabitEthernet0/0/4
+ +shutdown
+interface TwoGigabitEthernet0/0/5
+ +shutdown
+-interface TwoGigabitEthernet0/0/6
+ -no ip address
+ -shutdown
+ -negotiation auto
+-interface TwoGigabitEthernet0/0/7
+ -no ip address
+ -shutdown
+ -negotiation auto
+-interface TenGigabitEthernet0/0/8
+ -no ip address
+ -shutdown
+ -negotiation auto
+-interface TenGigabitEthernet0/0/9
+ -no ip address
+ -shutdown
+ -negotiation auto
+interface Service-Engine0/4/0
+ -no ip address
+
+Router#
+*May 29 2025 18:50:24.569: NGIOLite module 8M-2xSFP+ success read extended attr from conf file len: 1629
+
+*May 29 2025 18:50:25.425: %SPA_OIR-6-ONLINECARD: SPA (8M-2xSFP+) online in subslot 0/0
+*May 29 2025 18:50:28.910: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card F0 took 66 secs to boot
+*May 29 2025 18:50:28.910: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 0 took 61 secs to boot
+*May 29 2025 18:50:29.346: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+[TX 2026-11-01T11:06:21.362639-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg
+........................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg) = eb823acb7e6ad20c3247d76766c38eeafd634a127f70944639cb19d320e75e23ada2a8d3cd14b23cb4ba6dc757d315fff75f189dd37e12209a804d44b6ecb109
+
+
+Router#
+[TX 2026-11-01T11:06:22.582581-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg
+...Done!
+verify /sha512 (bootflash:c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg) = 1db569893a00d5df01f0f451a234fd8a51f289aec343a85c6e4f33c66153cd5e0cdd15aed183b466ce03f9f3ca6375d658ededcb23cbe584b5fb7983d7649d94
+
+
+Router#
+[TX 2026-11-01T11:06:23.800028-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg
+........................................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg) = af430bf0de6e9f957580437d18a4c77faa6eea07cd445c1f92971374c7bbe35c8f35ea26eaab41519f80ec8cc2aac2d9bd0b557f649ee5d3e8b8e7b0c2755ca9
+
+
+Router#
+[TX 2026-11-01T11:06:25.013422-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_nim_async.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_nim_async.26.02.01.SPA.pkg
+...........................................................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-firmware_nim_async.26.02.01.SPA.pkg) = 10d5816cee3d0a5fece0db78d5272a0d1104903e4bef2f4f45d7c948bc9dbdf996d329a2da80ccbbb417bab6312e1ee59ba3d08ceedf972543184dc5c019402b
+
+
+Router#
+[TX 2026-11-01T11:06:26.230376-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg
+......................................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg) = 8886277f60256d12e2cefb7fbde3ec0f19d08f1bab25d467c571a50de0e1465bfef2c4f9748033df24a38fddafda3657b67f5529dbf51c1a2477b503fd0fc042
+
+
+Router#
+[TX 2026-11-01T11:06:27.445641-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg
+.......................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg) = bd1d90ab0686c52a79754a772fe851a5c6c4a97c94ee914c9b96c6666117096a6f50f18c640ad4a57aee303014352a636fea3ac806a05667bf0a82b2660af31a
+
+
+Router#
+[TX 2026-11-01T11:06:28.664100-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_prince.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_prince.26.02.01.SPA.pkg
+................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-firmware_prince.26.02.01.SPA.pkg) = 15312b9ff4d5f0da248d7e6aebf9415aa58e7ebeecb9b99acf47d44843f2672c808ebdaa0b38ecf12f6d723498bec21894c79e941922a8c080439c8993611e86
+
+
+Router#
+[TX 2026-11-01T11:06:29.876727-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg
+.Done!
+verify /sha512 (bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg) = 5f5221079605a41295eb60787300b34c9dea3da51ab0e0a49fa15ff8988b503f706317e7cc116b799c3c4c7ca266217fe55ecab23913a35c3a80afc1931f228b
+
+
+Router#
+[TX 2026-11-01T11:06:31.088901-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg
+....................................................................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg) = 76fcc158bedcb4f137ea63a799195aef7cd257c49e38eb9930acb371bd065bc8cba8d285a565511c4d72139a10c9709203be1621a6091f4af4de834a9105eb7b
+
+
+Router#
+[TX 2026-11-01T11:06:32.303003-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_sm_async.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_sm_async.26.02.01.SPA.pkg
+.................................................................................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-firmware_sm_async.26.02.01.SPA.pkg) = 1d0f87e950a7db39630bbaa4296a18cf11accd1a59fede8b41ad7610ba4a16a485d97c598d7b10fba0462c4870378e16cf439b9ee177016462054559a74ea74b
+
+
+Router#
+[TX 2026-11-01T11:06:33.517334-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg
+........................................Done!
+verify /sha512 (bootflash:c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg) = de77b2a6ba2b9b7b9007750045c6fde4da79a3b799a35468587b7648188a6851fb3eeff792600d36df62747e1068e0c8b40519521e75811fa33c1d806009c042
+
+
+Router#
+[TX 2026-11-01T11:06:34.736184-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg
+....Done!
+verify /sha512 (bootflash:c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg) = c08535469d2d89f55325b32da0b1d6057bfac5e0594cc2fa8d3cc277aea0205dcb117f7757f4c85b95707beee88fbf43ed3d26e04d361cc6f56343b5bc1b219c
+
+
+Router#
+[TX 2026-11-01T11:06:35.952445-05:00] b'verify /sha512 bootflash:c8kg2be-rpboot.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-rpboot.26.02.01.SPA.pkg
+..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-rpboot.26.02.01.SPA.pkg) = 63dd0d3fe03048a0a1f06e544035e2d919f14f94b4e9942c7cb570702086f03ceafc84c9f905ce9c030a6f4964e57bdf13e9a5f7f8dd0ec4a53b83f0be7ee235
+
+
+Router#
+[TX 2026-11-01T11:06:41.353584-05:00] b'show platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:02:03      
+ 0/0      8M-2xSFP+           ok                    00:01:17      
+R0        C8230X-8M2X         ok, active            00:02:03      
+F0        C8230X-8M2X         ok, active            00:02:03      
+P0        PWR-CC2-66WAC       ok                    00:01:31      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20621
+  Parent process id: 20614
+  Group id         : 20621
+  Status           : S
+  Session id       : 18202
+  User time        : 381
+  Kernel time      : 388
+  Priority         : 20
+  Virtual bytes    : 2219184128
+  Resident pages   : 40574
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44253
+  Major page faults: 604
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.528 sec ago
+Last punt keepalive sent                  = 1.528 sec ago
+punt keepalive rx count                   = 27
+punt keepalive tx count                   = 27
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-11-01T11:06:53.210419-05:00] b'verify /sha512 bootflash:c8kg2be-mono-universalk9.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+*May 29 2025 18:51:19.369: %SMART_LIC-3-COMM_FAILED: Communications failure with the Cisco Smart License Utility (CSLU) : Unable to resolve server hostname/domain name ...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+*May 29 2025 18:51:32.396: %SYS-4-INSECURE_WARNING: Module: RCMD - Command: ip rcmd domain-lookup  - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:32.396: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip forward-protocol udp tftp  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:32.396: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet tos C0 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:32.396: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport enable  - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:32.396: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport flow level 16 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:32.397: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport receive window 4128 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:32.397: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport disconnect delay 0 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:32.397: %SYS-4-INSECURE_CONFIG: Module: TFTP - Command: ip tftp source-interface GigabitEthernet0  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+*May 29 2025 18:51:32.397: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp arp-glean  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:32.397: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp blocksize 512 - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:32.397: %SYS-4-INSECURE_WARNING: Module: FTP - Command: ip ftp passive  - Reason: No encryption is configured - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended.........................................................................................................................................................................................................................................................................................................................................................................................................
+*May 29 2025 18:51:32.397: %SYS-4-INSECURE_WARNING: Module: HTTP - Command: ip http server  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Use http secure server to ensure secure web access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended.............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-mono-universalk9.26.02.01.SPA.pkg) = 11a457efd1565c038f74392dbb956f49e66b50d63648ec9b8216b251ab5ef51241c083b98639b0bce55318b1ece84ee6ad3fe58ba4218c4956a8c565cd1e6c53
+
+
+Router#
+[TX 2026-11-01T11:07:38.536039-05:00] b'show platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow archive config differences bootflash:C8235C-PRE-INSTALL-running.cfg system:running-config\rshow archive config differences nvram:startup-config system:running-config\rshow ip interface brief\r'
+show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20621
+  Parent process id: 20614
+  Group id         : 20621
+  Status           : S
+  Session id       : 18202
+  User time        : 383
+  Kernel time      : 390
+  Priority         : 20
+  Virtual bytes    : 2219184128
+  Resident pages   : 40574
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44273
+  Major page faults: 604
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.704 sec ago
+Last punt keepalive sent                  = 0.704 sec ago
+punt keepalive rx count                   = 56
+punt keepalive tx count                   = 56
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show archive config differences bootflash:C8235C-PRE-INSTALL-running.cfg system:running-config
+!Contextual Config Diffs:
++system mode insecure
++boot system bootflash:packages.conf
++boot system bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
+interface Service-Engine0/4/0
+ -no ip address
+
+Router#show archive config differences nvram:startup-config system:running-config
+!Contextual Config Diffs:
++system mode insecure
+crypto pki certificate chain TP-self-signed-691797532
+ +certificate self-signed 01
+  +3082042E 30820296 A0030201 02020101 300D0609 2A864886 F70D0101 0D050030
+  +30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
+  +69666963 6174652D 36393137 39373533 32301E17 0D323530 35323931 38353033
+  +385A170D 33353035 32393138 35303338 5A303031 2E302C06 03550403 1325494F
+  +532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3639 31373937
+  +35333230 8201A230 0D06092A 864886F7 0D010101 05000382 018F0030 82018A02
+  +82018100 C2E13CD1 723A97C1 3EB516C0 0D7E460B DEFEDFBE ED0204C5 44BF6638
+  +A1AEDB14 7100A868 771C840B 39048D53 4C3B6397 D36120B7 9FBC21D5 118989D8
+  +5DD22EA2 0CD619D1 00D93088 50A13CC1 3D18AAF7 CE6BCC92 DAD12EB9 2C709865
+  +93F0E291 0ACE0EED 0D67B4A0 62BE65DA 4A5FC38B 10BF5D7A 88769D9E 98E835C3
+  +F6EB10AA A6504EB7 898E09E3 5A6A36E6 D6D873A8 86DCF6DE 0F394A49 65906CD2
+  +5F9B97F2 276C6224 5563B81C 375263A1 C82D2344 79FDC180 C560EDA8 12E22D1F
+  +28FD9F09 8015E2D7 ED9CA0C3 1CF1CE39 F02B590A AF884C3F 04E339CB 84E340EF
+  +9F103391 AF29A3BB AF930B31 4936DC19 2938B3F1 D76DD28C E099B93F 4FF8883D
+  +C7AB8035 2B56DB87 9CB83910 9891C678 B3F2655F D55A2CA6 B12E165A 1897E646
+  +46EB7F53 736CB9D4 19FF4AC7 122ACE1D E107E0C8 D440F461 394B377A 511B504F
+  +4B78F52D 141A38B3 89F0AFDD C697D5CB F2B5660C 80BCEBFC C60ECE6D DC3A730F
+  +B27B227F 648AD2D4 61C751D4 003BF2BE 5093D993 4E7A2FC3 AEB9A152 0122530A
+  +BDD62829 02030100 01A35330 51301D06 03551D0E 04160414 C199FCC6 CF9DE7BD
+  +567A8FDF F9EEA8A1 B301DBAD 301F0603 551D2304 18301680 14C199FC C6CF9DE7
+  +BD567A8F DFF9EEA8 A1B301DB AD300F06 03551D13 0101FF04 05300301 01FF300D
+  +06092A86 4886F70D 01010D05 00038201 8100104A 74945A35 B1383004 A430AE9D
+  +1D598C97 33CA5698 6140368C 4522259A 28CC41C9 51A2AA27 E4C6B24C 2ECF2732
+  +B27E3FA1 A4382426 49775BD3 CB6F5E02 F98A8F75 1A3F87DA 401F422B DF7D54CE
+  +A7425392 211FAD8B 6C721F42 50904FB3 BA2AA9C3 30480747 2F051646 DD176F0D
+  +09EFBD6A C9E837D3 D3CF73E9 AA8C2E06 6B908571 4CB2A512 F5240913 C50EEBE3
+  +9041C837 43FE728D 672FED94 C940A950 2C9A93B3 4A9E4696 2B9DF547 76F97606
+  +EC82FB2C 8B340CCC B31D9D34 26CB1099 A3E65408 A7E28A3F 2E973EC0 094481D9
+  +D2BB432D 58D39131 3BB40C41 07134A6B 2C19EDE3 215C6567 9A04D395 D7EAE07D
+  +C3C76F02 5E4D4246 2DAD802A 1C91E427 CF77FF75 40825CF7 DBD47ECF 0D0283C1
+  +E13307F5 A5E985F9 9F137E98 2B4067D6 3B9F7119 8F84DEBD 66C771C8 4E5BE464
+  +E20403AB AF432AD3 DD8CE4E2 FF7497E5 C6568739 69FCE526 362B4392 A5916172
+  +9B16D28E B601A543 04FE6FBB 85DF4332 BAB34F1C 50E867AF 07B35748 ECC5E14A
+  +E27E2C70 DB3555FA 18626BC8 AC6187A1 905A
+  +	quit
+crypto pki certificate chain SLA-TrustPoint
+ +certificate ca 01
+  +30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030
+  +32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363
+  +6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934
+  +3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305
+  +43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720
+  +526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030
+  +82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D
+  +CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520
+  +1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE
+  +4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC
+  +7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188
+  +68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7
+  +C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191
+  +C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44
+  +DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201
+  +06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85
+  +4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500
+  +03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905
+  +604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B
+  +D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8
+  +467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C
+  +7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B
+  +5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678
+  +80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB
+  +418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0
+  +D697DF7F 28
+  +	quit
+crypto pki certificate chain TP-self-signed-691797532
+ -certificate self-signed 01 nvram:IOS-Self-Sig#1.cer
+crypto pki certificate chain SLA-TrustPoint
+ -certificate ca 01 nvram:CiscoLicensi#1CA.cer
+interface Service-Engine0/4/0
+ -no ip address
+
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  down                  down    
+Tw0/0/1                unassigned      YES unset  down                  down    
+Tw0/0/2                unassigned      YES unset  down                  down    
+Tw0/0/3                unassigned      YES unset  down                  down    
+Tw0/0/4                unassigned      YES unset  down                  down    
+Tw0/0/5                unassigned      YES unset  down                  down    
+Tw0/0/6                unassigned      YES NVRAM  administratively down down    
+Tw0/0/7                unassigned      YES NVRAM  administratively down down    
+Te0/0/8                unassigned      YES NVRAM  administratively down down    
+Te0/0/9                unassigned      YES NVRAM  administratively down down    
+Service-Engine0/4/0    unassigned      YES NVRAM  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  administratively down down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#
+[TX 2026-11-01T11:07:51.691987-05:00] b'copy startup-config bootflash:C8235C-INSTALL-startup.cfg\r'
+copy startup-config bootflash:C8235C-INSTALL-startup.cfg
+Destination filename [C8235C-INSTALL-startup.cfg]? 
+[TX 2026-11-01T11:07:55.535124-05:00] b'\r'
+
+3275 bytes copied in 0.160 secs (20469 bytes/sec)
+Router#
+[TX 2026-11-01T11:07:58.999244-05:00] b'copy running-config bootflash:C8235C-INSTALL-running.cfg\r'
+copy running-config bootflash:C8235C-INSTALL-running.cfg
+Destination filename [C8235C-INSTALL-running.cfg]? 
+[TX 2026-11-01T11:08:04.628057-05:00] b'\r'
+
+7652 bytes copied in 0.244 secs (31361 bytes/sec)
+Router#
+[TX 2026-11-01T11:08:07.364630-05:00] b'copy bootflash:packages.conf bootflash:C8235C-INSTALL-packages.keep\r'
+copy bootflash:packages.conf bootflash:C8235C-INSTALL-packages.keep
+Destination filename [C8235C-INSTALL-packages.keep]? 
+[TX 2026-11-01T11:08:10.766481-05:00] b'\r'
+
+Copy in progress...C
+8405 bytes copied in 0.052 secs (161635 bytes/sec)
+Router#
+[TX 2026-11-01T11:08:16.415597-05:00] b'copy bootflash:C8235C-INSTALL-startup.cfg usb0:C8235-C-UUID83CA808243-20261101/C8235C-INSTALL-startup.cfg\r'
+copy bootflash:C8235C-INSTALL-startup.cfg usb0:C8235-C-UUID83CA808243-20261101/C8235C-INSTALL-startup.cfg
+Destination filename [C8235-C-UUID83CA808243-20261101/C8235C-INSTALL-startup.cfg]? 
+[TX 2026-11-01T11:08:20.894443-05:00] b'\r'
+
+Copy in progress...C
+3275 bytes copied in 0.052 secs (62981 bytes/sec)
+Router#
+[TX 2026-11-01T11:08:24.330266-05:00] b'verify /sha512 bootflash:C8235C-INSTALL-startup.cfg\rverify /sha512 bootflash:C8235C-INSTALL-running.cfg\rverify /sha512 bootflash:C8235C-INSTALL-packages.keep\rverify /sha512 usb0:C8235-C-UUID83CA808243-20261101/C8235C-INSTALL-startup.cfg\rshow archive config differences bootflash:C8235C-INSTALL-startup.cfg nvram:startup-config\rshow platform software infra punt-keepalive\r'
+verify /sha512 bootflash:C8235C-INSTALL-startup.cfg
+.Done!
+verify /sha512 (bootflash:C8235C-INSTALL-startup.cfg) = bed703fb2bf5a1c074884843be9147729dd15638d0ca50e88a2ef3272f64673008180f6d786796cfdc609f3607f54607dd844550cc4ca88370c991d814b907a9
+
+
+Router#verify /sha512 bootflash:C8235C-INSTALL-running.cfg
+.Done!
+verify /sha512 (bootflash:C8235C-INSTALL-running.cfg) = 5f969382a839d99b1fc7e1a793fa754dbe2c499af011e05ca60e07f13da4f65932e1cf532da3d37ea49cf0197ba133437fd7b1c212a8364a47fff7d32d99d192
+
+
+Router#verify /sha512 bootflash:C8235C-INSTALL-packages.keep
+.Done!
+verify /sha512 (bootflash:C8235C-INSTALL-packages.keep) = aed00702b34462f9f6ee911e6f3e4c1d72fef4d051739a06f782ae1e7cb4c37d58ee1ffc08f48f47a8b83708ccc47e66a753988e383be9d098405a9a81a8e891
+
+
+Router#verify /sha512 usb0:C8235-C-UUID83CA808243-20261101/C8235C-INSTALL-startup.cfg
+.Done!
+verify /sha512 (usb0:C8235-C-UUID83CA808243-20261101/C8235C-INSTALL-startup.cfg) = bed703fb2bf5a1c074884843be9147729dd15638d0ca50e88a2ef3272f64673008180f6d786796cfdc609f3607f54607dd844550cc4ca88370c991d814b907a9
+
+
+Router#show archive config differences bootflash:C8235C-INSTALL-startup.cfg nvram:startup-config
+!Contextual Config Diffs:
+!No changes were found
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.764 sec ago
+Last punt keepalive sent                  = 0.764 sec ago
+punt keepalive rx count                   = 79
+punt keepalive tx count                   = 79
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-11-01T11:08:38.052550-05:00] b'dir bootflash:\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\r'
+dir bootflash:
+Directory of bootflash:/
+
+1046550  -rw-        962338816  Sep 22 2026 20:17:42 +00:00  c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+1046539  -rw-           139264  Sep 22 2026 20:16:31 +00:00  c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg
+1046545  -rw-            53248  Sep 22 2026 20:16:31 +00:00  c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg
+1046540  -rw-         12017664  Sep 22 2026 20:16:30 +00:00  c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg
+1046547  -rw-         14700544  Sep 22 2026 20:16:30 +00:00  c8kg2be-firmware_sm_async.26.02.01.SPA.pkg
+1046543  -rw-          5677056  Sep 22 2026 20:16:30 +00:00  c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg
+1046546  -rw-         13889536  Sep 22 2026 20:16:30 +00:00  c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg
+1046544  -rw-         10444800  Sep 22 2026 20:16:30 +00:00  c8kg2be-firmware_prince.26.02.01.SPA.pkg
+1046549  -rw-           204800  Sep 22 2026 20:16:30 +00:00  c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg
+1046541  -rw-         13287424  Sep 22 2026 20:16:29 +00:00  c8kg2be-firmware_nim_async.26.02.01.SPA.pkg
+1046538  -rw-          6807552  Sep 22 2026 20:16:29 +00:00  c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg
+1046548  -rw-          2600960  Sep 22 2026 20:16:29 +00:00  c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg
+1046542  -rw-         11923456  Sep 22 2026 20:16:29 +00:00  c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg
+915713  drwx             4096  May 29 2025 19:02:03 +00:00  .rollback_timer
+77      -rw-             8405  May 29 2025 19:01:35 +00:00  packages.conf
+76      -rw-             8405  May 29 2025 19:00:41 +00:00  c8kg2be-universalk9.26.02.01.SPA.conf
+1046535  -rw-         74019996  May 29 2025 19:00:37 +00:00  c8kg2be-rpboot.26.02.01.SPA.pkg
+1046533  drwx             4096  May 29 2025 19:00:35 +00:00  .images
+75      -rw-             7437  May 29 2025 18:58:58 +00:00  C8235C-PRE-INSTALL-running.cfg
+74      -rw-             3320  May 29 2025 18:58:48 +00:00  C8235C-PRE-INSTALL-startup.cfg
+72      -rw-             2504  May 29 2025 18:58:34 +00:00  C4
+73      -rw-             3056  May 29 2025 18:57:44 +00:00  C8235CFIX1
+71      -rw-       1048008916  May 29 2025 18:54:47 +00:00  c8kg2be-universalk9.26.02.01.SPA.bin
+80      -rw-             8405  May 29 2025 18:52:22 +00:00  C8235C-INSTALL-packages.keep
+79      -rw-             7652  May 29 2025 18:52:16 +00:00  C8235C-INSTALL-running.cfg
+13      -rw-             3275  May 29 2025 18:52:07 +00:00  C8235C-INSTALL-startup.cfg
+654082  drwx             4096  May 29 2025 18:52:01 +00:00  .dbpersist
+19      -rw-              275  May 29 2025 18:50:20 +00:00  .iox_dir_list
+784900  drwx             4096  May 29 2025 18:50:17 +00:00  iox_host_data_share
+392449  drwx             4096  May 29 2025 18:50:13 +00:00  core
+392451  drwx             4096  May 29 2025 18:49:55 +00:00  guest-share
+915715  drwx             4096  May 29 2025 18:49:51 +00:00  pnp-info
+17      drwx             4096  May 29 2025 18:49:50 +00:00  .geo
+784898  drwx             4096  May 29 2025 18:49:43 +00:00  virtual-instance
+16      -rw-             1939  May 29 2025 18:49:40 +00:00  trustidrootx3_ca_062035.ca
+15      -rw-            34967  May 29 2025 18:49:40 +00:00  ios_core.p7b
+18      -rw-               30  May 29 2025 18:49:36 +00:00  throughput_monitor_params
+261649  drwx             4096  May 29 2025 18:49:27 +00:00  license_evlog
+14      -rw-           144751  May 29 2025 18:49:27 +00:00  memleak.tcl
+784897  drwx             4096  May 29 2025 18:49:20 +00:00  .prst_sync
+784899  drwx            12288  May 29 2025 18:49:09 +00:00  tracelogs
+12      -rwx              482  May 29 2025 18:48:52 +00:00  mode_event_log
+523265  drwx             4096  May 29 2025 18:48:41 +00:00  .installer
+130817  drwx             4096  May 29 2025 18:48:40 +00:00  SHARED-IOX
+654081  drwx             4096  May 29 2025 18:48:40 +00:00  pcap
+11      drwx            16384  May 29 2025 18:48:37 +00:00  lost+found
+261633  drwx             4096  May 29 2025 18:48:32 +00:00  sysboot
+
+20229492736 bytes total (16995090432 bytes free)
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20621
+  Parent process id: 20614
+  Group id         : 20621
+  Status           : S
+  Session id       : 18202
+  User time        : 385
+  Kernel time      : 393
+  Priority         : 20
+  Virtual bytes    : 2219184128
+  Resident pages   : 40606
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44293
+  Major page faults: 604
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.860 sec ago
+Last punt keepalive sent                  = 0.860 sec ago
+punt keepalive rx count                   = 86
+punt keepalive tx count                   = 86
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-11-01T11:09:26.650050-05:00] b'show platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\r'
+show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20621
+  Parent process id: 20614
+  Group id         : 20621
+  Status           : S
+  Session id       : 18202
+  User time        : 386
+  Kernel time      : 395
+  Priority         : 20
+  Virtual bytes    : 2219184128
+  Resident pages   : 40606
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44307
+  Major page faults: 604
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.812 sec ago
+Last punt keepalive sent                  = 0.812 sec ago
+punt keepalive rx count                   = 110
+punt keepalive tx count                   = 110
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-11-01T11:10:19.228549-05:00] b'show platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\r'
+show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20621
+  Parent process id: 20614
+  Group id         : 20621
+  Status           : S
+  Session id       : 18202
+  User time        : 388
+  Kernel time      : 398
+  Priority         : 20
+  Virtual bytes    : 2219184128
+  Resident pages   : 40606
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44321
+  Major page faults: 604
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.428 sec ago
+Last punt keepalive sent                  = 1.428 sec ago
+punt keepalive rx count                   = 136
+punt keepalive tx count                   = 136
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-11-01T11:11:48.332841-05:00] b'show platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow environment all\rshow bootvar\rshow install summary\rshow archive config differences bootflash:C8235C-INSTALL-running.cfg system:running-config\rshow archive config differences bootflash:C8235C-INSTALL-startup.cfg nvram:startup-config\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:07:10      
+ 0/0      8M-2xSFP+           ok                    00:06:24      
+R0        C8230X-8M2X         ok, active            00:07:10      
+F0        C8230X-8M2X         ok, active            00:07:10      
+P0        PWR-CC2-66WAC       ok                    00:06:38      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20621
+  Parent process id: 20614
+  Group id         : 20621
+  Status           : S
+  Session id       : 18202
+  User time        : 390
+  Kernel time      : 401
+  Priority         : 20
+  Virtual bytes    : 2219184128
+  Resident pages   : 40606
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44348
+  Major page faults: 604
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.500 sec ago
+Last punt keepalive sent                  = 0.500 sec ago
+punt keepalive rx count                   = 181
+punt keepalive tx count                   = 181
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          35 Celsius
+ Temp: Outlet            R0              Normal          35 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12083 mV
+ V: 5V                   R0              Normal          4943 mV
+ V: 3.3V_SB              R0              Normal          3322 mV
+ V: 3.3V_SFP             R0              Normal          3302 mV
+ V: 3.3V                 R0              Normal          3298 mV
+ V: 1.8V                 R0              Normal          1792 mV
+ V: 1.2V                 R0              Normal          1193 mV
+ V: 1.1V_DDR             R0              Normal          1100 mV
+ V: 0.75V_CORE           R0              Normal          757 mV
+ V: 0.75V_SYS            R0              Normal          849 mV
+ V: 0.8V_SW              R0              Normal          801 mV
+ V: 0.8V                 R0              Normal          799 mV
+ V: 0.75V                R0              Normal          749 mV
+ I: VP12P0_MB            R0              Normal          1497 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          17 Watts
+
+
+Router#show bootvar
+BOOT variable = bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x3922
+
+Standby not ready to show bootvar
+
+Router#show install summary
+[ R0 ] Installed Package(s) Information:
+State (St): I - Inactive, U - Activated & Uncommitted,
+            C - Activated & Committed, D - Deactivated & Uncommitted
+--------------------------------------------------------------------------------
+Type  St   Filename/Version
+--------------------------------------------------------------------------------
+IMG   C    26.02.01.0.263
+
+--------------------------------------------------------------------------------
+Auto abort timer: inactive
+--------------------------------------------------------------------------------
+
+
+Router#show archive config differences bootflash:C8235C-INSTALL-running.cfg system:running-config
+!Contextual Config Diffs:
+!No changes were found
+
+Router#show archive config differences bootflash:C8235C-INSTALL-startup.cfg nvram:startup-config
+!Contextual Config Diffs:
+!No changes were found
+
+Router#

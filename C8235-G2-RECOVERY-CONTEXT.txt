@@ -10,6 +10,19 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-C WARM INSTALL CHECK PASSED; COLD CAPTURE ARMED — 2026-11-01,11:12 EST
+Autonomous packages.conf/C4 startup, all14 full package hashes and306.979257s
+warm health pass. CPP20621/session18202 unchanged; keepalives27→56→79→86→110→136→181,
+matched and zero misses/send errors. R0/F0/0/0 ready; installed startup/running
+comparisons unchanged, IMG C/abort timer inactive/0x3922 and BOOT intact.
+Main readings35/35/52C,main12V12083mV,5V4943mV,17W; standby12V0 unresolved.
+No Ethernet/traffic test. Warm capture closed; fresh passive C observer35323
+armed11:11:55. Owner asked C off/remove only USB storage/wait10s/on, leaving
+console/assembly/cooling/battery unchanged, Ethernet absent. Owner confirmation
+and actual USB-absent cold result remain pending. No consoleTX sent by new observer.
+Evidence: c8235-recovery/c8235-c-baseline-20261101/results.json
+Warm capture: sanitized-evidence/router-console-logs/20261101-110245-C8235-C-install-autonomous-warm.log
+
 C8235-C AUTONOMOUS INSTALL BOOT VERIFIED; HEALTH ACTIVE — 2026-11-01,11:09 EST
 Saved C4 starts automatically from bootflash under packages.conf; input hashes,
 RAM preparation and runtime hook complete. Only initiating resetTX through IOS

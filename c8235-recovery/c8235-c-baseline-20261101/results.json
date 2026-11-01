@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "timezone": "America/New_York (EST UTC-05:00)",
   "tracking_id": "C8235-C",
-  "status": "internal_install_boot_verified_warm_health_active",
+  "status": "warm_install_pass_cold_USB_absent_test_armed_awaiting_owner",
   "identity": {
     "owner_description": "Third C8235-G2; power, serial and USB moved from router #2",
     "chassis_serial": "FGL2835L41Z",
@@ -61,7 +61,7 @@
     "cpld_reported": "24073021",
     "limitations": "Reported matching BIOS/ROMMON/CPLD versions do not establish full-chip byte identity or physical bank mapping. C RAM correction reaches stable IOS; uncorrected native IOS comparison was not performed."
   },
-  "next": "Complete all14 hashes and\u2265300s warm health, preserve/compare final startup and manifest, then arm fresh observer for owner USB-absent cold cycle.",
+  "next": "Await owner USB-absent power-cycle confirmation; observe cold boot without console TX, then validate actual source/config and sampled\u2265300s health.",
   "firmware_comparison": [
     {
       "field_prefix": "Firmware Version:",
@@ -423,7 +423,7 @@
     }
   },
   "internal_warm_trial": {
-    "status": "autonomous_packages_conf_IOS_verified_five_minute_health_active",
+    "status": "autonomous_internal_install_warm_boot_and_five_minute_check_pass",
     "private_capture": ".git/recovery-private/c8235-c-baseline-20261101/20261101-110245-one-autoboot/console.log",
     "session": 55997,
     "observer_armed_at": "2026-11-01T11:02:45.761827-05:00",
@@ -482,9 +482,40 @@
           "CPP_pid": 20621,
           "CPP_session": 18202,
           "send_errors": 0
+        },
+        {
+          "at": "2026-11-01T11:09:26.650050-05:00",
+          "rx": 110,
+          "tx": 110,
+          "miss": 0,
+          "CPP_pid": 20621,
+          "CPP_session": 18202,
+          "send_errors": 0
+        },
+        {
+          "at": "2026-11-01T11:10:19.228549-05:00",
+          "rx": 136,
+          "tx": 136,
+          "miss": 0,
+          "CPP_pid": 20621,
+          "CPP_session": 18202,
+          "send_errors": 0
+        },
+        {
+          "at": "2026-11-01T11:11:48.332841-05:00",
+          "rx": 181,
+          "tx": 181,
+          "miss": 0,
+          "CPP_pid": 20621,
+          "CPP_session": 18202,
+          "send_errors": 0
         }
       ],
-      "result": "pending"
+      "result": "pass_sampled_idle_gate_no_Ethernet_traffic_test",
+      "end": "2026-11-01T11:11:48.332841-05:00",
+      "duration_seconds": 306.979257,
+      "CPP_unchanged": true,
+      "unexpected_resets": 0
     },
     "initial_environment": {
       "inlet_C": 35,
@@ -614,6 +645,34 @@
       "bytes": 90785,
       "sha256": "b35d2bf35500816521b06caf7cfbc32fd905f5d5ee6a8217ba4c57c9ad38d840",
       "snapshot_of_active_capture": true
+    },
+    "closed": true,
+    "final_environment": {
+      "inlet_C": 35,
+      "outlet_C": 35,
+      "CPU_C": 52,
+      "main_12V_mV": 12083,
+      "main_5V_mV": 4943,
+      "current_mA": 1497,
+      "power_W": 17,
+      "12V_DG_ST": "0mV/Critical_Low"
+    },
+    "final_configuration_comparisons": "Both installed-running vs running and installed-startup vs NVRAM report No changes",
+    "final_install_state": "IMG C26.02.01.0.263; inactive auto-abort timer; BOOT/confreg unchanged",
+    "evidence": {
+      "raw_path": "router-console-logs/20261101-110245-C8235-C-install-autonomous-warm.log",
+      "public_path": "sanitized-evidence/router-console-logs/20261101-110245-C8235-C-install-autonomous-warm.log",
+      "bytes": 98696,
+      "sha256": "25982fce4baabfedbad59ed0c18eada86d3624317ef420f98c88b9edfa5f94b5",
+      "snapshot_of_active_capture": false
     }
+  },
+  "cold_trial": {
+    "status": "capture_armed_owner_cycle_requested_not_yet_confirmed",
+    "private_capture": ".git/recovery-private/c8235-c-baseline-20261101/20261101-111155-one-autoboot/console.log",
+    "session": 35323,
+    "armed_at": "2026-11-01T11:11:55.375814-05:00",
+    "requested_action": "C8235-C off, remove only USB storage, wait10s, power on; serial/cooling/battery/assembly unchanged, no Ethernet",
+    "expected": "PowerOn/C UUID, zeroTX through IOS welcome, internal packages.conf/C4 hook,\u2265300s health and saved config/boot/hash checks"
   }
 }

@@ -1,15 +1,18 @@
 C8235-C / FGL2835L41Z — internal install-mode recovery trial
 2026-11-01, America/New_York (EST UTC-05:00); C8235-01/05
 
-CURRENT STATUS — 11:09 EST
-Native26.2.1 install conversion and autonomous warm startup using packages.conf
-pass. C4 input/patch/hook guards and runtime correction complete without console
-assistance after the initiating reset. All14 installed package sizes/fullSHA512
-match the exact original bundle extraction; manifest matches B's vendor manifest.
+CURRENT STATUS — 11:12 EST
+Native26.2.1 install conversion, autonomous packages.conf warm startup and
+all14 installed package sizes/fullSHA512 pass. Only initiating resetTX through
+IOS welcome; C4 input/patch/hook guards and runtime correction all automatic.
 IOS reports bootflash:packages.conf, IMG C26.02.01.0.263, inactive abort timer,
-confreg0x3922. R0/F0/0/0 are ready. The warm five-minute observation began11:06:41;
-its final result and USB-absent physical cold boot remain PENDING.
-USB is present, no Ethernet. Console55997 active; do not interrupt the trial.
+confreg0x3922. R0/F0/0/0 ready. Warm health11:06:41.353584–11:11:48.332841 EST:
+306.979257seconds, CPP20621/session18202 unchanged, matched keepalives27→181,
+zero misses/send errors. Final installed startup/running comparisons unchanged.
+Main sensors35/35/52C,12083mV12V,4943mV5V,17W; standby12V0 unresolved.
+Warm capture closed. Fresh C-only observer35323 armed11:11:55. Owner asked to
+power off, remove only USB storage, wait10s and power on, leaving console and
+assembly unchanged, no Ethernet. USB-absent cold outcome remains PENDING.
 
 REQUIRED INTERNAL FILES
 bootflash:packages.conf and all14 packages in
