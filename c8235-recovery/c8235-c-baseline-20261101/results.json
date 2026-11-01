@@ -1,0 +1,235 @@
+{
+  "task": "C8235-01",
+  "date": "2026-11-01",
+  "timezone": "America/New_York (EST UTC-05:00)",
+  "tracking_id": "C8235-C",
+  "status": "RAM_diagnostics_backup_running",
+  "identity": {
+    "owner_description": "Third C8235-G2; power, serial and USB moved from router #2",
+    "chassis_serial": "pending label/native identification",
+    "owner_label_serial": "FGL2835SL41Z",
+    "soc_uuid": "13 FF FF 87 79 AD FB 83 CA 80 82 43"
+  },
+  "physical_confirmation": {
+    "power": "owner now confirms powered on after capture armed",
+    "cooling": "heatsink/fans installed",
+    "battery": "installed",
+    "assembly": "confirmed by owner",
+    "connections": "moved power, serial and USB; Ethernet details pending",
+    "programmer_probes": "none",
+    "other_console_owner": "none",
+    "ethernet": "none connected"
+  },
+  "console": {
+    "port": "/dev/cu.usbserial-AL00F7EQ",
+    "initial_settings": "115200 8N1 no flow; clear C boot output verifies setting",
+    "private_capture": ".git/recovery-private/c8235-c-baseline-20261101/20261101-103429/console.log",
+    "armed_at": "2026-11-01T10:34:29.770157-05:00",
+    "behavior": "Reuse Console/hold only; stop on UUID banner with Ctrl-C for inspection; no B-specific boot/patch routine invoked",
+    "closed": false
+  },
+  "comparison_baseline_B": {
+    "chassis_serial": "FGL2835LBHU",
+    "source": "sanitized-evidence/router-console-logs/20261101-093231-C8235-B-install-autonomous-cold.log",
+    "boot_stub_firmware_version": "2024-07-17 01:44:08",
+    "ebf_version": "11.23.12",
+    "ebf_built": "Wed, 17 Jul 2024 01:42:53 +0000",
+    "board": "mirabile-arata r2",
+    "chip": "0xbd Pass A0 (alt pkg)",
+    "boot_source_reported": "SPI0_CS0,REMOTE, using SPI0_CS0",
+    "ram": "16 GB, 4800 MT/s, DDR5",
+    "uefi_bin_embedded_version": "0B.17.0C 20240622-0651 00000000",
+    "bl2": "v2.4(release):3d24dbcf (Marvell-11.23.12); built 18:42:08, Jul 16 2024",
+    "bl31": "v2.4(release):3d24dbcf (Marvell-11.23.12); built 18:42:53, Jul 16 2024",
+    "rommon": "SDK112312-SoC1-SB-v12.1.22 DEVELOPMENT SOFTWARE",
+    "rommon_compiled": "Tue Jul 16 18:38:18 2024",
+    "boot_rom_reported": "Boot ROM0",
+    "soc_uuid": "13 FF FF 87 79 AD FB 7C 6D E0 81 A7",
+    "cpld_reported": "24073021",
+    "limitations": "Reported versions and paths are not full-chip byte identity or physical bank mapping. B-specific loopback remedy is not yet validated on C."
+  },
+  "next": "Temporary unsaved diagnostic boot parameter; boot USB 26.2.1 into RAM shell, inspect internal storage and native chassis identity. No firmware, filesystem format or persistent boot/config changes.",
+  "firmware_comparison": [
+    {
+      "field_prefix": "Firmware Version:",
+      "C_reported": "Firmware Version: 2024-07-17 01:44:08",
+      "B_reported": "Firmware Version: 2024-07-17 01:44:08",
+      "same": true
+    },
+    {
+      "field_prefix": "EBF Version:",
+      "C_reported": "EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000",
+      "B_reported": "EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000",
+      "same": true
+    },
+    {
+      "field_prefix": "Board Model:",
+      "C_reported": "Board Model:    mirabile-arata",
+      "B_reported": "Board Model:    mirabile-arata",
+      "same": true
+    },
+    {
+      "field_prefix": "Board Revision:",
+      "C_reported": "Board Revision: r2",
+      "B_reported": "Board Revision: r2",
+      "same": true
+    },
+    {
+      "field_prefix": "Chip:",
+      "C_reported": "Chip:  0xbd Pass A0 (alt pkg)",
+      "B_reported": "Chip:  0xbd Pass A0 (alt pkg)",
+      "same": true
+    },
+    {
+      "field_prefix": "SKU:",
+      "C_reported": "SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP",
+      "B_reported": "SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP",
+      "same": true
+    },
+    {
+      "field_prefix": "Boot:",
+      "C_reported": "Boot:  SPI0_CS0,REMOTE, using SPI0_CS0",
+      "B_reported": "Boot:  SPI0_CS0,REMOTE, using SPI0_CS0",
+      "same": true
+    },
+    {
+      "field_prefix": "DRAM:",
+      "C_reported": "DRAM: 16 GB, 4800 MT/s, DDR5",
+      "B_reported": "DRAM: 16 GB, 4800 MT/s, DDR5",
+      "same": true
+    },
+    {
+      "field_prefix": "uefi.bin",
+      "C_reported": "uefi.bin             version: 0B.17.0C 20240622-0651 00000000",
+      "B_reported": "uefi.bin             version: 0B.17.0C 20240622-0651 00000000",
+      "same": true
+    },
+    {
+      "field_prefix": "NOTICE:  BL2: v",
+      "C_reported": "NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)",
+      "B_reported": "NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)",
+      "same": true
+    },
+    {
+      "field_prefix": "NOTICE:  BL2: Built",
+      "C_reported": "NOTICE:  BL2: Built : 18:42:08, Jul 16 2024",
+      "B_reported": "NOTICE:  BL2: Built : 18:42:08, Jul 16 2024",
+      "same": true
+    },
+    {
+      "field_prefix": "NOTICE:  BL31: v",
+      "C_reported": "NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)",
+      "B_reported": "NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)",
+      "same": true
+    },
+    {
+      "field_prefix": "NOTICE:  BL31: Built",
+      "C_reported": "NOTICE:  BL31: Built : 18:42:53, Jul 16 2024",
+      "B_reported": "NOTICE:  BL31: Built : 18:42:53, Jul 16 2024",
+      "same": true
+    },
+    {
+      "field_prefix": "System Bootstrap,",
+      "C_reported": "System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE",
+      "B_reported": "System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE",
+      "same": true
+    },
+    {
+      "field_prefix": "Compiled Tue",
+      "C_reported": "Compiled Tue Jul 16 18:38:18 2024 by rmaladi",
+      "B_reported": "Compiled Tue Jul 16 18:38:18 2024 by rmaladi",
+      "same": true
+    },
+    {
+      "field_prefix": "Boot ROM0",
+      "C_reported": "Boot ROM0",
+      "B_reported": "Boot ROM0",
+      "same": true
+    }
+  ],
+  "rommon_baseline": {
+    "reached": true,
+    "autoboot_stopped_at": "2026-11-01T10:35:55.763161-05:00",
+    "env": "PS1 and MAC_ADDR only; no BOOT or USER_BOOT_PARAM listed",
+    "config_register": "0x1820",
+    "config_register_menu": "Read; declined change with n",
+    "bootflash": "dev lists internal flash, but dir bootflash: returns Device not found bootflash:",
+    "usb": "Readable directory; exact 26.2.1 filename and 1048008916-byte size listed; new hash verification pending",
+    "meminfo": "Unexpected platform; No devices defined. Main memory 16271 MB; NVRAM 128 KB",
+    "read_only_command_typo": "An unintended non-ASCII meminfo spelling was rejected; corrected read-only meminfo then ran.",
+    "private_snapshot": {
+      "path": ".git/recovery-private/c8235-c-baseline-20261101/pre-diagnostic-rommon.log",
+      "bytes": 11998,
+      "sha256": "94e7e9af9754551323b9d6dad6054e52486f21b26731e5617fdd96a018f7545b"
+    },
+    "evidence": {
+      "raw_path": "router-console-logs/20261101-103429-C8235-C-ROMMON-baseline.log",
+      "public_path": "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-ROMMON-baseline.log",
+      "bytes": 11998,
+      "sha256": "94e7e9af9754551323b9d6dad6054e52486f21b26731e5617fdd96a018f7545b",
+      "snapshot_of_active_capture": true
+    }
+  },
+  "diagnostic_boot": {
+    "parameter": "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0;exec${IFS}/init",
+    "parameter_set_at": "2026-11-01T10:36:56.838252-05:00",
+    "saved_to_nvram": false,
+    "readback_matches": true,
+    "command": "boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin",
+    "sent_at": "2026-11-01T10:37:04.326127-05:00",
+    "status": "RAM shell reached; initial 9600 shell changed to 115200, no init continuation",
+    "usb_image_sha256": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456",
+    "usb_image_matches_exact_B_source": true
+  },
+  "storage": {
+    "linux_device": "/dev/mmcblk0",
+    "bytes": 20845690880,
+    "sectors_512_bytes": 40714240,
+    "device_name": "064G90",
+    "cid": "110100303634473930017498d80f9900",
+    "manufacture_date": "09/2022",
+    "enumeration": "HS200; main 19.4 GiB, boot0/boot1 each8 MiB, RPMB16 MiB",
+    "partitions": "No mmcblk0p* devices; fdisk lists no table; blkid -p exits2",
+    "read_only_samples": {
+      "bytes_each": 1048576,
+      "offsets_MiB": [
+        0,
+        4,
+        1024,
+        10240,
+        19879
+      ],
+      "sha256_all": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+      "matches_locally_calculated_all_zero_sample": true,
+      "whole_device_blank": "not yet established"
+    },
+    "backup": {
+      "status": "running",
+      "path_on_usb": "C8235-C-UUID83CA808243-20261101/mmcblk0-before.img.gz",
+      "started_at": "2026-11-01T10:39:33.618327-05:00",
+      "pid": 215,
+      "scope": "Full20,845,690,880-byte eMMC user area,4970x4MiB; excludes boot0/boot1/RPMB and SPI",
+      "method": "Read-only dd source piped to gzip-1 on USB; pipefail and noclobber; status/log in RAM. Compressed for FAT32/local preservation, never public inclusion.",
+      "first_attempt": "Background process210 failed before running because /tmp did not exist; no source write or archive file. Created RAM /tmp and restarted with no-overwrite guard."
+    },
+    "startup_risk": "Native check_partitions.sh can rewrite invalid partition tables; normal init remains held until preservation/review."
+  },
+  "loopback_preflight": {
+    "kernel": "6.6.95",
+    "board_argument": "arata",
+    "num_rvu_vfs": 32,
+    "launch_net_sha256": "f7d617bd80362c4bc564fc2c848bd95ecf84251be0d11e1707a95ca301d8cdc4",
+    "matches_B_source": true,
+    "fix_applied": false
+  },
+  "tpm_observation": "Kernel reports TPM self-test error256 and manual startup, same warning class as B; cause unresolved, no TPM commands issued.",
+  "candidate": {
+    "path": "experimental-recovery/c8235-c-bound16-20261101/boot-bound16.sh",
+    "sha256": "23bc0128a189aee520f2908e169572e88e4a9492925c589c2410802d96cd8a87",
+    "bytes": 3056,
+    "purpose": "C-specific trial copy of established B RAM-only loopback correction",
+    "derivation": "B source preserved; only comments changed to bind C and its fresh ROMMON UUID. Noncomment code compared equal.",
+    "validation": "bash -n passed; no live application yet",
+    "status": "prepared_not_deployed"
+  }
+}

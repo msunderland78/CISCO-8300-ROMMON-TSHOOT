@@ -10,7 +10,52 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-CURRENT HANDOFF: AUTOMATIC PACKAGE CLEANUP COMPLETE — 2026-11-01,10:21 EST
+C8235-C RAM DIAGNOSTICS — 2026-11-01,10:39 EST
+USB26.2.1 reaches the maintenance shell; kernel6.6.95, boardarata,32VFs and
+exact launch_net source match B. No loopback correction or normal init yet.
+Linux sees20,845,690,880-byte eMMC but no partitions; blkid exits2 and five
+1MiB samples (including both ends) exactly match zero bytes. A full compressed
+read to the separate C USB directory is active before any startup formatting;
+whole-device blankness/readback are not yet established. TPM self-test256
+recurs. Native serial remains pending. Console72839 active; do not power off.
+Evidence: c8235-recovery/c8235-c-baseline-20261101/results.json
+
+CURRENT HANDOFF: C8235-C FIRST ROMMON BASELINE — 2026-11-01,10:37 EST
+Owner moved power, RJ45 console and USB storage from router #2/B to router
+#3/C. C is now assembled, heatsink/fans and battery installed, no programmer
+or probes, no other console application; no Ethernet connected. Owner label
+serial is reported exactly as FGL2835SL41Z; native chassis serial is pending.
+B's earlier powered-on handoff below is superseded by this reported cable move.
+
+Fresh exclusive /dev/cu.usbserial-AL00F7EQ capture at 115200/8N1/no flow began
+10:34:29 before owner powered C on. C reaches development ROMMON; three Ctrl-C
+bytes stop autoboot at 10:35:55. Clear output verifies its console setting.
+C UUID: 13 FF FF 87 79 AD FB 83 CA 80 82 43, distinct from B.
+
+Reported early firmware matches B in all 16 compared banner fields:
+- Boot stub firmware 2024-07-17 01:44:08; EBF 11.23.12, July 17, 2024 build.
+- Arata r2 / A0 alt package; 16 GB DDR5 at 4800 MT/s.
+- uefi.bin 0B.17.0C 20240622-0651; BL2/BL31 v2.4/3d24dbcf,
+  built July 16, 2024 at18:42:08/18:42:53 respectively.
+- SDK112312-SoC1-SB-v12.1.22 DEVELOPMENT ROMMON, compiled July16 at18:38:18;
+  reported Boot ROM0 and SPI0_CS0 path. showmon -v agrees.
+These are version comparisons, not full-chip equality or physical bank mapping.
+
+Differences: C's confreg is0x1820 (boot to ROMMON), versus B's0x3922. C set
+lists only PS1/MAC_ADDR, with no BOOT/USER_BOOT_PARAM. dev lists internal flash,
+but dir bootflash: returns Device not found. USB directory is readable and
+lists the 1,048,008,916-byte26.2.1 bundle. No internal-storage cause established.
+Read confreg menu and declined changes. No firmware/security/persistent writes.
+
+At10:36:56 set/read back the established unsaved diagnostic-shell parameter;
+no sync. At10:37:04 booted the26.2.1 USB image to inspect storage in RAM before
+choosing recovery. Image loading; no IOS/loopback-fix result on C yet. Console
+capture72839 remains active. Native serial/CPLD, USB hash and storage remain
+pending. Do not apply B's serial-specific automation or assume its remedy.
+Evidence: c8235-recovery/c8235-c-baseline-20261101/results.json
+ROMMON snapshot: sanitized-evidence/router-console-logs/20261101-103429-C8235-C-ROMMON-baseline.log
+
+AUTOMATIC PACKAGE CLEANUP COMPLETE — 2026-11-01,10:21 EST
 Owner requested Cisco's automatic command. On freshly confirmed powered
 C8235-B/FGL2835LBHU with USB absent and exclusive 115200 console, native
 install remove inactive completed at 10:20. It removed the 13 obsolete

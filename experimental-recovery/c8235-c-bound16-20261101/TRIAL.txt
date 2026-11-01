@@ -1,0 +1,33 @@
+C8235-C RAM loopback trial — PREPARED, NOT YET APPLIED
+2026-11-01, America/New_York (EST); task C8235-01
+
+Owner identifies router #3; reported label FGL2835SL41Z awaits native serial
+confirmation. Fresh ROMMON SoC UUID: 13 FF FF 87 79 AD FB 83 CA 80 82 43.
+This is a separate chassis from B/FGL2835LBHU. Current C has no Ethernet,
+USB storage attached, cooling/battery installed and exclusive RJ45 console.
+
+Reported BIOS/UEFI/ROMMON fields match B, but C starts with confreg0x1820,
+no boot selection and no readable internal partitions. Linux USB26.2.1 RAM
+shell sees20,845,690,880-byte eMMC. Full preservation is underway; no normal
+init until the existing contents and backup are checked, because native
+partition checking may rewrite the table. Do not format speculatively.
+
+Candidate boot-bound16.sh is AI-assisted work derived from the preserved
+B candidate. Only the leading comments changed; noncomment code is identical.
+Fresh C preflight independently confirms kernel6.6.95, boardarata,32RVU VFs,
+and launch_net SHA256 f7d617bd80362c4bc564fc2c848bd95ecf84251be0d11e1707a95ca301d8cdc4.
+USB image SHA256 independently matches the exact26.2.1 source.
+Candidate SHA256: 23bc0128a189aee520f2908e169572e88e4a9492925c589c2410802d96cd8a87
+Size:3,056 bytes. Offline bash -n passed. No C runtime success is claimed.
+
+If preservation and identity checks pass, transfer this separate candidate
+into RAM, verify its hash, invoke --prepare-only, verify resulting RAM script
+and hook hashes, unmount USB and deliberately continue the existing init.
+Do not run B's serial-specific automated boot tool on C. Existing console
+capture uses only its generic Console/hold components; no B boot routine.
+No image/package patch, ROMMON-code/security change or persistent boot-setting
+change is part of this candidate. Current diagnostic parameter is unsaved.
+
+Record deployment, startup, partition effects, native chassis identity and
+operational results separately before promoting this beyond a trial.
+../../c8235-recovery/c8235-c-baseline-20261101/results.json
