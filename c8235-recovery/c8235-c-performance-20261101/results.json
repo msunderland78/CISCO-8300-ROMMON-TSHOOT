@@ -3,7 +3,7 @@
   "chassis": "C8235-C / C8230X-8M2X / FGL2835L41Z",
   "date": "2026-11-01",
   "timezone": "America/New_York (EST, UTC-05:00)",
-  "status": "Three1Gtests_and10G850control_complete;10Guncapped_active",
+  "status": "OwnercorrectedVMhost;freshendpointcheck_and_repeat_tests",
   "authorization": "Owner requests850Mbps,1Gbps,10Gbps tests; confirms both cables moved B\u2192C ports7/8 with far ends unchanged. USB absent, same cooling/battery/assembly/exclusive console, no probes.",
   "baseline": "../c8235-c-baseline-20261101/results.json",
   "comparison": [
@@ -74,7 +74,7 @@
         "fqrate": 0,
         "interval": 5
       },
-      "command": "ip netns exec c8235-perf83 iperf3 -c192.168.5.3 -B192.168.83.50 -t60 -i5 -J --get-server-output",
+      "equivalent_command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.50 -t60 -i5 -J --get-server-output",
       "direction": "83\u21925",
       "receiver_bps": 941389722.82431,
       "receiver_bytes": 7064387584,
@@ -355,12 +355,12 @@
         }
       },
       "qfp_drop_deltas": {
-        "BadUidbSubIdx": 135,
-        "Ipv4NoRoute": 0,
-        "Ipv6NoRoute": 0,
-        "UnconfiguredIpv6Fia": 0,
         "Ipv4NoAdj": 0,
-        "IpTtlExceeded": 0
+        "BadUidbSubIdx": 135,
+        "IpTtlExceeded": 0,
+        "UnconfiguredIpv6Fia": 0,
+        "Ipv4NoRoute": 0,
+        "Ipv6NoRoute": 0
       }
     },
     {
@@ -387,7 +387,7 @@
         "fqrate": 0,
         "interval": 5
       },
-      "command": "ip netns exec c8235-perf83 iperf3 -c192.168.5.3 -B192.168.83.50 -R -t60 -i5 -J --get-server-output",
+      "equivalent_command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.50 -R -t60 -i5 -J --get-server-output",
       "direction": "5\u219283",
       "receiver_bps": 918582752.8221955,
       "receiver_bytes": 6889930752,
@@ -656,12 +656,12 @@
         }
       },
       "qfp_drop_deltas": {
-        "BadUidbSubIdx": 133,
-        "Ipv4NoRoute": 0,
-        "Ipv6NoRoute": 0,
-        "UnconfiguredIpv6Fia": 0,
         "Ipv4NoAdj": 0,
-        "IpTtlExceeded": 0
+        "BadUidbSubIdx": 133,
+        "IpTtlExceeded": 0,
+        "UnconfiguredIpv6Fia": 0,
+        "Ipv4NoRoute": 0,
+        "Ipv6NoRoute": 0
       }
     },
     {
@@ -688,7 +688,7 @@
         "fqrate": 0,
         "interval": 5
       },
-      "command": "ip netns exec c8235-perf83 iperf3 -c192.168.5.3 -B192.168.83.50 -R -b850M -t30 -i5 -J --get-server-output",
+      "equivalent_command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.50 -R -b850M -t30 -i5 -J --get-server-output",
       "direction": "5\u219283",
       "receiver_bps": 849963948.1463144,
       "receiver_bytes": 3187802112,
@@ -903,12 +903,891 @@
         }
       },
       "qfp_drop_deltas": {
-        "BadUidbSubIdx": 91,
-        "Ipv4NoRoute": 0,
-        "Ipv6NoRoute": 2,
-        "UnconfiguredIpv6Fia": 0,
         "Ipv4NoAdj": 0,
-        "IpTtlExceeded": 0
+        "BadUidbSubIdx": 91,
+        "IpTtlExceeded": 0,
+        "UnconfiguredIpv6Fia": 0,
+        "Ipv4NoRoute": 0,
+        "Ipv6NoRoute": 2
+      }
+    },
+    {
+      "id": "port8-forward-unlimited",
+      "state": "completed",
+      "error": null,
+      "native_start": {
+        "time": "Sun, 01 Nov 2026 16:32:15 GMT",
+        "timesecs": 1793550735,
+        "timemillisecs": 1793550735757
+      },
+      "native_test_start": {
+        "protocol": "TCP",
+        "num_streams": 1,
+        "blksize": 131072,
+        "omit": 0,
+        "duration": 60,
+        "bytes": 0,
+        "blocks": 0,
+        "reverse": 0,
+        "tos": 0,
+        "target_bitrate": 0,
+        "bidir": 0,
+        "fqrate": 0,
+        "interval": 5
+      },
+      "equivalent_command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.50 -t60 -i5 -J --get-server-output",
+      "direction": "83\u21925",
+      "receiver_bps": 2301000400.3689227,
+      "receiver_bytes": 17259560960,
+      "receiver_seconds": 60.007155,
+      "sender_retransmits": 67,
+      "endpoint_cpu_utilization_percent": {
+        "host_total": 5.050972386554902,
+        "host_user": 0.09889012948489342,
+        "host_system": 4.952083923542253,
+        "remote_total": 32.53839154296935,
+        "remote_user": 2.281932651338063,
+        "remote_system": 30.256460558099057
+      },
+      "intervals": [
+        {
+          "start": 0,
+          "end": 5.004865,
+          "seconds": 5.0048651695251465,
+          "bytes": 1387790336,
+          "bits_per_second": 2218306050.6010337,
+          "retransmits": 12,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 5.004865,
+          "end": 10.004843,
+          "seconds": 4.999978065490723,
+          "bytes": 1449132032,
+          "bits_per_second": 2318621422.7646217,
+          "retransmits": 0,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 10.004843,
+          "end": 15.004839,
+          "seconds": 4.999996185302734,
+          "bytes": 1446903808,
+          "bits_per_second": 2315047859.0413475,
+          "retransmits": 0,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 15.004839,
+          "end": 20.004522,
+          "seconds": 4.999682903289795,
+          "bytes": 1447428096,
+          "bits_per_second": 2316031834.81511,
+          "retransmits": 0,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 20.004522,
+          "end": 25.004577,
+          "seconds": 5.000054836273193,
+          "bytes": 1442840576,
+          "bits_per_second": 2308519603.47767,
+          "retransmits": 4,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 25.004577,
+          "end": 30.004554,
+          "seconds": 4.999977111816406,
+          "bytes": 1439039488,
+          "bits_per_second": 2302473720.6882477,
+          "retransmits": 45,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 30.004554,
+          "end": 35.004517,
+          "seconds": 4.99996280670166,
+          "bytes": 1447690240,
+          "bits_per_second": 2316321614.328171,
+          "retransmits": 0,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 35.004517,
+          "end": 40.004558,
+          "seconds": 5.0000410079956055,
+          "bytes": 1433927680,
+          "bits_per_second": 2294265471.3543267,
+          "retransmits": 0,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 40.004558,
+          "end": 45.004522,
+          "seconds": 4.999964237213135,
+          "bytes": 1444675584,
+          "bits_per_second": 2311497467.5182543,
+          "retransmits": 4,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 45.004522,
+          "end": 50.00452,
+          "seconds": 4.999998092651367,
+          "bytes": 1438777344,
+          "bits_per_second": 2302044628.560335,
+          "retransmits": 2,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 50.00452,
+          "end": 55.00452,
+          "seconds": 5,
+          "bytes": 1437990912,
+          "bits_per_second": 2300785459.2,
+          "retransmits": 0,
+          "omitted": false,
+          "sender": true
+        },
+        {
+          "start": 55.00452,
+          "end": 60.0049,
+          "seconds": 5.000380039215088,
+          "bytes": 1443364864,
+          "bits_per_second": 2309208264.46074,
+          "retransmits": 0,
+          "omitted": false,
+          "sender": true
+        }
+      ],
+      "router_before": {
+        "at": "2026-11-01T11:32:14.249856-05:00",
+        "CPP_pid": 20164,
+        "CPP_session": 18159,
+        "keepalive_rx": 395,
+        "keepalive_tx": 395,
+        "keepalive_miss": 0,
+        "send_no_buffer": 0,
+        "send_fail": 0,
+        "qfp_5sec_pct": 12,
+        "CPU_C": 52,
+        "inlet_C": 36,
+        "outlet_C": 35,
+        "power_W": 17,
+        "port7": {
+          "state": "administratively down, line protocol is down ",
+          "rx_packets": 9049306,
+          "rx_bytes": 10678178824,
+          "tx_packets": 6393607,
+          "tx_bytes": 7487184872,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 1,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "state": "up, line protocol is up ",
+          "rx_packets": 23616118,
+          "rx_bytes": 28711753754,
+          "tx_packets": 26270318,
+          "tx_bytes": 31913228992,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 499,
+          "Disabled": 1,
+          "InjectErr": 1,
+          "IpTtlExceeded": 2,
+          "Ipv4NoAdj": 1,
+          "Ipv4NoRoute": 5,
+          "Ipv6NoRoute": 8,
+          "UnconfiguredIpv6Fia": 6
+        }
+      },
+      "router_during": [
+        {
+          "at": "2026-11-01T11:32:38.163117-05:00",
+          "keepalive_rx": 407,
+          "keepalive_tx": 407,
+          "keepalive_miss": 0,
+          "send_no_buffer": 0,
+          "send_fail": 0,
+          "qfp_5sec_pct": 12
+        }
+      ],
+      "router_after": {
+        "at": "2026-11-01T11:33:16.553936-05:00",
+        "CPP_pid": 20164,
+        "CPP_session": 18159,
+        "keepalive_rx": 426,
+        "keepalive_tx": 426,
+        "keepalive_miss": 0,
+        "send_no_buffer": 0,
+        "send_fail": 0,
+        "qfp_5sec_pct": 13,
+        "CPU_C": 52,
+        "inlet_C": 36,
+        "outlet_C": 35,
+        "power_W": 17,
+        "port7": {
+          "state": "administratively down, line protocol is down ",
+          "rx_packets": 9049306,
+          "rx_bytes": 10678178824,
+          "tx_packets": 6393607,
+          "tx_bytes": 7487184872,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 1,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "state": "up, line protocol is up ",
+          "rx_packets": 37795639,
+          "rx_bytes": 46438515858,
+          "tx_packets": 40449703,
+          "tx_bytes": 49640005953,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 499,
+          "Disabled": 1,
+          "InjectErr": 1,
+          "IpTtlExceeded": 2,
+          "Ipv4NoAdj": 1,
+          "Ipv4NoRoute": 5,
+          "Ipv6NoRoute": 8,
+          "UnconfiguredIpv6Fia": 6
+        }
+      },
+      "raw_path": "c8235-recovery/c8235-c-performance-20261101/port8-forward-unlimited.json.log",
+      "public_path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port8-forward-unlimited.json.log",
+      "native_sha256": "5989e296f23aa7df8b8c014905004ba4c036f53314c836b7c85224cd4da928c6",
+      "port_deltas": {
+        "port7": {
+          "rx_packets": 0,
+          "rx_bytes": 0,
+          "tx_packets": 0,
+          "tx_bytes": 0,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 0,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "rx_packets": 14179521,
+          "rx_bytes": 17726762104,
+          "tx_packets": 14179385,
+          "tx_bytes": 17726776961,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 0,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        }
+      },
+      "qfp_drop_deltas": {
+        "Ipv4NoAdj": 0,
+        "BadUidbSubIdx": 0,
+        "IpTtlExceeded": 0,
+        "UnconfiguredIpv6Fia": 0,
+        "InjectErr": 0,
+        "Disabled": 0,
+        "Ipv4NoRoute": 0,
+        "Ipv6NoRoute": 0
+      }
+    },
+    {
+      "id": "port8-reverse-fourstreams",
+      "state": "completed",
+      "error": null,
+      "native_start": {
+        "time": "Sun, 01 Nov 2026 16:33:18 GMT",
+        "timesecs": 1793550798,
+        "timemillisecs": 1793550798057
+      },
+      "native_test_start": {
+        "protocol": "TCP",
+        "num_streams": 4,
+        "blksize": 131072,
+        "omit": 0,
+        "duration": 30,
+        "bytes": 0,
+        "blocks": 0,
+        "reverse": 1,
+        "tos": 0,
+        "target_bitrate": 0,
+        "bidir": 0,
+        "fqrate": 0,
+        "interval": 5
+      },
+      "equivalent_command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.50 -P 4 -R -t30 -i5 -J --get-server-output",
+      "direction": "5\u219283",
+      "receiver_bps": 2318991917.331529,
+      "receiver_bytes": 8697544704,
+      "receiver_seconds": 30.004571,
+      "sender_retransmits": 3809,
+      "endpoint_cpu_utilization_percent": {
+        "host_total": 28.848451460028553,
+        "host_user": 1.712154969664153,
+        "host_system": 27.1362964903644,
+        "remote_total": 5.7846695080531685,
+        "remote_user": 0,
+        "remote_system": 5.7846761722385365
+      },
+      "intervals": [
+        {
+          "start": 0,
+          "end": 5.004577,
+          "seconds": 5.004577159881592,
+          "bytes": 1448214528,
+          "bits_per_second": 2315023997.8064637,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 5.004577,
+          "end": 10.004574,
+          "seconds": 4.99999713897705,
+          "bytes": 1446117376,
+          "bits_per_second": 2313789125.5607576,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 10.004574,
+          "end": 15.004581,
+          "seconds": 5.000007152557373,
+          "bytes": 1451098112,
+          "bits_per_second": 2321753657.9047513,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 15.004581,
+          "end": 20.005028,
+          "seconds": 5.000446796417236,
+          "bytes": 1450573824,
+          "bits_per_second": 2320710741.3510647,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 20.005028,
+          "end": 25.004573,
+          "seconds": 4.999545097351074,
+          "bytes": 1450573824,
+          "bits_per_second": 2321129295.9730473,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 25.004573,
+          "end": 30.004571,
+          "seconds": 4.999998092651367,
+          "bytes": 1450967040,
+          "bits_per_second": 2321548149.600338,
+          "omitted": false,
+          "sender": false
+        }
+      ],
+      "router_before": {
+        "at": "2026-11-01T11:33:16.553936-05:00",
+        "CPP_pid": 20164,
+        "CPP_session": 18159,
+        "keepalive_rx": 426,
+        "keepalive_tx": 426,
+        "keepalive_miss": 0,
+        "send_no_buffer": 0,
+        "send_fail": 0,
+        "qfp_5sec_pct": 13,
+        "CPU_C": 52,
+        "inlet_C": 36,
+        "outlet_C": 35,
+        "power_W": 17,
+        "port7": {
+          "state": "administratively down, line protocol is down ",
+          "rx_packets": 9049306,
+          "rx_bytes": 10678178824,
+          "tx_packets": 6393607,
+          "tx_bytes": 7487184872,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 1,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "state": "up, line protocol is up ",
+          "rx_packets": 37795639,
+          "rx_bytes": 46438515858,
+          "tx_packets": 40449703,
+          "tx_bytes": 49640005953,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 499,
+          "Disabled": 1,
+          "InjectErr": 1,
+          "IpTtlExceeded": 2,
+          "Ipv4NoAdj": 1,
+          "Ipv4NoRoute": 5,
+          "Ipv6NoRoute": 8,
+          "UnconfiguredIpv6Fia": 6
+        }
+      },
+      "router_during": [
+        {
+          "at": "2026-11-01T11:33:37.820118-05:00",
+          "keepalive_rx": 437,
+          "keepalive_tx": 437,
+          "keepalive_miss": 0,
+          "send_no_buffer": 0,
+          "send_fail": 0,
+          "qfp_5sec_pct": 12
+        }
+      ],
+      "router_after": {
+        "at": "2026-11-01T11:33:56.664516-05:00",
+        "CPP_pid": 20164,
+        "CPP_session": 18159,
+        "keepalive_rx": 446,
+        "keepalive_tx": 446,
+        "keepalive_miss": 0,
+        "send_no_buffer": 0,
+        "send_fail": 0,
+        "qfp_5sec_pct": 2,
+        "CPU_C": 52,
+        "inlet_C": 36,
+        "outlet_C": 36,
+        "power_W": 17,
+        "port7": {
+          "state": "administratively down, line protocol is down ",
+          "rx_packets": 9049306,
+          "rx_bytes": 10678178824,
+          "tx_packets": 6393607,
+          "tx_bytes": 7487184872,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 1,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "state": "up, line protocol is up ",
+          "rx_packets": 45770997,
+          "rx_bytes": 56677956888,
+          "tx_packets": 48424957,
+          "tx_bytes": 59879435088,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 499,
+          "Disabled": 1,
+          "InjectErr": 1,
+          "IpTtlExceeded": 2,
+          "Ipv4NoAdj": 1,
+          "Ipv4NoRoute": 5,
+          "Ipv6NoRoute": 8,
+          "UnconfiguredIpv6Fia": 6
+        }
+      },
+      "raw_path": "c8235-recovery/c8235-c-performance-20261101/port8-reverse-fourstreams.json.log",
+      "public_path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port8-reverse-fourstreams.json.log",
+      "native_sha256": "ffb0814a163160f194a22dd24a54a5daabf89982c423fde02901ae43f232824a",
+      "port_deltas": {
+        "port7": {
+          "rx_packets": 0,
+          "rx_bytes": 0,
+          "tx_packets": 0,
+          "tx_bytes": 0,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 0,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "rx_packets": 7975358,
+          "rx_bytes": 10239441030,
+          "tx_packets": 7975254,
+          "tx_bytes": 10239429135,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 0,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        }
+      },
+      "qfp_drop_deltas": {
+        "Ipv4NoAdj": 0,
+        "BadUidbSubIdx": 0,
+        "IpTtlExceeded": 0,
+        "UnconfiguredIpv6Fia": 0,
+        "InjectErr": 0,
+        "Disabled": 0,
+        "Ipv4NoRoute": 0,
+        "Ipv6NoRoute": 0
+      }
+    },
+    {
+      "id": "port8-reverse-unlimited",
+      "state": "completed",
+      "error": null,
+      "native_start": {
+        "time": "Sun, 01 Nov 2026 16:31:13 GMT",
+        "timesecs": 1793550673,
+        "timemillisecs": 1793550673923
+      },
+      "native_test_start": {
+        "protocol": "TCP",
+        "num_streams": 1,
+        "blksize": 131072,
+        "omit": 0,
+        "duration": 60,
+        "bytes": 0,
+        "blocks": 0,
+        "reverse": 1,
+        "tos": 0,
+        "target_bitrate": 0,
+        "bidir": 0,
+        "fqrate": 0,
+        "interval": 5
+      },
+      "equivalent_command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.50 -R -t60 -i5 -J --get-server-output",
+      "direction": "5\u219283",
+      "receiver_bps": 2299995582.242061,
+      "receiver_bytes": 17251172352,
+      "receiver_seconds": 60.004193,
+      "sender_retransmits": 298,
+      "endpoint_cpu_utilization_percent": {
+        "host_total": 34.11123567538612,
+        "host_user": 2.165323612253765,
+        "host_system": 31.945912063132358,
+        "remote_total": 5.231847897962952,
+        "remote_user": 0,
+        "remote_system": 5.231847897962952
+      },
+      "intervals": [
+        {
+          "start": 0,
+          "end": 5.005034,
+          "seconds": 5.00503396987915,
+          "bytes": 1426980864,
+          "bits_per_second": 2280873013.190686,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 5.005034,
+          "end": 10.005031,
+          "seconds": 4.99999713897705,
+          "bytes": 1442316288,
+          "bits_per_second": 2307707381.2807555,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 10.005031,
+          "end": 15.00503,
+          "seconds": 4.999999046325684,
+          "bytes": 1440350208,
+          "bits_per_second": 2304560772.360084,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 15.00503,
+          "end": 20.005035,
+          "seconds": 5.000004768371582,
+          "bytes": 1441529856,
+          "bits_per_second": 2306445570.0020976,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 20.005035,
+          "end": 25.005026,
+          "seconds": 4.999990940093994,
+          "bytes": 1432485888,
+          "bits_per_second": 2291981573.827525,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 25.005026,
+          "end": 30.005038,
+          "seconds": 5.000011920928955,
+          "bytes": 1427898368,
+          "bits_per_second": 2284631941.812987,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 30.005038,
+          "end": 35.005068,
+          "seconds": 5.000030040740967,
+          "bytes": 1447690240,
+          "bits_per_second": 2316290467.383613,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 35.005068,
+          "end": 40.005189,
+          "seconds": 5.000121116638184,
+          "bytes": 1442840576,
+          "bits_per_second": 2308489002.3145514,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 40.005189,
+          "end": 45.004914,
+          "seconds": 4.999724864959717,
+          "bytes": 1439694848,
+          "bits_per_second": 2303638519.135352,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 45.004914,
+          "end": 50.004193,
+          "seconds": 4.999279022216797,
+          "bytes": 1446248448,
+          "bits_per_second": 2314331233.0804048,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 50.004193,
+          "end": 55.004178,
+          "seconds": 4.999985218048096,
+          "bytes": 1417674752,
+          "bits_per_second": 2268286309.1398253,
+          "omitted": false,
+          "sender": false
+        },
+        {
+          "start": 55.004178,
+          "end": 60.004193,
+          "seconds": 5.000014781951904,
+          "bytes": 1445462016,
+          "bits_per_second": 2312732388.260214,
+          "omitted": false,
+          "sender": false
+        }
+      ],
+      "router_before": {
+        "at": "2026-11-01T11:31:12.429104-05:00",
+        "CPP_pid": 20164,
+        "CPP_session": 18159,
+        "keepalive_rx": 364,
+        "keepalive_tx": 364,
+        "keepalive_miss": 0,
+        "send_no_buffer": 0,
+        "send_fail": 0,
+        "qfp_5sec_pct": 4,
+        "CPU_C": 52,
+        "inlet_C": 36,
+        "outlet_C": 35,
+        "power_W": 17,
+        "port7": {
+          "state": "administratively down, line protocol is down ",
+          "rx_packets": 9049306,
+          "rx_bytes": 10678178824,
+          "tx_packets": 6393607,
+          "tx_bytes": 7487184872,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 1,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "state": "up, line protocol is up ",
+          "rx_packets": 9211009,
+          "rx_bytes": 10897706127,
+          "tx_packets": 11865388,
+          "tx_bytes": 14099214844,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 499,
+          "Disabled": 1,
+          "InjectErr": 1,
+          "IpTtlExceeded": 2,
+          "Ipv4NoAdj": 1,
+          "Ipv4NoRoute": 5,
+          "Ipv6NoRoute": 8,
+          "UnconfiguredIpv6Fia": 6
+        }
+      },
+      "router_during": [
+        {
+          "at": "2026-11-01T11:31:35.484434-05:00",
+          "keepalive_rx": 376,
+          "keepalive_tx": 376,
+          "keepalive_miss": 0,
+          "send_no_buffer": 0,
+          "send_fail": 0,
+          "qfp_5sec_pct": 12
+        }
+      ],
+      "router_after": {
+        "at": "2026-11-01T11:32:14.249856-05:00",
+        "CPP_pid": 20164,
+        "CPP_session": 18159,
+        "keepalive_rx": 395,
+        "keepalive_tx": 395,
+        "keepalive_miss": 0,
+        "send_no_buffer": 0,
+        "send_fail": 0,
+        "qfp_5sec_pct": 12,
+        "CPU_C": 52,
+        "inlet_C": 36,
+        "outlet_C": 35,
+        "power_W": 17,
+        "port7": {
+          "state": "administratively down, line protocol is down ",
+          "rx_packets": 9049306,
+          "rx_bytes": 10678178824,
+          "tx_packets": 6393607,
+          "tx_bytes": 7487184872,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 1,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "state": "up, line protocol is up ",
+          "rx_packets": 23616118,
+          "rx_bytes": 28711753754,
+          "tx_packets": 26270318,
+          "tx_bytes": 31913228992,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 1,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        },
+        "qfp_drops": {
+          "BadUidbSubIdx": 499,
+          "Disabled": 1,
+          "InjectErr": 1,
+          "IpTtlExceeded": 2,
+          "Ipv4NoAdj": 1,
+          "Ipv4NoRoute": 5,
+          "Ipv6NoRoute": 8,
+          "UnconfiguredIpv6Fia": 6
+        }
+      },
+      "raw_path": "c8235-recovery/c8235-c-performance-20261101/port8-reverse-unlimited.json.log",
+      "public_path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port8-reverse-unlimited.json.log",
+      "native_sha256": "c0a79ca7664e3c81109a845a1b900aa45f22f112f2ba6ac741a701ed6f8ae435",
+      "port_deltas": {
+        "port7": {
+          "rx_packets": 0,
+          "rx_bytes": 0,
+          "tx_packets": 0,
+          "tx_bytes": 0,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 0,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        },
+        "port8": {
+          "rx_packets": 14405109,
+          "rx_bytes": 17814047627,
+          "tx_packets": 14404930,
+          "tx_bytes": 17814014148,
+          "output_drops": 0,
+          "input_errors": 0,
+          "crc": 0,
+          "output_errors": 0,
+          "resets": 0,
+          "lost_carrier": 0,
+          "unknown_protocol_drops": 0
+        }
+      },
+      "qfp_drop_deltas": {
+        "Ipv4NoAdj": 0,
+        "BadUidbSubIdx": 0,
+        "IpTtlExceeded": 0,
+        "UnconfiguredIpv6Fia": 0,
+        "InjectErr": 0,
+        "Disabled": 0,
+        "Ipv4NoRoute": 0,
+        "Ipv6NoRoute": 0
       }
     },
     {
@@ -935,7 +1814,7 @@
         "fqrate": 0,
         "interval": 5
       },
-      "command": "ip netns exec c8235-perf83 iperf3 -c192.168.5.3 -B192.168.83.50 -R -b850M -t30 -i5 -J --get-server-output",
+      "equivalent_command": "ip netns exec c8235-perf83 iperf3 -c 192.168.5.3 -B 192.168.83.50 -R -b850M -t30 -i5 -J --get-server-output",
       "direction": "5\u219283",
       "receiver_bps": 850002554.7756445,
       "receiver_bytes": 3187539968,
@@ -1154,14 +2033,14 @@
         }
       },
       "qfp_drop_deltas": {
-        "BadUidbSubIdx": 0,
-        "Ipv4NoRoute": 0,
-        "Ipv6NoRoute": 0,
-        "InjectErr": 0,
-        "UnconfiguredIpv6Fia": 4,
         "Ipv4NoAdj": 0,
+        "BadUidbSubIdx": 0,
+        "IpTtlExceeded": 0,
+        "UnconfiguredIpv6Fia": 4,
+        "InjectErr": 0,
         "Disabled": 0,
-        "IpTtlExceeded": 0
+        "Ipv4NoRoute": 0,
+        "Ipv6NoRoute": 0
       }
     }
   ],
@@ -1586,6 +2465,192 @@
         "Ipv6NoRoute": 8,
         "UnconfiguredIpv6Fia": 6
       }
+    },
+    {
+      "at": "2026-11-01T11:31:35.484434-05:00",
+      "keepalive_rx": 376,
+      "keepalive_tx": 376,
+      "keepalive_miss": 0,
+      "send_no_buffer": 0,
+      "send_fail": 0,
+      "qfp_5sec_pct": 12
+    },
+    {
+      "at": "2026-11-01T11:32:14.249856-05:00",
+      "CPP_pid": 20164,
+      "CPP_session": 18159,
+      "keepalive_rx": 395,
+      "keepalive_tx": 395,
+      "keepalive_miss": 0,
+      "send_no_buffer": 0,
+      "send_fail": 0,
+      "qfp_5sec_pct": 12,
+      "CPU_C": 52,
+      "inlet_C": 36,
+      "outlet_C": 35,
+      "power_W": 17,
+      "port7": {
+        "state": "administratively down, line protocol is down ",
+        "rx_packets": 9049306,
+        "rx_bytes": 10678178824,
+        "tx_packets": 6393607,
+        "tx_bytes": 7487184872,
+        "output_drops": 0,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "resets": 1,
+        "lost_carrier": 1,
+        "unknown_protocol_drops": 0
+      },
+      "port8": {
+        "state": "up, line protocol is up ",
+        "rx_packets": 23616118,
+        "rx_bytes": 28711753754,
+        "tx_packets": 26270318,
+        "tx_bytes": 31913228992,
+        "output_drops": 0,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 0
+      },
+      "qfp_drops": {
+        "BadUidbSubIdx": 499,
+        "Disabled": 1,
+        "InjectErr": 1,
+        "IpTtlExceeded": 2,
+        "Ipv4NoAdj": 1,
+        "Ipv4NoRoute": 5,
+        "Ipv6NoRoute": 8,
+        "UnconfiguredIpv6Fia": 6
+      }
+    },
+    {
+      "at": "2026-11-01T11:32:38.163117-05:00",
+      "keepalive_rx": 407,
+      "keepalive_tx": 407,
+      "keepalive_miss": 0,
+      "send_no_buffer": 0,
+      "send_fail": 0,
+      "qfp_5sec_pct": 12
+    },
+    {
+      "at": "2026-11-01T11:33:16.553936-05:00",
+      "CPP_pid": 20164,
+      "CPP_session": 18159,
+      "keepalive_rx": 426,
+      "keepalive_tx": 426,
+      "keepalive_miss": 0,
+      "send_no_buffer": 0,
+      "send_fail": 0,
+      "qfp_5sec_pct": 13,
+      "CPU_C": 52,
+      "inlet_C": 36,
+      "outlet_C": 35,
+      "power_W": 17,
+      "port7": {
+        "state": "administratively down, line protocol is down ",
+        "rx_packets": 9049306,
+        "rx_bytes": 10678178824,
+        "tx_packets": 6393607,
+        "tx_bytes": 7487184872,
+        "output_drops": 0,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "resets": 1,
+        "lost_carrier": 1,
+        "unknown_protocol_drops": 0
+      },
+      "port8": {
+        "state": "up, line protocol is up ",
+        "rx_packets": 37795639,
+        "rx_bytes": 46438515858,
+        "tx_packets": 40449703,
+        "tx_bytes": 49640005953,
+        "output_drops": 0,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 0
+      },
+      "qfp_drops": {
+        "BadUidbSubIdx": 499,
+        "Disabled": 1,
+        "InjectErr": 1,
+        "IpTtlExceeded": 2,
+        "Ipv4NoAdj": 1,
+        "Ipv4NoRoute": 5,
+        "Ipv6NoRoute": 8,
+        "UnconfiguredIpv6Fia": 6
+      }
+    },
+    {
+      "at": "2026-11-01T11:33:37.820118-05:00",
+      "keepalive_rx": 437,
+      "keepalive_tx": 437,
+      "keepalive_miss": 0,
+      "send_no_buffer": 0,
+      "send_fail": 0,
+      "qfp_5sec_pct": 12
+    },
+    {
+      "at": "2026-11-01T11:33:56.664516-05:00",
+      "CPP_pid": 20164,
+      "CPP_session": 18159,
+      "keepalive_rx": 446,
+      "keepalive_tx": 446,
+      "keepalive_miss": 0,
+      "send_no_buffer": 0,
+      "send_fail": 0,
+      "qfp_5sec_pct": 2,
+      "CPU_C": 52,
+      "inlet_C": 36,
+      "outlet_C": 36,
+      "power_W": 17,
+      "port7": {
+        "state": "administratively down, line protocol is down ",
+        "rx_packets": 9049306,
+        "rx_bytes": 10678178824,
+        "tx_packets": 6393607,
+        "tx_bytes": 7487184872,
+        "output_drops": 0,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "resets": 1,
+        "lost_carrier": 1,
+        "unknown_protocol_drops": 0
+      },
+      "port8": {
+        "state": "up, line protocol is up ",
+        "rx_packets": 45770997,
+        "rx_bytes": 56677956888,
+        "tx_packets": 48424957,
+        "tx_bytes": 59879435088,
+        "output_drops": 0,
+        "input_errors": 0,
+        "crc": 0,
+        "output_errors": 0,
+        "resets": 1,
+        "lost_carrier": 0,
+        "unknown_protocol_drops": 0
+      },
+      "qfp_drops": {
+        "BadUidbSubIdx": 499,
+        "Disabled": 1,
+        "InjectErr": 1,
+        "IpTtlExceeded": 2,
+        "Ipv4NoAdj": 1,
+        "Ipv4NoRoute": 5,
+        "Ipv6NoRoute": 8,
+        "UnconfiguredIpv6Fia": 6
+      }
     }
   ],
   "first_checkpoint_console": {
@@ -1594,5 +2659,44 @@
     "bytes": 81366,
     "sha256": "fb9f41ecd254e0f07ec7e6e95b217168584f202246e25d6940f6c84285ee93e4",
     "snapshot": true
+  },
+  "ten_gig_discrepancy": {
+    "single_stream_received_Gbps": {
+      "5_to_83": 2.299995582242061,
+      "83_to_5": 2.3010004003689226
+    },
+    "B_reference_Gbps": {
+      "5_to_83": 9.31954,
+      "83_to_5": 9.24632
+    },
+    "observations": "Cport8reports10Gfull, zero sampledCRC/interfaceerrors/outputdrops, no QFPdrop increments across either60s10Gtest. QFPsample12%, CPPunchanged, matchedkeepalives. GuestNICdriverdropcounterszero; guestvNIC10G doesnotprovephysicaluplink.",
+    "limits": "Throughputlevelshowcommandunsupported on bothC and priorB; no throughputconfigline. Liveport7/8QFPqueues tail/oversubscriptiondropszero, maxfields0; not proof of absent cap elsewhere.",
+    "next": "Owner host/uplink confirmation pending. Restore requestedworkingport7/8 network andsaveaftertestdecision; do not claim10Gqualification.",
+    "four_stream_control": {
+      "duration_seconds": 30.004571,
+      "receiver_bps": 2318991917.331529,
+      "retransmits": 3809,
+      "interpretation": "Aggregate remains2.319Gbps with4streams, so increasingflows didnotremoveobservedlimit. Consistentwith2.5Gbps sharedpathlimit; exactlocation/cause unproven.",
+      "reason_added": "Singleflow10Gtests2.30Gbps versusB9.3Gbps justifiedflow-scalingcontrol."
+    }
+  },
+  "host_correction": {
+    "owner_reply": "I moved it ... I am moving it back ... it is moved",
+    "observed_by": "2026-11-01T11:35:05-05:00",
+    "meaning": "OwnerconfirmsUbuntuVMhadmovedandnowreturnedto10Ghost. Earlier2.3Gbpssetretained; physicaluplinknotindependentlyinventoried.",
+    "next": "FreshSSH endpointstatecheck, thenrepeat6comparabletests onrestoredhost.",
+    "first_saved_network": "Normalport7/8setup saved11:34:47 [OK], beforethisreply. Temporarytestconfiguration willberestoredafterrepeats.",
+    "fresh_check": "11:35:25SSH: sameVMuptime18h59m,4vCPU/i9-13900H reported, namespace83.50/routes/server/DHCPsamePIDs preserved;full1500BDF5/5bothdirections,~0.28ms. Hostphysical10G remainsownerreported."
+  },
+  "saved_network": {
+    "saved_at": "2026-11-01T11:34:47.640703-05:00",
+    "result": "copy running-config startup-config [OK]",
+    "post_startup_file": "bootflash:C8235C-POST-PERF-startup.cfg",
+    "bytes": 3716,
+    "sha512": "b20065726411103907aa982fa3cd1ae75e8b3e7be53b71cf17b3ec686affb27518a6f228efe9ab9df02a8b5d748f42392f2335f69d1a8407e4d928cd1d5cc4f9",
+    "native_compare": "ExportvsNVRAM No changes. Runningvsstartup only certificateinlinevsNVRAMfilereference representation; no networkdifference.",
+    "baseline_diffs": "IntendedDHCP/port7IP/no shutdown/port8native1and83/default additions; startup also incorporates previouslynative-running systemmodeinsecure and serviceengine/DACdefaultrepresentations. No explicitsecuritymode command.",
+    "BOOT": "unchanged packages.conf first/exact.bin fallback,0x3922,26.2.1IMG C/abortinactive",
+    "retest": "Temporary10Gnetworkchangeswillberestoredtosavednormalnetworkafterrepeat."
   }
 }

@@ -10,6 +10,21 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-C PERFORMANCE / HOST CORRECTION — 2026-11-01,11:35 EST
+Cold health passed. Owner moves cables B→C ports7/8,farendsunchanged and
+requests850Mbps/1Gbps/10Gbps tests. Port7 links1G to3850Gi2/0/3nativeVLAN5;
+port8 links10G to3850Te2/1/3native1,tagged83. SameUbuntu5.3/root and isolated
+namespace/newDHCP83.50 endpoint. First850test849.964Mbps,1G918.583/941.390Mbps.
+First10Gtests2.300/2.301Gbps;4streams2.319Gbps. No porterrors/outputdrops or
+keepalivemisses; CPP20164 unchanged. Owner confirmsVMhadmovedandreturnsitto10Ghost.
+FreshSSH shows sameVMuptime/namespace/routes/PIDs;DFpings5/5each,~0.28ms.
+Allinitialevidence retained. Repeat6comparables oncorrectedhost underway.
+Owner requests savednormalport7/8network: saved[OK]11:34:47;startup3716B,
+export/hash/diffpass. Native startup adds preexistingrunning systemmodeinsecure;
+no agentmodecommand. BOOT/installunchanged; remove temporaryport8.5 afterrepeat.
+USBabsent, no powercycle; sameassembly/cooling/battery/console.10Gqualificationpending.
+Evidence: c8235-recovery/c8235-c-performance-20261101/results.json
+
 C8235-C COLD HEALTH PASS; PERFORMANCE NEXT — 2026-11-01,11:25 EST
 USB-free autonomous install startup and313.325355s health pass, unchanged
 CPP20164/session18159, keepalives26→182/zero misses/send errors, platforms ready.
