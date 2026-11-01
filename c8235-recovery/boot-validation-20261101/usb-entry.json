@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "status": "Automatic USB entry established; preparing PID1 full RAM-correction loader, no persistent settings changed",
+  "status": "Full loader reaches IOS but console handoff unresolved; supervised power cycle needed for next unsaved transport trial",
   "source_candidate": "experimental-recovery/c8235-b-bootstrap-20261101/candidate.json",
   "console_source": ".git/recovery-private/c8235-analysis-20261101/20261101-072310-usb-entry/console.log",
   "physical_confirmation": "Same owner-confirmed setup retained throughout cold2/cold3 and probe; exclusive console handed off cleanly",
@@ -16,7 +16,7 @@
   "confreg": "0x3922",
   "no_startup_save": true,
   "no_firmware_write": true,
-  "updated_at": "2026-11-01T07:47:28.123574-05:00",
+  "updated_at": "2026-11-01T07:54:29.618366-05:00",
   "trials": [
     {
       "number": 1,
@@ -146,8 +146,63 @@
       "parameter": "console=ttyAMA0,115200n8 rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B2&&exec${IFS}bash$IFS/u/B2$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
       "set_command_bytes": 252,
       "candidate": "experimental-recovery/c8235-b-bootstrap-20261101/auto-candidate.json",
-      "result": "Prepared, not booted",
-      "saved_settings_changed": false
+      "result": "Automatic PID1 USB entry PASS; copy guard fails safely because cmp command absent; no correction/IOS",
+      "saved_settings_changed": false,
+      "readback_verified": true,
+      "boot_at": "2026-11-01T07:48:52.243594-05:00",
+      "observed": [
+        "C8235_AUTO_USB_ENTRY",
+        "/u/B2 line29 cmp command not found",
+        "C8235_AUTO_FAILED then child maintenance shell; no reboot"
+      ],
+      "snapshot": {
+        "raw_local": "router-console-logs/20261101-075005-C8235-B-auto-loader-v1-failed-snapshot.log",
+        "bytes": 167575,
+        "sha256": "49d64d60ae2986af795288e7e6340ddc40d9677b3e0836cad4029c7db1aeff49",
+        "type": "Immutable capture prefix; includes v2 deployment"
+      },
+      "usb_reset_state": "PID1 retains FD255 on /u/B2 after guard failure; USB synced/remounted ro before restart; no claim of clean unmount"
+    },
+    {
+      "number": 8,
+      "kind": "Automatic PID1 loader v2 uses SHA256 instead of missing cmp",
+      "candidate": "experimental-recovery/c8235-b-bootstrap-20261101/auto-candidate-v2.json",
+      "parameter": "console=ttyAMA0,115200n8 rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+      "set_command_bytes": 252,
+      "result": "Automatic correction and IOS initialization observed; interactive console unavailable, health gate not performed",
+      "saved_settings_changed": false,
+      "readback_verified": true,
+      "boot_at": "2026-11-01T07:50:59.764137-05:00",
+      "observed": [
+        "C8235_AUTO_USB_ENTRY",
+        "C8235_AUTO_RAM_ENTRY pid=1",
+        "C8235_AUTO_INPUT_HASHES_PASS",
+        "Exact patch/hook SHA256 and C8235_BOUND16_BOOTSTRAP_READY",
+        "C8235_AUTO_READY USB unmounted exec /init",
+        "C8235_BOUND16_HOOK_BEGIN/COMPLETE"
+      ],
+      "observations_after_init": [
+        "Native chassis FGL2835LBHU / IOS26.02.1 / autonomous startup",
+        "Native SPA0/0 online and F0 boot65seconds messages",
+        "CR/IOS query commands at115200 receive no CLI prompt/response; brief9600 CR also no prompt; host restored115200",
+        "Initial multiple rail0mV messages retained; current sensor values unavailable",
+        "No unexpected reset observed, but health/process/keepalive status unverified"
+      ],
+      "snapshot": {
+        "raw_local": "router-console-logs/20261101-075410-C8235-B-auto-v2-console-handoff-snapshot.log",
+        "bytes": 196347,
+        "sha256": "d8a13352ccdc7743d1f122a9468e089605b476d1efa021983df6512d6cc0b423",
+        "type": "Immutable private capture prefix"
+      }
+    },
+    {
+      "number": 9,
+      "kind": "Same exact B3 loader; remove serial kernel console override to restore original default",
+      "parameter": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+      "set_command_bytes": 227,
+      "result": "Prepared, awaiting owner power cycle",
+      "change": "Only remove console=ttyAMA0,115200n8; loader still sets ttyAMA0 speed115200 itself. No saved setting change.",
+      "candidate": "experimental-recovery/c8235-b-bootstrap-20261101/auto-candidate-v2.json"
     }
   ],
   "maintenance_reboot_correction": {
@@ -159,5 +214,11 @@
     "replacement_command": "busybox reboot -f",
     "replacement_result": "Fresh ResetRequest boot/UUID/developmentROMMON verified; guard stopped autoboot at07:33:27EST",
     "host_control_error": "One JSON control with invalid escape was rejected locally and never sent; corrected read-only help command succeeded"
+  },
+  "observer_tool": {
+    "source": "experimental-recovery/c8235-b-bootstrap-20261101/observe-one-autoboot.py",
+    "purpose": "Allow one matching B reset without transmitting; stop subsequent or mismatched resets. Explicit live mode only; not yet used.",
+    "validation": "Default plan has no serial access; three pipe-only unittest cases pass: fragmented first boot/noTX, second reset/stop, wrong identity/firmware/stop",
+    "test_source": "tests/test_c8235_autoboot_observer.py"
   }
 }

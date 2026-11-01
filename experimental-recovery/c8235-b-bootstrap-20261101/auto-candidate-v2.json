@@ -1,0 +1,35 @@
+{
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "created_at": "2026-11-01T07:47:18.476689-05:00",
+  "status": "USB v2 SHA256 verified, synced/remounted read-only; trial8 boot pending",
+  "parameter": "console=ttyAMA0,115200n8 rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+  "set_command_bytes": 252,
+  "files": [
+    {
+      "source": "experimental-recovery/c8235-b-bootstrap-20261101/auto-bound16-v2.sh",
+      "target": "usb0:B3",
+      "bytes": 2341,
+      "sha256": "15762295c3fa2837f43cd8ed696a83981bd5723d99865ae6ea4352bac9979eee"
+    },
+    {
+      "source": "experimental-recovery/c8235-b-bound16-20261031/boot-bound16.sh",
+      "target": "usb0:C8235FIX1",
+      "bytes": 2936,
+      "sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052"
+    }
+  ],
+  "validation": [
+    "bash -n passes loader and parameter body",
+    "Default loader invocation inert",
+    "Exact original correction source SHA256 unchanged"
+  ],
+  "limitations": [
+    "Five-second USB delay has only one entry observation; repeated boots still needed",
+    "No saved boot change or standalone persistence yet",
+    "Initial loader execution depends on verified USB bytes; this is not secure-boot authentication"
+  ],
+  "failure_behavior": "Guard failure holds maintenance shells from PID1; missing USB/file falls back to shell before loader. Keep console attached for prototype testing.",
+  "change_from_v1": "Replace unavailable cmp with self SHA256 before/after RAM copy; original v1 source/USB file preserved",
+  "deployed_at": "2026-11-01T07:49:55.593374-05:00"
+}

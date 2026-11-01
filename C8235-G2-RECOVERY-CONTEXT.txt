@@ -10,6 +10,23 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+AUTOMATIC CORRECTION REACHES IOS; CONSOLE HANDOFF OPEN — 2026-11-01,07:54 EST
+Trial7/B2 failed safely because early environment lacks cmp; original retained.
+Trial8/B3 uses SHA256 for self-copy verification and succeeds automatically:
+PID1 RAM entry, image/source hashes, exact correction/hook hashes, USB unmount,
+/init continuation and runtime hook complete. Native IOS26.02.1/FGL2835LBHU,
+SPA0/0 online and F0 boot65s messages appear. However CR/queries at115200 do not
+reach CLI; brief9600 CR also no prompt, host restored115200. No health gate or
+keepalive/process/environment verification yet. Initial all-rail0mV alerts are
+retained; cannot infer current sensor values from those startup messages.
+Suspect transport/console handoff difference; cause not proven. Need captured
+power cycle, then unsaved comparison using original kernel-console selection.
+Saved BOOT/confreg/startup unchanged. Existing capture still exclusive; reset
+guard will stop the next autoboot. Do not call this standalone recovery.
+Candidate v1/v2 and snapshots/trials: boot-validation-20261101/usb-entry.json.
+New explicit one-autoboot observer is prepared but NOT active; default inert,
+three pipe-only guard tests pass. Existing guarded capture remains active.
+
 AUTOMATIC USB ENTRY VERIFIED — 2026-11-01, 07:47 EST — C8235-05
 Trial5 captured the cause of its reset: /bin/sh -c lacks a command argument,
 then PID1 exits/panics. Linux documents that unknown boot arguments containing
