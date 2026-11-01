@@ -10,6 +10,19 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+SAVED INTERNAL WARM PASS; NO-USB COLD ARMED — 2026-11-01, 09:01 EST
+B4 parameter explicitly synced08:56:19 and exact readback verified. Autonomous
+reset08:56:39 selects internal26.2.1, loader/hook pass, no further TX through IOS
+welcome. IOS09:00 readiness: R0/F0 active,0/0ok, CPP21094 unchanged and matched
+keepalives21->29/zero misses. Network/default restore automatically; ping4/5
+then5/5. Startup diff unchanged; running diff only intended internal boot line.
+Sensor/TPM findings remain. Warm capture closed; fresh passive observer53265
+armed09:00:53 in .git/recovery-private/c8235-analysis-20261101/20261101-090053-one-autoboot.
+Owner asked off/remove only USB storage/wait10seconds/on from running IOS.
+No transmissions intended through cold IOS welcome; cold result pending.
+Final target still install mode using packages.conf; current bundle is interim.
+Evidence: c8235-recovery/bootflash-validation-20261101/results.json
+
 INTERNAL BOOT OPERATIONAL PASS — 2026-11-01, 08:55 EST
 One-time bootflash26.2.1 bundle boot passes B4 guards, exact RAM patch/unmount
 and runtime hook. IOS image source is bootflash; USB still physically present.

@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "created_at": "2026-11-01T08:41:28.960448-05:00",
-  "status": "PASS one-time internal bundle boot and318.854156-second check; saved autonomous/no-USB validation pending",
+  "status": "PASS one-time internal boot/five-minute check and saved autonomous internal warm boot; USB-absent cold pending",
   "source": "experimental-recovery/c8235-b-bootflash-20261101/auto-bootflash.sh",
   "target": "bootflash:B4",
   "bytes": 2507,
@@ -18,9 +18,7 @@
     "Same kernel/board/profile/image/source/patch/hook guards and PID1 continuation"
   ],
   "pending": [
-    "Save/read back exact B4 ROMMON parameter after fresh identity confirmation",
-    "Verify saved autonomous internal warm startup",
-    "Cold boot from running IOS with USB physically absent and five-minute operational check",
+    "Owner cold boot from running IOS with USB physically absent and five-minute operational check",
     "Final owner target: install mode with packages.conf, separately validated"
   ],
   "physical_confirmation": "Owner reconfirmed identical powered-on B assembly/cooling/battery/cables, no probes/programmer or terminal owner",
@@ -31,6 +29,7 @@
     "Non-PID1 --boot and --ram refuse before tty access",
     "Reviewed diff from verified USB B3: names/markers plus read-only internal mount guard",
     "Native full SHA512 destination matches local source",
-    "One-time internal26.2.1 boot: automatic guards/correction/unmount/runtime hook, IOS/platform/network and318.854156-second CPP/keepalive check PASS"
+    "One-time internal26.2.1 boot: automatic guards/correction/unmount/runtime hook, IOS/platform/network and318.854156-second CPP/keepalive check PASS",
+    "Exact B4 parameter saved by native sync08:56:19; autonomous warm boot and restored network verified with no TX after reset through IOS welcome"
   ]
 }

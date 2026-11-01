@@ -5,15 +5,17 @@ FINAL OWNER TARGET: INSTALL MODE USING packages.conf
 The internal .bin/bundle boot below is an intermediate validation step.
 Install-mode package selection and early correction are not yet validated.
 
-STATUS — 2026-11-01, 08:55 EST
+STATUS — 2026-11-01, 09:01 EST
 One-time bootflash bundle boot and318.854156-second operational check PASS.
-B4 runs automatically from internal storage, checks exact inputs, applies the
-unchanged RAM correction, unmounts bootflash and continues normal init.
-CPP20965 unchanged, keepalives16 to175/zero misses; saved network restores and
-repeat1500DF ping passes5/5. All-zero sensor reporting/TPM remain unresolved.
-Reviewed sole boot-line delta saved to IOS startup08:54:24. Exact ROMMON
-parameter sync, autonomous warm and USB-absent cold tests remain pending.
-USB files and original packages.conf/17.18.3a packages remain unchanged.
+Saved autonomous internal warm boot also PASS, with no console intervention
+after reset through IOS welcome; network/default restore, ping4/5 then5/5.
+B4 runs from internal storage, checks exact inputs, applies the unchanged RAM
+correction, unmounts bootflash and continues normal init. Saved internal IOS
+boot entry and exact B4 parameter (native sync08:56:19) now survive restart.
+Fresh observer is armed for owner cold cycle from running IOS with USB storage
+physically removed. That cold test and five-minute check remain PENDING.
+All-zero sensor reporting/TPM remain unresolved. Original USB recovery files
+and existing17.18.3a packages.conf/package set remain unchanged.
 
 INPUTS
 bootflash:c8kg2be-universalk9.26.02.01.SPA.bin

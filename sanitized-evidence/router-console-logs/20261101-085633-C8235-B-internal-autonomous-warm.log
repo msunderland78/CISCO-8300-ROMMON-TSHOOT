@@ -1,0 +1,590 @@
+
+[TX 2026-11-01T08:56:39.994339-05:00] b'reset\r'
+reset
+
+Resetting .......
+
+
+=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2024-07-17 01:44:08
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+PCIe0: LTSSM DETECT_QUIET, Link Errors Detected During Training
+PCIe1: Link active, 1 lanes, speed gen3
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+DRAM: 16 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.0C 20240622-0651 00000000
+npc_mkex-cn10xx.fw   version: 01.0E.00 20240501-0640 00000000
+uefi.bin             version: 0B.17.0C 20240622-0651 00000000
+bl31.bin             version: 0B.17.0C 20240622-0651 00000000
+bl2.bin              version: 0B.17.0C 20240622-0651 00000000
+gserp-cn10xx.fw      version: 01.01.0C 20240501-0640 00000000
+gserm-cn10xx.fw      version: 01.01.0A 20240501-0640 00000000
+init.bin             version: 0B.17.0C 20240622-0651 00000000
+ecp_bl1.bin          version: 0C.17.0C 20240501-0638 00000000
+mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000
+scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000
+rom-script0.fw       version: 0B.17.0C 20240622-0651 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL2: Built : 18:42:08, Jul 16 2024
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x3f9ffffff (16272MB)
+NOTICE:  LMT Memory Region: 0x3fa000000 to 0x3feffffff (80MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x3ff000000 to 0x3ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL31: Built : 18:42:53, Jul 16 2024
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+
+SecureBoot: BL34: running keyphase-cisco-bootstub version
+SecureBoot: ...D01.00
+SecureBoot: BL34: call SpiNorInit
+SecureBoot: Dual/Octal mode not supported in UEFI. Use x1
+SecureBoot: BL34: Call LDWM verifier
+ ...flash initialization
+ ...verify bootloader
+ ...load verification map from flash
+ ......vmap.flashaddr=====0x00b50000
+ ......vmap.platform_id===0x4c445731
+ ...load image data
+ ......flashload_bootimage_seg0:
+ .........seg_addr========0x00601000
+ .........seg_size========0x00280000
+ .........mem_addr========0x04000000
+ ...code signing results:
+ ......return_code========0x00000000
+ ......key_index==========0x00000002
+ ......key_type===========0x00000002
+ ...bootloader image verified successfully
+  
+Board Identifier: mirabile-arata, Revision: r2, Serial Number: unknown
+
+System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE
+Copyright (c) 1994-2024 by cisco Systems, Inc.
+Compiled Tue Jul 16 18:38:18 2024 by rmaladi
+
+
+!!! NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY !!!
+Boot ROM0
+
+Last reset cause: ResetRequest
+SoC1 platform with 16661504 Kbytes of main memory
+
+Soc UUID: 13 FF FF 87 79 AD FB 7C 6D E0 81 A7 
+UUID Len: 0xC
+
+........
+
+boot: reading file c8kg2be-universalk9.26.02.01.SPA.bin
+########################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+
+network: failed to parse subnet for IPv0
+EFI stub: Booting Linux Kernel...
+EFI stub: EFI_RNG_PROTOCOL unavailable
+EFI stub: Using DTB from configuration table
+EFI stub: Exiting boot services...
+C8235_INTERNAL_BOOTFLASH_ENTRY
+C8235_INTERNAL_RAM_ENTRY pid=1
+C8235_INTERNAL_INPUT_HASHES_PASS
+C8235_BOUND16_BOOTSTRAP_BEGIN
+32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857  /usr/binos/bin/launch_net.sh
+ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4  /c8235-bound16-hook.sh
+C8235_BOUND16_BOOTSTRAP_READY
+C8235_INTERNAL_READY: bootflash unmounted; exec /init from PID 1
+C8235_BOUND16_HOOK_BEGIN
+C8235_BOUND16_HOOK_COMPLETE
+This platform requires a rommon update but it must be done manually
+Detected old ROMMON version SDK112312-SoC1-SB-v12.1.22, manual upgrade required
+May 29 18:48:52.786: %SYS-4-ROUTER_RUNNING_BUNDLE_BOOT_MODE: R0/0: Warning: Booting with bundle mode will be deprecated in the near future. Migration to install mode is required.
+May 29 18:48:53.450: %BOOT-5-OPMODE_LOG: R0/0: binos: System booted in AUTONOMOUS mode
+
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           Cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+
+
+This software version supports only Smart Licensing as the software licensing mechanism.
+
+
+Please read the following carefully before proceeding. By downloading,
+installing, and/or using any Cisco software product, application, feature,
+license, or license key (collectively, the "Software"), you accept and
+agree to the following terms. If you do not agree, do not proceed and do not
+use this Software.
+
+This Software and its use are governed by Cisco's General Terms and any 
+relevant supplemental terms found at
+https://www.cisco.com/site/us/en/about/legal/contract-experience/index.html.
+If you have a negotiated agreement with Cisco that includes this Software, the
+terms of that agreement apply as well. In the event of a conflict, the order 
+of precedence stated in your negotiated agreement controls.
+
+Cisco Software is licensed on a term and/or subscription-basis. The license to
+the Software is valid only for the duration of the specified term, or in the
+case of a subscription-based license, only so long as all required subscription
+payments are current and fully paid-up. While Cisco may provide you
+licensing-related alerts, it is your sole responsibility to monitor your usage.
+Using Cisco Software without a valid license is not permitted and may result in
+fees charged to your account. Cisco reserves the right to terminate access to,
+or restrict the functionality of, any Cisco Software, or any features thereof,
+that are being used without a valid license.
+
+
+cisco C8230X-8M2X (1RU) processor with 7788651K/6147K bytes of memory.
+Processor board ID FGL2835LBHU
+Router operating mode: Autonomous
+1 Virtual Ethernet interface
+8 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+16777216K bytes of physical memory.
+20249599K bytes of flash memory at bootflash:.
+60062720K bytes of USB flash at usb0:.
+
+ SECURITY WARNING - Module: SSH, Command: crypto key generate rsa modulus 2048 label TP-self-signed-3427094280 , Reason: An SSH hostkey has been provisioned on the device with insufficient key length, Remediation: Please provision an SSH RSA hostkey with minimum modulus size of 3072 bits for enhanced security, Submode: exec, Parent CLI: Not Applicable
+ SECURITY WARNING - Module: RCMD, Command: ip rcmd domain-lookup , Reason: No encryption is configured, Description: Remote command (rcmd) service enabled - allows unencrypted remote command execution without proper authentication, Remediation: This is a legacy feature, please consider disabling it
+ SECURITY WARNING - Module: TFTP, Command: ip forward-protocol udp tftp , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: SNMP Host configured with insufficient authentication - missing privacy encryption, Remediation: This is a legacy feature, please consider disabling it
+ SECURITY WARNING - Module: TELNET, Command: ip telnet tos C0, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport enable , Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport flow level 16, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport receive window 4128, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport disconnect delay 0, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TFTP, Command: ip tftp source-interface GigabitEthernet0 , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: TFTP, Command: ip tftp arp-glean , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: TFTP, Command: ip tftp blocksize 512, Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: FTP, Command: ip ftp passive , Reason: No encryption is configured, Description: FTP service enabled - transmits credentials and data in plaintext, vulnerable to interception, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: HTTP, Command: ip http server , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: HTTP server enabled - unencrypted protocol vulnerable to eavesdropping and man-in-the-middle attacks, Remediation: Use http secure server to ensure secure web access
+ SECURITY WARNING - Module: NTP, Command: ntp allow mode control 3, Reason: NTP allow mode control renders device susceptible to DDoS attacks, Description: Permits mode control packets rendering the device vulnerable to DDoS attacks, Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow
+SETUP: new interface Service-Engine0/4/0 placed in "shutdown" state
+
+ WARNING: ** NOTICE **  The H.323 protocol is no longer supported from IOS-XE release 17.6.1. Please consider using SIP for multimedia applications.
+
+
+
+Press RETURN to get started!
+
+
+*May 29 2025 18:49:15.748: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*May 29 2025 18:49:15.749: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module Integrity Test
+*May 29 2025 18:49:15.757: %CRYPTO-5-SELF_TEST_END: Crypto Integrity self-test completed successfully
+       All tests passed.
+*May 29 2025 18:49:16.091: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*May 29 2025 18:49:16.995: %IOSD_INFRA-6-IFS_DEVICE_OIR: Device usb0 added
+*May 29 2025 18:49:17.333: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*May 29 2025 18:49:20.564: NGIOLite module 8M-2xSFP+ success read extended attr from conf file len: 1629
+
+*May 29 2025 18:49:21.778: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*May 29 2025 18:49:22.321: %TLSCLIENT-5-TLSCLIENT_IOS: TLS Client is IOS based
+*May 29 2025 18:49:22.340: %SSH-4-SSH_COMPLIANCE_SSH_RSA_DISABLED: Please note that ssh-rsa algorithm stands disabled from IOS-XE release 17.16.1 onwards and will not be part of the preferred publickey or hostkey algorithms by default. Users may choose to configure them explicitly if required
+*May 29 2025 18:49:22.355: %SPANTREE-5-EXTENDED_SYSID: Extended SysId enabled for type vlan
+*May 29 2025 18:49:22.413: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*May 29 2025 18:49:22.463: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_ENFORCED: Cisco PSB security compliance is being enforced
+*May 29 2025 18:49:22.495: %CUBE-3-LICENSING:  SIP trunking (CUBE) licensing is now based on dynamic sessions counting, static license capacity configuration through 'mode border-element license capacity' would be ignored.
+*May 29 2025 18:49:22.495: %SIP-5-LICENSING: CUBE license reporting period has been set to the minimum value of 8 hours.
+*May 29 2025 18:49:22.529: %VOICE_HA-7-STATUS: CUBE HA-supported platform detected.
+*May 29 2025 18:49:22.955: %CRYPTO_SL_TP_LEVELS-6-PLATFORM_BASED_LIC: Platform Based License Support, throughput is un-throttledIOSd ipc listen handler status 0Last reload reason is set to "Reload Command"
+*May 29 2025 18:49:23.015: %LINK-3-UPDOWN: Interface EOBC0, changed state to up
+*May 29 2025 18:49:23.027: %LINK-3-UPDOWN: Interface Lsmpi0, changed state to up
+*May 29 2025 18:49:23.027: %LINEPROTO-5-UPDOWN: Line protocol on Interface LI-Null0, changed state to up
+*May 29 2025 18:49:23.028: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+*May 29 2025 18:49:23.029: %LINK-3-UPDOWN: Interface LIIN0, changed state to up
+*May 29 2025 18:49:23.029: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to down
+*May 29 2025 18:49:23.031: %IOSXE_RP_ALARM-6-INFO: ASSERT CRITICAL GigabitEthernet0 Physical Port Link Down 
+*May 29 2025 18:49:23.229: %PNP-6-PNP_DISCOVERY_STARTED: PnP Discovery startedIOSD CMAN IPC BR notification receivedcman channel UP, remote location -1/0/0/0IOSD-CMAN IPC setting TDL domian and handleIOSD CMAN IPC setting TDL domaincman channel, local location -1/0/0/0TDL domain set iosd_cmrp.rp_0_0_rp_0_0
+*May 29 2025 18:48:22.274: %IOSXE-3-PLATFORM: R0/0: kernel: tpm tpm0: A TPM error (256) occurred attempting the self test
+*May 29 2025 18:48:22.277: %IOSXE-3-PLATFORM: R0/0: kernel: mdio_thunder 0000:01:01.3: Couldn't translate address for "mdio0_uio"
+*May 29 2025 18:48:22.302: %IOSXE-3-PLATFORM: R0/0: kernel: arm-scmi firmware:scmi: SCMI protocol 19 not implemented
+*May 29 2025 18:48:22.302: %IOSXE-3-PLATFORM: R0/0: kernel: arm-scmi firmware:scmi: SCMI protocol 20 not implemented
+*May 29 2025 18:48:22.302: %IOSXE-3-PLATFORM: R0/0: kernel: arm-scmi firmware:scmi: SCMI protocol 21 not implemented
+*May 29 2025 18:48:52.783: %SYS-4-ROUTER_RUNNING_BUNDLE_BOOT_MODE: R0/0: Warning: Booting with bundle mode will be deprecated in the near future. Migration to install mode is required.
+*May 29 2025 18:48:53.446: %BOOT-5-OPMODE_LOG: R0/0: binos: System booted in AUTONOMOUS mode
+*May 29 2025 18:49:23.319: yang-infra: Initializing PKI on RF active
+*May 29 2025 18:49:23.319: yang-infra: Skipping PKI initialization because netconf-yang is disabled
+*May 29 2025 18:49:23.566: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*May 29 2025 18:49:23.810: %IOSXE_MGMTVRF-6-CREATE_SUCCESS_INFO: Management vrf Mgmt-intf created with ID 1, ipv4 table-id 0x1, ipv6 table-id 0x1E000001
+*May 29 2025 18:49:23.811: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*May 29 2025 18:49:24.009: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
+*May 29 2025 18:49:24.057: %LINEPROTO-5-UPDOWN: Line protocol on Interface EOBC0, changed state to up
+*May 29 2025 18:49:24.057: %LINEPROTO-5-UPDOWN: Line protocol on Interface Lsmpi0, changed state to up
+*May 29 2025 18:49:24.057: %LINEPROTO-5-UPDOWN: Line protocol on Interface LIIN0, changed state to up
+*May 29 2025 18:49:24.057: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to down
+*May 29 2025 18:49:24.265: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*May 29 2025 18:49:26.372: %SYS-7-NVRAM_INIT_WAIT_TIME: Waited 0 seconds for NVRAM to be available
+*May 29 2025 18:49:26.595: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named TP-self-signed-3427094280 has been generated or imported by crypto config
+*May 29 2025 18:49:26.598: %SYS-4-INSECURE_WARNING: Module: SSH - Command: crypto key generate rsa modulus 2048 label TP-self-signed-3427094280  - Reason: An SSH hostkey has been provisioned on the device with insufficient key length - Remediation: Please provision an SSH RSA hostkey with minimum modulus size of 3072 bits for enhanced security - Submode: exec - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:49:26.603: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named NETCONF_SSH_RSA_KEY has been generated or imported by crypto config
+*May 29 2025 18:49:26.604: yang-infra: Default hostkey created (NETCONF_SSH_RSA_KEY)
+*May 29 2025 18:49:26.607: %SYS-6-PRIVCFG_DECRYPT_SUCCESS: Successfully apply the private config file
+*May 29 2025 18:49:26.689: %SYS-4-SYSTEM_SECURITY_MODE_CHANGE: System Security Mode Changed from SECURE to INSECURE
+*May 29 18:49:26.709: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: TP-self-signed-3427094280 created successfully
+*May 29 18:49:26.713: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created successfully
+*May 29 18:49:26.728: yang-infra: self-signed cert inserted(TP-self-signed-3427094280)
+*May 29 18:49:26.948: %SYS-5-CONFIG_I: Configured from memory by console
+*May 29 18:49:26.953: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/0, interfaces disabled
+*May 29 18:49:26.953: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/4, interfaces disabled
+*May 29 18:49:26.961: %SPA_OIR-6-OFFLINECARD: SPA (8M-2xSFP+) offline in subslot 0/0
+*May 29 18:49:26.964: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*May 29 18:49:27.007: %IOSXE_OIR-6-INSCARD: Card (fp) inserted in slot F0
+*May 29 18:49:27.007: %IOSXE_OIR-6-ONLINECARD: Card (fp) online in slot F0
+*May 29 18:49:27.034: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 0
+*May 29 18:49:27.041: %IOSXE_RP_PAE_NOT-4-PAE_STARTUP_DELAY: Product Analytics will start in 7 days, configure "no product-analytics" to disable
+*May 29 18:49:27.041: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*May 29 18:49:27.049: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*May 29 18:49:27.162: %SYS-4-MASTER_KEY_NOT_PRESENT: The master key is not configured, so passwords/secrets might not be encrypted. To ensure secure network operations, it is highly recommended to configure the master key. Please note that future system upgrades will be blocked until the master key is configured.Configure the master key by using the following command: "key config-key password-encrypt <encryption-key>"
+*May 29 18:49:30.911: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 0
+*May 29 18:49:30.931: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*May 29 18:49:30.932: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*May 29 18:49:30.966: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/4
+*May 29 18:49:32.312: Tamper: wait on boolean for tamper event to fetch
+*May 29 18:49:32.313: %SYS-5-RESTART: System restarted --
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+*May 29 18:49:32.593: %PNP-6-PNP_BEST_UDI_UPDATE: Best UDI [PID:C8230X-8M2X,VID:V00,SN:FGL2835LBHU] identified via (entity-mibs)
+*May 29 18:49:32.593: %PNP-6-PNP_CDP_UPDATE: Device UDI [PID:C8230X-8M2X,VID:V00,SN:FGL2835LBHU] identified for CDP
+*May 29 18:49:32.593: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Startup Config Present)
+*May 29 18:49:33.084: %SYS-6-BOOTTIME: Time taken to reboot after reload = 4294966866 seconds
+*May 29 18:49:33.935: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 1 times and closed 0 times during power down. There is no last known/marked event.
+*May 29 18:49:33.935: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 0 times and closed 0 times during power up. There is no last known/marked event.
+*May 29 18:49:37.056: %SYS-5-CONFIG_P: Configured programmatically by process EPM CREATE DEFAULT CWA URL ACL from console as console
+*May 29 18:49:37.564: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 29 18:49:37.564: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*May 29 18:49:42.556: %SPA_OIR-6-ONLINECARD: SPA (VDSP-CC) online in subslot 0/4
+*May 29 18:49:42.798: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 29 18:49:42.798: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*May 29 18:49:42.806: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI created successfully
+*May 29 18:49:42.814: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CISCO_IDEVID_SUDI has been generated or imported by pki-sudi
+*May 29 18:49:42.828: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI0 created successfully
+*May 29 18:49:42.834: %PKI-2-NON_AUTHORITATIVE_CLOCK: PKI functions can not be initialized until an authoritative time source, like NTP, can be obtained.
+*May 29 18:49:45.465: %LINK-3-UPDOWN: Interface Service-Engine0/4/0, changed state to up
+*May 29 18:49:46.464: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/4/0, changed state to up
+[TX 2026-11-01T08:59:37.795129-05:00] b'\r'
+
+Router>
+*May 29 18:49:53.372: %ENVIRONMENTAL-1-ALERT: V: 12V_DG_ST, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.387: %ENVIRONMENTAL-1-ALERT: V: 12V, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.399: %ENVIRONMENTAL-1-ALERT: V: 5V, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.415: %ENVIRONMENTAL-1-ALERT: V: 3.3V_SB, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.428: %ENVIRONMENTAL-1-ALERT: V: 3.3V_SFP, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.440: %ENVIRONMENTAL-1-ALERT: V: 3.3V, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.453: %ENVIRONMENTAL-1-ALERT: V: 1.8V, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.469: %ENVIRONMENTAL-1-ALERT: V: 1.2V, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.482: %ENVIRONMENTAL-1-ALERT: V: 1.1V_DDR, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.498: %ENVIRONMENTAL-1-ALERT: V: 0.75V_CORE, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.509: %ENVIRONMENTAL-1-ALERT: V: 0.75V_SYS, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.527: %ENVIRONMENTAL-1-ALERT: V: 0.8V_SW, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.537: %ENVIRONMENTAL-1-ALERT: V: 0.8V, Location: R0, State: Critical_Low, Reading: 0 mV
+*May 29 18:49:53.553: %ENVIRONMENTAL-1-ALERT: V: 0.75V, Location: R0, State: Critical_Low, Reading: 0 mV
+[TX 2026-11-01T08:59:41.874174-05:00] b'enable\rterminal length 0\rterminal width 512\rshow version | include System image|Last reload|register\rshow bootvar\rshow platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow ip interface brief\r'
+enable
+Router#terminal length 0
+Router#terminal width 512
+Router#show version | include System image|Last reload|register
+System image file is "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin"
+Last reload reason: Reload Command
+Configuration register is 0x3922
+Router#show bootvar
+BOOT variable = bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x3922
+
+Standby not ready to show bootvar
+
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:01:05      
+ 0/0      8M-2xSFP+           booting               00:00:20      
+R0        C8230X-8M2X         ok, active            00:01:05      
+F0        C8230X-8M2X         ok, active            00:01:05      
+P0        PWR-CC2-66WAC       ok                    00:00:33      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 21094
+  Parent process id: 21087
+  Group id         : 21094
+  Status           : S
+  Session id       : 18561
+  User time        : 374
+  Kernel time      : 399
+  Priority         : 20
+  Virtual bytes    : 2218704896
+  Resident pages   : 42131
+  Resident limit   : 18446744073709551615
+  Minor page faults: 45747
+  Major page faults: 608
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 26.524 sec ago
+Last punt keepalive sent                  = never (Never)
+punt keepalive rx count                   = 0
+punt keepalive tx count                   = 0
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = no
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#
+*May 29 18:50:25.834: NGIOLite module 8M-2xSFP+ success read extended attr from conf file len: 1629
+
+*May 29 18:50:26.144: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/8
+*May 29 18:50:27.348: %SPA_OIR-6-ONLINECARD: SPA (8M-2xSFP+) online in subslot 0/0
+*May 29 18:50:29.380: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*May 29 18:50:28.983: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card F0 took 65 secs to boot
+*May 29 18:50:28.983: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 0 took 60 secs to boot
+*May 29 18:50:31.968: %LINK-3-UPDOWN: Interface TenGigabitEthernet0/0/8, changed state to up
+*May 29 18:50:32.915: %LINK-3-UPDOWN: Interface TwoGigabitEthernet0/0/7, changed state to up
+*May 29 18:50:32.968: %LINEPROTO-5-UPDOWN: Line protocol on Interface TenGigabitEthernet0/0/8, changed state to up
+*May 29 18:50:33.916: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/7, changed state to up
+[TX 2026-11-01T09:00:26.131963-05:00] b'show platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow ip interface brief\rshow ip route 0.0.0.0\rshow archive config differences bootflash:C8235B-INTERNAL-STARTUP.cfg nvram:startup-config\rshow archive config differences bootflash:C8235B-PRE-INTERNAL.cfg system:running-config\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:01:49      
+ 0/0      8M-2xSFP+           ok                    00:01:04      
+R0        C8230X-8M2X         ok, active            00:01:49      
+F0        C8230X-8M2X         ok, active            00:01:49      
+P0        PWR-CC2-66WAC       ok                    00:01:17      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 21094
+  Parent process id: 21087
+  Group id         : 21094
+  Status           : S
+  Session id       : 18561
+  User time        : 376
+  Kernel time      : 401
+  Priority         : 20
+  Virtual bytes    : 2219257856
+  Resident pages   : 42259
+  Resident limit   : 18446744073709551615
+  Minor page faults: 45904
+  Major page faults: 608
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.536 sec ago
+Last punt keepalive sent                  = 0.536 sec ago
+punt keepalive rx count                   = 21
+punt keepalive tx count                   = 21
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  administratively down down    
+Tw0/0/1                unassigned      YES unset  administratively down down    
+Tw0/0/2                unassigned      YES unset  administratively down down    
+Tw0/0/3                unassigned      YES unset  administratively down down    
+Tw0/0/4                unassigned      YES unset  administratively down down    
+Tw0/0/5                unassigned      YES unset  administratively down down    
+Tw0/0/6                unassigned      YES NVRAM  administratively down down    
+Tw0/0/7                192.168.5.4     YES NVRAM  up                    up      
+Te0/0/8                unassigned      YES NVRAM  up                    up      
+Te0/0/8.1              unassigned      YES unset  up                    up      
+Te0/0/8.83             192.168.83.1    YES NVRAM  up                    up      
+Te0/0/9                unassigned      YES NVRAM  administratively down down    
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  down                  down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show ip route 0.0.0.0
+Routing entry for 0.0.0.0/0, supernet
+  Known via "static", distance 1, metric 0, candidate default path
+  Routing Descriptor Blocks:
+  * 192.168.5.1, via TwoGigabitEthernet0/0/7
+      Route metric is 0, traffic share count is 1
+Router#show archive config differences bootflash:C8235B-INTERNAL-STARTUP.cfg nvram:startup-config
+!Contextual Config Diffs:
+!No changes were found
+
+Router#show archive config differences bootflash:C8235B-PRE-INTERNAL.cfg system:running-config
+!Contextual Config Diffs:
++boot system bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
+-boot system usb0:c8kg2be-universalk9.26.02.01.SPA.bin
+
+Router#
+[TX 2026-11-01T09:00:35.734114-05:00] b'ping 192.168.5.3 source 192.168.83.1 size 1500 df-bit repeat 5\r'
+ping 192.168.5.3 source 192.168.83.1 size 1500 df-bit repeat 5
+Type escape sequence to abort.
+Sending 5, 1500-byte ICMP Echos to 192.168.5.3, timeout is 2 seconds:
+Packet sent with a source address of 192.168.83.1 
+Packet sent with the DF bit set
+.!!!!
+Success rate is 80 percent (4/5), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-11-01T09:00:41.920942-05:00] b'ping 192.168.5.3 source 192.168.83.1 size 1500 df-bit repeat 5\r'
+ping 192.168.5.3 source 192.168.83.1 size 1500 df-bit repeat 5
+Type escape sequence to abort.
+Sending 5, 1500-byte ICMP Echos to 192.168.5.3, timeout is 2 seconds:
+Packet sent with a source address of 192.168.83.1 
+Packet sent with the DF bit set
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 1/1/4 ms
+Router#
+[TX 2026-11-01T09:00:43.164674-05:00] b'show platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow environment all\rshow logging | include NIX|ATTACH_RESOURCES|CRITICAL_PROCESS|PUNT_KEEPALIVE\r'
+show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 21094
+  Parent process id: 21087
+  Group id         : 21094
+  Status           : S
+  Session id       : 18561
+  User time        : 376
+  Kernel time      : 401
+  Priority         : 20
+  Virtual bytes    : 2219257856
+  Resident pages   : 42259
+  Resident limit   : 18446744073709551615
+  Minor page faults: 45912
+  Major page faults: 608
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.564 sec ago
+Last punt keepalive sent                  = 1.564 sec ago
+punt keepalive rx count                   = 29
+punt keepalive tx count                   = 29
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          0 Celsius
+ Temp: Outlet            R0              Normal          0 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Critical_Low    0 mV
+ V: 5V                   R0              Critical_Low    0 mV
+ V: 3.3V_SB              R0              Critical_Low    0 mV
+ V: 3.3V_SFP             R0              Critical_Low    0 mV
+ V: 3.3V                 R0              Critical_Low    0 mV
+ V: 1.8V                 R0              Critical_Low    0 mV
+ V: 1.2V                 R0              Critical_Low    0 mV
+ V: 1.1V_DDR             R0              Critical_Low    0 mV
+ V: 0.75V_CORE           R0              Critical_Low    0 mV
+ V: 0.75V_SYS            R0              Critical_Low    0 mV
+ V: 0.8V_SW              R0              Critical_Low    0 mV
+ V: 0.8V                 R0              Critical_Low    0 mV
+ V: 0.75V                R0              Critical_Low    0 mV
+ I: VP12P0_MB            R0              Normal          0 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          0 Watts
+
+
+Router#show logging | include NIX|ATTACH_RESOURCES|CRITICAL_PROCESS|PUNT_KEEPALIVE
+Router#

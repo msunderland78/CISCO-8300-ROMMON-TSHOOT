@@ -8,7 +8,7 @@
   },
   "timezone": "America/New_York",
   "started_at": "2026-11-01T08:40:33.244358-05:00",
-  "status": "One-time internal boot and318.854156-second check PASS; internal IOS boot line saved, controlled reload to save ROMMON parameter underway",
+  "status": "Saved autonomous internal warm PASS; USB-absent cold observer armed, owner cycle pending",
   "physical_confirmation": "Owner reconfirmed identical powered-on B assembly/cooling/battery/cables, no probes/programmer or terminal owner",
   "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-084033-bootflash/console.log",
   "console": {
@@ -207,6 +207,69 @@
         },
         "ping": "1500-byte DF5.3 sourced83.1: initial4/5 at08:49:28, repeat5/5 at08:49:36"
       }
+    },
+    {
+      "kind": "saved autonomous internal warm boot",
+      "status": "PASS saved autonomous internal warm boot and short readiness/network checks; USB-absent cold test pending",
+      "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-085633-one-autoboot/console.log",
+      "observer_session": 67852,
+      "armed_at": "2026-11-01T08:56:33.728336-05:00",
+      "reset_at": "2026-11-01T08:56:39.994339-05:00",
+      "trigger": "Native ROMMON reset; no further console TX intended through IOS welcome",
+      "USB_physically_connected": true,
+      "saved_BOOT": "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+      "saved_parameter": "Exact B4 parameter in candidate.json, explicitly synced08:56:19",
+      "welcome_observed_by": "2026-11-01T08:59:37.760043-05:00",
+      "startup_TX_records": 1,
+      "only_startup_TX": "Initiating ROMMON reset; no intervention through IOS welcome",
+      "snapshot": {
+        "raw_local": "router-console-logs/20261101-085937-C8235-B-internal-autonomous-warm-snapshot.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-085937-C8235-B-internal-autonomous-warm-snapshot.log",
+        "bytes": 24358,
+        "sha256": "f046e30b0425c97025a4557623039612340c0c5cef088776527fe1c85e6edb0c"
+      },
+      "automatic_loader": "PASS internal entry, PID1 RAM loader, input/patch hashes, bootflash unmount and runtime hook",
+      "native_reset_reason": "ResetRequest",
+      "identity_observed_at": "2026-11-01T08:57:23.540969-05:00",
+      "ios_console_at": "2026-11-01T08:59:37.795129-05:00",
+      "platform_ready_at": "2026-11-01T09:00:26.131963-05:00",
+      "CPP": 21094,
+      "keepalive_samples": [
+        {
+          "at": "2026-11-01T09:00:26.131963-05:00",
+          "rx": 21,
+          "tx": 21,
+          "miss": 0
+        },
+        {
+          "at": "2026-11-01T09:00:43.164674-05:00",
+          "rx": 29,
+          "tx": 29,
+          "miss": 0
+        }
+      ],
+      "network": "Ports7/8 and subinterfaces restored automatically; default installed; full-size DF ping4/5 then5/5",
+      "native_diffs": "Startup vs internal export unchanged; running vs pre-internal reference only intended boot line",
+      "environment": "Inlet/outlet/rails/current/power0; CPU52C, TPM warning remains",
+      "qualification": "Short warm readiness/network check; not a second five-minute soak",
+      "evidence": {
+        "raw_local": "router-console-logs/20261101-085633-C8235-B-internal-autonomous-warm.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-085633-C8235-B-internal-autonomous-warm.log",
+        "bytes": 39092,
+        "sha256": "faf1487b2843ed1fc776a756351974b2e7b2a7a5a951370f7bc7a8c851cb05b0",
+        "closed_at": "2026-11-01T09:00:53.570773-05:00",
+        "exit": 0
+      }
+    },
+    {
+      "kind": "autonomous cold boot with USB physically absent",
+      "status": "ARMED, owner action/confirmation pending",
+      "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-090053-one-autoboot/console.log",
+      "observer_session": 53265,
+      "armed_at": "2026-11-01T09:00:53.883801-05:00",
+      "requested_action": "Power off running IOS, remove only USB storage, wait10seconds, power on with console/Ethernet unchanged",
+      "startup_TX_intended": 0,
+      "expected": "NativePowerOn, B UUID, internal image/loader/hook, IOS/platform/network and five-minute operational check"
     }
   ],
   "persistence": {
@@ -219,10 +282,13 @@
     "startup_export_bytes": 3889,
     "startup_export_sha512": "57c4cfbb5bc2fb4e9331b2a568039c2dde76e0d27bc2ca91de7e31baeee120069857d011220a2905c9c70f01bb9cccd74f82953b405aff2a4029db74e00ddd7a",
     "startup_native_diff": "No changes versus new internal export",
-    "ROMMON_parameter_sync": "Pending fresh ROMMON identity/readback after current reload",
+    "ROMMON_parameter_sync": {
+      "at": "2026-11-01T08:56:19.411326-05:00",
+      "method": "native sync after exact B4 parameter and internal BOOT readback; exact readback after sync",
+      "previous_after_reload": "BOOT changed to internal; old saved B3 USB parameter remained until explicit set/sync",
+      "parameter": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/B4&&exec${IFS}bash$IFS/u/B4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0"
+    },
     "pending": [
-      "Save/read back exact B4 parameter at fresh identified ROMMON",
-      "Autonomous warm restart with saved internal selection",
       "Owner cold cycle from running IOS with USB physically removed, then five-minute check"
     ]
   },
@@ -231,5 +297,14 @@
     "public": "sanitized-evidence/router-console-logs/20261101-085508-C8235-B-internal-operational-snapshot.log",
     "bytes": 120783,
     "sha256": "a2f9bea5124e232d19b238c2ef0d975e604b7eaec13a272f17a8a7d116881c73"
+  },
+  "preparation_closed_capture": {
+    "raw_local": "router-console-logs/20261101-084033-C8235-B-internal-preparation-and-trial.log",
+    "public": "sanitized-evidence/router-console-logs/20261101-084033-C8235-B-internal-preparation-and-trial.log",
+    "bytes": 127446,
+    "sha256": "23677cf53e80b04cc90b2dec235a7a73a16eb6778e46b340b6f9ee0ea13779d1",
+    "closed_at": "2026-11-01T08:56:33.406431-05:00",
+    "exit": 0,
+    "console_free_check": "lsof no cu/tty owners"
   }
 }
