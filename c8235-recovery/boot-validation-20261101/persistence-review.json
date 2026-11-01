@@ -1,0 +1,32 @@
+{
+  "task": "C8235-05",
+  "reviewed_at": "2026-11-01T07:08:04.974375-05:00",
+  "scope": "Offline transport review while cold2 observation runs; no persistent candidate applied or selected",
+  "evidence": [
+    "sanitized-evidence/router-console-logs/20261031-161654-console.log",
+    "experimental-recovery/c8235-b-bound16-20261031/boot-bound16.sh",
+    "scripts/c8235_b_console_boot.py"
+  ],
+  "observed": [
+    "Earlier291-character parameter was rejected as too long",
+    "Earlier accepted200-character bootstrap mounted devtmpfs, slept5seconds, attempted read-only USB mount and exec of USB script; reset before BOOTSTRAP_BEGIN marker",
+    "Current child maintenance shell, hash-checked prepare-only RAM correction and return to normal init are reproducible",
+    "Kernel command line in original inventory selected console=tty0,9600n8; successful maintenance transport explicitly opens ttyAMA0 and corrects its baud"
+  ],
+  "limits": [
+    "Absence of bootstrap marker does not identify failed command or prove script execution",
+    "USB readiness, mount result, shell invocation and pre-marker script commands remain possible failure points; no one cause established",
+    "No evidence that saving IOS configuration runs this pre-IOS hook"
+  ],
+  "next_transport_experiment_planned": [
+    "Use a separately named candidate with explicit console diagnostics before storage/script operations and a safe captured failure state",
+    "Prove automatic loading with a temporary unsaved boot parameter before considering persistent environment or boot-target changes",
+    "Keep exact chassis/image/vendor-script guards and full original image bytes; preserve each failed outcome",
+    "Validate standalone cold start separately from this console-assisted three-cold-boot series"
+  ],
+  "not_performed": [
+    "No new bootstrap script deployed",
+    "No saved environment/BOOT/confreg/startup change",
+    "No SPI/ROMMON/TPM/security write"
+  ]
+}

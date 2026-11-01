@@ -80,16 +80,248 @@
   "cold_trials": [
     {
       "number": 2,
-      "status": "Armed; owner power cycle requested, no result yet",
+      "status": "PASS: automatic corrected PowerOn boot and five-minute sampled health observation",
       "armed_at": "2026-11-01T07:02:21.512839-05:00",
       "private_capture": ".git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261101-070221",
+      "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602",
+      "owner_confirms_power_cycle": true,
+      "native_reset_reason": [
+        "PowerOn"
+      ],
+      "events": [
+        {
+          "time": "2026-11-01T07:02:21.512569-05:00",
+          "state": "console_open",
+          "port": "/dev/cu.usbserial-AL00F7EQ",
+          "baud": 115200
+        },
+        {
+          "time": "2026-11-01T07:02:21.512839-05:00",
+          "state": "trial_started",
+          "mode": "wait-reset",
+          "evidence": "/Users/games/Documents/SOFTWARE/.git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261101-070221",
+          "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
+        },
+        {
+          "time": "2026-11-01T07:03:42.166799-05:00",
+          "state": "autoboot_stopped",
+          "count": 1
+        },
+        {
+          "time": "2026-11-01T07:03:43.166149-05:00",
+          "state": "rommon_identity_pass",
+          "uuid": "13 FF FF 87 79 AD FB 7C 6D E0 81 A7"
+        },
+        {
+          "time": "2026-11-01T07:03:43.661296-05:00",
+          "state": "temporary_boot_parameter_verified"
+        },
+        {
+          "time": "2026-11-01T07:04:02.061078-05:00",
+          "state": "console_baud",
+          "baud": 9600
+        },
+        {
+          "time": "2026-11-01T07:04:02.617881-05:00",
+          "state": "console_baud",
+          "baud": 115200
+        },
+        {
+          "time": "2026-11-01T07:04:20.117611-05:00",
+          "state": "maintenance_identity_and_image_pass"
+        },
+        {
+          "time": "2026-11-01T07:04:21.625468-05:00",
+          "state": "ram_patch_verified",
+          "source_sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052",
+          "patch_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857"
+        },
+        {
+          "time": "2026-11-01T07:04:30.851691-05:00",
+          "state": "runtime_hook_complete"
+        },
+        {
+          "time": "2026-11-01T07:05:35.413967-05:00",
+          "state": "ios_prompt_reached",
+          "qualification": "Health/stability checks still required"
+        },
+        {
+          "time": "2026-11-01T07:06:28.700550-05:00",
+          "state": "platform_ready",
+          "qualification": "Boot readiness only; keepalive, config and stability checks still required"
+        },
+        {
+          "time": "2026-11-01T07:06:28.700642-05:00",
+          "state": "supervised_capture",
+          "controls": "JSON send/close; no automatic retries"
+        },
+        {
+          "time": "2026-11-01T07:06:43.487521-05:00",
+          "state": "supervised_command_sent"
+        },
+        {
+          "time": "2026-11-01T07:07:44.832335-05:00",
+          "state": "supervised_command_sent"
+        }
+      ],
+      "health_started_at": "2026-11-01T07:06:43.487408-05:00",
+      "health_due_no_earlier_than": "2026-11-01T07:11:43.487408-05:00",
+      "CPP_initial": 21024,
+      "network": "Startup baseline: ports7/8 shut/unassigned; restore preserved bench network after cold3",
+      "health_samples": [
+        {
+          "at": "2026-11-01T07:06:43.487408-05:00",
+          "rx": 22,
+          "tx": 22,
+          "miss": 0,
+          "CPP": 21024
+        },
+        {
+          "at": "2026-11-01T07:07:44.832178-05:00",
+          "rx": 53,
+          "tx": 53,
+          "miss": 0,
+          "CPP": 21024
+        },
+        {
+          "at": "2026-11-01T07:08:54.998225-05:00",
+          "rx": 88,
+          "tx": 88,
+          "miss": 0,
+          "CPP": 21024
+        },
+        {
+          "at": "2026-11-01T07:10:04.541895-05:00",
+          "rx": 123,
+          "tx": 123,
+          "miss": 0,
+          "CPP": 21024
+        },
+        {
+          "at": "2026-11-01T07:11:51.826594-05:00",
+          "rx": 176,
+          "tx": 176,
+          "miss": 0,
+          "CPP": 21024
+        }
+      ],
+      "health_interval_seconds": 308.339186,
+      "health_finished_at": "2026-11-01T07:11:51.826594-05:00",
+      "final_environment": "CPU52C; preexisting standby12V0mV warning remains",
+      "saved_boot_unchanged": true,
+      "no_new_NIX_ATTACH_critical_punt_matches": true,
+      "evidence": {
+        "raw_local": "router-console-logs/20261101-070221-C8235-B-cold2.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-070221-C8235-B-cold2.log",
+        "bytes": 68657,
+        "sha256": "00db8245ece4d5e1731585a13c44b6fef6c91ab2f72528ecd9062cca2b92e92a",
+        "events": [
+          {
+            "time": "2026-11-01T07:02:21.512569-05:00",
+            "state": "console_open",
+            "port": "/dev/cu.usbserial-AL00F7EQ",
+            "baud": 115200
+          },
+          {
+            "time": "2026-11-01T07:02:21.512839-05:00",
+            "state": "trial_started",
+            "mode": "wait-reset",
+            "evidence": "/Users/games/Documents/SOFTWARE/.git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261101-070221",
+            "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
+          },
+          {
+            "time": "2026-11-01T07:03:42.166799-05:00",
+            "state": "autoboot_stopped",
+            "count": 1
+          },
+          {
+            "time": "2026-11-01T07:03:43.166149-05:00",
+            "state": "rommon_identity_pass",
+            "uuid": "13 FF FF 87 79 AD FB 7C 6D E0 81 A7"
+          },
+          {
+            "time": "2026-11-01T07:03:43.661296-05:00",
+            "state": "temporary_boot_parameter_verified"
+          },
+          {
+            "time": "2026-11-01T07:04:02.061078-05:00",
+            "state": "console_baud",
+            "baud": 9600
+          },
+          {
+            "time": "2026-11-01T07:04:02.617881-05:00",
+            "state": "console_baud",
+            "baud": 115200
+          },
+          {
+            "time": "2026-11-01T07:04:20.117611-05:00",
+            "state": "maintenance_identity_and_image_pass"
+          },
+          {
+            "time": "2026-11-01T07:04:21.625468-05:00",
+            "state": "ram_patch_verified",
+            "source_sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052",
+            "patch_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857"
+          },
+          {
+            "time": "2026-11-01T07:04:30.851691-05:00",
+            "state": "runtime_hook_complete"
+          },
+          {
+            "time": "2026-11-01T07:05:35.413967-05:00",
+            "state": "ios_prompt_reached",
+            "qualification": "Health/stability checks still required"
+          },
+          {
+            "time": "2026-11-01T07:06:28.700550-05:00",
+            "state": "platform_ready",
+            "qualification": "Boot readiness only; keepalive, config and stability checks still required"
+          },
+          {
+            "time": "2026-11-01T07:06:28.700642-05:00",
+            "state": "supervised_capture",
+            "controls": "JSON send/close; no automatic retries"
+          },
+          {
+            "time": "2026-11-01T07:06:43.487521-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:07:44.832335-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:08:54.998404-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:09:17.109513-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:10:04.542098-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:11:51.826793-05:00",
+            "state": "supervised_command_sent"
+          }
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "status": "Armed; owner power cycle requested, no result yet",
+      "armed_at": "2026-11-01T07:12:07.905022-05:00",
+      "private_capture": ".git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261101-071207",
       "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
     }
   ],
   "pending": [
-    "Cold2 and3 with exact guarded helper",
+    "Cold3 with exact guarded helper; then restore preserved bench network",
     "Standalone persistence",
     "Intended saved network/boot selection",
     "Further performance/load deferred"
-  ]
+  ],
+  "updated_at": "2026-11-01T07:12:30.701789-05:00"
 }

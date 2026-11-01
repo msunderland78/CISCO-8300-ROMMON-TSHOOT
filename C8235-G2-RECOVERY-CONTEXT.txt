@@ -34,11 +34,19 @@ no startup save. Closed health capture and structured evidence:
 c8235-recovery/boot-validation-20261101/results.json
 sanitized-evidence/router-console-logs/20261101-070012-C8235-B-overnight-health.log
 
-Cold2 helper armed07:02:21 EST after clean capture handoff. Owner asked to
-switch off10seconds/on; result pending. Do not count an armed test as a pass.
-Helper private directory: repeatable-boot/20261101-070221 under the October31
-analysis directory. Recheck current console ownership before any takeover.
-Standalone persistence and cold3 remain pending; performance stays deferred.
+Cold2 PASS: owner-confirmed off10seconds/on, nativePowerOn; exact guards and
+runtime hook pass automatically. IOS07:05:35, platform07:06:28. Health interval
+07:06:43-07:11:51 EST=308.34s; CPP21024 unchanged, keepalives22->176/zero misses,
+no filtered NIX/ATTACH/critical/punt matches, CPU52C. No network restoration
+between tests; ports7/8 remain shut/unassigned on startup baseline. Closed
+cold2 evidence is in results.json and sanitized-evidence/router-console-logs/
+20261101-070221-C8235-B-cold2.log.
+Cold3 helper armed07:12:07 EST; owner power cycle requested, result pending.
+Private directory repeatable-boot/20261101-071207 under the October31 analysis
+directory. Recheck ownership before takeover. Restore preserved bench network
+after cold3 readiness. Standalone persistence remains pending; performance
+stays deferred. Offline transport findings: persistence-review.json alongside
+results.json; no new persistent candidate applied.
 
 OVERNIGHT OWNER REPORT — 2026-11-01, 06:57 EST — C8235-05
 Owner reports the router with the loopback correction ran all night and is
