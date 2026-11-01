@@ -1,0 +1,95 @@
+{
+  "task": "C8235-05",
+  "timezone": "America/New_York",
+  "recorded_at": "2026-11-01T07:02:21.055279-05:00",
+  "chassis": "C8235-B / FGL2835LBHU / prototype PID C8230X-8M2X",
+  "physical_confirmation": "Owner confirms same assembled/cooling/battery state, no programmer/probes, power/RJ45 console/USB/port7/port8 cables unchanged, no terminal app using console. Fresh lsof showed no cu/tty owner; opened exclusive 115200/8N1/no flow capture.",
+  "overnight": {
+    "owner_report": "Ran all night and stable",
+    "observed_at": "2026-11-01T07:00:21.994166-05:00",
+    "uptime": "13 hours, 17 minutes; control processor 13 hours, 18 minutes",
+    "reload_reason": "PowerOn",
+    "image": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin",
+    "ROMMON": "SDK112312-SoC1-SB-v12.1.22",
+    "platform": "R0/F0 ok, active; 0/0 ok",
+    "cpp_pid": 21018,
+    "cpp_matches_previous_handoff": true,
+    "keepalives": [
+      {
+        "time": "2026-10-31T18:50:02.742472-04:00",
+        "rx": 190,
+        "tx": 190,
+        "miss": 0
+      },
+      {
+        "time": "2026-11-01T07:00:21.994166-05:00",
+        "rx": 23899,
+        "tx": 23899,
+        "miss": 0
+      },
+      {
+        "time": "2026-11-01T07:01:58.682269-05:00",
+        "rx": 23948,
+        "tx": 23948,
+        "miss": 0
+      }
+    ],
+    "filtered_NIX_ATTACH_critical_punt_messages": 0,
+    "environment": {
+      "CPU_C": 52,
+      "inlet_C": 35,
+      "outlet_C": 35,
+      "main_12V_mV": 12123,
+      "power_W": 15,
+      "memory_used_percent": 20
+    },
+    "ports": "Port7 1G full and port8 10G full; CRC/input/output errors and queue/output drops zero on both; default via192.168.5.1 throughTw0/0/7",
+    "ping": "192.168.5.3 from192.168.83.1, 5x1500B DF:5/5,1ms",
+    "assessment": "Overnight boot/CPP continuity corroborated by uptime, same PID, cumulative zero missed keepalives and retained IOS log. No continuous host capture or sustained controlled-load gate. Not standalone persistence.",
+    "capture_gap": "Prior passive process no longer owns port. Old log equals previous69982-byte snapshot exactly, no appended bytes. End time of process unknown; no continuous overnight host transcript.",
+    "remaining_findings": [
+      "36 DHCPD NO_LEASE CANT FORWARD messages in captured IOS log; cause uninvestigated",
+      "14 standby12V_DG_ST0mV alerts in captured IOS log; same unresolved warning",
+      "TPM self-test256 remains in boot log",
+      "Syslog reports3 rate-limited messages;0 dropped/overruns"
+    ]
+  },
+  "configuration": {
+    "native_comparison": "Both running and startup config diffs against previous post-repeatable USB exports report No changes",
+    "new_USB_backups_SHA512": {
+      "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-cold2-20261101-running.cfg": "fb447a2a73fc99bf144621820a71a1f7bbb9cc69bcc8641429bb4402bf8faa293b5f86243cc77d70a1f2219248f1ef73da482df36519e2382e947901b493dca8",
+      "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-cold2-20261101-startup.cfg": "7351a8706582cd0e3875d115e132f3d485d1ee24a5c6361f989bb27b49f7a0d556c96cae334b9231e4bd171eb6c91ca081e4b02597f145633c670c9544028f59",
+      "usb0:c8kg2be-universalk9.26.02.01.SPA.bin": "a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c52115fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02"
+    },
+    "startup_hash_matches_previous": true,
+    "running_bytes": 7527,
+    "startup_bytes": 3127,
+    "BOOT": "bootflash:packages.conf,12;",
+    "confreg": "0x3922",
+    "no_startup_save": true,
+    "persistence": "RAM correction and running-only network; no saved-boot change"
+  },
+  "evidence": {
+    "source": ".git/recovery-private/c8235-analysis-20261101/20261101-070012-health/console.log",
+    "raw_local": "router-console-logs/20261101-070012-C8235-B-overnight-health.log",
+    "public": "sanitized-evidence/router-console-logs/20261101-070012-C8235-B-overnight-health.log",
+    "bytes": 55735,
+    "sha256": "3226152bffe11263fa05c9eb0fac5c4d89897c85df72614b54a8e04ba1f22fc9",
+    "previous": "c8235-recovery/crash-review-20261031/repeatable-boot.json"
+  },
+  "cold_trials": [
+    {
+      "number": 2,
+      "status": "Armed; owner power cycle requested, no result yet",
+      "armed_at": "2026-11-01T07:02:21.512839-05:00",
+      "private_capture": ".git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261101-070221",
+      "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
+    }
+  ],
+  "pending": [
+    "Cold2 and3 with exact guarded helper",
+    "Standalone persistence",
+    "Intended saved network/boot selection",
+    "Further performance/load deferred"
+  ]
+}

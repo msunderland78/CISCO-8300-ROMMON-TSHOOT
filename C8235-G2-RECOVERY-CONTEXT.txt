@@ -10,6 +10,36 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+OVERNIGHT VERIFIED CHECKPOINT — 2026-11-01, 07:02 EST — C8235-05
+Owner reconfirms same B/FGL2835LBHU, assembled/cooling/battery unchanged, no
+programmer/probes, same power/RJ45 console/USB/port7/port8, no terminal app.
+Fresh cu/tty ownership check is clear; exclusive capture opened at115200/8N1.
+Live uptime13h17m/CP13h18m, last reloadPowerOn, same26.2.1 USB/development
+ROMMON. R0/F0 active,0/0ok. CPP21018 matches yesterday; keepalives23899->23948,
+rx=tx/zero misses. CPU52C, memory20%, main12V12123mV, power15W. Both test ports
+up/error-free in sampled counters; full-size DF ping toUbuntu5.3 from83.1=5/5.
+This corroborates overnight boot/CPP continuity; no controlled-load pass.
+
+The previous passive process is gone; its capture equals the69982-byte old
+snapshot with no additions. Termination time unknown; no continuous overnight
+host transcript. Retained IOS log has no filtered NIX/ATTACH/critical/punt
+failure, but36 DHCP NO_LEASE/CANT FORWARD messages,14 repeated standby12V
+alerts and originalTPM256 warning remain. Syslog reports3 rate-limited messages.
+
+Running/startup native diffs against yesterday's USB exports show no changes.
+New pre-cold2-20261101-running.cfg(7527B) and -startup.cfg(3127B) preserved in
+existing USB diagnostic directory; SHA512s in results.json. Startup hash still
+matches. Full USB IOS SHA512 matches exact reference. BOOT/confreg unchanged;
+no startup save. Closed health capture and structured evidence:
+c8235-recovery/boot-validation-20261101/results.json
+sanitized-evidence/router-console-logs/20261101-070012-C8235-B-overnight-health.log
+
+Cold2 helper armed07:02:21 EST after clean capture handoff. Owner asked to
+switch off10seconds/on; result pending. Do not count an armed test as a pass.
+Helper private directory: repeatable-boot/20261101-070221 under the October31
+analysis directory. Recheck current console ownership before any takeover.
+Standalone persistence and cold3 remain pending; performance stays deferred.
+
 OVERNIGHT OWNER REPORT — 2026-11-01, 06:57 EST — C8235-05
 Owner reports the router with the loopback correction ran all night and is
 stable. This follows B/FGL2835LBHU's powered-on handoff below; no fresh serial,
