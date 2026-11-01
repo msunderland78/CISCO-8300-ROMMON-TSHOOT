@@ -10,6 +10,28 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+AUTONOMOUS WARM BOOT PASS; COLD CAPTURE ARMED — 2026-11-01,08:15 EST
+Saved BOOT and trial9 USER_BOOT_PARAM now survive a ROMMON reset. Warm trigger
+08:10:23 is the ONLY TX until IOS welcome; passive observer validates fresh
+B/ResetRequest08:11:06 without sending break. ROMMON selects exact USB image;
+automatic guards/RAM correction/unmount/hook complete. First IOS interaction
+08:13:13; R0/F0/0/0 ready08:14:07, CPP21041, keepalives19->35/zero misses.
+Both ports/subinterfaces/default route restore automatically. Early missing
+interface diff precedes card readiness; later diff against old running backup
+is ONLY intended boot line. Startup vs saved auto export: no changes. Full-size
+DF ping4/5 then5/5. CPU52C/all-zero voltage-current-power telemetry remains.
+This is a warm autonomous boot/readiness pass, not a new five-minute soak.
+
+Warm capture90725 closed exit0, full38584B log preserved/public counterpart:
+sanitized-evidence/router-console-logs/20261101-081015-C8235-B-autonomous-warm.log
+Fresh exclusive passive cold observer88335 armed08:15:01 at115200/8N1:
+.git/recovery-private/c8235-analysis-20261101/20261101-081501-one-autoboot.
+Owner requested off10seconds/on with USB/cables retained; confirmation pending.
+NO transmissions intended through cold IOS welcome. First matching reset is
+allowed; second/mismatched reset stopped. Current saved config/correction are
+ready; no further changes needed before power cycle. Cold result pending.
+Details/hashes/no-intervention prefix: boot-validation-20261101/usb-entry.json.
+
 SAVED PARAMETER; AUTONOMOUS WARM TEST ACTIVE — 2026-11-01,08:10 EST
 After IOS save/reload, fresh B/LocalSoft ROMMON showed USB BOOT retained but
 USER_BOOT_PARAM absent. Set/read exact trial9 parameter, sync08:09:54 returned

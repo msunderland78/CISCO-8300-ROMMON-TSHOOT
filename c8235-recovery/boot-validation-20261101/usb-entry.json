@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "status": "Startup and exact ROMMON loader parameter saved; preparing passive autonomous warm test",
+  "status": "Saved autonomous warm boot PASS; preparing fresh passive cold capture",
   "source_candidate": "experimental-recovery/c8235-b-bootstrap-20261101/candidate.json",
   "console_source": ".git/recovery-private/c8235-analysis-20261101/20261101-072310-usb-entry/console.log",
   "physical_confirmation": "Same owner-confirmed setup retained throughout cold2/cold3 and probe; exclusive console handed off cleanly",
@@ -16,7 +16,7 @@
   "confreg": "0x3922",
   "no_startup_save": false,
   "no_firmware_write": true,
-  "updated_at": "2026-11-01T08:10:08.938399-05:00",
+  "updated_at": "2026-11-01T08:15:08.207064-05:00",
   "trials": [
     {
       "number": 1,
@@ -377,7 +377,7 @@
   "autonomous_trials": [
     {
       "kind": "warm",
-      "status": "Armed; reset issued, result pending",
+      "status": "PASS autonomous saved warm boot and short operational/network checks; cold power-loss persistence remains pending",
       "observer": {
         "source": "experimental-recovery/c8235-b-bootstrap-20261101/observe-one-autoboot.py",
         "sha256": "65cdf1fd7bde2531773ffba626242bf6a1df1b24fcb5ba4d9241fd413e6e29a1",
@@ -388,7 +388,60 @@
       "trigger": "ROMMON reset; no subsequent TX intended until IOS welcome/readiness observation",
       "reset_observed_by": "2026-11-01T08:10:24.179119-05:00",
       "saved_parameter_source": "trials number9 parameter",
-      "saved_BOOT": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin,12;"
+      "saved_BOOT": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+      "welcome_observed_by": "2026-11-01T08:13:13.892803-05:00",
+      "startup_TX_records": 1,
+      "only_startup_TX": "reset at08:10:23.007390; no later TX through IOS welcome",
+      "snapshot": {
+        "raw_local": "router-console-logs/20261101-081310-C8235-B-autonomous-warm-no-intervention-snapshot.log",
+        "bytes": 23973,
+        "sha256": "2b3dfcb9f7e756035cc8e2e626c650d61733e7b607717bb0bd359f9bc82dc68e",
+        "type": "Immutable prefix before first IOS prompt interaction"
+      },
+      "reset_at": "2026-11-01T08:10:23.007390-05:00",
+      "native_ROMMON_reset": "ResetRequest",
+      "IOS_reload_reason": "Reload Command",
+      "ios_console_at": "2026-11-01T08:13:13.939354-05:00",
+      "platform_ready_at": "2026-11-01T08:14:07.275277-05:00",
+      "CPP": 21041,
+      "initial_keepalive": {
+        "rx": 19,
+        "tx": 19,
+        "miss": 0
+      },
+      "network": "Port7 and port8/subinterfaces restored automatically; default route installed. Early before-card-readiness missing-interface diff retained; later diff only intended boot line.",
+      "second_health": {
+        "at": "2026-11-01T08:14:37.509797-05:00",
+        "rx": 35,
+        "tx": 35,
+        "miss": 0,
+        "CPP": 21041
+      },
+      "startup_native_diff": "No changes versus saved auto-20261101-startup.cfg",
+      "environment": "CPU52C, all-zero voltage/current/power telemetry remains; no new cause established",
+      "ping": "1500DF5.3 from83.1 initial4/5 then5/5",
+      "evidence": {
+        "raw_local": "router-console-logs/20261101-081015-C8235-B-autonomous-warm.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-081015-C8235-B-autonomous-warm.log",
+        "bytes": 38584,
+        "sha256": "13bb341a8da2a837c8ff360e73ed77e552772f9bbb979ec1cecf76531c236e06",
+        "capture_closed_at": "2026-11-01T08:15:01.280175-05:00",
+        "exit": 0
+      }
+    },
+    {
+      "kind": "cold",
+      "status": "Fresh passive capture armed; awaiting owner off10seconds/on",
+      "observer": {
+        "source": "experimental-recovery/c8235-b-bootstrap-20261101/observe-one-autoboot.py",
+        "sha256": "65cdf1fd7bde2531773ffba626242bf6a1df1b24fcb5ba4d9241fd413e6e29a1",
+        "private_directory": ".git/recovery-private/c8235-analysis-20261101/20261101-081501-one-autoboot",
+        "armed_at": "2026-11-01T08:15:01.727661-05:00",
+        "session": 88335
+      },
+      "expected": "NativePowerOn; exact saved USB image/loader automatically, zero TX through IOS welcome, restored network, five-minute operational check",
+      "configuration_mutations": "None after successful warm validation",
+      "cold_result": null
     }
   ]
 }
