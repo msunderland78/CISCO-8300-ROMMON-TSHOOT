@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "timezone": "America/New_York (EST UTC-05:00)",
   "tracking_id": "C8235-C",
-  "status": "native_install_conversion_complete_saved_internal_autoboot_trial_active",
+  "status": "internal_install_boot_verified_warm_health_active",
   "identity": {
     "owner_description": "Third C8235-G2; power, serial and USB moved from router #2",
     "chassis_serial": "FGL2835L41Z",
@@ -61,7 +61,7 @@
     "cpld_reported": "24073021",
     "limitations": "Reported matching BIOS/ROMMON/CPLD versions do not establish full-chip byte identity or physical bank mapping. C RAM correction reaches stable IOS; uncorrected native IOS comparison was not performed."
   },
-  "next": "Observe saved autonomous internal install startup, then verify actual image/packages/commit/config and\u2265300s idle health; only afterward ask for USB-absent physical cold boot.",
+  "next": "Complete all14 hashes and\u2265300s warm health, preserve/compare final startup and manifest, then arm fresh observer for owner USB-absent cold cycle.",
   "firmware_comparison": [
     {
       "field_prefix": "Firmware Version:",
@@ -423,13 +423,197 @@
     }
   },
   "internal_warm_trial": {
-    "status": "reset_sent_boot_pending",
+    "status": "autonomous_packages_conf_IOS_verified_five_minute_health_active",
     "private_capture": ".git/recovery-private/c8235-c-baseline-20261101/20261101-110245-one-autoboot/console.log",
     "session": 55997,
     "observer_armed_at": "2026-11-01T11:02:45.761827-05:00",
     "reset_sent_at": "2026-11-01T11:02:50.238479-05:00",
     "USB": "present",
     "ethernet": "absent",
-    "expected": "packages.conf startup with savedC4 parameter and runtime correction, no furtherTX through welcome; verify native image/committed state/all14 package hashes and\u2265300s health before physical cold test"
+    "expected": "packages.conf startup with savedC4 parameter and runtime correction, no furtherTX through welcome; verify native image/committed state/all14 package hashes and\u2265300s health before physical cold test",
+    "autoboot_identity_seen_at": "2026-11-01T11:03:34.201279-05:00",
+    "no_assistance_through_welcome": "Only initiating reset transmitted before IOS welcome; zero subsequentTX through welcome",
+    "early_firmware_fields_unchanged": 16,
+    "internal_loader": "INPUT_HASHES_PASS,BOOTSTRAP_READY,INTERNAL_READY and runtimeHOOK_COMPLETE all observed",
+    "IOS_image": "bootflash:packages.conf",
+    "IOS_version": "26.02.01 /26.02.1",
+    "install_state": "IMG C26.02.01.0.263, auto-abort timer inactive",
+    "configuration_register": "0x3922",
+    "cpld": "24073021",
+    "initial_port_module": "0/0 booting at11:05:58 and11:06:08; ready by11:06:41",
+    "health": {
+      "start": "2026-11-01T11:06:41.353584-05:00",
+      "earliest_final": "2026-11-01T11:11:41.353584-05:00",
+      "CPP_pid": 20621,
+      "CPP_session": 18202,
+      "samples": [
+        {
+          "at": "2026-11-01T11:06:41.353584-05:00",
+          "rx": 27,
+          "tx": 27,
+          "miss": 0,
+          "CPP_pid": 20621,
+          "CPP_session": 18202,
+          "send_errors": 0
+        },
+        {
+          "at": "2026-11-01T11:07:38.536039-05:00",
+          "rx": 56,
+          "tx": 56,
+          "miss": 0,
+          "CPP_pid": 20621,
+          "CPP_session": 18202,
+          "send_errors": 0
+        },
+        {
+          "at": "2026-11-01T11:08:24.330266-05:00",
+          "rx": 79,
+          "tx": 79,
+          "miss": 0,
+          "CPP_pid": null,
+          "CPP_session": null,
+          "send_errors": 0
+        },
+        {
+          "at": "2026-11-01T11:08:38.052550-05:00",
+          "rx": 86,
+          "tx": 86,
+          "miss": 0,
+          "CPP_pid": 20621,
+          "CPP_session": 18202,
+          "send_errors": 0
+        }
+      ],
+      "result": "pending"
+    },
+    "initial_environment": {
+      "inlet_C": 35,
+      "outlet_C": 34,
+      "CPU_C": 52,
+      "main_12V_mV": 12115,
+      "main_5V_mV": 4945,
+      "current_mA": 1193,
+      "power_W": 14,
+      "12V_DG_ST": "0mV/Critical_Low"
+    },
+    "package_verification": {
+      "expected": "c8235-recovery/install-validation-20261101/expected-packages.json",
+      "completed": 14,
+      "main_mono": "full nativeSHA512 passes",
+      "manifest_sha512": "aed00702b34462f9f6ee911e6f3e4c1d72fef4d051739a06f782ae1e7cb4c37d58ee1ffc08f48f47a8b83708ccc47e66a753988e383be9d098405a9a81a8e891",
+      "manifest_matches_B_exact_vendor_manifest": true,
+      "C4_and_fix_SHA512_match": true,
+      "native_verified": [
+        {
+          "file": "c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg",
+          "bytes": 6807552,
+          "sha512": "eb823acb7e6ad20c3247d76766c38eeafd634a127f70944639cb19d320e75e23ada2a8d3cd14b23cb4ba6dc757d315fff75f189dd37e12209a804d44b6ecb109",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg",
+          "bytes": 139264,
+          "sha512": "1db569893a00d5df01f0f451a234fd8a51f289aec343a85c6e4f33c66153cd5e0cdd15aed183b466ce03f9f3ca6375d658ededcb23cbe584b5fb7983d7649d94",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg",
+          "bytes": 12017664,
+          "sha512": "af430bf0de6e9f957580437d18a4c77faa6eea07cd445c1f92971374c7bbe35c8f35ea26eaab41519f80ec8cc2aac2d9bd0b557f649ee5d3e8b8e7b0c2755ca9",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_nim_async.26.02.01.SPA.pkg",
+          "bytes": 13287424,
+          "sha512": "10d5816cee3d0a5fece0db78d5272a0d1104903e4bef2f4f45d7c948bc9dbdf996d329a2da80ccbbb417bab6312e1ee59ba3d08ceedf972543184dc5c019402b",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg",
+          "bytes": 11923456,
+          "sha512": "8886277f60256d12e2cefb7fbde3ec0f19d08f1bab25d467c571a50de0e1465bfef2c4f9748033df24a38fddafda3657b67f5529dbf51c1a2477b503fd0fc042",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg",
+          "bytes": 5677056,
+          "sha512": "bd1d90ab0686c52a79754a772fe851a5c6c4a97c94ee914c9b96c6666117096a6f50f18c640ad4a57aee303014352a636fea3ac806a05667bf0a82b2660af31a",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_prince.26.02.01.SPA.pkg",
+          "bytes": 10444800,
+          "sha512": "15312b9ff4d5f0da248d7e6aebf9415aa58e7ebeecb9b99acf47d44843f2672c808ebdaa0b38ecf12f6d723498bec21894c79e941922a8c080439c8993611e86",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg",
+          "bytes": 53248,
+          "sha512": "5f5221079605a41295eb60787300b34c9dea3da51ab0e0a49fa15ff8988b503f706317e7cc116b799c3c4c7ca266217fe55ecab23913a35c3a80afc1931f228b",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg",
+          "bytes": 13889536,
+          "sha512": "76fcc158bedcb4f137ea63a799195aef7cd257c49e38eb9930acb371bd065bc8cba8d285a565511c4d72139a10c9709203be1621a6091f4af4de834a9105eb7b",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_sm_async.26.02.01.SPA.pkg",
+          "bytes": 14700544,
+          "sha512": "1d0f87e950a7db39630bbaa4296a18cf11accd1a59fede8b41ad7610ba4a16a485d97c598d7b10fba0462c4870378e16cf439b9ee177016462054559a74ea74b",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg",
+          "bytes": 2600960,
+          "sha512": "de77b2a6ba2b9b7b9007750045c6fde4da79a3b799a35468587b7648188a6851fb3eeff792600d36df62747e1068e0c8b40519521e75811fa33c1d806009c042",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg",
+          "bytes": 204800,
+          "sha512": "c08535469d2d89f55325b32da0b1d6057bfac5e0594cc2fa8d3cc277aea0205dcb117f7757f4c85b95707beee88fbf43ed3d26e04d361cc6f56343b5bc1b219c",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+          "bytes": 962338816,
+          "sha512": "11a457efd1565c038f74392dbb956f49e66b50d63648ec9b8216b251ab5ef51241c083b98639b0bce55318b1ece84ee6ad3fe58ba4218c4956a8c565cd1e6c53",
+          "native_hash_and_size_match": true
+        },
+        {
+          "file": "c8kg2be-rpboot.26.02.01.SPA.pkg",
+          "bytes": 74019996,
+          "sha512": "63dd0d3fe03048a0a1f06e544035e2d919f14f94b4e9942c7cb570702086f03ceafc84c9f905ce9c030a6f4964e57bdf13e9a5f7f8dd0ec4a53b83f0be7ee235",
+          "native_hash_and_size_match": true
+        }
+      ]
+    },
+    "native_configuration_observation": "Initial comparison during0/0 booting includes transient port enumeration/default differences plus native system mode insecure and both intended boot entries; repeat after all modules ready. No system mode/security command issued.",
+    "configuration_preservation": {
+      "internal_startup": "C8235C-INSTALL-startup.cfg",
+      "startup_bytes": 3275,
+      "startup_sha512": "bed703fb2bf5a1c074884843be9147729dd15638d0ca50e88a2ef3272f64673008180f6d786796cfdc609f3607f54607dd844550cc4ca88370c991d814b907a9",
+      "internal_running": "C8235C-INSTALL-running.cfg",
+      "running_bytes": 7652,
+      "running_sha512": "5f969382a839d99b1fc7e1a793fa754dbe2c499af011e05ca60e07f13da4f65932e1cf532da3d37ea49cf0197ba133437fd7b1c212a8364a47fff7d32d99d192",
+      "manifest_backup": "C8235C-INSTALL-packages.keep",
+      "manifest_bytes": 8405,
+      "manifest_sha512": "aed00702b34462f9f6ee911e6f3e4c1d72fef4d051739a06f782ae1e7cb4c37d58ee1ffc08f48f47a8b83708ccc47e66a753988e383be9d098405a9a81a8e891",
+      "USB_startup_backup": "usb0:C8235-C-UUID83CA808243-20261101/C8235C-INSTALL-startup.cfg",
+      "USB_startup_hash_matches": true,
+      "native_backup_vs_startup_diff": "No changes",
+      "settled_running_vs_preinstall_diff": "Two intended boot lines, native system mode insecure, and removal of redundant no ip address on Service-Engine0/4/0. Transient missing data-port entries cleared when0/0 became ready.",
+      "security_mode_observation": "system mode insecure appears in running after reboot but is absent from saved startup; no command selecting this mode, TPM clear, fuse or provisioning write was issued. Native warnings retained; network/security configuration was not qualified."
+    },
+    "bootflash_free_bytes": 16995090432,
+    "evidence_snapshot": {
+      "raw_path": "router-console-logs/20261101-110245-C8235-C-install-warm-IOS-snapshot.log",
+      "public_path": "sanitized-evidence/router-console-logs/20261101-110245-C8235-C-install-warm-IOS-snapshot.log",
+      "bytes": 90785,
+      "sha256": "b35d2bf35500816521b06caf7cfbc32fd905f5d5ee6a8217ba4c57c9ad38d840",
+      "snapshot_of_active_capture": true
+    }
   }
 }

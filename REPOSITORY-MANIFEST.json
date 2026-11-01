@@ -1319,6 +1319,11 @@
       "bytes": 105910,
       "path": "router-console-logs/20261101-105024-C8235-C-install-conversion.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 90785,
+      "path": "router-console-logs/20261101-110245-C8235-C-install-warm-IOS-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1353,9 +1358,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 135331,
+      "bytes": 136644,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "e49326ac8ac38bc32879d4deb592d49a5695c16efec384936e375aff8774446f"
+      "sha256": "4ef3669b6fbd50e87beeb240716e2decfb1bd2b3e77445d49ac59d5376fb1fac"
     },
     {
       "bytes": 106687,
@@ -1538,9 +1543,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 24502,
+      "bytes": 24513,
       "path": "README.md",
-      "sha256": "438c3d8ecdc72ce86a7042fddf0ddfff3083e8e86a7f2084c552aaf237e7cf2e"
+      "sha256": "56f768c9dbc0a6a1169211b10c6a69ba178bd91d3c2d98378fea1830ec4a466f"
     },
     {
       "bytes": 3934,
@@ -1638,9 +1643,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 384153,
+      "bytes": 385135,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "2027dca8c87fe3f230d201749999e3ae4ab2401354ea6677ba625e5d52d7fdc2"
+      "sha256": "d1b9b14884475070528d061afdb678fe65cd52baa3eeec93a68d627949cd845c"
     },
     {
       "bytes": 6850655,
@@ -1798,9 +1803,9 @@
       "sha256": "4eb51bc4627a08ce08477d5f72e3bd902c847491a492a9472f7d97ff26567baf"
     },
     {
-      "bytes": 21666,
+      "bytes": 30679,
       "path": "c8235-recovery/c8235-c-baseline-20261101/results.json",
-      "sha256": "0affc7efe3956eb03c9b6e46db90c99339f46ef17daa59531c4ee5d5e7cd069c"
+      "sha256": "084b49bb3e29053607c1fab4b0c74ba203d7938ea395a56523539119053bde83"
     },
     {
       "bytes": 82424,
@@ -2621,6 +2626,11 @@
       "bytes": 2936,
       "path": "experimental-recovery/c8235-b-bound16-20261031/boot-bound16.sh",
       "sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052"
+    },
+    {
+      "bytes": 5448,
+      "path": "experimental-recovery/c8235-c-bootflash-20261101/INSTALL.txt",
+      "sha256": "9057e826d3d4e59bd07d64132edb56bb4885a1bfa8ea9371309a90f6d2808bcd"
     },
     {
       "bytes": 2504,
@@ -3863,6 +3873,11 @@
       "sha256": "0262c9bb0887b5919ce7db47e45703e5a02cb9289e481e384b0275c4928fc441"
     },
     {
+      "bytes": 90767,
+      "path": "sanitized-evidence/router-console-logs/20261101-110245-C8235-C-install-warm-IOS-snapshot.log",
+      "sha256": "faa9ba9fbb9d5124807f70a513456ac1ff70d5b8b89fbcc9594d0d243d8a8f9a"
+    },
+    {
       "bytes": 16688,
       "path": "scripts/c8235_b_console_boot.py",
       "sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
@@ -4158,12 +4173,13 @@
     "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-diagnostic-and-first-init.log",
     "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-pre-init-preservation.log",
     "sanitized-evidence/router-console-logs/20261101-105024-C8235-C-first-IOS-preparation.log",
-    "sanitized-evidence/router-console-logs/20261101-105024-C8235-C-install-conversion.log"
+    "sanitized-evidence/router-console-logs/20261101-105024-C8235-C-install-conversion.log",
+    "sanitized-evidence/router-console-logs/20261101-110245-C8235-C-install-warm-IOS-snapshot.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 264,
-    "included_bytes_without_manifest": 701202558,
-    "included_files_without_manifest": 532
+    "excluded_local_files": 265,
+    "included_bytes_without_manifest": 701310092,
+    "included_files_without_manifest": 534
   }
 }

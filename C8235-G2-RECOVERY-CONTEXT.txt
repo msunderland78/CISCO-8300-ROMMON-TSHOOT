@@ -10,6 +10,24 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-C AUTONOMOUS INSTALL BOOT VERIFIED; HEALTH ACTIVE — 2026-11-01,11:09 EST
+Saved C4 starts automatically from bootflash under packages.conf; input hashes,
+RAM preparation and runtime hook complete. Only initiating resetTX through IOS
+welcome. All16 early firmware fields/CPLD unchanged, IOS26.2.1 packages.conf,
+IMG C and inactive rollback timer confirmed. All14 package sizes/fullSHA512,
+manifest/C4/fix hashes pass. R0/F0/0/0 ready11:06:41, CPP20621/session18202;
+keepalives27→56→79→86 matched, zero misses. Final five-minute check due11:11:41.
+Main sensors35/34/52C,main12V12115mV,5V4945mV,14W; standby12V0 unresolved.
+Installed startup/running/manifest backups hashed; startup USB copy matches.
+Native saved-config comparison has no changes. Settled running comparison adds
+intended boot lines, native system mode insecure and service-engine default
+representation; transient missing ports cleared on module readiness. No command
+selecting insecure mode/security provisioning was issued; no network qualification.
+16,995,090,432bytes free. USB present, no Ethernet, console55997 active.
+Warm health completion and USB-absent physical cold test remain pending.
+Procedure: experimental-recovery/c8235-c-bootflash-20261101/INSTALL.txt
+Evidence: c8235-recovery/c8235-c-baseline-20261101/results.json
+
 C8235-C NATIVE INSTALL COMPLETE; SAVED INTERNAL BOOT ACTIVE — 2026-11-01,11:03 EST
 Add, Activate and Commit/ACTIVATE_POSTCHECK all succeed. Activation list matched
 all14 exact26.2.1 package names. Native reload returns matching C ROMMON/UUID;

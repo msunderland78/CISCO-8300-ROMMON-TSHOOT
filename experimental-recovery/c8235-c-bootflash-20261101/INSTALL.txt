@@ -1,0 +1,84 @@
+C8235-C / FGL2835L41Z — internal install-mode recovery trial
+2026-11-01, America/New_York (EST UTC-05:00); C8235-01/05
+
+CURRENT STATUS — 11:09 EST
+Native26.2.1 install conversion and autonomous warm startup using packages.conf
+pass. C4 input/patch/hook guards and runtime correction complete without console
+assistance after the initiating reset. All14 installed package sizes/fullSHA512
+match the exact original bundle extraction; manifest matches B's vendor manifest.
+IOS reports bootflash:packages.conf, IMG C26.02.01.0.263, inactive abort timer,
+confreg0x3922. R0/F0/0/0 are ready. The warm five-minute observation began11:06:41;
+its final result and USB-absent physical cold boot remain PENDING.
+USB is present, no Ethernet. Console55997 active; do not interrupt the trial.
+
+REQUIRED INTERNAL FILES
+bootflash:packages.conf and all14 packages in
+../../c8235-recovery/install-validation-20261101/expected-packages.json
+bootflash:C4 (2504bytes), bootflash:C8235CFIX1 (3056bytes)
+bootflash:c8kg2be-universalk9.26.02.01.SPA.bin (1048008916bytes)
+Exact loader/fix/image hashes and saved USER_BOOT_PARAM are in candidate.json
+and ../../c8235-recovery/c8235-c-baseline-20261101/results.json.
+BOOT selects packages.conf first and the exact.bin second; confreg0x3922.
+
+The.bin remains REQUIRED even in install mode: C4 hashes it on each startup.
+Do not delete it with install remove inactive; B demonstrated that this native
+command selects the current.bin despite its fallback boot entry. Future cleanup
+must preserve/verify it outside the native deletion preview and restore it to
+its exact root filename. There is no old software set to clean up on C today.
+Changing IOS versions requires separate source/guard/package validation. The
+loader deliberately refuses a different kernel/vendor startup script/image.
+This is an exact26.2.1 prototype-specific workaround, not a general IOS fix.
+
+IMPLEMENTATION AND VALIDATION
+C4 and the C correction were derived separately from the verified B sources;
+B originals remain unchanged. C4 reads internal eMMC p1 read-only/noload,
+copies itself/the fix to RAM, validates exact source/kernel/Arata/32VF data,
+prepares the RAM launch hook, verifies output hashes, unmounts bootflash and
+executes native /init as PID1. A failed guard stays in maintenance. No vendor
+image/package, ROMMON code, TPM provisioning or fuse patch was commanded.
+
+The full eMMC user area was preserved and independently readback-verified before
+native startup initialized it. All20845690880bytes were zero. USB archive and
+readback logs are in C8235-C-UUID83CA808243-20261101; boot0/boot1/RPMB/SPI are
+outside that backup. No cross-chassis restore or manual partition format.
+
+Native IOS Tcl transferred C4 through the exclusive serial console. An initial
+280byte-source chunk exceeded Tcl's line limit and left a0byte candidate.
+Corrected90byte-source hex chunks, each under240command characters, returned
+normal prompts and produced an exact fullSHA512 match. Failed candidate never
+executed. CLI source/fix/image/manifest/package hashes are independently logged.
+
+observe-one-autoboot.py is AI-assisted, standard-library, inert on import/default
+invocation. Explicit --live/--port/--confirmed-chassis FGL2835L41Z is required.
+It allows only the first matching C UUID/development-ROMMON reset without TX;
+subsequent or mismatched resets are stopped. Four local-pipe regression tests
+cover passive fragmented first reset, later reset, wrong firmware and B identity.
+A local-only wrapper substitutes the restricted enable-secret file after an
+explicit placeholder command; actual values are never sent to public output.
+All71 offline repository tests pass. Publication now handles native one-time
+username password syntax and signed config-diff lines; originals remain private.
+
+PRESERVATION / OBSERVATIONS
+Initial startup/running and final installed startup/running snapshots are retained
+internally under C8235C-PRE-INSTALL-* and C8235C-INSTALL-*; exact files/hashes are
+recorded in results.json. Installed startup also has a matching USB backup.
+The initial mandatory enable secret is held locally only in
+.git/recovery-private/c8235-c-FGL2835L41Z-enable-secret.txt; do not publish it.
+Native running system mode insecure appears after reboot but is absent from
+saved startup; no command selecting it was issued. Native security/clock/TPM
+warnings are retained. No network service or security qualification was done.
+All physical data ports have no IP address; no Ethernet cables are connected.
+
+BIOS/ROMMON/CPLD reported versions match B, including developmentv12.1.22 and
+CPLD24073021. This does not prove full-chip byte equality. The C R0 serial report
+conflicts with historical A PCB-photo attribution; separate chassis/UUID records
+are retained pending review. Main sensors are populated; standby12V0/Critical_Low
+and earlier TPM256 remain unresolved. Incorrect router2025clock is not session time.
+
+REFERENCES
+Cisco native bundle-to-install workflow:
+https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/software-config-guide/secure-8200-series-scg/isr9000swcfg-xe-16-12-book_chapter_0111.html
+Cisco Tcl commands:
+https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ios_tcl/command/ios-tcl-cr-book/ios-tcl-cr-c1.html
+Cisco confreg command; actual C native summary/readback validates115200/autoboot:
+https://www.cisco.com/c/en/us/support/docs/routers/10000-series-routers/50421-config-register-use.html
