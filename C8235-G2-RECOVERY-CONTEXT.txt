@@ -10,6 +10,39 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A SUPPLY-ONLY LOAD RESULT / PI UNPLUGGED — 2026-11-01, 14:26 EST
+Owner reports steady 1.793 V upstream resistor/source side and 0.423 V below
+resistor at blue J2507-8 connection, relative to requested J2507-2 ground.
+Difference 1.370 V / prior isolated resistor 99 ohms -> about 13.8 mA inferred.
+The full 99.6 ohm path would give about 13.76 mA; do not claim more precision
+than approximately 13.8 mA. No ammeter reading, exact timing or waveform.
+Owner answers yes to normal Pi startup and subsequent shutdown/physical USB-C
+unplug. Accept both. No tool-issued shutdown or GPIO/SPI command.
+
+The source holds near 1.8 V at this limited load, while board rail is below the
+Micron 1.7-2.0 V operating range. Current is drawn through the supply-only path
+with clip absent as instructed. This does not diagnose a damaged chip, hard
+short, TPM cause or the original Pi failure mechanism. Do not extrapolate
+full-voltage current from either this point or the earlier 540 ohm meter result.
+The original direct-clip trial and this test also differ in SPI connections
+and series impedance; stable Pi startup alone cannot distinguish all causes.
+
+Reinspected original IMG_1302/1303: no verified flash-only power-isolation point
+established. Prior C8375 notes record owner preference against chip removal;
+keep next approach noninvasive. Rechecked saved native boot menu/history only;
+no established arbitrary flash read or golden selector found, no console access.
+Next practical powered diagnostic resource: regulated 1.8 V source with
+adjustable low-current limit and voltage/current readout, initially source-only
+with Pi/programmer disconnected. No bench supply currently available. This is
+for load/backfeed characterization, not a promise that stronger power fixes ISP.
+
+Hold: Pi shut down/USB-C unplugged; resistor wiring unchanged, clip absent,
+RESET grabber free, router own power/cables/battery disconnected, cooling off.
+No bypass, lower-resistance/stronger-drive trial, voltage increase, reset
+assertion, flash read/write or security change selected. Actual flash supply
+and loading must be qualified before further SPI work.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A SUPPLY PATHS PASS / POWER TRIAL REQUESTED — 2026-11-01, 14:15 EST
 Owner replies 99.6 ohms and 0.3 ohms in the requested endpoint order:
 - Loose source jumper tip -> J2507-8/VCC: 99.6 ohms, consistent with series R.

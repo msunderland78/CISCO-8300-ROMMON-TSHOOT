@@ -7,7 +7,7 @@
     "chassis_serial": "FGL2835L42B",
     "board_label": "FOC28292GUQ"
   },
-  "status": "New supply path 99.6 ohms and direct ground 0.3 ohms accepted. One Pi-only supply trial through the series resistor requested, clip absent; startup and resistor-side DC voltages pending.",
+  "status": "Supply-only trial: source 1.793 V, board 0.423 V steady, about 13.8 mA inferred. Pi booted normally; shutdown/USB-C unplug confirmed. Flash voltage insufficient; no resistor bypass, stronger drive or read selected.",
   "target": {
     "read_target": "U2900",
     "clip": "Owner-added intact short clip connected to existing1.8Vconverter",
@@ -88,8 +88,8 @@
     "If needed, qualify a current-limited reset trial before bounded read-only identification/data checks. Preserve stable separate full-chip reads before restore selection."
   ],
   "agent_hardware_actions": [],
-  "powered_programming_or_read": "Owner attempted Pi-only supply of the U2900-connected fixture; Pi did not start and the target rail briefly displayed about 0.1 V. Pi starts disconnected; adapter output subsequently reported as 1.802 V. No agent GPIO/SPI/flash operation, read or write.",
-  "updated_at": "2026-11-01T14:15:01-05:00",
+  "powered_programming_or_read": "Owner performed bounded-current supply-only trial, then confirmed Pi shutdown and physical USB-C unplug. No agent GPIO/SPI/flash command, flash read or write. Router own power remained disconnected under the test instructions.",
+  "updated_at": "2026-11-01T14:26:07-05:00",
   "reset_grabber_contact": {
     "recorded_at": "2026-11-01T13:03:26-05:00",
     "source": "Owner measurement report followed by explicit endpoint clarification",
@@ -270,7 +270,7 @@
   },
   "power_only_diagnostic_preparation": {
     "recorded_at": "2026-11-01T13:57:28-05:00",
-    "state": "Series and ground path results accepted at 99.6 and 0.3 ohms. Single bounded-current Pi-only trial selected below; no powered result yet.",
+    "state": "Bounded-current supply-only trial complete. Normal Pi startup and source 1.793 V, but board rail only 0.423 V. Shutdown/unplug confirmed. Current setup remains unqualified for flash read; no higher current/voltage or bypass selected.",
     "purpose": "Separate the verified J2507 supply path from all SPI/clip contacts, with a series resistor bounding current instead of repeating direct connected startup failures.",
     "candidate_topology": "Final candidate: converter OUTPUT 8 -> measured 99 ohm series resistor -> J2507 pin 8 / blue VCC; converter OUTPUT 4 -> J2507 pin 2 / purple ground. Current requested stage leaves the OUTPUT 8 jumper loose for an unambiguous series-path resistance check. Clip/cable completely removed from converter OUTPUT and off router; other board leads free.",
     "power_constraints": "Router own power/cables/battery remain disconnected, cooling off. Pi power unplugged and residual voltage absent for wiring changes. No higher voltage, second supply, RESET resistor, SPI action or flash read/write.",
@@ -424,6 +424,52 @@
     "stop_conditions": "If Pi fails to start or source-side A exceeds 2.0 V, unplug Pi power and stop. No unchanged retry.",
     "afterward": "If readings obtained, shut down Pi and unplug USB-C. Do not move wires, bypass resistor or reconnect clip while powered.",
     "interpretation_limit": "Reduced board-side voltage under the deliberate current limit does not alone prove a short or faulty component. This is a loading test, not a programming supply qualification.",
-    "status": "Requested; no startup or voltage results yet."
+    "status": "Completed: owner supplied steady source/board voltage readings and subsequently confirmed normal Pi boot plus shutdown/USB-C unplug. Board rail remains below flash operating range; not qualified for SPI.",
+    "result": {
+      "recorded_at": "2026-11-01T14:26:07-05:00",
+      "owner_report": "steady ... voltage from ground to up stream side of resistor (output side) is 1.793 ... voltage below resistor is 0.423 vdc on pin 8 connection",
+      "mode": "DC volts",
+      "common_reference": "J2507 pin 2 / GND, per requested test; owner says ground without separately restating header number.",
+      "A_source_vdc": 1.793,
+      "A_endpoint": "Upstream/source side of series resistor toward converter OUTPUT 8.",
+      "B_board_vdc": 0.423,
+      "B_endpoint": "Downstream resistor/blue J2507 pin 8 connection. Owner calls this pin 8 connection; exact resistor leg versus wire endpoint not separately restated.",
+      "stability": "Steady, owner reported; no waveform or exact elapsed time supplied.",
+      "difference_v": 1.37,
+      "inferred_current_ma_approx": 13.8,
+      "calculation": "(1.793 - 0.423) V / prior isolated resistor 99 ohms = about 13.8 mA. Using the complete 99.6 ohm series path gives about 13.76 mA; report only approximately 13.8 mA.",
+      "current_scope": "Calculated from voltage difference and prior resistance, not measured with an ammeter. Meter accuracy, source drift and exact wire/contact contributions are not separately characterized.",
+      "startup_and_shutdown_confirmation": {
+        "question": "Did the Pi boot normally during this resistor-limited test, and have you now shut it down and physically unplugged USB-C power?",
+        "owner_answer": "yes",
+        "interpretation": "Affirmative answer to both normal Pi startup and subsequent shutdown/physical USB-C unplug. No agent shutdown command."
+      },
+      "fixture_scope": "Supply-only test was instructed with clip completely absent from adapter and router, free RESET grabber, router own power/cables/battery removed and only resistor-limited VCC/direct ground connected. These conditions were not separately restated in the voltage reply.",
+      "findings": [
+        "Source side remains near nominal 1.8 V under this limited load; Pi boots normally with resistor in place.",
+        "The J2507 board supply draws current and settles at only 0.423 V in the supply-only setup, without relying on a seated clip/SPI connection.",
+        "0.423 V is below Micron MT25QU256ABA specified 1.7-2.0 V operating supply. No SPI acquisition selected."
+      ],
+      "limitations": [
+        "This does not prove either flash chip is defective, a hard short, a particular backfeeding path, TPM cause or the precise mechanism of the earlier connected Pi failure.",
+        "The test changed both SPI/clip attachment and supply impedance; it does not by itself isolate all causes of the original direct-clip startup failure.",
+        "Neither prior unpowered 540 ohms nor this operating point determines the current required at 1.8 V. Do not extrapolate a fixed board resistance or call 13.8 mA the full-voltage current.",
+        "Normal source voltage at this limited load does not establish adapter capability for unrestricted in-circuit acquisition."
+      ],
+      "part_supply_reference": "Micron MT25QU256ABA Rev. L 02/2024, page 1: 1.7-2.0 V; https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf"
+    }
+  },
+  "post_trial_review": {
+    "recorded_at": "2026-11-01T14:26:07-05:00",
+    "photos_reinspected": [
+      "PHOTOS2/IMG_1302.jpeg",
+      "PHOTOS2/IMG_1303.jpeg"
+    ],
+    "photo_result": "Existing flash-area and J2507 photos do not establish a verified flash-only power-isolation point. No new isolation component, jumper, cut or bank assignment selected from proximity/labels.",
+    "prior_owner_preference": "C8375-specific October 31 notes record rejection of chip removal because of dense-board risk. Preserve that preference in choosing this noninvasive next step; no A chip removal, leg lifting or trace cut proposed.",
+    "prior_console_review": "Rechecked saved November 1 Boot Options and existing A history offline. Earlier Setup/Kermit investigations found no validated arbitrary read or golden-bank selector. No console opened or new boot/menu action performed.",
+    "next_method": "A separate regulated source capable of 1.8 V, adjustable low-current limiting and current/voltage readout is the practical next powered diagnostic tool for characterizing the shared supply path while keeping chips in place. No bench supply is currently available; no product purchased or hardware connection selected.",
+    "method_limits": "This is a diagnostic requirement, not a guarantee that stronger power will permit in-circuit reads. Board loading/backfeeding and stable actual flash voltage must be qualified before SPI. Initial source-only work would exclude Pi/programmer connections and normal router power.",
+    "current_hold": "Pi shutdown/USB-C unplug confirmed; leave resistor wiring unchanged and clip disconnected, RESET grabber free, router own power/cables/battery absent, cooling off. No resistor bypass, stronger-drive trial, voltage increase, reset pull-down or SPI access."
   }
 }

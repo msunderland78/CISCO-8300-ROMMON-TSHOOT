@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: J2507 ground and flash-supply mapping",
   "recorded_at": "2026-11-01T12:44:18-05:00",
   "timezone": "America/New_York",
-  "status": "Series VCC path 99.6 ohms and new direct ground 0.3 ohms accepted. One supply-only powered trial through the resistor requested; startup and DC results pending.",
+  "status": "Supply-only trial complete: source 1.793 V / board 0.423 V steady, about 13.8 mA inferred. Pi boots, now shutdown/unplug confirmed. Shared supply not qualified for flash read.",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -98,13 +98,13 @@
     "No SPI signal, primary/golden or bank-selector assignment; J2901 remains unmeasured."
   ],
   "pending": [
-    "Pi startup and source/board-side DC voltage from bounded-current supply-only trial.",
-    "No powered result, branch current, cause of connected failure or SPI qualification yet."
+    "Characterize board supply loading/backfeeding with controlled source or establish a verified noninvasive isolation method; no flash-only disconnect identified from photos.",
+    "Stable actual flash supply within 1.7-2.0 V and later SPI/reset qualification before acquisition."
   ],
   "agent_hardware_actions": [],
   "programmer_read_or_write": "none this checkpoint",
   "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
-  "updated_at": "2026-11-01T14:15:01-05:00",
+  "updated_at": "2026-11-01T14:26:07-05:00",
   "qualification": {
     "recorded_at": "2026-11-01T12:48:24-05:00",
     "source": "Owner report in conversation",
@@ -147,6 +147,6 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "With Pi unplugged reconnect OUTPUT 8 source jumper, keep clip absent and RESET free, then switch meter to DC and power only Pi once. Measure both resistor legs relative to J2507-2 after about 10 seconds; report Pi startup and board-side stability, then shut down/unplug. Stop if startup fails or source exceeds 2.0 V.",
+  "next_stage": "Keep Pi unplugged, resistor in place and clip absent. A regulated 1.8 V source with adjustable low-current limiting/readout is the next practical noninvasive diagnostic resource; none currently available. No further powered trial or bypass selected.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json"
 }
