@@ -1,60 +1,122 @@
-C8235-B / FGL2835LBHU — install-mode validation
+C8235-B / FGL2835LBHU — verified install-mode recovery
 2026-11-01, America/New_York; task C8235-05
 
-STATUS: WARM INSTALL-MODE BOOT VERIFIED; COLD TEST PENDING
-Native conversion succeeded. Autonomous packages.conf boot applies unchanged
-B4/C8235FIX1 and reaches26.2.1/IMG C with rollback timer inactive, without USB.
-Only TX through IOS welcome was the initiating reset. All14 installed package
-SHA512 hashes match the exact extracted source; generated manifest references
-that package set. Old17.18.3a files/manifest and .bin fallback remain preserved.
-The307.210592-second warm check passes: CPP20841 unchanged, keepalives17->170
-with zero misses, ports1G/10G full with zero errors/drops, default/IPs restored,
-full-size DF ping4/5 then5/5. Main telemetry populated;12V_DG_ST/TPM unresolved.
-Warm capture closed; cold observer95928 armed09:32:31EST. Owner asked off10s/on
-with USB still disconnected. Cold result is pending; do not claim a cold pass.
+VERIFIED STATUS — 09:41 EST
+The router is powered on in IOS XE 26.2.1 INSTALL MODE using
+bootflash:packages.conf, with USB storage disconnected. Native conversion,
+automatic warm and physical cold startup, all 14 package hashes and both
+five-minute operational checks passed. The console capture is closed and the
+port is free. No further power cycle is needed for this conversion.
 
-RATIONALE
-Read-only extraction of the exact bundle's rpboot package confirms that its
-initramfs contains the same launch_net.sh target already checked by the fix:
-SHA256 f7d617bd80362c4bc564fc2c848bd95ecf84251be0d11e1707a95ca301d8cdc4.
-mount_packages.service requires and runs after launch_net.service. This supports
-trying the same early RAM correction, but does not replace live validation.
-The B4 loader still requires the original .bin file for its input hash check.
-Do not delete that file after conversion; it is also the verified fallback.
+The existing B4 and C8235FIX1 are unchanged. Their guarded RAM correction runs
+automatically before Cisco initializes the loopback interfaces. No persistent
+vendor image/package patch, ROMMON update, TPM clear or provisioning edit was
+commanded. Reported ROMMON/CPLD versions and confreg remain unchanged.
+This result is specific to C8235-B and the exact 26.2.1 image/package set.
+
+REQUIRED INTERNAL FILES
+Keep bootflash:packages.conf and all 14 packages listed in
+../../c8235-recovery/install-validation-20261101/expected-packages.json.
+Also keep bootflash:B4, bootflash:C8235FIX1 and
+bootflash:c8kg2be-universalk9.26.02.01.SPA.bin.
+
+The original .bin is STILL REQUIRED: B4 hashes it as an exact-source guard,
+even when IOS boots the install manifest. It is also the second boot fallback.
+Do not delete it during install cleanup. A future version change needs separate
+source/guard/package validation; this is not an arbitrary-version workaround.
+B4/source/image hashes and the exact saved early parameter are in BOOTFLASH.txt.
+
+SAVED STARTUP
+BOOT=bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;
+USER_BOOT_PARAM: the exact existing B4 parameter is unchanged.
+Configuration register: 0x3922.
+IOS confirms system image bootflash:packages.conf, IMG C 26.02.01.0.263,
+and inactive auto-abort timer after both boots. Actual boot source, not the
+install summary alone, establishes install mode.
 
 PRESERVATION
-bootflash:C8235B-PRE-INSTALL-packages.conf — exact old 17.18.3a manifest
-bootflash:C8235B-PRE-INSTALL-running.cfg — current bundle running configuration
-bootflash:C8235B-PRE-INSTALL-startup.cfg — current saved bundle configuration
-Native hashes and configuration comparisons passed; full evidence is in
-../../c8235-recovery/install-validation-20261101/results.json.
-Old package files, original vendor bytes and the USB recovery set are retained.
-No ROMMON code, confreg, TPM, fuse or provisioning change is part of this test.
+Before conversion, new internal copies preserved and verified:
+- C8235B-PRE-INSTALL-packages.conf: exact old 17.18.3a manifest, 7,947 bytes.
+- C8235B-PRE-INSTALL-running.cfg: bundle running configuration, 7,664 bytes.
+- C8235B-PRE-INSTALL-startup.cfg: saved bundle configuration, 3,889 bytes.
+After conversion, new verified copies preserve:
+- C8235B-INSTALL-packages.conf: 26.2.1 install manifest, 8,405 bytes.
+- C8235B-INSTALL-STARTUP.cfg: saved install configuration, 3,925 bytes.
+Old 17.18.3a package files and original vendor bytes remain. The disconnected
+USB image/B3/C8235FIX1 recovery set is retained. Full SHA512 values and native
+configuration comparisons are recorded in the results file below.
 
-CONVERSION
-install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit
-Native Add passed. Its 14-package activation list matches the extracted source.
-Reload confirmation was answered yes at 09:20:37 EST. Native Add, Activate,
-Commit/ACTIVATE_POSTCHECK and the full operation reported success. First reset
-was stopped at identified B ROMMON. Readback at09:23:18 confirms unchanged B4
-parameter and BOOT=bootflash:packages.conf,12; followed by the original .bin
-fallback. No subsequent setting edit. Fresh observer7165 armed09:23:32 for
-automatic startup after native reset. No install-mode boot pass claimed yet.
+COMPLETED PROCEDURE AND EVIDENCE
+1. Owner reconfirmed B identity, powered state, USB absent, unchanged cooling,
+   assembly/battery/console/Ethernet and no programmer/probes/other terminal.
+   Exclusive 115200/8N1/no-flow console and live FGL2835LBHU identity verified.
+2. Read-only extraction from the exact original bundle found the same guarded
+   launch_net.sh in its rpboot initramfs. mount_packages.service requires and
+   runs after launch_net.service. Extracted vendor code was read, not executed.
+3. Native command:
+   install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit
+   entered 09:18:49 EST; reload confirmation yes at 09:20:37. Add, Activate,
+   Commit/ACTIVATE_POSTCHECK and the complete operation reported success.
+4. First reset was stopped for matching B ROMMON readback. The installer added
+   packages.conf first, retained the .bin fallback and preserved B4. No further
+   saved boot-setting edit was required. Fresh observer allowed one reset.
+5. Warm boot selected packages.conf and applied all B4/patch/hook checks.
+   Only console TX through IOS welcome was the initiating reset. IOS verified
+   the install source and committed state. All 14 installed full SHA512 hashes
+   match the original bundle extraction; manifest references match that set.
+6. Warm health interval 09:27:13.027893–09:32:20.238485 EST:
+   307.210592 seconds, CPP PID 20841 unchanged, keepalives 17 to 170, zero misses.
+7. Fresh capture armed before owner powered off/on, keeping USB disconnected.
+   Native PowerOn and B identity verified at 09:33:36. ZERO console transmissions
+   through IOS welcome; source/B4/hook automatic. IOS again uses packages.conf.
+   Manifest/B4/source hashes and startup backup comparison remain unchanged.
+8. Cold health interval 09:36:22.819053–09:41:29.559458 EST:
+   306.740405 seconds, CPP PID 20841 unchanged, keepalives
+   17 -> 56 -> 85 -> 110 -> 142 -> 170, all matched with zero misses.
+   Equal PIDs on two separate boots do not imply cross-boot process continuity.
+9. Both boots restore saved network/default route automatically: port 7 at 1G
+   full duplex, port 8/native 1/VLAN83 at 10G full duplex. Sampled errors/drops
+   remain zero. Full-size DF pings were 4/5 initially, then 5/5. Native running
+   diff only adds the packages.conf boot line; saved install export matches.
 
-REMAINING VALIDATION
-Warm startup, saved boot readback, installed state, all package hashes, network
-and five-minute health check passed. Fresh startup and manifest backups are
-bootflash:C8235B-INSTALL-STARTUP.cfg and C8235B-INSTALL-packages.conf; hashes
-and native comparisons pass. Capture owner cold boot without USB and a sampled
-operational interval, rechecking packages.conf source and restored network.
-Longer qualification and the separate sensor/TPM findings remain unresolved.
+OBSERVATIONS AND LIMITS
+Main environmental readings stayed populated on both install boots. Cold final:
+inlet/outlet 35/34 C, CPU 52 C, main 12V 12127 mV, 5V 4965 mV, current 1236 mA,
+power 14 W. Standby 12V_DG_ST remains 0/Critical_Low; TPM self-test 256 remains.
+Earlier intermittent all-zero readings are retained; their cause is unresolved.
+
+Cold CPU7 samples were busy. Native allocation assigns it to dataplane and the
+leading consumer was ucode_pkt_PPE0. QFP processing load stayed 0%; final
+5-second/1-minute/5-minute TX load was 2%, idle 98%. This is consistent with
+packet polling, not proof of the precise warm/cold CPU difference. The Cisco
+reference below covers other Catalyst 8000 examples; it does not independently
+validate this Arata prototype. No resource-template change was made.
+
+These are bounded boot/operational checks, not full idle/load or feature
+qualification. Longer gates remain incomplete; throughput work stays deferred.
 
 RECOVERY
-If a guard or boot fails, retain the capture and stop at identified B ROMMON.
-The exact .bin and saved B4 parameter are the verified internal bundle fallback;
-see BOOTFLASH.txt. A manual bundle boot is available without overwriting the
-new packages or the old preserved manifest. Do not retry an unexplained reset
-loop or select the old packages.conf backup expecting corrected 26.2.1.
+If startup fails, preserve the failure and stop at freshly identified B ROMMON.
+The saved original .bin remains the second BOOT entry. With the verified B4
+parameter intact, the established manual bundle fallback is:
+boot bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
 
-Reference for initial bundle-to-install conversion:
+See BOOTFLASH.txt for the exact loader/parameter checks and USB fallback.
+Manual bundle boot does not erase the installed packages or prove the saved
+install path repaired. Do not retry an unexplained reset loop. Do not select
+the old 17.18.3a manifest expecting corrected 26.2.1. Do not run install cleanup
+without preserving all files required by B4 and the intended recovery path.
+
+RESULTS AND CAPTURES
+../../c8235-recovery/install-validation-20261101/results.json
+../../sanitized-evidence/router-console-logs/20261101-091632-C8235-B-install-conversion.log
+../../sanitized-evidence/router-console-logs/20261101-092332-C8235-B-install-autonomous-warm.log
+../../sanitized-evidence/router-console-logs/20261101-093231-C8235-B-install-autonomous-cold.log
+Raw captures, configuration exports and full offline package/initramfs extracts
+remain local/ignored. Published logs are generated sanitized counterparts.
+
+REFERENCES
+Cisco initial bundle-to-install conversion:
 https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/software-config-guide/secure-8200-series-scg/isr9000swcfg-xe-16-12-book_chapter_0111.html
+Cisco software dataplane CPU interpretation (other platforms):
+https://www.cisco.com/c/en/us/support/docs/routers/catalyst-8000v-edge-software/225805-configure-and-troubleshoot-catalyst.html

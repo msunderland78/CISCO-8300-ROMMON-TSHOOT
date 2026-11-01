@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "timezone": "America/New_York",
   "chassis": "C8235-B / FGL2835LBHU",
-  "status": "Autonomous USB-free install warm and cold startup verified; warm307-second check PASS, cold timed check active",
+  "status": "PASS install-mode conversion, all14 package hashes, autonomous warm/cold boots without USB and both five-minute checks",
   "owner_request": "lets try install mode now",
   "physical_confirmation": "Owner confirms powered on, USB storage absent, cooling/battery/assembly/console/port7/8 unchanged; no programmer/probes or terminal app",
   "capture": ".git/recovery-private/c8235-install-20261101/20261101-091632/console.log",
@@ -282,7 +282,7 @@
     },
     {
       "kind": "autonomous install-mode cold boot with USB absent",
-      "status": "PASS cold autonomous install-mode startup/network; five-minute check active",
+      "status": "PASS autonomous install-mode cold boot without USB and five-minute operational check",
       "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-093231-one-autoboot/console.log",
       "observer_session": 95928,
       "armed_at": "2026-11-01T09:32:31.468404-05:00",
@@ -330,7 +330,7 @@
       "bootflash_free_bytes": 11638722560,
       "platform_ready_at": "2026-11-01T09:36:22.819053-05:00",
       "health": {
-        "status": "IN PROGRESS five-minute sampled cold operational check",
+        "status": "PASS five-minute sampled cold operational/CPP and network check",
         "started_at": "2026-11-01T09:36:22.819053-05:00",
         "due_no_earlier_than": "2026-11-01T09:41:22.819053-05:00",
         "samples": [
@@ -339,6 +339,41 @@
             "CPP": 20841,
             "rx": 17,
             "tx": 17,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:37:41.320840-05:00",
+            "CPP": 20841,
+            "rx": 56,
+            "tx": 56,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:38:39.859795-05:00",
+            "CPP": 20841,
+            "rx": 85,
+            "tx": 85,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:39:28.004609-05:00",
+            "CPP": 20841,
+            "rx": 110,
+            "tx": 110,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:40:33.763476-05:00",
+            "CPP": 20841,
+            "rx": 142,
+            "tx": 142,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:41:29.559458-05:00",
+            "CPP": 20841,
+            "rx": 170,
+            "tx": 170,
             "miss": 0
           }
         ],
@@ -352,7 +387,75 @@
           "power_W": 13,
           "12V_DG_ST": "0mV/Critical_Low"
         },
-        "early_network": "Saved IPs/interfaces restored at first readiness sample, initial default not yet installed; later convergence check pending"
+        "early_network": "Saved IPs/interfaces restored at first readiness sample, initial default not yet installed; later convergence check pending",
+        "control_processor": "RP0 Healthy, memory20% in09:37/09:38 samples; busy core7 separately checked with native process, allocation and QFP data",
+        "CPU_observation": {
+          "at": "2026-11-01T09:39:14.061062-05:00",
+          "native_command": "show processes cpu platform sorted",
+          "whole_system_5sec_percent": 25,
+          "core7_5sec_percent": 99,
+          "leading_process": "ucode_pkt_PPE0",
+          "process_PID": 19731,
+          "process_5sec_percent": 157,
+          "CPP_CP_CPU_percent": 0,
+          "qualification": "Per-process percentages can exceed100 across cores. This sample identifies the packet-engine process as leading consumer; native allocation and QFP follow-up are recorded below. Earlier warm core7 was quieter; exact boot-to-boot cause is not proved.",
+          "allocation_at": "2026-11-01T09:39:28.004609-05:00",
+          "control_plane_cpus": "0",
+          "data_plane_cpus": "0,4-7",
+          "service_plane_cpus": "1-3",
+          "template": "default-service_plane_heavy",
+          "QFP_processing_percent_5sec_1min_5min_60min": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "QFP_RX_percent_5sec_1min": [
+            0,
+            0
+          ],
+          "QFP_TX_percent_5sec_1min": [
+            2,
+            2
+          ],
+          "QFP_idle_percent_5sec_1min": [
+            98,
+            98
+          ],
+          "interpretation": "Consistent with packet-engine polling on a data-plane-assigned core; no observed QFP processing saturation. Difference from the earlier warm core7 sample retained, exact reason not established. Not a load/capacity test.",
+          "reference": "https://www.cisco.com/c/en/us/support/docs/routers/catalyst-8000v-edge-software/225805-configure-and-troubleshoot-catalyst.html",
+          "reference_scope": "Cisco explains ucode_pkt_PPE0 polling and use of QFP utilization for Catalyst8000 software dataplanes; examples are other platforms, not independent validation of this Arata prototype."
+        },
+        "finished_at": "2026-11-01T09:41:29.559458-05:00",
+        "interval_seconds": 306.740405,
+        "unexpected_resets": 0,
+        "filtered_error_recurrence": "No matches in captured NIX/ATTACH_RESOURCES/CRITICAL_PROCESS/PUNT_KEEPALIVE queries",
+        "final_environment": {
+          "inlet_C": 35,
+          "outlet_C": 34,
+          "CPU_C": 52,
+          "main12V_mV": 12127,
+          "5V_mV": 4965,
+          "current_mA": 1236,
+          "power_W": 14,
+          "12V_DG_ST": "0mV/Critical_Low"
+        },
+        "final_QFP_processing_percent": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "final_QFP_TX_percent_5sec_1min_5min": [
+          2,
+          2,
+          2
+        ],
+        "final_QFP_idle_percent_5sec_1min_5min": [
+          98,
+          98,
+          98
+        ]
       },
       "network": {
         "restored_without_configuration": true,
@@ -365,7 +468,8 @@
           "port8": 1
         },
         "ping": "1500-byte DF to192.168.5.3 from192.168.83.1: initial4/5 at09:36:31, repeat5/5 at09:36:38",
-        "native_configuration_diffs": "Startup unchanged versus install backup; running only +packages.conf versus pre-install bundle reference"
+        "native_configuration_diffs": "Startup unchanged versus install backup; running only +packages.conf versus pre-install bundle reference",
+        "final_counters": "Both ports remain up/up; input/CRC/output errors and output drops0, cumulative resets1/1 unchanged"
       },
       "TPM": "Kernel TPM self-test error256 remains; crypto algorithm/integrity self-tests also report success, separate observations",
       "operational_snapshot": {
@@ -374,6 +478,15 @@
         "bytes": 39492,
         "sha256": "54350fab50803c7bcdf89009125535cbf35f25708cdd7675a402ec77ade04337",
         "scope": "Immutable cold readiness/network prefix; five-minute check active"
+      },
+      "evidence": {
+        "raw_local": "router-console-logs/20261101-093231-C8235-B-install-autonomous-cold.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-093231-C8235-B-install-autonomous-cold.log",
+        "bytes": 98009,
+        "sha256": "1839097695cd231e53dfb38416138170affbfc9b22147d2b26569d4c6e034596",
+        "closed_observed_at": "2026-11-01T09:41:55.429648-05:00",
+        "exit": 0,
+        "console_free_check": "lsof returned1 with no cu/tty owners after capture closed"
       }
     }
   ],
@@ -418,5 +531,38 @@
       "sha512": "aed00702b34462f9f6ee911e6f3e4c1d72fef4d051739a06f782ae1e7cb4c37d58ee1ffc08f48f47a8b83708ccc47e66a753988e383be9d098405a9a81a8e891"
     },
     "old_manifest": "Reverified identical to pre-conversion SHA512; old17.18.3a packages also still listed"
+  },
+  "handoff": {
+    "at": "2026-11-01T09:41:55.429648-05:00",
+    "router": "Powered on in26.02.1 INSTALL MODE using bootflash:packages.conf; USB storage physically disconnected",
+    "console": "Capture closed exit0; cu/tty ownership check empty",
+    "BOOT": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+    "USER_BOOT_PARAM": "Unchanged exact B4 parameter; see conversion record and BOOTFLASH.txt",
+    "no_further_power_cycle_needed": true,
+    "required_internal_files": [
+      "bootflash:packages.conf and all14 referenced26.02.01 packages",
+      "bootflash:B4",
+      "bootflash:C8235FIX1",
+      "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin"
+    ],
+    "bundle_file_requirement": "B4 still hashes the original .bin as a source/version guard; bundle remains second boot fallback. Keep it even though IOS boots packages.conf. Do not remove it during install cleanup.",
+    "preserved": "Original vendor image/package bytes, old17.18.3a files and manifest backup, and prior configs retained. ROMMON/CPLD reported versions and confreg unchanged; no ROMMON update, TPM clear, fuse/provisioning or unique-board-data edit commanded.",
+    "remaining": [
+      "Intermittent prior all-zero sensor reporting remains unexplained; main readings populated on both install boots,12V_DG_ST0/Critical_Low persists",
+      "TPM self-test256 remains",
+      "Longer idle/load and wider feature qualification incomplete; throughput work remains deferred",
+      "Exact26.2.1/B-only fix; a software-version change needs separate guard/source/package validation",
+      "CPU7 busy on cold samples: assigned to dataplane, ucode_pkt_PPE0 leading consumer, QFP processing0%; consistent with polling, warm/cold CPU variation not fully explained"
+    ],
+    "local_only": "Raw console captures, router configuration exports and offline full package/initramfs extracts remain local/ignored; public counterparts generated by sanitizer",
+    "next_step": "No further hardware action required for install conversion. Future work is separate sensor/TPM and longer qualification, or separately validated software upgrade."
+  },
+  "validation": {
+    "package_integrity": "All14 native full SHA512 values match original bundle extraction; expected-packages.json",
+    "boot_mode": "IOS explicitly reports bootflash:packages.conf after both boots; not inferred from install summary alone",
+    "warm_interval_seconds": 307.210592,
+    "cold_interval_seconds": 306.740405,
+    "configuration": "Native post-boot diffs only add packages.conf before retained bundle fallback; saved install export matches after cold boot",
+    "publication": "Guarded prepare/audit/sync and GitHub workflow verification performed at checkpoints; final verification reported separately"
   }
 }

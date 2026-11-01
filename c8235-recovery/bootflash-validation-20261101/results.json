@@ -474,5 +474,13 @@
     ],
     "preserved": "Original vendor image bytes, old17.18.3a packages.conf/packages, ROMMON code, confreg0x3922 and board/security data; no TPM/fuse/provisioning changes",
     "local_only": "Raw console captures and configuration backups; public logs generated only by sanitizer"
+  },
+  "superseding_install_mode": {
+    "date": "2026-11-01,09:41EST",
+    "status": "PASS packages.conf install mode without USB; autonomous warm/cold boot and both five-minute checks",
+    "record": "c8235-recovery/install-validation-20261101/results.json",
+    "procedure": "experimental-recovery/c8235-b-bootflash-20261101/INSTALL.txt",
+    "loader": "Original B4/C8235FIX1 unchanged; .bin still required by hash guard and retained as fallback",
+    "history": "Earlier bundle-mode status and trials remain valid dated observations"
   }
 }

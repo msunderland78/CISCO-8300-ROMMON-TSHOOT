@@ -10,6 +10,56 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+CURRENT HANDOFF: INSTALL MODE WITHOUT USB VERIFIED — 2026-11-01, 09:41 UTC-05:00
+C8235-B / FGL2835LBHU remains powered on in IOS 26.02.1 INSTALL MODE.
+Both ROMMON and IOS select bootflash:packages.conf; USB storage is disconnected.
+Native one-step Add/Activate/Commit passed. All 14 installed package SHA512
+values match the exact source extraction. The original B4/C8235FIX1 RAM-only
+correction works unchanged; no new loader, package patch or ROMMON update.
+
+Saved BOOT places packages.conf first and the exact original .bin second:
+bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;
+The exact B4 USER_BOOT_PARAM and confreg 0x3922 remain unchanged. Both boots
+report IMG C 26.02.01.0.263 and inactive rollback timer. ROMMON/CPLD reported
+versions remain SDK112312-SoC1-SB-v12.1.22 / 24073021.
+
+Autonomous warm startup and a 307.210592-second check passed.
+Owner then powered off/on with USB still absent. Native PowerOn/B identity and
+ZERO console TX through cold IOS welcome are captured. Cold check:
+09:36:22.819053–09:41:29.559458 EST = 306.740405 seconds.
+CPP 20841 stayed unchanged within each boot; equal PIDs across two separate
+boots do not imply process continuity. Cold keepalives 17->56->85->110->142->170,
+all matched with zero misses. R0/F0/0/0 ready; no sampled failure recurrence.
+Ports7/8 restored at1G/10G full with saved addresses/default route and no config
+intervention. Full-size DF ping4/5 then5/5; errors/drops0, cold reset counts1/1
+unchanged. Startup matches the new backup; running diff only adds packages.conf
+before the retained bundle entry. Old17.18.3a files and manifest backup remain.
+
+REQUIRED FILES: keep packages.conf and all referenced26.2.1 packages, B4,
+C8235FIX1 AND the original c8kg2be-universalk9.26.02.01.SPA.bin. B4 still hashes
+the .bin as its exact-source guard, and that file is also the boot fallback.
+Install mode therefore does not make this .bin safe to delete. A new IOS
+version needs separate validation; this is B/exact 26.2.1 only.
+
+Main telemetry stayed populated on both install boots. Cold final inlet/outlet
+35/34 C, CPU52C, main 12V12127mV,5V4965mV,current1236mA,power14W. Standby12V_DG_ST
+remains0/Critical_Low and TPM self-test256 remains. Earlier all-zero readings
+are preserved; cause and longer qualification unresolved. CPU7 was busy in
+cold samples; native allocation assigns it to dataplane and ucode_pkt_PPE0 is
+the leading consumer. QFP processing 0%, current TX2%/idle98% is consistent with
+polling; the warm/cold CPU variation is not fully explained or a capacity test.
+
+Capture closed cleanly; lsof confirms the console port free. No unattended
+monitor remains and no further power cycle is needed for this conversion.
+Current evidence: c8235-recovery/install-validation-20261101/results.json
+Current procedure: experimental-recovery/c8235-b-bootflash-20261101/INSTALL.txt
+Cold raw capture (local only):
+router-console-logs/20261101-093231-C8235-B-install-autonomous-cold.log
+98,009 bytes; SHA256 1839097695cd231e53dfb38416138170affbfc9b22147d2b26569d4c6e034596
+Public counterpart:
+sanitized-evidence/router-console-logs/20261101-093231-C8235-B-install-autonomous-cold.log
+Earlier bundle-mode and pending-install statements below are dated history.
+
 INSTALL COLD STARTUP PASS; HEALTH CHECK ACTIVE — 2026-11-01,09:36 EST
 Owner confirms power off/on with USB still absent. Native PowerOn/B identity
 and zero TX through IOS welcome verified. Exact B4/hook automatic; IOS uses
