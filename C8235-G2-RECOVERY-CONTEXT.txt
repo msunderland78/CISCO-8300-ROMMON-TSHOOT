@@ -10,6 +10,23 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A RESET PAIR OL / DETACHED CONVERTER CHECK — 2026-11-01, 13:16 EST
+Owner reports actualU2900pin3 toU2901pin3 OL resistance. No low-resistance common
+reset connection measured; powered independence/coupling still untested. Prior
+U2901RESET-toVCC OL and actualpin3-grabber contact~1ohm-or-less retained. No repeat
+resistance scans requested. Owner also says verifyingOUTPUT4-to-pin2 andOUTPUT8-
+to-pin8; no new numeric readings or explicit clip removal/refit state supplied.
+
+Next instructed with Pi initially unplugged: lift shortclip completely offU2900,
+keep all its metal contacts clear of board and each other; leave purple/blue
+board access leads and U2901grabber free/no10k; router own power disconnected.
+Retain unchanged Pi-to-converter wiring. Then power only Pi/converter and measure
+DC redOUTPUT8-to-blackOUTPUT4; report voltage and confirm clip off router. Do not
+reconnect anything while powered. Expected~1.8V is not a current observation.
+No reply yet; powered-output verification/target loading remain pending. No SPI
+read/write, router power-on, reset assertion or bank-role assignment performed.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A U2901 RESET-TO-VCC OL — 2026-11-01, 13:09 EST
 Owner reports VCC to2901reset isOL resistance. This is J2507pin8/VCC to actual
 U2901pin3 via the confirmed approximately1ohm-or-less grabber contact. Meter

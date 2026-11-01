@@ -7,7 +7,7 @@
     "chassis_serial": "FGL2835L42B",
     "board_label": "FOC28292GUQ"
   },
-  "status": "U2901 RESET-to-VCC reads OL with confirmed grabber contact; inter-chip RESET comparison pending",
+  "status": "Inter-chip RESET resistance OL reported; detached Pi/converter output-voltage check requested",
   "target": {
     "read_target": "U2900",
     "clip": "Owner-added intact short clip connected to existing1.8Vconverter",
@@ -52,7 +52,8 @@
     "Unchanged converter wiring is owner-confirmed historical continuity of setup, not a new output-voltage/loading measurement.",
     "U2901physicalpin3 is a candidate dedicatedRESET# control; independent control fromU2900 remains unverified.",
     "No10k resistor connected or selected for assertion yet; do not apply C8375 reset method before A-specific contact/net and powered-level qualification.",
-    "Owner explicitly confirms around-or-less-than1ohm includes actual U2901pin3 contact through grabber to free end. Contact accepted without repeating; net relationship remains unknown."
+    "Owner explicitly confirms around-or-less-than1ohm includes actual U2901pin3 contact through grabber to free end. Contact accepted without repeating; net relationship remains unknown.",
+    "Both U2901RESET-toVCC and inter-chipRESET resistance screens readOL, with confirmedU2901grabber contact. No repeated resistance scans requested. Powered levels/load and reset behavior remain untested."
   ],
   "datasheet": {
     "url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
@@ -87,8 +88,8 @@
     "If needed, qualify a current-limited reset trial before bounded read-only identification/data checks. Preserve stable separate full-chip reads before restore selection."
   ],
   "agent_hardware_actions": [],
-  "powered_programming_or_read": "None in this checkpoint; Pi remains unpowered by owner confirmation.",
-  "updated_at": "2026-11-01T13:09:58-05:00",
+  "powered_programming_or_read": "Detached Pi/converter power qualification requested; no current powered observation, SPI operation, array read or write reported.",
+  "updated_at": "2026-11-01T13:16:43-05:00",
   "reset_grabber_contact": {
     "recorded_at": "2026-11-01T13:03:26-05:00",
     "source": "Owner measurement report followed by explicit endpoint clarification",
@@ -126,6 +127,38 @@
     "access": "If shortclip blocks U2900pin3, lift only that clip off chip, keep its wires attached and leave U2901grabber in place. Report whether removed; leave clip off if removed. Do not substitute unverified converter/clip pin3.",
     "requested_result": "Numerical resistance with units or OL, plus clip state.",
     "purpose": "Screen for a direct/common reset connection before any candidate pull-down; high resistance alone will not prove powered independence.",
-    "status": "Requested; no result or clip-removal confirmation yet."
+    "status": "Measurement complete: owner reports actualU2900pin3 toU2901pin3 OL. Clip removal/refit state not supplied.",
+    "reported_at": "2026-11-01T13:16:43-05:00",
+    "owner_report": "verifying output 4 to pin 2 and output 8 to pin 8 ... U2900 pin 3 to U2901 pin3 is OL resistance",
+    "display": "OL",
+    "numerical_ohm": null,
+    "range_and_polarity": "Not separately restated; resistance mode explicit.",
+    "interpretation": "No low-resistance reset-to-reset connection measured in this unpowered test. Does not prove independence under power or absence of coupling through other circuitry."
+  },
+  "supply_path_followup": {
+    "recorded_at": "2026-11-01T13:16:43-05:00",
+    "raw_owner_text": "verifying output 4 to pin 2 and output 8 to pin 8",
+    "interpretation": "Refers to converterOUTPUT4-to-J2507-2 andOUTPUT8-to-J2507-8 checks in context. No new resistance values or explicit clip removal/refit state provided. Earlier0.7ohm results remain prior measurements."
+  },
+  "converter_only_check": {
+    "requested_at": "2026-11-01T13:16:43-05:00",
+    "purpose": "Fresh converter-output voltage with router fully disconnected before powering target flash rail. No SPI operation.",
+    "preparation": [
+      "Pi power unplugged before moving clip.",
+      "Lift shortclip completely offU2900; keep every metal clip contact clear of board and separated from other contacts.",
+      "Purple/blue board access-lead ends and U2901resetgrabber remain free; no10k resistor; router own power disconnected.",
+      "Leave confirmed unchanged Pi-to-converter wiring intact."
+    ],
+    "requested_power_action": "After this separation, power only Pi/converter; no router connection.",
+    "meter_mode": "DC volts",
+    "red": "Converter OUTPUT8",
+    "black": "Converter OUTPUT4",
+    "requested_reply": [
+      "Measured DC voltage",
+      "Confirmation clip is off router"
+    ],
+    "expected": "Approximately1.8V; this is an expectation, not an observed current output.",
+    "instruction": "Do not reconnect anything while powered.",
+    "status": "Requested; no owner power/clip-removal/voltage result yet."
   }
 }
