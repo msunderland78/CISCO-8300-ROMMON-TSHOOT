@@ -10,6 +10,23 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+TRIAL9 OPERATIONAL PASS; STARTUP SAVED — 2026-11-01,08:08 EST
+Five-minute sampled check08:02:03.399882–08:07:07.079690=303.679808s:
+CPP21054 unchanged, keepalives17->37->72->139->169, rx=tx/zero misses;
+R0/F0 active and0/0ok, no filtered NIX/ATTACH/critical/punt matches, CPU52C,
+memory20%. All-zero voltage/current/power telemetry remains unresolved; this
+is an operational/CPP pass, not normal sensors or a full stability/load gate.
+Bench network native diff matches preserved reference; full-size DF ping4/5
+then5/5 after link convergence. Reviewed only running delta is exact USB boot
+entry replacing packages.conf. Saved startup08:07:20 [OK]; showbootvar now
+usb0:c8kg2be-universalk9.26.02.01.SPA.bin,12; and confreg0x3922 unchanged.
+Startup/running native diff has only inline-vs-nvram certificate representation.
+Original pre-auto startup3127B/hash unchanged; new auto-20261101-startup.cfg
+3884B/hash verified on USB. Full hashes and snapshot in usb-entry.json.
+Reload08:08:16 prompts only Proceed; controlled restart confirmation follows.
+Next ROMMON: verify exact environment, save loader parameter, then arm one
+passive matching reset for owner cold cycle. No autonomous cold pass yet.
+
 AUTOMATIC USB CORRECTION AND IOS CONSOLE PASS — 2026-11-01,08:04 EST
 Owner confirms requested power cycle; nativePowerOn/B UUID/developmentROMMON
 verified. Trial9 uses identical usb0:B3 loader and removes only the serial

@@ -1,0 +1,68 @@
+C8235-B / FGL2835LBHU — experimental automatic USB correction
+2026-11-01, America/New_York; task C8235-05
+
+STATUS AT PREPARATION
+Trial9 automatically applies the exact RAM correction and reaches interactive
+26.2.1 IOS with R0/F0/0/0 operational. ROMMON boot was manually initiated.
+Five-minute operational observation passed; intended network/USB boot startup
+configuration saved. ROMMON parameter save and autonomous cold test are pending.
+Read boot-validation-20261101/usb-entry.json for superseding live results.
+
+SCOPE
+Only the physically confirmed B prototype, unchanged development ROMMON and
+exact 26.2.1 USB image. USB remains required. This is an early RAM workaround,
+not a vendor firmware repair, signature authentication or full stability pass.
+Voltage/current/power telemetry remains unresolved: cold3 and trial9 report
+all zeros while CPU temperature is52C; cold2/overnight differ. No physical rail
+measurement or cause is established. Longer load qualification remains deferred.
+
+EXACT INPUTS
+usb0:c8kg2be-universalk9.26.02.01.SPA.bin
+SHA256 0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456
+usb0:B3 = auto-bound16-v2.sh
+SHA256 15762295c3fa2837f43cd8ed696a83981bd5723d99865ae6ea4352bac9979eee
+usb0:C8235FIX1 = ../c8235-b-bound16-20261031/boot-bound16.sh
+SHA256 45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052
+
+The loader moves itself to RAM, checks image/source/profile, invokes the
+unchanged correction with --prepare-only, verifies RAM target/hook hashes,
+unmounts USB, then execs /init from PID1. A guard failure holds maintenance
+shells. Keep console available; do not exit PID1. The five-second USB wait is
+observed to work, not a guarantee of arbitrary USB-device readiness.
+
+VERIFIED TRIAL9 PARAMETER (227-byte complete set command)
+set USER_BOOT_PARAM "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0"
+
+Do not put a literal dot or equals in the command body: Linux unknown-argument
+handling can omit it from init argv. Do not add the earlier serial kernel-console
+override: trial8 lost interactive IOS; removing only that override fixes trial9.
+Do not blindly reuse this for another chassis/image or disable its guards.
+
+INTENDED SAVED CHANGES — verify actual results before claiming applied
+1. Preserve startup; latest pre-auto-20261101-startup.cfg in the existing USB
+   diagnostic directory is3127B and matches the pre-cold2 startup SHA512.
+2. Preserve the approved bench network (port7/.5.4, port8/native1+VLAN83/.83.1,
+   DHCP83, default via5.1), change boot system to the exact USB image, review
+   native diff, then save startup. Configuration save alone is not the RAM fix.
+3. At freshly identified ROMMON, read back BOOT and the exact parameter. Native
+   help describes sync as writing monitor environment to NVRAM. Save only after
+   the successful operational observation and captured recovery path are ready.
+4. Observe one matching reset without any transmitted console commands using
+   observe-one-autoboot.py. It stops a second reset or mismatched banner. Its
+   import/default mode is inert; three pipe-only guard tests pass.
+5. Verify native PowerOn, automatic loader/hook, IOS/platform, unchanged CPP,
+   advancing matched keepalives, routing and saved settings after cold startup.
+
+PRESERVATION / RECOVERY
+Do not alter original IOS bytes, ROMMON, confreg0x3922, TPM/fuses or board data.
+Keep B1/B2 and earlier candidates as failed-trial evidence; B3 is the trial9
+loader. Existing console helper scripts/c8235_b_console_boot.py remains the
+verified assisted fallback and checks exact inputs before patching RAM.
+
+If autonomous startup fails, capture the failure and interrupt the next ROMMON
+autoboot at115200. Reconfirm B identity, inspect environment, and use the guarded
+helper's explicit --reset-from-rommon mode for recovery; do not leave it looping.
+Original environment had no USER_BOOT_PARAM and BOOT=bootflash:packages.conf,12;.
+Restoring those variables with unset/set/sync restores old boot selection, not
+a working corrected boot: the older installed image lacks this workaround.
+The original startup USB backup is retained separately; never overwrite it.

@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "status": "Automatic correction, interactive IOS and platform readiness PASS; sampled health interval started",
+  "status": "Trial9 operational observation passed; approved bench network and USB boot saved; ROMMON parameter persistence and autonomous cold test pending",
   "source_candidate": "experimental-recovery/c8235-b-bootstrap-20261101/candidate.json",
   "console_source": ".git/recovery-private/c8235-analysis-20261101/20261101-072310-usb-entry/console.log",
   "physical_confirmation": "Same owner-confirmed setup retained throughout cold2/cold3 and probe; exclusive console handed off cleanly",
@@ -14,9 +14,9 @@
   },
   "saved_boot": "bootflash:packages.conf,12;",
   "confreg": "0x3922",
-  "no_startup_save": true,
+  "no_startup_save": false,
   "no_firmware_write": true,
-  "updated_at": "2026-11-01T08:03:53.830894-05:00",
+  "updated_at": "2026-11-01T08:08:16.285381-05:00",
   "trials": [
     {
       "number": 1,
@@ -200,7 +200,7 @@
       "kind": "Same exact B3 loader; remove serial kernel console override to restore original default",
       "parameter": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
       "set_command_bytes": 227,
-      "result": "Automatic correction, interactive IOS and platform readiness PASS; sampled health interval started",
+      "result": "PASS automatic loader, IOS console, platform and five-minute sampled operational check; saved autonomous cold startup pending, sensor telemetry unresolved",
       "change": "Only remove console=ttyAMA0,115200n8; loader still sets ttyAMA0 speed115200 itself. No saved setting change.",
       "candidate": "experimental-recovery/c8235-b-bootstrap-20261101/auto-candidate-v2.json",
       "owner_confirmation": "It is on now; same instructed off10seconds/on setup",
@@ -213,7 +213,7 @@
       "health": {
         "started_at": "2026-11-01T08:02:03.399882-05:00",
         "due_no_earlier_than": "2026-11-01T08:07:03.399882-05:00",
-        "status": "In progress",
+        "status": "PASS sampled operational/CPP check; environment telemetry unresolved",
         "scope": "Sampled health interval; includes subsequent bench network restoration, not a controlled idle/load gate",
         "samples": [
           {
@@ -229,8 +229,32 @@
             "tx": 37,
             "miss": 0,
             "CPP": 21054
+          },
+          {
+            "at": "2026-11-01T08:03:52.625025-05:00",
+            "rx": 72,
+            "tx": 72,
+            "miss": 0,
+            "CPP": 21054
+          },
+          {
+            "at": "2026-11-01T08:06:08.049344-05:00",
+            "rx": 139,
+            "tx": 139,
+            "miss": 0,
+            "CPP": 21054
+          },
+          {
+            "at": "2026-11-01T08:07:07.079690-05:00",
+            "rx": 169,
+            "tx": 169,
+            "miss": 0,
+            "CPP": 21054
           }
-        ]
+        ],
+        "finished_at": "2026-11-01T08:07:07.079690-05:00",
+        "interval_seconds": 303.679808,
+        "filtered_NIX_ATTACH_critical_punt_matches": 0
       },
       "network_restore": {
         "commands_source": "results.json network_restore.commands",
@@ -240,7 +264,7 @@
         ],
         "native_diff": "No changes compared with pre-cold2 running USB export",
         "convergence": "Initial query down/down; subsequent both ports up/up, default via5.1 installed, sampled interface errors/drops zero",
-        "ping": "Initial1500DF5.3 from83.1=4/5; repeat pending"
+        "ping": "Initial1500DF5.3 from83.1=4/5, repeat08:03:51=5/5"
       },
       "startup_preserved": {
         "file": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-auto-20261101-startup.cfg",
@@ -307,5 +331,27 @@
       }
     ],
     "observation": "agetty-iosd uses REAL_CONSOLE and flashutil console baud; source review alone does not establish why trial8 lost interactive CLI"
+  },
+  "persistence_preparation": {
+    "startup_backup": "Trial9 startup_preserved object; SHA512 unchanged",
+    "running_boot_change_at": "2026-11-01T08:04:48.438713-05:00",
+    "running_diff": "Only +boot system usb0:c8kg2be-universalk9.26.02.01.SPA.bin and -boot system bootflash:packages.conf against pre-cold2 running backup",
+    "saved_status": "IOS startup saved [OK]; BOOT now exact USB image, confreg0x3922 unchanged; ROMMON USER_BOOT_PARAM persistence not yet established",
+    "runbook": "experimental-recovery/c8235-b-bootstrap-20261101/AUTO-BOOT.txt",
+    "startup_saved_at": "2026-11-01T08:07:20.667481-05:00",
+    "saved_BOOT": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+    "native_startup_running_diff": "Only PKI certificate representation: startup references nvram .cer files; running displays inline certificates. No other diff entries.",
+    "startup_export": {
+      "path": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/auto-20261101-startup.cfg",
+      "bytes": 3884,
+      "sha512": "95330540719e053de4b80f027dbcaab640db15be366c05815992f91a63743f9fb557e90a5b91c99ec63586d79819750e7cbedace928bd333770d853fb4fc4894",
+      "verified_at": "2026-11-01T08:07:58.892510-05:00"
+    },
+    "snapshot": {
+      "raw_local": "router-console-logs/20261101-080810-C8235-B-auto-operational-pass-startup-saved-snapshot.log",
+      "bytes": 272895,
+      "sha256": "f3eab84c44eca8d42f16b7a7c0800b67068b69f08569288a6a761a6e5c411988",
+      "type": "Immutable ongoing capture prefix"
+    }
   }
 }

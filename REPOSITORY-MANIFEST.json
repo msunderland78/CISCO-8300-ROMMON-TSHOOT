@@ -1174,6 +1174,11 @@
       "bytes": 256716,
       "path": "router-console-logs/20261101-080410-C8235-B-auto-loader-console-pass-snapshot.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 272895,
+      "path": "router-console-logs/20261101-080810-C8235-B-auto-operational-pass-startup-saved-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1208,9 +1213,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 104081,
+      "bytes": 105282,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "35c2b1cb4fa03798b4471db81f4f17cb797d11e94781be326d85afe8def19a41"
+      "sha256": "fa8e5c4fac51edea9c2432e3c64b37480f3000953cfef9c675e36e503ee448ee"
     },
     {
       "bytes": 106687,
@@ -1493,9 +1498,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 359495,
+      "bytes": 360432,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "48b0e4f1141acb9516697c289da773973205ce9aa8d405c1b8fad0179f1c4b8d"
+      "sha256": "966b325a1b85c8fd9d616c04d4e12ec27b40cefc20b3ed217dd357f47262da12"
     },
     {
       "bytes": 6850655,
@@ -1643,9 +1648,9 @@
       "sha256": "88e460cbee6859fad45722eab05eb3222f4f3ddef12b90ba6fe82582b9b6e53e"
     },
     {
-      "bytes": 19219,
+      "bytes": 21561,
       "path": "c8235-recovery/boot-validation-20261101/usb-entry.json",
-      "sha256": "ee2f4e0502dc3a285612318d2847b492abb6fe0737b90e98883b88ff29158402"
+      "sha256": "ab5540e412b2f2046c12dccbe138faf555b3dc371e8d0a65c7ffd74070d38a3d"
     },
     {
       "bytes": 82424,
@@ -2381,6 +2386,11 @@
       "bytes": 6119,
       "path": "experimental-recovery/board-data/mirabile-arata-r2.dtb.txt",
       "sha256": "8a63e68c3fa4bf8e9b23375302db8e3f4926e67a03b92a37aa41b6ed1954a9e6"
+    },
+    {
+      "bytes": 4306,
+      "path": "experimental-recovery/c8235-b-bootstrap-20261101/AUTO-BOOT.txt",
+      "sha256": "f5762f7ba5f414ca33f3c4b37252391cd4a696a992417fd15371857a45c9890a"
     },
     {
       "bytes": 2341,
@@ -3498,6 +3508,11 @@
       "sha256": "5e5c02eaaa6b4e3e51775f1df87d612d2ee8375c6b8dbf5b74dcdd031ce1ffe3"
     },
     {
+      "bytes": 272895,
+      "path": "sanitized-evidence/router-console-logs/20261101-080810-C8235-B-auto-operational-pass-startup-saved-snapshot.log",
+      "sha256": "f3eab84c44eca8d42f16b7a7c0800b67068b69f08569288a6a761a6e5c411988"
+    },
+    {
       "bytes": 16688,
       "path": "scripts/c8235_b_console_boot.py",
       "sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
@@ -3759,12 +3774,13 @@
     "sanitized-evidence/router-console-logs/20261101-074730-C8235-B-usb-entry-pass-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-075005-C8235-B-auto-loader-v1-failed-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-075410-C8235-B-auto-v2-console-handoff-snapshot.log",
-    "sanitized-evidence/router-console-logs/20261101-080410-C8235-B-auto-loader-console-pass-snapshot.log"
+    "sanitized-evidence/router-console-logs/20261101-080410-C8235-B-auto-loader-console-pass-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261101-080810-C8235-B-auto-operational-pass-startup-saved-snapshot.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 235,
-    "included_bytes_without_manifest": 698850208,
-    "included_files_without_manifest": 487
+    "excluded_local_files": 236,
+    "included_bytes_without_manifest": 699131889,
+    "included_files_without_manifest": 489
   }
 }
