@@ -1299,6 +1299,11 @@
       "bytes": 11998,
       "path": "router-console-logs/20261101-103429-C8235-C-ROMMON-baseline.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 61438,
+      "path": "router-console-logs/20261101-103429-C8235-C-pre-init-preservation.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1333,9 +1338,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 130477,
+      "bytes": 131863,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "fedab2d84bda3a96cda6e10305e75b5168a9df6a4bb36a5594952f485cac5385"
+      "sha256": "f3d297b1704d835b0059fdb123832403fc1c70139f2b71fbadc2a5f63b3ef021"
     },
     {
       "bytes": 106687,
@@ -1518,9 +1523,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 24386,
+      "bytes": 24431,
       "path": "README.md",
-      "sha256": "ba52435842dea577e11d0382f16631f365e2e739241dc3c8e849bc62b04f58ed"
+      "sha256": "d150f52639e2632ad9dc463f6fbb089f3d3c05a5eb3daa2fd7c3a0cb732c254e"
     },
     {
       "bytes": 3934,
@@ -1618,9 +1623,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 380447,
+      "bytes": 381376,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "eebad24387cc19d86228c9fc0ec4c0081e90ff2de8cf9258a64c40deeb0b962a"
+      "sha256": "f6a401bb7d11a000552c289a8ae37e164809d5e3661aaf87891c7094bc1b0b72"
     },
     {
       "bytes": 6850655,
@@ -1778,9 +1783,9 @@
       "sha256": "4eb51bc4627a08ce08477d5f72e3bd902c847491a492a9472f7d97ff26567baf"
     },
     {
-      "bytes": 10468,
+      "bytes": 13943,
       "path": "c8235-recovery/c8235-c-baseline-20261101/results.json",
-      "sha256": "20a8798a29da1f2d1300c6cb23e8913651f344f2a98fd748117bb50a0a5c622e"
+      "sha256": "22aa67077cc64edcfd94c6aed04ec4d344ac27d059c9bf3a991d039e04f6d909"
     },
     {
       "bytes": 82424,
@@ -2603,9 +2608,9 @@
       "sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052"
     },
     {
-      "bytes": 2053,
+      "bytes": 2263,
       "path": "experimental-recovery/c8235-c-bound16-20261101/TRIAL.txt",
-      "sha256": "e95ebead6e880118d0cef48d46f5e9ba3d45d2f83740ade18d76f003c3fe876e"
+      "sha256": "5064b16d83fc573e4f7315c3721f76ea6adddb30185d022c0993a6fe402a9008"
     },
     {
       "bytes": 3056,
@@ -3808,6 +3813,11 @@
       "sha256": "94e7e9af9754551323b9d6dad6054e52486f21b26731e5617fdd96a018f7545b"
     },
     {
+      "bytes": 61440,
+      "path": "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-pre-init-preservation.log",
+      "sha256": "af90bb6dbbbe59c46c34ab10545c048ebbe3566dfdced37fc4eee2bfa8e9a175"
+    },
+    {
       "bytes": 16688,
       "path": "scripts/c8235_b_console_boot.py",
       "sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
@@ -4094,12 +4104,13 @@
     "sanitized-evidence/router-console-logs/20261101-093532-C8235-B-install-cold-zero-tx-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-093705-C8235-B-install-cold-ready-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-101618-C8235-B-automatic-package-cleanup.log",
-    "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-ROMMON-baseline.log"
+    "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-ROMMON-baseline.log",
+    "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-pre-init-preservation.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 260,
-    "included_bytes_without_manifest": 700840890,
-    "included_files_without_manifest": 524
+    "excluded_local_files": 261,
+    "included_bytes_without_manifest": 700908375,
+    "included_files_without_manifest": 525
   }
 }

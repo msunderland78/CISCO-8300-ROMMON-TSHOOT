@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "timezone": "America/New_York (EST UTC-05:00)",
   "tracking_id": "C8235-C",
-  "status": "RAM_diagnostics_backup_running",
+  "status": "first_corrected_IOS_startup_in_progress",
   "identity": {
     "owner_description": "Third C8235-G2; power, serial and USB moved from router #2",
     "chassis_serial": "pending label/native identification",
@@ -48,7 +48,7 @@
     "cpld_reported": "24073021",
     "limitations": "Reported versions and paths are not full-chip byte identity or physical bank mapping. B-specific loopback remedy is not yet validated on C."
   },
-  "next": "Temporary unsaved diagnostic boot parameter; boot USB 26.2.1 into RAM shell, inspect internal storage and native chassis identity. No firmware, filesystem format or persistent boot/config changes.",
+  "next": "Observe native initialization of independently verified zero-filled user area; validate actual chassis serial, partition layout, platform and keepalives. No C IOS success yet.",
   "firmware_comparison": [
     {
       "field_prefix": "Firmware Version:",
@@ -179,7 +179,8 @@
     "sent_at": "2026-11-01T10:37:04.326127-05:00",
     "status": "RAM shell reached; initial 9600 shell changed to 115200, no init continuation",
     "usb_image_sha256": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456",
-    "usb_image_matches_exact_B_source": true
+    "usb_image_matches_exact_B_source": true,
+    "continued_init_at": "2026-11-01T10:47:01.362628-05:00"
   },
   "storage": {
     "linux_device": "/dev/mmcblk0",
@@ -201,18 +202,71 @@
       ],
       "sha256_all": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
       "matches_locally_calculated_all_zero_sample": true,
-      "whole_device_blank": "not yet established"
+      "whole_device_blank": "Verified all20,845,690,880 bytes in eMMC user area are zero by full decompressed-backup scan and full byte comparison to second device read; does not cover eMMC boot0/boot1/RPMB or SPI."
     },
     "backup": {
-      "status": "running",
+      "status": "full_read_and_independent_readback_verified",
       "path_on_usb": "C8235-C-UUID83CA808243-20261101/mmcblk0-before.img.gz",
       "started_at": "2026-11-01T10:39:33.618327-05:00",
       "pid": 215,
       "scope": "Full20,845,690,880-byte eMMC user area,4970x4MiB; excludes boot0/boot1/RPMB and SPI",
       "method": "Read-only dd source piped to gzip-1 on USB; pipefail and noclobber; status/log in RAM. Compressed for FAT32/local preservation, never public inclusion.",
-      "first_attempt": "Background process210 failed before running because /tmp did not exist; no source write or archive file. Created RAM /tmp and restarted with no-overwrite guard."
+      "first_attempt": "Background process210 failed before running because /tmp did not exist; no source write or archive file. Created RAM /tmp and restarted with no-overwrite guard.",
+      "read_records": "4970+0 in /4970+0 out",
+      "read_bytes": 20845690880,
+      "read_seconds": 239.426,
+      "read_rate_reported": "87.1 MB/s",
+      "pipeline_exit": 0,
+      "compressed_bytes": 90930221,
+      "verification_started_at": "2026-11-01T10:43:54.187997-05:00",
+      "readback_pid": 249,
+      "all_zero_comparison_pid": 250,
+      "verification_method": "Two independent pipefail pipelines: gzip-decompressed backup vs complete /dev/mmcblk0 second read; decompressed backup vs /dev/zero for exact20,845,690,880-byte length. Status pending.",
+      "compressed_sha256": "f658b034857cc998a8d2fbaa55905cba4fc723a295e584c2a8eb0f6855056af8",
+      "all_zero_first_attempt": {
+        "status": "invalid_count_not_a_data_mismatch",
+        "error": "BusyBox cmp -n rejected20845690880 as invalid number",
+        "pipeline_exit": 1
+      },
+      "zero_v2": {
+        "started_at": "2026-11-01T10:44:42.341703-05:00",
+        "pid": 264,
+        "method": "gzip-decompress full archive, LC_ALL=C tr removes only NUL bytes, wc counts remaining bytes; pipefail; 3-byte NUL/0x01/NUL control produced1",
+        "status": "complete",
+        "pipeline_exit": 0,
+        "nonzero_byte_count": 0
+      },
+      "readback_pipeline_exit": 0,
+      "verified_by": "2026-11-01T10:46:45.457064-05:00",
+      "saved_logs_and_candidate_to_usb": true,
+      "usb_cleanly_unmounted_at": "2026-11-01T10:46:51.983206-05:00",
+      "capture": {
+        "raw_path": "router-console-logs/20261101-103429-C8235-C-pre-init-preservation.log",
+        "public_path": "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-pre-init-preservation.log",
+        "bytes": 61438,
+        "sha256": "0eb186f4e4d44cc88d61a34931764f6407e900e3f0877625c2411e2edb7e38a6",
+        "snapshot_of_active_capture": true
+      }
     },
-    "startup_risk": "Native check_partitions.sh can rewrite invalid partition tables; normal init remains held until preservation/review."
+    "startup_risk": "Native check_partitions.sh can rewrite invalid partition tables; normal init remains held until preservation/review.",
+    "emmc_reported_attributes": {
+      "life_time": "0x01 0x01",
+      "pre_eol_info": "0x01",
+      "enhanced_area_offset": "0",
+      "enhanced_area_size": "20357120",
+      "interpretation": "Raw sysfs values only; no independent hardware-health conclusion"
+    },
+    "native_initialization": {
+      "status": "partitioning_complete_filesystem_initialization_messages_observed",
+      "native_messages": [
+        "PART_INVALID",
+        "PART_REPAIR",
+        "PART_REPAIR_FINISHED: Partitioning complete",
+        "FILESYS_INVALID/FILESYS_REPAIR for bootflash1,bootflash5,bootflash6,bootflash7,bootflash8"
+      ],
+      "scope": "Native startup writes previously full-read/verified zero-filled eMMC user area. No manual formatting or cross-chassis image restore.",
+      "native_clock": "May29,2025 is incorrect; actual session November1,2026 EST"
+    }
   },
   "loopback_preflight": {
     "kernel": "6.6.95",
@@ -230,6 +284,15 @@
     "purpose": "C-specific trial copy of established B RAM-only loopback correction",
     "derivation": "B source preserved; only comments changed to bind C and its fresh ROMMON UUID. Noncomment code compared equal.",
     "validation": "bash -n passed; no live application yet",
-    "status": "prepared_not_deployed"
+    "status": "RAM_patch_prepared_pass_normal_init_started",
+    "router_path": "/C8235C-FIX1",
+    "transfer_verified_at": "2026-11-01T10:42:30.691732-05:00",
+    "router_sha256_matches": true,
+    "router_bash_n_exit": 0,
+    "applied_at": "2026-11-01T10:46:27.788944-05:00",
+    "prepare_exit": 0,
+    "patched_launch_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857",
+    "hook_sha256": "ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4",
+    "runtime_hook": "C8235_BOUND16_HOOK_BEGIN and C8235_BOUND16_HOOK_COMPLETE observed after init"
   }
 }

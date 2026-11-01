@@ -1,4 +1,4 @@
-C8235-C RAM loopback trial — PREPARED, NOT YET APPLIED
+C8235-C RAM loopback trial — RAM PREPARED; FIRST STARTUP PENDING
 2026-11-01, America/New_York (EST); task C8235-01
 
 Owner identifies router #3; reported label FGL2835SL41Z awaits native serial
@@ -8,9 +8,9 @@ USB storage attached, cooling/battery installed and exclusive RJ45 console.
 
 Reported BIOS/UEFI/ROMMON fields match B, but C starts with confreg0x1820,
 no boot selection and no readable internal partitions. Linux USB26.2.1 RAM
-shell sees20,845,690,880-byte eMMC. Full preservation is underway; no normal
-init until the existing contents and backup are checked, because native
-partition checking may rewrite the table. Do not format speculatively.
+shell sees20,845,690,880-byte eMMC. Full preservation and a complete second-read comparison now pass. The full
+user area is verified zero-filled. Native init was allowed at10:47:01 after
+clean USB unmount. No manual format; startup partition effects are pending.
 
 Candidate boot-bound16.sh is AI-assisted work derived from the preserved
 B candidate. Only the leading comments changed; noncomment code is identical.
@@ -18,7 +18,9 @@ Fresh C preflight independently confirms kernel6.6.95, boardarata,32RVU VFs,
 and launch_net SHA256 f7d617bd80362c4bc564fc2c848bd95ecf84251be0d11e1707a95ca301d8cdc4.
 USB image SHA256 independently matches the exact26.2.1 source.
 Candidate SHA256: 23bc0128a189aee520f2908e169572e88e4a9492925c589c2410802d96cd8a87
-Size:3,056 bytes. Offline bash -n passed. No C runtime success is claimed.
+Size:3,056 bytes. Offline and on-router bash -n passed; transferred source hash matches.
+At10:46:27 --prepare-only returned0 with expected RAM launch/hook hashes.
+No C IOS/platform success or runtime hook completion is claimed yet.
 
 If preservation and identity checks pass, transfer this separate candidate
 into RAM, verify its hash, invoke --prepare-only, verify resulting RAM script

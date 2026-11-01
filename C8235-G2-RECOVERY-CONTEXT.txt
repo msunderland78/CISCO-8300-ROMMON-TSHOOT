@@ -10,6 +10,27 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-C STORAGE PRESERVED; FIRST CORRECTED STARTUP ACTIVE — 2026-11-01,10:47 EST
+Full eMMC user-area read:20,845,690,880 bytes,4970x4MiB,239.426s,exit0.
+USB archive90,930,221 bytes, SHA256
+f658b034857cc998a8d2fbaa55905cba4fc723a295e584c2a8eb0f6855056af8.
+Complete decompressed backup matches a second device read byte for byte.
+Full archive scan finds ZERO non-NUL bytes, proving this user area is blank;
+eMMC boot0/boot1/RPMB and SPI are outside this backup and conclusion.
+An initial cmp -n zero check rejected the20GB count; corrected full-stream
+NUL filtering/counting returned0 with pipeline exit0. Failure retained.
+Backup/logs remain on USB in C8235-C-UUID83CA808243-20261101; no host import yet.
+
+Separate C candidate transferred to RAM; source hash and bash syntax pass.
+At10:46:27 --prepare-only returns0 with expected patched launch/hook hashes.
+This installs the RAM hook but does not establish it executed at runtime yet.
+Verified backup/status logs copied to USB, cleanly unmounted10:46:51. Exited
+maintenance shell10:47:01 to continue native init. Normal startup may initialize
+the proven blank internal user area. No manual partitioning/format, ROMMON-code
+or security writes; boot parameter remains unsaved. IOS/native identity,
+partition effects and stability result are pending. Console72839 active.
+Evidence: c8235-recovery/c8235-c-baseline-20261101/results.json
+
 C8235-C RAM DIAGNOSTICS — 2026-11-01,10:39 EST
 USB26.2.1 reaches the maintenance shell; kernel6.6.95, boardarata,32VFs and
 exact launch_net source match B. No loopback correction or normal init yet.
