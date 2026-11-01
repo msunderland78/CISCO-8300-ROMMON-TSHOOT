@@ -16,6 +16,86 @@
       "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
     },
     {
+      "bytes": 7647,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port7-forward-unlimited-mpstat.log.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 2,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port7-forward-unlimited.exit.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 11163,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port7-forward-unlimited.json.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 7647,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port7-reverse-unlimited-mpstat.log.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 2,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port7-reverse-unlimited.exit.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 9268,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port7-reverse-unlimited.json.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 4149,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port7-reverse850-mpstat.log.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 2,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port7-reverse850.exit.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 5859,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port7-reverse850.json.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 4149,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port8-reverse850-mpstat.log.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 2,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port8-reverse850.exit.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 6014,
+      "path": "c8235-recovery/c8235-c-performance-20261101/port8-reverse850.json.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 1002,
+      "path": "c8235-recovery/c8235-c-performance-20261101/pre-namespace-address.json.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 3,
+      "path": "c8235-recovery/c8235-c-performance-20261101/pre-namespace-route.json.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 2418,
+      "path": "c8235-recovery/c8235-c-performance-20261101/pre-root-address.json.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 415,
+      "path": "c8235-recovery/c8235-c-performance-20261101/pre-root-route.json.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 133035,
       "path": "c8235-recovery/crash-review-20261031/bound16-kernel-first.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
@@ -1344,6 +1424,11 @@
       "bytes": 56921,
       "path": "router-console-logs/20261101-111155-C8235-C-install-autonomous-cold.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 81366,
+      "path": "router-console-logs/20261101-112543-C8235-C-performance-first-four-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1663,9 +1748,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 387662,
+      "bytes": 388326,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "3b2456e9b1b01b315c90440e597c9e7b48903e474ef5625a78bc1ad65bed2518"
+      "sha256": "ee3f7c66a2c48aa80c18b93639fee088f4d9e2a47ddd18deb9319c0e0d43a640"
     },
     {
       "bytes": 6850655,
@@ -1826,6 +1911,16 @@
       "bytes": 38127,
       "path": "c8235-recovery/c8235-c-baseline-20261101/results.json",
       "sha256": "926ddea70201349d8f430b54b74da48374dfae3a9cdf2638d5bc92a03e823e04"
+    },
+    {
+      "bytes": 5652,
+      "path": "c8235-recovery/c8235-c-performance-20261101/artifacts.json",
+      "sha256": "5d9719f05437d89c1e6e52346e7f580e6cbee5a263f1b5a5791dfcbc566bebe5"
+    },
+    {
+      "bytes": 47761,
+      "path": "c8235-recovery/c8235-c-performance-20261101/results.json",
+      "sha256": "24d50c6caff4c8254792cc0d35e564289aa35a642c4bc43d4189b62fd7cc4945"
     },
     {
       "bytes": 82424,
@@ -3038,6 +3133,86 @@
       "sha256": "dc081780e833a35e4dce89e10af4a02d065ab4a4e0f23c139a9a61c058e64428"
     },
     {
+      "bytes": 7647,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-forward-unlimited-mpstat.log.log",
+      "sha256": "976504151e58b0c411bb0d53b15b04449809af5eb3bc96becc2441bf8fb9d004"
+    },
+    {
+      "bytes": 2,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-forward-unlimited.exit.log",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "bytes": 11163,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-forward-unlimited.json.log",
+      "sha256": "dc0cf7fcd49bd27467ce5cc7a1de49443b38afb7fd0aa9bccd6f1c2d0b9e0619"
+    },
+    {
+      "bytes": 7647,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse-unlimited-mpstat.log.log",
+      "sha256": "10201e92ad5c8af354eb596fc0f347eda372ad33c704d651bbd0c8b14fef63d2"
+    },
+    {
+      "bytes": 2,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse-unlimited.exit.log",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "bytes": 9268,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse-unlimited.json.log",
+      "sha256": "9dc785dfe6d309218e469c18bf44bd58d6e9c8ce8fb84043d67d2eddde0c9696"
+    },
+    {
+      "bytes": 4149,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse850-mpstat.log.log",
+      "sha256": "3da344854dc884c9a9f07073f2ef391d7e9bb618edbe7bcbb7f0e5b6abd69277"
+    },
+    {
+      "bytes": 2,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse850.exit.log",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "bytes": 5859,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse850.json.log",
+      "sha256": "386d1efae9f2d1d324f5674f9703f5b501a42e8f3b3a6bba6cb5dac324f1a5f2"
+    },
+    {
+      "bytes": 4149,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port8-reverse850-mpstat.log.log",
+      "sha256": "a076db87619ff91d285f71bcbdc043d51372a9baf7d10c69cfba6363d97e1181"
+    },
+    {
+      "bytes": 2,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port8-reverse850.exit.log",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "bytes": 6014,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port8-reverse850.json.log",
+      "sha256": "c1961bd738873e5723e274b770926653366172f8a0181abba53cac4631c54b16"
+    },
+    {
+      "bytes": 1002,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/pre-namespace-address.json.log",
+      "sha256": "b277542ddd273c402ef923774cd9972cc3906f94dd0e91312fd4bf5971860716"
+    },
+    {
+      "bytes": 3,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/pre-namespace-route.json.log",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "bytes": 2418,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/pre-root-address.json.log",
+      "sha256": "6b240030f706005727ba0d9704103471c08bedbb169e24e6e4b582cf422539d3"
+    },
+    {
+      "bytes": 415,
+      "path": "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/pre-root-route.json.log",
+      "sha256": "44016d99ac458ac0f6d925af895be36e431702d5dc9e310273ffd7ea9da9d91c"
+    },
+    {
       "bytes": 133035,
       "path": "sanitized-evidence/c8235-recovery/crash-review-20261031/bound16-kernel-first.log",
       "sha256": "85005c9fce4be30b2f05efcf0cd5982ffe78bbed4a8fd327244ee1d4e8fcaee5"
@@ -3918,6 +4093,11 @@
       "sha256": "83ac369dbe39d3f94e370f079c5bb69229f460382cd170f5bcba0f44a66bbb37"
     },
     {
+      "bytes": 81366,
+      "path": "sanitized-evidence/router-console-logs/20261101-112543-C8235-C-performance-first-four-snapshot.log",
+      "sha256": "fb9f41ecd254e0f07ec7e6e95b217168584f202246e25d6940f6c84285ee93e4"
+    },
+    {
       "bytes": 16688,
       "path": "scripts/c8235_b_console_boot.py",
       "sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
@@ -4043,6 +4223,22 @@
   "maximum_file_bytes_exclusive": 50000000,
   "repository": "https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT",
   "sanitized_files": [
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-forward-unlimited-mpstat.log.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-forward-unlimited.exit.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-forward-unlimited.json.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse-unlimited-mpstat.log.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse-unlimited.exit.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse-unlimited.json.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse850-mpstat.log.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse850.exit.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port7-reverse850.json.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port8-reverse850-mpstat.log.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port8-reverse850.exit.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/port8-reverse850.json.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/pre-namespace-address.json.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/pre-namespace-route.json.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/pre-root-address.json.log",
+    "sanitized-evidence/c8235-recovery/c8235-c-performance-20261101/pre-root-route.json.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/bound16-kernel-first.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/evidence-excerpts.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/iperf-client-user-summary.log",
@@ -4218,12 +4414,13 @@
     "sanitized-evidence/router-console-logs/20261101-110245-C8235-C-install-warm-IOS-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-111155-C8235-C-cold-initial-health-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-111155-C8235-C-cold-zero-TX-through-IOS.log",
-    "sanitized-evidence/router-console-logs/20261101-111155-C8235-C-install-autonomous-cold.log"
+    "sanitized-evidence/router-console-logs/20261101-111155-C8235-C-install-autonomous-cold.log",
+    "sanitized-evidence/router-console-logs/20261101-112543-C8235-C-performance-first-four-snapshot.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 269,
-    "included_bytes_without_manifest": 701541136,
-    "included_files_without_manifest": 538
+    "excluded_local_files": 286,
+    "included_bytes_without_manifest": 701736321,
+    "included_files_without_manifest": 557
   }
 }

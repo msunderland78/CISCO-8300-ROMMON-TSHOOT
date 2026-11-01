@@ -1,0 +1,1536 @@
+
+[TX 2026-11-01T11:25:48.633521-05:00] b'\rshow inventory\rshow running-config interface TwoGigabitEthernet0/0/7\rshow running-config interface TenGigabitEthernet0/0/8\rshow ip interface brief\rshow running-config | section dhcp\rshow running-config | include ^ip route\r'
+
+Router#show inventory
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO: Please use "show license UDI" to get serial number for licensing.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NAME: "Chassis", DESCR: "Cisco isr1000 Series Chassis"
+PID: C8230X-8M2X       , VID: V00  , SN: FGL2835L41Z
+
+NAME: "Power Supply Module 0", DESCR: "External 66W Power Supply Module"
+PID: PWR-CC2-66WAC     , VID: V02  , SN:            
+
+NAME: "module 0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID:      , SN:            
+
+NAME: "NIM subslot 0/0", DESCR: "8M-2xSFP+"
+PID: 8M-2xSFP+         , VID: V01  , SN:            
+
+NAME: "subslot 0/0 transceiver 8", DESCR: "10GE CU5M"
+PID: SFP-H10GB-CU5M      , VID: V03  , SN: MOC15490A3V     
+
+NAME: "module R0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID: V00  , SN: FOC28292GX9
+
+NAME: "module F0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID:      , SN:            
+
+
+Router#show running-config interface TwoGigabitEthernet0/0/7
+Building configuration...
+
+Current configuration : 84 bytes
+!
+interface TwoGigabitEthernet0/0/7
+ no ip address
+ shutdown
+ negotiation auto
+end
+
+Router#show running-config interface TenGigabitEthernet0/0/8
+Building configuration...
+
+Current configuration : 66 bytes
+!
+interface TenGigabitEthernet0/0/8
+ no ip address
+ shutdown
+end
+
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  down                  down    
+Tw0/0/1                unassigned      YES unset  down                  down    
+Tw0/0/2                unassigned      YES unset  down                  down    
+Tw0/0/3                unassigned      YES unset  down                  down    
+Tw0/0/4                unassigned      YES unset  down                  down    
+Tw0/0/5                unassigned      YES unset  down                  down    
+Tw0/0/6                unassigned      YES NVRAM  administratively down down    
+Tw0/0/7                unassigned      YES NVRAM  administratively down down    
+Te0/0/8                unassigned      YES NVRAM  administratively down down    
+Te0/0/9                unassigned      YES NVRAM  administratively down down    
+Service-Engine0/4/0    unassigned      YES NVRAM  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  administratively down down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show running-config | section dhcp
+Router#show running-config | include ^ip route
+Router#
+[TX 2026-11-01T11:25:57.454130-05:00] b'copy running-config bootflash:C8235C-PRE-PERF-running.cfg\r'
+copy running-config bootflash:C8235C-PRE-PERF-running.cfg
+Destination filename [C8235C-PRE-PERF-running.cfg]? 
+[TX 2026-11-01T11:26:05.437562-05:00] b'\r'
+
+7634 bytes copied in 0.248 secs (30782 bytes/sec)
+Router#
+[TX 2026-11-01T11:26:08.177218-05:00] b'verify /sha512 bootflash:C8235C-PRE-PERF-running.cfg\rcopy startup-config bootflash:C8235C-PRE-PERF-startup.cfg\r'
+verify /sha512 bootflash:C8235C-PRE-PERF-running.cfg
+.Done!
+verify /sha512 (bootflash:C8235C-PRE-PERF-running.cfg) = ce821da3f378954fe321a1291a6ffe0876e22e3c0498a3cf4637b08dca6596921de2758205ef59f4de59b3d418cfe3d736338b826413ffc820458a6525291e09
+
+
+Router#copy startup-config bootflash:C8235C-PRE-PERF-startup.cfg
+Destination filename [C8235C-PRE-PERF-startup.cfg]? 
+[TX 2026-11-01T11:26:11.788858-05:00] b'\r'
+
+3275 bytes copied in 0.076 secs (43092 bytes/sec)
+Router#
+[TX 2026-11-01T11:26:16.755925-05:00] b'verify /sha512 bootflash:C8235C-PRE-PERF-startup.cfg\rconfigure terminal\rinterface TwoGigabitEthernet0/0/7\rip address 192.168.5.4 255.255.255.0\rno shutdown\rexit\rinterface TenGigabitEthernet0/0/8\rno shutdown\rexit\rinterface TenGigabitEthernet0/0/8.1\rencapsulation dot1Q 1 native\rexit\rinterface TenGigabitEthernet0/0/8.83\rencapsulation dot1Q 83\rip address 192.168.83.1 255.255.255.0\rexit\rip dhcp excluded-address 192.168.83.1 192.168.83.49\rip dhcp excluded-address 192.168.83.226 192.168.83.254\rip dhcp pool C8235C_PERF83\rnetwork 192.168.83.0 255.255.255.0\rdefault-router 192.168.83.1\rdns-server 192.168.3.10 208.67.222.222\rexit\rip route 0.0.0.0 0.0.0.0 192.168.5.1\rend\r'
+verify /sha512 bootflash:C8235C-PRE-PERF-startup.cfg
+.Done!
+verify /sha512 (bootflash:C8235C-PRE-PERF-startup.cfg) = bed703fb2bf5a1c074884843be9147729dd15638d0ca50e88a2ef3272f64673008180f6d786796cfdc609f3607f54607dd844550cc4ca88370c991d814b907a9
+
+
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface TwoGigabitEthernet0/0/7
+Router(config-if)#ip address 192.168.5.4 255.255.255.0
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface TenGigabitEthernet0/0/8
+Router(config-if)#no shutdown
+Router(config-if)#exit
+Router(config)#interface TenGigabitEthernet0/0/8.1
+Router(config-subif)#encapsulation dot1Q 1 native
+Router(config-subif)#exit
+Router(config)#interface TenGigabitEthernet0/0/8.83
+Router(config-subif)#encapsulation dot1Q 83
+Router(config-subif)#ip address 192.168.83.1 255.255.255.0
+Router(config-subif)#exit
+Router(config)#ip dhcp excluded-address 192.168.83.1 192.168.83.49
+Router(config)#ip dhcp excluded-address 192.168.83.226 192.168.83.254
+Router(config)#ip dhcp pool C8235C_PERF83
+Router(dhcp-config)#network 192.168.83.0 255.255.255.0
+Router(dhcp-config)#default-router 192.168.83.1
+Router(dhcp-config)#dns-server 192.168.3.10 208.67.222.222
+Router(dhcp-config)#exit
+Router(config)#ip route 0.0.0.0 0.0.0.0 192.168.5.1
+Router(config)#end
+Router#
+*May 29 2025 18:57:11.191: %SYS-5-CONFIG_I: Configured from console by console
+*May 29 2025 18:57:16.533: %LINK-3-UPDOWN: Interface TwoGigabitEthernet0/0/7, changed state to up
+*May 29 2025 18:57:16.556: %LINK-3-UPDOWN: Interface TenGigabitEthernet0/0/8, changed state to up
+*May 29 2025 18:57:17.532: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/7, changed state to up
+*May 29 2025 18:57:17.556: %LINEPROTO-5-UPDOWN: Line protocol on Interface TenGigabitEthernet0/0/8, changed state to up
+[TX 2026-11-01T11:26:27.377264-05:00] b'show interfaces TwoGigabitEthernet0/0/7\rshow interfaces TenGigabitEthernet0/0/8\rshow ip interface brief\rshow cdp neighbors detail\rshow platform hardware qfp active datapath utilization\rshow platform hardware qfp active statistics drop\rshow ip route\r'
+show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce7 (bia e4a4.1c82.dce7)
+  Internet address is 192.168.5.4/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  output flow-control is off, input flow-control is off
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:00, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     4 packets input, 1102 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 4 multicast, 0 pause input
+     1 packets output, 400 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TenGigabitEthernet0/0/8
+TenGigabitEthernet0/0/8 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce8 (bia e4a4.1c82.dce8)
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:03, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     2 packets input, 120 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 2 multicast, 0 pause input
+     1 packets output, 389 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  down                  down    
+Tw0/0/1                unassigned      YES unset  down                  down    
+Tw0/0/2                unassigned      YES unset  down                  down    
+Tw0/0/3                unassigned      YES unset  down                  down    
+Tw0/0/4                unassigned      YES unset  down                  down    
+Tw0/0/5                unassigned      YES unset  down                  down    
+Tw0/0/6                unassigned      YES NVRAM  administratively down down    
+Tw0/0/7                192.168.5.4     YES manual up                    up      
+Te0/0/8                unassigned      YES NVRAM  up                    up      
+Te0/0/8.1              unassigned      YES unset  up                    up      
+Te0/0/8.83             192.168.83.1    YES manual up                    up      
+Te0/0/9                unassigned      YES NVRAM  administratively down down    
+Service-Engine0/4/0    unassigned      YES NVRAM  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  administratively down down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show cdp neighbors detail
+-------------------------
+Device ID: 3850-HOUSE.sundesign.local
+Entry address(es): 
+  IP address: 192.168.5.1
+Platform: cisco WS-C3850-48T,  Capabilities: Router Switch IGMP 
+Interface: TenGigabitEthernet0/0/8.1,  Port ID (outgoing port): TenGigabitEthernet2/1/3
+Holdtime : 179 sec
+
+Version :
+Cisco IOS Software [Gibraltar], Catalyst L3 Switch Software (CAT3K_CAA-UNIVERSALK9-M), Version 16.12.14, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2025 by Cisco Systems, Inc.
+Compiled Mon 08-Sep-25 08:50 by mcpre
+
+advertisement version: 2
+Peer Source MAC: bcc4.93b3.2b37
+VTP Management Domain: 'SUNDESIGN'
+Native VLAN: 1
+Duplex: full
+Management address(es): 
+  IP address: 192.168.5.1
+
+-------------------------
+Device ID: 3850-HOUSE.sundesign.local
+Entry address(es): 
+  IP address: 192.168.5.1
+Platform: cisco WS-C3850-48T,  Capabilities: Router Switch IGMP 
+Interface: TwoGigabitEthernet0/0/7,  Port ID (outgoing port): GigabitEthernet2/0/3
+Holdtime : 179 sec
+
+Version :
+Cisco IOS Software [Gibraltar], Catalyst L3 Switch Software (CAT3K_CAA-UNIVERSALK9-M), Version 16.12.14, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2025 by Cisco Systems, Inc.
+Compiled Mon 08-Sep-25 08:50 by mcpre
+
+advertisement version: 2
+Peer Source MAC: bcc4.93b3.2b03
+VTP Management Domain: 'SUNDESIGN'
+Native VLAN: 5
+Duplex: full
+Management address(es): 
+  IP address: 192.168.5.1
+
+
+Total cdp entries displayed : 2
+Router#show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            9            3            2            0
+                 (bps)        11768         2184         1280          160
+           Total (pps)            9            3            2            0
+                 (bps)        11768         2184         1280          160
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            2            2            1            0
+                 (bps)         3904         9200         8840         1128
+           Total (pps)            2            2            1            0
+                 (bps)         3904         9200         8840         1128
+Processing: Load (pct)            0            0            0            0
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            2            2            1           26
+            Idle (pct)           98           98           98           73
+
+Router#show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+BadUidbSubIdx                                   9                     988  
+Ipv4NoRoute                                     5                     308  
+Ipv6NoRoute                                     6                     336  
+UnconfiguredIpv6Fia                             1                     148  
+
+Router#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is 192.168.5.1 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 192.168.5.1
+      192.168.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.5.0/24 is directly connected, TwoGigabitEthernet0/0/7
+L        192.168.5.4/32 is directly connected, TwoGigabitEthernet0/0/7
+      192.168.83.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.83.0/24 is directly connected, TenGigabitEthernet0/0/8.83
+L        192.168.83.1/32 is directly connected, TenGigabitEthernet0/0/8.83
+Router#
+*May 29 2025 18:57:22.349: %DHCPD-6-NO_LEASE: DHCP lease assignment failure, client 0050.56ad.5f63 reason CANT FORWARD
+[TX 2026-11-01T11:26:59.412075-05:00] b'show ip dhcp binding\rshow ip arp\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\r'
+show ip dhcp binding
+Bindings from all pools not associated with VRF:
+IP address      Client-ID/ 		Lease expiration 	Type       State      Interface
+		Hardware address/
+		User name
+192.168.83.50   0100.5056.ad5f.63       May 30 2025 06:57 PM    Automatic  Active     TenGigabitEthernet0/0/8.83
+Router#show ip arp
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  192.168.5.1             0   c800.840c.77c7  ARPA   TwoGigabitEthernet0/0/7
+Internet  192.168.5.3             0   0050.56ad.fa7e  ARPA   TwoGigabitEthernet0/0/7
+Internet  192.168.5.4             -   e4a4.1c82.dce7  ARPA   TwoGigabitEthernet0/0/7
+Internet  192.168.83.1            -   e4a4.1c82.dce8  ARPA   TenGigabitEthernet0/0/8.83
+Internet  192.168.83.50           0   0050.56ad.5f63  ARPA   TenGigabitEthernet0/0/8.83
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20164
+  Parent process id: 20157
+  Group id         : 20164
+  Status           : S
+  Session id       : 18159
+  User time        : 372
+  Kernel time      : 416
+  Priority         : 20
+  Virtual bytes    : 2219184128
+  Resident pages   : 40746
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44581
+  Major page faults: 606
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.092 sec ago
+Last punt keepalive sent                  = 0.092 sec ago
+punt keepalive rx count                   = 238
+punt keepalive tx count                   = 238
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-11-01T11:27:14.709416-05:00] b'show interfaces TwoGigabitEthernet0/0/7\rshow interfaces TenGigabitEthernet0/0/8\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow platform hardware qfp active datapath utilization\rshow platform hardware qfp active statistics drop\rshow environment all\r'
+show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce7 (bia e4a4.1c82.dce7)
+  Internet address is 192.168.5.4/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  output flow-control is off, input flow-control is off
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:01, output 00:00:10, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 3000 bits/sec, 2 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     153 packets input, 29438 bytes, 0 no buffer
+     Received 84 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 51 multicast, 0 pause input
+     22 packets output, 17126 bytes, 0 underruns
+     Output 4 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TenGigabitEthernet0/0/8
+TenGigabitEthernet0/0/8 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce8 (bia e4a4.1c82.dce8)
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:01, output 00:00:16, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 3000 bits/sec, 2 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     178 packets input, 33026 bytes, 0 no buffer
+     Received 91 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 76 multicast, 0 pause input
+     18 packets output, 16591 bytes, 0 underruns
+     Output 3 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20164
+  Parent process id: 20157
+  Group id         : 20164
+  Status           : S
+  Session id       : 18159
+  User time        : 372
+  Kernel time      : 417
+  Priority         : 20
+  Virtual bytes    : 2219184128
+  Resident pages   : 40746
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44583
+  Major page faults: 606
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.392 sec ago
+Last punt keepalive sent                  = 1.392 sec ago
+punt keepalive rx count                   = 245
+punt keepalive tx count                   = 245
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            9            8            3            0
+                 (bps)         9216         9376         2720          288
+           Total (pps)            9            8            3            0
+                 (bps)         9216         9376         2720          288
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            4            2            1            0
+                 (bps)        22544        14472         9896         1336
+           Total (pps)            4            2            1            0
+                 (bps)        22544        14472         9896         1336
+Processing: Load (pct)            0            0            0            0
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            2            2            1           24
+            Idle (pct)           98           98           98           75
+
+Router#show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+BadUidbSubIdx                                 127                    9600  
+IpTtlExceeded                                   1                     102  
+Ipv4NoAdj                                       1                      56  
+Ipv4NoRoute                                     5                     308  
+Ipv6NoRoute                                     6                     336  
+UnconfiguredIpv6Fia                             2                     218  
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          35 Celsius
+ Temp: Outlet            R0              Normal          35 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12067 mV
+ V: 5V                   R0              Normal          4949 mV
+ V: 3.3V_SB              R0              Normal          3323 mV
+ V: 3.3V_SFP             R0              Normal          3300 mV
+ V: 3.3V                 R0              Normal          3303 mV
+ V: 1.8V                 R0              Normal          1789 mV
+ V: 1.2V                 R0              Normal          1193 mV
+ V: 1.1V_DDR             R0              Normal          1099 mV
+ V: 0.75V_CORE           R0              Normal          758 mV
+ V: 0.75V_SYS            R0              Normal          847 mV
+ V: 0.8V_SW              R0              Normal          801 mV
+ V: 0.8V                 R0              Normal          800 mV
+ V: 0.75V                R0              Normal          749 mV
+ I: VP12P0_MB            R0              Normal          1523 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          18 Watts
+
+
+Router#
+[TX 2026-11-01T11:27:45.193755-05:00] b'show platform hardware qfp active datapath utilization\rshow platform software infra punt-keepalive\r'
+show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        89021        21286         4259          355
+                 (bps)    897931376    214280520     42857488      3571528
+           Total (pps)        89021        21286         4259          355
+                 (bps)    897931376    214280520     42857488      3571528
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        88988        21391         4279          356
+                 (bps)    899863120    215859808     43179328      3598864
+           Total (pps)        88988        21391         4279          356
+                 (bps)    899863120    215859808     43179328      3598864
+Processing: Load (pct)            5            1            0            0
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            5            3            1           23
+            Idle (pct)           95           97           98           76
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.860 sec ago
+Last punt keepalive sent                  = 1.860 sec ago
+punt keepalive rx count                   = 260
+punt keepalive tx count                   = 260
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-11-01T11:27:59.794963-05:00] b'show interfaces TwoGigabitEthernet0/0/7\rshow interfaces TenGigabitEthernet0/0/8\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow platform hardware qfp active datapath utilization\rshow platform hardware qfp active statistics drop\rshow environment all\r'
+show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce7 (bia e4a4.1c82.dce7)
+  Internet address is 192.168.5.4/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 21/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  output flow-control is off, input flow-control is off
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:38, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 83923000 bits/sec, 6957 packets/sec
+  5 minute output rate 809000 bits/sec, 1524 packets/sec
+     2181343 packets input, 3291107213 bytes, 0 no buffer
+     Received 140 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 89 multicast, 0 pause input
+     477002 packets output, 31549153 bytes, 0 underruns
+     Output 4 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TenGigabitEthernet0/0/8
+TenGigabitEthernet0/0/8 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce8 (bia e4a4.1c82.dce8)
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 2/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:44, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 859000 bits/sec, 1527 packets/sec
+  5 minute output rate 84149000 bits/sec, 6955 packets/sec
+     477298 packets input, 33483037 bytes, 0 no buffer
+     Received 147 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 139 multicast, 0 pause input
+     2181204 packets output, 3299954752 bytes, 0 underruns
+     Output 3 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20164
+  Parent process id: 20157
+  Group id         : 20164
+  Status           : S
+  Session id       : 18159
+  User time        : 374
+  Kernel time      : 418
+  Priority         : 20
+  Virtual bytes    : 2219184128
+  Resident pages   : 40746
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44596
+  Major page faults: 606
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.480 sec ago
+Last punt keepalive sent                  = 0.480 sec ago
+punt keepalive rx count                   = 268
+punt keepalive tx count                   = 268
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        89397        43878         8778          731
+                 (bps)    898071328    438938168     87789144      7315840
+           Total (pps)        89397        43878         8778          731
+                 (bps)    898071328    438938168     87789144      7315840
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        89347        43988         8799          733
+                 (bps)    899874864    441010584     88209480      7351400
+           Total (pps)        89347        43988         8799          733
+                 (bps)    899874864    441010584     88209480      7351400
+Processing: Load (pct)            5            2            1            1
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            5            3            1           23
+            Idle (pct)           95           97           98           76
+
+Router#show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+BadUidbSubIdx                                 218                   16200  
+IpTtlExceeded                                   1                     102  
+Ipv4NoAdj                                       1                      56  
+Ipv4NoRoute                                     5                     308  
+Ipv6NoRoute                                     8                     448  
+UnconfiguredIpv6Fia                             2                     218  
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          35 Celsius
+ Temp: Outlet            R0              Normal          35 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12060 mV
+ V: 5V                   R0              Normal          4951 mV
+ V: 3.3V_SB              R0              Normal          3322 mV
+ V: 3.3V_SFP             R0              Normal          3300 mV
+ V: 3.3V                 R0              Normal          3299 mV
+ V: 1.8V                 R0              Normal          1792 mV
+ V: 1.2V                 R0              Normal          1193 mV
+ V: 1.1V_DDR             R0              Normal          1099 mV
+ V: 0.75V_CORE           R0              Normal          756 mV
+ V: 0.75V_SYS            R0              Normal          848 mV
+ V: 0.8V_SW              R0              Normal          800 mV
+ V: 0.8V                 R0              Normal          800 mV
+ V: 0.75V                R0              Normal          749 mV
+ I: VP12P0_MB            R0              Normal          1616 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          18 Watts
+
+
+Router#
+[TX 2026-11-01T11:28:20.065081-05:00] b'show platform hardware qfp active datapath utilization\rshow platform software infra punt-keepalive\r'
+show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        96299        69979        13999         1166
+                 (bps)    977794240    704695512    140941736     11745224
+           Total (pps)        96299        69979        13999         1166
+                 (bps)    977794240    704695512    140941736     11745224
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        96064        70088        14019         1168
+                 (bps)    977584240    707344760    141477504     11790448
+           Total (pps)        96064        70088        14019         1168
+                 (bps)    977584240    707344760    141477504     11790448
+Processing: Load (pct)            5            4            1            1
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            4            4            2           22
+            Idle (pct)           96           96           97           77
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.732 sec ago
+Last punt keepalive sent                  = 0.732 sec ago
+punt keepalive rx count                   = 278
+punt keepalive tx count                   = 278
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-11-01T11:29:03.908644-05:00] b'show interfaces TwoGigabitEthernet0/0/7\rshow interfaces TenGigabitEthernet0/0/8\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow platform hardware qfp active datapath utilization\rshow platform hardware qfp active statistics drop\rshow environment all\r'
+show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce7 (bia e4a4.1c82.dce7)
+  Internet address is 192.168.5.4/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 61/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  output flow-control is off, input flow-control is off
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:53, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 242677000 bits/sec, 20064 packets/sec
+  5 minute output rate 2317000 bits/sec, 4368 packets/sec
+     6970046 packets input, 10540940481 bytes, 0 no buffer
+     Received 226 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 139 multicast, 0 pause input
+     1513280 packets output, 100044075 bytes, 0 underruns
+     Output 4 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TenGigabitEthernet0/0/8
+TenGigabitEthernet0/0/8 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce8 (bia e4a4.1c82.dce8)
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 6/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:01, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 2456000 bits/sec, 4371 packets/sec
+  5 minute output rate 243318000 bits/sec, 20061 packets/sec
+     1513724 packets input, 106133581 bytes, 0 no buffer
+     Received 233 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 223 multicast, 0 pause input
+     6969673 packets output, 10568790236 bytes, 0 underruns
+     Output 3 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20164
+  Parent process id: 20157
+  Group id         : 20164
+  Status           : S
+  Session id       : 18159
+  User time        : 377
+  Kernel time      : 420
+  Priority         : 20
+  Virtual bytes    : 2219585536
+  Resident pages   : 40746
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44616
+  Major page faults: 606
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.592 sec ago
+Last punt keepalive sent                  = 0.592 sec ago
+punt keepalive rx count                   = 300
+punt keepalive tx count                   = 300
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        82387        95205        28281         2357
+                 (bps)    821587632    957771200    283923008     23660344
+           Total (pps)        82387        95205        28281         2357
+                 (bps)    821587632    957771200    283923008     23660344
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        80536        95057        28278         2356
+                 (bps)    804929992    958395600    284511712     23710088
+           Total (pps)        80536        95057        28278         2356
+                 (bps)    804929992    958395600    284511712     23710088
+Processing: Load (pct)            4            5            2            1
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            4            4            2           21
+            Idle (pct)           96           96           97           78
+
+Router#show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+BadUidbSubIdx                                 351                   25666  
+IpTtlExceeded                                   1                     102  
+Ipv4NoAdj                                       1                      56  
+Ipv4NoRoute                                     5                     308  
+Ipv6NoRoute                                     8                     448  
+UnconfiguredIpv6Fia                             2                     218  
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          36 Celsius
+ Temp: Outlet            R0              Normal          35 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12064 mV
+ V: 5V                   R0              Normal          4947 mV
+ V: 3.3V_SB              R0              Normal          3324 mV
+ V: 3.3V_SFP             R0              Normal          3300 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 1.8V                 R0              Normal          1792 mV
+ V: 1.2V                 R0              Normal          1193 mV
+ V: 1.1V_DDR             R0              Normal          1100 mV
+ V: 0.75V_CORE           R0              Normal          756 mV
+ V: 0.75V_SYS            R0              Normal          849 mV
+ V: 0.8V_SW              R0              Normal          800 mV
+ V: 0.8V                 R0              Normal          799 mV
+ V: 0.75V                R0              Normal          749 mV
+ I: VP12P0_MB            R0              Normal          1589 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          19 Watts
+
+
+Router#
+[TX 2026-11-01T11:29:24.295673-05:00] b'show platform hardware qfp active datapath utilization\rshow platform software infra punt-keepalive\r'
+show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)       116747        95853        34779         2898
+                 (bps)   1005281384    914025472    339922312     28326960
+           Total (pps)       116747        95853        34779         2898
+                 (bps)   1005281384    914025472    339922312     28326960
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)       116865        95898        34812         2901
+                 (bps)   1005018784    915182304    340739296     28395768
+           Total (pps)       116865        95898        34812         2901
+                 (bps)   1005018784    915182304    340739296     28395768
+Processing: Load (pct)            7            5            2            1
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            6            4            2           21
+            Idle (pct)           94           95           97           78
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.960 sec ago
+Last punt keepalive sent                  = 0.960 sec ago
+punt keepalive rx count                   = 310
+punt keepalive tx count                   = 310
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-11-01T11:30:12.236339-05:00] b'show interfaces TwoGigabitEthernet0/0/7\rshow interfaces TenGigabitEthernet0/0/8\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow platform hardware qfp active datapath utilization\rshow platform hardware qfp active statistics drop\rshow environment all\r'
+show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce7 (bia e4a4.1c82.dce7)
+  Internet address is 192.168.5.4/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 45/255, rxload 50/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  output flow-control is off, input flow-control is off
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:14, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 198515000 bits/sec, 22404 packets/sec
+  5 minute output rate 179975000 bits/sec, 18230 packets/sec
+     9049279 packets input, 10678177100 bytes, 0 no buffer
+     Received 306 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 188 multicast, 0 pause input
+     6393606 packets output, 7487184809 bytes, 0 underruns
+     Output 4 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TenGigabitEthernet0/0/8
+TenGigabitEthernet0/0/8 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce8 (bia e4a4.1c82.dce8)
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 5/255, rxload 4/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:11, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 180541000 bits/sec, 18229 packets/sec
+  5 minute output rate 199229000 bits/sec, 22401 packets/sec
+     6394209 packets input, 7512806605 bytes, 0 no buffer
+     Received 313 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 305 multicast, 0 pause input
+     9048771 packets output, 10714333307 bytes, 0 underruns
+     Output 3 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20164
+  Parent process id: 20157
+  Group id         : 20164
+  Status           : S
+  Session id       : 18159
+  User time        : 379
+  Kernel time      : 423
+  Priority         : 20
+  Virtual bytes    : 2219585536
+  Resident pages   : 40746
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44638
+  Major page faults: 606
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.916 sec ago
+Last punt keepalive sent                  = 0.916 sec ago
+punt keepalive rx count                   = 334
+punt keepalive tx count                   = 334
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)           10       102914        51481         4290
+                 (bps)         5736    893362360    485093992     40424616
+           Total (pps)           10       102914        51481         4290
+                 (bps)         5736    893362360    485093992     40424616
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            3       102737        51476         4289
+                 (bps)        17536    890612376    485383504     40449576
+           Total (pps)            3       102737        51476         4289
+                 (bps)        17536    890612376    485383504     40449576
+Processing: Load (pct)            4            7            3            1
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            5            5            3           20
+            Idle (pct)           95           94           96           79
+
+Router#show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+BadUidbSubIdx                                 486                   35312  
+IpTtlExceeded                                   1                     102  
+Ipv4NoAdj                                       1                      56  
+Ipv4NoRoute                                     5                     308  
+Ipv6NoRoute                                     8                     448  
+UnconfiguredIpv6Fia                             2                     218  
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          36 Celsius
+ Temp: Outlet            R0              Normal          35 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12056 mV
+ V: 5V                   R0              Normal          4949 mV
+ V: 3.3V_SB              R0              Normal          3323 mV
+ V: 3.3V_SFP             R0              Normal          3302 mV
+ V: 3.3V                 R0              Normal          3299 mV
+ V: 1.8V                 R0              Normal          1791 mV
+ V: 1.2V                 R0              Normal          1193 mV
+ V: 1.1V_DDR             R0              Normal          1100 mV
+ V: 0.75V_CORE           R0              Normal          756 mV
+ V: 0.75V_SYS            R0              Normal          848 mV
+ V: 0.8V_SW              R0              Normal          801 mV
+ V: 0.8V                 R0              Normal          799 mV
+ V: 0.75V                R0              Normal          749 mV
+ I: VP12P0_MB            R0              Normal          1632 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          19 Watts
+
+
+Router#
+[TX 2026-11-01T11:30:17.028911-05:00] b'configure terminal\rinterface TwoGigabitEthernet0/0/7\rshutdown\rno ip address\rexit\rinterface TenGigabitEthernet0/0/8.5\rencapsulation dot1Q 5\rip address 192.168.5.4 255.255.255.0\rend\rshow ip interface brief\rshow ip route connected\rshow ip arp\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface TwoGigabitEthernet0/0/7
+Router(config-if)#shutdown
+Router(config-if)#no ip address
+Router(config-if)#exit
+Router(config)#interface TenGigabitEthernet0/0/8.5
+Router(config-subif)#encapsulation dot1Q 5
+Router(config-subif)#ip address 192.168.5.4 255.255.255.0
+Router(config-subif)#end
+Router#show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES unset  down                  down    
+Tw0/0/1                unassigned      YES unset  down                  down    
+Tw0/0/2                unassigned      YES unset  down                  down    
+Tw0/0/3                unassigned      YES unset  down                  down    
+Tw0/0/4                unassigned      YES unset  down                  down    
+Tw0/0/5                unassigned      YES unset  down                  down    
+Tw0/0/6                unassigned      YES NVRAM  administratively down down    
+Tw0/0/7                unassigned      YES manual administratively down down    
+Te0/0/8                unassigned      YES NVRAM  up                    up      
+Te0/0/8.1              unassigned      YES unset  up                    up      
+Te0/0/8.5              192.168.5.4     YES manual up                    up      
+Te0/0/8.83             192.168.83.1    YES manual up                    up      
+Te0/0/9                unassigned      YES NVRAM  administratively down down    
+Service-Engine0/4/0    unassigned      YES NVRAM  up                    up      
+GigabitEthernet0       unassigned      YES NVRAM  administratively down down    
+Vlan1                  unassigned      YES unset  up                    down    
+Router#show ip route connected
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is 192.168.5.1 to network 0.0.0.0
+
+      192.168.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.5.0/24 is directly connected, TenGigabitEthernet0/0/8.5
+L        192.168.5.4/32 is directly connected, TenGigabitEthernet0/0/8.5
+      192.168.83.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.83.0/24 is directly connected, TenGigabitEthernet0/0/8.83
+L        192.168.83.1/32 is directly connected, TenGigabitEthernet0/0/8.83
+Router#show ip arp
+Protocol  Address          Age (min)  Hardware Addr   Type   Interface
+Internet  192.168.5.1             0   Incomplete      ARPA   
+Internet  192.168.5.4             -   e4a4.1c82.dce8  ARPA   TenGigabitEthernet0/0/8.5
+Internet  192.168.83.1            -   e4a4.1c82.dce8  ARPA   TenGigabitEthernet0/0/8.83
+Internet  192.168.83.50           1   0050.56ad.5f63  ARPA   TenGigabitEthernet0/0/8.83
+Router#
+*May 29 2025 19:01:11.190: %SYS-5-CONFIG_I: Configured from console by console
+*May 29 2025 19:01:13.169: %LINK-5-CHANGED: Interface TwoGigabitEthernet0/0/7, changed state to administratively down
+*May 29 2025 19:01:14.169: %LINEPROTO-5-UPDOWN: Line protocol on Interface TwoGigabitEthernet0/0/7, changed state to down
+[TX 2026-11-01T11:30:28.056738-05:00] b'show interfaces TwoGigabitEthernet0/0/7\rshow interfaces TenGigabitEthernet0/0/8\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow platform hardware qfp active datapath utilization\rshow platform hardware qfp active statistics drop\rshow environment all\r'
+show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is administratively down, line protocol is down 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce7 (bia e4a4.1c82.dce7)
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 17/255, rxload 18/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is off, input flow-control is off
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:11, output 00:00:11, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 185655000 bits/sec, 20952 packets/sec
+  5 minute output rate 168316000 bits/sec, 17048 packets/sec
+     9049306 packets input, 10678178824 bytes, 0 no buffer
+     Received 323 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 197 multicast, 0 pause input
+     6393607 packets output, 7487184872 bytes, 0 underruns
+     Output 4 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     1 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TenGigabitEthernet0/0/8
+TenGigabitEthernet0/0/8 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce8 (bia e4a4.1c82.dce8)
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 4/255, rxload 4/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:02, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 168846000 bits/sec, 17047 packets/sec
+  5 minute output rate 186323000 bits/sec, 20949 packets/sec
+     6394289 packets input, 7512837419 bytes, 0 no buffer
+     Received 345 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 333 multicast, 0 pause input
+     9048789 packets output, 10714356269 bytes, 0 underruns
+     Output 5 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20164
+  Parent process id: 20157
+  Group id         : 20164
+  Status           : S
+  Session id       : 18159
+  User time        : 380
+  Kernel time      : 424
+  Priority         : 20
+  Virtual bytes    : 2219585536
+  Resident pages   : 40746
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44640
+  Major page faults: 606
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.740 sec ago
+Last punt keepalive sent                  = 0.740 sec ago
+punt keepalive rx count                   = 342
+punt keepalive tx count                   = 342
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            5        73768        51481         4290
+                 (bps)        26584    641998776    485094760     40424688
+           Total (pps)            5        73768        51481         4290
+                 (bps)        26584    641998776    485094760     40424688
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            2        73583        51476         4289
+                 (bps)        24384    639527920    485384368     40449672
+           Total (pps)            2        73583        51476         4289
+                 (bps)        24384    639527920    485384368     40449672
+Processing: Load (pct)            0            4            3            1
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            2            5            3           19
+            Idle (pct)           98           95           96           80
+
+Router#show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+BadUidbSubIdx                                 499                   36166  
+Disabled                                        1                      64  
+InjectErr                                       1                      96  
+IpTtlExceeded                                   2                     204  
+Ipv4NoAdj                                       1                      56  
+Ipv4NoRoute                                     5                     308  
+Ipv6NoRoute                                     8                     448  
+UnconfiguredIpv6Fia                             2                     218  
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          36 Celsius
+ Temp: Outlet            R0              Normal          35 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12071 mV
+ V: 5V                   R0              Normal          4951 mV
+ V: 3.3V_SB              R0              Normal          3320 mV
+ V: 3.3V_SFP             R0              Normal          3302 mV
+ V: 3.3V                 R0              Normal          3299 mV
+ V: 1.8V                 R0              Normal          1791 mV
+ V: 1.2V                 R0              Normal          1193 mV
+ V: 1.1V_DDR             R0              Normal          1100 mV
+ V: 0.75V_CORE           R0              Normal          756 mV
+ V: 0.75V_SYS            R0              Normal          849 mV
+ V: 0.8V_SW              R0              Normal          801 mV
+ V: 0.8V                 R0              Normal          799 mV
+ V: 0.75V                R0              Normal          748 mV
+ I: VP12P0_MB            R0              Normal          1513 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          17 Watts
+
+
+Router#
+[TX 2026-11-01T11:31:08.445386-05:00] b'show platform hardware qfp active datapath utilization\rshow platform software infra punt-keepalive\r'
+show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        92451        42255        59931         4994
+                 (bps)    901838824    409613760    567016472     47251504
+           Total (pps)        92451        42255        59931         4994
+                 (bps)    901838824    409613760    567016472     47251504
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        92483        42280        59932         4994
+                 (bps)    901976336    409883728    567358504     47280952
+           Total (pps)        92483        42280        59932         4994
+                 (bps)    901976336    409883728    567358504     47280952
+Processing: Load (pct)            6            3            3            2
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            4            3            3           19
+            Idle (pct)           96           97           96           80
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.108 sec ago
+Last punt keepalive sent                  = 1.108 sec ago
+punt keepalive rx count                   = 362
+punt keepalive tx count                   = 362
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#
+[TX 2026-11-01T11:31:12.429104-05:00] b'show interfaces TwoGigabitEthernet0/0/7\rshow interfaces TenGigabitEthernet0/0/8\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow platform hardware qfp active datapath utilization\rshow platform hardware qfp active statistics drop\rshow environment all\r'
+show interfaces TwoGigabitEthernet0/0/7
+TwoGigabitEthernet0/0/7 is administratively down, line protocol is down 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce7 (bia e4a4.1c82.dce7)
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 14/255, rxload 16/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is off, input flow-control is off
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:55, output 00:00:55, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 159684000 bits/sec, 18017 packets/sec
+  5 minute output rate 144770000 bits/sec, 14659 packets/sec
+     9049306 packets input, 10678178824 bytes, 0 no buffer
+     Received 323 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 197 multicast, 0 pause input
+     6393607 packets output, 7487184872 bytes, 0 underruns
+     Output 4 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     1 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show interfaces TenGigabitEthernet0/0/8
+TenGigabitEthernet0/0/8 is up, line protocol is up 
+  Hardware is 8M-2xSFP+, address is e4a4.1c82.dce8 (bia e4a4.1c82.dce8)
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 6/255, rxload 5/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is H10GB-CU5M
+  output flow-control is on, input flow-control is on
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:07, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 230789000 bits/sec, 23566 packets/sec
+  5 minute output rate 245821000 bits/sec, 26923 packets/sec
+     9211009 packets input, 10897706127 bytes, 0 no buffer
+     Received 399 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 401 multicast, 0 pause input
+     11865388 packets output, 14099214844 bytes, 0 underruns
+     Output 5 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20164
+  Parent process id: 20157
+  Group id         : 20164
+  Status           : S
+  Session id       : 18159
+  User time        : 382
+  Kernel time      : 426
+  Priority         : 20
+  Virtual bytes    : 2219737088
+  Resident pages   : 40778
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44672
+  Major page faults: 606
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.108 sec ago
+Last punt keepalive sent                  = 1.108 sec ago
+punt keepalive rx count                   = 364
+punt keepalive tx count                   = 364
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        56337        46949        60870         5072
+                 (bps)    500489480    451320736    575357928     47946632
+           Total (pps)        56337        46949        60870         5072
+                 (bps)    500489480    451320736    575357928     47946632
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)        55985        46945        60865         5072
+                 (bps)    497357224    451328704    575647496     47971720
+           Total (pps)        55985        46945        60865         5072
+                 (bps)    497357224    451328704    575647496     47971720
+Processing: Load (pct)            4            3            4            2
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            3            3            3           19
+            Idle (pct)           97           97           96           80
+
+Router#show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+BadUidbSubIdx                                 499                   36166  
+Disabled                                        1                      64  
+InjectErr                                       1                      96  
+IpTtlExceeded                                   2                     204  
+Ipv4NoAdj                                       1                      56  
+Ipv4NoRoute                                     5                     308  
+Ipv6NoRoute                                     8                     448  
+UnconfiguredIpv6Fia                             6                    1374  
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          36 Celsius
+ Temp: Outlet            R0              Normal          35 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12075 mV
+ V: 5V                   R0              Normal          4949 mV
+ V: 3.3V_SB              R0              Normal          3322 mV
+ V: 3.3V_SFP             R0              Normal          3300 mV
+ V: 3.3V                 R0              Normal          3299 mV
+ V: 1.8V                 R0              Normal          1791 mV
+ V: 1.2V                 R0              Normal          1193 mV
+ V: 1.1V_DDR             R0              Normal          1100 mV
+ V: 0.75V_CORE           R0              Normal          756 mV
+ V: 0.75V_SYS            R0              Normal          849 mV
+ V: 0.8V_SW              R0              Normal          801 mV
+ V: 0.8V                 R0              Normal          799 mV
+ V: 0.75V                R0              Normal          749 mV
+ I: VP12P0_MB            R0              Normal          1457 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          17 Watts
+
+
+Router#
