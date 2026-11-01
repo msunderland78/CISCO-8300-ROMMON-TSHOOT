@@ -10,6 +10,27 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A J2507 BASELINE / ZERO DC / RAIL RESISTANCE — 2026-11-01, 12:48 EST
+Owner identifies purple=J2507pin2/GND and blue=J2507pin8/VCC, reporting:
+- Microclip tips touching:0.2ohm (resistance mode inferred; model/range omitted).
+- J2507pin2 to8:0V (DC requested; displayed zero reported).
+- J2507pin2 to8:540ohm (polarity/time stability not separately described).
+Earlier four approximately1ohm header-to-chip paths retained. Ground/supply
+measurement points are supported for both U2900/U2901. Rough0.8ohm above clip
+baseline includes contacts/path effects, not a precise bare-trace measurement.
+The540ohm in-circuit meter result does not predict current at1.8V or establish
+programmer-drive suitability; no current calculation or supply attachment.
+
+This resolves the requested header residual-voltage and microclip baseline
+checks; separate per-chip DC readings were not reported. Owner colors/functions
+answer does not explicitly identify remote lead endpoints. Asked whether the
+far ends go only to meter, are loose, or connect to Pi/adapter before next setup.
+No repeat of mapped paths is requested. Next validate detached existing Pi5 /
+1.8Vadapter / SOIC16clip wiring and levels, then assess target loading before
+any read. Prior A/battery-out/cooling-off isolation retained; keep router off.
+No agent hardware access, flash read/write, TPM/security change or bank mapping.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json
+
 C8235-A J2507 GROUND/VCC MAPPING — 2026-11-01, 12:44 EST
 Owner adds original PHOTOS2/IMG_1303.jpeg. J2507 label and its corner2/8 markings
 are readable. Owner reports four separate paths, each about1ohm with microclips:

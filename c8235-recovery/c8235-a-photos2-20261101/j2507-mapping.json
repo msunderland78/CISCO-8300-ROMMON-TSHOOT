@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: J2507 ground and flash-supply mapping",
   "recorded_at": "2026-11-01T12:44:18-05:00",
   "timezone": "America/New_York",
-  "status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
+  "status": "J2507 ground/VCC mapping supported; zero residual DC, clip baseline and rail resistance reported; programmer setup pending",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -23,7 +23,8 @@
   "physical_state": {
     "last_explicit_confirmation": "2026-11-01: A, battery removed, all router cables and Pi/programmer disconnected; cooling removed.",
     "new_observation": "Owner now using microclips and added header leads in photo. Asked whether these are passive meter extensions with isolation unchanged; reply pending.",
-    "instruction": "Keep router unpowered with cooling removed. No supply/programmer connection based only on these resistance results."
+    "instruction": "Keep router unpowered with cooling removed. No supply/programmer connection based only on these resistance results.",
+    "latest_owner_reply": "Purple is ground; blue is VCC. Clip baseline0.2ohm; header2-to8 DC0V and resistance540ohm. Remote wire ends not explicitly identified."
   },
   "measurements": [
     {
@@ -37,7 +38,8 @@
       "source": "Owner report in conversation",
       "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
       "stability": "not separately described",
-      "lead_baseline_ohm": null
+      "lead_baseline_ohm": 0.2,
+      "baseline_reported_at": "2026-11-01T12:48:24-05:00"
     },
     {
       "header": "J2507",
@@ -50,7 +52,8 @@
       "source": "Owner report in conversation",
       "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
       "stability": "not separately described",
-      "lead_baseline_ohm": null
+      "lead_baseline_ohm": 0.2,
+      "baseline_reported_at": "2026-11-01T12:48:24-05:00"
     },
     {
       "header": "J2507",
@@ -63,7 +66,8 @@
       "source": "Owner report in conversation",
       "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
       "stability": "not separately described",
-      "lead_baseline_ohm": null
+      "lead_baseline_ohm": 0.2,
+      "baseline_reported_at": "2026-11-01T12:48:24-05:00"
     },
     {
       "header": "J2507",
@@ -76,21 +80,65 @@
       "source": "Owner report in conversation",
       "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
       "stability": "not separately described",
-      "lead_baseline_ohm": null
+      "lead_baseline_ohm": 0.2,
+      "baseline_reported_at": "2026-11-01T12:48:24-05:00"
     }
   ],
   "interpretation": [
+    "Zero displayed DC reported on mapped flash supply-to-ground pair.",
+    "Four approximately1ohm header-to-chip paths remain low-resistance connections; shorted-clips baseline is0.2ohm. A rough0.8ohm excess includes contact/path effects and is not a precise bare-trace resistance. No repeat of the four paths requested.",
+    "540ohm is an unpowered meter reading through the in-circuit network; it does not establish current at1.8V or qualify supply injection/programmer drive. No current estimate derived.",
+    "J2507-2/GND and J2507-8/VCC accepted as accessible measurement points based on owner-reported paths to both chips; board load under power and programmer interface remain unqualified.",
+    "No SPI signal, primary/golden or bank-selector assignment; J2901 remains unmeasured."
+  ],
+  "pending": [
+    "Clarify where purple/blue far ends connect before programmer setup; prior router/battery isolation remains recorded.",
+    "Validate present detached Pi/1.8V-adapter/clip wiring, output voltage, signal levels and actual target loading before attachment or reads.",
+    "Preserve repeated stable full reads of each separately identified chip before any firmware restore."
+  ],
+  "agent_hardware_actions": [],
+  "programmer_read_or_write": "none this checkpoint",
+  "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
+  "updated_at": "2026-11-01T12:48:24-05:00",
+  "qualification": {
+    "recorded_at": "2026-11-01T12:48:24-05:00",
+    "source": "Owner report in conversation",
+    "wire_colors": {
+      "purple": "J2507 pin2 / GND",
+      "blue": "J2507 pin8 / VCC"
+    },
+    "shorted_microclip_baseline": {
+      "value_ohm": 0.2,
+      "mode": "Resistance, inferred from reported resistance units",
+      "exact_range_and_meter_model": "not supplied"
+    },
+    "header_rail_dc": {
+      "endpoint_a": "J2507 pin2 / GND",
+      "endpoint_b": "J2507 pin8 / VCC",
+      "reported_value_v": 0,
+      "mode": "DC volts requested in preceding question; owner reports voltage0",
+      "probe_polarity": "Requested black2/red8; not separately restated by owner",
+      "scope": "This header rail pair only; no new individual chip or other-rail DC readings supplied"
+    },
+    "header_rail_resistance": {
+      "endpoint_a": "J2507 pin2 / GND",
+      "endpoint_b": "J2507 pin8 / VCC",
+      "reported_value_ohm": 540,
+      "mode": "Resistance",
+      "probe_polarity_and_stability": "not supplied"
+    },
+    "interpretation": [
+      "Zero displayed DC reported on mapped flash supply-to-ground pair.",
+      "Four approximately1ohm header-to-chip paths remain low-resistance connections; shorted-clips baseline is0.2ohm. A rough0.8ohm excess includes contact/path effects and is not a precise bare-trace resistance. No repeat of the four paths requested.",
+      "540ohm is an unpowered meter reading through the in-circuit network; it does not establish current at1.8V or qualify supply injection/programmer drive. No current estimate derived.",
+      "J2507-2/GND and J2507-8/VCC accepted as accessible measurement points based on owner-reported paths to both chips; board load under power and programmer interface remain unqualified."
+    ],
+    "remaining_connection_question": "Owner identifies colors/functions but does not explicitly identify remote wire endpoints. Asked meter-only, loose/unconnected or Pi/adapter-connected before programmer preparation."
+  },
+  "initial_interpretation": [
     "Low-resistance paths support J2507-2 as access to both flash VSS pins and J2507-8 as access to both flash VCC pins.",
     "A common ground and common supply connection are supported, but lead/contact contribution and exact net resistance are unresolved until the same-microclip baseline is supplied.",
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
-  ],
-  "pending": [
-    "Confirm new blue/purple leads are only passive meter extensions, no Pi/programmer connection and isolation unchanged.",
-    "DC voltage J2507 physical8 relative to2; prior requested chip DC readings remain unreported.",
-    "Same microclip/lead setup shorted-tip resistance baseline, measured off board.",
-    "After residual voltage is checked, assess unpowered VCC-to-GND resistance/loading before considering any supply attachment."
-  ],
-  "agent_hardware_actions": [],
-  "programmer_read_or_write": "none this checkpoint"
+  ]
 }

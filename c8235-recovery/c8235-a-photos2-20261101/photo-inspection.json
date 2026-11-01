@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: A-specific flash identification and unpowered mapping preparation",
   "recorded_at": "2026-11-01T12:25:48-05:00",
   "timezone": "America/New_York",
-  "status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
+  "status": "J2507 ground/VCC mapping supported; zero residual DC, clip baseline and rail resistance reported; programmer setup pending",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -16,7 +16,7 @@
     "owner_report": "Battery removed before photos.",
     "photo_observation": "Board removed from enclosure; coin-cell holder empty; processor exposed and heatsinks/fans not mounted; external ports visibly empty in IMG_1293/1294; no clip visible.",
     "supersedes": "Earlier November1 powered/assembled/battery-installed console handoff.",
-    "pending": "Meter model; separate U2900 and U2901 residual DC voltage readings; resistance mode and shorted-lead baseline.",
+    "pending": "Remote ends of blue/purple wires; present detached programmer/adapter/clip validation and powered loading. Meter model/range not supplied; header residual DC and clip baseline now reported.",
     "power_instruction": "Keep router unpowered in this disassembled state; no Pi/programmer attachment.",
     "owner_isolation_confirmation": {
       "recorded_at": "2026-11-01T12:27:49-05:00",
@@ -144,7 +144,8 @@
       "source": "Owner report in conversation",
       "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
       "stability": "not separately described",
-      "lead_baseline_ohm": null
+      "lead_baseline_ohm": 0.2,
+      "baseline_reported_at": "2026-11-01T12:48:24-05:00"
     },
     {
       "header": "J2507",
@@ -157,7 +158,8 @@
       "source": "Owner report in conversation",
       "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
       "stability": "not separately described",
-      "lead_baseline_ohm": null
+      "lead_baseline_ohm": 0.2,
+      "baseline_reported_at": "2026-11-01T12:48:24-05:00"
     },
     {
       "header": "J2507",
@@ -170,7 +172,8 @@
       "source": "Owner report in conversation",
       "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
       "stability": "not separately described",
-      "lead_baseline_ohm": null
+      "lead_baseline_ohm": 0.2,
+      "baseline_reported_at": "2026-11-01T12:48:24-05:00"
     },
     {
       "header": "J2507",
@@ -183,7 +186,8 @@
       "source": "Owner report in conversation",
       "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
       "stability": "not separately described",
-      "lead_baseline_ohm": null
+      "lead_baseline_ohm": 0.2,
+      "baseline_reported_at": "2026-11-01T12:48:24-05:00"
     }
   ],
   "hardware_actions_this_checkpoint": [],
@@ -264,11 +268,21 @@
       "U2901 DC voltage",
       "meter model"
     ],
-    "status": "requested, no readings yet; stay in DC voltage mode"
+    "status": "Original per-chip DC request not individually answered; owner instead reports0V across the mapped common header pair, with0.2ohm clip baseline and540ohm header rail resistance. See qualification."
   },
   "initial_status": "Photo identification complete; electrical mapping not started",
-  "updated_at": "2026-11-01T12:44:18-05:00",
+  "updated_at": "2026-11-01T12:48:24-05:00",
   "latest_header_evidence": "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json",
   "preferred_header": "J2507, following owner-reported four low-resistance paths; see j2507-mapping.json. J2901 remains unmeasured.",
-  "planned_sequence_status": "Initial J2901 plan not performed; follow J2507 evidence and pending checks instead."
+  "planned_sequence_status": "Initial J2901 plan not performed; follow J2507 evidence and pending checks instead.",
+  "j2507_qualification_summary": {
+    "wire_colors": {
+      "purple": "J2507 pin2 / GND",
+      "blue": "J2507 pin8 / VCC"
+    },
+    "microclip_baseline_ohm": 0.2,
+    "header_2_to_8_dc_v": 0,
+    "header_2_to_8_resistance_ohm": 540,
+    "evidence": "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json"
+  }
 }
