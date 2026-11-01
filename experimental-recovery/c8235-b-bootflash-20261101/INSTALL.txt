@@ -42,9 +42,34 @@ Before conversion, new internal copies preserved and verified:
 After conversion, new verified copies preserve:
 - C8235B-INSTALL-packages.conf: 26.2.1 install manifest, 8,405 bytes.
 - C8235B-INSTALL-STARTUP.cfg: saved install configuration, 3,925 bytes.
-Old 17.18.3a package files and original vendor bytes remain. The disconnected
+Old 17.18.3a files remained at the 09:41 conversion checkpoint. The subsequent
+owner-requested automatic cleanup at 10:20 removed that obsolete software set.
+Its exact manifest is now retained as C8235B-PRE-INSTALL-packages.keep (7,947
+bytes, same SHA512); the old .conf backup was selected by native cleanup.
+This manifest alone is not a usable 17.18.3a rollback set. The disconnected
 USB image/B3/C8235FIX1 recovery set is retained. Full SHA512 values and native
-configuration comparisons are recorded in the results file below.
+configuration comparisons are recorded in the results files below.
+
+AUTOMATIC CLEANUP CAVEAT — NOVEMBER 1, 10:20 EST
+Native install remove inactive selects the current 26.2.1 .bin even though
+BOOT includes it as fallback and B4 requires it. Do not accept that list
+without preserving and restoring this dependency. Renaming a root-level copy
+to .keep does NOT protect it: the native scanner still recognizes the image.
+
+For this cleanup, the exact .bin was copied and SHA512-verified, then moved to
+bootflash:C8235B-RECOVERY/C8235B-CLEANUP-IMAGE.keep. A fresh native preview
+excluded that directory copy and the old manifest's .keep copy. Only then was
+the removal confirmed. All 15 listed deletions and REMOVE_POSTCHECK succeeded.
+The preserved image was immediately renamed back to the exact root filename
+required by B4. Thirteen old-version files totaling 2,092,993,559 bytes are
+gone; all 14 current package names/sizes, packages.conf and boot settings remain.
+Final full SHA512 checks match for the restored .bin, B4, C8235FIX1,
+packages.conf and old manifest evidence. Saved startup matches its backup;
+IMG C26.02.01.0.263 and inactive rollback timer remain. Free space is
+13,733,220,352 bytes. Live uptime46min, CPP20841, keepalives1365/zero misses,
+ready platform and error-free ports7/8 confirm the sampled online state.
+No reboot occurred during cleanup. Console closed; recovery directory empty.
+See the cleanup results for exact lists, timings and current handoff.
 
 COMPLETED PROCEDURE AND EVIDENCE
 1. Owner reconfirmed B identity, powered state, USB absent, unchanged cooling,
@@ -108,6 +133,7 @@ the old 17.18.3a manifest expecting corrected 26.2.1. Do not run install cleanup
 without preserving all files required by B4 and the intended recovery path.
 
 RESULTS AND CAPTURES
+../../c8235-recovery/package-cleanup-20261101/results.json
 ../../c8235-recovery/install-validation-20261101/results.json
 ../../sanitized-evidence/router-console-logs/20261101-091632-C8235-B-install-conversion.log
 ../../sanitized-evidence/router-console-logs/20261101-092332-C8235-B-install-autonomous-warm.log

@@ -10,7 +10,41 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-CURRENT HANDOFF: INSTALL MODE WITHOUT USB VERIFIED — 2026-11-01, 09:41 UTC-05:00
+CURRENT HANDOFF: AUTOMATIC PACKAGE CLEANUP COMPLETE — 2026-11-01,10:21 EST
+Owner requested Cisco's automatic command. On freshly confirmed powered
+C8235-B/FGL2835LBHU with USB absent and exclusive 115200 console, native
+install remove inactive completed at 10:20. It removed the 13 obsolete
+17.18.3a files (2,092,993,559 bytes) and its own obsolete image metadata.
+Free bootflash rose from 11,640,213,504 to 13,733,220,352 bytes. This observed
+filesystem delta is separate from the sum of the removed files' byte sizes.
+
+IMPORTANT: the native list also selected the CURRENT 26.2.1 .bin required by
+B4, despite its fallback BOOT entry. A root-level copy renamed .keep was also
+selected. Both unsafe previews were declined without deletion. A SHA512-
+verified copy in C8235B-RECOVERY/ was excluded from the next preview, permitting
+cleanup and immediate restoration to c8kg2be-universalk9.26.02.01.SPA.bin.
+Its final full SHA512 matches the exact original. B4, C8235FIX1, packages.conf
+and the retained old manifest also rehash correctly. All 14 current packages
+remain with expected names/sizes; saved BOOT/confreg/startup are unchanged.
+
+Old manifest evidence is now C8235B-PRE-INSTALL-packages.keep, 7,947 bytes;
+native cleanup deleted its .conf copy. Configuration backups remain. The
+13-file old software set is removed, so that manifest is not a usable rollback
+set; no off-router backup of the deleted old set is claimed. The recovery
+directory is now empty, with no duplicate image left. Future automatic cleanup
+still requires protecting/restoring the current .bin; do not blindly accept it.
+
+Final health: uptime46min, packages.conf/IMG C26.02.01.0.263, CPP20841/session
+18115, matched keepalives1365/zero misses, R0/F0/0/0 ready; ports7/8 up with
+zero errors/drops and reset counts1 each. No reboot or new sensor/TPM/load test.
+Prior install warm/cold verification and unresolved sensor/TPM findings stand.
+B remains powered on without USB; capture closed, console free, no monitor.
+Evidence: c8235-recovery/package-cleanup-20261101/results.json
+Public capture:
+sanitized-evidence/router-console-logs/20261101-101618-C8235-B-automatic-package-cleanup.log
+Raw 85,600-byte capture remains local; hash and exact deletion lists in results.
+
+INSTALL MODE WITHOUT USB VERIFIED — 2026-11-01, 09:41 UTC-05:00
 C8235-B / FGL2835LBHU remains powered on in IOS 26.02.1 INSTALL MODE.
 Both ROMMON and IOS select bootflash:packages.conf; USB storage is disconnected.
 Native one-step Add/Activate/Commit passed. All 14 installed package SHA512
