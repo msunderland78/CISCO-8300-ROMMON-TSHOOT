@@ -10,6 +10,31 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+THREE CORRECTED COLD BOOTS PASS — 2026-11-01, 07:23 EST — C8235-05
+Cold3 owner-confirmed power cycle: nativePowerOn, exact B/image/RAM guards
+pass; hook07:14:43, IOS07:15:48, platform07:16:41 EST. Five-minute samples
+07:17:08-07:22:20 span311.77s; CPP21041 unchanged, keepalives28->184, rx=tx,
+zero misses, no filtered NIX/ATTACH/critical/punt matches, CPU52C. Cold1 on
+October31 plus cold2/cold3 today complete the three console-assisted cold boots.
+Standalone persistence remains unproven; no controlled-load gate claimed.
+
+Restored only observed network delta at07:22:27/33 after the health gate.
+Native running/startup comparisons against pre-cold2 USB files both show no
+changes. Initial link/default query was before convergence; subsequent port7
+1G/port8 10G and subinterfaces up/up, default via5.1 installed, sampled errors/
+drops zero. Full-size DF ping5.3 from83.1 initially4/5 then5/5. Final07:22:58:
+CPP21041, keepalives203/203/zero misses. No startup save; BOOT/register unchanged.
+Full results: c8235-recovery/boot-validation-20261101/results.json.
+Cold3 capture closed/preserved as sanitized-evidence/router-console-logs/
+20261101-071207-C8235-B-cold3.log; previous pending status below is historical.
+
+Next standalone transport work: separate offline probe at experimental-recovery/
+c8235-b-bootstrap-20261101/. Syntax/default mode checked; not deployed or booted
+at this checkpoint. First prove observable USB-child-script entry under an
+unsaved parameter with captured fallback shell; no saved boot change yet.
+Fresh exclusive passive capture07:23:10 under .git/recovery-private/
+c8235-analysis-20261101/20261101-072310-usb-entry; verify ownership before reuse.
+
 OVERNIGHT VERIFIED CHECKPOINT — 2026-11-01, 07:02 EST — C8235-05
 Owner reconfirms same B/FGL2835LBHU, assembled/cooling/battery unchanged, no
 programmer/probes, same power/RJ45 console/USB/port7/port8, no terminal app.

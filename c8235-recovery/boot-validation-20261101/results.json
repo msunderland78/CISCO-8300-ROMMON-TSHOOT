@@ -311,17 +311,239 @@
     },
     {
       "number": 3,
-      "status": "Armed; owner power cycle requested, no result yet",
+      "status": "PASS: automatic corrected PowerOn boot and five-minute sampled health observation",
       "armed_at": "2026-11-01T07:12:07.905022-05:00",
       "private_capture": ".git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261101-071207",
-      "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
+      "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602",
+      "owner_confirms_power_cycle": true,
+      "health_started_at": "2026-11-01T07:17:08.637907-05:00",
+      "health_due_no_earlier_than": "2026-11-01T07:22:08.637907-05:00",
+      "CPP_initial": 21041,
+      "network": "Startup baseline; planned restore after health observation",
+      "health_samples": [
+        {
+          "at": "2026-11-01T07:17:08.637907-05:00",
+          "rx": 28,
+          "tx": 28,
+          "miss": 0,
+          "CPP": 21041
+        },
+        {
+          "at": "2026-11-01T07:18:03.132086-05:00",
+          "rx": 56,
+          "tx": 56,
+          "miss": 0,
+          "CPP": 21041
+        },
+        {
+          "at": "2026-11-01T07:19:36.769364-05:00",
+          "rx": 102,
+          "tx": 102,
+          "miss": 0,
+          "CPP": 21041
+        },
+        {
+          "at": "2026-11-01T07:20:48.962698-05:00",
+          "rx": 139,
+          "tx": 139,
+          "miss": 0,
+          "CPP": 21041
+        },
+        {
+          "at": "2026-11-01T07:22:20.410818-05:00",
+          "rx": 184,
+          "tx": 184,
+          "miss": 0,
+          "CPP": 21041
+        }
+      ],
+      "health_interval_seconds": 311.772911,
+      "health_finished_at": "2026-11-01T07:22:20.410818-05:00",
+      "final_environment": "CPU52C; preexisting standby12V0mV warning remains",
+      "saved_boot_unchanged": true,
+      "native_reset_reason": [
+        "PowerOn"
+      ],
+      "no_new_NIX_ATTACH_critical_punt_matches": true,
+      "evidence": {
+        "raw_local": "router-console-logs/20261101-071207-C8235-B-cold3.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-071207-C8235-B-cold3.log",
+        "bytes": 76157,
+        "sha256": "447bc7f7ffb477d2faddc6a9119a882d35e56ae8276baf9b4dd3f9188a1db869",
+        "events": [
+          {
+            "time": "2026-11-01T07:12:07.904756-05:00",
+            "state": "console_open",
+            "port": "/dev/cu.usbserial-AL00F7EQ",
+            "baud": 115200
+          },
+          {
+            "time": "2026-11-01T07:12:07.905022-05:00",
+            "state": "trial_started",
+            "mode": "wait-reset",
+            "evidence": "/Users/games/Documents/SOFTWARE/.git/recovery-private/c8235-analysis-20261031/repeatable-boot/20261101-071207",
+            "helper_sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
+          },
+          {
+            "time": "2026-11-01T07:13:55.089890-05:00",
+            "state": "autoboot_stopped",
+            "count": 1
+          },
+          {
+            "time": "2026-11-01T07:13:56.089517-05:00",
+            "state": "rommon_identity_pass",
+            "uuid": "13 FF FF 87 79 AD FB 7C 6D E0 81 A7"
+          },
+          {
+            "time": "2026-11-01T07:13:56.600075-05:00",
+            "state": "temporary_boot_parameter_verified"
+          },
+          {
+            "time": "2026-11-01T07:14:14.985353-05:00",
+            "state": "console_baud",
+            "baud": 9600
+          },
+          {
+            "time": "2026-11-01T07:14:15.545438-05:00",
+            "state": "console_baud",
+            "baud": 115200
+          },
+          {
+            "time": "2026-11-01T07:14:33.059187-05:00",
+            "state": "maintenance_identity_and_image_pass"
+          },
+          {
+            "time": "2026-11-01T07:14:34.534931-05:00",
+            "state": "ram_patch_verified",
+            "source_sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052",
+            "patch_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857"
+          },
+          {
+            "time": "2026-11-01T07:14:43.659540-05:00",
+            "state": "runtime_hook_complete"
+          },
+          {
+            "time": "2026-11-01T07:15:48.085685-05:00",
+            "state": "ios_prompt_reached",
+            "qualification": "Health/stability checks still required"
+          },
+          {
+            "time": "2026-11-01T07:16:41.378981-05:00",
+            "state": "platform_ready",
+            "qualification": "Boot readiness only; keepalive, config and stability checks still required"
+          },
+          {
+            "time": "2026-11-01T07:16:41.379049-05:00",
+            "state": "supervised_capture",
+            "controls": "JSON send/close; no automatic retries"
+          },
+          {
+            "time": "2026-11-01T07:17:08.638094-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:18:03.132148-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:18:10.134156-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:19:36.769570-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:20:48.962763-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:22:20.411006-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:22:27.870654-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:22:33.124985-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:22:38.728268-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:22:48.313516-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:22:49.561561-05:00",
+            "state": "supervised_command_sent"
+          },
+          {
+            "time": "2026-11-01T07:22:58.141666-05:00",
+            "state": "supervised_command_sent"
+          }
+        ]
+      }
     }
   ],
   "pending": [
-    "Cold3 with exact guarded helper; then restore preserved bench network",
-    "Standalone persistence",
+    "Standalone USB-entry diagnostic then persistence",
     "Intended saved network/boot selection",
     "Further performance/load deferred"
   ],
-  "updated_at": "2026-11-01T07:12:30.701789-05:00"
+  "updated_at": "2026-11-01T07:23:10.196518-05:00",
+  "network_restore": {
+    "status": "Applied and verified after cold3 health gate",
+    "basis": "Native current-running to pre-cold2 running-file comparison captured07:18:10EST; only requested DHCP/port7/port8/subinterface/default-route delta. No certificate delta in this comparison.",
+    "commands": [
+      "configure terminal",
+      "ip dhcp excluded-address 192.168.83.1 192.168.83.49",
+      "ip dhcp excluded-address 192.168.83.226 192.168.83.254",
+      "ip dhcp pool C8235_PERF83",
+      "network 192.168.83.0 255.255.255.0",
+      "default-router 192.168.83.1",
+      "dns-server 192.168.3.10 208.67.222.222",
+      "exit",
+      "interface TwoGigabitEthernet0/0/7",
+      "description PERF_1G_COMPARE_UPLINK_192.168.5.0_24",
+      "ip address 192.168.5.4 255.255.255.0",
+      "no shutdown",
+      "exit",
+      "interface TenGigabitEthernet0/0/8",
+      "description PERF_TRUNK_VLAN83_NATIVE1_1G_COMPARE",
+      "no shutdown",
+      "exit",
+      "interface TenGigabitEthernet0/0/8.1",
+      "description NATIVE_VLAN1_UNNUMBERED",
+      "encapsulation dot1Q 1 native",
+      "exit",
+      "interface TenGigabitEthernet0/0/8.83",
+      "description PERF_VLAN83_LAN",
+      "encapsulation dot1Q 83",
+      "ip address 192.168.83.1 255.255.255.0",
+      "exit",
+      "ip route 0.0.0.0 0.0.0.0 TwoGigabitEthernet0/0/7 192.168.5.1",
+      "end"
+    ],
+    "no_startup_save": true,
+    "applied_at": [
+      "2026-11-01T07:22:27.870457-05:00",
+      "2026-11-01T07:22:33.124778-05:00"
+    ],
+    "native_running_diff": "No changes versus pre-cold2 running USB export",
+    "native_startup_diff": "No changes versus pre-cold2 startup USB export",
+    "links": "Port7=1Gfull, port8=10Gfull; both and subinterfaces up/up. All sampled CRC/input/output errors and output drops zero. DHCP254 total78excluded0leases; default via5.1 installed.",
+    "convergence": "First immediate query showed port8 down and default absent; later query confirmed both recovered. Initial full-size ping4/5, repeat5/5; intermediate outcomes retained.",
+    "final_health": {
+      "at": "2026-11-01T07:22:58.141571-05:00",
+      "rx": 203,
+      "tx": 203,
+      "miss": 0,
+      "CPP": 21041
+    }
+  },
+  "cold_series_result": "Three corrected console-assisted cold boots passed: cold1 October31; cold2/cold3 November1. Not standalone persistence."
 }

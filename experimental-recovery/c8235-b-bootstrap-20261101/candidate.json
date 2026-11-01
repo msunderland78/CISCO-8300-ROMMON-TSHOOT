@@ -1,0 +1,30 @@
+{
+  "status": "OFFLINE CANDIDATE ONLY; not copied to USB or booted",
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "purpose": "Expose early USB loading errors and prove automatic child-script entry before developing persistence",
+  "script": "probe-usb-entry.sh",
+  "sha256": "c08eab51e97bb5ce4fb40410330472270b6ffd7552eb85c9bfd1f663c0720485",
+  "USB_candidate_name": "C8235B1.sh",
+  "temporary_parameter_candidate": "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}d${IFS}/dev;exec<>/dev/ttyAMA0&>/dev/ttyAMA0;stty${IFS}115200;echo${IFS}B1;sleep${IFS}5;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p;exec${IFS}sh",
+  "parameter_bytes": 230,
+  "set_command_bytes": 252,
+  "validation": [
+    "bash -n passed for script and parameter shell expression; no local probe-mode execution",
+    "Must validate exact parameter acceptance/readback and physical identity at ROMMON before any boot",
+    "Default invocation prints usage and exits without probe actions; checked on host"
+  ],
+  "requires": [
+    "Same exact26.2.1 image, developmentROMMON and UUID guards",
+    "Preserve current config and saved BOOT/register; no environment sync",
+    "Copy to new USB path only after checking absence, verify source/destination hash, unmount before test",
+    "Capture first marker, all errors and parent shell; missing marker is not a diagnosis",
+    "No automatic normal init; manual verified RAM correction required before continuation"
+  ],
+  "limits": [
+    "The mount wait/device path and command length are candidates, not confirmed behavior",
+    "Probe mounts proc/sys in RAM; never modifies launch_net.sh or persistent boot settings",
+    "No autonomous boot or persistence claim"
+  ],
+  "sha512": "666d8673d809be72d1965ec96f826b6dfd2f374d8f9988cd241dd079cfc78ed5e2aa888a7c4164c34d7657ff51cfdc08cc56bcf1957ad0741171a2f99c7932f8"
+}
