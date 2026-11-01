@@ -10,6 +10,22 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A CONNECTED RESEAT RETRIES STILL FAIL — 2026-11-01, 13:53 EST
+Owner reports reseating the clip, checking pin 2 to OUTPUT 4 and pin 8 to OUTPUT
+8 about three times, and the same Pi startup failure. Those pin numbers refer
+in context to J2507 ground/VCC, not physical flash pins. No new numerical
+resistance or voltage readings supplied; no additional continuity scan asked.
+Reseating has not resolved the connected failure. The detached-clip control
+remains unreported; do not mistake these connected retries for that test.
+
+Stop connected attempts. Next requested: unplug Pi, wait OUTPUT 8-to-4 = 0 V,
+remove clip completely from U2900, separate its contacts with nonconductive
+spacer and leave cable connected to adapter. Nothing connects to router.
+Power Pi once and report whether it starts; unplug if it fails. U2901 grabber
+stays loose, router own power/cables/battery disconnected, cooling off. No
+reset resistor, SPI command, flash acquisition/write or root-cause conclusion.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A CONNECTED PI STARTUP FAILURE — 2026-11-01, 13:44 EST
 Owner reports repeated resistance/connection checks, then Pi will not start
 when the clip is connected to the converter; voltage briefly displays about

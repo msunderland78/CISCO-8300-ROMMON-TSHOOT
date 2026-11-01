@@ -89,7 +89,7 @@
   ],
   "agent_hardware_actions": [],
   "powered_programming_or_read": "Owner attempted Pi-only supply of the U2900-connected fixture; Pi did not start and the target rail briefly displayed about 0.1 V. Pi starts disconnected; adapter output subsequently reported as 1.802 V. No agent GPIO/SPI/flash operation, read or write.",
-  "updated_at": "2026-11-01T13:44:30-05:00",
+  "updated_at": "2026-11-01T13:53:50-05:00",
   "reset_grabber_contact": {
     "recorded_at": "2026-11-01T13:03:26-05:00",
     "source": "Owner measurement report followed by explicit endpoint clarification",
@@ -228,6 +228,27 @@
       "Power only Pi once; report whether it starts and DC voltage directly from OUTPUT 8 (+) to OUTPUT 4 (ground). If startup fails, unplug it."
     ],
     "instruction": "Do not reconnect router or move powered wiring. No reset resistor, GPIO/SPI command or flash access.",
-    "status": "Requested; no result yet."
+    "status": "Still pending: latest reply describes connected reseating/retries, not the requested clip-off-board control.",
+    "simplified_followup": {
+      "requested_at": "2026-11-01T13:53:50-05:00",
+      "setup": "Pi -> adapter -> clip/cable, with clip completely OFF the router; cable stays connected to adapter.",
+      "preparation": "Unplug Pi power and wait for OUTPUT 8-to-4 = 0 V before removing clip. Separate contacts with clean nonconductive spacer; keep board disconnected and grabber loose.",
+      "requested_result": "Does Pi start once in this detached-clip setup? If it fails, unplug. No new resistance measurements requested.",
+      "status": "Requested; no result yet."
+    }
+  },
+  "connected_reseat_followup": {
+    "recorded_at": "2026-11-01T13:53:50-05:00",
+    "owner_report": "I have reseated the clip, checked pin 2 to output 4 and pin 8 to output 8 about 3 times and tried to get the pi to start ... same thing every time",
+    "placement": "Reseated on U2900 in the current discussion; not a detached-clip control result.",
+    "endpoints_in_context": [
+      "J2507 pin 2 / GND to converter OUTPUT 4",
+      "J2507 pin 8 / VCC to converter OUTPUT 8"
+    ],
+    "endpoint_scope": "Owner used pin 2/pin 8 without restating J2507. Interpret as the established header checks, not physical flash pin 2 (VCC) or pin 8 (DQ1).",
+    "count": "About three checking/retry cycles reported; exact number of startups not separately specified.",
+    "result": "Same Pi startup failure after reseating and checking connections. No new numerical resistance, voltage or LED sequence supplied.",
+    "interpretation": "Reseating did not resolve the reported connected failure. Does not distinguish clip/cable from board loading or establish an exact fault.",
+    "instruction": "Stop connected retries. No further continuity scan requested; isolate clip/cable completely off the router for the outstanding control."
   }
 }
