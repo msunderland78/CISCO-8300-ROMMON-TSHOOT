@@ -18,7 +18,7 @@
   },
   "physical_confirmation": {
     "source": "Two explicit owner async answers in current session",
-    "isolation_answer": "Yes\u2014all disconnected; grabber loose",
+    "isolation_answer": "Yes—all disconnected; grabber loose",
     "scope": "Pi power and router power/cables/battery disconnected; U2901pin3grabber free of resistor/ground. Router cooling remains removed per current photos.",
     "harness_answer": "Yes, unchanged",
     "harness_scope": "Pi-to-1.8Vconverter wiring unchanged from working C8375 setup apart from moving shortclip toU2900.",
@@ -89,7 +89,7 @@
   ],
   "agent_hardware_actions": [],
   "powered_programming_or_read": "Owner performed Pi and CH341A supply-only voltage diagnostics and one CH341A full-clip voltage observation. Latest CH341A USB unplug explicitly confirmed. No agent GPIO/SPI/flash command or reported new flash acquisition/write.",
-  "updated_at": "2026-11-01T15:14:19-05:00",
+  "updated_at": "2026-11-01T15:18:48-05:00",
   "reset_grabber_contact": {
     "recorded_at": "2026-11-01T13:03:26-05:00",
     "source": "Owner measurement report followed by explicit endpoint clarification",
@@ -533,7 +533,7 @@
       "owner_report": "I connected the ch341a ... I only get 0.568 volts between pin 2 and pin 8",
       "initial_ambiguity": "Original wording did not identify router versus adapter endpoints or current load. No initial source/rail attribution made until clarification.",
       "endpoint_answer": "Router J2507 pins 2 and 8",
-      "setup_answer": "1.8 V adapter \u2192 clip seated on U2900",
+      "setup_answer": "1.8 V adapter → clip seated on U2900",
       "power_state_answer": "CH341A unplugged; Pi completely disconnected",
       "physical_target": "C8235-A / FGL2835L42B / PCB FOC28292GUQ / clip on U2900; J2507 supply shared by mapped U2900/U2901.",
       "reported_board_voltage_v": 0.568,
@@ -632,5 +632,13 @@
       "reported_at": "2026-11-01T15:14:19-05:00",
       "interpretation": "Fresh CH341A USB unplug and adapter socket mounting confirmed. Actual arrangement uses CH341A socket rather than earlier proposed separate 3.3 V/GND input feeds. For the supply-only comparison, router clip/SPI output paths remained excluded as instructed."
     }
+  },
+  "session_stop": {
+    "recorded_at": "2026-11-01T15:18:48-05:00",
+    "owner_report": "Is all the context captured, I am stopping work for now",
+    "status": "Owner stopped work; no new hardware interaction or measurement.",
+    "last_known_state": "C8235-A FGL2835L42B / board FOC28292GUQ; router native power/cables/battery disconnected, cooling removed. Pi fully disconnected; CH341A USB unplugged, adapter in socket. Resistor wiring unchanged, clip cable disconnected from adapter, RESET grabber free. These are preceding confirmations, not new measurements at session stop.",
+    "resume": "Read active plan/current context and reconfirm current physical state before hardware interaction. Flash supply/read qualification remains pending controlled-current load characterization or verified isolation; no unchanged retries or resistor bypass.",
+    "scope": "Technical handoff and evidence preserved; not a verbatim conversation archive. No flash read/write performed during this electrical session."
   }
 }

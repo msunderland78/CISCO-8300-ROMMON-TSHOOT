@@ -10,6 +10,29 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+OWNER STOP / NEXT-SESSION HANDOFF — 2026-11-01, 15:18 EST
+Owner is stopping work for now. No new hardware action or measurement.
+Last confirmed setup is preserved, not freshly remeasured at this stop:
+- A chassis FGL2835L42B / photographed board FOC28292GUQ.
+- Router own power, console, USB storage, Ethernet and battery disconnected;
+  heatsinks/fans removed. Do not power the bare router.
+- Pi fully disconnected; CH341A USB unplugged, 1.8 V adapter in its socket.
+- Existing 99-ohm series supply wiring remains; clip cable disconnected from
+  adapter (clip may still be physically seated); U2901 RESET grabber free.
+- Both source comparisons report 1.793 V before resistor / 0.423 V at board,
+  approximately 13.8 mA inferred. Flash operating supply is not qualified.
+- No SPI acquisition/write in this electrical session; both physical flash
+  backups remain pending. No bench supply or verified isolation point.
+Resume by reading this context and the active plan, then confirming current
+physical state before hardware work. Select controlled-current load diagnosis
+or verified flash-supply isolation; do not repeat unchanged startup attempts,
+bypass the resistor, apply native router power or alter security state.
+Earlier B/C boot/install/performance results, A early TPM-halt history, exact
+pin mappings, original photos, failures and measurement limits remain below
+and in the linked plan/evidence. This is a technical handoff, not a verbatim
+conversation archive. Source comparison is complete; A recovery is incomplete.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A PI/CH341A LIMITED-LOAD RESULTS MATCH — 2026-11-01, 15:14 EST
 Owner reports CH341A resistor source leg 1.793 V and board/supply leg 0.423 V
 in the quoted same-99-ohm test context. These match Pi values to supplied
