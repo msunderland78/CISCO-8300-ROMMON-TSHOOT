@@ -10,6 +10,23 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+NO-USB COLD STARTUP VERIFIED; CHECK ACTIVE — 2026-11-01, 09:07 EST
+Owner confirms USB storage removed during requested cold cycle from running IOS.
+NativePowerOn/B UUID09:03:25; ZERO TX through IOS welcome. Automatic internal
+B4 guards/correction/unmount/runtime hook pass. IOS image bootflash26.2.1 and
+no USB filesystem listed. R0/F0/0/0 ready09:06:30; CPP21034, keepalives21/21,
+zero misses. Five-minute sampled interval due09:11:30 or later is still active.
+Network/default restored, port7=1G/port8=10G full, sampled errors/drops0;
+ping1500DF4/5 then5/5. Startup diff unchanged; running diff only boot entry.
+
+TELEMETRY UPDATE: this cold boot reports inlet35C/outlet34C/CPU52C, main12V
+12107mV,5V4965mV,current1513mA,power17W and other listed rails Normal. Only
+12V_DG_ST remains0mV/Critical_Low. Earlier all-zero captures are preserved;
+this shows variation across boots, not a diagnosed cause or proven USB-related
+sensor repair. TPM warning remains. Active capture53265 retains the full boot.
+Final owner target remains install mode using packages.conf; bundle is interim.
+Evidence: c8235-recovery/bootflash-validation-20261101/results.json
+
 SAVED INTERNAL WARM PASS; NO-USB COLD ARMED — 2026-11-01, 09:01 EST
 B4 parameter explicitly synced08:56:19 and exact readback verified. Autonomous
 reset08:56:39 selects internal26.2.1, loader/hook pass, no further TX through IOS

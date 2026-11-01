@@ -8,7 +8,7 @@
   },
   "timezone": "America/New_York",
   "started_at": "2026-11-01T08:40:33.244358-05:00",
-  "status": "Saved autonomous internal warm PASS; USB-absent cold observer armed, owner cycle pending",
+  "status": "PASS autonomous no-USB cold startup/network; five-minute check in progress",
   "physical_confirmation": "Owner reconfirmed identical powered-on B assembly/cooling/battery/cables, no probes/programmer or terminal owner",
   "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-084033-bootflash/console.log",
   "console": {
@@ -66,6 +66,13 @@
       "show_install_summary": "Reports IMG C26.02.01.0.263 for current bundle runtime; this does not demonstrate26.2.1 install-mode deployment",
       "saved_BOOT": "Still USB26.2.1; running image is one-time bootflash26.2.1 bundle",
       "interpretation": "Do not switch BOOT to old packages.conf expecting the currently validated26.2.1 runtime"
+    },
+    "vendor_reference": {
+      "reviewed_at": "2026-11-01T09:02:38.736985-05:00",
+      "guide": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/software-config-guide/secure-8200-series-scg/isr9000swcfg-xe-16-12-book_chapter_0111.html",
+      "release_notes": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/cisco-8000-series-secure-routers-release-26-2-x.html",
+      "finding": "Cisco documents a one-step initial bundle-to-install conversion that extracts packages/packages.conf, validates, activates, commits and reloads. It is not merely changing the boot filename. No conversion command has been run.",
+      "prototype_limits": "Published production ROMMON recommendations do not establish compatibility with this Arata r2 development unit. Preserve existing ROMMON; validate early-hook/package behavior and any installer firmware actions separately."
     }
   },
   "updated_at": "2026-11-01T08:44:39.523767-05:00",
@@ -263,13 +270,105 @@
     },
     {
       "kind": "autonomous cold boot with USB physically absent",
-      "status": "ARMED, owner action/confirmation pending",
+      "status": "PASS autonomous no-USB cold startup/network; five-minute check in progress",
       "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-090053-one-autoboot/console.log",
       "observer_session": 53265,
       "armed_at": "2026-11-01T09:00:53.883801-05:00",
       "requested_action": "Power off running IOS, remove only USB storage, wait10seconds, power on with console/Ethernet unchanged",
       "startup_TX_intended": 0,
-      "expected": "NativePowerOn, B UUID, internal image/loader/hook, IOS/platform/network and five-minute operational check"
+      "expected": "NativePowerOn, B UUID, internal image/loader/hook, IOS/platform/network and five-minute operational check",
+      "owner_confirmation": {
+        "text": "Powered on with USB storage removed",
+        "recorded_at": "2026-11-01T09:03:02.473852-05:00",
+        "context": "Response to requested power off running IOS, remove USB storage, wait10seconds/on; off duration owner-directed, not independently timed"
+      },
+      "USB_physically_connected": false,
+      "native_reset_reason": "PowerOn",
+      "identity_verified_at": "2026-11-01T09:03:25.955849-05:00",
+      "startup_TX_records_so_far": 0,
+      "welcome_observed_by": "2026-11-01T09:05:32.188782-05:00",
+      "startup_TX_records": 0,
+      "zero_tx_snapshot": {
+        "raw_local": "router-console-logs/20261101-090532-C8235-B-no-USB-cold-zero-tx-snapshot.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-090532-C8235-B-no-USB-cold-zero-tx-snapshot.log",
+        "bytes": 28183,
+        "sha256": "a93b745cdaa4b21b57f6899f9418eed37f1dcaa15ce0d7a94aa540f0bc84e309",
+        "qualification": "Immutable prefix through cold IOS welcome; no console TX since observer armed, USB owner-confirmed removed"
+      },
+      "automatic_loader": "PASS internal entry, PID1 RAM loader, mount/image/source/patch/hook checks, bootflash unmount and runtime hook",
+      "first_IOS_interaction_at": "2026-11-01T09:05:32.225080-05:00",
+      "IOS_source": "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin",
+      "IOS_reload_reason": "PowerOn",
+      "confreg": "0x3922",
+      "pre_operational_sample": {
+        "at": "2026-11-01T09:05:36.459662-05:00",
+        "CPP": 21034,
+        "keepalive_rx_tx_miss": [
+          0,
+          0,
+          0
+        ],
+        "platform": "R0/F0 active;0/0 still booting",
+        "qualification": "Not health-gate start"
+      },
+      "USB_CLI_observation": "dir usb0: rejected by parser; show file systems captured separately, no USB storage prefix listed",
+      "platform_ready_at": "2026-11-01T09:06:30.131093-05:00",
+      "health": {
+        "status": "IN PROGRESS",
+        "scope": "Five-minute sampled operational/CPP check after no-USB cold boot",
+        "started_at": "2026-11-01T09:06:30.131093-05:00",
+        "due_no_earlier_than": "2026-11-01T09:11:30.131093-05:00",
+        "samples": [
+          {
+            "at": "2026-11-01T09:06:30.131093-05:00",
+            "CPP": 21034,
+            "rx": 21,
+            "tx": 21,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:07:42.764158-05:00",
+            "CPP": 21034,
+            "rx": 58,
+            "tx": 58,
+            "miss": 0
+          }
+        ],
+        "environment_initial": {
+          "at": "2026-11-01T09:06:30.131093-05:00",
+          "inlet_C": 35,
+          "outlet_C": 34,
+          "CPU_C": 52,
+          "main12V_mV": 12107,
+          "fiveV_mV": 4965,
+          "main_current_mA": 1513,
+          "power_W": 17,
+          "12V_DG_ST_mV": 0,
+          "12V_DG_ST_state": "Critical_Low",
+          "other_listed_voltage_rails": "Normal",
+          "qualification": "Broad telemetry returned on this boot; prior all-zero samples remain valid observations. Cause unproved; no assertion that USB removal fixed sensors."
+        }
+      },
+      "network": {
+        "restored_without_configuration": true,
+        "default_route": "0.0.0.0/0 via192.168.5.1 on port7",
+        "ports": "7/.5.4 at1G full;8/native1+VLAN83/.83.1 at10G full; up/up",
+        "sampled_errors_drops": "Both ports input/CRC/output errors and output drops0",
+        "cumulative_interface_resets": {
+          "port7": 1,
+          "port8": 1
+        },
+        "ping": "1500-byte DF to192.168.5.3 from192.168.83.1: initial4/5 at09:06:58, repeat5/5 at09:07:05",
+        "startup_native_diff": "No changes versus internal startup export",
+        "running_native_diff": "Only intended +bootflash/-usb0 boot line versus pre-internal running export"
+      },
+      "operational_snapshot": {
+        "raw_local": "router-console-logs/20261101-090742-C8235-B-no-USB-cold-operational-snapshot.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-090742-C8235-B-no-USB-cold-operational-snapshot.log",
+        "bytes": 47890,
+        "sha256": "51c880c3f5ccb76f4b62d275b03fe4d139529a1663c5ed2ec16640ee0c54318f",
+        "scope": "Cold readiness/network and initial environmental sample; five-minute check still active"
+      }
     }
   ],
   "persistence": {
