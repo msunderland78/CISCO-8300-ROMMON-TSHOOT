@@ -7,7 +7,7 @@
     "chassis_serial": "FGL2835L42B",
     "board_label": "FOC28292GUQ"
   },
-  "status": "Supply-only trial: source 1.793 V, board 0.423 V steady, about 13.8 mA inferred. Pi booted normally; shutdown/USB-C unplug confirmed. Flash voltage insufficient; no resistor bypass, stronger drive or read selected.",
+  "status": "Owner proposes existing CH341A; same unmodified/disconnected unit confirmed. CH341A 3.3 V/GND -> existing 1.8 V adapter power-only preparation requested with Pi/board absent; off-board output voltage pending.",
   "target": {
     "read_target": "U2900",
     "clip": "Owner-added intact short clip connected to existing1.8Vconverter",
@@ -89,7 +89,7 @@
   ],
   "agent_hardware_actions": [],
   "powered_programming_or_read": "Owner performed bounded-current supply-only trial, then confirmed Pi shutdown and physical USB-C unplug. No agent GPIO/SPI/flash command, flash read or write. Router own power remained disconnected under the test instructions.",
-  "updated_at": "2026-11-01T14:26:07-05:00",
+  "updated_at": "2026-11-01T14:32:12-05:00",
   "reset_grabber_contact": {
     "recorded_at": "2026-11-01T13:03:26-05:00",
     "source": "Owner measurement report followed by explicit endpoint clarification",
@@ -468,8 +468,65 @@
     "photo_result": "Existing flash-area and J2507 photos do not establish a verified flash-only power-isolation point. No new isolation component, jumper, cut or bank assignment selected from proximity/labels.",
     "prior_owner_preference": "C8375-specific October 31 notes record rejection of chip removal because of dense-board risk. Preserve that preference in choosing this noninvasive next step; no A chip removal, leg lifting or trace cut proposed.",
     "prior_console_review": "Rechecked saved November 1 Boot Options and existing A history offline. Earlier Setup/Kermit investigations found no validated arbitrary read or golden-bank selector. No console opened or new boot/menu action performed.",
-    "next_method": "A separate regulated source capable of 1.8 V, adjustable low-current limiting and current/voltage readout is the practical next powered diagnostic tool for characterizing the shared supply path while keeping chips in place. No bench supply is currently available; no product purchased or hardware connection selected.",
-    "method_limits": "This is a diagnostic requirement, not a guarantee that stronger power will permit in-circuit reads. Board loading/backfeeding and stable actual flash voltage must be qualified before SPI. Initial source-only work would exclude Pi/programmer connections and normal router power.",
-    "current_hold": "Pi shutdown/USB-C unplug confirmed; leave resistor wiring unchanged and clip disconnected, RESET grabber free, router own power/cables/battery absent, cooling off. No resistor bypass, stronger-drive trial, voltage increase, reset pull-down or SPI access."
+    "next_method": "At owner suggestion, evaluate existing CH341A as a different input power source before deciding on additional equipment. First verify existing adapter output off-board with all Pi connections absent, then consider the same resistor-limited board load. No unrestricted clip or SPI trial selected.",
+    "method_limits": "The earlier bench-supply recommendation was too categorical as the immediate next step. A bench source remains useful for adjustable-current characterization, but is not a prerequisite to this bounded comparison using existing equipment. CH341A is not assumed stronger; same adapter and board load remain.",
+    "current_hold": "Pi remains shut down/unplugged. CH341A fresh identity/unmodified/USB-and-router-disconnected state confirmed before new source preparation. New power-only adapter test requested below, with board and clip detached. No board power, resistor bypass or SPI command in this preparation.",
+    "initial_next_method_before_ch341a_question": "A separate regulated source capable of 1.8 V, adjustable low-current limiting and current/voltage readout is the practical next powered diagnostic tool for characterizing the shared supply path while keeping chips in place. No bench supply is currently available; no product purchased or hardware connection selected."
+  },
+  "ch341a_power_only_comparison": {
+    "recorded_at": "2026-11-01T14:32:12-05:00",
+    "owner_question": "would the ch341a that I have from before preform any differently than the pi 5",
+    "scope": "C8235-A source comparison only, before any SPI/read trial; historical C8375 results remain separate.",
+    "owner_hardware_confirmation": {
+      "answer": "Same CH341A; unmodified and fully disconnected",
+      "scope": "Same black CH341A previously used with this adapter; unmodified, USB unplugged and disconnected from router. Pi remains unplugged under preceding confirmed shutdown; existing resistor assembly retained."
+    },
+    "assessment": [
+      "It could behave differently because the input power source is the CH341A USB-powered 3.3 V regulator rather than Pi supply rail; this does not prove more available current or identify why Pi previously failed to start.",
+      "With the same approximately 1.8 V source and 99 ohm limit, similar board voltage/loading would be expected. A change of programmer does not remove the shared board load.",
+      "The prior Pi source already held 1.793 V at about 13.8 mA; a CH341A supply-only comparison does not by itself qualify unrestricted power or SPI reliability.",
+      "Correct earlier implication that a bench supply must be obtained before any further bounded test: existing CH341A may be evaluated first."
+    ],
+    "historical_reference": {
+      "record": "ROUTER-RECOVERY-TEST-PLAN.md, P-01 October 24 and C8375 CH341A October 27 records",
+      "hardware": "Black CH341A Mini Programmer, marking appears V1.512; source power and pin maps previously validated. Current no-modification confirmation received.",
+      "historical_3v3_vdc": [
+        3.322,
+        3.318
+      ],
+      "historical_adapter_output_vdc": 1.803,
+      "historical_bare_signals_vdc": {
+        "CS": 5.19,
+        "MOSI": 5.182,
+        "CLK": 5.182
+      },
+      "scope": "Historical measurements on the existing programmer/adapter, not fresh C8235-A source results. Bare signals must not be wired directly to Pi or 1.8 V flash.",
+      "sources": [
+        "C8375-CH341A-HEADER-WIRING.md",
+        "Photos/inspection/README.txt",
+        "Photos/inspection/programmer-labels-readable.png",
+        "Photos/IMG_1266.jpeg",
+        "https://raw.githubusercontent.com/flashrom/flashrom/main/doc/supported_hw/supported_prog/ch341ab.rst"
+      ]
+    },
+    "requested_off_board_control": {
+      "requested_at": "2026-11-01T14:32:12-05:00",
+      "preconditions": "Both USB supplies unplugged and adapter OUTPUT 8-to-4 verified 0 V before changes. Router own power/cables/battery removed, cooling off.",
+      "isolation": [
+        "Remove every connection to Pi, including GPIO/power/ground; Pi stays unplugged.",
+        "Disconnect both router leads from adapter OUTPUT, leaving resistor/blue/purple board assembly intact; clip absent and RESET grabber free."
+      ],
+      "connections": [
+        "CH341A labeled 3.3 V pin -> existing secure common breadboard junction feeding adapter INPUT 8, INPUT 3 and INPUT 7.",
+        "CH341A labeled GND pin -> adapter INPUT 4.",
+        "Adapter INPUT 1, 2, 5 and 6 unconnected; use no CH341A signal or 5 V pin.",
+        "Keep 3.3 V junction separate from 99 ohm/board wiring. No router/clip connection to adapter."
+      ],
+      "power_and_measurement": "Connect CH341A USB only; in DC volts measure directly adapter OUTPUT 8 (+) to OUTPUT 4 (ground). Report value, then unplug CH341A USB.",
+      "expectation": "Approximately 1.8 V; no new measurement yet.",
+      "limits": "Power-only source check, not SPI. No flashrom command, Pi connection, board supply, resistor bypass or raw 3.3/5 V at router.",
+      "status": "Requested; physical assembly and output voltage not yet reported."
+    },
+    "later_step": "If off-board adapter voltage is suitable, prepare the same 99 ohm resistor-limited supply-only board comparison with all power unplugged before changes. No loaded CH341A result or unrestricted read is implied."
   }
 }

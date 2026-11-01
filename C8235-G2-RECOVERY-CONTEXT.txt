@@ -10,6 +10,31 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A CH341A SOURCE COMPARISON PREPARATION — 2026-11-01, 14:32 EST
+Owner asks whether existing CH341A might perform differently; confirms same
+unmodified black unit, USB unplugged and disconnected from router. Pi remains
+shut down/unplugged under preceding confirmation. The CH341A input power path
+could behave differently; no stronger-current capability or root cause proven.
+Qualify earlier bench-supply recommendation: existing CH341A can be evaluated
+before deciding on new equipment. Same adapter/board load remain, and similar
+values are expected if source and series limit remain the same. No recovery or
+unrestricted-power qualification follows from a USB programmer substitution.
+
+Historical source 3.318/3.322 V and adapter 1.803 V are not new A readings.
+Bare CH341A CS/MOSI/CLK measured about 5.18 V; retain adapter, no raw signal
+connection to Pi or router. Reinspected authentic programmer label photographs.
+Next requested off-board power-only control, after both USB inputs unplugged
+and OUTPUT 8-to-4 = 0 V: remove every Pi connection, detach both router/output
+leads from adapter, keep resistor/blue/purple assembly intact and clip absent.
+CH341A labeled 3.3 V -> existing common junction feeding adapter INPUT 8/3/7;
+CH341A GND -> INPUT 4. INPUT 1/2/5/6 free. Keep input 3.3 V junction separate
+from resistor/board wiring. With no router/clip attached, connect CH341A USB,
+measure DC OUTPUT 8 (+) to 4 (ground), report, then unplug. No flashrom command.
+Current source wiring and voltage pending. If suitable, later prepare the same
+resistor-limited board comparison with all power off before reconnection.
+No board-powered CH341A trial, resistor bypass, SPI read/write or security change.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A SUPPLY-ONLY LOAD RESULT / PI UNPLUGGED — 2026-11-01, 14:26 EST
 Owner reports steady 1.793 V upstream resistor/source side and 0.423 V below
 resistor at blue J2507-8 connection, relative to requested J2507-2 ground.

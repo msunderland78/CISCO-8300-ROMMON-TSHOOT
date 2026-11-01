@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: J2507 ground and flash-supply mapping",
   "recorded_at": "2026-11-01T12:44:18-05:00",
   "timezone": "America/New_York",
-  "status": "Supply-only trial complete: source 1.793 V / board 0.423 V steady, about 13.8 mA inferred. Pi boots, now shutdown/unplug confirmed. Shared supply not qualified for flash read.",
+  "status": "Prior Pi result 1.793/0.423 V retained. Same unmodified CH341A confirmed for power-source comparison; off-board 1.8 V adapter output check requested before any board connection.",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -98,13 +98,13 @@
     "No SPI signal, primary/golden or bank-selector assignment; J2901 remains unmeasured."
   ],
   "pending": [
-    "Characterize board supply loading/backfeeding with controlled source or establish a verified noninvasive isolation method; no flash-only disconnect identified from photos.",
-    "Stable actual flash supply within 1.7-2.0 V and later SPI/reset qualification before acquisition."
+    "Fresh CH341A-powered adapter off-board output voltage.",
+    "Only afterward consider same resistor-limited board load; unrestricted supply, actual flash operating voltage and SPI reliability remain unqualified."
   ],
   "agent_hardware_actions": [],
   "programmer_read_or_write": "none this checkpoint",
   "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
-  "updated_at": "2026-11-01T14:26:07-05:00",
+  "updated_at": "2026-11-01T14:32:12-05:00",
   "qualification": {
     "recorded_at": "2026-11-01T12:48:24-05:00",
     "source": "Owner report in conversation",
@@ -147,6 +147,6 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "Keep Pi unplugged, resistor in place and clip absent. A regulated 1.8 V source with adjustable low-current limiting/readout is the next practical noninvasive diagnostic resource; none currently available. No further powered trial or bypass selected.",
+  "next_stage": "Pi completely disconnected, CH341A labeled 3.3 V/GND feeds existing adapter INPUT 8/3/7 common junction and INPUT 4. Board/output leads absent. Measure OUTPUT 8-to-4 DC under CH341A USB only, then unplug; no result yet.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json"
 }
