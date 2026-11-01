@@ -1,0 +1,102 @@
+{
+  "task": "C8235-05",
+  "date": "2026-11-01",
+  "timezone": "America/New_York",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "status": "PREPARATION: native conversion not yet issued",
+  "owner_request": "lets try install mode now",
+  "physical_confirmation": "Owner confirms powered on, USB storage absent, cooling/battery/assembly/console/port7/8 unchanged; no programmer/probes or terminal app",
+  "capture": ".git/recovery-private/c8235-install-20261101/20261101-091632/console.log",
+  "console_session": 87573,
+  "port": "/dev/cu.usbserial-AL00F7EQ",
+  "console_settings": "115200/8N1/no flow; exclusive ownership checked",
+  "prior_verified": "../bootflash-validation-20261101/results.json",
+  "current_baseline": {
+    "observed_at": "2026-11-01T09:16:41-05:00",
+    "PID": "C8230X-8M2X",
+    "serial": "FGL2835LBHU",
+    "ROMMON": "SDK112312-SoC1-SB-v12.1.22",
+    "confreg": "0x3922",
+    "image": "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin",
+    "mode": "bundle",
+    "uptime_minutes": 11,
+    "platform": "R0/F0 active, 0/0 ok",
+    "keepalives": {
+      "rx": 327,
+      "tx": 327,
+      "miss": 0
+    },
+    "bootflash_free_bytes": 11715739648,
+    "environment": "Main readings populated; 12V_DG_ST still0/Critical_Low"
+  },
+  "offline_review": {
+    "method": "Read-only byte-range extraction from original 26.2.1 bundle; gzip/zlib decoded initramfs and bsdtar selected exact files. Extracted vendor code read, never executed.",
+    "source": "c8kg2be-universalk9.26.02.01.SPA.bin",
+    "rpboot_offset": 1080,
+    "rpboot_bytes": 74019996,
+    "rpboot_sha256": "3b73e4c269578add4a1b3fd355ee0ce917b1de793d072ce53eb74e8babc915b1",
+    "rpboot_sha512": "63dd0d3fe03048a0a1f06e544035e2d919f14f94b4e9942c7cb570702086f03ceafc84c9f905ce9c030a6f4964e57bdf13e9a5f7f8dd0ec4a53b83f0be7ee235",
+    "initramfs_gzip_offset_in_bundle": 38665384,
+    "outer_squashfs_offset": 74021076,
+    "selected_files": {
+      "usr/binos/bin/launch_net.sh": {
+        "bytes": 50279,
+        "sha256": "f7d617bd80362c4bc564fc2c848bd95ecf84251be0d11e1707a95ca301d8cdc4"
+      },
+      "usr/lib/systemd/system/launch_net.service": {
+        "bytes": 498,
+        "sha256": "2df20b8f51591082e79b83520c42e4bcb73bfa5674cfc52068f21c5708ac01b2"
+      },
+      "usr/lib/systemd/system/mount_packages.service": {
+        "bytes": 607,
+        "sha256": "208f065d76353782eb0841385d23e04fe1e97899905c45db0344b604c2fa8823"
+      },
+      "mount_packages.sh": {
+        "bytes": 17848,
+        "sha256": "763e60b5f1f75570df3ddac7619e052544dfc051e2096167da5a412c169f6b26"
+      }
+    },
+    "finding": "rpboot contains exact f7d617... launch_net target. mount_packages.service requires/after launch_net.service. Existing B4 can be tried unchanged, retaining exact bundle file for input hash validation and recovery. This is offline compatibility evidence, not a successful install-mode boot."
+  },
+  "procedure_reference": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/software-config-guide/secure-8200-series-scg/isr9000swcfg-xe-16-12-book_chapter_0111.html",
+  "planned_command": "install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit",
+  "planned_validation": [
+    "Preserve current packages.conf and configuration, verify full source/loader hashes",
+    "Capture native install conversion, validate resulting package set and saved boot selection",
+    "First controlled install boot with existing B4 guards; stop unexpected reset and use preserved bundle fallback if needed",
+    "Verify packages.conf boot, installer state, platform/CPP/keepalives/network/environment",
+    "Verify autonomous warm and owner cold startup without USB; retain failures and unresolved sensors/TPM"
+  ],
+  "preserve": [
+    "Original image/B4/C8235FIX1",
+    "Old17.18.3a package files and separate manifest backup",
+    "Original ROMMON code/confreg/board/security data",
+    "No TPM/fuse/provisioning change"
+  ],
+  "preflight": {
+    "completed_at": "2026-11-01T09:18:44.646985-05:00",
+    "native_SHA512": {
+      "bootflash:B4": "6a042a9e7de79e1849be1c64e0a37a0b7dbdaca110d57501a7a0379829750ad0646d47815055fa20518e2fbf52b74d3d419374783c88b3c2babdbfe944cf144c",
+      "bootflash:C8235FIX1": "1fc4b93846e4b01780f0529fb8311ca8ab34b89cdcddf5d80cdd38211b8617bf6aeab5da7b6f34664c20d5047026aff8975b18bc30d8aae6db99e4a8e1f80d50",
+      "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin": "a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c52115fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02",
+      "bootflash:packages.conf": "a7fdbba805cbd7db57b378c6116336bf6c416b822b3cacd3fcde496c73f9ba34d2427da14f2289a18c3881c43e43fac13d902062a1321dea1d40180d32016649",
+      "bootflash:C8235B-PRE-INSTALL-packages.conf": "a7fdbba805cbd7db57b378c6116336bf6c416b822b3cacd3fcde496c73f9ba34d2427da14f2289a18c3881c43e43fac13d902062a1321dea1d40180d32016649",
+      "bootflash:C8235B-PRE-INSTALL-running.cfg": "11eae2a5203c9d3525490128780e3cdd58c98614429764cbd729de3f952edd91363bb2aefd8ccc3474c079f882b4a62db0f9f956e3597e9439afdf6b530352c5",
+      "bootflash:C8235B-PRE-INSTALL-startup.cfg": "57c4cfbb5bc2fb4e9331b2a568039c2dde76e0d27bc2ca91de7e31baeee120069857d011220a2905c9c70f01bb9cccd74f82953b405aff2a4029db74e00ddd7a"
+    },
+    "backups": {
+      "bootflash:C8235B-PRE-INSTALL-packages.conf": 7947,
+      "bootflash:C8235B-PRE-INSTALL-running.cfg": 7664,
+      "bootflash:C8235B-PRE-INSTALL-startup.cfg": 3889
+    },
+    "config_diffs": "Both fresh running and startup backups match native current configs; startup also matches prior internal export",
+    "snapshot": {
+      "raw_local": "router-console-logs/20261101-091844-C8235-B-install-preflight-snapshot.log",
+      "public": "sanitized-evidence/router-console-logs/20261101-091844-C8235-B-install-preflight-snapshot.log",
+      "bytes": 33438,
+      "sha256": "6e23280e9707003a9a42921492c8ef8385f1a64a521592573efa5828770c5d2f",
+      "kind": "Immutable prefix; live capture continues"
+    },
+    "CLI_help": "Native install add ... activate commit accepted in help; no execution yet"
+  }
+}

@@ -10,6 +10,17 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+INSTALL-MODE WORK ACTIVE — 2026-11-01, 09:18 EST — C8235-05
+Owner requests install mode now and confirms powered B, USB absent, unchanged
+assembly/cooling/battery/console/Ethernet, no probes/programmer/other terminal.
+Fresh exclusive console87573 verifies FGL2835LBHU/26.2.1/internal bundle,
+R0/F0/0/0 ready and keepalives327/327 with zero misses. Offline exact rpboot
+contains the same guarded launch_net script; package mount follows it. Existing
+B4 will be tried unchanged. Preserve current manifest/configuration and working
+bundle recovery before native one-step conversion. No install-mode pass yet.
+Evidence: c8235-recovery/install-validation-20261101/results.json
+Earlier completed no-USB bundle handoff follows.
+
 CURRENT HANDOFF: BOOTFLASH BOOT WITHOUT USB VERIFIED — 2026-11-01, 09:12 EST
 C8235-B / FGL2835LBHU remains powered on in IOS 26.02.1 from bootflash.
 USB STORAGE IS DISCONNECTED AND IS NO LONGER REQUIRED FOR THIS SETUP.
