@@ -10,6 +10,37 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A PHOTOS2 / PHYSICAL PINOUT — 2026-11-01, 12:25 EST
+Owner supplied eleven original PHOTOS2 JPEGs, reporting battery removed first.
+Photos show a bare board with empty coin-cell holder and cooling removed. This
+supersedes the earlier powered/assembled handoff. Keep router unpowered. Current
+all-cable/programmer isolation and meter model requested, not yet confirmed;
+residual DC voltage and shorted-lead resistance baseline remain unmeasured.
+
+Current photo label FOC28292GUQ (IMG_1299/1296/1301), associated with A/FGL2835L42B
+by the current owner conversation, differs from historical FOC28292GX9 photos.
+The latter were already corrected as another replica on October25, and C now
+reports FOC28292GX9 as native R0. Retain historical evidence, but do not assign
+its electrical readings to A. No new native chassis/board identity was read.
+
+U2900(left)/U2901(right) in IMG_1302 both show Micron3TA15/RW170. Preserved Micron
+decoder identifies MT25QU256ABA8ESF-0SIT, 32MiB, nominal1.8V (1.7-2.0V), SOIC16.
+Micron Rev.L02/2024 Figure6: physical pin2=VCC, pin10=VSS/GND, pin8=DQ1 (NOT GND).
+Each molded pin1 dot is lower-left in that photo; red paint is not orientation.
+Bottom row left-to-right1..8; top row16..9. Thus VCC2 is bottom-second-from-left,
+GND10 top-second-from-right. Header/adapter numbering is separate.
+
+J2901 is the accessible 2x4 header left of empty battery, below white connector,
+above large reddish capacitor in IMG_1297. It is only a mapping candidate; no
+P1 equivalence, net, supply-injection suitability or bank selector is established.
+Before resistance mapping: confirm isolation, obtain separate DC2-to10 readings
+for both chips and the meter lead baseline. Then small explicit J2901-to-chip
+batches, actual ohms and stability; no clip/Pi connection at this checkpoint.
+All electrical readings and primary/golden assignments remain unresolved.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/photo-inspection.json
+Derived inspection crop: c8235-recovery/c8235-a-photos2-20261101/J2901-inspection-crop.jpeg
+Original photographs: PHOTOS2/IMG_1292.jpeg through IMG_1302.jpeg (unchanged)
+
 C8235-A RESUMED; FRESH TPM HALT — 2026-11-01, 11:52–11:54 EST
 Owner accepts router3/C as good for now, returns to router1/A, and confirms
 FGL2835L42B, powered off with cooling/heatsink/fans/battery installed, no probes

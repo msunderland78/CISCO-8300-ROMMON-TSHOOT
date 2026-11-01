@@ -1,0 +1,194 @@
+{
+  "task": "C8235-01 / R-01: A-specific flash identification and unpowered mapping preparation",
+  "recorded_at": "2026-11-01T12:25:48-05:00",
+  "timezone": "America/New_York",
+  "status": "Photo identification complete; electrical mapping not started",
+  "identity": {
+    "tracking": "C8235-A",
+    "chassis_serial": "FGL2835L42B",
+    "binding": "Owner-associated router #1 photos in current recovery conversation; explicit isolation/meter confirmation requested, pending.",
+    "observed_board_label": "FOC28292GUQ",
+    "board_label_evidence": "PHOTOS2/IMG_1299.jpeg; also IMG_1296, IMG_1301",
+    "assembly_label": "74-133408-02 02; U58L372T47 LF 05S5 P2B",
+    "attribution_correction": "Current photo label differs from FOC28292GX9 historically attributed to A. Earlier October25 owner correction said those measurements were on another replica; C now reports FOC28292GX9 as R0. Preserve old attribution as historical/unverified, not A measurement evidence. Current board label is photographic, not a newly read native identity."
+  },
+  "physical": {
+    "owner_report": "Battery removed before photos.",
+    "photo_observation": "Board removed from enclosure; coin-cell holder empty; processor exposed and heatsinks/fans not mounted; external ports visibly empty in IMG_1293/1294; no clip visible.",
+    "supersedes": "Earlier November1 powered/assembled/battery-installed console handoff.",
+    "pending": "Explicit current all-cable isolation/programmer separation and meter model; residual DC voltage and shorted-lead resistance baseline.",
+    "power_instruction": "Keep router unpowered in this disassembled state; no Pi/programmer attachment."
+  },
+  "flash_chips": [
+    {
+      "reference": "U2900",
+      "markings": [
+        "Micron",
+        "3TA15",
+        "RW170"
+      ],
+      "package": "SOIC-16",
+      "evidence": "PHOTOS2/IMG_1302.jpeg",
+      "pin1": "Molded circular depression at lower-left of package in IMG_1302; red paint at upper-right is not pin1.",
+      "role": "Primary/golden role unresolved; no electrical or external read confirmation"
+    },
+    {
+      "reference": "U2901",
+      "markings": [
+        "Micron",
+        "3TA15",
+        "RW170"
+      ],
+      "package": "SOIC-16",
+      "evidence": "PHOTOS2/IMG_1302.jpeg",
+      "pin1": "Molded circular depression at lower-left of package in IMG_1302; red paint at upper-right is not pin1.",
+      "role": "Primary/golden role unresolved; no electrical or external read confirmation"
+    }
+  ],
+  "part_identification": {
+    "method": "Observed RW170 matches preserved Micron decoder result from C8375 research.",
+    "decoder_evidence": "c8375-recovery/board-photos/micron-RW170-decoder-result.json",
+    "part_number": "MT25QU256ABA8ESF-0SIT",
+    "capacity_bits": 268435456,
+    "capacity_bytes": 33554432,
+    "nominal_vcc_v": 1.8,
+    "specified_vcc_range_v": [
+      1.7,
+      2.0
+    ],
+    "part_page": "https://www.micron.com/products/storage/nor-flash/serial-nor/part-catalog/part-detail/mt25qu256aba8esf-0sit",
+    "datasheet": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+    "datasheet_identity": "Micron CCMTD-1725822587-3458, Rev. L 02/2024 EN, pages1/2/12; Figure6 SO16 package SF",
+    "source_access": "Manufacturer-authored PDF read through web tool from distributor mirror; old Micron media URL returned404; local curl attempts failed (HTTP2 error, then timeout), no local PDF preserved.",
+    "limitation": "Chip identity from markings/decoder/package evidence, not live JEDEC identification; equal part numbers do not establish firmware compatibility."
+  },
+  "physical_soic16_pinout": {
+    "1": "DQ3/HOLD#",
+    "2": "VCC",
+    "3": "RESET#",
+    "4": "DNU",
+    "5": "DNU",
+    "6": "DNU",
+    "7": "S# / CS#",
+    "8": "DQ1",
+    "9": "W#/DQ2",
+    "10": "VSS / GND",
+    "11": "DNU",
+    "12": "DNU",
+    "13": "DNU",
+    "14": "DNU",
+    "15": "DQ0",
+    "16": "C / clock"
+  },
+  "photo_orientation": {
+    "reference": "PHOTOS2/IMG_1302.jpeg, unchanged orientation; applies separately to each chip",
+    "bottom_row_left_to_right": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "top_row_left_to_right": [
+      16,
+      15,
+      14,
+      13,
+      12,
+      11,
+      10,
+      9
+    ],
+    "vcc2": "Bottom row, second lead from left",
+    "gnd10": "Top row, second lead from right",
+    "correction": "Physical pin8 is DQ1, not ground. These are chip numbers, not adapter or header numbers."
+  },
+  "header_candidate": {
+    "reference": "J2901",
+    "physical": "2x4/eight posts, left of empty battery holder, below white connector and above large reddish capacitor in IMG_1297 orientation.",
+    "evidence": [
+      "PHOTOS2/IMG_1297.jpeg",
+      "PHOTOS2/IMG_1298.jpeg",
+      "c8235-recovery/c8235-a-photos2-20261101/J2901-inspection-crop.jpeg"
+    ],
+    "observed_corner_markings": "8 and2 on near/bottom row in derived upright crop; far-right square pad/1 corner visible.",
+    "provisional_numbering": "Upright crop: near/bottom row left-to-right8,6,4,2; far/top row7,5,3,1. Confirm actual marked1/2 corners at bench before per-pin measurements.",
+    "reason_to_test": "Accessible labeled header; no electrical role inferred from J29xx label or proximity.",
+    "mapping": "Unknown for every post; C8375 P1 map does not transfer. J2900 remains unassigned, not a demonstrated bank selector."
+  },
+  "planned_sequence": [
+    "Confirm current chassis/isolation and meter model.",
+    "DC voltage across U2900 physical10/GND to2/VCC, then U2901 separately; establish residual rail voltage before resistance work.",
+    "Record resistance mode and shorted-lead baseline.",
+    "Map a small batch of explicitly identified J2901 posts to flash pin10 using actual ohms; then pin2. Record stable versus changing readings.",
+    "Compare separate U2900/U2901 results before choosing supply/ground access. Continuity alone does not qualify an injection point or determine board loading."
+  ],
+  "electrical_measurements": [],
+  "hardware_actions_this_checkpoint": [],
+  "original_photos": [
+    {
+      "path": "PHOTOS2/IMG_1292.jpeg",
+      "bytes": 12635511,
+      "sha256": "241c36fcecdcd4faf5a02955cb82912c878e5e60487c72786fc41f4599f40cf8"
+    },
+    {
+      "path": "PHOTOS2/IMG_1293.jpeg",
+      "bytes": 11732973,
+      "sha256": "473741341072df8364813c9a328fb06278a4e155e9b5231c2456cb958dc0bcb4"
+    },
+    {
+      "path": "PHOTOS2/IMG_1294.jpeg",
+      "bytes": 9614857,
+      "sha256": "f9ee2bf96fbafdfff48faaffa8ff6f66b14e891c3f2c171f51bac42497cd138e"
+    },
+    {
+      "path": "PHOTOS2/IMG_1295.jpeg",
+      "bytes": 12152817,
+      "sha256": "31aeb83581756a980544de022d9055303598af4a08c474f27fff736a525d83b1"
+    },
+    {
+      "path": "PHOTOS2/IMG_1296.jpeg",
+      "bytes": 12458833,
+      "sha256": "62c2c20f2cd5954496e1b613ff8e2a0e8e3bba96159de72bc15966fb87acf026"
+    },
+    {
+      "path": "PHOTOS2/IMG_1297.jpeg",
+      "bytes": 12080645,
+      "sha256": "2be5b665635ddf98bcb99e180b4bb510ef3266bbc324830708f7e0bd47e28821"
+    },
+    {
+      "path": "PHOTOS2/IMG_1298.jpeg",
+      "bytes": 11842218,
+      "sha256": "5ef85d13d16ce768b58fa6242916b058339aa3922278e3609858f6e3da69dd0f"
+    },
+    {
+      "path": "PHOTOS2/IMG_1299.jpeg",
+      "bytes": 11665794,
+      "sha256": "1666ef653380a60ff2e2768e4c1f1a5d2ab8bcc2917672db19afdd2cbc125970"
+    },
+    {
+      "path": "PHOTOS2/IMG_1300.jpeg",
+      "bytes": 12532645,
+      "sha256": "ccea6d0870db1dce3379f734222e0a429e9762da752b6500cdfdc358244ca895"
+    },
+    {
+      "path": "PHOTOS2/IMG_1301.jpeg",
+      "bytes": 12141486,
+      "sha256": "1209625e9947488340e57df0f82d7640a274fdb4cc157dfd07e075d2aa2e44cf"
+    },
+    {
+      "path": "PHOTOS2/IMG_1302.jpeg",
+      "bytes": 9993048,
+      "sha256": "10321d0cad212444e9ce5f2552cd943be46b5d9020b8e8a1bb4b46007927eb40"
+    }
+  ],
+  "derived_crop": {
+    "path": "c8235-recovery/c8235-a-photos2-20261101/J2901-inspection-crop.jpeg",
+    "source": "PHOTOS2/IMG_1298.jpeg",
+    "method": "macOS sips crop1050x1200 at pixel offset(y0,x1824), then rotate-90degrees; separate JPEG, no generated or retouched content.",
+    "sha256": "ba0dda6b3a99bccd3c5bf4e99c01fecb3628be4eeb763ae1c32ad642d183fff4"
+  }
+}
