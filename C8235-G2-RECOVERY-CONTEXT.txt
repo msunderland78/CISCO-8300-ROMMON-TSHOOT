@@ -10,6 +10,27 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A SUPPLY PATHS PASS / POWER TRIAL REQUESTED — 2026-11-01, 14:15 EST
+Owner replies 99.6 ohms and 0.3 ohms in the requested endpoint order:
+- Loose source jumper tip -> J2507-8/VCC: 99.6 ohms, consistent with series R.
+- Converter OUTPUT 4 -> J2507-2/GND: 0.3 ohms, low-resistance direct ground.
+Accept raw values; do not overwrite isolated resistor measurement of 99 ohms.
+USB-C unplug/source detached/residual 0 V were instructed, not separately
+restated in the numeric reply. No fresh DC value or powered result invented.
+
+Next requested: with Pi USB-C unplugged reconnect source to converter OUTPUT 8.
+Keep resistor in series, clip fully disconnected, U2901 RESET grabber free,
+router own power/cables/battery removed, cooling off. Switch meter to DC volts.
+Power only Pi once. After about 10 seconds, black on J2507-2/GND and red on
+resistor leg toward OUTPUT 8 (A), then leg toward blue J2507-8 wire (B).
+Report Pi startup, A/B in volts and whether B is steady or rising. If Pi fails
+to start or A exceeds 2.0 V, unplug and stop. Otherwise shut down/unplug after
+readings. No powered wiring changes, clip reconnection, resistor bypass or SPI.
+Powered results pending; approximate current may later be inferred as (A-B)/99
+from resistor-leg voltages. Reduced B under this deliberate limit does not
+alone prove a short or qualify a programming supply. Failure cause unresolved.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A SUPPLY-ONLY ASSEMBLY REPORTED — 2026-11-01, 14:07 EST
 Owner says Pi is off and describes OUTPUT 8 -> breadboard resistor -> blue ->
 J2507-8/VCC, purple existing J2507-2/GND -> OUTPUT 4. Interpret pin numbers as

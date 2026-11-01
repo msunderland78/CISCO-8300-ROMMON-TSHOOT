@@ -91,7 +91,7 @@
     "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c",
     "closed": true
   },
-  "handoff": "A: owner reports Pi off and series wiring OUTPUT 8 -> 99 ohm resistor -> blue J2507-8, purple J2507-2 -> OUTPUT 4. Source end connected despite earlier loose-end preflight request; no powered trial reported. Next ensure USB-C physically unplugged, router isolation/clip absence and residual 0 V, temporarily unplug only OUTPUT 8 wire, then report loose tip-to-J2507-8 and OUTPUT 4-to-J2507-2 resistance. Keep source loose/Pi off afterward. New-path values pending; no SPI/read/write or reset assertion.",
+  "handoff": "A supply-only fixture checks pass: loose source tip -> J2507-8 is 99.6 ohms; OUTPUT 4 -> J2507-2 is 0.3 ohms. Single Pi-only powered trial requested through measured 99 ohm resistor, clip absent and RESET free. Reconnect source to OUTPUT 8 while unplugged, switch meter to DC, then power once and measure both resistor legs relative to J2507-2 after about 10 seconds. Report startup/A/B/stability; stop if Pi fails or source exceeds 2.0 V, otherwise shut down/unplug afterward. Results pending; router own power/cables/battery absent, no SPI/read/write.",
   "recovery_scope": "Existing recovery authorization retained; read-only preservation first. No speculative TPM clear, provisioning change, golden selector, jumper, or cross-chassis full-chip clone.",
   "external_acquisition_preparation": {
     "equipment": "Owner confirms prior Pi5,1.8Vadapter andSOIC16clip setup available.",

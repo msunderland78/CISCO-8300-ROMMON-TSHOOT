@@ -7,7 +7,7 @@
     "chassis_serial": "FGL2835L42B",
     "board_label": "FOC28292GUQ"
   },
-  "status": "Owner reports Pi off and complete OUTPUT 8 -> resistor -> blue J2507-8 wiring, purple ground to OUTPUT 4. New-path readings pending; temporarily disconnect OUTPUT 8 end for resistance check, remain unplugged/unpowered.",
+  "status": "New supply path 99.6 ohms and direct ground 0.3 ohms accepted. One Pi-only supply trial through the series resistor requested, clip absent; startup and resistor-side DC voltages pending.",
   "target": {
     "read_target": "U2900",
     "clip": "Owner-added intact short clip connected to existing1.8Vconverter",
@@ -89,7 +89,7 @@
   ],
   "agent_hardware_actions": [],
   "powered_programming_or_read": "Owner attempted Pi-only supply of the U2900-connected fixture; Pi did not start and the target rail briefly displayed about 0.1 V. Pi starts disconnected; adapter output subsequently reported as 1.802 V. No agent GPIO/SPI/flash operation, read or write.",
-  "updated_at": "2026-11-01T14:07:28-05:00",
+  "updated_at": "2026-11-01T14:15:01-05:00",
   "reset_grabber_contact": {
     "recorded_at": "2026-11-01T13:03:26-05:00",
     "source": "Owner measurement report followed by explicit endpoint clarification",
@@ -270,7 +270,7 @@
   },
   "power_only_diagnostic_preparation": {
     "recorded_at": "2026-11-01T13:57:28-05:00",
-    "state": "Owner describes complete series wiring with Pi off, including OUTPUT 8 source connection. Fresh DC/path checks not reported. Adjusted unpowered check asks to remove only OUTPUT 8 wire end; no powered trial instructed.",
+    "state": "Series and ground path results accepted at 99.6 and 0.3 ohms. Single bounded-current Pi-only trial selected below; no powered result yet.",
     "purpose": "Separate the verified J2507 supply path from all SPI/clip contacts, with a series resistor bounding current instead of repeating direct connected startup failures.",
     "candidate_topology": "Final candidate: converter OUTPUT 8 -> measured 99 ohm series resistor -> J2507 pin 8 / blue VCC; converter OUTPUT 4 -> J2507 pin 2 / purple ground. Current requested stage leaves the OUTPUT 8 jumper loose for an unambiguous series-path resistance check. Clip/cable completely removed from converter OUTPUT and off router; other board leads free.",
     "power_constraints": "Router own power/cables/battery remain disconnected, cooling off. Pi power unplugged and residual voltage absent for wiring changes. No higher voltage, second supply, RESET resistor, SPI action or flash read/write.",
@@ -332,7 +332,7 @@
       }
     ],
     "hold_state": "Leave VCC jumper disconnected from OUTPUT 8 and Pi unpowered after measurements. No reset resistor, SPI/read/write or powered supply-only trial yet.",
-    "status": "Assembly description received with source end already on OUTPUT 8. Two new-path readings and fresh residual DC remain pending; adjusted check below temporarily removes source end."
+    "status": "Owner assembled series fixture; adjusted source-disconnected check now reports 99.6 ohms VCC path and 0.3 ohms direct ground. Powered trial requested separately."
   },
   "supply_only_assembly_report": {
     "recorded_at": "2026-11-01T14:07:28-05:00",
@@ -373,6 +373,57 @@
       }
     ],
     "afterward": "Leave OUTPUT 8 wire unplugged and Pi off. No powered supply-only trial or SPI operation yet.",
-    "status": "Requested; no result yet."
+    "status": "Complete: owner reports 99.6 ohms then 0.3 ohms in requested endpoint order."
+  },
+  "supply_only_path_results": {
+    "recorded_at": "2026-11-01T14:15:01-05:00",
+    "source": "Owner numeric reply, interpreted in the order of the two requested endpoint checks.",
+    "owner_report": "99.6 ohms and 0.3 ohms",
+    "measurements": [
+      {
+        "endpoint_a": "Loose source jumper tip, removed from converter OUTPUT 8 for the requested check",
+        "endpoint_b": "J2507 pin 8 / VCC",
+        "resistance_ohm": 99.6,
+        "mode": "Resistance",
+        "interpretation": "Consistent with measured 99 ohm resistor in the newly assembled series VCC path, including contacts/leads."
+      },
+      {
+        "endpoint_a": "Converter OUTPUT 4",
+        "endpoint_b": "J2507 pin 2 / GND",
+        "resistance_ohm": 0.3,
+        "mode": "Resistance",
+        "interpretation": "Low-resistance new direct ground path; raw reading retained without subtracting older microclip baseline."
+      }
+    ],
+    "conditions_scope": "USB-C unplug, absence of clip/router power/cables/battery, source end disconnected and residual 0 V were requested. Reply supplies values without separately restating all conditions; no fresh DC value invented.",
+    "assessment": "The two requested new-path checks pass for a bounded-current supply-only diagnostic. This is not validation of board loading, flash voltage, SPI operation or recovery."
+  },
+  "powered_supply_only_trial": {
+    "requested_at": "2026-11-01T14:15:01-05:00",
+    "identity": "C8235-A / FGL2835L42B / PCB FOC28292GUQ / J2507 supply shared by mapped U2900 and U2901; no individual bank assignment.",
+    "preparation": [
+      "With Pi USB-C still physically unplugged, reconnect loose source jumper to the 1.8 V converter OUTPUT 8.",
+      "Keep measured 99 ohm resistor in series; only its VCC branch and direct purple ground connect programmer setup to router.",
+      "Clip completely disconnected from adapter and router; U2901 RESET grabber free; router own power/cables/battery removed, cooling off.",
+      "Pi-to-converter INPUT wiring unchanged. Switch meter from ohms to DC volts before powering."
+    ],
+    "power_action": "Power only Pi once. No GPIO/SPI operation or router own power.",
+    "measurements": {
+      "timing": "After about 10 seconds; note whether board-side reading is steady or rising. Timing is requested, not measured.",
+      "common_black_reference": "J2507 pin 2 / GND",
+      "A": "Red probe directly on resistor leg toward converter OUTPUT 8 (source side)",
+      "B": "Red probe directly on resistor leg toward blue J2507 pin 8 lead (board side)",
+      "requested_reply": [
+        "Whether Pi starts normally",
+        "A in V DC",
+        "B in V DC",
+        "Whether B is steady or rising"
+      ],
+      "calculation_plan": "If stable readings are obtained, infer approximate resistor branch current from (A-B)/99 ohms. This uses the prior isolated resistor value, not a new current measurement; readings at resistor legs exclude most external wire drops."
+    },
+    "stop_conditions": "If Pi fails to start or source-side A exceeds 2.0 V, unplug Pi power and stop. No unchanged retry.",
+    "afterward": "If readings obtained, shut down Pi and unplug USB-C. Do not move wires, bypass resistor or reconnect clip while powered.",
+    "interpretation_limit": "Reduced board-side voltage under the deliberate current limit does not alone prove a short or faulty component. This is a loading test, not a programming supply qualification.",
+    "status": "Requested; no startup or voltage results yet."
   }
 }
