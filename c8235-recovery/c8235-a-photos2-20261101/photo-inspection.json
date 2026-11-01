@@ -6,7 +6,7 @@
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
-    "binding": "Owner-associated router #1 photos in current recovery conversation; explicit isolation/meter confirmation requested, pending.",
+    "binding": "Owner explicitly confirmed PHOTOS2 is router #1 / C8235-A / FGL2835L42B in response to the current isolation question.",
     "observed_board_label": "FOC28292GUQ",
     "board_label_evidence": "PHOTOS2/IMG_1299.jpeg; also IMG_1296, IMG_1301",
     "assembly_label": "74-133408-02 02; U58L372T47 LF 05S5 P2B",
@@ -16,8 +16,13 @@
     "owner_report": "Battery removed before photos.",
     "photo_observation": "Board removed from enclosure; coin-cell holder empty; processor exposed and heatsinks/fans not mounted; external ports visibly empty in IMG_1293/1294; no clip visible.",
     "supersedes": "Earlier November1 powered/assembled/battery-installed console handoff.",
-    "pending": "Explicit current all-cable isolation/programmer separation and meter model; residual DC voltage and shorted-lead resistance baseline.",
-    "power_instruction": "Keep router unpowered in this disassembled state; no Pi/programmer attachment."
+    "pending": "Meter model; separate U2900 and U2901 residual DC voltage readings; resistance mode and shorted-lead baseline.",
+    "power_instruction": "Keep router unpowered in this disassembled state; no Pi/programmer attachment.",
+    "owner_isolation_confirmation": {
+      "recorded_at": "2026-11-01T12:27:49-05:00",
+      "response": "confirmed",
+      "scope": "A/FGL2835L42B; battery removed; power/console/USB/Ethernet disconnected; no programmer/clip; Pi disconnected from router. Meter model not specified by this response."
+    }
   },
   "flash_chips": [
     {
@@ -190,5 +195,16 @@
     "source": "PHOTOS2/IMG_1298.jpeg",
     "method": "macOS sips crop1050x1200 at pixel offset(y0,x1824), then rotate-90degrees; separate JPEG, no generated or retouched content.",
     "sha256": "ba0dda6b3a99bccd3c5bf4e99c01fecb3628be4eeb763ae1c32ad642d183fff4"
+  },
+  "measurement_request": {
+    "recorded_at": "2026-11-01T12:27:49-05:00",
+    "mode": "DC volts; black COM/red V-ohm",
+    "endpoints": "Each chip separately, black physical pin10/VSS, red physical pin2/VCC; IMG_1302 orientation top-second-from-right and bottom-second-from-left respectively.",
+    "requested_results": [
+      "U2900 DC voltage",
+      "U2901 DC voltage",
+      "meter model"
+    ],
+    "status": "requested, no readings yet; stay in DC voltage mode"
   }
 }

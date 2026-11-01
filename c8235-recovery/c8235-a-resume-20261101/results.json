@@ -91,12 +91,12 @@
     "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c",
     "closed": true
   },
-  "handoff": "PHOTOS2 now shows A-associated bare board, battery removed and cooling disassembled; earlier powered/assembled handoff superseded. Current all-cable isolation, meter model and residual voltage pending. No programmer attachment or external read. See separate photo inspection.",
+  "handoff": "Owner confirms PHOTOS2 is A/FGL2835L42B, battery out, all external cables/programmer/clip disconnected and Pi separated. Bare board cooling is removed; keep router unpowered. Meter model and separate chip residual DC readings requested, pending. No external flash read/write; see photo inspection.",
   "recovery_scope": "Existing recovery authorization retained; read-only preservation first. No speculative TPM clear, provisioning change, golden selector, jumper, or cross-chassis full-chip clone.",
   "external_acquisition_preparation": {
     "equipment": "Owner confirms prior Pi5,1.8Vadapter andSOIC16clip setup available.",
     "requested_isolation": "SwitchAoff; remove router power,RJ45,USBstorage andEthernet; Pi off/unplugged; all programmerclips/probes disconnected. Leavebattery/heatsinks/fans installed forinitialvisualidentification.",
-    "isolation_confirmation": "pending",
+    "isolation_confirmation": "Owner confirmed current A/PHOTOS2 isolation in response to new question; battery removed, all external cables/programmer/clip and Pi disconnected. Meter and residual voltage pending.",
     "next": "Fresh A board/flash-chip photographs and markings; verify physical chip identities/pin1/voltage/mapping/loading. Battery/residual-voltage steps precede any electrical probing/programmer attachment. No C8375 wiring/reset procedure transferred toA.",
     "subsequent_owner_action": "Owner removed battery before PHOTOS2; fresh board/chip photos supplied. Electrical checks remain pending."
   },
