@@ -21,9 +21,9 @@ ROOT = Path(__file__).resolve().parents[1]
 LIMIT = 50_000_000  # Deliberate user cap; reject files at or above this size.
 MARKER = "[REDACTED]"
 CONFIG = re.compile(
-    r"^([ \t]*(?:[\w.()/:-]+[>#][ \t]*)?"
+    r"^([ \t]*(?:[+-][ \t]*)?(?:[\w.()/:-]+[>#][ \t]*)?"
     r"(?:enable[ \t]+(?:secret|password)|"
-    r"username[ \t]+\S+(?:[ \t]+privilege[ \t]+\d+)?[ \t]+(?:secret|password)|"
+    r"username[ \t]+\S+(?:[ \t]+privilege[ \t]+\d+)?[ \t]+(?:one-time[ \t]+)?(?:secret|password)|"
     r"password|snmp-server[ \t]+community|key-string)[ \t]+)([^\r\n]+)$",
     re.I | re.M,
 )

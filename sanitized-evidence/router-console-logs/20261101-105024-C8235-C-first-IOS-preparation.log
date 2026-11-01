@@ -1,0 +1,1038 @@
+
+[TX 2026-11-01T10:50:28.814189-05:00] b'[REDACTED]\r'
+****************************
+  Confirm enable secret: 
+[TX 2026-11-01T10:50:32.498394-05:00] b'[REDACTED]\r'
+****************************
+
+The following configuration command script was created:
+
+enable secret 9 [REDACTED]
+!
+end
+
+
+[0] Go to the IOS command prompt without saving this config.
+[1] Return back to the setup without saving this config.
+[2] Save this configuration to nvram and exit.
+
+Enter your selection [2]: 
+[TX 2026-11-01T10:50:38.697545-05:00] b'2\r'
+2
+Building configuration...
+[OK]
+Use the enabled mode 'configure' command to modify this configuration.
+
+
+
+
+Press RETURN to get started!
+
+
+*May 29 2025 18:52:05.375: yang-infra: Default hostkey created (NETCONF_SSH_RSA_KEY)
+*May 29 2025 18:52:05.388: yang-infra: Netconf SSH RSA key generated
+*May 29 2025 18:52:05.873: %LINK-5-CHANGED: Interface TwoGigabitEthernet0/0/6, changed state to administratively down
+*May 29 2025 18:52:05.877: %LINK-5-CHANGED: Interface TwoGigabitEthernet0/0/7, changed state to administratively down
+*May 29 2025 18:52:05.878: %LINK-5-CHANGED: Interface TenGigabitEthernet0/0/8, changed state to administratively down
+*May 29 2025 18:52:05.882: %LINK-5-CHANGED: Interface TenGigabitEthernet0/0/9, changed state to administratively down
+*May 29 2025 18:52:05.883: %LINK-5-CHANGED: Interface GigabitEthernet0, changed state to administratively down
+*May 29 2025 18:52:09.169: %IOXN_APP-6-PRE_INIT_DAY0_GS_INFO: Day0 Guestshell de-initilization API is being invoked
+
+*May 29 2025 18:52:09.183: %SYS-5-CONFIG_P: Configured programmatically by process DHCP Autoinstall from console as vty0
+*May 29 2025 18:52:09.186: %SYS-5-CONFIG_P: Configured programmatically by process DHCP Autoinstall from console as vty0Guestshell destroyed successfully 
+
+*May 29 2025 18:52:13.913: %UICFGEXP-6-SERVER_NOTIFIED_STOP: R0/0: psd: Server iox has been notified to stop
+*May 29 2025 18:52:18.253: %SYS-4-INSECURE_WARNING: Module: HTTP - Command: ip http server  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Use http secure server to ensure secure web access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:52:21.257: %IOXN_APP-6-IOX_START_STOP_REQ: Got IOX DOWN COMPLETE event, invoking registered callback(s)
+
+[TX 2026-11-01T10:51:05.526240-05:00] b'\r'
+
+Router>
+[TX 2026-11-01T10:51:06.775031-05:00] b'enable\r'
+enable
+Password: 
+[TX 2026-11-01T10:51:12.060202-05:00] b'[REDACTED]\r'
+
+Router#
+[TX 2026-11-01T10:51:13.291150-05:00] b'terminal length 0\rterminal width 512\rshow inventory\rshow version\rshow platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow environment all\rshow file systems\rdir bootflash:\rshow bootvar\rshow startup-config\r'
+terminal length 0
+Router#terminal width 512
+Router#show inventory
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO: Please use "show license UDI" to get serial number for licensing.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NAME: "Chassis", DESCR: "Cisco isr1000 Series Chassis"
+PID: C8230X-8M2X       , VID: V00  , SN: FGL2835L41Z
+
+NAME: "Power Supply Module 0", DESCR: "External 66W Power Supply Module"
+PID: PWR-CC2-66WAC     , VID: V02  , SN:            
+
+NAME: "module 0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID:      , SN:            
+
+NAME: "NIM subslot 0/0", DESCR: "8M-2xSFP+"
+PID: 8M-2xSFP+         , VID: V01  , SN:            
+
+NAME: "module R0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID: V00  , SN: FOC28292GX9
+
+NAME: "module F0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID:      , SN:            
+
+
+Router#show version
+Cisco IOS XE Software, Version 26.02.01
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+Router uptime is 2 minutes
+Uptime for this control processor is 13 minutes
+System returned to ROM by PowerOn
+System image file is "usb0:c8kg2be-universalk9.26.02.01.SPA.bin"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Perpetual    essentials         essentials        
+
+The current crypto throughput level is 250000 kbps (Aggregate) 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8230X-8M2X (1RU) processor with 7788651K/6147K bytes of memory.
+Processor board ID FGL2835L41Z
+Router operating mode: Autonomous
+1 Virtual Ethernet interface
+8 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+16777216K bytes of physical memory.
+20249599K bytes of flash memory at bootflash:.
+60062720K bytes of USB flash at usb0:.
+
+Configuration register is 0x1820
+
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:03:17      
+ 0/0      8M-2xSFP+           ok                    00:02:31      
+R0        C8230X-8M2X         ok, active            00:03:17      
+F0        C8230X-8M2X         ok, active            00:03:17      
+P0        PWR-CC2-66WAC       ok                    00:02:44      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20780
+  Parent process id: 20770
+  Group id         : 20780
+  Status           : S
+  Session id       : 18611
+  User time        : 462
+  Kernel time      : 517
+  Priority         : 20
+  Virtual bytes    : 2219225088
+  Resident pages   : 40578
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44291
+  Major page faults: 607
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.580 sec ago
+Last punt keepalive sent                  = 0.580 sec ago
+punt keepalive rx count                   = 55
+punt keepalive tx count                   = 55
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          34 Celsius
+ Temp: Outlet            R0              Normal          33 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12071 mV
+ V: 5V                   R0              Normal          4943 mV
+ V: 3.3V_SB              R0              Normal          3324 mV
+ V: 3.3V_SFP             R0              Normal          3300 mV
+ V: 3.3V                 R0              Normal          3298 mV
+ V: 1.8V                 R0              Normal          1792 mV
+ V: 1.2V                 R0              Normal          1193 mV
+ V: 1.1V_DDR             R0              Normal          1099 mV
+ V: 0.75V_CORE           R0              Normal          757 mV
+ V: 0.75V_SYS            R0              Normal          847 mV
+ V: 0.8V_SW              R0              Normal          801 mV
+ V: 0.8V                 R0              Normal          800 mV
+ V: 0.75V                R0              Normal          749 mV
+ I: VP12P0_MB            R0              Normal          1497 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          17 Watts
+
+
+Router#show file systems
+File Systems:
+
+               Size(b)               Free(b)      Type  Flags  Prefixes
+                     -                     -    opaque     rw   system:
+                     -                     -    opaque     rw   tmpsys:
+*          20229492736           18120863744      disk     rw   bootflash: flash: crashinfo:
+           61489184768           22876094464      disk     rw   usb0:
+            7782113280            7706984448      disk     ro   webui:
+                     -                     -   network     rw   tftp:
+                     -                     -    opaque     rw   null:
+                     -                     -    opaque     ro   tar:
+                     -                     -    opaque     wo   syslog:
+              33554432              33531446     nvram     rw   nvram:
+                     -                     -   network     rw   rcp:
+                     -                     -   network     rw   pram:
+                     -                     -   network     rw   ftp:
+                     -                     -   network     rw   http:
+                     -                     -   network     rw   scp:
+                     -                     -   network     rw   sftp:
+                     -                     -   network     rw   https:
+                     -                     -    opaque     ro   cns:
+
+Router#dir bootflash:
+Directory of bootflash:/
+
+654082  drwx             4096  May 29 2025 18:52:01 +00:00  .dbpersist
+19      -rw-              275  May 29 2025 18:50:20 +00:00  .iox_dir_list
+784900  drwx             4096  May 29 2025 18:50:17 +00:00  iox_host_data_share
+392449  drwx             4096  May 29 2025 18:50:13 +00:00  core
+261649  drwx             4096  May 29 2025 18:50:13 +00:00  license_evlog
+18      -rw-               30  May 29 2025 18:50:03 +00:00  throughput_monitor_params
+14      -rw-           144751  May 29 2025 18:49:55 +00:00  memleak.tcl
+392451  drwx             4096  May 29 2025 18:49:55 +00:00  guest-share
+915715  drwx             4096  May 29 2025 18:49:51 +00:00  pnp-info
+17      drwx             4096  May 29 2025 18:49:50 +00:00  .geo
+784899  drwx             4096  May 29 2025 18:49:49 +00:00  tracelogs
+523265  drwx             4096  May 29 2025 18:49:46 +00:00  .installer
+784898  drwx             4096  May 29 2025 18:49:43 +00:00  virtual-instance
+16      -rw-             1939  May 29 2025 18:49:40 +00:00  trustidrootx3_ca_062035.ca
+15      -rw-            34967  May 29 2025 18:49:40 +00:00  ios_core.p7b
+12      -rwx              252  May 29 2025 18:49:20 +00:00  mode_event_log
+915713  drwx             4096  May 29 2025 18:49:11 +00:00  .rollback_timer
+261633  drwx             4096  May 29 2025 18:48:54 +00:00  sysboot
+130817  drwx             4096  May 29 2025 18:48:40 +00:00  SHARED-IOX
+784897  drwx             4096  May 29 2025 18:48:40 +00:00  .prst_sync
+654081  drwx             4096  May 29 2025 18:48:40 +00:00  pcap
+11      drwx            16384  May 29 2025 18:48:37 +00:00  lost+found
+
+20229492736 bytes total (18120863744 bytes free)
+Router#show bootvar
+BOOT variable does not exist
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x1820
+
+Standby not ready to show bootvar
+
+Router#show startup-config
+Using 3320 out of 33554432 bytes
+!
+! Last configuration change at 18:51:58 UTC Thu May 29 2025
+!
+version 26.2
+service timestamps debug datetime msec year
+service timestamps log datetime msec year
+platform qfp utilization monitor load 80
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition 65500
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+logging console emergencies
+no aaa new-model
+!
+!
+!
+!
+!
+!
+ip dhcp pool PnPWebUI1
+ vrf 65500
+ host 192.168.1.3 255.255.255.0
+ client-identifier 0077.6562.7569
+ dns-server 192.168.1.1 
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+ipv6 unicast-routing
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-691797532
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-691797532
+ revocation-check none
+ rsakeypair TP-self-signed-691797532
+ hash sha512
+!
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+ hash sha512
+!
+!
+crypto pki certificate chain TP-self-signed-691797532
+ certificate self-signed 01 nvram:IOS-Self-Sig#1.cer
+crypto pki certificate chain SLA-TrustPoint
+ certificate ca 01 nvram:CiscoLicensi#1CA.cer
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice-card 0/4
+!
+diagnostic bootup level minimal
+!
+license udi pid C8230X-8M2X sn FGL2835L41Z
+memory free low-watermark processor 62065
+!
+spanning-tree extend system-id
+!
+enable secret 9 [REDACTED]
+!
+username webui privilege 15 one-time password 0 cisco
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface TwoGigabitEthernet0/0/0
+!
+interface TwoGigabitEthernet0/0/1
+!
+interface TwoGigabitEthernet0/0/2
+!
+interface TwoGigabitEthernet0/0/3
+!
+interface TwoGigabitEthernet0/0/4
+ switchport
+!
+interface TwoGigabitEthernet0/0/5
+ switchport
+!
+interface TwoGigabitEthernet0/0/6
+ negotiation auto
+!
+interface TwoGigabitEthernet0/0/7
+ negotiation auto
+!
+interface TenGigabitEthernet0/0/8
+ negotiation auto
+!
+interface TenGigabitEthernet0/0/9
+ negotiation auto
+!
+interface Service-Engine0/4/0
+ no ip address
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ negotiation auto
+!
+interface Vlan1
+ vrf forwarding 65500
+ ip address 192.168.1.1 255.255.255.0
+!
+ip rcmd domain-lookup
+ip forward-protocol nd
+ip forward-protocol udp
+ip forward-protocol udp tftp
+ip telnet tos C0
+ip telnet comport enable
+ip telnet comport flow level 16
+ip telnet comport receive window 4128
+ip telnet comport disconnect delay 0
+ip tftp source-interface GigabitEthernet0
+ip tftp arp-glean
+ip tftp blocksize 512
+ip ftp passive
+no ip http server
+ip http authentication local
+ip http secure-server
+!
+ip ssh bulk-mode 131072
+ip ssh stricthostkeycheck accept-new
+!
+!
+!
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ activation-character 13
+ stopbits 1
+ speed 115200
+line aux 0
+ activation-character 13
+line vty 0 4
+ activation-character 13
+ login
+ transport input ssh
+line vty 5 14
+ activation-character 13
+ login
+ transport input ssh
+!
+!
+!
+!
+!
+!
+!
+end
+
+Router#
+*May 29 2025 18:52:36.157: %SMART_LIC-3-COMM_FAILED: Communications failure with the Cisco Smart License Utility (CSLU) : Unable to resolve server hostname/domain name 
+[TX 2026-11-01T10:52:11.320770-05:00] b'copy usb0:c8kg2be-universalk9.26.02.01.SPA.bin bootflash:c8kg2be-universalk9.26.02.01.SPA.bin\r'
+copy usb0:c8kg2be-universalk9.26.02.01.SPA.bin bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
+Destination filename [c8kg2be-universalk9.26.02.01.SPA.bin]? 
+[TX 2026-11-01T10:52:19.008847-05:00] b'\r'
+
+Copy in progress...CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+1048008916 bytes copied in 70.720 secs (14819131 bytes/sec)
+Router#
+[TX 2026-11-01T10:54:52.231479-05:00] b'show platform software process list slot fp active name cpp_cp_svr\rshow platform hardware qfp active datapath infrastructure sw-cio\rverify /sha512 bootflash:c8kg2be-universalk9.26.02.01.SPA.bin\r'
+show platform software process list slot fp active name cpp_cp_svr
+                                           ^
+% Invalid input detected at '^' marker.
+
+Router#show platform hardware qfp active datapath infrastructure sw-cio
+Credits Usage:
+
+  ID      Port  Wght  Global WRKR0  WRKR1  WRKR2  WRKR6  Total
+   1      rcl0     4:   3008     0      0      0     64   3072
+   1      rcl0     8:   3008     0      0      0     64   3072
+   2       ipc     1:      0     0      0      0      0      0
+   3 vxe_punti     1:    461     0      0      0     51    512
+   4    l2_mod    LO:   2560     -      -      -      -   2560
+   5      fpe6    LO:   1024     -      -      -      -   1024
+   6      fpe7    LO:   1024     -      -      -      -   1024
+   7      fpe8    LO:   2560     -      -      -      -   2560
+   8      fpe9    LO:   2560     -      -      -      -   2560
+
+Core Utilization over preceding 369.6936 seconds
+------------------------------------------------
+      ID:       0       1       2       6 
+    % PP:    0.39    1.13    0.36    0.00 
+    % RX:    0.00    0.00    0.00    0.00 
+    % TM:    0.00    0.00    0.00    1.71 
+  % IDLE:   99.61   98.87   99.64   98.29 
+
+Router#verify /sha512 bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
+........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-universalk9.26.02.01.SPA.bin) = a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c52115fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02
+
+
+Router#
+[TX 2026-11-01T10:55:37.182280-05:00] b'show platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rdir bootflash:C4\rdir bootflash:C8235CFIX1\rtclsh ?'
+show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20780
+  Parent process id: 20770
+  Group id         : 20780
+  Status           : S
+  Session id       : 18611
+  User time        : 473
+  Kernel time      : 527
+  Priority         : 20
+  Virtual bytes    : 2219225088
+  Resident pages   : 40738
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44497
+  Major page faults: 611
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.356 sec ago
+Last punt keepalive sent                  = 0.356 sec ago
+punt keepalive rx count                   = 187
+punt keepalive tx count                   = 187
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#dir bootflash:C4
+%Error opening bootflash:/C4 (No such file or directory)
+Router#dir bootflash:C8235CFIX1
+%Error opening bootflash:/C8235CFIX1 (No such file or directory)
+Router#tclsh ?
+  LINE  Arguments passed to tclsh
+  <cr>  <cr>
+
+Router#tclsh 
+[TX 2026-11-01T10:55:43.095654-05:00] b'\x15tclsh\r'
+      tclsh
+Router(tcl)#
+[TX 2026-11-01T10:55:48.423339-05:00] b'set c8235_chan [open "bootflash:C4" {WRONLY CREAT EXCL}]\rfconfigure $c8235_chan -translation binary -encoding binary\r'
+set c8235_chan [open "bootflash:C4" {WRONLY CREAT EXCL}]
+file0
+Router(tcl)#fconfigure $c8235_chan -translation binary -encoding binary
+Router(tcl)#
+[TX 2026-11-01T10:55:56.749569-05:00] b'puts -nonewline $c8235_chan [binary format H* {23212f62696e2f626173680a232041492d6173736973746564206578706572696d656e74616c206c6f6164657220666f7220706879736963616c6c7920636f6e6669726d65642043383233352d432f46474c323833354c34315a2e0a2320426f6f74666c617368206465706c6f796d656e74206e616d6520433420697320646f742d6672656520666f72204c696e757820696e69742d617267756d656e742070617273696e672e0a2320446572697665642066726f6d20746865207665726966696564204234206c6f616465723b2042206f726967696e616c732072656d61696e20756e6368616e6765642e0a23204170706c696573206f6e6c79207468652065737461626c69736865642052414d20636f727265637469}]\r'
+puts -nonewline $c8235_chan [binary format H* {23212f62696e2f626173680a232041492d6173736973746564206578706572696d656e74616c206c6f6164657220666f7220706879736963616c6c7920636f6e6669726d65642043383233352d432f46474c323833354c34315a2e0a2320426f6f74666c617368
++>
+[TX 2026-11-01T10:55:57.854473-05:00] b'puts -nonewline $c8235_chan [binary format H* {6f6e3b206e6576657220777269746573206669726d77617265206f7220636f6e6669672e0a232044656661756c7420696e766f636174696f6e20697320696e6572742e204c69766520656e747279207265717569726573206578706c69636974206d6f646520616e642050494420312e0a6361736520247b313a2d7d20696e0a202020202d627c2d2d626f6f747c2d2d72616d29203b3b0a202020202a29206563686f20274578706572696d656e74616c2043383233352d43206c6f616465723a206578706c69636974202d2d626f6f7420616e64205049442031207265717569726564273b20657869742030203b3b0a657361630a6966205b5b20242420213d2031205d5d3b207468656e0a202020206563686f202743}]\r'
+puts -nonewline $c8235_chan [binary format H* {6f6e3b206e6576657220777269746573206669726d77617265206f7220636f6e6669672e0a232044656661756c7420696e766f636174696f6e20697320696e6572742e204c69766520656e747279207265717569726573206578706c69636974206d6f64652061
++>
+[TX 2026-11-01T10:55:58.961139-05:00] b'puts -nonewline $c8235_chan [binary format H* {383233355f494e5445524e414c5f524546555345443a207265717569726573205049442031270a202020206578697420310a66690a0a65786563203c2f6465762f747479414d4130203e2f6465762f747479414d413020323e26310a736574202d4565756f20706970656661696c0a6d61696e74656e616e63652829207b0a2020202074726170202d204552520a20202020736574202b650a202020206563686f202743383233355f494e5445524e414c5f4641494c45443a206d61696e74656e616e6365206f6e6c793b20646f206e6f742065786974205049442031270a202020207768696c65203a3b20646f202f62696e2f626173683b20646f6e650a7d0a74726170206d61696e74656e616e6365204552520a7374}]\r'
+puts -nonewline $c8235_chan [binary format H* {383233355f494e5445524e414c5f524546555345443a207265717569726573205049442031270a202020206578697420310a66690a0a65786563203c2f6465762f747479414d4130203e2f6465762f747479414d413020323e26310a736574202d4565756f2070
++>
+[TX 2026-11-01T10:56:00.068575-05:00] b'puts -nonewline $c8235_chan [binary format H* {7479203131353230300a0a6966205b5b20243120213d202d2d72616d205d5d3b207468656e0a202020206563686f202743383233355f494e5445524e414c5f424f4f54464c4153485f454e545259270a2020202073656c665f686173683d242862757379626f782073686132353673756d2022243022207c2061776b20277b7072696e742024317d27290a202020206370202d2d2022243022202f63383233352d696e7465726e616c310a202020205b5b20242862757379626f782073686132353673756d202f63383233352d696e7465726e616c31207c2061776b20277b7072696e742024317d2729203d3d20222473656c665f6861736822205d5d0a2020202065786563202f62696e2f62617368202f63383233352d}]\r'
+puts -nonewline $c8235_chan [binary format H* {7479203131353230300a0a6966205b5b20243120213d202d2d72616d205d5d3b207468656e0a202020206563686f202743383233355f494e5445524e414c5f424f4f54464c4153485f454e545259270a2020202073656c665f686173683d242862757379626f78
++>
+[TX 2026-11-01T10:56:01.174063-05:00] b'puts -nonewline $c8235_chan [binary format H* {696e7465726e616c31202d2d72616d0a66690a0a6563686f202243383233355f494e5445524e414c5f52414d5f454e545259207069643d2424220a6364202f0a6d6b646972202d70202f70726f63202f7379730a5b5b202d72202f70726f632f73656c662f737461747573205d5d207c7c206d6f756e74202d742070726f632070726f63202f70726f630a5b5b202d64202f7379732f6275732f706369205d5d207c7c206d6f756e74202d74207379736673207379736673202f7379730a67726570202d7120275e2f6465762f6d6d63626c6b307031202f75206578743420726f2c27202f70726f632f6d6f756e74730a5b5b202428756e616d65202d7229203d3d20362e362e3935205d5d0a67726570202d712027626f}]\r'
+puts -nonewline $c8235_chan [binary format H* {696e7465726e616c31202d2d72616d0a66690a0a6563686f202243383233355f494e5445524e414c5f52414d5f454e545259207069643d2424220a6364202f0a6d6b646972202d70202f70726f63202f7379730a5b5b202d72202f70726f632f73656c662f7374
++>
+[TX 2026-11-01T10:56:02.282272-05:00] b'puts -nonewline $c8235_chan [binary format H* {6172643d61726174612027202f70726f632f636d646c696e650a5b5b2024286f64202d416e202d747831202f7379732f6669726d776172652f646576696365747265652f626173652f736f6340302f706369403837383032303030303030302f7276752d61646d696e40302f6e756d2d7276752d766673207c207472202d642027205c6e2729203d3d203030303030303230205d5d0a0a696d6167653d2f752f63386b673262652d756e6976657273616c6b392e32362e30322e30312e5350412e62696e0a696d6167655f686173683d303834326137323130613261303933336630613832336262653731633562613231303966323736656534393633356135396261306132366631376630663435360a736f757263655f}]\r'
+puts -nonewline $c8235_chan [binary format H* {6172643d61726174612027202f70726f632f636d646c696e650a5b5b2024286f64202d416e202d747831202f7379732f6669726d776172652f646576696365747265652f626173652f736f6340302f706369403837383032303030303030302f7276752d61646d
++>
+[TX 2026-11-01T10:56:03.390745-05:00] b'puts -nonewline $c8235_chan [binary format H* {686173683d323362633031323861313839616565353230663239303865313639353732653838653461393439323932356335383963323431303830326439366364386138370a70617463685f686173683d333263653131613037626465316664363130623139353161346331343332313764616563316433343538343430626263626431666333636132633339663835370a686f6f6b5f686173683d636131336132353133613336376362393435316663633535343433326664353230616138633432643064353964363162356364333836653766326566666661340a0a5b5b20242862757379626f782073686132353673756d202224696d61676522207c2061776b20277b7072696e742024317d2729203d3d20222469}]\r'
+puts -nonewline $c8235_chan [binary format H* {686173683d323362633031323861313839616565353230663239303865313639353732653838653461393439323932356335383963323431303830326439366364386138370a70617463685f686173683d33326365313161303762646531666436313062313935
++>
+[TX 2026-11-01T10:56:04.499345-05:00] b'puts -nonewline $c8235_chan [binary format H* {6d6167655f6861736822205d5d0a5b5b20242862757379626f782073686132353673756d202f752f43383233354346495831207c2061776b20277b7072696e742024317d2729203d3d202224736f757263655f6861736822205d5d0a6370202f752f43383233354346495831202f63383233352d666978310a5b5b20242862757379626f782073686132353673756d202f63383233352d66697831207c2061776b20277b7072696e742024317d2729203d3d202224736f757263655f6861736822205d5d0a6563686f202743383233355f494e5445524e414c5f494e5055545f4841534845535f50415353270a2f62696e2f62617368202f63383233352d66697831202d2d707265706172652d6f6e6c790a5b5b20242862}]\r'
+puts -nonewline $c8235_chan [binary format H* {6d6167655f6861736822205d5d0a5b5b20242862757379626f782073686132353673756d202f752f43383233354346495831207c2061776b20277b7072696e742024317d2729203d3d202224736f757263655f6861736822205d5d0a6370202f752f4338323335
++>
+[TX 2026-11-01T10:56:05.604805-05:00] b'puts -nonewline $c8235_chan [binary format H* {757379626f782073686132353673756d202f7573722f62696e6f732f62696e2f6c61756e63685f6e65742e7368207c2061776b20277b7072696e742024317d2729203d3d20222470617463685f6861736822205d5d0a5b5b20242862757379626f782073686132353673756d202f63383233352d626f756e6431362d686f6f6b2e7368207c2061776b20277b7072696e742024317d2729203d3d202224686f6f6b5f6861736822205d5d0a756d6f756e74202f750a6563686f202743383233355f494e5445524e414c5f52454144593a20626f6f74666c61736820756e6d6f756e7465643b2065786563202f696e69742066726f6d205049442031270a65786563202f696e69740a}]\r'
+puts -nonewline $c8235_chan [binary format H* {757379626f782073686132353673756d202f7573722f62696e6f732f62696e2f6c61756e63685f6e65742e7368207c2061776b20277b7072696e742024317d2729203d3d20222470617463685f6861736822205d5d0a5b5b20242862757379626f782073686132
++>
+[TX 2026-11-01T10:56:06.712149-05:00] b'close $c8235_chan\rtclquit\rverify /sha512 bootflash:C4\r'
+close $c8235_chan
++>tclquit
++>verify /sha512 bootflash:C4
++>
+[TX 2026-11-01T10:56:13.641580-05:00] b'\x03'
+
+Router#
+*May 29 2025 18:57:33.835: %SYS-5-CONFIG_I: Configured from console by console
+[TX 2026-11-01T10:56:17.649395-05:00] b'show platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow environment all\rdir bootflash:C4\rcopy usb0:C8235-C-UUID83CA808243-20261101/C8235C-FIX1 bootflash:C8235CFIX1\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:08:21      
+ 0/0      8M-2xSFP+           ok                    00:07:35      
+R0        C8230X-8M2X         ok, active            00:08:21      
+F0        C8230X-8M2X         ok, active            00:08:21      
+P0        PWR-CC2-66WAC       ok                    00:07:48      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20780
+  Parent process id: 20770
+  Group id         : 20780
+  Status           : S
+  Session id       : 18611
+  User time        : 474
+  Kernel time      : 529
+  Priority         : 20
+  Virtual bytes    : 2219225088
+  Resident pages   : 40738
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44513
+  Major page faults: 611
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 0.828 sec ago
+Last punt keepalive sent                  = 0.828 sec ago
+punt keepalive rx count                   = 207
+punt keepalive tx count                   = 207
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          34 Celsius
+ Temp: Outlet            R0              Normal          34 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12083 mV
+ V: 5V                   R0              Normal          4943 mV
+ V: 3.3V_SB              R0              Normal          3322 mV
+ V: 3.3V_SFP             R0              Normal          3302 mV
+ V: 3.3V                 R0              Normal          3300 mV
+ V: 1.8V                 R0              Normal          1791 mV
+ V: 1.2V                 R0              Normal          1193 mV
+ V: 1.1V_DDR             R0              Normal          1099 mV
+ V: 0.75V_CORE           R0              Normal          756 mV
+ V: 0.75V_SYS            R0              Normal          848 mV
+ V: 0.8V_SW              R0              Normal          801 mV
+ V: 0.8V                 R0              Normal          799 mV
+ V: 0.75V                R0              Normal          749 mV
+ I: VP12P0_MB            R0              Normal          1533 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          17 Watts
+
+
+Router#dir bootflash:C4
+Directory of bootflash:/C4
+
+72      -rw-                0  May 29 2025 18:57:08 +00:00  C4
+
+20229492736 bytes total (17072709632 bytes free)
+Router#copy usb0:C8235-C-UUID83CA808243-20261101/C8235C-FIX1 bootflash:C8235CFIX1
+Destination filename [C8235CFIX1]? 
+[TX 2026-11-01T10:56:24.205622-05:00] b'\r'
+
+Copy in progress...C
+3056 bytes copied in 0.048 secs (63667 bytes/sec)
+Router#
+[TX 2026-11-01T10:56:29.258808-05:00] b'verify /sha512 bootflash:C8235CFIX1\rtclsh\r'
+verify /sha512 bootflash:C8235CFIX1
+.Done!
+verify /sha512 (bootflash:C8235CFIX1) = 4ff8d92eee7f4d139e6da82810ec42e0a0bf910feba0c5d9a77de0e894b1db1337593bdeeea7dab6f32eaf4a5abc3270225ac5a194df01358afacb84b295f93b
+
+
+Router#tclsh
++>
+[TX 2026-11-01T10:56:45.948403-05:00] b'}}}}}}}}}]\r'
+}}}}}}}}}]
+invalid command name "}}}}}}}}}]"  ^
+% Invalid input detected at '^' marker.
+
+Router(tcl)#
+[TX 2026-11-01T10:56:51.213203-05:00] b'catch {close $c8235_chan}\rset c8235_chan [open "bootflash:C4" w]\rfconfigure $c8235_chan -translation binary -encoding binary\r'
+catch {close $c8235_chan}
+1
+Router(tcl)#set c8235_chan [open "bootflash:C4" w]
+file0
+Router(tcl)#fconfigure $c8235_chan -translation binary -encoding binary
+Router(tcl)#
+[TX 2026-11-01T10:56:56.397850-05:00] b'puts -nonewline $c8235_chan [binary format H* {23212f62696e2f626173680a232041492d6173736973746564206578706572696d656e74616c206c6f6164657220666f7220706879736963616c6c7920636f6e6669726d65642043383233352d432f46474c323833354c34315a}]\r'
+puts -nonewline $c8235_chan [binary format H* {23212f62696e2f626173680a232041492d6173736973746564206578706572696d656e74616c206c6f6164657220666f7220706879736963616c6c7920636f6e6669726d65642043383233352d432f46474c323833354c34315a}]
+Router(tcl)#
+[TX 2026-11-01T10:57:02.201060-05:00] b'puts -nonewline $c8235_chan [binary format H* {2e0a2320426f6f74666c617368206465706c6f796d656e74206e616d6520433420697320646f742d6672656520666f72204c696e757820696e69742d617267756d656e742070617273696e672e0a232044657269766564206672}]\r'
+puts -nonewline $c8235_chan [binary format H* {2e0a2320426f6f74666c617368206465706c6f796d656e74206e616d6520433420697320646f742d6672656520666f72204c696e757820696e69742d617267756d656e742070617273696e672e0a232044657269766564206672}]
+Router(tcl)#
+[TX 2026-11-01T10:57:02.649224-05:00] b'puts -nonewline $c8235_chan [binary format H* {6f6d20746865207665726966696564204234206c6f616465723b2042206f726967696e616c732072656d61696e20756e6368616e6765642e0a23204170706c696573206f6e6c79207468652065737461626c6973686564205241}]\r'
+puts -nonewline $c8235_chan [binary format H* {6f6d20746865207665726966696564204234206c6f616465723b2042206f726967696e616c732072656d61696e20756e6368616e6765642e0a23204170706c696573206f6e6c79207468652065737461626c6973686564205241}]
+Router(tcl)#
+[TX 2026-11-01T10:57:03.116844-05:00] b'puts -nonewline $c8235_chan [binary format H* {4d20636f7272656374696f6e3b206e6576657220777269746573206669726d77617265206f7220636f6e6669672e0a232044656661756c7420696e766f636174696f6e20697320696e6572742e204c69766520656e7472792072}]\r'
+puts -nonewline $c8235_chan [binary format H* {4d20636f7272656374696f6e3b206e6576657220777269746573206669726d77617265206f7220636f6e6669672e0a232044656661756c7420696e766f636174696f6e20697320696e6572742e204c69766520656e7472792072}]
+Router(tcl)#
+[TX 2026-11-01T10:57:03.580405-05:00] b'puts -nonewline $c8235_chan [binary format H* {65717569726573206578706c69636974206d6f646520616e642050494420312e0a6361736520247b313a2d7d20696e0a202020202d627c2d2d626f6f747c2d2d72616d29203b3b0a202020202a29206563686f20274578706572}]\r'
+puts -nonewline $c8235_chan [binary format H* {65717569726573206578706c69636974206d6f646520616e642050494420312e0a6361736520247b313a2d7d20696e0a202020202d627c2d2d626f6f747c2d2d72616d29203b3b0a202020202a29206563686f20274578706572}]
+Router(tcl)#
+[TX 2026-11-01T10:57:04.045805-05:00] b'puts -nonewline $c8235_chan [binary format H* {696d656e74616c2043383233352d43206c6f616465723a206578706c69636974202d2d626f6f7420616e64205049442031207265717569726564273b20657869742030203b3b0a657361630a6966205b5b20242420213d203120}]\r'
+puts -nonewline $c8235_chan [binary format H* {696d656e74616c2043383233352d43206c6f616465723a206578706c69636974202d2d626f6f7420616e64205049442031207265717569726564273b20657869742030203b3b0a657361630a6966205b5b20242420213d203120}]
+Router(tcl)#
+[TX 2026-11-01T10:57:04.513125-05:00] b'puts -nonewline $c8235_chan [binary format H* {5d5d3b207468656e0a202020206563686f202743383233355f494e5445524e414c5f524546555345443a207265717569726573205049442031270a202020206578697420310a66690a0a65786563203c2f6465762f747479414d}]\r'
+puts -nonewline $c8235_chan [binary format H* {5d5d3b207468656e0a202020206563686f202743383233355f494e5445524e414c5f524546555345443a207265717569726573205049442031270a202020206578697420310a66690a0a65786563203c2f6465762f747479414d}]
+Router(tcl)#
+[TX 2026-11-01T10:57:04.978705-05:00] b'puts -nonewline $c8235_chan [binary format H* {4130203e2f6465762f747479414d413020323e26310a736574202d4565756f20706970656661696c0a6d61696e74656e616e63652829207b0a2020202074726170202d204552520a20202020736574202b650a20202020656368}]\r'
+puts -nonewline $c8235_chan [binary format H* {4130203e2f6465762f747479414d413020323e26310a736574202d4565756f20706970656661696c0a6d61696e74656e616e63652829207b0a2020202074726170202d204552520a20202020736574202b650a20202020656368}]
+Router(tcl)#
+[TX 2026-11-01T10:57:05.452173-05:00] b'puts -nonewline $c8235_chan [binary format H* {6f202743383233355f494e5445524e414c5f4641494c45443a206d61696e74656e616e6365206f6e6c793b20646f206e6f742065786974205049442031270a202020207768696c65203a3b20646f202f62696e2f626173683b20}]\r'
+puts -nonewline $c8235_chan [binary format H* {6f202743383233355f494e5445524e414c5f4641494c45443a206d61696e74656e616e6365206f6e6c793b20646f206e6f742065786974205049442031270a202020207768696c65203a3b20646f202f62696e2f626173683b20}]
+Router(tcl)#
+[TX 2026-11-01T10:57:05.919276-05:00] b'puts -nonewline $c8235_chan [binary format H* {646f6e650a7d0a74726170206d61696e74656e616e6365204552520a73747479203131353230300a0a6966205b5b20243120213d202d2d72616d205d5d3b207468656e0a202020206563686f202743383233355f494e5445524e}]\r'
+puts -nonewline $c8235_chan [binary format H* {646f6e650a7d0a74726170206d61696e74656e616e6365204552520a73747479203131353230300a0a6966205b5b20243120213d202d2d72616d205d5d3b207468656e0a202020206563686f202743383233355f494e5445524e}]
+Router(tcl)#
+[TX 2026-11-01T10:57:06.385064-05:00] b'puts -nonewline $c8235_chan [binary format H* {414c5f424f4f54464c4153485f454e545259270a2020202073656c665f686173683d242862757379626f782073686132353673756d2022243022207c2061776b20277b7072696e742024317d27290a202020206370202d2d2022}]\r'
+puts -nonewline $c8235_chan [binary format H* {414c5f424f4f54464c4153485f454e545259270a2020202073656c665f686173683d242862757379626f782073686132353673756d2022243022207c2061776b20277b7072696e742024317d27290a202020206370202d2d2022}]
+Router(tcl)#
+[TX 2026-11-01T10:57:06.850292-05:00] b'puts -nonewline $c8235_chan [binary format H* {243022202f63383233352d696e7465726e616c310a202020205b5b20242862757379626f782073686132353673756d202f63383233352d696e7465726e616c31207c2061776b20277b7072696e742024317d2729203d3d202224}]\r'
+puts -nonewline $c8235_chan [binary format H* {243022202f63383233352d696e7465726e616c310a202020205b5b20242862757379626f782073686132353673756d202f63383233352d696e7465726e616c31207c2061776b20277b7072696e742024317d2729203d3d202224}]
+Router(tcl)#
+[TX 2026-11-01T10:57:07.312023-05:00] b'puts -nonewline $c8235_chan [binary format H* {73656c665f6861736822205d5d0a2020202065786563202f62696e2f62617368202f63383233352d696e7465726e616c31202d2d72616d0a66690a0a6563686f202243383233355f494e5445524e414c5f52414d5f454e545259}]\r'
+puts -nonewline $c8235_chan [binary format H* {73656c665f6861736822205d5d0a2020202065786563202f62696e2f62617368202f63383233352d696e7465726e616c31202d2d72616d0a66690a0a6563686f202243383233355f494e5445524e414c5f52414d5f454e545259}]
+Router(tcl)#
+[TX 2026-11-01T10:57:07.778025-05:00] b'puts -nonewline $c8235_chan [binary format H* {207069643d2424220a6364202f0a6d6b646972202d70202f70726f63202f7379730a5b5b202d72202f70726f632f73656c662f737461747573205d5d207c7c206d6f756e74202d742070726f632070726f63202f70726f630a5b}]\r'
+puts -nonewline $c8235_chan [binary format H* {207069643d2424220a6364202f0a6d6b646972202d70202f70726f63202f7379730a5b5b202d72202f70726f632f73656c662f737461747573205d5d207c7c206d6f756e74202d742070726f632070726f63202f70726f630a5b}]
+Router(tcl)#
+[TX 2026-11-01T10:57:08.244254-05:00] b'puts -nonewline $c8235_chan [binary format H* {5b202d64202f7379732f6275732f706369205d5d207c7c206d6f756e74202d74207379736673207379736673202f7379730a67726570202d7120275e2f6465762f6d6d63626c6b307031202f75206578743420726f2c27202f70}]\r'
+puts -nonewline $c8235_chan [binary format H* {5b202d64202f7379732f6275732f706369205d5d207c7c206d6f756e74202d74207379736673207379736673202f7379730a67726570202d7120275e2f6465762f6d6d63626c6b307031202f75206578743420726f2c27202f70}]
+Router(tcl)#
+[TX 2026-11-01T10:57:08.711377-05:00] b'puts -nonewline $c8235_chan [binary format H* {726f632f6d6f756e74730a5b5b202428756e616d65202d7229203d3d20362e362e3935205d5d0a67726570202d712027626f6172643d61726174612027202f70726f632f636d646c696e650a5b5b2024286f64202d416e202d74}]\r'
+puts -nonewline $c8235_chan [binary format H* {726f632f6d6f756e74730a5b5b202428756e616d65202d7229203d3d20362e362e3935205d5d0a67726570202d712027626f6172643d61726174612027202f70726f632f636d646c696e650a5b5b2024286f64202d416e202d74}]
+Router(tcl)#
+[TX 2026-11-01T10:57:09.173451-05:00] b'puts -nonewline $c8235_chan [binary format H* {7831202f7379732f6669726d776172652f646576696365747265652f626173652f736f6340302f706369403837383032303030303030302f7276752d61646d696e40302f6e756d2d7276752d766673207c207472202d64202720}]\r'
+puts -nonewline $c8235_chan [binary format H* {7831202f7379732f6669726d776172652f646576696365747265652f626173652f736f6340302f706369403837383032303030303030302f7276752d61646d696e40302f6e756d2d7276752d766673207c207472202d64202720}]
+Router(tcl)#
+[TX 2026-11-01T10:57:09.642465-05:00] b'puts -nonewline $c8235_chan [binary format H* {5c6e2729203d3d203030303030303230205d5d0a0a696d6167653d2f752f63386b673262652d756e6976657273616c6b392e32362e30322e30312e5350412e62696e0a696d6167655f686173683d303834326137323130613261}]\r'
+puts -nonewline $c8235_chan [binary format H* {5c6e2729203d3d203030303030303230205d5d0a0a696d6167653d2f752f63386b673262652d756e6976657273616c6b392e32362e30322e30312e5350412e62696e0a696d6167655f686173683d303834326137323130613261}]
+Router(tcl)#
+[TX 2026-11-01T10:57:10.111314-05:00] b'puts -nonewline $c8235_chan [binary format H* {303933336630613832336262653731633562613231303966323736656534393633356135396261306132366631376630663435360a736f757263655f686173683d32336263303132386131383961656535323066323930386531}]\r'
+puts -nonewline $c8235_chan [binary format H* {303933336630613832336262653731633562613231303966323736656534393633356135396261306132366631376630663435360a736f757263655f686173683d32336263303132386131383961656535323066323930386531}]
+Router(tcl)#
+[TX 2026-11-01T10:57:10.556108-05:00] b'puts -nonewline $c8235_chan [binary format H* {3639353732653838653461393439323932356335383963323431303830326439366364386138370a70617463685f686173683d333263653131613037626465316664363130623139353161346331343332313764616563316433}]\r'
+puts -nonewline $c8235_chan [binary format H* {3639353732653838653461393439323932356335383963323431303830326439366364386138370a70617463685f686173683d333263653131613037626465316664363130623139353161346331343332313764616563316433}]
+Router(tcl)#
+[TX 2026-11-01T10:57:11.024373-05:00] b'puts -nonewline $c8235_chan [binary format H* {343538343430626263626431666333636132633339663835370a686f6f6b5f686173683d636131336132353133613336376362393435316663633535343433326664353230616138633432643064353964363162356364333836}]\r'
+puts -nonewline $c8235_chan [binary format H* {343538343430626263626431666333636132633339663835370a686f6f6b5f686173683d636131336132353133613336376362393435316663633535343433326664353230616138633432643064353964363162356364333836}]
+Router(tcl)#
+[TX 2026-11-01T10:57:11.484286-05:00] b'puts -nonewline $c8235_chan [binary format H* {653766326566666661340a0a5b5b20242862757379626f782073686132353673756d202224696d61676522207c2061776b20277b7072696e742024317d2729203d3d202224696d6167655f6861736822205d5d0a5b5b20242862}]\r'
+puts -nonewline $c8235_chan [binary format H* {653766326566666661340a0a5b5b20242862757379626f782073686132353673756d202224696d61676522207c2061776b20277b7072696e742024317d2729203d3d202224696d6167655f6861736822205d5d0a5b5b20242862}]
+Router(tcl)#
+[TX 2026-11-01T10:57:11.954282-05:00] b'puts -nonewline $c8235_chan [binary format H* {757379626f782073686132353673756d202f752f43383233354346495831207c2061776b20277b7072696e742024317d2729203d3d202224736f757263655f6861736822205d5d0a6370202f752f43383233354346495831202f}]\r'
+puts -nonewline $c8235_chan [binary format H* {757379626f782073686132353673756d202f752f43383233354346495831207c2061776b20277b7072696e742024317d2729203d3d202224736f757263655f6861736822205d5d0a6370202f752f43383233354346495831202f}]
+Router(tcl)#
+[TX 2026-11-01T10:57:12.418247-05:00] b'puts -nonewline $c8235_chan [binary format H* {63383233352d666978310a5b5b20242862757379626f782073686132353673756d202f63383233352d66697831207c2061776b20277b7072696e742024317d2729203d3d202224736f757263655f6861736822205d5d0a656368}]\r'
+puts -nonewline $c8235_chan [binary format H* {63383233352d666978310a5b5b20242862757379626f782073686132353673756d202f63383233352d66697831207c2061776b20277b7072696e742024317d2729203d3d202224736f757263655f6861736822205d5d0a656368}]
+Router(tcl)#
+[TX 2026-11-01T10:57:12.887236-05:00] b'puts -nonewline $c8235_chan [binary format H* {6f202743383233355f494e5445524e414c5f494e5055545f4841534845535f50415353270a2f62696e2f62617368202f63383233352d66697831202d2d707265706172652d6f6e6c790a5b5b20242862757379626f7820736861}]\r'
+puts -nonewline $c8235_chan [binary format H* {6f202743383233355f494e5445524e414c5f494e5055545f4841534845535f50415353270a2f62696e2f62617368202f63383233352d66697831202d2d707265706172652d6f6e6c790a5b5b20242862757379626f7820736861}]
+Router(tcl)#
+[TX 2026-11-01T10:57:13.357961-05:00] b'puts -nonewline $c8235_chan [binary format H* {32353673756d202f7573722f62696e6f732f62696e2f6c61756e63685f6e65742e7368207c2061776b20277b7072696e742024317d2729203d3d20222470617463685f6861736822205d5d0a5b5b20242862757379626f782073}]\r'
+puts -nonewline $c8235_chan [binary format H* {32353673756d202f7573722f62696e6f732f62696e2f6c61756e63685f6e65742e7368207c2061776b20277b7072696e742024317d2729203d3d20222470617463685f6861736822205d5d0a5b5b20242862757379626f782073}]
+Router(tcl)#
+[TX 2026-11-01T10:57:13.825479-05:00] b'puts -nonewline $c8235_chan [binary format H* {686132353673756d202f63383233352d626f756e6431362d686f6f6b2e7368207c2061776b20277b7072696e742024317d2729203d3d202224686f6f6b5f6861736822205d5d0a756d6f756e74202f750a6563686f2027433832}]\r'
+puts -nonewline $c8235_chan [binary format H* {686132353673756d202f63383233352d626f756e6431362d686f6f6b2e7368207c2061776b20277b7072696e742024317d2729203d3d202224686f6f6b5f6861736822205d5d0a756d6f756e74202f750a6563686f2027433832}]
+Router(tcl)#
+[TX 2026-11-01T10:57:14.289117-05:00] b'puts -nonewline $c8235_chan [binary format H* {33355f494e5445524e414c5f52454144593a20626f6f74666c61736820756e6d6f756e7465643b2065786563202f696e69742066726f6d205049442031270a65786563202f696e69740a}]\r'
+puts -nonewline $c8235_chan [binary format H* {33355f494e5445524e414c5f52454144593a20626f6f74666c61736820756e6d6f756e7465643b2065786563202f696e69742066726f6d205049442031270a65786563202f696e69740a}]
+Router(tcl)#
+[TX 2026-11-01T10:57:14.752583-05:00] b'close $c8235_chan\rtclquit\rverify /sha512 bootflash:C4\r'
+close $c8235_chan
+Router(tcl)#tclquit
+Router#verify /sha512 bootflash:C4
+.Done!
+verify /sha512 (bootflash:C4) = b0216d05a92d3cff755fd35e0cbad777070be05aca2738b64124d30276c6016f075e14489880e399db9c6d6154aeb70bb0e68b7411d4bf57c8ee4090d30b3b4c
+
+
+Router#
+[TX 2026-11-01T10:57:24.726645-05:00] b'copy startup-config bootflash:C8235C-PRE-INSTALL-startup.cfg\r'
+copy startup-config bootflash:C8235C-PRE-INSTALL-startup.cfg
+Destination filename [C8235C-PRE-INSTALL-startup.cfg]? 
+[TX 2026-11-01T10:57:28.237282-05:00] b'\r'
+
+3320 bytes copied in 0.084 secs (39524 bytes/sec)
+Router#
+[TX 2026-11-01T10:57:32.058958-05:00] b'copy running-config bootflash:C8235C-PRE-INSTALL-running.cfg\r'
+copy running-config bootflash:C8235C-PRE-INSTALL-running.cfg
+Destination filename [C8235C-PRE-INSTALL-running.cfg]? 
+[TX 2026-11-01T10:57:37.531357-05:00] b'\r'
+
+7437 bytes copied in 0.388 secs (19168 bytes/sec)
+Router#
+[TX 2026-11-01T10:57:42.697438-05:00] b'verify /sha512 bootflash:C8235C-PRE-INSTALL-startup.cfg\rverify /sha512 bootflash:C8235C-PRE-INSTALL-running.cfg\rshow archive config differences nvram:startup-config system:running-config\r'
+verify /sha512 bootflash:C8235C-PRE-INSTALL-startup.cfg
+.Done!
+verify /sha512 (bootflash:C8235C-PRE-INSTALL-startup.cfg) = b898e13f012bcbb8d0912828cc270e070af4badc77ef3e74fa2e38f86d6d3a49ae71ccce2f7489bab10919a7970a675d56c6662f779e607ef86ea57bd8415f13
+
+
+Router#verify /sha512 bootflash:C8235C-PRE-INSTALL-running.cfg
+.Done!
+verify /sha512 (bootflash:C8235C-PRE-INSTALL-running.cfg) = 5f77b107c4ff90f879ae47618c45e5e89d56ccc86adc13f558601f239f527f6c8e97f9139141bbe37c0ebd8777ab12dfba436d75efb11eb80a41bbd8c2944928
+
+
+Router#show archive config differences nvram:startup-config system:running-config
+!Contextual Config Diffs:
+crypto pki certificate chain TP-self-signed-691797532
+ +certificate self-signed 01
+  +3082042E 30820296 A0030201 02020101 300D0609 2A864886 F70D0101 0D050030
+  +30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
+  +69666963 6174652D 36393137 39373533 32301E17 0D323530 35323931 38353033
+  +385A170D 33353035 32393138 35303338 5A303031 2E302C06 03550403 1325494F
+  +532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3639 31373937
+  +35333230 8201A230 0D06092A 864886F7 0D010101 05000382 018F0030 82018A02
+  +82018100 C2E13CD1 723A97C1 3EB516C0 0D7E460B DEFEDFBE ED0204C5 44BF6638
+  +A1AEDB14 7100A868 771C840B 39048D53 4C3B6397 D36120B7 9FBC21D5 118989D8
+  +5DD22EA2 0CD619D1 00D93088 50A13CC1 3D18AAF7 CE6BCC92 DAD12EB9 2C709865
+  +93F0E291 0ACE0EED 0D67B4A0 62BE65DA 4A5FC38B 10BF5D7A 88769D9E 98E835C3
+  +F6EB10AA A6504EB7 898E09E3 5A6A36E6 D6D873A8 86DCF6DE 0F394A49 65906CD2
+  +5F9B97F2 276C6224 5563B81C 375263A1 C82D2344 79FDC180 C560EDA8 12E22D1F
+  +28FD9F09 8015E2D7 ED9CA0C3 1CF1CE39 F02B590A AF884C3F 04E339CB 84E340EF
+  +9F103391 AF29A3BB AF930B31 4936DC19 2938B3F1 D76DD28C E099B93F 4FF8883D
+  +C7AB8035 2B56DB87 9CB83910 9891C678 B3F2655F D55A2CA6 B12E165A 1897E646
+  +46EB7F53 736CB9D4 19FF4AC7 122ACE1D E107E0C8 D440F461 394B377A 511B504F
+  +4B78F52D 141A38B3 89F0AFDD C697D5CB F2B5660C 80BCEBFC C60ECE6D DC3A730F
+  +B27B227F 648AD2D4 61C751D4 003BF2BE 5093D993 4E7A2FC3 AEB9A152 0122530A
+  +BDD62829 02030100 01A35330 51301D06 03551D0E 04160414 C199FCC6 CF9DE7BD
+  +567A8FDF F9EEA8A1 B301DBAD 301F0603 551D2304 18301680 14C199FC C6CF9DE7
+  +BD567A8F DFF9EEA8 A1B301DB AD300F06 03551D13 0101FF04 05300301 01FF300D
+  +06092A86 4886F70D 01010D05 00038201 8100104A 74945A35 B1383004 A430AE9D
+  +1D598C97 33CA5698 6140368C 4522259A 28CC41C9 51A2AA27 E4C6B24C 2ECF2732
+  +B27E3FA1 A4382426 49775BD3 CB6F5E02 F98A8F75 1A3F87DA 401F422B DF7D54CE
+  +A7425392 211FAD8B 6C721F42 50904FB3 BA2AA9C3 30480747 2F051646 DD176F0D
+  +09EFBD6A C9E837D3 D3CF73E9 AA8C2E06 6B908571 4CB2A512 F5240913 C50EEBE3
+  +9041C837 43FE728D 672FED94 C940A950 2C9A93B3 4A9E4696 2B9DF547 76F97606
+  +EC82FB2C 8B340CCC B31D9D34 26CB1099 A3E65408 A7E28A3F 2E973EC0 094481D9
+  +D2BB432D 58D39131 3BB40C41 07134A6B 2C19EDE3 215C6567 9A04D395 D7EAE07D
+  +C3C76F02 5E4D4246 2DAD802A 1C91E427 CF77FF75 40825CF7 DBD47ECF 0D0283C1
+  +E13307F5 A5E985F9 9F137E98 2B4067D6 3B9F7119 8F84DEBD 66C771C8 4E5BE464
+  +E20403AB AF432AD3 DD8CE4E2 FF7497E5 C6568739 69FCE526 362B4392 A5916172
+  +9B16D28E B601A543 04FE6FBB 85DF4332 BAB34F1C 50E867AF 07B35748 ECC5E14A
+  +E27E2C70 DB3555FA 18626BC8 AC6187A1 905A
+  +	quit
+crypto pki certificate chain SLA-TrustPoint
+ +certificate ca 01
+  +30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030
+  +32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363
+  +6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934
+  +3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305
+  +43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720
+  +526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030
+  +82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D
+  +CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520
+  +1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE
+  +4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC
+  +7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188
+  +68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7
+  +C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191
+  +C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44
+  +DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201
+  +06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85
+  +4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500
+  +03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905
+  +604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B
+  +D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8
+  +467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C
+  +7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B
+  +5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678
+  +80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB
+  +418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0
+  +D697DF7F 28
+  +	quit
+interface TwoGigabitEthernet0/0/6
+ +no ip address
+ +shutdown
+interface TwoGigabitEthernet0/0/7
+ +no ip address
+ +shutdown
+interface TenGigabitEthernet0/0/8
+ +no ip address
+ +shutdown
+interface TenGigabitEthernet0/0/9
+ +no ip address
+ +shutdown
+interface GigabitEthernet0
+ +shutdown
+interface Vlan1
+ +no ip address
++ip http server
+-vrf definition 65500
+ -address-family ipv4
+-logging console emergencies
+-ip dhcp pool PnPWebUI1
+ -vrf 65500
+ -host 192.168.1.3 255.255.255.0
+ -client-identifier 0077.6562.7569
+ -dns-server 192.168.1.1
+-ipv6 unicast-routing
+crypto pki certificate chain TP-self-signed-691797532
+ -certificate self-signed 01 nvram:IOS-Self-Sig#1.cer
+crypto pki certificate chain SLA-TrustPoint
+ -certificate ca 01 nvram:CiscoLicensi#1CA.cer
+-username webui privilege 15 one-time password 0 cisco
+interface Vlan1
+ -vrf forwarding 65500
+ -ip address 192.168.1.1 255.255.255.0
+-no ip http server
+line con 0
+ -exec-timeout 0 0
+
+Router#
+[TX 2026-11-01T10:57:55.600479-05:00] b'configure terminal\rboot system bootflash:c8kg2be-universalk9.26.02.01.SPA.bin\rend\rshow archive config differences bootflash:C8235C-PRE-INSTALL-running.cfg system:running-config\r'
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#boot system bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
+Warning: Booting with bundle mode will be deprecated in the near future. Migration to install mode is required.
+Router(config)#end
+Router#show archive config differences bootflash:C8235C-PRE-INSTALL-running.cfg system:running-config
+!Contextual Config Diffs:
++boot system bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
+
+Router#
+*May 29 2025 18:59:15.827: %SYS-5-CONFIG_I: Configured from console by console
+[TX 2026-11-01T10:58:01.151542-05:00] b'write memory\rshow bootvar\rinstall add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit\r'
+write memory
+Building configuration...
+[OK]
+Router#show bootvar
+BOOT variable = bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x1820
+
+Standby not ready to show bootvar
+
+Router#install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit
+
+*May 29 2025 18:59:23.794: %SYS-6-PRIVCFG_ENCRYPT_SUCCESS: Successfully encrypted private config file
+*May 29 2025 18:59:23.818: %INSTALL-5-INSTALL_START_INFO: R0/0: install_mgr: Started install add_activate_commit bootflash:c8kg2be-universalk9.26.02.01.SPA.bininstall_add_activate_commit: START Thu May 29 18:59:23 UTC 2025
+install_add: START Thu May 29 18:59:23 UTC 2025
+install_add: Adding IMG

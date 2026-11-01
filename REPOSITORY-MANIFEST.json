@@ -1301,8 +1301,18 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
+      "bytes": 68136,
+      "path": "router-console-logs/20261101-103429-C8235-C-diagnostic-and-first-init.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 61438,
       "path": "router-console-logs/20261101-103429-C8235-C-pre-init-preservation.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 94321,
+      "path": "router-console-logs/20261101-105024-C8235-C-first-IOS-preparation.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
@@ -1338,9 +1348,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 131863,
+      "bytes": 134200,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "f3d297b1704d835b0059fdb123832403fc1c70139f2b71fbadc2a5f63b3ef021"
+      "sha256": "f752d8cf4b24aff10baa4e3716657cd05da91be3060bbfdaf6970d70b3cc1b1a"
     },
     {
       "bytes": 106687,
@@ -1523,9 +1533,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 24431,
+      "bytes": 24502,
       "path": "README.md",
-      "sha256": "d150f52639e2632ad9dc463f6fbb089f3d3c05a5eb3daa2fd7c3a0cb732c254e"
+      "sha256": "438c3d8ecdc72ce86a7042fddf0ddfff3083e8e86a7f2084c552aaf237e7cf2e"
     },
     {
       "bytes": 3934,
@@ -1623,9 +1633,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 381376,
+      "bytes": 383298,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "f6a401bb7d11a000552c289a8ae37e164809d5e3661aaf87891c7094bc1b0b72"
+      "sha256": "9c02f0ed296637d0d329815b0d82917d91fbc9fc0cdef1fe022b17c5c6807f0c"
     },
     {
       "bytes": 6850655,
@@ -1783,9 +1793,9 @@
       "sha256": "4eb51bc4627a08ce08477d5f72e3bd902c847491a492a9472f7d97ff26567baf"
     },
     {
-      "bytes": 13943,
+      "bytes": 19558,
       "path": "c8235-recovery/c8235-c-baseline-20261101/results.json",
-      "sha256": "22aa67077cc64edcfd94c6aed04ec4d344ac27d059c9bf3a991d039e04f6d909"
+      "sha256": "6a70c66eedf2a4951e2a78be11df3a5fb4cc0933639982134fac4f6b20790910"
     },
     {
       "bytes": 82424,
@@ -2608,9 +2618,24 @@
       "sha256": "45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052"
     },
     {
-      "bytes": 2263,
+      "bytes": 2504,
+      "path": "experimental-recovery/c8235-c-bootflash-20261101/auto-bootflash.sh",
+      "sha256": "ff1b0cfd25517d54d1d1cdc718fac3dd50da11dae9cd93bbcbf4d2a3cb4425c4"
+    },
+    {
+      "bytes": 2514,
+      "path": "experimental-recovery/c8235-c-bootflash-20261101/candidate.json",
+      "sha256": "55ff4decafc0ecb6c172dc2856408f207efb08ea107b65863dfc009f7ec11c2a"
+    },
+    {
+      "bytes": 3228,
+      "path": "experimental-recovery/c8235-c-bootflash-20261101/observe-one-autoboot.py",
+      "sha256": "007b6f03c753dab815989573375891ba183cff734735bee661284c79a0358922"
+    },
+    {
+      "bytes": 2565,
       "path": "experimental-recovery/c8235-c-bound16-20261101/TRIAL.txt",
-      "sha256": "5064b16d83fc573e4f7315c3721f76ea6adddb30185d022c0993a6fe402a9008"
+      "sha256": "7083e1a78ca0b6d235a5c047bb769f9dd747293c5ec93c8d04efbaa3f587216f"
     },
     {
       "bytes": 3056,
@@ -3813,9 +3838,19 @@
       "sha256": "94e7e9af9754551323b9d6dad6054e52486f21b26731e5617fdd96a018f7545b"
     },
     {
+      "bytes": 68138,
+      "path": "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-diagnostic-and-first-init.log",
+      "sha256": "a572d268aee43f90ea90f89a2c2649a5cfced2d517659a10291d6e1b835d3b90"
+    },
+    {
       "bytes": 61440,
       "path": "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-pre-init-preservation.log",
       "sha256": "af90bb6dbbbe59c46c34ab10545c048ebbe3566dfdced37fc4eee2bfa8e9a175"
+    },
+    {
+      "bytes": 94165,
+      "path": "sanitized-evidence/router-console-logs/20261101-105024-C8235-C-first-IOS-preparation.log",
+      "sha256": "3b12d6974e618a3115fac05d95b17e7478cf666ee7a6aa9e9687760bdc9395df"
     },
     {
       "bytes": 16688,
@@ -3873,9 +3908,9 @@
       "sha256": "d2be80c5b1909dc0a669eb46e94c4e4328c84cc541ef6dc29b8fd9c2e6095932"
     },
     {
-      "bytes": 15813,
+      "bytes": 15847,
       "path": "scripts/repository_tools.py",
-      "sha256": "6586c7a8f3c3d75b7eee52102ae42445138fb42c10bf6b08621836c580838b8d"
+      "sha256": "7b10936e569ddd8317a17b6d6db5e6579ee6f45aa5cb4fb038b41a5b0db54422"
     },
     {
       "bytes": 2245,
@@ -3886,6 +3921,11 @@
       "bytes": 8253,
       "path": "tests/test_c8235_b_console_boot.py",
       "sha256": "38d6b703473c84adb11b8d86378fb3bd7555ee54726276defb1ba4caa716a872"
+    },
+    {
+      "bytes": 2431,
+      "path": "tests/test_c8235_c_autoboot_observer.py",
+      "sha256": "dd952bef482a00191c5ac2ae4e2251052c1ad9cbf0463fb45d16139df8b13b4d"
     },
     {
       "bytes": 2195,
@@ -3928,9 +3968,9 @@
       "sha256": "e5ee81fc1df9e4b1836daab945f177967cf4e50b2af036e5ba58fe10341386e5"
     },
     {
-      "bytes": 6128,
+      "bytes": 6858,
       "path": "tests/test_repository_tools.py",
-      "sha256": "8fbe3d475512a16ba9f7240ed4dfe5b667265bb7176ce29b7a2bb55fa96f45ad"
+      "sha256": "782dad8ad65c82d1426fa56b5bdfad1b7134183dea1867088ef2107cec41a8a3"
     }
   ],
   "limitations": "Pattern and known-value scanning cannot prove absence of every unknown binary secret. Original restore images are kept byte-exact; any detected credential requires excluding the original, not patching it.",
@@ -4105,12 +4145,14 @@
     "sanitized-evidence/router-console-logs/20261101-093705-C8235-B-install-cold-ready-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-101618-C8235-B-automatic-package-cleanup.log",
     "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-ROMMON-baseline.log",
-    "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-pre-init-preservation.log"
+    "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-diagnostic-and-first-init.log",
+    "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-pre-init-preservation.log",
+    "sanitized-evidence/router-console-logs/20261101-105024-C8235-C-first-IOS-preparation.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 261,
-    "included_bytes_without_manifest": 700908375,
-    "included_files_without_manifest": 525
+    "excluded_local_files": 263,
+    "included_bytes_without_manifest": 701092366,
+    "included_files_without_manifest": 531
   }
 }

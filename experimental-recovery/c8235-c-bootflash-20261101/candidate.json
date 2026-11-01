@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-01",
+  "timezone": "America/New_York",
+  "chassis": "C8235-C / FGL2835L41Z",
+  "soc_uuid": "13 FF FF 87 79 AD FB 83 CA 80 82 43",
+  "status": "deployed_exact_hashes_verified_not_yet_booted",
+  "loader": {
+    "source": "experimental-recovery/c8235-c-bootflash-20261101/auto-bootflash.sh",
+    "bootflash_name": "C4",
+    "bytes": 2504,
+    "sha256": "ff1b0cfd25517d54d1d1cdc718fac3dd50da11dae9cd93bbcbf4d2a3cb4425c4",
+    "sha512": "b0216d05a92d3cff755fd35e0cbad777070be05aca2738b64124d30276c6016f075e14489880e399db9c6d6154aeb70bb0e68b7411d4bf57c8ee4090d30b3b4c"
+  },
+  "fix": {
+    "source": "experimental-recovery/c8235-c-bound16-20261101/boot-bound16.sh",
+    "bootflash_name": "C8235CFIX1",
+    "bytes": 3056,
+    "sha256": "23bc0128a189aee520f2908e169572e88e4a9492925c589c2410802d96cd8a87",
+    "sha512": "4ff8d92eee7f4d139e6da82810ec42e0a0bf910feba0c5d9a77de0e894b1db1337593bdeeea7dab6f32eaf4a5abc3270225ac5a194df01358afacb84b295f93b"
+  },
+  "USER_BOOT_PARAM": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/C4&&exec${IFS}bash$IFS/u/C4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+  "set_command_bytes": 239,
+  "derivation": "B4 original preserved. Only chassis comments/message, deployed loader name, correction filename and expected correction-source hash change; same read-only mount, exact image/kernel/board/VF/source/launch/hook guards and RAM-only correction.",
+  "target": "Internal 26.2.1 install mode using packages.conf, with exact .bin retained as required source guard/fallback. No B configuration/IP addresses copied.",
+  "reference": "https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ios_tcl/command/ios-tcl-cr-book/ios-tcl-cr-c1.html",
+  "validation": "Offline bash -n passes; native bootflash loader/fix full SHA512 match source. C-specific observer has four pipe-only guard tests; all71 offline tests pass, including one-time-password and config-diff redaction.",
+  "transfer": {
+    "method": "IOS native Tcl binary hex writes,90-byte source chunks under240command characters; no Ethernet",
+    "initial_failure": "280-byte source chunks exceeded native Tcl line limit; incomplete statements left C4 at0bytes. Ctrl-C, re-entry/reset of parser, then rewrite of own empty scratch candidate. Each shortened chunk checked for normal prompt/no errors; final exact SHA512 passes. No failed candidate executed.",
+    "verified_at": "2026-11-01T10:57:14.752583-05:00"
+  }
+}

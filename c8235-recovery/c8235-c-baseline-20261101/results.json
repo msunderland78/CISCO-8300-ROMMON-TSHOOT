@@ -3,19 +3,24 @@
   "date": "2026-11-01",
   "timezone": "America/New_York (EST UTC-05:00)",
   "tracking_id": "C8235-C",
-  "status": "first_corrected_IOS_startup_in_progress",
+  "status": "first_corrected_USB_bundle_health_passed_native_install_conversion_started",
   "identity": {
     "owner_description": "Third C8235-G2; power, serial and USB moved from router #2",
-    "chassis_serial": "pending label/native identification",
+    "chassis_serial": "FGL2835L41Z",
     "owner_label_serial": "FGL2835SL41Z",
-    "soc_uuid": "13 FF FF 87 79 AD FB 83 CA 80 82 43"
+    "soc_uuid": "13 FF FF 87 79 AD FB 83 CA 80 82 43",
+    "reported_pid": "C8230X-8M2X",
+    "vid": "V00",
+    "R0_serial": "FOC28292GX9",
+    "serial_correction": "Owner typed FGL2835SL41Z; native inventory/version consistently report FGL2835L41Z. Preserve owner text as earlier report.",
+    "board_attribution_unresolved": "Fresh C R0 reports FOC28292GX9, also recorded historically from A PCB photographs. A chassis FGL2835L42B and C chassis/UUID remain separate; earlier photograph attribution or duplicate prototype board ID/history requires review. No physical remapping established."
   },
   "physical_confirmation": {
     "power": "owner now confirms powered on after capture armed",
     "cooling": "heatsink/fans installed",
     "battery": "installed",
     "assembly": "confirmed by owner",
-    "connections": "moved power, serial and USB; Ethernet details pending",
+    "connections": "Power, serial and USB; no Ethernet",
     "programmer_probes": "none",
     "other_console_owner": "none",
     "ethernet": "none connected"
@@ -26,7 +31,15 @@
     "private_capture": ".git/recovery-private/c8235-c-baseline-20261101/20261101-103429/console.log",
     "armed_at": "2026-11-01T10:34:29.770157-05:00",
     "behavior": "Reuse Console/hold only; stop on UUID banner with Ctrl-C for inspection; no B-specific boot/patch routine invoked",
-    "closed": false
+    "closed": true,
+    "closed_at": "2026-11-01T10:50:24-05:00",
+    "evidence": {
+      "raw_path": "router-console-logs/20261101-103429-C8235-C-diagnostic-and-first-init.log",
+      "public_path": "sanitized-evidence/router-console-logs/20261101-103429-C8235-C-diagnostic-and-first-init.log",
+      "bytes": 68136,
+      "sha256": "8acecdf5e5aabac23cba3e185b8f093cd2bdf19507dd10ae17295798f970d1a7",
+      "snapshot_of_active_capture": false
+    }
   },
   "comparison_baseline_B": {
     "chassis_serial": "FGL2835LBHU",
@@ -46,9 +59,9 @@
     "boot_rom_reported": "Boot ROM0",
     "soc_uuid": "13 FF FF 87 79 AD FB 7C 6D E0 81 A7",
     "cpld_reported": "24073021",
-    "limitations": "Reported versions and paths are not full-chip byte identity or physical bank mapping. B-specific loopback remedy is not yet validated on C."
+    "limitations": "Reported matching BIOS/ROMMON/CPLD versions do not establish full-chip byte identity or physical bank mapping. C RAM correction reaches stable IOS; uncorrected native IOS comparison was not performed."
   },
-  "next": "Observe native initialization of independently verified zero-filled user area; validate actual chassis serial, partition layout, platform and keepalives. No C IOS success yet.",
+  "next": "Observe native install conversion; configure/readback/save exact C4 ROMMON parameter and automatic boot settings, then verify internal install warm and USB-absent cold startup. No power cycle requested yet.",
   "firmware_comparison": [
     {
       "field_prefix": "Firmware Version:",
@@ -154,7 +167,7 @@
     "config_register": "0x1820",
     "config_register_menu": "Read; declined change with n",
     "bootflash": "dev lists internal flash, but dir bootflash: returns Device not found bootflash:",
-    "usb": "Readable directory; exact 26.2.1 filename and 1048008916-byte size listed; new hash verification pending",
+    "usb": "Readable 1048008916-byte26.2.1 image; subsequent full Linux SHA256 and internal-copy IOS SHA512 match exact B source.",
     "meminfo": "Unexpected platform; No devices defined. Main memory 16271 MB; NVRAM 128 KB",
     "read_only_command_typo": "An unintended non-ASCII meminfo spelling was rejected; corrected read-only meminfo then ran.",
     "private_snapshot": {
@@ -177,7 +190,7 @@
     "readback_matches": true,
     "command": "boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin",
     "sent_at": "2026-11-01T10:37:04.326127-05:00",
-    "status": "RAM shell reached; initial 9600 shell changed to 115200, no init continuation",
+    "status": "RAM diagnostics and preservation completed; normal init continued after verified correction preparation.",
     "usb_image_sha256": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456",
     "usb_image_matches_exact_B_source": true,
     "continued_init_at": "2026-11-01T10:47:01.362628-05:00"
@@ -221,7 +234,7 @@
       "verification_started_at": "2026-11-01T10:43:54.187997-05:00",
       "readback_pid": 249,
       "all_zero_comparison_pid": 250,
-      "verification_method": "Two independent pipefail pipelines: gzip-decompressed backup vs complete /dev/mmcblk0 second read; decompressed backup vs /dev/zero for exact20,845,690,880-byte length. Status pending.",
+      "verification_method": "Full gzip-decompressed backup compared byte-for-byte with second complete device read; corrected full-stream NUL filtering/counting established blankness. Initial cmp -n count rejection retained below.",
       "compressed_sha256": "f658b034857cc998a8d2fbaa55905cba4fc723a295e584c2a8eb0f6855056af8",
       "all_zero_first_attempt": {
         "status": "invalid_count_not_a_data_mismatch",
@@ -248,7 +261,7 @@
         "snapshot_of_active_capture": true
       }
     },
-    "startup_risk": "Native check_partitions.sh can rewrite invalid partition tables; normal init remains held until preservation/review.",
+    "startup_risk": "Native check_partitions initialized the previously invalid/verified blank eMMC only after full preservation/readback.",
     "emmc_reported_attributes": {
       "life_time": "0x01 0x01",
       "pre_eol_info": "0x01",
@@ -257,7 +270,7 @@
       "interpretation": "Raw sysfs values only; no independent hardware-health conclusion"
     },
     "native_initialization": {
-      "status": "partitioning_complete_filesystem_initialization_messages_observed",
+      "status": "native_partition_and_filesystem_initialization_completed_bootflash_and_nvram_accessible",
       "native_messages": [
         "PART_INVALID",
         "PART_REPAIR",
@@ -265,7 +278,12 @@
         "FILESYS_INVALID/FILESYS_REPAIR for bootflash1,bootflash5,bootflash6,bootflash7,bootflash8"
       ],
       "scope": "Native startup writes previously full-read/verified zero-filled eMMC user area. No manual formatting or cross-chassis image restore.",
-      "native_clock": "May29,2025 is incorrect; actual session November1,2026 EST"
+      "native_clock": "May29,2025 is incorrect; actual session November1,2026 EST",
+      "bootflash_total_bytes": 20229492736,
+      "bootflash_free_bytes_initial": 18120863744,
+      "nvram_total_bytes": 33554432,
+      "nvram_free_bytes_initial": 33531446,
+      "initial_warnings": "Failed to initialize nvram and backupnvram occurred before first setup; later native configuration save returned OK and startup-config became readable. Earlier warnings retained."
     }
   },
   "loopback_preflight": {
@@ -274,7 +292,7 @@
     "num_rvu_vfs": 32,
     "launch_net_sha256": "f7d617bd80362c4bc564fc2c848bd95ecf84251be0d11e1707a95ca301d8cdc4",
     "matches_B_source": true,
-    "fix_applied": false
+    "fix_applied": true
   },
   "tpm_observation": "Kernel reports TPM self-test error256 and manual startup, same warning class as B; cause unresolved, no TPM commands issued.",
   "candidate": {
@@ -283,8 +301,8 @@
     "bytes": 3056,
     "purpose": "C-specific trial copy of established B RAM-only loopback correction",
     "derivation": "B source preserved; only comments changed to bind C and its fresh ROMMON UUID. Noncomment code compared equal.",
-    "validation": "bash -n passed; no live application yet",
-    "status": "RAM_patch_prepared_pass_normal_init_started",
+    "validation": "Offline/native bash -n and exact transfer/patch/hook hashes pass; runtime BEGIN and COMPLETE observed.",
+    "status": "runtime_hook_complete_first_IOS_health_pass",
     "router_path": "/C8235C-FIX1",
     "transfer_verified_at": "2026-11-01T10:42:30.691732-05:00",
     "router_sha256_matches": true,
@@ -294,5 +312,92 @@
     "patched_launch_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857",
     "hook_sha256": "ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4",
     "runtime_hook": "C8235_BOUND16_HOOK_BEGIN and C8235_BOUND16_HOOK_COMPLETE observed after init"
+  },
+  "current_console": {
+    "private_capture": ".git/recovery-private/c8235-c-baseline-20261101/20261101-105024-ios/console.log",
+    "session": 1629,
+    "settings": "115200 8N1 no flow",
+    "closed": false,
+    "behavior": "Private secret placeholder substituted only within restricted console capture; generic observer stops any reset at UUID. No automatic boot.",
+    "evidence": {
+      "raw_path": "router-console-logs/20261101-105024-C8235-C-first-IOS-preparation.log",
+      "public_path": "sanitized-evidence/router-console-logs/20261101-105024-C8235-C-first-IOS-preparation.log",
+      "bytes": 94321,
+      "sha256": "4034059299dd2ec106acbf3bb58162b8456a6bbd968f53bd8e4d518086a86f10",
+      "snapshot_of_active_capture": true
+    }
+  },
+  "first_IOS": {
+    "mode": "26.02.01 /26.02.1 USB bundle",
+    "image": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin",
+    "cpld": "24073021",
+    "config_register": "0x1820",
+    "health": {
+      "start": "2026-11-01T10:51:13.291150-05:00",
+      "end": "2026-11-01T10:56:17.649395-05:00",
+      "duration_seconds": 304.358245,
+      "CPP_pid": 20780,
+      "CPP_session": 18611,
+      "unchanged": true,
+      "keepalive_samples": [
+        {
+          "at": "2026-11-01T10:51:13.291150-05:00",
+          "rx": 55,
+          "tx": 55,
+          "miss": 0
+        },
+        {
+          "at": "2026-11-01T10:55:37.182280-05:00",
+          "rx": 187,
+          "tx": 187,
+          "miss": 0
+        },
+        {
+          "at": "2026-11-01T10:56:17.649395-05:00",
+          "rx": 207,
+          "tx": 207,
+          "miss": 0
+        }
+      ],
+      "send_errors": 0,
+      "platform": "R0/F0 ok active,0/0 ok,P0 ok",
+      "reset_observed": false,
+      "result": "sampled five-minute idle check passes; no Ethernet or traffic test"
+    },
+    "final_environment": {
+      "inlet_C": 34,
+      "outlet_C": 34,
+      "CPU_C": 52,
+      "main_12V_mV": 12083,
+      "main_5V_mV": 4943,
+      "current_mA": 1533,
+      "power_W": 17,
+      "12V_DG_ST": "0mV/Critical_Low; unchanged unresolved reported sensor"
+    },
+    "setup": "Declined general setup;26.2.1 required new enable secret. Unique value stored only in restricted private recovery file, save option2 returned OK at10:50:38. No B config copied.",
+    "pre_install_config": {
+      "startup_file": "bootflash:C8235C-PRE-INSTALL-startup.cfg",
+      "startup_bytes": 3320,
+      "startup_sha512": "b898e13f012bcbb8d0912828cc270e070af4badc77ef3e74fa2e38f86d6d3a49ae71ccce2f7489bab10919a7970a675d56c6662f779e607ef86ea57bd8415f13",
+      "running_file": "bootflash:C8235C-PRE-INSTALL-running.cfg",
+      "running_bytes": 7437,
+      "running_sha512": "5f77b107c4ff90f879ae47618c45e5e89d56ccc86adc13f558601f239f527f6c8e97f9139141bbe37c0ebd8777ab12dfba436d75efb11eb80a41bbd8c2944928",
+      "diff": "Native startup defaults differ from settled running state: certificate representation and factory PnP/WebUI/VRF/port defaults. Both preserved. Later running diff contains only added internal bundle boot entry."
+    },
+    "read_only_command_error": "show platform software process list slot fp active name cpp_cp_svr rejected; corrected existing F0 syntax succeeded."
+  },
+  "internal_preparation": {
+    "record": "experimental-recovery/c8235-c-bootflash-20261101/candidate.json",
+    "image_bytes": 1048008916,
+    "copy_seconds": 70.72,
+    "image_sha512": "a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c52115fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02",
+    "image_hash_matches": true,
+    "loader_hash_matches": true,
+    "fix_hash_matches": true,
+    "install_command_started_at": "2026-11-01T10:58:01.151542-05:00",
+    "install_command": "install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit",
+    "status": "conversion command sent; native result and first internal startup pending",
+    "persistent_parameter": "Not set/saved yet; current correction remains RAM-only",
+    "target": "packages.conf INSTALL with exact .bin retained as loader guard/fallback"
   }
 }

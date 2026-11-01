@@ -56,6 +56,19 @@ class PublicationTests(unittest.TestCase):
         self.assertNotIn(value.encode(), result)
         self.assertEqual([], TOOLS.findings(result, {value}))
 
+    def test_one_time_username_password_is_discovered_and_redacted(self):
+        value = "demo" + "7"
+        for prefix in ("", "-", "+", "  -", " + "):
+            with self.subTest(prefix=prefix):
+                content = (prefix + "username onboarding privilege 15 one-time "
+                           + "password 0 " + value + "\n")
+                self.assertEqual([value], list(TOOLS.config_values(content)))
+                self.assertTrue(TOOLS.findings(content.encode()))
+                result = TOOLS.sanitize(content.encode(), set())
+                self.assertNotIn(value.encode(), result)
+                self.assertIn(b"one-time password ", result)
+                self.assertEqual([], TOOLS.findings(result))
+
     def test_weak_attempted_default_redacted_only_in_password_reply(self):
         value = "ci" + "sco"
         content = ("manufacturer=" + value + "\nPassword:\n"

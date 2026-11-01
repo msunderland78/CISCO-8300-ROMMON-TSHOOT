@@ -10,6 +10,38 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-C FIRST IOS HEALTH PASS; INTERNAL INSTALL PREPARATION — 2026-11-01,10:58 EST
+Native chassis C8230X-8M2X/FGL2835L41Z (owner typed FGL2835SL41Z); UUID remains
+13 FF FF 87 79 AD FB 83 CA 80 82 43. CPLD24073021 matches B, as do all16 early
+firmware banner fields. No BIOS/ROMMON-code upgrade needed or attempted.
+R0 reports FOC28292GX9, conflicting with historical A PCB-photo attribution.
+Preserve both observations; chassis/UUID identities remain separate. Attribution
+or duplicate prototype board identity requires later review, not a board swap claim.
+
+After full blank-user-area backup/readback, native init completed partition and
+filesystem repairs. Bootflash20,229,492,736 bytes/initial18,120,863,744 free and
+NVRAM are accessible. Initial NVRAM initialization warnings are retained; mandatory
+first enable-secret setup saved successfully, and startup is readable. Secret is
+restricted to .git/recovery-private/c8235-c-FGL2835L41Z-enable-secret.txt.
+RAM runtime correction hook completes. USB26.2.1 five-minute idle check passes:
+10:51:13.291150–10:56:17.649395 EST,304.358245s, CPP20780/session18611 unchanged,
+keepalives55→187→207 matched/zero misses or send errors, R0/F0/0/0 ready.
+No Ethernet, so no traffic or interface qualification. Main sensor readings remain
+populated (34/34/52C,12083mV main12V,4943mV5V,17W); standby12V0/Critical_Low and
+TPM256 remain unresolved. No uncorrected native IOS comparison on C was performed.
+
+Exact1,048,008,916-byte image copied internally (70.720s), full nativeSHA512 passes.
+Separate C4/C8235CFIX1 files deployed with exact nativeSHA512 matches; B originals
+preserved. Initial Tcl line overflow left a0-byte candidate; corrected90-byte hex
+chunks and full final hash pass. No failed candidate executed. Both initial startup
+and settled running configs archived/hashes recorded; native default differences
+preserved. Added internal .bin fallback boot line; native install add/activate/commit
+started10:58:01. Install result/internal boot/persistent ROMMON settings remain
+pending. Do not power off. Active console1629,1152008N1, USB present, no Ethernet.
+C-specific one-reset passive observer prepared and tested offline, not yet live.
+Evidence: c8235-recovery/c8235-c-baseline-20261101/results.json
+Candidate: experimental-recovery/c8235-c-bootflash-20261101/candidate.json
+
 C8235-C STORAGE PRESERVED; FIRST CORRECTED STARTUP ACTIVE — 2026-11-01,10:47 EST
 Full eMMC user-area read:20,845,690,880 bytes,4970x4MiB,239.426s,exit0.
 USB archive90,930,221 bytes, SHA256
