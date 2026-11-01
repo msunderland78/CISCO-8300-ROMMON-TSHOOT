@@ -10,6 +10,25 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-C USB-FREE COLD BOOT VERIFIED; HEALTH ACTIVE — 2026-11-01, 11:20 EST
+Owner confirms USB storage removed and router powered back on. Fresh PowerOn,
+C UUID and all 16 unchanged early firmware fields are captured. Zero console TX
+through IOS welcome; packages.conf, C4 hash guards and runtime hook all automatic.
+IOS confirms bootflash:packages.conf / 26.2.1 / IMG C, inactive rollback timer,
+0x3922 and unchanged BOOT. No USB filesystem. CPLD remains 24073021.
+C4/fix/manifest/startup-backup hashes match; all 14 package names/sizes unchanged.
+Both installed startup and running comparisons report No changes. No network
+configuration or firmware/security command was issued during this cold test.
+
+R0/F0/0/0 ready at 11:19:55.929144 EST. Cold five-minute check starts there and is
+due at or after 11:24:55.929144. CPP 20164/session 18159; keepalives 26/26,
+zero misses/send errors. Main sensors 35/35/52 C, main 12V 12107 mV, 5V 4949 mV,
+14 W; standby 12V remains 0/Critical_Low. Earlier TPM finding remains unresolved.
+Bootflash free 16,995,086,336 bytes. USB absent; no Ethernet; console 35323 active.
+No further power cycle needed. Final health, closed capture and handoff pending.
+Evidence: c8235-recovery/c8235-c-baseline-20261101/results.json
+Zero-TX snapshot: sanitized-evidence/router-console-logs/20261101-111155-C8235-C-cold-zero-TX-through-IOS.log
+
 C8235-C WARM INSTALL CHECK PASSED; COLD CAPTURE ARMED — 2026-11-01,11:12 EST
 Autonomous packages.conf/C4 startup, all14 full package hashes and306.979257s
 warm health pass. CPP20621/session18202 unchanged; keepalives27→56→79→86→110→136→181,
