@@ -1,0 +1,67 @@
+{
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "timezone": "America/New_York",
+  "status": "First unsaved probe failed; narrowing to automatic child-console entry, no persistence",
+  "source_candidate": "experimental-recovery/c8235-b-bootstrap-20261101/candidate.json",
+  "console_source": ".git/recovery-private/c8235-analysis-20261101/20261101-072310-usb-entry/console.log",
+  "physical_confirmation": "Same owner-confirmed setup retained throughout cold2/cold3 and probe; exclusive console handed off cleanly",
+  "preservation": "Cold3 running/startup native comparisons match pre-cold2 USB exports; exact original image unchanged",
+  "reload": {
+    "command_at": "2026-11-01T07:24:14.306658-05:00",
+    "declined_save_at": "2026-11-01T07:24:20.118474-05:00",
+    "confirmed_at": "2026-11-01T07:24:23.966709-05:00"
+  },
+  "saved_boot": "bootflash:packages.conf,12;",
+  "confreg": "0x3922",
+  "no_startup_save": true,
+  "no_firmware_write": true,
+  "updated_at": "2026-11-01T07:31:01.189069-05:00",
+  "trials": [
+    {
+      "number": 1,
+      "kind": "Automatic console redirection and USB child-script probe",
+      "parameter": "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}d${IFS}/dev;exec<>/dev/ttyAMA0&>/dev/ttyAMA0;stty${IFS}115200;echo${IFS}B1;sleep${IFS}5;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p;exec${IFS}sh",
+      "parameter_readback_verified": true,
+      "boot_at": "2026-11-01T07:25:52.151911-05:00",
+      "result": "FAILED: reset after EFI exit before B1/USB_PROBE_BEGIN markers; no script execution or cause established",
+      "capture_snapshot": "router-console-logs/20261101-072652-C8235-B-usb-entry-failed1-snapshot.log",
+      "bytes": 11959,
+      "sha256": "f30eb775b283591d4ea0820c0294fee53ea03efe9332f1ab54f6255229a2fef2",
+      "snapshot_type": "Immutable prefix of ongoing private capture; original retained"
+    },
+    {
+      "number": 2,
+      "kind": "Automatic child-console marker only; no USB mount/script and no correction",
+      "parameter": "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0${IFS}-c${IFS}'stty${IFS}115200;echo${IFS}C8235_E2;exec${IFS}sh'",
+      "syntax_checked": true,
+      "readback_verified": true,
+      "result": "FAILED automatic marker, but shell remained alive at9600; supervised stdout/stderr redirection restored output",
+      "expected": "C8235_E2 then child shell; PID1 remains parent. No automatic normal init or saved change.",
+      "boot_at": "2026-11-01T07:27:38.945572-05:00",
+      "observed": "ChildPID139 PPID1 FLAGS=hBs, argv only sh. RAM file named /dev/ttyAMA0 plus expanded IFS/-c/command proves argument text was consumed into redirection filename. No USB script ran.",
+      "correction": "Move child command arguments before the redirections; offline shell-argument check passes",
+      "not_explained": "This does not establish the cause of trial1 immediate reset",
+      "live_corrected_rehearsal": {
+        "at": "2026-11-01T07:30:30.645315-05:00",
+        "result": "USB_PROBE_BEGIN/PROFILE_PASS/COMPLETE observed after moving arguments before redirection; USB ro mount, umount0",
+        "qualification": "Manual invocation from maintenance, not automatic boot"
+      },
+      "snapshot": {
+        "raw_local": "router-console-logs/20261101-073101-C8235-B-usb-entry-trial2-snapshot.log",
+        "bytes": 17276,
+        "sha256": "abaa72608791e931388df07c3a6f4af80874860f45d3a3222f70f53399cf1a9b",
+        "type": "Immutable ongoing-capture prefix"
+      }
+    },
+    {
+      "number": 3,
+      "kind": "Corrected child arguments before redirection, automatic USB probe with fallback shell",
+      "parameter": "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh${IFS}-c${IFS}'stty${IFS}115200;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p;exec${IFS}sh'</dev/ttyAMA0&>/dev/ttyAMA0",
+      "parameter_bytes": 219,
+      "set_command_bytes": 241,
+      "result": "Prepared; warm reset underway, not booted yet",
+      "writes": "RAM/proc/sys mounts only plus existing read-only USB; no correction or normal-init continuation"
+    }
+  ]
+}

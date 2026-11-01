@@ -10,6 +10,24 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+USB ENTRY INVESTIGATION ACTIVE — 2026-11-01, 07:31 EST — C8235-05
+After the three cold passes and network restoration, a new1413-byte read-only
+probe was copied by temporary local HTTP to previously absent usb0:C8235B1.sh;
+SHA512 matched and server stopped. SavedBOOT/confreg/startup unchanged.
+Trial1 accepted/read back unsaved252-byte set command, then reset before its
+first marker. Guard stopped autoboot. Trial2 smaller child-console probe stayed
+alive at9600 without marker: intended -c text was consumed into the output
+filename because arguments followed the redirection. Native PID/argv and /dev
+listing prove this defect. Restored stdout/stderr and115200; corrected argument
+placement and USB-child probe both pass MANUAL rehearsal, including original
+vendor-script/profile guard and read-only USB mount. Neither is automatic boot.
+USB unmounted(status0), reboot-f sent07:30:59 for a third unsaved trial; result
+pending. Router is not currently restored IOS. Existing exclusive capture/
+reset stop remains in .git/recovery-private/c8235-analysis-20261101/
+20261101-072310-usb-entry. Evidence/trial parameters: c8235-recovery/
+boot-validation-20261101/usb-entry.json. Preserve failures; no cause yet proved
+for trial1 reset and no standalone persistence claim.
+
 THREE CORRECTED COLD BOOTS PASS — 2026-11-01, 07:23 EST — C8235-05
 Cold3 owner-confirmed power cycle: nativePowerOn, exact B/image/RAM guards
 pass; hook07:14:43, IOS07:15:48, platform07:16:41 EST. Five-minute samples

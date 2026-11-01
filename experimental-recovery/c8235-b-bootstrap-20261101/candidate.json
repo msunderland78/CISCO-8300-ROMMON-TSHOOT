@@ -1,5 +1,5 @@
 {
-  "status": "OFFLINE CANDIDATE ONLY; not copied to USB or booted",
+  "status": "First unsaved boot reset before markers; retained failed candidate, not validated",
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "purpose": "Expose early USB loading errors and prove automatic child-script entry before developing persistence",
@@ -26,5 +26,14 @@
     "Probe mounts proc/sys in RAM; never modifies launch_net.sh or persistent boot settings",
     "No autonomous boot or persistence claim"
   ],
-  "sha512": "666d8673d809be72d1965ec96f826b6dfd2f374d8f9988cd241dd079cfc78ed5e2aa888a7c4164c34d7657ff51cfdc08cc56bcf1957ad0741171a2f99c7932f8"
+  "sha512": "666d8673d809be72d1965ec96f826b6dfd2f374d8f9988cd241dd079cfc78ed5e2aa888a7c4164c34d7657ff51cfdc08cc56bcf1957ad0741171a2f99c7932f8",
+  "deployment": {
+    "at": "2026-11-01T07:23:46-05:00",
+    "from": "http://192.168.5.104:8835/probe-usb-entry.sh",
+    "to": "usb0:C8235B1.sh",
+    "bytes": 1413,
+    "previous_path_absent": true,
+    "SHA512_matches_source": true,
+    "temporary_server_stopped": true
+  }
 }
