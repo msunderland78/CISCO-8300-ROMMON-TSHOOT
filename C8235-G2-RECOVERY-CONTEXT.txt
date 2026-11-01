@@ -10,6 +10,48 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A CH341A EMPTY OUTPUT 1.804 V — 2026-11-01, 15:08 EST
+Owner reports 1.804 V DC on OUTPUT 8 in response to empty-adapter OUTPUT 8-to-4
+request. Reference/isolation conditions were requested, not separately restated.
+This supports normal unloaded output; 0.568 V remains the distinct loaded
+U2900-clip/J2507 result. No higher-current or flash-read qualification follows.
+Adapter source mounting question was not answered; asked separately whether
+plugged into CH341A socket or fed by separate 3.3 V/GND wires.
+
+Next requested same 99-ohm supply-only load as prior Pi test: CH341A USB unplug
+and OUTPUT 8-to-4 = 0 V before changes. Keep clip cable disconnected from
+adapter, Pi fully disconnected, router own power/cables/battery absent, RESET
+free. Restore only OUTPUT 8 -> measured 99-ohm resistor -> blue J2507-8 and
+OUTPUT 4 -> purple J2507-2. Prior 99.6/0.3 ohm path results retained, not newly
+repeated. Switch meter DC, power CH341A once, and after about 10 seconds read
+resistor source-side A and board-side B relative to J2507-2. Report A/B and
+stability, then unplug USB. Stop immediately if A exceeds 2.0 V. Results
+pending; no clip reconnection, flashrom command, resistor bypass or write.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
+C8235-A CH341A LOADED CLIP RAIL 0.568 V — 2026-11-01, 15:06 EST
+Owner reports CH341A connected and 0.568 V between pins 2/8. Fresh clarification:
+- Endpoints: router J2507 pins 2 and 8, not adapter output 4/8 or output 2/8.
+- Setup: 1.8 V adapter -> clip seated on U2900.
+- After stop instruction: CH341A unplugged; Pi completely disconnected,
+  including GPIO/power/ground wires, explicitly confirmed.
+This is a loaded-clip test, not the requested off-board adapter source control.
+No current source voltage, timing/stability, exact adapter mounting or remaining
+resistor-branch inventory supplied. Do not extrapolate current or directly
+compare with Pi's 99-ohm supply-only point. Board rail is below flash operating
+voltage; no bad-chip/source diagnosis or SPI acquisition selected.
+
+Next requested with CH341A unplugged: verify residual 0 V; leave clip seated
+if convenient but unplug its entire cable from adapter OUTPUT. Remove all
+other programmer-to-router wires too. Adapter OUTPUT must be empty and router
+electrically disconnected from programmer. Pi stays fully disconnected, router
+own power/cables/battery absent, cooling off. Power only CH341A/1.8 V adapter;
+measure DC directly OUTPUT 8 (+) to OUTPUT 4 (ground), then unplug USB again.
+Report voltage and whether adapter is in CH341A socket or fed by separate
+3.3 V/GND wires. These results pending; no reseating scan, loaded retry,
+flashrom command, SPI read/write or security change.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A CH341A SOURCE COMPARISON PREPARATION — 2026-11-01, 14:32 EST
 Owner asks whether existing CH341A might perform differently; confirms same
 unmodified black unit, USB unplugged and disconnected from router. Pi remains

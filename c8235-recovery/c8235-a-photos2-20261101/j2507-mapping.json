@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: J2507 ground and flash-supply mapping",
   "recorded_at": "2026-11-01T12:44:18-05:00",
   "timezone": "America/New_York",
-  "status": "Prior Pi result 1.793/0.423 V retained. Same unmodified CH341A confirmed for power-source comparison; off-board 1.8 V adapter output check requested before any board connection.",
+  "status": "CH341A clip-loaded J2507 rail 0.568 V; empty adapter output 1.804 V. Same 99-ohm supply-only board comparison requested; A/B and source mounting pending.",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -98,13 +98,13 @@
     "No SPI signal, primary/golden or bank-selector assignment; J2901 remains unmeasured."
   ],
   "pending": [
-    "Fresh CH341A-powered adapter off-board output voltage.",
-    "Only afterward consider same resistor-limited board load; unrestricted supply, actual flash operating voltage and SPI reliability remain unqualified."
+    "CH341A source/board-side DC values with same resistor-limited load as Pi, plus source mounting method.",
+    "Stable actual flash operating supply and SPI qualification remain incomplete."
   ],
   "agent_hardware_actions": [],
   "programmer_read_or_write": "none this checkpoint",
   "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
-  "updated_at": "2026-11-01T14:32:12-05:00",
+  "updated_at": "2026-11-01T15:08:45-05:00",
   "qualification": {
     "recorded_at": "2026-11-01T12:48:24-05:00",
     "source": "Owner report in conversation",
@@ -147,6 +147,6 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "Pi completely disconnected, CH341A labeled 3.3 V/GND feeds existing adapter INPUT 8/3/7 common junction and INPUT 4. Board/output leads absent. Measure OUTPUT 8-to-4 DC under CH341A USB only, then unplug; no result yet.",
+  "next_stage": "CH341A USB off/residual 0 V, clip cable disconnected, restore only OUTPUT 8 through 99 ohms to J2507-8 and OUTPUT 4 to J2507-2. Power once; after about 10 seconds read source/board resistor legs to J2507 ground, then unplug. Stop if source exceeds 2.0 V.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json"
 }
