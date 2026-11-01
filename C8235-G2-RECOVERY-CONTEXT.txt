@@ -29,8 +29,12 @@ attribution contradictions elsewhere remain unresolved.
 
 No flash/configuration/security write, TPM clear or retry firmware experiment.
 The B/C RAM-only IOS correction cannot run at this earlier failing stage.
-Capture closed; router remains powered at halt, no transfer/write in progress,
-programmer disconnected. Prior Pi5/1.8V/SOIC16 setup availability requested.
+Capture closed, no transfer/write in progress. Owner confirms the prior
+Pi5/1.8V/SOIC16 setup is available. Requested A off/all cables removed, Pi off
+and unplugged, programmer clips/probes disconnected; leave battery/cooling
+installed for initial visual identification. Isolation confirmation pending.
+Fresh A board/flash-chip photos are needed because older board attribution is
+unresolved. Battery/residual-voltage checks precede electrical probing.
 Next: unpowered A-specific chip identification/electrical setup, repeated stable
 full reads of both physical flash chips, then compare preserved regions and
 firmware before choosing any restore. Do not reuse C8375 wiring/control scripts
