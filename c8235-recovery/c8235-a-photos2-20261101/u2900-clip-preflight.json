@@ -7,7 +7,7 @@
     "chassis_serial": "FGL2835L42B",
     "board_label": "FOC28292GUQ"
   },
-  "status": "CH341A empty-adapter output 1.804 V reported after clip-loaded J2507 rail 0.568 V. Same 99-ohm supply-only board comparison requested with clip disconnected; source/board DC results pending.",
+  "status": "CH341A same-resistor test reports source 1.793 V / board 0.423 V, matching Pi at reported precision (~13.8 mA inferred). CH341A unplugged/adapter socket-mounted confirmed; no further powered trial or SPI selected.",
   "target": {
     "read_target": "U2900",
     "clip": "Owner-added intact short clip connected to existing1.8Vconverter",
@@ -88,8 +88,8 @@
     "If needed, qualify a current-limited reset trial before bounded read-only identification/data checks. Preserve stable separate full-chip reads before restore selection."
   ],
   "agent_hardware_actions": [],
-  "powered_programming_or_read": "Owner performed bounded-current supply-only trial, then confirmed Pi shutdown and physical USB-C unplug. No agent GPIO/SPI/flash command, flash read or write. Router own power remained disconnected under the test instructions.",
-  "updated_at": "2026-11-01T15:08:45-05:00",
+  "powered_programming_or_read": "Owner performed Pi and CH341A supply-only voltage diagnostics and one CH341A full-clip voltage observation. Latest CH341A USB unplug explicitly confirmed. No agent GPIO/SPI/flash command or reported new flash acquisition/write.",
+  "updated_at": "2026-11-01T15:14:19-05:00",
   "reset_grabber_contact": {
     "recorded_at": "2026-11-01T13:03:26-05:00",
     "source": "Owner measurement report followed by explicit endpoint clarification",
@@ -468,9 +468,9 @@
     "photo_result": "Existing flash-area and J2507 photos do not establish a verified flash-only power-isolation point. No new isolation component, jumper, cut or bank assignment selected from proximity/labels.",
     "prior_owner_preference": "C8375-specific October 31 notes record rejection of chip removal because of dense-board risk. Preserve that preference in choosing this noninvasive next step; no A chip removal, leg lifting or trace cut proposed.",
     "prior_console_review": "Rechecked saved November 1 Boot Options and existing A history offline. Earlier Setup/Kermit investigations found no validated arbitrary read or golden-bank selector. No console opened or new boot/menu action performed.",
-    "next_method": "CH341A unloaded adapter output now reported 1.804 V. Same measured 99 ohm resistor-limited supply-only board comparison selected; A/B results and source mounting method pending. No full-clip retry or read.",
+    "next_method": "Close completed Pi/CH341A comparison. Keep unpowered; next powered investigation requires controlled-current characterization of the board rail or a verified isolation method. No bench supply is available and no flash-only disconnect established; do not repeat unchanged trials or substitute stronger drive without qualification.",
     "method_limits": "The earlier bench-supply recommendation was too categorical as the immediate next step. A bench source remains useful for adjustable-current characterization, but is not a prerequisite to this bounded comparison using existing equipment. CH341A is not assumed stronger; same adapter and board load remain.",
-    "current_hold": "Pi fully disconnected. After CH341A off-board voltage reading, USB unplug and residual 0 V required before restoring only resistor-limited VCC/direct ground. Clip cable stays disconnected and RESET grabber free; CH341A to be unplugged after requested A/B measurements.",
+    "current_hold": "CH341A USB unplugged and adapter in its socket freshly confirmed. Pi completely disconnected under prior confirmation; resistor wiring left unchanged, clip cable absent, RESET free, router own power/cables/battery absent, cooling off. No further powered or SPI action selected.",
     "initial_next_method_before_ch341a_question": "A separate regulated source capable of 1.8 V, adjustable low-current limiting and current/voltage readout is the practical next powered diagnostic tool for characterizing the shared supply path while keeping chips in place. No bench supply is currently available; no product purchased or hardware connection selected."
   },
   "ch341a_power_only_comparison": {
@@ -525,9 +525,9 @@
       "power_and_measurement": "Connect CH341A USB only; in DC volts measure directly adapter OUTPUT 8 (+) to OUTPUT 4 (ground). Report value, then unplug CH341A USB.",
       "expectation": "Approximately 1.8 V; no new measurement yet.",
       "limits": "Power-only source check, not SPI. No flashrom command, Pi connection, board supply, resistor bypass or raw 3.3/5 V at router.",
-      "status": "Not established by latest report: owner instead confirms adapter-to-clip connection on U2900 and 0.568 V at router J2507 pins 2/8. A fresh empty-output control is requested below."
+      "status": "Initial instructions proposed separate power feeds; actual adapter subsequently confirmed socket-mounted. Empty-output value 1.804 V obtained via follow-up, distinct from initial loaded clip 0.568 V."
     },
-    "later_step": "Interpret same-load A/B measurements before any stronger drive, clip reconnection or SPI qualification. No unrestricted acquisition selected.",
+    "later_step": "The same-resistor source comparison is complete. Hold unpowered; stable flash operating voltage and loading/backfeed qualification require controlled-current characterization or a verified isolation approach before SPI. No additional powered test selected.",
     "loaded_clip_report": {
       "recorded_at": "2026-11-01T15:06:46-05:00",
       "owner_report": "I connected the ch341a ... I only get 0.568 volts between pin 2 and pin 8",
@@ -564,7 +564,7 @@
         "Whether adapter is plugged into CH341A socket as before or fed by separate 3.3 V/GND wires"
       ],
       "afterward": "Unplug CH341A USB again; no clip reconnection or flashrom command.",
-      "status": "Voltage reported: 1.804 V DC on OUTPUT 8, following request to reference OUTPUT 4 with adapter output empty. Source mounting method not yet answered.",
+      "status": "Complete: off-board voltage 1.804 V reported; source later confirmed adapter socket-mounted on CH341A.",
       "result": {
         "recorded_at": "2026-11-01T15:08:45-05:00",
         "owner_report": "1.804 vdc on output 8",
@@ -594,12 +594,43 @@
         "reply": "A, B in V DC and whether B is steady"
       },
       "stop_and_finish": "If A exceeds 2.0 V, unplug immediately. Otherwise unplug CH341A USB after taking readings. No powered wiring changes or resistor bypass.",
-      "status": "Requested; no A/B voltage results yet."
+      "status": "Complete: owner reports source leg 1.793 and supply/board leg 0.423; matches prior Pi A/B at reported precision. Subsequent USB unplug and socket mounting confirmed.",
+      "result": {
+        "recorded_at": "2026-11-01T15:14:19-05:00",
+        "owner_report": "source leg 1.793 ... supply leg 0.423",
+        "mode": "DC volts per quoted/requested test; numeric reply interpreted in that context.",
+        "common_reference": "J2507 pin 2 / GND, per requested test.",
+        "source_A_vdc": 1.793,
+        "board_B_vdc": 0.423,
+        "endpoint_scope": "A is resistor leg toward adapter OUTPUT 8; B is resistor leg toward blue J2507-8, as requested. Owner calls B supply leg in the quoted request context.",
+        "stability_and_timing": "About 10 seconds and stability were requested. Exact elapsed time and steadiness not separately stated in this reply; do not import earlier Pi steady qualifier.",
+        "resistance_basis_ohm": 99,
+        "voltage_difference_v": 1.37,
+        "inferred_current_ma_approx": 13.8,
+        "calculation": "(1.793 - 0.423) V / 99 ohms = approximately 13.8 mA. Prior complete VCC path 99.6 ohms is retained separately; current is inferred, not measured with an ammeter.",
+        "fixture_scope": "Owner quotes the instruction for CH341A -> adapter -> 99 ohm resistor -> J2507 VCC, direct ground, clip cable absent and Pi disconnected. Exact resistor/wire placements not independently photographed.",
+        "comparison_with_pi": {
+          "pi_source_A_vdc": 1.793,
+          "pi_board_B_vdc": 0.423,
+          "reported_source_difference_v": 0.0,
+          "reported_board_difference_v": 0.0,
+          "scope": "Displayed/reported values match to supplied precision; not proof of identical startup transients, source capacity or all electrical conditions."
+        },
+        "assessment": [
+          "Changing from Pi supply to CH341A did not change this bounded-current supply-only operating point.",
+          "Both measured source-side values are near nominal 1.8 V at this load, while board-side 0.423 V remains below flash 1.7-2.0 V operating range.",
+          "Shared adapter, deliberate series impedance and board loading remain common factors. The result does not establish a defective flash/adapter, a specific backfeed path, a hard short or the cause of original Pi startup failure.",
+          "Do not extrapolate full-voltage board current from this operating point or prior 540 ohm unpowered reading. No resistor bypass, stronger-drive trial or SPI read selected."
+        ]
+      }
     },
     "source_mounting_question": {
       "requested_at": "2026-11-01T15:08:45-05:00",
       "question": "Is the adapter plugged into the CH341A socket or connected through separate 3.3 V/GND wires?",
-      "status": "Pending."
+      "status": "Answered: CH341A unplugged; adapter in its socket.",
+      "owner_answer": "CH341A unplugged; adapter in its socket",
+      "reported_at": "2026-11-01T15:14:19-05:00",
+      "interpretation": "Fresh CH341A USB unplug and adapter socket mounting confirmed. Actual arrangement uses CH341A socket rather than earlier proposed separate 3.3 V/GND input feeds. For the supply-only comparison, router clip/SPI output paths remained excluded as instructed."
     }
   }
 }

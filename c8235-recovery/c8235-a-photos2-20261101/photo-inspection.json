@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: A-specific flash identification and unpowered mapping preparation",
   "recorded_at": "2026-11-01T12:25:48-05:00",
   "timezone": "America/New_York",
-  "status": "CH341A empty-adapter output 1.804 V after loaded clip rail 0.568 V. Same resistor-limited supply-only comparison requested with clip cable disconnected; result pending.",
+  "status": "Pi and CH341A resistor-limited values match at 1.793/0.423 V. CH341A USB unplug and socket-mounted adapter confirmed; power/load qualification unresolved, no further powered trial.",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -16,8 +16,8 @@
     "owner_report": "Battery removed before photos.",
     "photo_observation": "Board removed from enclosure; coin-cell holder empty; processor exposed and heatsinks/fans not mounted; external ports visibly empty in IMG_1293/1294; no clip visible.",
     "supersedes": "Earlier November1 powered/assembled/battery-installed console handoff.",
-    "pending": "Adapter mounting still unreported; separate question issued. Restore only resistor-limited supply/ground after USB unplug and residual 0 V, then report A/B DC values. No new photograph or actual loaded result yet.",
-    "power_instruction": "Pi fully disconnected and router own power/cables/battery absent, cooling off. Only one CH341A supply-only test through measured 99 ohms selected; clip cable absent and RESET free. Unplug after readings or immediately if source exceeds 2.0 V. No SPI or bypass.",
+    "pending": "No new image or verified flash-only isolation point. Source comparison complete; controlled-current characterization/verified isolation required before flash read.",
+    "power_instruction": "CH341A USB unplugged, adapter in socket confirmed; Pi fully disconnected under preceding confirmation. Leave resistor wiring unchanged, clip cable absent and RESET free; router own power/cables/battery absent, cooling off. No further power or SPI action selected.",
     "owner_isolation_confirmation": {
       "recorded_at": "2026-11-01T12:27:49-05:00",
       "response": "confirmed",
@@ -277,7 +277,7 @@
     "status": "Original per-chip DC request not individually answered; owner instead reports0V across the mapped common header pair, with0.2ohm clip baseline and540ohm header rail resistance. See qualification."
   },
   "initial_status": "Photo identification complete; electrical mapping not started",
-  "updated_at": "2026-11-01T15:08:45-05:00",
+  "updated_at": "2026-11-01T15:14:19-05:00",
   "latest_header_evidence": "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json",
   "preferred_header": "J2507, following owner-reported four low-resistance paths; see j2507-mapping.json. J2901 remains unmeasured.",
   "planned_sequence_status": "Initial J2901 plan not performed; follow J2507 evidence and pending checks instead.",

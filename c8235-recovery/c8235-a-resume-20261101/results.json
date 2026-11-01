@@ -91,7 +91,7 @@
     "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c",
     "closed": true
   },
-  "handoff": "A: CH341A/adapter full-clip U2900 test gives J2507 0.568 V; fresh empty-adapter OUTPUT 8-to-4 control reports 1.804 V. Pi fully disconnected. Next requested same measured 99 ohm supply-only board comparison: unplug/residual 0 V before restoring OUTPUT 8 -> resistor -> blue J2507-8 and OUTPUT 4 -> purple J2507-2; clip cable absent/RESET free. Power CH341A once, read A/B resistor legs to J2507 ground after about 10 seconds, report stability, unplug afterward. Source >2.0 V stop. A/B and adapter socket-versus-separate-feed answer pending; no flashrom or stronger drive selected.",
+  "handoff": "A: same 99-ohm supply-only test with CH341A reports source 1.793 V / board 0.423 V, matching Pi at supplied precision (~13.8 mA inferred). CH341A USB unplugged and adapter in socket freshly confirmed; Pi fully disconnected, clip cable absent, RESET free, resistor wiring unchanged. Earlier CH341A unloaded 1.804 V and full-clip board 0.568 V remain distinct. Comparison complete but flash rail still below operating range. Hold unpowered: controlled-current board-load characterization or verified isolation needed before read; no further powered trial, bypass or SPI selected. Router own power/cables/battery absent, cooling off.",
   "recovery_scope": "Existing recovery authorization retained; read-only preservation first. No speculative TPM clear, provisioning change, golden selector, jumper, or cross-chassis full-chip clone.",
   "external_acquisition_preparation": {
     "equipment": "Owner confirms prior Pi5,1.8Vadapter andSOIC16clip setup available.",

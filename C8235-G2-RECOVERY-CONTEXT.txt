@@ -10,6 +10,32 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A PI/CH341A LIMITED-LOAD RESULTS MATCH — 2026-11-01, 15:14 EST
+Owner reports CH341A resistor source leg 1.793 V and board/supply leg 0.423 V
+in the quoted same-99-ohm test context. These match Pi values to supplied
+precision, with approximately 13.8 mA inferred from (1.793-0.423)/99. New exact
+timing/steadiness not separately stated. Do not claim matched waveforms or
+full-voltage capability. Earlier unloaded CH341A 1.804 V and full-clip board
+0.568 V remain different setups, not a time-series under one unchanged load.
+
+Owner confirms CH341A unplugged; adapter in its socket. This establishes fresh
+USB-off state and actual mounting rather than earlier proposed separate input
+power feeds. Pi fully disconnected under prior confirmation; clip cable absent
+for this supply-only comparison, no SPI command or flash read/write performed
+by agent. Keep existing resistor assembly, free RESET grabber, router own
+power/cables/battery disconnected and cooling removed.
+
+Changing source has not changed this bounded-current operating point. Both
+source values remain near nominal 1.8 V, but actual board supply is below flash
+1.7-2.0 V requirement. Shared adapter/series impedance/board loading remain
+common factors; no component-failure, hard-short, TPM or backfeed diagnosis.
+Do not infer current at 1.8 V from this point or the earlier 540 ohm reading.
+The source comparison is complete. No more unchanged trials, resistor bypass,
+stronger drive or SPI selected. Next powered investigation needs controlled-
+current characterization or verified isolation; no bench supply available and
+no flash-only isolation point established. Hold unpowered until qualified.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A CH341A EMPTY OUTPUT 1.804 V — 2026-11-01, 15:08 EST
 Owner reports 1.804 V DC on OUTPUT 8 in response to empty-adapter OUTPUT 8-to-4
 request. Reference/isolation conditions were requested, not separately restated.
