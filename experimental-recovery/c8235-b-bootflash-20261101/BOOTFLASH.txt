@@ -5,13 +5,15 @@ FINAL OWNER TARGET: INSTALL MODE USING packages.conf
 The internal .bin/bundle boot below is an intermediate validation step.
 Install-mode package selection and early correction are not yet validated.
 
-STATUS: DEPLOYED AND HASH-VERIFIED, NOT YET BOOT-TESTED
-The working USB B3 setup remains saved. New bootflash B4 is derived from B3;
-only storage identity guard, deployment/RAM names and status markers differ.
-The correction C8235FIX1 and vendor IOS image remain byte-for-byte unchanged.
-Native full SHA512 checks pass for all three bootflash files. Working startup
-and USB boot selection remain unchanged; fresh startup/running exports verified.
-This file must be updated with the observed test outcome before handoff.
+STATUS — 2026-11-01, 08:55 EST
+One-time bootflash bundle boot and318.854156-second operational check PASS.
+B4 runs automatically from internal storage, checks exact inputs, applies the
+unchanged RAM correction, unmounts bootflash and continues normal init.
+CPP20965 unchanged, keepalives16 to175/zero misses; saved network restores and
+repeat1500DF ping passes5/5. All-zero sensor reporting/TPM remain unresolved.
+Reviewed sole boot-line delta saved to IOS startup08:54:24. Exact ROMMON
+parameter sync, autonomous warm and USB-absent cold tests remain pending.
+USB files and original packages.conf/17.18.3a packages remain unchanged.
 
 INPUTS
 bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
@@ -39,7 +41,8 @@ VALIDATION SEQUENCE
 4. Verify loader, correction, IOS/platform, five-minute CPP/keepalive check,
    saved network and configuration diffs. Retain environmental/TPM findings.
 5. Only after that pass, save the intended internal boot entry and parameter,
-   then capture an autonomous physical cold boot with USB disconnected.
+   verify autonomous warm startup, then capture a cold boot from running IOS
+   with USB disconnected while powered off.
 6. Verify native PowerOn, internal source, automatic correction, operational
    interval and network restoration with no post-boot configuration.
 

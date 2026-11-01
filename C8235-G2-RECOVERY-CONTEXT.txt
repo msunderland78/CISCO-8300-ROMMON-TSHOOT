@@ -10,6 +10,22 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+INTERNAL BOOT OPERATIONAL PASS — 2026-11-01, 08:55 EST
+One-time bootflash26.2.1 bundle boot passes B4 guards, exact RAM patch/unmount
+and runtime hook. IOS image source is bootflash; USB still physically present.
+Five-minute check08:48:53.587789–08:54:12.441945 EST=318.854156s: CPP20965
+unchanged, keepalives16->44->85->130->175 with zero misses; ports7/8 at1G/10G,
+default and saved network restored; ping1500DF4/5 then5/5. Sampled errors/drops0.
+CPU52C and all-zero inlet/outlet/voltage/current/power reporting remain open.
+Saved only intended internal boot entry08:54:24 [OK]; native diff is solely
++bootflash/-usb0. Startup export3889B/nativeSHA512/diff verified. Reload is
+underway to save B4 parameter at freshly identified ROMMON, then observe saved
+autonomous warm boot and owner USB-absent cold cycle from running IOS. Console
+60681 remains exclusively owned. Do not claim autonomous/no-USB pass yet.
+Final target remains INSTALL MODE using packages.conf; existing manifest still
+selects17.18.3a and was not changed. Internal bundle boot is intermediate.
+Evidence: c8235-recovery/bootflash-validation-20261101/results.json
+
 BOOTFLASH FOLLOW-UP — 2026-11-01, 08:44 EST
 Owner requests no-USB boot; final target is INSTALL MODE using packages.conf.
 Fresh unchanged hardware/console confirmation and live B identity pass. Exact

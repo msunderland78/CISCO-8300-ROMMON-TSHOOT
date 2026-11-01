@@ -8,7 +8,7 @@
   },
   "timezone": "America/New_York",
   "started_at": "2026-11-01T08:40:33.244358-05:00",
-  "status": "Internal files deployed and full SHA512 verified; working USB setup and startup unchanged; one-time internal boot next",
+  "status": "One-time internal boot and318.854156-second check PASS; internal IOS boot line saved, controlled reload to save ROMMON parameter underway",
   "physical_confirmation": "Owner reconfirmed identical powered-on B assembly/cooling/battery/cables, no probes/programmer or terminal owner",
   "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-084033-bootflash/console.log",
   "console": {
@@ -59,7 +59,14 @@
     "recorded_at": "2026-11-01T08:43:25.078361-05:00",
     "target": "Install mode using packages.conf, not permanent bundle mode",
     "sequence": "Current internal exact .bin boot is an intermediate no-USB validation. Inspect/extract exact package set and validate early correction under install mode separately before final mode transition.",
-    "status": "Recorded requirement; install-mode correction not yet tested"
+    "status": "Recorded requirement; install-mode correction not yet tested",
+    "read_only_observations": {
+      "at": "2026-11-01T08:50:08.834512-05:00",
+      "packages_conf": "Existing bootflash:packages.conf still selects original17.18.03a rpboot/mono/firmware packages; not changed",
+      "show_install_summary": "Reports IMG C26.02.01.0.263 for current bundle runtime; this does not demonstrate26.2.1 install-mode deployment",
+      "saved_BOOT": "Still USB26.2.1; running image is one-time bootflash26.2.1 bundle",
+      "interpretation": "Do not switch BOOT to old packages.conf expecting the currently validated26.2.1 runtime"
+    }
   },
   "updated_at": "2026-11-01T08:44:39.523767-05:00",
   "deployment": {
@@ -79,7 +86,13 @@
     "running_preserved": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-bootflash-20261101-running.cfg",
     "running_bytes": 7659,
     "running_sha512": "1c45d58aef11fd44c061ffa1e69cd6bd95840e3e0aee9e307e6af5fc375d2c147b39032db8b6695eff1aa3cac7cb4ef7f3aedb70c0312d5f5b3d63be062439c1",
-    "native_diffs": "Running vs new export and startup vs prior auto export both have no changes"
+    "native_diffs": "Running vs new export and startup vs prior auto export both have no changes",
+    "internal_running_reference": {
+      "path": "bootflash:C8235B-PRE-INTERNAL.cfg",
+      "bytes": 7659,
+      "sha512": "1c45d58aef11fd44c061ffa1e69cd6bd95840e3e0aee9e307e6af5fc375d2c147b39032db8b6695eff1aa3cac7cb4ef7f3aedb70c0312d5f5b3d63be062439c1",
+      "verified": "Native SHA512 matches preserved USB running export; separate new file for later no-USB config comparison"
+    }
   },
   "preflight_snapshot": {
     "raw_local": "router-console-logs/20261101-084439-C8235-B-bootflash-preflight-snapshot.log",
@@ -91,5 +104,132 @@
   "mount_reference": {
     "url": "https://docs.kernel.org/6.6/admin-guide/ext4.html",
     "note": "Kernel documentation says ro alone may replay journal; ro,noload prevents that write. Dirty-filesystem consistency remains a guard limitation."
+  },
+  "trials": [
+    {
+      "kind": "manual internal bundle boot",
+      "started_at": "2026-11-01T08:46:09.384874-05:00",
+      "reload_confirmation_at": "2026-11-01T08:44:51.693723-05:00",
+      "ROMMON_identity": "Native LocalSoft, matching B UUID/revision/developmentROMMON; reset stopped08:45:46",
+      "prior_saved_environment": "USB BOOT and exact B3 USER_BOOT_PARAM both present after reload",
+      "parameter_set_at": "2026-11-01T08:46:02.342920-05:00",
+      "parameter": "See candidate.json; exact239-byte set command read back",
+      "parameter_saved": false,
+      "boot_command": "boot bootflash:c8kg2be-universalk9.26.02.01.SPA.bin",
+      "USB_physically_connected": true,
+      "status": "PASS one-time internal bundle boot and five-minute check; USB physically attached, saved internal/autonomous/no-USB tests remain",
+      "automatic_loader": {
+        "status": "PASS guards, source/RAM hashes and bootflash unmount; exec /init",
+        "observed_by": "2026-11-01T08:47:21.768934-05:00",
+        "no_TX_after_boot_command": true
+      },
+      "welcome_observed_by": "2026-11-01T08:48:04.742077-05:00",
+      "no_intervention_snapshot": {
+        "raw_local": "router-console-logs/20261101-084804-C8235-B-internal-welcome-snapshot.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-084804-C8235-B-internal-welcome-snapshot.log",
+        "bytes": 74966,
+        "sha256": "4896f54039dd54681bf506afe08327a36a4614c27d7a4121f8e1b95153711217",
+        "qualification": "No TX after manual boot command through IOS welcome; USB physically attached"
+      },
+      "ios_console_at": "2026-11-01T08:48:04.777549-05:00",
+      "IOS_image": "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin",
+      "pre_operational_sample": {
+        "at": "2026-11-01T08:48:09.061627-05:00",
+        "platform": "R0/F0 active; 0/0 still booting",
+        "CPP": 20965,
+        "keepalives": {
+          "rx": 0,
+          "tx": 0,
+          "miss": 0,
+          "last_sent": "never"
+        },
+        "environment": "Initial inlet/outlet/rails/current/power zero, CPU52C; labels stillNormal",
+        "qualification": "Before readiness; not the start of five-minute check"
+      },
+      "health": {
+        "status": "PASS five-minute sampled operational/CPP and network checks; sensor telemetry remains unresolved",
+        "started_at": "2026-11-01T08:48:53.587789-05:00",
+        "due_no_earlier_than": "2026-11-01T08:53:53.587789-05:00",
+        "scope": "Five-minute sampled operational/CPP check, with network checks; environment remains separate",
+        "samples": [
+          {
+            "at": "2026-11-01T08:48:53.587789-05:00",
+            "CPP": 20965,
+            "rx": 16,
+            "tx": 16,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T08:49:49.332980-05:00",
+            "CPP": 20965,
+            "rx": 44,
+            "tx": 44,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T08:51:12.818536-05:00",
+            "CPP": 20965,
+            "rx": 85,
+            "tx": 85,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T08:52:42.833839-05:00",
+            "CPP": 20965,
+            "rx": 130,
+            "tx": 130,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T08:54:12.441945-05:00",
+            "CPP": 20965,
+            "rx": 175,
+            "tx": 175,
+            "miss": 0
+          }
+        ],
+        "environment": "CPU52C; inlet/outlet0C, all voltage/current/power0. Voltage labels Critical_Low after initial monitor cycle.",
+        "early_network": "At first ready-platform sample, links still down and default not installed; later convergence checked separately",
+        "finished_at": "2026-11-01T08:54:12.441945-05:00",
+        "interval_seconds": 318.854156,
+        "filtered_error_recurrence": "No matches in captured NIX/ATTACH_RESOURCES/CRITICAL_PROCESS/PUNT_KEEPALIVE queries"
+      },
+      "network": {
+        "restored_without_config": true,
+        "verified_at": "2026-11-01T08:49:20.870248-05:00",
+        "running_native_diff": "No changes versus pre-bootflash running export",
+        "links": "Port7 .5.4 up/up 1G full; port8 native1/VLAN83 .83.1 up/up 10G full",
+        "default": "0.0.0.0/0 via192.168.5.1 on port7",
+        "sampled_errors_drops": "Input/CRC/output errors and output drops0 on both ports",
+        "cumulative_interface_resets": {
+          "port7": 1,
+          "port8": 2
+        },
+        "ping": "1500-byte DF5.3 sourced83.1: initial4/5 at08:49:28, repeat5/5 at08:49:36"
+      }
+    }
+  ],
+  "persistence": {
+    "IOS_save_at": "2026-11-01T08:54:24.433218-05:00",
+    "save_result": "[OK]",
+    "BOOT": "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+    "confreg": "0x3922",
+    "running_diff": "Only intended +bootflash/-usb0 boot system line versus preserved pre-internal reference",
+    "startup_export": "bootflash:C8235B-INTERNAL-STARTUP.cfg",
+    "startup_export_bytes": 3889,
+    "startup_export_sha512": "57c4cfbb5bc2fb4e9331b2a568039c2dde76e0d27bc2ca91de7e31baeee120069857d011220a2905c9c70f01bb9cccd74f82953b405aff2a4029db74e00ddd7a",
+    "startup_native_diff": "No changes versus new internal export",
+    "ROMMON_parameter_sync": "Pending fresh ROMMON identity/readback after current reload",
+    "pending": [
+      "Save/read back exact B4 parameter at fresh identified ROMMON",
+      "Autonomous warm restart with saved internal selection",
+      "Owner cold cycle from running IOS with USB physically removed, then five-minute check"
+    ]
+  },
+  "internal_operational_snapshot": {
+    "raw_local": "router-console-logs/20261101-085508-C8235-B-internal-operational-snapshot.log",
+    "public": "sanitized-evidence/router-console-logs/20261101-085508-C8235-B-internal-operational-snapshot.log",
+    "bytes": 120783,
+    "sha256": "a2f9bea5124e232d19b238c2ef0d975e604b7eaec13a272f17a8a7d116881c73"
   }
 }
