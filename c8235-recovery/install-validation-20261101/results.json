@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "timezone": "America/New_York",
   "chassis": "C8235-B / FGL2835LBHU",
-  "status": "PREPARATION: native conversion not yet issued",
+  "status": "Native conversion SUCCESS; first autonomous install boot in progress",
   "owner_request": "lets try install mode now",
   "physical_confirmation": "Owner confirms powered on, USB storage absent, cooling/battery/assembly/console/port7/8 unchanged; no programmer/probes or terminal app",
   "capture": ".git/recovery-private/c8235-install-20261101/20261101-091632/console.log",
@@ -98,5 +98,55 @@
       "kind": "Immutable prefix; live capture continues"
     },
     "CLI_help": "Native install add ... activate commit accepted in help; no execution yet"
-  }
+  },
+  "conversion": {
+    "command": "install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit",
+    "entered_at": "2026-11-01T09:18:49.587027-05:00",
+    "clock_note": "Router displays May29 2025; host timestamps are actual November1 EST",
+    "stage": "Native add/activate/commit SUCCESS; controlled first reset stopped for matching ROMMON readback",
+    "first_reset_policy": "Current Console capture stops first reset at matching ROMMON for environment readback before supervised boot",
+    "activation_packages": [
+      "c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg",
+      "c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+      "c8kg2be-rpboot.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_sm_async.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_nim_async.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_prince.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg"
+    ],
+    "reload_confirmation_at": "2026-11-01T09:20:37.081101-05:00",
+    "reset_stopped_at": "2026-11-01T09:22:51.556853-05:00",
+    "ROMMON_reset_reason": "LocalSoft",
+    "BOOT_after_conversion": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+    "USER_BOOT_PARAM": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/B4&&exec${IFS}bash$IFS/u/B4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+    "readback_at": "2026-11-01T09:23:18.979431-05:00",
+    "qualifier": "No subsequent saved setting edit; installer placed packages.conf first and preserved bundle fallback",
+    "capture": {
+      "raw_local": "router-console-logs/20261101-091632-C8235-B-install-conversion.log",
+      "public": "sanitized-evidence/router-console-logs/20261101-091632-C8235-B-install-conversion.log",
+      "bytes": 41053,
+      "sha256": "f2ee8129c780463510ad160dc2eabab1bdf5022db2c024621b2f5496e6091cb8",
+      "closed_at": "2026-11-01T09:23:32.432156-05:00",
+      "exit": 0
+    }
+  },
+  "trials": [
+    {
+      "kind": "saved autonomous install-mode warm boot",
+      "status": "IN PROGRESS",
+      "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-092332-one-autoboot/console.log",
+      "observer_session": 7165,
+      "armed_at": "2026-11-01T09:23:32.835296-05:00",
+      "trigger": "Native ROMMON reset; no further TX intended through IOS welcome",
+      "USB_physically_connected": false,
+      "BOOT": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;"
+    }
+  ]
 }

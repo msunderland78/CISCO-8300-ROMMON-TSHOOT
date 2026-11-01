@@ -1,0 +1,54 @@
+C8235-B / FGL2835LBHU — install-mode validation
+2026-11-01, America/New_York; task C8235-05
+
+STATUS: IN PROGRESS, NOT YET A VERIFIED INSTALL-MODE BOOT
+The owner requests install mode using packages.conf, without USB storage.
+Native one-step conversion succeeded. First autonomous install boot is underway.
+The working B4 loader and C8235FIX1 remain unchanged.
+
+RATIONALE
+Read-only extraction of the exact bundle's rpboot package confirms that its
+initramfs contains the same launch_net.sh target already checked by the fix:
+SHA256 f7d617bd80362c4bc564fc2c848bd95ecf84251be0d11e1707a95ca301d8cdc4.
+mount_packages.service requires and runs after launch_net.service. This supports
+trying the same early RAM correction, but does not replace live validation.
+The B4 loader still requires the original .bin file for its input hash check.
+Do not delete that file after conversion; it is also the verified fallback.
+
+PRESERVATION
+bootflash:C8235B-PRE-INSTALL-packages.conf — exact old 17.18.3a manifest
+bootflash:C8235B-PRE-INSTALL-running.cfg — current bundle running configuration
+bootflash:C8235B-PRE-INSTALL-startup.cfg — current saved bundle configuration
+Native hashes and configuration comparisons passed; full evidence is in
+../../c8235-recovery/install-validation-20261101/results.json.
+Old package files, original vendor bytes and the USB recovery set are retained.
+No ROMMON code, confreg, TPM, fuse or provisioning change is part of this test.
+
+CONVERSION
+install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit
+Native Add passed. Its 14-package activation list matches the extracted source.
+Reload confirmation was answered yes at 09:20:37 EST. Native Add, Activate,
+Commit/ACTIVATE_POSTCHECK and the full operation reported success. First reset
+was stopped at identified B ROMMON. Readback at09:23:18 confirms unchanged B4
+parameter and BOOT=bootflash:packages.conf,12; followed by the original .bin
+fallback. No subsequent setting edit. Fresh observer7165 armed09:23:32 for
+automatic startup after native reset. No install-mode boot pass claimed yet.
+
+VALIDATION STILL REQUIRED
+Confirm saved BOOT points to bootflash:packages.conf and B4 parameter is intact.
+Verify automatic B4 guards, RAM correction, unmount and runtime hook markers.
+Verify IOS system image packages.conf, installed/committed 26.2.1, exact package
+bytes, platform readiness, unchanged CPP and matched keepalives without misses.
+Check saved network/configuration, ports, route, ping and environmental readings.
+Then capture an owner cold boot without USB and a sampled operational interval.
+Longer qualification and the separate sensor/TPM findings remain unresolved.
+
+RECOVERY
+If a guard or boot fails, retain the capture and stop at identified B ROMMON.
+The exact .bin and saved B4 parameter are the verified internal bundle fallback;
+see BOOTFLASH.txt. A manual bundle boot is available without overwriting the
+new packages or the old preserved manifest. Do not retry an unexplained reset
+loop or select the old packages.conf backup expecting corrected 26.2.1.
+
+Reference for initial bundle-to-install conversion:
+https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/software-config-guide/secure-8200-series-scg/isr9000swcfg-xe-16-12-book_chapter_0111.html
