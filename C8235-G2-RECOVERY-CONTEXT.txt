@@ -10,6 +10,26 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+AUTOMATIC USB ENTRY VERIFIED — 2026-11-01, 07:47 EST — C8235-05
+Trial5 captured the cause of its reset: /bin/sh -c lacks a command argument,
+then PID1 exits/panics. Linux documents that unknown boot arguments containing
+a literal dot are not passed to init. Trial6 changes only the filename dot to
+? (same exact USB file); automatic USB_PROBE_BEGIN appears. Profile probe then
+fails because /proc is absent; maintenance remains available. This supports
+the parsing cause, independently of the established loopback resource defect.
+No IOS or correction ran in trials1-6. All failures remain in usb-entry.json.
+
+Full-loader trial7 prepared: new dot-free usb0:B2 plus usb0:C8235FIX1 (unchanged
+45af8d05... correction source). Transferred to RAM, syntax/hash checked, copied
+to previously absent USB names, sync/remounted ro, both hashes verified; USB
+unmounted0. Candidate checks image/source/output hashes, moves itself to RAM,
+requires PID1, and holds maintenance on guard failure before /init. Parameter
+is252-byte set command, no dot/equals in command body, five-second USB delay.
+Candidate: experimental-recovery/c8235-b-bootstrap-20261101/auto-candidate.json.
+Warm restart requested for unsaved trial; automatic full boot still pending.
+Saved BOOT/confreg/startup and original IOS bytes remain unchanged. No durable
+persistence claim. Active exclusive capture/control directory unchanged below.
+
 AUTOMATIC CONSOLE ENTRY VERIFIED — 2026-11-01, 07:38 EST — C8235-05
 Trial3 automatic USB entry still reset before markers despite successful manual
 rehearsal. Trial4 adds serial kernel console diagnostics and only an automatic

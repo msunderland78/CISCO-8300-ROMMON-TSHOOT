@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "status": "First unsaved probe failed; narrowing to automatic child-console entry, no persistence",
+  "status": "Automatic USB entry established; preparing PID1 full RAM-correction loader, no persistent settings changed",
   "source_candidate": "experimental-recovery/c8235-b-bootstrap-20261101/candidate.json",
   "console_source": ".git/recovery-private/c8235-analysis-20261101/20261101-072310-usb-entry/console.log",
   "physical_confirmation": "Same owner-confirmed setup retained throughout cold2/cold3 and probe; exclusive console handed off cleanly",
@@ -16,7 +16,7 @@
   "confreg": "0x3922",
   "no_startup_save": true,
   "no_firmware_write": true,
-  "updated_at": "2026-11-01T07:38:27.175919-05:00",
+  "updated_at": "2026-11-01T07:47:28.123574-05:00",
   "trials": [
     {
       "number": 1,
@@ -104,8 +104,50 @@
       "kind": "Serial console plus delayed automatic USB probe; no correction/normal init",
       "parameter": "console=ttyAMA0,115200n8 rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sh${IFS}-c${IFS}'sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro${IFS}/dev/sda1${IFS}/u;bash$IFS/u/C8235B1.sh${IFS}-p;exec${IFS}sh'</dev/ttyAMA0&>/dev/ttyAMA0",
       "set_command_bytes": 252,
-      "result": "Prepared; not booted",
-      "changes": "Use serial kernel console baud instead of an initial stty; wait5seconds before mounting USB; five equivalent short IFS expansions keep command bounded. No fixed-delay reliability guarantee."
+      "result": "FAILED with captured cause: /bin/sh -c option requires an argument, then Attempted to kill init exitcode0x00000200",
+      "changes": "Use serial kernel console baud instead of an initial stty; wait5seconds before mounting USB; five equivalent short IFS expansions keep command bounded. No fixed-delay reliability guarantee.",
+      "readback_verified": true,
+      "boot_at": "2026-11-01T07:39:49.109904-05:00",
+      "inference": "Whole command body may be omitted by kernel unknown-option handling because it contains a dot in C8235B1.sh. This would explain previous .sh bootstrap failures; verify against kernel source/documentation and a no-dot candidate.",
+      "distinct_from_original_CPP_failure": "PID1 bootstrap argument failure occurs before IOS, unrelated to the established NIX resource correction",
+      "snapshot": {
+        "raw_local": "router-console-logs/20261101-074031-C8235-B-init-argument-panic-snapshot.log",
+        "bytes": 133510,
+        "sha256": "e9c6f3ded468709e1c072263744cad958ddfd2fe4c8c6ea7ab6075612c68c50b",
+        "type": "Immutable capture prefix"
+      }
+    },
+    {
+      "number": 6,
+      "kind": "Single-character no-dot filename pattern comparison, same verified USB probe",
+      "parameter": "console=ttyAMA0,115200n8 rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sh${IFS}-c${IFS}'sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro${IFS}/dev/sda1${IFS}/u;bash$IFS/u/C8235B1?sh${IFS}-p;exec${IFS}sh'</dev/ttyAMA0&>/dev/ttyAMA0",
+      "readback_verified": true,
+      "result": "Automatic USB entry PASS; profile probe stops at absent /proc mountpoint and returns to maintenance shell; no correction/IOS",
+      "comparison": "Only literal . in C8235B1.sh changed to ?; shell pattern selects the existing exact probe name. No additional matching file is intended; script explicit-mode guard fails if an extra match becomes an argument. Use dot-free explicit names for a durable loader.",
+      "basis": "Captured missing -c argument plus kernel documentation: unknown arguments containing . are not forwarded to init.",
+      "source": "https://kernel.org/doc/html/latest/admin-guide/kernel-parameters.html",
+      "boot_at": "2026-11-01T07:41:28.455633-05:00",
+      "observed": [
+        "C8235_USB_PROBE_BEGIN pid151 parent140 appears automatically",
+        "Same probe SHA256 c08eab51e97bb5ce4fb40410330472270b6ffd7552eb85c9bfd1f663c0720485",
+        "Manually creating /proc and /sys then mounting succeeded; USB remains ro"
+      ],
+      "inference": "Single-character . to ? change supports Linux documented dot filtering as missing init argument cause; use explicit dot-free loader name",
+      "snapshot": {
+        "raw_local": "router-console-logs/20261101-074730-C8235-B-usb-entry-pass-snapshot.log",
+        "bytes": 152602,
+        "sha256": "682934b697aa5b2de7a3cc6958fb8d57346d24f63482983cd7052ebbbbd808cb",
+        "type": "Immutable private capture prefix; includes new loader transfer/deployment after trial6"
+      }
+    },
+    {
+      "number": 7,
+      "kind": "Automatic PID1 USB loader, exact original bound16 RAM correction, /init continuation",
+      "parameter": "console=ttyAMA0,115200n8 rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B2&&exec${IFS}bash$IFS/u/B2$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+      "set_command_bytes": 252,
+      "candidate": "experimental-recovery/c8235-b-bootstrap-20261101/auto-candidate.json",
+      "result": "Prepared, not booted",
+      "saved_settings_changed": false
     }
   ],
   "maintenance_reboot_correction": {
