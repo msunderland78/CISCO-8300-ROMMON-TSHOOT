@@ -1,0 +1,95 @@
+{
+  "task": "C8235-05",
+  "chassis": {
+    "label": "C8235-B",
+    "serial": "FGL2835LBHU",
+    "PID": "C8230X-8M2X",
+    "UUID": "13 FF FF 87 79 AD FB 7C 6D E0 81 A7"
+  },
+  "timezone": "America/New_York",
+  "started_at": "2026-11-01T08:40:33.244358-05:00",
+  "status": "Internal files deployed and full SHA512 verified; working USB setup and startup unchanged; one-time internal boot next",
+  "physical_confirmation": "Owner reconfirmed identical powered-on B assembly/cooling/battery/cables, no probes/programmer or terminal owner",
+  "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-084033-bootflash/console.log",
+  "console": {
+    "port": "/dev/cu.usbserial-AL00F7EQ",
+    "settings": "115200 8N1, no flow",
+    "exclusive_session": 60681
+  },
+  "baseline": {
+    "IOS": "26.02.01",
+    "uptime_minutes": 20,
+    "native_reload_reason": "PowerOn",
+    "BOOT": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+    "confreg": "0x3922",
+    "ROMMON": "SDK112312-SoC1-SB-v12.1.22",
+    "platform": "R0/F0 active and 0/0 ok",
+    "keepalives": {
+      "rx": 596,
+      "tx": 596,
+      "miss": 0
+    },
+    "bootflash_total_bytes": 20229492736,
+    "bootflash_free_bytes": 12769341440
+  },
+  "candidate": "experimental-recovery/c8235-b-bootflash-20261101/candidate.json",
+  "image": {
+    "source": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin",
+    "destination": "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin",
+    "expected_bytes": 1048008916,
+    "expected_sha256": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456",
+    "expected_sha512": "a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c52115fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02",
+    "copy_started_at": "2026-11-01T08:41:27.796649-05:00",
+    "state": "Native copy complete, 1048008916 bytes in70.052s; full destination SHA512 matches verified USB/source"
+  },
+  "changes_planned": [
+    "Add exact IOS image, unchanged C8235FIX1 and separately named B4 to bootflash; preserve old packages and USB files",
+    "Boot same image from bootflash with an unsaved early read-only internal-storage parameter",
+    "Verify operational and network checks before saving internal selection",
+    "Capture cold startup with USB physically absent"
+  ],
+  "prior_internal_mount_evidence": "sanitized-evidence/router-console-logs/20261031-160639-console.log: /dev/mmcblk0p1 mounted ext4 ro,noload in exact26.2.1 maintenance shell; historical evidence to reconfirm in new boot",
+  "limits": [
+    "Same B and exact IOS/profile only",
+    "Unresolved sensor telemetry and TPM warnings remain separate",
+    "No ROMMON code, TPM/fuses or installed package modification",
+    "Passing file hashes is not signature authentication or full hardware qualification"
+  ],
+  "owner_final_mode": {
+    "recorded_at": "2026-11-01T08:43:25.078361-05:00",
+    "target": "Install mode using packages.conf, not permanent bundle mode",
+    "sequence": "Current internal exact .bin boot is an intermediate no-USB validation. Inspect/extract exact package set and validate early correction under install mode separately before final mode transition.",
+    "status": "Recorded requirement; install-mode correction not yet tested"
+  },
+  "updated_at": "2026-11-01T08:44:39.523767-05:00",
+  "deployment": {
+    "completed_by": "2026-11-01T08:44:39.523767-05:00",
+    "native_hash_checks": {
+      "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin": "a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c52115fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02",
+      "bootflash:B4": "6a042a9e7de79e1849be1c64e0a37a0b7dbdaca110d57501a7a0379829750ad0646d47815055fa20518e2fbf52b74d3d419374783c88b3c2babdbfe944cf144c",
+      "bootflash:C8235FIX1": "1fc4b93846e4b01780f0529fb8311ca8ab34b89cdcddf5d80cdd38211b8617bf6aeab5da7b6f34664c20d5047026aff8975b18bc30d8aae6db99e4a8e1f80d50"
+    },
+    "new_files_only": true,
+    "remaining_bootflash_bytes": 11721318400,
+    "temporary_HTTP_server": "192.168.5.104:8836, served only experimental candidate directory; stopped after transfer",
+    "source_warning": "IOS warns HTTP is weak transfer protocol; full destination SHA512 independently matches local source",
+    "prior_startup_preserved": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-bootflash-20261101-startup.cfg",
+    "startup_bytes": 3884,
+    "startup_sha512": "95330540719e053de4b80f027dbcaab640db15be366c05815992f91a63743f9fb557e90a5b91c99ec63586d79819750e7cbedace928bd333770d853fb4fc4894",
+    "running_preserved": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-bootflash-20261101-running.cfg",
+    "running_bytes": 7659,
+    "running_sha512": "1c45d58aef11fd44c061ffa1e69cd6bd95840e3e0aee9e307e6af5fc375d2c147b39032db8b6695eff1aa3cac7cb4ef7f3aedb70c0312d5f5b3d63be062439c1",
+    "native_diffs": "Running vs new export and startup vs prior auto export both have no changes"
+  },
+  "preflight_snapshot": {
+    "raw_local": "router-console-logs/20261101-084439-C8235-B-bootflash-preflight-snapshot.log",
+    "public": "sanitized-evidence/router-console-logs/20261101-084439-C8235-B-bootflash-preflight-snapshot.log",
+    "bytes": 46818,
+    "sha256": "7a3b8084e7515eb5c6d6d7138c13e5c295bdab74172e205af3c534e504ecc0cb",
+    "type": "Immutable prefix; live console capture continues"
+  },
+  "mount_reference": {
+    "url": "https://docs.kernel.org/6.6/admin-guide/ext4.html",
+    "note": "Kernel documentation says ro alone may replay journal; ro,noload prevents that write. Dirty-filesystem consistency remains a guard limitation."
+  }
+}

@@ -1204,6 +1204,11 @@
       "bytes": 30491,
       "path": "router-console-logs/20261101-082115-C8235-B-autonomous-cold-zero-tx-snapshot.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 46818,
+      "path": "router-console-logs/20261101-084439-C8235-B-bootflash-preflight-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1238,9 +1243,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 111451,
+      "bytes": 112252,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "42f521c242dab197565b863426a6cb532e41a86d64900cf3fa34061a28d0ecb7"
+      "sha256": "cf03a73970225bdf3f2aa595cbda4071144ba348fc7189c3a91694b7e105686d"
     },
     {
       "bytes": 106687,
@@ -1523,9 +1528,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 365486,
+      "bytes": 366734,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "b4b05294d88cbdf769e655ede065538d2adced5aab575fe727842345f5637bf4"
+      "sha256": "e0fe6acf96fa81a7e1c4115643f21dc54441d25019eae29198d2a85edfb969ac"
     },
     {
       "bytes": 6850655,
@@ -1676,6 +1681,11 @@
       "bytes": 31926,
       "path": "c8235-recovery/boot-validation-20261101/usb-entry.json",
       "sha256": "f31f574124bf7a0ac25c75390fb6e485af8dd0ebde8a7a85b2e01e1cfc9a7498"
+    },
+    {
+      "bytes": 5558,
+      "path": "c8235-recovery/bootflash-validation-20261101/results.json",
+      "sha256": "38717c5d6b238b0e55043fb064dc4e63d6da822d1fa282171280d763af757201"
     },
     {
       "bytes": 82424,
@@ -2411,6 +2421,21 @@
       "bytes": 6119,
       "path": "experimental-recovery/board-data/mirabile-arata-r2.dtb.txt",
       "sha256": "8a63e68c3fa4bf8e9b23375302db8e3f4926e67a03b92a37aa41b6ed1954a9e6"
+    },
+    {
+      "bytes": 3742,
+      "path": "experimental-recovery/c8235-b-bootflash-20261101/BOOTFLASH.txt",
+      "sha256": "50b4a672d1ac0838ec16982c80fc2cfaefae8695928dc1c83f5da1fcf1421ea6"
+    },
+    {
+      "bytes": 2507,
+      "path": "experimental-recovery/c8235-b-bootflash-20261101/auto-bootflash.sh",
+      "sha256": "39cd7902bcbe93b70e9769d89593113cb4ba1cf4926d7a377366fc20f7524b5a"
+    },
+    {
+      "bytes": 2086,
+      "path": "experimental-recovery/c8235-b-bootflash-20261101/candidate.json",
+      "sha256": "e1db9741135084697788df5c48d77dcecd7de428068d7d74b51daee91ae8b811"
     },
     {
       "bytes": 5235,
@@ -3563,6 +3588,11 @@
       "sha256": "2d665173627707d853764af70dd34be8a3586dbd1188fd39c5199e935d7c1cdf"
     },
     {
+      "bytes": 46818,
+      "path": "sanitized-evidence/router-console-logs/20261101-084439-C8235-B-bootflash-preflight-snapshot.log",
+      "sha256": "7a3b8084e7515eb5c6d6d7138c13e5c295bdab74172e205af3c534e504ecc0cb"
+    },
+    {
       "bytes": 16688,
       "path": "scripts/c8235_b_console_boot.py",
       "sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
@@ -3830,12 +3860,13 @@
     "sanitized-evidence/router-console-logs/20261101-081015-C8235-B-autonomous-warm.log",
     "sanitized-evidence/router-console-logs/20261101-081310-C8235-B-autonomous-warm-no-intervention-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-081501-C8235-B-autonomous-cold.log",
-    "sanitized-evidence/router-console-logs/20261101-082115-C8235-B-autonomous-cold-zero-tx-snapshot.log"
+    "sanitized-evidence/router-console-logs/20261101-082115-C8235-B-autonomous-cold-zero-tx-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261101-084439-C8235-B-bootflash-preflight-snapshot.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 241,
-    "included_bytes_without_manifest": 699582784,
-    "included_files_without_manifest": 494
+    "excluded_local_files": 242,
+    "included_bytes_without_manifest": 699645544,
+    "included_files_without_manifest": 499
   }
 }

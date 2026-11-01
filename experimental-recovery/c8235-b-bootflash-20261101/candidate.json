@@ -1,0 +1,35 @@
+{
+  "task": "C8235-05",
+  "chassis": "C8235-B / FGL2835LBHU",
+  "created_at": "2026-11-01T08:41:28.960448-05:00",
+  "status": "Deployed to bootflash:B4; native full SHA512 matched local source; boot test pending",
+  "source": "experimental-recovery/c8235-b-bootflash-20261101/auto-bootflash.sh",
+  "target": "bootflash:B4",
+  "bytes": 2507,
+  "sha256": "39cd7902bcbe93b70e9769d89593113cb4ba1cf4926d7a377366fc20f7524b5a",
+  "sha512": "6a042a9e7de79e1849be1c64e0a37a0b7dbdaca110d57501a7a0379829750ad0646d47815055fa20518e2fbf52b74d3d419374783c88b3c2babdbfe944cf144c",
+  "parameter": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/B4&&exec${IFS}bash$IFS/u/B4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+  "set_command_bytes": 239,
+  "original_USB_candidate": "experimental-recovery/c8235-b-bootstrap-20261101/auto-candidate-v2.json",
+  "changes": [
+    "Internal ext4 mount is read-only with noload",
+    "Loader verifies /dev/mmcblk0p1 mounted at /u as ext4 read-only",
+    "Separate B4 name/markers; original USB B3 and correction remain unchanged",
+    "Same kernel/board/profile/image/source/patch/hook guards and PID1 continuation"
+  ],
+  "pending": [
+    "Deploy new files without overwriting originals and verify hashes",
+    "One-time internal image/parameter boot without saving new settings",
+    "Verify operational health/network and then save intended internal selection",
+    "Cold boot with USB physically absent"
+  ],
+  "physical_confirmation": "Owner reconfirmed identical powered-on B assembly/cooling/battery/cables, no probes/programmer or terminal owner",
+  "capture": ".git/recovery-private/c8235-analysis-20261101/20261101-084033-bootflash/console.log",
+  "validation": [
+    "bash -n source and parameter body PASS",
+    "Default invocation inert",
+    "Non-PID1 --boot and --ram refuse before tty access",
+    "Reviewed diff from verified USB B3: names/markers plus read-only internal mount guard",
+    "Native full SHA512 destination matches local source"
+  ]
+}

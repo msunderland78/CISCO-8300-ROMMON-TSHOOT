@@ -1,0 +1,61 @@
+C8235-B / FGL2835LBHU — experimental bootflash correction
+2026-11-01, America/New_York; task C8235-05
+
+FINAL OWNER TARGET: INSTALL MODE USING packages.conf
+The internal .bin/bundle boot below is an intermediate validation step.
+Install-mode package selection and early correction are not yet validated.
+
+STATUS: DEPLOYED AND HASH-VERIFIED, NOT YET BOOT-TESTED
+The working USB B3 setup remains saved. New bootflash B4 is derived from B3;
+only storage identity guard, deployment/RAM names and status markers differ.
+The correction C8235FIX1 and vendor IOS image remain byte-for-byte unchanged.
+Native full SHA512 checks pass for all three bootflash files. Working startup
+and USB boot selection remain unchanged; fresh startup/running exports verified.
+This file must be updated with the observed test outcome before handoff.
+
+INPUTS
+bootflash:c8kg2be-universalk9.26.02.01.SPA.bin
+SHA256 0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456
+bootflash:C8235FIX1 = ../c8235-b-bound16-20261031/boot-bound16.sh
+SHA256 45af8d05ca9a954bef83a2d59be9951391d322010a0b809304760fc3b875a052
+bootflash:B4 = auto-bootflash.sh
+SHA256 39cd7902bcbe93b70e9769d89593113cb4ba1cf4926d7a377366fc20f7524b5a
+
+CANDIDATE PARAMETER (239-byte complete set command)
+set USER_BOOT_PARAM "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/B4&&exec${IFS}bash$IFS/u/B4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0"
+
+The command mounts /dev/mmcblk0p1 at /u as ext4 ro,noload. B4 copies itself to
+RAM, verifies the read-only backing mount and established kernel/board/profile,
+image/source/patch/hook hashes, then unmounts /u before exec /init. No image
+patch, ROMMON-code update, security-data edit or journal replay is requested.
+Guard failure holds maintenance; do not exit PID1 or leave a reset loop running.
+
+VALIDATION SEQUENCE
+1. Confirm B physical state/identity and exclusive 115200 8N1 console.
+2. Preserve working startup/USB setup; add new files to internal storage only
+   after checking names absent and space available. Verify native full hashes.
+3. At identified ROMMON, set only the temporary candidate parameter and boot
+   the exact internal image manually. Do not sync the parameter yet.
+4. Verify loader, correction, IOS/platform, five-minute CPP/keepalive check,
+   saved network and configuration diffs. Retain environmental/TPM findings.
+5. Only after that pass, save the intended internal boot entry and parameter,
+   then capture an autonomous physical cold boot with USB disconnected.
+6. Verify native PowerOn, internal source, automatic correction, operational
+   interval and network restoration with no post-boot configuration.
+
+RECOVERY
+Keep the existing USB image/B3/C8235FIX1 intact. If internal startup fails,
+capture the failure and stop at identified B ROMMON. Restore the exact USB
+parameter from ../c8235-b-bootstrap-20261101/AUTO-BOOT.txt, then manually boot
+usb0:c8kg2be-universalk9.26.02.01.SPA.bin. Inspect failure before another trial.
+If reverting saved settings, restore the IOS USB boot line/startup and ROMMON
+USB parameter explicitly; changing one alone does not restore the full setup.
+The guarded console helper is another established assisted fallback.
+
+LIMITS
+B-only and exact 26.2.1; not an arbitrary-version or cross-chassis repair.
+All-zero sensor telemetry/TPM warning and longer qualification remain separate.
+Read-only noload may expose an unrecovered filesystem after abrupt power loss;
+full file hashes and guards must pass. Do not suppress a filesystem error.
+Original packages/configuration backups and original USB loader stay preserved.
+Evidence: c8235-recovery/bootflash-validation-20261101/results.json.

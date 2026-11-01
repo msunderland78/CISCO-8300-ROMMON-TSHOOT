@@ -10,6 +10,18 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+BOOTFLASH FOLLOW-UP — 2026-11-01, 08:44 EST
+Owner requests no-USB boot; final target is INSTALL MODE using packages.conf.
+Fresh unchanged hardware/console confirmation and live B identity pass. Exact
+26.2.1 image, original correction and separate B4 are deployed to bootflash;
+full native SHA512 hashes match. Startup/running backups preserved, native
+diffs unchanged. Current saved USB boot remains the working recovery path.
+One-time internal bundle boot with unsaved parameter is next; it is only an
+intermediate test, not the final install-mode result. New exclusive capture
+60681 is active; do not take its port. No internal-boot pass is claimed yet.
+Evidence: c8235-recovery/bootflash-validation-20261101/results.json
+Procedure: experimental-recovery/c8235-b-bootflash-20261101/BOOTFLASH.txt
+
 CURRENT HANDOFF: AUTONOMOUS COLD BOOT PASS — 2026-11-01, 08:28 EST
 C8235-B / FGL2835LBHU is powered on in IOS 26.02.1. Saved autonomous warm and
 physical cold boots now pass: the USB loader reapplies the exact RAM correction
