@@ -10,6 +10,34 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A RESUMED; FRESH TPM HALT — 2026-11-01, 11:52–11:54 EST
+Owner accepts router3/C as good for now, returns to router1/A, and confirms
+FGL2835L42B, powered off with cooling/heatsink/fans/battery installed, no probes
+or programmer and exclusive console. Cable-list reply "yes" interpreted as move
+complete with power/RJ45/USB/Ethernet7/8 connected; no detailed cable inventory
+beyond that reply. Owner then confirms power on. C's old powered/cabled handoff
+is superseded by this move; no further changes to C were commanded.
+
+Fresh exclusive115200/8N1/no-flow capture begins11:52:09, one B sent on boot-menu
+prompt11:52:22. N at11:52:47.665156 continues normal boot. Same April1,2026 stub,
+March19 UEFI/startup component versions and March31 BL2/BL31 release1d04daf3.
+Five selected version fields match October25. DRAM reports16GB/4800MT/s; that is
+initialization, not a full memory test. The identical fatal TPM manufacturing-
+status message occurs before Cisco ROMMON/IOS. Board serial remains unknown
+in early firmware; chassis binding is owner-confirmed. Physical photo/R0 ID
+attribution contradictions elsewhere remain unresolved.
+
+No flash/configuration/security write, TPM clear or retry firmware experiment.
+The B/C RAM-only IOS correction cannot run at this earlier failing stage.
+Capture closed; router remains powered at halt, no transfer/write in progress,
+programmer disconnected. Prior Pi5/1.8V/SOIC16 setup availability requested.
+Next: unpowered A-specific chip identification/electrical setup, repeated stable
+full reads of both physical flash chips, then compare preserved regions and
+firmware before choosing any restore. Do not reuse C8375 wiring/control scripts
+or clone a full B/C chip. A golden contents/selector/mapping remain unverified.
+Evidence: c8235-recovery/c8235-a-resume-20261101/results.json
+Capture: sanitized-evidence/router-console-logs/20261101-115209-C8235-A-post-ROMMON-halt-baseline.log
+
 C8235-C PERFORMANCE COMPLETE — 2026-11-01, 11:42 EST (C8235-05)
 Owner requested 850Mbps, 1Gbps and 10Gbps tests, then saving the normal port7/8
 network. Native C identity FGL2835L41Z, USB absent, same cooling/battery/assembly,

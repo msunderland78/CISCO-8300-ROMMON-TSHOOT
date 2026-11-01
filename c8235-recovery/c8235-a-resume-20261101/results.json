@@ -1,0 +1,96 @@
+{
+  "task": "C8235-01 / C8235-05",
+  "date": "2026-11-01",
+  "timezone": "America/New_York (EST UTC-05:00)",
+  "status": "same pre-ROMMON TPM manufacturing-status halt reproduced",
+  "identity": {
+    "tracking": "C8235-A",
+    "chassis_serial_owner_confirmed": "FGL2835L42B",
+    "native_current_chassis_serial": "not reached; early firmware reports board serial unknown",
+    "board": "mirabile-arata r2",
+    "silicon": "CN10208C Pass A0 alt package"
+  },
+  "physical": {
+    "confirmation": "Owner confirmed A, powered off, cooling/heatsink/fans/battery installed, no programmer/probes and no other terminal app. Cable-list follow-up answered yes, interpreted as move complete with power/RJ45/USB/Ethernet7/8 connected.",
+    "power_on_confirmation": "Router #1 is powered on",
+    "C_handoff": "Owner accepts router3 as good for now and moves cables toA; priorCpowered-on cabling state is superseded."
+  },
+  "console": {
+    "device": "/dev/cu.usbserial-AL00F7EQ",
+    "settings": "1152008N1/no flow",
+    "ownership": "lsof free before open; TIOCEXCL and sole-owner check passed",
+    "session": 2160,
+    "armed_at": "2026-11-01T11:52:09.771516-05:00",
+    "private_directory": ".git/recovery-private/c8235-a-resume-20261101/20261101-115209-console",
+    "menu_at": "2026-11-01T11:52:22.742854-05:00",
+    "first_TX": "uppercase B on exact boot-menu prompt; read-only menu interception",
+    "normal_boot": "Sent N at2026-11-01T11:52:47.665156-05:00",
+    "status": "closed; no serial owner retained"
+  },
+  "helper": {
+    "local_private_path": ".git/recovery-private/c8235-a-resume-20261101/capture_boot_menu.py",
+    "sha256": "e68798a1aa7d33499e45042843af4281f017fc4a8d7516d5c810b84275357f49",
+    "purpose": "AI-assisted explicit observer forA; standard-library, inert on import/default. Reviewed generic Console/hold reused; no B boot routine invoked. Sends only first boot-menu B automatically; existing generic UUID guard stops Cisco autoboot if reached.",
+    "validation": "Source review and offline compile; fresh live exclusive capture and correct A-history boot-menu interception observed. No new automated tests."
+  },
+  "prior_reference": "../../sanitized-evidence/router-console-logs/20261025-120203-console.log",
+  "observed_firmware": {
+    "boot_stub": "2026-04-01 03:34:36",
+    "EBF": "11.23.12 / SoC1v11rBuild / 2026-04-01 03:33:20",
+    "boot_device": "SPI0_CS0,REMOTE, using SPI0_CS0",
+    "comparison": "Matches priorA post-release-flash banner; differs from B/C July2024 development baseline. Reported banner match is not full-flash byte identity."
+  },
+  "writes": "No firmware/configuration/security/provisioning write in this session. Only B menu interception and N normal boot.",
+  "next": "Read-only external full acquisitions of both physical A flash chips, repeated stable reads and independent identity/voltage/loading checks before any restore. B/C logical donor snapshots are reference evidence, not full-chip cross-chassis restore images.",
+  "fresh_comparison": [
+    {
+      "pattern": "Firmware Version: ([^\\r\\n]+)",
+      "current": "2026-04-01 03:34:36",
+      "prior": "2026-04-01 03:34:36",
+      "equal": true
+    },
+    {
+      "pattern": "cisco-bootstub.bin\\s+version: ([^\\r\\n]+)",
+      "current": "0B.17.0C 20260319-0231 00000000",
+      "prior": "0B.17.0C 20260319-0231 00000000",
+      "equal": true
+    },
+    {
+      "pattern": "uefi.bin\\s+version: ([^\\r\\n]+)",
+      "current": "0B.17.0C 20260319-0231 00000000",
+      "prior": "0B.17.0C 20260319-0231 00000000",
+      "equal": true
+    },
+    {
+      "pattern": "BL2: v([^\\r\\n]+)",
+      "current": "2.4(release):1d04daf3 (Marvell-11.23.12)",
+      "prior": "2.4(release):1d04daf3 (Marvell-11.23.12)",
+      "equal": true
+    },
+    {
+      "pattern": "BL31: v([^\\r\\n]+)",
+      "current": "2.4(release):1d04daf3 (Marvell-11.23.12)",
+      "prior": "2.4(release):1d04daf3 (Marvell-11.23.12)",
+      "equal": true
+    }
+  ],
+  "normal_boot_result": {
+    "observed_by": "2026-11-01T11:53:43.753647-05:00",
+    "DRAM": "16GB DDR5 4800MT/s reported; this is initialization, not a full memory diagnostic",
+    "BL2_BL31": "v2.4 release1d04daf3 / March31,2026",
+    "UEFI_reported": "0B.17.0C20260319-0231",
+    "failure": "Fatal error found on TPM secure device while accessing manufacturing status, cannot boot the system!",
+    "Cisco_ROMMON_reached": false,
+    "IOS_reached": false,
+    "cause": "Unresolved: release-firmware compatibility/security state, TPM bus/hardware, or manufacturing provisioning cannot be distinguished by this message."
+  },
+  "capture": {
+    "raw_path": "router-console-logs/20261101-115209-C8235-A-post-ROMMON-halt-baseline.log",
+    "public_path": "sanitized-evidence/router-console-logs/20261101-115209-C8235-A-post-ROMMON-halt-baseline.log",
+    "bytes": 2983,
+    "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c",
+    "closed": true
+  },
+  "handoff": "Powered at the fatal TPM halt, with confirmed assembly/cables unchanged. No write/transfer in progress. Programmer remains disconnected; owner asked whether prior Pi5/1.8V/SOIC16 setup is available. Physical chip identity and electrical setup must be established for A before any acquisition.",
+  "recovery_scope": "Existing recovery authorization retained; read-only preservation first. No speculative TPM clear, provisioning change, golden selector, jumper, or cross-chassis full-chip clone."
+}

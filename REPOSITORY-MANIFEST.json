@@ -1604,6 +1604,11 @@
       "bytes": 81366,
       "path": "router-console-logs/20261101-112543-C8235-C-performance-first-four-snapshot.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 2983,
+      "path": "router-console-logs/20261101-115209-C8235-A-post-ROMMON-halt-baseline.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1638,9 +1643,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 143965,
+      "bytes": 145899,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "1d3d96535274a2409bc531fdb562ebe33dca1331e15ddace396779c26db5209e"
+      "sha256": "7760573e1e3569c007b630ff675c45b5446e6d7872b88a1c7941ced2b1a5a7d7"
     },
     {
       "bytes": 106687,
@@ -1823,9 +1828,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 24639,
+      "bytes": 24754,
       "path": "README.md",
-      "sha256": "d41df1f4cd17c31753a62713cd5cd0f6e70f941aba38ec9edf64030fd1388bc1"
+      "sha256": "f248620d86816597c2c66d1bd6cbb39d79b953f5caa6ce3f49f4feada1429aa2"
     },
     {
       "bytes": 3934,
@@ -1923,9 +1928,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 390585,
+      "bytes": 391716,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "16c1bee895a1484920751a1dca9b5f05b7654c7314da02402831846abe5ef3ef"
+      "sha256": "b09ec3b952a0b5bfba3d01b43c05f14cfecc5d01bf4c752c85e8eb96c235f523"
     },
     {
       "bytes": 6850655,
@@ -2081,6 +2086,11 @@
       "bytes": 25944,
       "path": "c8235-recovery/bootflash-validation-20261101/results.json",
       "sha256": "4eb51bc4627a08ce08477d5f72e3bd902c847491a492a9472f7d97ff26567baf"
+    },
+    {
+      "bytes": 5435,
+      "path": "c8235-recovery/c8235-a-resume-20261101/results.json",
+      "sha256": "38ca44b5f990a8116d3761af456cffd18126b0455f9cf31bdd4a8ffba64c7707"
     },
     {
       "bytes": 37586,
@@ -4448,6 +4458,11 @@
       "sha256": "fb9f41ecd254e0f07ec7e6e95b217168584f202246e25d6940f6c84285ee93e4"
     },
     {
+      "bytes": 2983,
+      "path": "sanitized-evidence/router-console-logs/20261101-115209-C8235-A-post-ROMMON-halt-baseline.log",
+      "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c"
+    },
+    {
       "bytes": 16688,
       "path": "scripts/c8235_b_console_boot.py",
       "sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
@@ -4800,12 +4815,13 @@
     "sanitized-evidence/router-console-logs/20261101-111155-C8235-C-cold-zero-TX-through-IOS.log",
     "sanitized-evidence/router-console-logs/20261101-111155-C8235-C-install-autonomous-cold.log",
     "sanitized-evidence/router-console-logs/20261101-112543-C8235-C-performance-complete.log",
-    "sanitized-evidence/router-console-logs/20261101-112543-C8235-C-performance-first-four-snapshot.log"
+    "sanitized-evidence/router-console-logs/20261101-112543-C8235-C-performance-first-four-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261101-115209-C8235-A-post-ROMMON-halt-baseline.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 321,
-    "included_bytes_without_manifest": 702349130,
-    "included_files_without_manifest": 592
+    "excluded_local_files": 322,
+    "included_bytes_without_manifest": 702360728,
+    "included_files_without_manifest": 594
   }
 }
