@@ -1,0 +1,603 @@
+
+[TX 2026-11-01T07:23:40.831081-05:00] b'copy http://192.168.5.104:8835/probe-usb-entry.sh usb0:C8235B1.sh\r'
+copy http://192.168.5.104:8835/probe-usb-entry.sh usb0:C8235B1.sh
+Destination filename [C8235B1.sh]? 
+[TX 2026-11-01T07:23:44.204165-05:00] b'\r'
+
+Accessing http://192.168.5.104:8835/probe-usb-entry.sh...
+Loading http://192.168.5.104:8835/probe-usb-entry.sh 
+1413 bytes copied in 0.032 secs (44156 bytes/sec)
+ SECURITY WARNING - Module: IFS, Command: copy http://192.168.5.104:8835/probe-usb-entry.sh usb0:C8235B1.sh , Reason: Usage of weak file transfer protocol like FTP/TFTP/RCP/HTTP, Description: Copy using FTP/TFTP/RCP/HTTP Protocol, Remediation: Use secure File Transfer protocol like SFTP/HTTPS/SCP
+Router#
+[TX 2026-11-01T07:24:04.348214-05:00] b'verify /sha512 usb0:C8235B1.sh\rshow bootvar\r'
+verify /sha512 usb0:C8235B1.sh
+.Done!
+verify /sha512 (usb0:C8235B1.sh) = 666d8673d809be72d1965ec96f826b6dfd2f374d8f9988cd241dd079cfc78ed5e2aa888a7c4164c34d7657ff51cfdc08cc56bcf1957ad0741171a2f99c7932f8
+
+
+Router#show bootvar
+BOOT variable = bootflash:packages.conf,12;
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x3922
+
+Standby not ready to show bootvar
+
+Router#
+[TX 2026-11-01T07:24:14.306658-05:00] b'reload\r'
+reload
+
+System configuration has been modified. Save? [yes/no]: 
+[TX 2026-11-01T07:24:20.118474-05:00] b'no\r'
+no
+Proceed with reload? [confirm]
+[TX 2026-11-01T07:24:23.966563-05:00] b'\r'
+
+
+*May 29 18:58:11.167: %SYS-5-RELOAD: Reload requested by console. Reload Reason: Reload Command.May 29 18:58:17.283: %PMAN-5-EXITACTION: R0/0: pvp: Process manager is exiting: process exit with reload chassis code
+
+
+
+
+=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2024-07-17 01:44:08
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+PCIe0: LTSSM DETECT_QUIET, Link Errors Detected During Training
+PCIe1: Link active, 1 lanes, speed gen3
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+DRAM: 16 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.0C 20240622-0651 00000000
+npc_mkex-cn10xx.fw   version: 01.0E.00 20240501-0640 00000000
+uefi.bin             version: 0B.17.0C 20240622-0651 00000000
+bl31.bin             version: 0B.17.0C 20240622-0651 00000000
+bl2.bin              version: 0B.17.0C 20240622-0651 00000000
+gserp-cn10xx.fw      version: 01.01.0C 20240501-0640 00000000
+gserm-cn10xx.fw      version: 01.01.0A 20240501-0640 00000000
+init.bin             version: 0B.17.0C 20240622-0651 00000000
+ecp_bl1.bin          version: 0C.17.0C 20240501-0638 00000000
+mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000
+scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000
+rom-script0.fw       version: 0B.17.0C 20240622-0651 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL2: Built : 18:42:08, Jul 16 2024
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x3f9ffffff (16272MB)
+NOTICE:  LMT Memory Region: 0x3fa000000 to 0x3feffffff (80MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x3ff000000 to 0x3ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL31: Built : 18:42:53, Jul 16 2024
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+
+SecureBoot: BL34: running keyphase-cisco-bootstub version
+SecureBoot: ...D01.00
+SecureBoot: BL34: call SpiNorInit
+SecureBoot: Dual/Octal mode not supported in UEFI. Use x1
+SecureBoot: BL34: Call LDWM verifier
+ ...flash initialization
+ ...verify bootloader
+ ...load verification map from flash
+ ......vmap.flashaddr=====0x00b50000
+ ......vmap.platform_id===0x4c445731
+ ...load image data
+ ......flashload_bootimage_seg0:
+ .........seg_addr========0x00601000
+ .........seg_size========0x00280000
+ .........mem_addr========0x04000000
+ ...code signing results:
+ ......return_code========0x00000000
+ ......key_index==========0x00000002
+ ......key_type===========0x00000002
+ ...bootloader image verified successfully
+  
+Board Identifier: mirabile-arata, Revision: r2, Serial Number: unknown
+
+System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE
+Copyright (c) 1994-2024 by cisco Systems, Inc.
+Compiled Tue Jul 16 18:38:18 2024 by rmaladi
+
+
+!!! NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY !!!
+Boot ROM0
+
+Last reset cause: LocalSoft
+SoC1 platform with 16661504 Kbytes of main memory
+
+Soc UUID: 13 FF FF 87 79 AD FB 7C 6D E0 81 A7 
+UUID Len: 0xC
+[TX 2026-11-01T07:25:24.453854-05:00] b'\x03\x03\x03'
+
+
+..
+
+rommon 1 > 
+rommon 1 > 
+rommon 1 > 
+[TX 2026-11-01T07:25:44.755752-05:00] b'set USER_BOOT_PARAM "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}d${IFS}/dev;exec<>/dev/ttyAMA0&>/dev/ttyAMA0;stty${IFS}115200;echo${IFS}B1;sleep${IFS}5;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p;exec${IFS}sh"\r'
+set USER_BOOT_PARAM "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}d${IFS}/dev;exec<>/dev/ttyAMA0&>/dev/ttyAMA0;stty${IFS}115200;echo${IFS}B1;sleep${IFS}5;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p;exec${IFS}sh"
+rommon 2 > 
+[TX 2026-11-01T07:25:49.302016-05:00] b'set\r'
+set
+PS1=rommon ! > 
+MAC_ADDR=0A:70:40:00:00:21
+DEVICE_MANAGED_MODE=autonomous
+CRYPTO_BI_THPUT=250000
+THRPUT=
+LICENSE_BOOT_LEVEL=
+LICENSE_SUITE=
+RET_2_RTS=
+BOOT=bootflash:packages.conf,12;
+CRASHINFO=Check bootflash:core/Router_RP_0-system-report_20240227-173306-UTC.tar.gz for /bootflash/Router_crashinfo_RP_00_00_20240227-173232-UTC
+BSI=0
+RANDOM_NUM=970969589
+RET_2_RCALTS=1748545090
+USER_BOOT_PARAM=rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}d${IFS}/dev;exec<>/dev/ttyAMA0&>/dev/ttyAMA0;stty${IFS}115200;echo${IFS}B1;sleep${IFS}5;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p;exec${IFS}sh
+rommon 3 > 
+[TX 2026-11-01T07:25:52.151911-05:00] b'boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin\r'
+boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin
+boot: reading file c8kg2be-universalk9.26.02.01.SPA.bin
+########################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+
+network: failed to parse subnet for IPv0
+EFI stub: Booting Linux Kernel...
+EFI stub: EFI_RNG_PROTOCOL unavailable
+EFI stub: Using DTB from configuration table
+EFI stub: Exiting boot services...
+=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2024-07-17 01:44:08
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+PCIe0: LTSSM DETECT_QUIET, Link Errors Detected During Training
+PCIe1: Link active, 1 lanes, speed gen3
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+DRAM: 16 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.0C 20240622-0651 00000000
+npc_mkex-cn10xx.fw   version: 01.0E.00 20240501-0640 00000000
+uefi.bin             version: 0B.17.0C 20240622-0651 00000000
+bl31.bin             version: 0B.17.0C 20240622-0651 00000000
+bl2.bin              version: 0B.17.0C 20240622-0651 00000000
+gserp-cn10xx.fw      version: 01.01.0C 20240501-0640 00000000
+gserm-cn10xx.fw      version: 01.01.0A 20240501-0640 00000000
+init.bin             version: 0B.17.0C 20240622-0651 00000000
+ecp_bl1.bin          version: 0C.17.0C 20240501-0638 00000000
+mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000
+scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000
+rom-script0.fw       version: 0B.17.0C 20240622-0651 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL2: Built : 18:42:08, Jul 16 2024
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x3f9ffffff (16272MB)
+NOTICE:  LMT Memory Region: 0x3fa000000 to 0x3feffffff (80MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x3ff000000 to 0x3ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL31: Built : 18:42:53, Jul 16 2024
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+
+SecureBoot: BL34: running keyphase-cisco-bootstub version
+SecureBoot: ...D01.00
+SecureBoot: BL34: call SpiNorInit
+SecureBoot: Dual/Octal mode not supported in UEFI. Use x1
+SecureBoot: BL34: Call LDWM verifier
+ ...flash initialization
+ ...verify bootloader
+ ...load verification map from flash
+ ......vmap.flashaddr=====0x00b50000
+ ......vmap.platform_id===0x4c445731
+ ...load image data
+ ......flashload_bootimage_seg0:
+ .........seg_addr========0x00601000
+ .........seg_size========0x00280000
+ .........mem_addr========0x04000000
+ ...code signing results:
+ ......return_code========0x00000000
+ ......key_index==========0x00000002
+ ......key_type===========0x00000002
+ ...bootloader image verified successfully
+  
+Board Identifier: mirabile-arata, Revision: r2, Serial Number: unknown
+
+System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE
+Copyright (c) 1994-2024 by cisco Systems, Inc.
+Compiled Tue Jul 16 18:38:18 2024 by rmaladi
+
+
+!!! NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY !!!
+Boot ROM0
+
+Last reset cause: ResetRequest
+SoC1 platform with 16661504 Kbytes of main memory
+
+Soc UUID: 13 FF FF 87 79 AD FB 7C 6D E0 81 A7 
+UUID Len: 0xC
+[TX 2026-11-01T07:26:50.781412-05:00] b'\x03\x03\x03'
+
+
+..
+
+rommon 1 > 
+rommon 1 > 
+rommon 1 > 
+[TX 2026-11-01T07:27:34.101742-05:00] b'set USER_BOOT_PARAM "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0${IFS}-c${IFS}\'stty${IFS}115200;echo${IFS}C8235_E2;exec${IFS}sh\'"\r'
+set USER_BOOT_PARAM "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0${IFS}-c${IFS}'stty${IFS}115200;echo${IFS}C8235_E2;exec${IFS}sh'"
+rommon 2 > 
+[TX 2026-11-01T07:27:35.209273-05:00] b'set\r'
+set
+PS1=rommon ! > 
+MAC_ADDR=0A:70:40:00:00:21
+DEVICE_MANAGED_MODE=autonomous
+CRYPTO_BI_THPUT=250000
+THRPUT=
+LICENSE_BOOT_LEVEL=
+LICENSE_SUITE=
+RET_2_RTS=
+BOOT=bootflash:packages.conf,12;
+CRASHINFO=Check bootflash:core/Router_RP_0-system-report_20240227-173306-UTC.tar.gz for /bootflash/Router_crashinfo_RP_00_00_20240227-173232-UTC
+BSI=0
+RANDOM_NUM=970969589
+RET_2_RCALTS=1748545090
+USER_BOOT_PARAM=rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0${IFS}-c${IFS}'stty${IFS}115200;echo${IFS}C8235_E2;exec${IFS}sh'
+rommon 3 > 
+[TX 2026-11-01T07:27:38.945572-05:00] b'boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin\r'
+boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin
+boot: reading file c8kg2be-universalk9.26.02.01.SPA.bin
+########################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+
+network: failed to parse subnet for IPv0
+EFI stub: Booting Linux Kernel...
+EFI stub: EFI_RNG_PROTOCOL unavailable
+EFI stub: Using DTB from configuration table
+EFI stub: Exiting boot services...
+
+[TX 2026-11-01T07:28:24.380547-05:00] b'\r'
+
+[TX 2026-11-01T07:28:28.252581-05:00] b'\r'
+
+
+[TX 2026-11-01T07:28:46.936555-05:00] b'exec >/dev/ttyAMA0 2>&1\r'
+exec >/dev/ttyAMA0 2>&1
+
+[TX 2026-11-01T07:28:52.935068-05:00] b'echo C8235_CONSOLE_CHECK\r'
+echo C8235_CONSOLE_CHECK
+C8235_CONSOLE_CHECK
+
+[TX 2026-11-01T07:29:06.624550-05:00] b"echo PID=$$ PPID=$PPID FLAGS=$-; mkdir -p /proc; mount -t proc proc /proc; tr '\\000' ' ' < /proc/1/cmdline; echo; tr '\\000' ' ' < /proc/$$/cmdline; echo; ls -lb /dev/ttyAMA0*\r"
+echo PID=$$ PPID=$PPID FLAGS=$-; mkdir -p /proc; mount -t proc proc /proc; tr '\000' ' ' < /proc/1/cmdline; echo; tr '\000' ' ' < /proc/$$/cmdline; echo; ls -lb /dev/ttyAMA0*
+PID=139 PPID=1 FLAGS=hBs
+/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0${IFS}-c${IFS}'stty${IFS}115200;echo${IFS}C8235_E2;exec${IFS}sh' 
+sh 
+crw------- 1 root root 204, 64 Jan  1 00:01 /dev/ttyAMA0
+-rw-r--r-- 1 root root       0 Jan  1 00:00 /dev/ttyAMA0\ \t\n-c\ \t\nstty${IFS}115200;echo${IFS}C8235_E2;exec${IFS}sh
+
+[TX 2026-11-01T07:29:47.836333-05:00] b'stty 115200\r'
+stty 115200
+
+[TX 2026-11-01T07:29:48.946191-05:00] b'echo C8235_RECOVERED_115200\r'
+echo C8235_RECOVERED_115200
+C8235_RECOVERED_115200
+
+[TX 2026-11-01T07:29:59.443786-05:00] b"sh${IFS}-c${IFS}'stty${IFS}115200;echo${IFS}C8235_E3_REHEARSAL'</dev/ttyAMA0&>/dev/ttyAMA0\r"
+sh${IFS}-c${IFS}'stty${IFS}115200;echo${IFS}C8235_E3_REHEARSAL'</dev/ttyAMA0&>/dev/ttyAMA0
+C8235_E3_REHEARSAL
+
+[TX 2026-11-01T07:30:30.645315-05:00] b"sh${IFS}-c${IFS}'stty${IFS}115200;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p'</dev/ttyAMA0&>/dev/ttyAMA0\r"
+sh${IFS}-c${IFS}'stty${IFS}115200;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p'</dev/ttyAMA0&>/dev/ttyAMA0
+C8235_USB_PROBE_BEGIN pid=160 parent=154
+C8235_USB_PROBE_PROFILE_PASS
+PID1 command:
+/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0${IFS}-c${IFS}'stty${IFS}115200;echo${IFS}C8235_E2;exec${IFS}sh' 
+Storage mount:
+/dev/sda1 /u vfat ro,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro 0 0
+C8235_USB_PROBE_COMPLETE; returning to captured parent shell
+
+[TX 2026-11-01T07:30:46.057850-05:00] b'umount /u; echo UNMOUNT_STATUS=$?\r'
+umount /u; echo UNMOUNT_STATUS=$?
+UNMOUNT_STATUS=0
+
+[TX 2026-11-01T07:30:59.981078-05:00] b'reboot -f\r'
+reboot -f
+/usr/sbin/reboot: line 16: pglobals.sh: No such file or directory
+calling systemctl reboot *without* args: -f
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to connect to bus: Host is down[0m
+[0;1;31mSystem has not been booted with systemd as init system (PID 1). Can't operate.[0m
+[0;1;31mFailed to connect to bus: Host is down[0m
+
+[TX 2026-11-01T07:32:40.659032-05:00] b"busybox --list | grep -E '^(reboot|poweroff|halt)$'; busybox reboot --help\r"
+busybox --list | grep -E '^(reboot|poweroff|halt)$'; busybox reboot --help
+reboot
+BusyBox v1.36.1 () multi-call binary.
+
+Usage: reboot [-d DELAY] [-nf]
+
+[TX 2026-11-01T07:32:44.723605-05:00] b'busybox reboot -f\r'
+busybox reboot -f
+=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2024-07-17 01:44:08
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+PCIe0: LTSSM DETECT_QUIET, Link Errors Detected During Training
+PCIe1: Link active, 1 lanes, speed gen3
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+DRAM: 16 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.0C 20240622-0651 00000000
+npc_mkex-cn10xx.fw   version: 01.0E.00 20240501-0640 00000000
+uefi.bin             version: 0B.17.0C 20240622-0651 00000000
+bl31.bin             version: 0B.17.0C 20240622-0651 00000000
+bl2.bin              version: 0B.17.0C 20240622-0651 00000000
+gserp-cn10xx.fw      version: 01.01.0C 20240501-0640 00000000
+gserm-cn10xx.fw      version: 01.01.0A 20240501-0640 00000000
+init.bin             version: 0B.17.0C 20240622-0651 00000000
+ecp_bl1.bin          version: 0C.17.0C 20240501-0638 00000000
+mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000
+scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000
+rom-script0.fw       version: 0B.17.0C 20240622-0651 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL2: Built : 18:42:08, Jul 16 2024
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x3f9ffffff (16272MB)
+NOTICE:  LMT Memory Region: 0x3fa000000 to 0x3feffffff (80MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x3ff000000 to 0x3ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL31: Built : 18:42:53, Jul 16 2024
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+
+SecureBoot: BL34: running keyphase-cisco-bootstub version
+SecureBoot: ...D01.00
+SecureBoot: BL34: call SpiNorInit
+SecureBoot: Dual/Octal mode not supported in UEFI. Use x1
+SecureBoot: BL34: Call LDWM verifier
+ ...flash initialization
+ ...verify bootloader
+ ...load verification map from flash
+ ......vmap.flashaddr=====0x00b50000
+ ......vmap.platform_id===0x4c445731
+ ...load image data
+ ......flashload_bootimage_seg0:
+ .........seg_addr========0x00601000
+ .........seg_size========0x00280000
+ .........mem_addr========0x04000000
+ ...code signing results:
+ ......return_code========0x00000000
+ ......key_index==========0x00000002
+ ......key_type===========0x00000002
+ ...bootloader image verified successfully
+  
+Board Identifier: mirabile-arata, Revision: r2, Serial Number: unknown
+
+System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE
+Copyright (c) 1994-2024 by cisco Systems, Inc.
+Compiled Tue Jul 16 18:38:18 2024 by rmaladi
+
+
+!!! NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY !!!
+Boot ROM0
+
+Last reset cause: ResetRequest
+SoC1 platform with 16661504 Kbytes of main memory
+
+Soc UUID: 13 FF FF 87 79 AD FB 7C 6D E0 81 A7 
+UUID Len: 0xC
+[TX 2026-11-01T07:33:27.157691-05:00] b'\x03\x03\x03'
+
+
+..
+
+rommon 1 > 
+rommon 1 > 
+rommon 1 > 
+[TX 2026-11-01T07:33:56.129507-05:00] b'set USER_BOOT_PARAM "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh${IFS}-c${IFS}\'stty${IFS}115200;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p;exec${IFS}sh\'</dev/ttyAMA0&>/dev/ttyAMA0"\r'
+set USER_BOOT_PARAM "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh${IFS}-c${IFS}'stty${IFS}115200;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p;exec${IFS}sh'</dev/ttyAMA0&>/dev/ttyAMA0"
+rommon 2 > 
+[TX 2026-11-01T07:33:57.234435-05:00] b'set\r'
+set
+PS1=rommon ! > 
+MAC_ADDR=0A:70:40:00:00:21
+DEVICE_MANAGED_MODE=autonomous
+CRYPTO_BI_THPUT=250000
+THRPUT=
+LICENSE_BOOT_LEVEL=
+LICENSE_SUITE=
+RET_2_RTS=
+BOOT=bootflash:packages.conf,12;
+CRASHINFO=Check bootflash:core/Router_RP_0-system-report_20240227-173306-UTC.tar.gz for /bootflash/Router_crashinfo_RP_00_00_20240227-173232-UTC
+BSI=0
+RANDOM_NUM=970969589
+RET_2_RCALTS=1748545090
+USER_BOOT_PARAM=rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh${IFS}-c${IFS}'stty${IFS}115200;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p;exec${IFS}sh'</dev/ttyAMA0&>/dev/ttyAMA0
+rommon 3 > 
+[TX 2026-11-01T07:34:01.156844-05:00] b'boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin\r'
+boot usb0:/c8kg2be-universalk9.26.02.01.SPA.bin
+boot: reading file c8kg2be-universalk9.26.02.01.SPA.bin
+########################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
+
+network: failed to parse subnet for IPv0
+EFI stub: Booting Linux Kernel...
+EFI stub: EFI_RNG_PROTOCOL unavailable
+EFI stub: Using DTB from configuration table
+EFI stub: Exiting boot services...
+=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2024-07-17 01:44:08
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+PCIe0: LTSSM DETECT_QUIET, Link Errors Detected During Training
+PCIe1: Link active, 1 lanes, speed gen3
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+DRAM: 16 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.0C 20240622-0651 00000000
+npc_mkex-cn10xx.fw   version: 01.0E.00 20240501-0640 00000000
+uefi.bin             version: 0B.17.0C 20240622-0651 00000000
+bl31.bin             version: 0B.17.0C 20240622-0651 00000000
+bl2.bin              version: 0B.17.0C 20240622-0651 00000000
+gserp-cn10xx.fw      version: 01.01.0C 20240501-0640 00000000
+gserm-cn10xx.fw      version: 01.01.0A 20240501-0640 00000000
+init.bin             version: 0B.17.0C 20240622-0651 00000000
+ecp_bl1.bin          version: 0C.17.0C 20240501-0638 00000000
+mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000
+scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000
+rom-script0.fw       version: 0B.17.0C 20240622-0651 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL2: Built : 18:42:08, Jul 16 2024
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x3f9ffffff (16272MB)
+NOTICE:  LMT Memory Region: 0x3fa000000 to 0x3feffffff (80MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x3ff000000 to 0x3ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL31: Built : 18:42:53, Jul 16 2024
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+
+SecureBoot: BL34: running keyphase-cisco-bootstub version
+SecureBoot: ...D01.00
+SecureBoot: BL34: call SpiNorInit
+SecureBoot: Dual/Octal mode not supported in UEFI. Use x1
+SecureBoot: BL34: Call LDWM verifier
+ ...flash initialization
+ ...verify bootloader
+ ...load verification map from flash
+ ......vmap.flashaddr=====0x00b50000
+ ......vmap.platform_id===0x4c445731
+ ...load image data
+ ......flashload_bootimage_seg0:
+ .........seg_addr========0x00601000
+ .........seg_size========0x00280000
+ .........mem_addr========0x04000000
+ ...code signing results:
+ ......return_code========0x00000000
+ ......key_index==========0x00000002
+ ......key_type===========0x00000002
+ ...bootloader image verified successfully
+  
+Board Identifier: mirabile-arata, Revision: r2, Serial Number: unknown
+
+System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE
+Copyright (c) 1994-2024 by cisco Systems, Inc.
+Compiled Tue Jul 16 18:38:18 2024 by rmaladi
+
+
+!!! NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY !!!
+Boot ROM0
+
+Last reset cause: ResetRequest
+SoC1 platform with 16661504 Kbytes of main memory
+
+Soc UUID: 13 FF FF 87 79 AD FB 7C 6D E0 81 A7 
+UUID Len: 0xC
+[TX 2026-11-01T07:34:59.490572-05:00] b'\x03\x03\x03'
+
+
+..
+
+rommon 1 > 
+rommon 1 > 
+rommon 1 > 

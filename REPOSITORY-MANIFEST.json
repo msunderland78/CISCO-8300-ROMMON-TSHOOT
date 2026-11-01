@@ -1139,6 +1139,16 @@
       "bytes": 17276,
       "path": "router-console-logs/20261101-073101-C8235-B-usb-entry-trial2-snapshot.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 27852,
+      "path": "router-console-logs/20261101-073510-C8235-B-usb-entry-trial3-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 122612,
+      "path": "router-console-logs/20261101-073827-C8235-B-serial-entry-pass-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1173,9 +1183,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 98403,
+      "bytes": 99567,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "6a4ac2f4f7ea9126ebc18e815b541d7b847cf497b7b1d3fce5e043b33e6fd65a"
+      "sha256": "d13b1aeb45c85d505865bd222867a7b009e6dd194d8ff3fefa25edff76a510d4"
     },
     {
       "bytes": 106687,
@@ -1458,9 +1468,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 355200,
+      "bytes": 356082,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "3545fe42a63d86b7363e4059437044808220ee1924cbe7da2d8b5a0817f7d96b"
+      "sha256": "fa42d6a44f0b4ee104931876e42b9cfb18b8caae78486c3ebf88a1ba9cbf748f"
     },
     {
       "bytes": 6850655,
@@ -1608,9 +1618,9 @@
       "sha256": "2e8b134ce3648af8b5f3037ae4b68d8fe6de412882d3940defe96639cc754198"
     },
     {
-      "bytes": 4187,
+      "bytes": 7770,
       "path": "c8235-recovery/boot-validation-20261101/usb-entry.json",
-      "sha256": "ff060d58a0d0a311ecc650cd1e08cea1b17574ea86ca2519c3ad3d8b9bf28cf4"
+      "sha256": "f57f24c563a4e7881ca1d275497b171e0c85209a70f9b768cd02351f9fd69c31"
     },
     {
       "bytes": 82424,
@@ -3403,6 +3413,16 @@
       "sha256": "abaa72608791e931388df07c3a6f4af80874860f45d3a3222f70f53399cf1a9b"
     },
     {
+      "bytes": 27852,
+      "path": "sanitized-evidence/router-console-logs/20261101-073510-C8235-B-usb-entry-trial3-snapshot.log",
+      "sha256": "4474e6efd7ba041fd298367e69bb7fcc726d59ad7c283ad0c3bf4c49bd1b8312"
+    },
+    {
+      "bytes": 122612,
+      "path": "sanitized-evidence/router-console-logs/20261101-073827-C8235-B-serial-entry-pass-snapshot.log",
+      "sha256": "c433bd193ae6a970f3e0141e7b6d4326437ef8e837f26da41e045e2dfef4bb24"
+    },
+    {
       "bytes": 16688,
       "path": "scripts/c8235_b_console_boot.py",
       "sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
@@ -3652,12 +3672,14 @@
     "sanitized-evidence/router-console-logs/20261101-070221-C8235-B-cold2.log",
     "sanitized-evidence/router-console-logs/20261101-071207-C8235-B-cold3.log",
     "sanitized-evidence/router-console-logs/20261101-072652-C8235-B-usb-entry-failed1-snapshot.log",
-    "sanitized-evidence/router-console-logs/20261101-073101-C8235-B-usb-entry-trial2-snapshot.log"
+    "sanitized-evidence/router-console-logs/20261101-073101-C8235-B-usb-entry-trial2-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261101-073510-C8235-B-usb-entry-trial3-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261101-073827-C8235-B-serial-entry-pass-snapshot.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 228,
-    "included_bytes_without_manifest": 697754012,
-    "included_files_without_manifest": 474
+    "excluded_local_files": 230,
+    "included_bytes_without_manifest": 697910105,
+    "included_files_without_manifest": 476
   }
 }

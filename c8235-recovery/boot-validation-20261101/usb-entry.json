@@ -16,7 +16,7 @@
   "confreg": "0x3922",
   "no_startup_save": true,
   "no_firmware_write": true,
-  "updated_at": "2026-11-01T07:31:01.189069-05:00",
+  "updated_at": "2026-11-01T07:38:27.175919-05:00",
   "trials": [
     {
       "number": 1,
@@ -60,8 +60,62 @@
       "parameter": "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh${IFS}-c${IFS}'stty${IFS}115200;mkdir${IFS}/u;mount${IFS}-oro${IFS}/dev/sda1${IFS}/u;bash${IFS}/u/C8235B1.sh${IFS}-p;exec${IFS}sh'</dev/ttyAMA0&>/dev/ttyAMA0",
       "parameter_bytes": 219,
       "set_command_bytes": 241,
-      "result": "Prepared; warm reset underway, not booted yet",
-      "writes": "RAM/proc/sys mounts only plus existing read-only USB; no correction or normal-init continuation"
+      "result": "FAILED: reset after EFI exit, no automatic USB probe marker. Manual rehearsal does not prove early boot transport.",
+      "writes": "RAM/proc/sys mounts only plus existing read-only USB; no correction or normal-init continuation",
+      "readback_verified": true,
+      "boot_at": "2026-11-01T07:34:01.156844-05:00",
+      "snapshot": {
+        "raw_local": "router-console-logs/20261101-073510-C8235-B-usb-entry-trial3-snapshot.log",
+        "bytes": 27852,
+        "sha256": "4474e6efd7ba041fd298367e69bb7fcc726d59ad7c283ad0c3bf4c49bd1b8312",
+        "type": "Immutable private capture prefix"
+      }
+    },
+    {
+      "number": 4,
+      "kind": "Minimal automatic child marker with serial kernel diagnostics; no USB or correction",
+      "parameter": "console=ttyAMA0,115200n8 ignore_loglevel rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh${IFS}-c${IFS}'stty${IFS}115200;echo${IFS}C8235_E4;exec${IFS}sh'</dev/ttyAMA0&>/dev/ttyAMA0",
+      "set_command_bytes": 216,
+      "result": "PASS: automatic C8235_E4 marker then child maintenance shell without operator boot commands",
+      "diagnostic_sources": [
+        "https://cdn.kernel.org/doc/html/latest/admin-guide/serial-console.html",
+        "https://kernel.org/doc/html/latest/admin-guide/kernel-parameters.html"
+      ],
+      "source_accessed": "2026-11-01",
+      "source_use": "console directs kernel output; ignore_loglevel exposes suppressed diagnostics. Device-specific support still observed by trial.",
+      "readback_verified": true,
+      "boot_at": "2026-11-01T07:35:33.103467-05:00",
+      "observations": [
+        "Kernel/init argv and environment captured through serial console",
+        "sda/sda1 USB enumeration appears after automatic shell startup",
+        "No correction applied and no IOS normal init",
+        "/mnt and /u absent in fresh initramfs; do not assume an existing mountpoint"
+      ],
+      "limits": "Console logging and marker-only body differ from failed USB trial; does not establish earlier reset cause or automatic USB loading",
+      "snapshot": {
+        "raw_local": "router-console-logs/20261101-073827-C8235-B-serial-entry-pass-snapshot.log",
+        "bytes": 122612,
+        "sha256": "c433bd193ae6a970f3e0141e7b6d4326437ef8e837f26da41e045e2dfef4bb24",
+        "type": "Immutable private capture prefix"
+      }
+    },
+    {
+      "number": 5,
+      "kind": "Serial console plus delayed automatic USB probe; no correction/normal init",
+      "parameter": "console=ttyAMA0,115200n8 rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sh${IFS}-c${IFS}'sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro${IFS}/dev/sda1${IFS}/u;bash$IFS/u/C8235B1.sh${IFS}-p;exec${IFS}sh'</dev/ttyAMA0&>/dev/ttyAMA0",
+      "set_command_bytes": 252,
+      "result": "Prepared; not booted",
+      "changes": "Use serial kernel console baud instead of an initial stty; wait5seconds before mounting USB; five equivalent short IFS expansions keep command bounded. No fixed-delay reliability guarantee."
     }
-  ]
+  ],
+  "maintenance_reboot_correction": {
+    "failed_at": "2026-11-01T07:30:59.981078-05:00",
+    "failed_command": "reboot -f",
+    "result": "Vendor wrapper delegates to systemctl; failed because PID1 is a shell, so no reset occurred. Earlier reset-underway checkpoint corrected.",
+    "help_checked": "BusyBox1.36.1 lists reboot and usage reboot [-d DELAY] [-nf]",
+    "replacement_sent_at": "2026-11-01T07:32:44.723605-05:00",
+    "replacement_command": "busybox reboot -f",
+    "replacement_result": "Fresh ResetRequest boot/UUID/developmentROMMON verified; guard stopped autoboot at07:33:27EST",
+    "host_control_error": "One JSON control with invalid escape was rejected locally and never sent; corrected read-only help command succeeded"
+  }
 }

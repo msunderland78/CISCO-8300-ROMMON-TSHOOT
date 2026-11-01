@@ -10,6 +10,20 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+AUTOMATIC CONSOLE ENTRY VERIFIED — 2026-11-01, 07:38 EST — C8235-05
+Trial3 automatic USB entry still reset before markers despite successful manual
+rehearsal. Trial4 adds serial kernel console diagnostics and only an automatic
+child marker/shell: C8235_E4 appears without operator commands and shell stays
+available. Native argv confirms intended command. USB sda/sda1 enumerates
+AFTER shell startup; /mnt and /u are absent in fresh RAM filesystem. This is
+new timing evidence, not proof of the earlier reset cause. Exact captures and
+all failed trials remain in boot-validation-20261101/usb-entry.json.
+Trial5 prepared: serial console plus5-second delay then read-only USB probe,
+252-byte set command with equivalent shorter IFS expansions. BusyBox reboot-f
+at07:38:37 produced Restarting system; fresh ROMMON/parameter check and boot
+pending. No normal IOS or correction in this probe; no persistent settings
+changed. B remains in supervised diagnostics, not its restored running network.
+
 USB ENTRY INVESTIGATION ACTIVE — 2026-11-01, 07:31 EST — C8235-05
 After the three cold passes and network restoration, a new1413-byte read-only
 probe was copied by temporary local HTTP to previously absent usb0:C8235B1.sh;
@@ -21,8 +35,10 @@ filename because arguments followed the redirection. Native PID/argv and /dev
 listing prove this defect. Restored stdout/stderr and115200; corrected argument
 placement and USB-child probe both pass MANUAL rehearsal, including original
 vendor-script/profile guard and read-only USB mount. Neither is automatic boot.
-USB unmounted(status0), reboot-f sent07:30:59 for a third unsaved trial; result
-pending. Router is not currently restored IOS. Existing exclusive capture/
+USB unmounted(status0). CORRECTION07:32: reboot-f sent07:30:59 was rejected
+by the vendor systemctl wrapper because PID1 is a shell; it did not reset.
+Verified BusyBox reboot help, then busybox reboot-f sent07:32:44; fresh boot
+evidence pending for trial3. Router is not currently restored IOS. Existing exclusive capture/
 reset stop remains in .git/recovery-private/c8235-analysis-20261101/
 20261101-072310-usb-entry. Evidence/trial parameters: c8235-recovery/
 boot-validation-20261101/usb-entry.json. Preserve failures; no cause yet proved
