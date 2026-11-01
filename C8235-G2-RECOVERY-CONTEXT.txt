@@ -10,6 +10,21 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A U2901 RESET-TO-VCC OL — 2026-11-01, 13:09 EST
+Owner reports VCC to2901reset isOL resistance. This is J2507pin8/VCC to actual
+U2901pin3 via the confirmed approximately1ohm-or-less grabber contact. Meter
+range/polarity not separately restated. Record OL, no invented ohm value.
+No low-resistance VCC tie measured; no powered-independence or fault conclusion.
+Fresh post-clip headerDC requested earlier remains unreported, not assumed0V;
+prior header0V and explicit all-power-unplugged confirmation remain evidence.
+
+Next requested unpowered reset-pair check: redactualU2900physicalpin3, black
+U2901grabber free end. If clip blocks targetpin3, lift only U2900clip, leave its
+wires attached and U2901grabber in place; report resistance/units and whether
+clip lifted, leave clip off if removed. Do not substitute converter/clip pin3.
+No result or clip-removal report yet. No10k, reset assertion, power-up orSPI.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A RESET GRABBER CONTACT ACCEPTED — 2026-11-01, 13:03 EST
 Owner reports somewhere around or less than1ohm and explicitly clarifies that
 this includes actual U2901physicalpin3 contact to grabber free end. Contact

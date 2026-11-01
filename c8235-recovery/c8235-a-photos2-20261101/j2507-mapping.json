@@ -98,13 +98,13 @@
     "No SPI signal, primary/golden or bank-selector assignment; J2901 remains unmeasured."
   ],
   "pending": [
-    "Current-fixture residualDC and U2901reset-toVCC screen requested; actual pin3-to-grabber contact accepted at around-or-less-than1ohm.",
+    "Inter-chip actualRESET comparison and resulting clip state pending; U2901RESET-to-VCC OL accepted. Post-clip DC not separately restated.",
     "A-specific reset independence and current powered supply/signal/loading qualification remain pending before any pull-down/read."
   ],
   "agent_hardware_actions": [],
   "programmer_read_or_write": "none this checkpoint",
   "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
-  "updated_at": "2026-11-01T13:03:26-05:00",
+  "updated_at": "2026-11-01T13:09:58-05:00",
   "qualification": {
     "recorded_at": "2026-11-01T12:48:24-05:00",
     "source": "Owner report in conversation",
@@ -147,6 +147,6 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "U2901pin3-to-grabber contact now confirmed around-or-less-than1ohm; no repeat. Current-fixture residualDC and reset-toVCC screen still pending in u2900-clip-preflight.json; no10k connection or power-up.",
+  "next_stage": "Confirmed U2901pin3-grabber contact; RESET-to-VCC OL reported. Compare actual U2900pin3 to U2901grabber next, with clip lifted only if needed for access. No result/removal yet. No10k or power-up.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json"
 }
