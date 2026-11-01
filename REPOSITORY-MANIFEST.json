@@ -1259,6 +1259,16 @@
       "bytes": 33438,
       "path": "router-console-logs/20261101-091844-C8235-B-install-preflight-snapshot.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 21787,
+      "path": "router-console-logs/20261101-092618-C8235-B-install-warm-welcome-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 80176,
+      "path": "router-console-logs/20261101-092827-C8235-B-install-ready-snapshot.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1293,9 +1303,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 119802,
+      "bytes": 120807,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "e019d16b5ccad93b7c01b9535f0a1359142a885dff4f7debce87c6075efb53bf"
+      "sha256": "92b5f0c28bf1916da53b8667fcfd897f2662cd4dd1e6eabd6a45430a0d2a888b"
     },
     {
       "bytes": 106687,
@@ -1478,9 +1488,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 23930,
+      "bytes": 23837,
       "path": "README.md",
-      "sha256": "d15993f3c647f6d4b0d8fa381f1c1b75f879e882f11e927d73da1ec94abb3fec"
+      "sha256": "cd6505b03631c91593919feba51e46f37cd74df490941b981a93768afec2823c"
     },
     {
       "bytes": 3934,
@@ -1578,9 +1588,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 373175,
+      "bytes": 373951,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "04f2d66aa3597a61309d10693158f19a99c060dffbb9babc4cb5ca4f9ebca43c"
+      "sha256": "06f0a96f38215080c5776e39b097db87c54a61390afe09d37d359c530880ce8d"
     },
     {
       "bytes": 6850655,
@@ -1808,9 +1818,9 @@
       "sha256": "67051e851e6c3180bc6e0cdfcac1617ba8bd35ac043b5d718023382afbcfd866"
     },
     {
-      "bytes": 9008,
+      "bytes": 14487,
       "path": "c8235-recovery/install-validation-20261101/results.json",
-      "sha256": "4f99fb1fa2d9f0ec46146076e5842f0e258a4ec18ffd95a826fd1222bf19e0fb"
+      "sha256": "9549682184f35c95c3d0a2351b4d005694007536f0c66f48f159daf7f9bba45f"
     },
     {
       "bytes": 2942,
@@ -3708,6 +3718,16 @@
       "sha256": "6e23280e9707003a9a42921492c8ef8385f1a64a521592573efa5828770c5d2f"
     },
     {
+      "bytes": 21787,
+      "path": "sanitized-evidence/router-console-logs/20261101-092618-C8235-B-install-warm-welcome-snapshot.log",
+      "sha256": "43d07b1431dd8473ab8b8bb38ceccffb76ec52191b8ff2940f1469ce09ecea14"
+    },
+    {
+      "bytes": 80176,
+      "path": "sanitized-evidence/router-console-logs/20261101-092827-C8235-B-install-ready-snapshot.log",
+      "sha256": "21d90f925d86b526df31cb54ccf703de55882d0dcc846181b6d8507b6e61e873"
+    },
+    {
       "bytes": 16688,
       "path": "scripts/c8235_b_console_boot.py",
       "sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
@@ -3986,12 +4006,14 @@
     "sanitized-evidence/router-console-logs/20261101-090532-C8235-B-no-USB-cold-zero-tx-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-090742-C8235-B-no-USB-cold-operational-snapshot.log",
     "sanitized-evidence/router-console-logs/20261101-091632-C8235-B-install-conversion.log",
-    "sanitized-evidence/router-console-logs/20261101-091844-C8235-B-install-preflight-snapshot.log"
+    "sanitized-evidence/router-console-logs/20261101-091844-C8235-B-install-preflight-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261101-092618-C8235-B-install-warm-welcome-snapshot.log",
+    "sanitized-evidence/router-console-logs/20261101-092827-C8235-B-install-ready-snapshot.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 252,
-    "included_bytes_without_manifest": 700297173,
-    "included_files_without_manifest": 512
+    "excluded_local_files": 254,
+    "included_bytes_without_manifest": 700406303,
+    "included_files_without_manifest": 514
   }
 }

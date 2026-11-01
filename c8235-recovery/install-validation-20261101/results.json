@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "timezone": "America/New_York",
   "chassis": "C8235-B / FGL2835LBHU",
-  "status": "Native conversion SUCCESS; first autonomous install boot in progress",
+  "status": "Install-mode automatic startup/network and all package hashes PASS; five-minute warm check active and cold test pending",
   "owner_request": "lets try install mode now",
   "physical_confirmation": "Owner confirms powered on, USB storage absent, cooling/battery/assembly/console/port7/8 unchanged; no programmer/probes or terminal app",
   "capture": ".git/recovery-private/c8235-install-20261101/20261101-091632/console.log",
@@ -146,7 +146,123 @@
       "armed_at": "2026-11-01T09:23:32.835296-05:00",
       "trigger": "Native ROMMON reset; no further TX intended through IOS welcome",
       "USB_physically_connected": false,
-      "BOOT": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;"
+      "BOOT": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+      "reset_at": "2026-11-01T09:23:43.197638-05:00",
+      "identity_observed_at": "2026-11-01T09:24:26.225855-05:00",
+      "native_reset_reason": "ResetRequest",
+      "startup_TX_records": 1,
+      "only_startup_TX": "Initiating reset; no later console intervention through IOS welcome",
+      "welcome_observed_by": "2026-11-01T09:26:18.718215-05:00",
+      "automatic_loader": "PASS original B4, exact input and RAM patch/hook hashes, bootflash unmount and runtime hook",
+      "snapshot": {
+        "raw_local": "router-console-logs/20261101-092618-C8235-B-install-warm-welcome-snapshot.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-092618-C8235-B-install-warm-welcome-snapshot.log",
+        "bytes": 21787,
+        "sha256": "43d07b1431dd8473ab8b8bb38ceccffb76ec52191b8ff2940f1469ce09ecea14"
+      },
+      "IOS_image": "bootflash:packages.conf",
+      "IOS_version": "26.02.01",
+      "IOS_reload_reason": "Image Install",
+      "IOS_console_at": "2026-11-01T09:26:18.755661-05:00",
+      "install_summary": "IMG C26.02.01.0.263; auto-abort timer inactive",
+      "pre_operational_sample": {
+        "at": "2026-11-01T09:26:22.431192-05:00",
+        "platform": "R0/F0 active;0/0 booting",
+        "CPP": 20841,
+        "rx": 0,
+        "tx": 0,
+        "miss": 0,
+        "qualification": "Before readiness; not health interval start"
+      },
+      "platform_ready_at": "2026-11-01T09:27:13.027893-05:00",
+      "health": {
+        "status": "IN PROGRESS five-minute sampled operational/CPP check",
+        "started_at": "2026-11-01T09:27:13.027893-05:00",
+        "due_no_earlier_than": "2026-11-01T09:32:13.027893-05:00",
+        "samples": [
+          {
+            "at": "2026-11-01T09:27:13.027893-05:00",
+            "CPP": 20841,
+            "rx": 17,
+            "tx": 17,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:28:12.658396-05:00",
+            "CPP": 20841,
+            "rx": 47,
+            "tx": 47,
+            "miss": 0
+          },
+          {
+            "at": "2026-11-01T09:29:13.171290-05:00",
+            "CPP": 20841,
+            "rx": 77,
+            "tx": 77,
+            "miss": 0
+          }
+        ],
+        "initial_environment": {
+          "inlet_C": 35,
+          "outlet_C": 34,
+          "CPU_C": 52,
+          "main12V_mV": 12131,
+          "5V_mV": 4965,
+          "current_mA": 1217,
+          "power_W": 14,
+          "12V_DG_ST": "0mV/Critical_Low"
+        },
+        "early_network": "Ports7/8 and IPs restored automatically, initial default route not yet installed; later convergence check pending",
+        "control_processor": "RP0 Healthy, memory20% at09:29:13"
+      },
+      "early_configuration": "Before port readiness running diff temporarily omitted not-yet-created interfaces; after ready09:27:13 only intended +boot system bootflash:packages.conf remains. No corrective configuration issued.",
+      "network": {
+        "restored_without_configuration": true,
+        "default": "0.0.0.0/0 via192.168.5.1 on port7",
+        "ports": "7/.5.4 up/up1G full;8/native1+VLAN83/.83.1 up/up10G full",
+        "sampled_errors_drops": "Both ports input/CRC/output errors and output drops0",
+        "cumulative_interface_resets": {
+          "port7": 1,
+          "port8": 2
+        },
+        "ping": "1500-byte DF to192.168.5.3 from192.168.83.1: initial4/5 at09:28:12, repeat5/5 at09:28:18",
+        "native_configuration_diffs": "Only +boot system bootflash:packages.conf; original bundle fallback retained; no network configuration change"
+      },
+      "operational_snapshot": {
+        "raw_local": "router-console-logs/20261101-092827-C8235-B-install-ready-snapshot.log",
+        "public": "sanitized-evidence/router-console-logs/20261101-092827-C8235-B-install-ready-snapshot.log",
+        "bytes": 80176,
+        "sha256": "21d90f925d86b526df31cb54ccf703de55882d0dcc846181b6d8507b6e61e873",
+        "scope": "Immutable prefix; warm five-minute check and main package hash remain active"
+      }
     }
-  ]
+  ],
+  "installed_packages": {
+    "expected_fingerprints": "expected-packages.json",
+    "native_sha512_pass_so_far": [
+      "c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_nim_async.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_prince.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_sm_async.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg",
+      "c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg",
+      "c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+      "c8kg2be-rpboot.26.02.01.SPA.pkg"
+    ],
+    "pending": [],
+    "manifest": {
+      "path": "bootflash:packages.conf",
+      "bytes": 8405,
+      "sha512": "aed00702b34462f9f6ee911e6f3e4c1d72fef4d051739a06f782ae1e7cb4c37d58ee1ffc08f48f47a8b83708ccc47e66a753988e383be9d098405a9a81a8e891",
+      "directives": "All referenced boot/iso packages exactly match14 expected26.2.1 package names; generated metadata appended by installer"
+    },
+    "bootflash_free_bytes": 11638743040,
+    "result": "PASS full native SHA512 for all14 files, matching exact original bundle extraction"
+  }
 }

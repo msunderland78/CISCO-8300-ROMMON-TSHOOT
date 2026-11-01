@@ -10,6 +10,20 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+INSTALL-MODE STARTUP VERIFIED; HEALTH CHECK ACTIVE — 2026-11-01,09:28 EST
+B automatically boots packages.conf with unchanged B4 and no USB. IOS confirms
+26.2.1 / bootflash:packages.conf, IMG C26.02.01.0.263 and inactive rollback timer.
+Only console TX through IOS welcome was the initiating ROMMON reset. Port
+module ready09:27:13; CPP20841 unchanged, keepalives17->47 with zero misses.
+Ports7/8 return1G/10G full, saved IPs/default route restored automatically;
+1500-byte DF ping4/5 then5/5. Native config diff only adds packages.conf before
+the retained .bin fallback. Main sensor readings remain populated; standby
+12V_DG_ST0/Critical_Low and TPM warning unresolved. Thirteen package hashes pass;
+main mono hash and five-minute interval (due09:32:13) still running. Owner cold
+startup in install mode remains pending. Console7165 active; no physical cycle yet.
+Evidence: c8235-recovery/install-validation-20261101/results.json
+Procedure: experimental-recovery/c8235-b-bootflash-20261101/INSTALL.txt
+
 INSTALL CONVERSION SUCCESS; AUTONOMOUS BOOT ACTIVE — 2026-11-01,09:23 EST
 Native Add/Activate/Commit all passed. ROMMON B identity and readback confirm
 packages.conf first, original bundle fallback second and B4 parameter unchanged.
