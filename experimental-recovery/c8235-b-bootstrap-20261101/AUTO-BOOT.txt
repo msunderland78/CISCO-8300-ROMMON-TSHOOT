@@ -1,21 +1,27 @@
 C8235-B / FGL2835LBHU — experimental automatic USB correction
 2026-11-01, America/New_York; task C8235-05
 
-STATUS AT PREPARATION
-Trial9 automatically applies the exact RAM correction and reaches interactive
-26.2.1 IOS with R0/F0/0/0 operational. ROMMON boot was manually initiated.
-Five-minute operational observation passed; intended network/USB boot startup
-configuration and ROMMON parameter saved. Autonomous warm boot passes with
-network restored and no TX after reset through IOS welcome. Cold test pending.
-Read boot-validation-20261101/usb-entry.json for superseding live results.
+VERIFIED STATUS — 2026-11-01, 08:28 EST
+Saved autonomous warm and cold boots both pass. Native PowerOn and B identity
+were verified on the cold boot, with ZERO host transmissions through the IOS
+welcome. The exact correction is reapplied automatically; the saved bench
+network and USB boot selection restore without post-boot configuration.
+Cold operational check: 308.024223 seconds, CPP PID 21054 unchanged, keepalives
+25 to 179 with zero misses, R0/F0 active and 0/0 operational. Both test ports
+have zero sampled errors/output drops; full-size DF ping was 4/5 then 5/5.
+Router remains powered on; capture closed cleanly and console port is free.
+No further power cycle is required for this test. Keep all three USB inputs.
+Full results: c8235-recovery/boot-validation-20261101/usb-entry.json.
 
 SCOPE
 Only the physically confirmed B prototype, unchanged development ROMMON and
 exact 26.2.1 USB image. USB remains required. This is an early RAM workaround,
 not a vendor firmware repair, signature authentication or full stability pass.
-Voltage/current/power telemetry remains unresolved: cold3 and trial9 report
-all zeros while CPU temperature is52C; cold2/overnight differ. No physical rail
-measurement or cause is established. Longer load qualification remains deferred.
+Voltage/current/power telemetry remains unresolved: cold3, trial9 and the
+autonomous boots report all zeros while CPU temperature is 52 C; cold2 and the
+overnight check differ. No physical rail measurement or cause is established.
+The TPM self-test 256 warning remains. Longer idle/load qualification is
+incomplete, and further performance work remains deferred.
 
 EXACT INPUTS
 usb0:c8kg2be-universalk9.26.02.01.SPA.bin
@@ -39,20 +45,27 @@ handling can omit it from init argv. Do not add the earlier serial kernel-consol
 override: trial8 lost interactive IOS; removing only that override fixes trial9.
 Do not blindly reuse this for another chassis/image or disable its guards.
 
-INTENDED SAVED CHANGES — verify actual results before claiming applied
-1. Preserve startup; latest pre-auto-20261101-startup.cfg in the existing USB
-   diagnostic directory is3127B and matches the pre-cold2 startup SHA512.
-2. Preserve the approved bench network (port7/.5.4, port8/native1+VLAN83/.83.1,
-   DHCP83, default via5.1), change boot system to the exact USB image, review
-   native diff, then save startup. Configuration save alone is not the RAM fix.
-3. At freshly identified ROMMON, read back BOOT and the exact parameter. Native
-   help describes sync as writing monitor environment to NVRAM. Save only after
-   the successful operational observation and captured recovery path are ready.
-4. Observe one matching reset without any transmitted console commands using
-   observe-one-autoboot.py. It stops a second reset or mismatched banner. Its
-   import/default mode is inert; three pipe-only guard tests pass.
-5. Verify native PowerOn, automatic loader/hook, IOS/platform, unchanged CPP,
-   advancing matched keepalives, routing and saved settings after cold startup.
+APPLIED SAVED CHANGES AND VALIDATION
+1. Preserved startup: pre-auto-20261101-startup.cfg in the existing USB
+   diagnostic directory is 3127 B and matches the pre-cold2 startup SHA512.
+2. Saved the bench network (port 7/.5.4, port 8/native 1 + VLAN 83/.83.1,
+   DHCP83, default via .5.1) and exact USB boot entry at 08:07:20 EST.
+   Reviewed native running diff: only the intended boot entry changed.
+   auto-20261101-startup.cfg is a separately preserved 3884 B USB export.
+   Configuration save alone is not the RAM fix.
+3. Fresh ROMMON confirmed the USB BOOT persisted but the temporary parameter
+   did not. Set/read back the exact parameter above, then ran native sync at
+   08:09:54 EST and verified readback. BOOT is
+   usb0:c8kg2be-universalk9.26.02.01.SPA.bin,12; confreg remains 0x3922.
+4. observe-one-autoboot.py allowed one matching reset and sent no intervention
+   through IOS welcome: warm test after the initiating reset, then a separate
+   physical cold test with zero startup TX. It stops a second/mismatched reset;
+   import/default mode is inert and three pipe-only guard tests passed.
+5. Cold PowerOn, automatic loader/hook, IOS/platform and the five-minute CPP
+   check passed. Port 7 restored at 1G full duplex, port 8 at 10G full duplex,
+   and the default route returned. Startup native diff against the saved export
+   has no changes; running diff against pre-cold2 has only the intended boot
+   entry. Original configuration backups and complete captures are retained.
 
 PRESERVATION / RECOVERY
 Do not alter original IOS bytes, ROMMON, confreg0x3922, TPM/fuses or board data.

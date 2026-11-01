@@ -10,6 +10,45 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+CURRENT HANDOFF: AUTONOMOUS COLD BOOT PASS — 2026-11-01, 08:28 EST
+C8235-B / FGL2835LBHU is powered on in IOS 26.02.1. Saved autonomous warm and
+physical cold boots now pass: the USB loader reapplies the exact RAM correction
+and the saved bench network restores automatically. Cold native PowerOn and
+B UUID were verified, with ZERO host TX through the IOS welcome. No firmware
+image, ROMMON code, confreg (0x3922), TPM, fuse or provisioning change was made.
+
+Cold sampled operational interval: 08:21:40.554319 to 08:26:48.578542 EST,
+308.024223 seconds. CPP PID 21054 stayed unchanged; matched keepalives advanced
+25 -> 66 -> 112 -> 142 -> 179 with zero misses. R0/F0 active, 0/0 operational,
+no filtered NIX/ATTACH/critical/punt matches or unexpected reset. CPU 52 C,
+RP0 Healthy and memory 20%. This passes the five-minute operational/CPP check;
+all-zero voltage/current/power telemetry and TPM self-test 256 remain unresolved.
+Do not infer physical rail values from these reports. Longer controlled idle,
+forwarding/load and broader feature qualification remain incomplete; further
+performance work stays deferred.
+
+Port 7 (192.168.5.4/24) restored at 1G full duplex; port 8 at 10G full duplex
+with native VLAN 1 and tagged VLAN 83 (192.168.83.1/24). Default via 192.168.5.1
+and DHCP83 are saved. No post-boot configuration was needed. Both test ports
+have zero sampled errors/output drops; cumulative reset counts stayed 1/2.
+1500-byte DF ping to 192.168.5.3 from 192.168.83.1 was initially 4/5, then 5/5.
+Startup native diff against the saved export has no changes; running diff
+against the pre-cold2 reference contains only the intended USB boot entry.
+
+Capture closed cleanly at 08:28:08 EST; lsof confirms no cu/tty console owner.
+No further power cycle is needed for this test. Keep the USB drive connected
+with c8kg2be-universalk9.26.02.01.SPA.bin, B3 and C8235FIX1 unchanged. This is
+a B-only, exact-image USB workaround; do not apply it to another chassis.
+Structured evidence: c8235-recovery/boot-validation-20261101/usb-entry.json
+Current procedure: experimental-recovery/c8235-b-bootstrap-20261101/AUTO-BOOT.txt
+Closed raw capture (local only):
+router-console-logs/20261101-081501-C8235-B-autonomous-cold.log
+54,715 bytes; SHA256 1e5946cb0888dcab90613e0866b0f01d819811460e6155135e738d7cd4144629
+Public counterpart:
+sanitized-evidence/router-console-logs/20261101-081501-C8235-B-autonomous-cold.log
+Original raw captures and configuration backups stay local/USB. Earlier dated
+pending states below are retained history, superseded by this completed test.
+
 AUTONOMOUS COLD STARTUP VERIFIED; HEALTH CHECK ACTIVE — 2026-11-01,08:23 EST
 Owner confirms requested power cycle. Fresh B UUID/nativePowerOn08:18:25;
 ZERO host TX through IOS welcome, saved image selection, exact loader guards,

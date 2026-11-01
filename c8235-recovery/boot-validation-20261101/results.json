@@ -495,11 +495,11 @@
     }
   ],
   "pending": [
-    "Standalone USB-entry diagnostic then persistence",
-    "Intended saved network/boot selection",
-    "Further performance/load deferred"
+    "Separate voltage/current/power telemetry and TPM investigation",
+    "Longer controlled idle/load and feature qualification; performance remains deferred",
+    "Independent C baseline and A recovery remain separate chassis tasks"
   ],
-  "updated_at": "2026-11-01T07:23:10.196518-05:00",
+  "updated_at": "2026-11-01T08:28:08.008745-05:00",
   "network_restore": {
     "status": "Applied and verified after cold3 health gate",
     "basis": "Native current-running to pre-cold2 running-file comparison captured07:18:10EST; only requested DHCP/port7/port8/subinterface/default-route delta. No certificate delta in this comparison.",
@@ -550,5 +550,11 @@
       "CPP": 21041
     }
   },
-  "cold_series_result": "Three corrected console-assisted cold boots passed: cold1 October31; cold2/cold3 November1. Not standalone persistence."
+  "cold_series_result": "Three corrected console-assisted cold boots passed: cold1 October31; cold2/cold3 November1. Not standalone persistence.",
+  "superseding_persistence_result": {
+    "record": "c8235-recovery/boot-validation-20261101/usb-entry.json",
+    "recorded_at": "2026-11-01T08:28:08.008745-05:00",
+    "result": "Saved autonomous warm and cold boot PASS; zero TX through cold IOS welcome,308.024223-second cold operational check, network restored automatically",
+    "qualification": "USB remains required; environment telemetry/TPM and longer qualification unresolved"
+  }
 }

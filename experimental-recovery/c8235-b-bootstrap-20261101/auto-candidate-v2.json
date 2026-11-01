@@ -2,9 +2,9 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "created_at": "2026-11-01T07:47:18.476689-05:00",
-  "status": "Trial8 reached IOS but interactive console failed; trial9 removes kernel console override and reaches interactive IOS/platform readiness. Health/persistence still pending.",
-  "parameter": "console=ttyAMA0,115200n8 rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
-  "set_command_bytes": 252,
+  "status": "Verified B-only saved autonomous warm and cold startup, with five-minute cold operational check; unresolved telemetry/TPM and longer qualification retained",
+  "parameter": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+  "set_command_bytes": 227,
   "files": [
     {
       "source": "experimental-recovery/c8235-b-bootstrap-20261101/auto-bound16-v2.sh",
@@ -22,16 +22,23 @@
   "validation": [
     "bash -n passes loader and parameter body",
     "Default loader invocation inert",
-    "Exact original correction source SHA256 unchanged"
+    "Exact original correction source SHA256 unchanged",
+    "Exact trial9 parameter persisted with ROMMON sync after native readback",
+    "Autonomous warm boot with no TX after reset through IOS welcome",
+    "Autonomous nativePowerOn cold boot with zero TX through IOS welcome",
+    "308.024223-second cold operational check: unchangedCPP21054, keepalives25to179/zero misses, network restored"
   ],
   "limitations": [
-    "Fixed five-second USB delay has repeated successful entry, but saved autonomous cold boot still pending",
-    "No saved boot change or standalone persistence yet",
-    "Initial loader execution depends on verified USB bytes; this is not secure-boot authentication"
+    "USB image/B3/C8235FIX1 must remain present and unchanged; fixed five-second device wait is not arbitrary-USB readiness proof",
+    "Only physically confirmed C8235-B and exact26.2.1/profile validated",
+    "Voltage/current/power telemetry, TPM warning and longer qualification remain unresolved",
+    "Initial loader deployment hashes establish file integrity, not secure-boot authentication"
   ],
   "failure_behavior": "Guard failure holds maintenance shells from PID1; missing USB/file falls back to shell before loader. Keep console attached for prototype testing.",
   "change_from_v1": "Replace unavailable cmp with self SHA256 before/after RAM copy; original v1 source/USB file preserved",
   "deployed_at": "2026-11-01T07:49:55.593374-05:00",
   "verified_trial9_parameter": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
-  "verified_trial9_set_command_bytes": 227
+  "verified_trial9_set_command_bytes": 227,
+  "original_trial8_parameter": "console=ttyAMA0,115200n8 rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+  "original_trial8_set_command_bytes": 252
 }
