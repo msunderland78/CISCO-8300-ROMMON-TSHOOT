@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "status": "Saved autonomous warm boot PASS; preparing fresh passive cold capture",
+  "status": "Autonomous cold startup and restored routing verified; five-minute operational interval underway",
   "source_candidate": "experimental-recovery/c8235-b-bootstrap-20261101/candidate.json",
   "console_source": ".git/recovery-private/c8235-analysis-20261101/20261101-072310-usb-entry/console.log",
   "physical_confirmation": "Same owner-confirmed setup retained throughout cold2/cold3 and probe; exclusive console handed off cleanly",
@@ -12,11 +12,11 @@
     "declined_save_at": "2026-11-01T07:24:20.118474-05:00",
     "confirmed_at": "2026-11-01T07:24:23.966709-05:00"
   },
-  "saved_boot": "bootflash:packages.conf,12;",
+  "saved_boot": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
   "confreg": "0x3922",
   "no_startup_save": false,
   "no_firmware_write": true,
-  "updated_at": "2026-11-01T08:15:08.207064-05:00",
+  "updated_at": "2026-11-01T08:18:15.256295-05:00",
   "trials": [
     {
       "number": 1,
@@ -431,7 +431,7 @@
     },
     {
       "kind": "cold",
-      "status": "Fresh passive capture armed; awaiting owner off10seconds/on",
+      "status": "Autonomous cold boot, interactive IOS and platform readiness pass; five-minute operational observation in progress",
       "observer": {
         "source": "experimental-recovery/c8235-b-bootstrap-20261101/observe-one-autoboot.py",
         "sha256": "65cdf1fd7bde2531773ffba626242bf6a1df1b24fcb5ba4d9241fd413e6e29a1",
@@ -441,7 +441,71 @@
       },
       "expected": "NativePowerOn; exact saved USB image/loader automatically, zero TX through IOS welcome, restored network, five-minute operational check",
       "configuration_mutations": "None after successful warm validation",
-      "cold_result": null
+      "cold_result": null,
+      "owner_confirmation": {
+        "text": "powered on",
+        "recorded_at": "2026-11-01T08:18:15.256281-05:00",
+        "context": "Response to requested off10seconds/on with same USB/cables; no measured off-duration claim"
+      },
+      "native_reset_reason": "PowerOn",
+      "identity_verified_at": "2026-11-01T08:18:25.870213-05:00",
+      "startup_TX_records_so_far": 0,
+      "automatic_markers_observed_by": "2026-11-01T08:20:16.456302-05:00",
+      "startup_TX_records": 0,
+      "welcome_observed_by": "2026-11-01T08:21:15.640661-05:00",
+      "zero_tx_snapshot": {
+        "raw_local": "router-console-logs/20261101-082115-C8235-B-autonomous-cold-zero-tx-snapshot.log",
+        "bytes": 30491,
+        "sha256": "2d665173627707d853764af70dd34be8a3586dbd1188fd39c5199e935d7c1cdf",
+        "type": "Immutable full prefix before first IOS interaction"
+      },
+      "first_IOS_interaction_at": "2026-11-01T08:21:15.679855-05:00",
+      "platform_ready_at": "2026-11-01T08:21:40.554319-05:00",
+      "health": {
+        "status": "In progress; no final gate claim",
+        "started_at": "2026-11-01T08:21:40.554319-05:00",
+        "due_no_earlier_than": "2026-11-01T08:26:40.554319-05:00",
+        "scope": "Five-minute sampled operational/CPP check; sensor telemetry remains separate",
+        "samples": [
+          {
+            "at": "2026-11-01T08:21:40.554319-05:00",
+            "rx": 25,
+            "tx": 25,
+            "miss": 0,
+            "CPP": 21054
+          },
+          {
+            "at": "2026-11-01T08:23:02.486682-05:00",
+            "rx": 66,
+            "tx": 66,
+            "miss": 0,
+            "CPP": 21054
+          }
+        ]
+      },
+      "saved_settings_after_cold": {
+        "BOOT": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+        "confreg": "0x3922",
+        "native_IOS_reload": "PowerOn",
+        "network": "Port7 .5.4 and port8 .83.1/native1 up/up from NVRAM; no post-boot configuration applied"
+      },
+      "native_startup_diff": "No changes versus auto-20261101-startup.cfg",
+      "native_running_diff": "Only intended boot system line versus pre-cold2 running reference",
+      "network": {
+        "status": "Restored automatically, no config commands",
+        "default_route": "0.0.0.0/0 via192.168.5.1 onTwoGigabitEthernet0/0/7",
+        "interface_errors": "Both up/up; sampled input/CRC/output errors and output drops0",
+        "interface_reset_counts": "Port7=1, port8=2 at08:22:19; cumulative startup counts, not a demonstrated ongoing flap",
+        "ping": "1500DF5.3 from83.1: initial4/5, repeat5/5",
+        "negotiation": "Port7 full-duplex1000Mbps; port8 full-duplex10000Mbps, H10GB-CU5M"
+      }
     }
-  ]
+  ],
+  "documentation_correction": {
+    "at": "2026-11-01T08:23:27.422992-05:00",
+    "issue": "Prior status edit unintentionally replaced C8235-B rows in acquisition/milestone tables with fleet-row text",
+    "correction": "Restored both acquisition rows exactly from af111a13502be61a6ab9c9cbdc7996ff9c74fee4; restored eight-column milestone schema and updated boot status only",
+    "hardware_effect": "None; no new flash reads or firmware writes performed"
+  },
+  "initial_saved_boot": "bootflash:packages.conf,12;"
 }

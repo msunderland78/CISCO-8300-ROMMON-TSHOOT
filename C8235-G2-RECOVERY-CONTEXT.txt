@@ -10,6 +10,20 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+AUTONOMOUS COLD STARTUP VERIFIED; HEALTH CHECK ACTIVE — 2026-11-01,08:23 EST
+Owner confirms requested power cycle. Fresh B UUID/nativePowerOn08:18:25;
+ZERO host TX through IOS welcome, saved image selection, exact loader guards,
+RAM patch/unmount and runtime hook all automatic. Immutable zero-TX prefix:
+router-console-logs/20261101-082115-C8235-B-autonomous-cold-zero-tx-snapshot.log.
+First interaction08:21:15, platform ready08:21:40; five-minute operational
+interval due08:26:40 or later. CPP21054 unchanged, keepalives25->66/zero misses.
+Both ports/subinterfaces and default restore without configuration commands:
+port7=1Gfull, port8=10Gfull, sampled errors/drops0, ping1500DF4/5 then5/5.
+Startup vs auto export has no changes; running vs pre-cold2 differs only in
+intended boot line. Saved USB BOOT and confreg0x3922 verified after cold boot.
+CPU52C/all-zero voltage/current/power telemetry remains; no physical-rail cause
+proved. Full cold operational result pending. Active capture88335 unchanged.
+
 AUTONOMOUS WARM BOOT PASS; COLD CAPTURE ARMED — 2026-11-01,08:15 EST
 Saved BOOT and trial9 USER_BOOT_PARAM now survive a ROMMON reset. Warm trigger
 08:10:23 is the ONLY TX until IOS welcome; passive observer validates fresh
