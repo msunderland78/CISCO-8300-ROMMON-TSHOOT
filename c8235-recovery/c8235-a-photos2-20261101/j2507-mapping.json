@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: J2507 ground and flash-supply mapping",
   "recorded_at": "2026-11-01T12:44:18-05:00",
   "timezone": "America/New_York",
-  "status": "J2507 ground/VCC mapping supported; zero residual DC, clip baseline and rail resistance reported; programmer setup pending",
+  "status": "J2507 ground/VCC mapping retained; Pi startup fails with U2900 clip connected. Disconnected converter output 1.802 V; clip/cable isolation pending.",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -98,13 +98,13 @@
     "No SPI signal, primary/golden or bank-selector assignment; J2901 remains unmeasured."
   ],
   "pending": [
-    "Residual0V/post-refit contact checks and loaded rail/nativeRESET voltages requested; converter1.803V recorded, detached state not separately confirmed.",
-    "A-specific reset independence and current powered supply/signal/loading qualification remain pending before any pull-down/read."
+    "Detached clip/cable control: Pi startup and converter OUTPUT 8-to-4 DC voltage, no router connection.",
+    "Stable loaded flash supply and native U2901 RESET voltage were not obtained. No pull-down or SPI operation until the power issue and signal/loading qualification are resolved."
   ],
   "agent_hardware_actions": [],
   "programmer_read_or_write": "none this checkpoint",
   "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
-  "updated_at": "2026-11-01T13:23:50-05:00",
+  "updated_at": "2026-11-01T13:44:30-05:00",
   "qualification": {
     "recorded_at": "2026-11-01T12:48:24-05:00",
     "source": "Owner report in conversation",
@@ -147,6 +147,6 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "Converter output1.803VDC reported; Pi shutdown/disconnected confirmed. After residual0V and U2900refit/contact checks, Pi-only loaded J2507rail and nativeU2901RESET voltage requested without10k; results pending.",
+  "next_stage": "Power isolation before further board supply or RESET testing: detached clip/cable control requested after Pi/converter startup and 1.802 V output reported with clip cable removed.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json"
 }

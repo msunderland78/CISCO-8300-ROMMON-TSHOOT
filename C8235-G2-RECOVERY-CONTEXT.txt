@@ -10,6 +10,32 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A CONNECTED PI STARTUP FAILURE — 2026-11-01, 13:44 EST
+Owner reports repeated resistance/connection checks, then Pi will not start
+when the clip is connected to the converter; voltage briefly displays about
+0.1 V across pins 2/8 (J2507 rail in the requested test). Explicit follow-up
+confirms the clip was seated on U2900. No stable loaded supply or native U2901
+RESET level was obtained. Preserve earlier 1.803 V converter and passive values;
+no new numerical resistance readings supplied and no repeat scan requested.
+
+Stop unchanged board-connected attempts. After a request to disconnect only the
+clip cable from converter OUTPUT, owner says the disconnected Pi starts fine.
+Asked whether the adapter remained on the Pi and for OUTPUT 8 (+) to 4 (ground)
+DC voltage; reply is 1.802 V DC. Accept that control result in context, without
+claiming every wiring condition was separately restated. Disconnected operation
+works; clip/cable versus board loading and the exact power fault remain unknown.
+No diagnosis of a failed flash, Pi protection mechanism, TPM or RESET fault.
+
+Next requested: shut down Pi, unplug USB-C and wait for OUTPUT 8-to-4 = 0 V.
+Remove short clip completely from U2900; separate its contacts with a clean
+nonconductive spacer, clear of router; board leads and RESET grabber stay loose.
+Reconnect clip cable to converter OUTPUT in existing orientation, with nothing
+connected to router. Power Pi once; report startup and direct OUTPUT 8-to-4 DC.
+If it fails, unplug. Result pending. No hot-plugging or unchanged loaded retry.
+Router own power/cables/battery remain disconnected, cooling removed. No 10k
+resistor, GPIO/SPI access, flash read/write, bank assignment or security change.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A CONVERTER1.803V / PI SHUT DOWN — 2026-11-01, 13:23 EST
 Owner reports converterOUTPUT4-to8=1.803VDC withPi powered, then states it is
 shut down and disconnected. Interpret latter asPi shutdown/power unplug in the

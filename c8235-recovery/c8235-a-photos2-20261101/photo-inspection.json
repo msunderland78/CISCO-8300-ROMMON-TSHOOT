@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: A-specific flash identification and unpowered mapping preparation",
   "recorded_at": "2026-11-01T12:25:48-05:00",
   "timezone": "America/New_York",
-  "status": "Converter1.803VDC reported; Pi shutdown/disconnected confirmed; U2900-loaded supply and native U2901RESET baseline requested",
+  "status": "Pi startup fails with clip seated on U2900; target rail briefly about 0.1 V. Disconnected Pi/converter starts with 1.802 V output; detached clip/cable control pending.",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -16,8 +16,8 @@
     "owner_report": "Battery removed before photos.",
     "photo_observation": "Board removed from enclosure; coin-cell holder empty; processor exposed and heatsinks/fans not mounted; external ports visibly empty in IMG_1293/1294; no clip visible.",
     "supersedes": "Earlier November1 powered/assembled/battery-installed console handoff.",
-    "pending": "Owner reports converter1.803V thenPi shutdown/disconnected. Residual0V and U2900refit/contact gates precede requested Pi-only loaded VCC/nativeU2901RESET measurements; results pending, no10k.",
-    "power_instruction": "Keep router unpowered in this disassembled state; no Pi/programmer attachment.",
+    "pending": "Power isolation supersedes the loaded RESET baseline request. Pi/converter starts disconnected with 1.802 V output; test clip/cable completely off the router next. No result yet.",
+    "power_instruction": "Keep router own power and battery disconnected with cooling removed. No repeat U2900-connected Pi power-up, reset resistor or SPI operation while diagnosing the startup failure. All wiring changes require Pi power unplugged and residual voltage absent.",
     "owner_isolation_confirmation": {
       "recorded_at": "2026-11-01T12:27:49-05:00",
       "response": "confirmed",
@@ -277,7 +277,7 @@
     "status": "Original per-chip DC request not individually answered; owner instead reports0V across the mapped common header pair, with0.2ohm clip baseline and540ohm header rail resistance. See qualification."
   },
   "initial_status": "Photo identification complete; electrical mapping not started",
-  "updated_at": "2026-11-01T13:23:50-05:00",
+  "updated_at": "2026-11-01T13:44:30-05:00",
   "latest_header_evidence": "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json",
   "preferred_header": "J2507, following owner-reported four low-resistance paths; see j2507-mapping.json. J2901 remains unmeasured.",
   "planned_sequence_status": "Initial J2901 plan not performed; follow J2507 evidence and pending checks instead.",

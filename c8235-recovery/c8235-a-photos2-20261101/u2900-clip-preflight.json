@@ -7,7 +7,7 @@
     "chassis_serial": "FGL2835L42B",
     "board_label": "FOC28292GUQ"
   },
-  "status": "Converter1.803VDC reported; Pi shutdown/disconnected confirmed; U2900-loaded supply and native U2901RESET baseline requested",
+  "status": "Pi startup fails with clip seated on U2900; disconnected Pi/adapter starts with 1.802 V output; detached clip/cable control requested.",
   "target": {
     "read_target": "U2900",
     "clip": "Owner-added intact short clip connected to existing1.8Vconverter",
@@ -88,8 +88,8 @@
     "If needed, qualify a current-limited reset trial before bounded read-only identification/data checks. Preserve stable separate full-chip reads before restore selection."
   ],
   "agent_hardware_actions": [],
-  "powered_programming_or_read": "Owner reported converter/Pi powered voltage1.803V, then explicitly shutdown/disconnectedPi. New Pi-only loaded baseline requested, not reported. No agent GPIO/SPI/flash operation.",
-  "updated_at": "2026-11-01T13:23:50-05:00",
+  "powered_programming_or_read": "Owner attempted Pi-only supply of the U2900-connected fixture; Pi did not start and the target rail briefly displayed about 0.1 V. Pi starts disconnected; adapter output subsequently reported as 1.802 V. No agent GPIO/SPI/flash operation, read or write.",
+  "updated_at": "2026-11-01T13:44:30-05:00",
   "reset_grabber_contact": {
     "recorded_at": "2026-11-01T13:03:26-05:00",
     "source": "Owner measurement report followed by explicit endpoint clarification",
@@ -185,6 +185,49 @@
       "Whether post-refit contact checks passed"
     ],
     "instruction": "Keep powered wiring still; no10k resistor, GPIO/SPI transaction or read yet.",
-    "status": "Requested, no residual/refit/contact/loadedvoltage reply yet."
+    "status": "Attempted but failed at Pi startup with clip seated on U2900. Stable loaded rail and native U2901 RESET voltages were not obtained. Further unchanged connected attempts stopped; power isolation controls supersede this request."
+  },
+  "loaded_startup_failure": {
+    "recorded_at": "2026-11-01T13:44:30-05:00",
+    "source": "Owner report followed by explicit clip-placement answer",
+    "owner_report": "I checked all the resistances multiple times, my connections, everything ... but when the clip is connected to the 1.8v adapter and I press the power button on the pi, it doesn't turn on ... I see the voltage for a second register 0.1 volts across pin 2 and pin 8",
+    "placement_answer": "Seated on U2900",
+    "physical_target": "C8235-A / FGL2835L42B / board FOC28292GUQ / U2900",
+    "power_setup": "Pi power attempted through unchanged converter harness with clip seated on U2900. Router own power/cables/battery remain disconnected under the preceding confirmation; U2901 RESET grabber remains free, no resistor reported.",
+    "rail_endpoints": "J2507 pin 8 / VCC to pin 2 / GND, interpreted from the requested loaded measurement; owner named pins 2 and 8 without restating the header label.",
+    "reported_voltage_v_approx": 0.1,
+    "reported_duration": "for a second; approximate owner observation, not a captured waveform",
+    "pi_observation": "Does not turn on when power button pressed; no LED sequence, input-supply voltage or current measurement supplied.",
+    "continuity_followup": "Owner reports repeated resistance and connection checks; no new numerical readings supplied. Earlier values remain historical measurements. No repeat scan requested.",
+    "missing_measurements": [
+      "Stable loaded flash-rail voltage",
+      "Native U2901 RESET voltage"
+    ],
+    "interpretation": "Failure is associated with the connected fixture. Supply collapse, excessive load, an unintended connection or another power-path fault remain possible; no specific protection mechanism, component failure, TPM cause or reset issue established.",
+    "instruction": "Stop unchanged connected power-up attempts. No increased voltage, simultaneous router/programmer power, reset pull-down or SPI operation."
+  },
+  "output_disconnected_control": {
+    "recorded_at": "2026-11-01T13:44:30-05:00",
+    "requested_setup": "Pi power unplugged and converter OUTPUT 8-to-4 at 0 V before removing the entire clip cable from the converter OUTPUT. Leave Pi-to-converter INPUT wiring unchanged. Router leads/grabbers free and router own power disconnected. Power only Pi/converter once with OUTPUT empty.",
+    "initial_reply": "a disconnected pi starts up fine",
+    "clarification_requested": "Was the adapter still connected to the Pi with only the clip cable removed from OUTPUT? If so, measure directly OUTPUT 8 positive to OUTPUT 4 ground; leave clip disconnected.",
+    "clarification_reply": "1.802 vdc",
+    "reported_output_vdc": 1.802,
+    "mode": "DC volts",
+    "endpoints": "Converter OUTPUT 8 (+) to OUTPUT 4 (ground)",
+    "setup_scope": "Voltage supplied in direct response to the adapter-connected/output-empty control clarification; treated as that control result in context. Owner did not separately restate all wiring conditions.",
+    "result": "Pi startup and expected converter output reported without the router load. This supports basic Pi/converter operation in the disconnected setup; it does not qualify the clip/cable, loaded regulator capacity or board supply path."
+  },
+  "detached_clip_control_request": {
+    "requested_at": "2026-11-01T13:44:30-05:00",
+    "purpose": "Separate clip/cable effects from the router board load without repeating the failed connected trial.",
+    "sequence": [
+      "Shut down Pi, unplug USB-C power and wait for converter OUTPUT 8-to-4 to read 0 V.",
+      "Remove short clip completely from U2900. Keep metal contacts separated with a clean nonconductive spacer and clear of the router; board leads and reset grabber remain loose.",
+      "Reconnect clip cable to converter OUTPUT in its existing orientation. Nothing from Pi/converter/clip is connected to the router.",
+      "Power only Pi once; report whether it starts and DC voltage directly from OUTPUT 8 (+) to OUTPUT 4 (ground). If startup fails, unplug it."
+    ],
+    "instruction": "Do not reconnect router or move powered wiring. No reset resistor, GPIO/SPI command or flash access.",
+    "status": "Requested; no result yet."
   }
 }
