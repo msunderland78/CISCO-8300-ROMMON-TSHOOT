@@ -91,7 +91,7 @@
     "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c",
     "closed": true
   },
-  "handoff": "A/PHOTOS2: J2507-2/purple maps to both flash pin10/GND and J2507-8/blue to both pin2/VCC, each about1ohm. Owner now reports0.2ohm shorted-microclip baseline,0V DC and540ohm between header2/8. Ground/supply measurement access accepted; supply current/loading unqualified. Remote blue/purple wire ends still need identification before programmer setup. Bare router cooling/battery removed; keep unpowered. No new external flash read/write.",
+  "handoff": "A/PHOTOS2: purple/J2507-2 maps to both flashpin10/GND, blue/J2507-8 to bothpin2/VCC, each about1ohm; clipbaseline0.2ohm; rail0V/540ohm. Owner confirms these are self-added access leads with loose/unconnected far ends. Measurement mapping complete; keep bare router and access leads unpowered. Next determine unchanged/changed Pi5-adapter-clip harness state and validate it detached before attachment/read. No new external flash read/write or A-specific reset/control wiring.",
   "recovery_scope": "Existing recovery authorization retained; read-only preservation first. No speculative TPM clear, provisioning change, golden selector, jumper, or cross-chassis full-chip clone.",
   "external_acquisition_preparation": {
     "equipment": "Owner confirms prior Pi5,1.8Vadapter andSOIC16clip setup available.",

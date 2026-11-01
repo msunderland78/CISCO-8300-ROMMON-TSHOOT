@@ -24,7 +24,13 @@
     "last_explicit_confirmation": "2026-11-01: A, battery removed, all router cables and Pi/programmer disconnected; cooling removed.",
     "new_observation": "Owner now using microclips and added header leads in photo. Asked whether these are passive meter extensions with isolation unchanged; reply pending.",
     "instruction": "Keep router unpowered with cooling removed. No supply/programmer connection based only on these resistance results.",
-    "latest_owner_reply": "Purple is ground; blue is VCC. Clip baseline0.2ohm; header2-to8 DC0V and resistance540ohm. Remote wire ends not explicitly identified."
+    "latest_owner_reply": "Purple is ground; blue is VCC. Clip baseline0.2ohm; header2-to8 DC0V and resistance540ohm. Remote wire ends not explicitly identified.",
+    "wire_end_confirmation": {
+      "recorded_at": "2026-11-01T12:50:48-05:00",
+      "owner_answer": "Loose/unconnected",
+      "owner_followup": "i added the blue and purple wires",
+      "scope": "Owner-added header access leads with remote ends loose; no Pi/adapter attachment through these leads."
+    }
   },
   "measurements": [
     {
@@ -92,14 +98,14 @@
     "No SPI signal, primary/golden or bank-selector assignment; J2901 remains unmeasured."
   ],
   "pending": [
-    "Clarify where purple/blue far ends connect before programmer setup; prior router/battery isolation remains recorded.",
-    "Validate present detached Pi/1.8V-adapter/clip wiring, output voltage, signal levels and actual target loading before attachment or reads.",
-    "Preserve repeated stable full reads of each separately identified chip before any firmware restore."
+    "Determine whether existing Pi5/1.8V-adapter/SOIC16clip harness remains wired exactly as during C8375 recovery or has changed; question pending.",
+    "Validate detached present programmer wiring/output levels and actual target loading before attachment or reads.",
+    "Preserve repeated stable full reads of both separately identified flash chips before any restore."
   ],
   "agent_hardware_actions": [],
   "programmer_read_or_write": "none this checkpoint",
   "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
-  "updated_at": "2026-11-01T12:48:24-05:00",
+  "updated_at": "2026-11-01T12:50:48-05:00",
   "qualification": {
     "recorded_at": "2026-11-01T12:48:24-05:00",
     "source": "Owner report in conversation",
@@ -133,12 +139,14 @@
       "540ohm is an unpowered meter reading through the in-circuit network; it does not establish current at1.8V or qualify supply injection/programmer drive. No current estimate derived.",
       "J2507-2/GND and J2507-8/VCC accepted as accessible measurement points based on owner-reported paths to both chips; board load under power and programmer interface remain unqualified."
     ],
-    "remaining_connection_question": "Owner identifies colors/functions but does not explicitly identify remote wire endpoints. Asked meter-only, loose/unconnected or Pi/adapter-connected before programmer preparation."
+    "remaining_connection_question": "Owner identifies colors/functions but does not explicitly identify remote wire endpoints. Asked meter-only, loose/unconnected or Pi/adapter-connected before programmer preparation.",
+    "wire_end_question_resolution": "Owner subsequently confirms Loose/unconnected and says they added the blue and purple wires. No repeat connection question needed."
   },
   "initial_interpretation": [
     "Low-resistance paths support J2507-2 as access to both flash VSS pins and J2507-8 as access to both flash VCC pins.",
     "A common ground and common supply connection are supported, but lead/contact contribution and exact net resistance are unresolved until the same-microclip baseline is supplied.",
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
-  ]
+  ],
+  "next_stage": "Detached programmer preparation. Preserve loose access leads; no router power/clip attachment yet. C8375-specific U1RESET-low10k branch is historical and must not be transferred to A without A-specific qualification."
 }

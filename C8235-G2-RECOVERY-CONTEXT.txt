@@ -25,6 +25,11 @@ This resolves the requested header residual-voltage and microclip baseline
 checks; separate per-chip DC readings were not reported. Owner colors/functions
 answer does not explicitly identify remote lead endpoints. Asked whether the
 far ends go only to meter, are loose, or connect to Pi/adapter before next setup.
+Owner subsequently answers Loose/unconnected and says they added the blue/purple
+wires. Connection question resolved; leave these access leads loose/unpowered.
+Asked whether Pi5/adapter/clip harness remains wired exactly as for C8375 or has
+changed. Harness-state reply pending. Historical C8375 U1RESET-low10k branch
+is not an A wiring instruction; A-specific controls remain unqualified.
 No repeat of mapped paths is requested. Next validate detached existing Pi5 /
 1.8Vadapter / SOIC16clip wiring and levels, then assess target loading before
 any read. Prior A/battery-out/cooling-off isolation retained; keep router off.
