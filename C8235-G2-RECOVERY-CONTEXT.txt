@@ -10,6 +10,25 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A CONVERTER1.803V / PI SHUT DOWN — 2026-11-01, 13:23 EST
+Owner reports converterOUTPUT4-to8=1.803VDC withPi powered, then states it is
+shut down and disconnected. Interpret latter asPi shutdown/power unplug in the
+current discussion; no agent shutdown command. Converter voltage is consistent
+with1.8V supply. Clip-off state requested but not separately confirmed, so no
+proven unloaded status or actual board-rail voltage is claimed.
+
+Next requested: withPi unplugged verify converterOUTPUT8-to4 residual0V, refit
+shortclip onU2900; U2901pin3grabber free/no10k, routerpower/cables/battery absent.
+Recheck OUTPUT4->J2507-2 andOUTPUT8->J2507-8 low resistance (prior0.7ohm); stop if
+substantially different. SwitchDCV and power onlyPi. BlackJ2507-2/GND; redfirst
+J2507-8/VCC, thenU2901RESETgrabber free end. Report bothVDC and contact-checkpass.
+Keep powered wiring still, noSPI. These are new post-refit/loaded checks, not
+claims that the old0.7ohm values were repeated. No current results yet.
+Both passiveRESET screensOL and confirmedgrabbercontact retained; no10k trial,
+flashread/write, routerPSU power-on or bank assignment. Current-powered state
+will follow the next owner report; last explicit observation isPi shut down.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A RESET PAIR OL / DETACHED CONVERTER CHECK — 2026-11-01, 13:16 EST
 Owner reports actualU2900pin3 toU2901pin3 OL resistance. No low-resistance common
 reset connection measured; powered independence/coupling still untested. Prior

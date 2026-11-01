@@ -98,13 +98,13 @@
     "No SPI signal, primary/golden or bank-selector assignment; J2901 remains unmeasured."
   ],
   "pending": [
-    "Detached converter DC output and clip-off confirmation requested; reset-pair measurement complete withOL. No new numeric supply-continuity values supplied.",
+    "Residual0V/post-refit contact checks and loaded rail/nativeRESET voltages requested; converter1.803V recorded, detached state not separately confirmed.",
     "A-specific reset independence and current powered supply/signal/loading qualification remain pending before any pull-down/read."
   ],
   "agent_hardware_actions": [],
   "programmer_read_or_write": "none this checkpoint",
   "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
-  "updated_at": "2026-11-01T13:16:43-05:00",
+  "updated_at": "2026-11-01T13:23:50-05:00",
   "qualification": {
     "recorded_at": "2026-11-01T12:48:24-05:00",
     "source": "Owner report in conversation",
@@ -147,6 +147,6 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "Inter-chip RESET OL reported, alongside prior RESET-toVCC OL. Detached Pi/converter OUTPUT8-to4 DC check requested with clip off router, access leads/grabber free and no10k; no voltage/power/clip-state reply yet.",
+  "next_stage": "Converter output1.803VDC reported; Pi shutdown/disconnected confirmed. After residual0V and U2900refit/contact checks, Pi-only loaded J2507rail and nativeU2901RESET voltage requested without10k; results pending.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json"
 }

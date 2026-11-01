@@ -7,7 +7,7 @@
     "chassis_serial": "FGL2835L42B",
     "board_label": "FOC28292GUQ"
   },
-  "status": "Inter-chip RESET resistance OL reported; detached Pi/converter output-voltage check requested",
+  "status": "Converter1.803VDC reported; Pi shutdown/disconnected confirmed; U2900-loaded supply and native U2901RESET baseline requested",
   "target": {
     "read_target": "U2900",
     "clip": "Owner-added intact short clip connected to existing1.8Vconverter",
@@ -88,8 +88,8 @@
     "If needed, qualify a current-limited reset trial before bounded read-only identification/data checks. Preserve stable separate full-chip reads before restore selection."
   ],
   "agent_hardware_actions": [],
-  "powered_programming_or_read": "Detached Pi/converter power qualification requested; no current powered observation, SPI operation, array read or write reported.",
-  "updated_at": "2026-11-01T13:16:43-05:00",
+  "powered_programming_or_read": "Owner reported converter/Pi powered voltage1.803V, then explicitly shutdown/disconnectedPi. New Pi-only loaded baseline requested, not reported. No agent GPIO/SPI/flash operation.",
+  "updated_at": "2026-11-01T13:23:50-05:00",
   "reset_grabber_contact": {
     "recorded_at": "2026-11-01T13:03:26-05:00",
     "source": "Owner measurement report followed by explicit endpoint clarification",
@@ -159,6 +159,32 @@
     ],
     "expected": "Approximately1.8V; this is an expectation, not an observed current output.",
     "instruction": "Do not reconnect anything while powered.",
-    "status": "Requested; no owner power/clip-removal/voltage result yet."
+    "status": "Voltage result received; subsequent Pi shutdown/unplug confirmed. Separate clip-off confirmation absent; no fresh residual0V result yet.",
+    "owner_report": "output 4 to output 8 from the converter on the pi with it powered on is 1.803 vdc",
+    "reported_at": "2026-11-01T13:23:50-05:00",
+    "reported_output_vdc": 1.803,
+    "clip_state_scope": "Test was requested with clip detached; owner supplied voltage/poweredPi result but did not separately confirm clip-off state. Do not claim a proven unloaded measurement.",
+    "interpretation": "Reported converter voltage is consistent with expected1.8V and specified1.7-2.0V flash supply range; not a measured target-rail or SPI-signal voltage.",
+    "subsequent_power_state": {
+      "owner_report": "it is shut down and disconnected",
+      "interpretation": "Pi shutdown and power disconnection confirmed in direct response to converter-power discussion. No tool-issued shutdown; residual voltage not yet reported."
+    }
+  },
+  "loaded_native_baseline_request": {
+    "requested_at": "2026-11-01T13:23:50-05:00",
+    "purpose": "Measure actual flash-rail voltage and native unused-chipRESET level before any pull-down or SPI transaction.",
+    "sequence": [
+      "Pi power remains unplugged; verify converterOUTPUT8-to4 decays to0V before fitting/movingclip.",
+      "Refit shortclip onU2900; U2901grabber free/no10k; router own power,cables,battery remain disconnected.",
+      "Recheck converterOUTPUT4-to-J2507pin2 andOUTPUT8-to-J2507pin8 for prior low-resistance contact (earlier0.7ohm each); stop/report substantial difference. These are post-refit checks, not a repeat of unchanged contacts.",
+      "Switch meter toDCV, then power onlyPi. Keep black onJ2507pin2/GND; red firstJ2507pin8/VCC, then confirmedU2901pin3grabber free end."
+    ],
+    "requested_reply": [
+      "Loaded J2507pin8-to2 VDC",
+      "U2901RESET-grabber-to-J2507pin2 VDC",
+      "Whether post-refit contact checks passed"
+    ],
+    "instruction": "Keep powered wiring still; no10k resistor, GPIO/SPI transaction or read yet.",
+    "status": "Requested, no residual/refit/contact/loadedvoltage reply yet."
   }
 }

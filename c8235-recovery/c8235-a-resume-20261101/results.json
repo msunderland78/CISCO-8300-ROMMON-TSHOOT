@@ -91,7 +91,7 @@
     "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c",
     "closed": true
   },
-  "handoff": "A: actualU2900pin3-to-U2901pin3 OL reported; U2901RESET-toVCC alsoOL with confirmed~1ohm-or-less contact. Owner mentions converterpower path checks, no new numeric values/clipstate. Next: unplugPi, remove shortclip entirely fromU2900 and isolate contacts, keepboard access leads/resetgrabber free/no10k; then Pi-only detached converterOUTPUT8-to4 DC check. Power/clip-off/voltage result pending. No SPIread/write, boardpower or bank-role result.",
+  "handoff": "A: converterOUTPUT4-to8 measured1.803VDC withPi powered; owner then confirmsPi shutdown/disconnected. Requested detached clip state was not separately restated. Next verify residual0V, refitU2900clip and low-ohm ground/VCC paths, then Pi-only DC J2507VCC and nativeU2901RESET without10k; keep powered wiring still and noSPI. Loaded results not reported. RESET screens bothOL/contactaccepted; noflashread/write.",
   "recovery_scope": "Existing recovery authorization retained; read-only preservation first. No speculative TPM clear, provisioning change, golden selector, jumper, or cross-chassis full-chip clone.",
   "external_acquisition_preparation": {
     "equipment": "Owner confirms prior Pi5,1.8Vadapter andSOIC16clip setup available.",
