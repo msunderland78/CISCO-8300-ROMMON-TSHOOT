@@ -10,6 +10,25 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A DETACHED CLIP CONTROL PASSES — 2026-11-01, 13:57 EST
+Owner explicitly confirms the Pi starts normally with the clip fully connected
+through the adapter but completely off the router board. The requested startup
+control is now complete. No new voltage supplied for this configuration; retain
+1.802 V as the earlier output-empty control, not a detached-clip measurement.
+The failure is associated with attaching to U2900. Supply loading, a contact or
+bridge present only when seated, and signal-path interaction remain possible;
+no specific component failure or Pi shutdown mechanism established.
+
+Owner confirms no bench supply available. Pi unplugged and clip kept off board
+instructed. Existing records list a resistor assortment/breadboard, but current
+100/220 ohm availability is unknown. Asked for an isolated measured 100 ohm
+resistor (220 ohm alternative), left disconnected. No new wiring or power-up
+instructed yet. Candidate next diagnostic would feed only verified J2507 VCC/GND
+through a series limit, with clip/SPI contacts absent. Low voltage under that
+limit would not alone prove a board short. U2901 RESET grabber stays free; router
+own power/cables/battery disconnected, cooling removed, no SPI/read/write.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A CONNECTED RESEAT RETRIES STILL FAIL — 2026-11-01, 13:53 EST
 Owner reports reseating the clip, checking pin 2 to OUTPUT 4 and pin 8 to OUTPUT
 8 about three times, and the same Pi startup failure. Those pin numbers refer

@@ -91,7 +91,7 @@
     "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c",
     "closed": true
   },
-  "handoff": "A: Pi fails to start with short clip explicitly seated on U2900; J2507 rail briefly about 0.1 V. Owner reports repeated connection/resistance checks with no new numeric values. Pi starts disconnected; 1.802 V converter output supplied in response to adapter-connected/output-empty clarification. Next isolate clip/cable completely off router, power off before changes, then one Pi-only startup and OUTPUT 8-to-4 DC reading. Result pending. U2901 RESET grabber remains free; no 10k, SPI operation or flash read/write. Keep router own power/battery disconnected and cooling off.",
+  "handoff": "A: owner confirms Pi starts normally with complete adapter/clip cable attached but clip fully off router. U2900-connected startup still fails after reseating; previous brief rail ~0.1 V retained, no new voltage from detached-clip trial. No bench supply available. Next obtain isolated resistance of available 100 ohm or 220 ohm resistor, then qualify supply-only wiring through J2507 with all clip/SPI contacts removed before any bounded-current trial. No wiring/power instruction for that trial issued yet. Keep Pi unplugged and router own power/cables/battery disconnected, cooling removed, U2901 RESET grabber free; no reset resistor or flash/SPI access.",
   "recovery_scope": "Existing recovery authorization retained; read-only preservation first. No speculative TPM clear, provisioning change, golden selector, jumper, or cross-chassis full-chip clone.",
   "external_acquisition_preparation": {
     "equipment": "Owner confirms prior Pi5,1.8Vadapter andSOIC16clip setup available.",
