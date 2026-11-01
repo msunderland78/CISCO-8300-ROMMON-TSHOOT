@@ -1,0 +1,88 @@
+{
+  "task": "C8235-01 / R-01: U2900 short-clip and U2901 reset-contact preflight",
+  "recorded_at": "2026-11-01T12:55:51-05:00",
+  "timezone": "America/New_York",
+  "identity": {
+    "tracking": "C8235-A",
+    "chassis_serial": "FGL2835L42B",
+    "board_label": "FOC28292GUQ"
+  },
+  "status": "Unpowered fixture owner-attached; two supply/ground paths reported; reset-contact checks requested",
+  "target": {
+    "read_target": "U2900",
+    "clip": "Owner-added intact short clip connected to existing1.8Vconverter",
+    "other_chip": "U2901",
+    "other_chip_grabber": "Owner attached micrograbber to physicalpin3/RESET#; free end confirmed loose, no resistor/ground connected.",
+    "owner_correction": "Initial interrupted message ended with readingU2901; immediately corrected repeated message specifies readingU2900. TreatU2900 as target andU2901 as possible reset-held other chip; no command was issued from the initial typo.",
+    "bank_role": "Physical primary/golden roles remain unknown."
+  },
+  "physical_confirmation": {
+    "source": "Two explicit owner async answers in current session",
+    "isolation_answer": "Yes\u2014all disconnected; grabber loose",
+    "scope": "Pi power and router power/cables/battery disconnected; U2901pin3grabber free of resistor/ground. Router cooling remains removed per current photos.",
+    "harness_answer": "Yes, unchanged",
+    "harness_scope": "Pi-to-1.8Vconverter wiring unchanged from working C8375 setup apart from moving shortclip toU2900.",
+    "photo_limit": "No new photo after clip/grabber attachment supplied; arrangement and measurements owner-reported. IMG1303 predates this changed fixture."
+  },
+  "measurements": [
+    {
+      "endpoint_a": "1.8Vconverter OUTPUT4",
+      "endpoint_b": "J2507 pin2/GND",
+      "reported_resistance_ohm": 0.7,
+      "source": "Owner report",
+      "mode": "Resistance inferred from ohm units"
+    },
+    {
+      "endpoint_a": "1.8Vconverter OUTPUT8",
+      "endpoint_b": "J2507 pin8/VCC",
+      "reported_resistance_ohm": 0.7,
+      "source": "Owner report",
+      "mode": "Resistance inferred from ohm units"
+    }
+  ],
+  "baseline_reference": {
+    "evidence": "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json",
+    "shorted_microclip_ohm": 0.2,
+    "prior_header_dc_v": 0,
+    "prior_header_rail_resistance_ohm": 540,
+    "scope": "Before new clip/grabber attachment; do not relabel prior DC/loading as fresh fixture readings."
+  },
+  "interpretation": [
+    "Two0.7ohm readings support converter output-ground and output-VCC contact through current fixture; not a full SPI pin-map/contact or powered voltage test.",
+    "Unchanged converter wiring is owner-confirmed historical continuity of setup, not a new output-voltage/loading measurement.",
+    "U2901physicalpin3 is a candidate dedicatedRESET# control; independent control fromU2900 remains unverified.",
+    "No10k resistor connected or selected for assertion yet; do not apply C8375 reset method before A-specific contact/net and powered-level qualification."
+  ],
+  "datasheet": {
+    "url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+    "identity": "Micron MT25QU256ABA Rev.L02/2024, page12 Figure6/packageSF and page14 Table1",
+    "facts": "DedicatedRESET# is physicalpin3; a lowRESET resets the part and releases its data outputs. These device facts do not establish independent reset routing on this board."
+  },
+  "requested_small_batch": {
+    "state": "All power unplugged; U2900clip left seated; U2901grabber free/no resistor.",
+    "step1": {
+      "mode": "DCvolts",
+      "endpoints": "J2507pin8 to pin2",
+      "condition": "Proceed to resistance only after displayed0V."
+    },
+    "step2": {
+      "mode": "Ohms",
+      "endpoints": "ActualU2901physicalpin3 solder foot to grabber free metal end",
+      "purpose": "Confirm contact before interpreting any high net-resistance result; if foot inaccessible, report that instead of moving grabber."
+    },
+    "step3": {
+      "mode": "Ohms",
+      "red": "Grabber free end connected toU2901pin3",
+      "black": "J2507pin8/VCC",
+      "purpose": "Screen for a low-resistance VCC tie, with no reset assertion."
+    },
+    "status": "Requested; no readings yet."
+  },
+  "later_checks": [
+    "Before any pull-down, establish reset relationship betweenU2901 andU2900 using identified accessible points; do not confuse converter/output pin3 with physical flashRESET pin3.",
+    "Validate current supply and signal levels/loading before SPI acquisition; no automatic power-up follows passive measurements.",
+    "If needed, qualify a current-limited reset trial before bounded read-only identification/data checks. Preserve stable separate full-chip reads before restore selection."
+  ],
+  "agent_hardware_actions": [],
+  "powered_programming_or_read": "None in this checkpoint; Pi remains unpowered by owner confirmation."
+}

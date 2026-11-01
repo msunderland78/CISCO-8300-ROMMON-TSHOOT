@@ -10,6 +10,31 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A U2900 CLIP / U2901 RESET GRABBER — 2026-11-01, 12:55 EST
+Owner attaches shortclip toU2900; this is the read target. Their initial
+interrupted message ended with readingU2901, immediately corrected toU2900.
+Keep that correction explicit; no operation issued from the mistaken wording.
+ConverterOUTPUT4 -> J2507pin2/GND:0.7ohm.
+ConverterOUTPUT8 -> J2507pin8/VCC:0.7ohm.
+These support power/ground contact, not all SPI contacts or powered levels.
+
+Owner also attaches micrograbber to OTHER chipU2901 physicalpin3/RESET#.
+Explicit replies confirm free end loose/no resistor/ground, Pi and router
+power/cables/battery disconnected, and Pi-to-converter wiring unchanged from
+working C8375 setup. A cooling remains removed. No post-attachment photograph
+supplied; current fixture placement is owner-reported. No10k pull-down yet.
+
+Requested small passive batch: first header8-to2 DC; only if0V, measure actual
+U2901pin3 solder foot to grabber free metal end, then redgrabber-to-blackJ2507-8
+VCC resistance. If actual leg inaccessible, report that rather than movegrabber.
+Results pending; no recheck of the completed0.7ohm power paths requested.
+Before any pull-down, establish reset connection between both chips; actual
+physicalpin3 is not converter/outputpin3. Current powered voltage/loading and
+signal qualification remain pending before SPI. C8375's10k technique is only a
+candidate after A-specific net/contact/level checks, not a copied instruction.
+No agenthardware access, poweredread/write, bank mapping or security changes.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A J2507 BASELINE / ZERO DC / RAIL RESISTANCE — 2026-11-01, 12:48 EST
 Owner identifies purple=J2507pin2/GND and blue=J2507pin8/VCC, reporting:
 - Microclip tips touching:0.2ohm (resistance mode inferred; model/range omitted).

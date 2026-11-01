@@ -98,14 +98,13 @@
     "No SPI signal, primary/golden or bank-selector assignment; J2901 remains unmeasured."
   ],
   "pending": [
-    "Determine whether existing Pi5/1.8V-adapter/SOIC16clip harness remains wired exactly as during C8375 recovery or has changed; question pending.",
-    "Validate detached present programmer wiring/output levels and actual target loading before attachment or reads.",
-    "Preserve repeated stable full reads of both separately identified flash chips before any restore."
+    "Current-fixture residualDC, U2901grabber contact and reset-toVCC screen requested in u2900-clip-preflight.json.",
+    "A-specific reset independence and current powered supply/signal/loading qualification remain pending before any pull-down/read."
   ],
   "agent_hardware_actions": [],
   "programmer_read_or_write": "none this checkpoint",
   "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
-  "updated_at": "2026-11-01T12:50:48-05:00",
+  "updated_at": "2026-11-01T12:55:51-05:00",
   "qualification": {
     "recorded_at": "2026-11-01T12:48:24-05:00",
     "source": "Owner report in conversation",
@@ -148,5 +147,6 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "Detached programmer preparation. Preserve loose access leads; no router power/clip attachment yet. C8375-specific U1RESET-low10k branch is historical and must not be transferred to A without A-specific qualification."
+  "next_stage": "Owner has attached unpowered shortclip toU2900 and loose resetgrabber toU2901pin3. See u2900-clip-preflight.json for new0.7ohm paths, isolation/harness confirmations and pending passive checks.",
+  "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json"
 }
