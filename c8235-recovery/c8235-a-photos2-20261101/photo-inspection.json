@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: A-specific flash identification and unpowered mapping preparation",
   "recorded_at": "2026-11-01T12:25:48-05:00",
   "timezone": "America/New_York",
-  "status": "Unpowered fixture owner-attached; two supply/ground paths reported; reset-contact checks requested",
+  "status": "U2901 pin3-to-grabber contact accepted; fresh residual DC and reset-to-VCC resistance pending",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -16,7 +16,7 @@
     "owner_report": "Battery removed before photos.",
     "photo_observation": "Board removed from enclosure; coin-cell holder empty; processor exposed and heatsinks/fans not mounted; external ports visibly empty in IMG_1293/1294; no clip visible.",
     "supersedes": "Earlier November1 powered/assembled/battery-installed console handoff.",
-    "pending": "Owner-confirmed unchanged Pi-to-converter wiring, Pi/router off and looseU2901resetgrabber. Unpowered shortclip now onU2900; fresh passive checks and powered qualification pending. See u2900-clip-preflight.json.",
+    "pending": "Unpowered fixture retained; U2901pin3-grabber contact accepted. Fresh fixtureDC, reset-toVCC/inter-chip net screen and powered interface/load qualification remain pending.",
     "power_instruction": "Keep router unpowered in this disassembled state; no Pi/programmer attachment.",
     "owner_isolation_confirmation": {
       "recorded_at": "2026-11-01T12:27:49-05:00",
@@ -277,7 +277,7 @@
     "status": "Original per-chip DC request not individually answered; owner instead reports0V across the mapped common header pair, with0.2ohm clip baseline and540ohm header rail resistance. See qualification."
   },
   "initial_status": "Photo identification complete; electrical mapping not started",
-  "updated_at": "2026-11-01T12:55:51-05:00",
+  "updated_at": "2026-11-01T13:03:26-05:00",
   "latest_header_evidence": "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json",
   "preferred_header": "J2507, following owner-reported four low-resistance paths; see j2507-mapping.json. J2901 remains unmeasured.",
   "planned_sequence_status": "Initial J2901 plan not performed; follow J2507 evidence and pending checks instead.",

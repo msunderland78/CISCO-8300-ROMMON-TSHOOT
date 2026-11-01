@@ -7,7 +7,7 @@
     "chassis_serial": "FGL2835L42B",
     "board_label": "FOC28292GUQ"
   },
-  "status": "Unpowered fixture owner-attached; two supply/ground paths reported; reset-contact checks requested",
+  "status": "U2901 pin3-to-grabber contact accepted; fresh residual DC and reset-to-VCC resistance pending",
   "target": {
     "read_target": "U2900",
     "clip": "Owner-added intact short clip connected to existing1.8Vconverter",
@@ -51,7 +51,8 @@
     "Two0.7ohm readings support converter output-ground and output-VCC contact through current fixture; not a full SPI pin-map/contact or powered voltage test.",
     "Unchanged converter wiring is owner-confirmed historical continuity of setup, not a new output-voltage/loading measurement.",
     "U2901physicalpin3 is a candidate dedicatedRESET# control; independent control fromU2900 remains unverified.",
-    "No10k resistor connected or selected for assertion yet; do not apply C8375 reset method before A-specific contact/net and powered-level qualification."
+    "No10k resistor connected or selected for assertion yet; do not apply C8375 reset method before A-specific contact/net and powered-level qualification.",
+    "Owner explicitly confirms around-or-less-than1ohm includes actual U2901pin3 contact through grabber to free end. Contact accepted without repeating; net relationship remains unknown."
   ],
   "datasheet": {
     "url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
@@ -68,7 +69,8 @@
     "step2": {
       "mode": "Ohms",
       "endpoints": "ActualU2901physicalpin3 solder foot to grabber free metal end",
-      "purpose": "Confirm contact before interpreting any high net-resistance result; if foot inaccessible, report that instead of moving grabber."
+      "purpose": "Confirm contact before interpreting any high net-resistance result; if foot inaccessible, report that instead of moving grabber.",
+      "status": "Complete: owner explicitly confirms contact-to-actual-pin3 included, around or less than1ohm."
     },
     "step3": {
       "mode": "Ohms",
@@ -76,7 +78,7 @@
       "black": "J2507pin8/VCC",
       "purpose": "Screen for a low-resistance VCC tie, with no reset assertion."
     },
-    "status": "Requested; no readings yet."
+    "status": "Step2 complete; step1 current-fixture DC and step3 reset-toVCC values not yet supplied. Re-requested only these two readings; keep10k disconnected."
   },
   "later_checks": [
     "Before any pull-down, establish reset relationship betweenU2901 andU2900 using identified accessible points; do not confuse converter/output pin3 with physical flashRESET pin3.",
@@ -84,5 +86,19 @@
     "If needed, qualify a current-limited reset trial before bounded read-only identification/data checks. Preserve stable separate full-chip reads before restore selection."
   ],
   "agent_hardware_actions": [],
-  "powered_programming_or_read": "None in this checkpoint; Pi remains unpowered by owner confirmation."
+  "powered_programming_or_read": "None in this checkpoint; Pi remains unpowered by owner confirmation.",
+  "updated_at": "2026-11-01T13:03:26-05:00",
+  "reset_grabber_contact": {
+    "recorded_at": "2026-11-01T13:03:26-05:00",
+    "source": "Owner measurement report followed by explicit endpoint clarification",
+    "initial_owner_wording": "resistance of the grabber ... somewhere around or less than 1 ohm",
+    "endpoint_confirmation": "Includes contact to pin 3",
+    "endpoint_a": "Actual U2901 physical pin3 / RESET#",
+    "endpoint_b": "Grabber free metal end",
+    "resistance_ohm_approx": 1,
+    "qualifier": "around or less than; not an exact reading or strict numeric upper bound",
+    "meter_mode": "Resistance, inferred from reported ohm units",
+    "result": "Low-resistance chip-to-grabber contact accepted; no repeat requested.",
+    "scope": "Contact only. Does not measure RESET-to-VCC, RESET-to-ground or inter-chip RESET routing."
+  }
 }

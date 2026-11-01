@@ -91,7 +91,7 @@
     "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c",
     "closed": true
   },
-  "handoff": "Owner-attached shortclip onU2900/read target; OUTPUT4-to-J2507-2/GND andOUTPUT8-to-J2507-8/VCC each0.7ohm. Loose micrograbber on otherchipU2901physicalpin3, no10k/ground; user corrected earlier target typo toU2900. Pi/router power,cables,battery disconnected; Pi-to-converter wiring unchanged fromC8375 explicitly confirmed. Fresh residualDC/grabber-contact/reset-toVCC readings requested; reset independence/powered qualification pending. No agenthardware access, poweredread/write or bank mapping.",
+  "handoff": "Unpowered shortclip onU2900/readtarget, converterground/VCC paths0.7ohm. U2901pin3grabber remains loose/no10k; actual pin3-to-grabber free end around-or-less-than1ohm explicitly confirmed and accepted. Pi/router isolation and unchanged Pi-to-converter wiring retained. Fresh headerDC and reset-toVCC resistance pending; no contact repeat, pull-down, poweredread/write or bank mapping.",
   "recovery_scope": "Existing recovery authorization retained; read-only preservation first. No speculative TPM clear, provisioning change, golden selector, jumper, or cross-chassis full-chip clone.",
   "external_acquisition_preparation": {
     "equipment": "Owner confirms prior Pi5,1.8Vadapter andSOIC16clip setup available.",

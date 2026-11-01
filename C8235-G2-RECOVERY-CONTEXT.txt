@@ -10,6 +10,18 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A RESET GRABBER CONTACT ACCEPTED — 2026-11-01, 13:03 EST
+Owner reports somewhere around or less than1ohm and explicitly clarifies that
+this includes actual U2901physicalpin3 contact to grabber free end. Contact
+accepted; no repeat requested. Preserve approximate wording, no exact1.0ohm
+measurement or strict upper bound invented. This is not RESET-to-VCC resistance.
+Remaining current batch: J2507-8 to2 DC, then only if0V redgrabber-to-blackJ2507-8
+VCC ohms. Both values pending; requested again without repeating contact test.
+U2900 remains readtarget/shortclip; U2901pin3grabber free/no10k; confirmed Pi/router
+power/cable/battery isolation and unchanged converter wiring retained. No reset
+assertion, power-up, SPI operation or inter-chip reset-net finding.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A U2900 CLIP / U2901 RESET GRABBER — 2026-11-01, 12:55 EST
 Owner attaches shortclip toU2900; this is the read target. Their initial
 interrupted message ended with readingU2901, immediately corrected toU2900.
