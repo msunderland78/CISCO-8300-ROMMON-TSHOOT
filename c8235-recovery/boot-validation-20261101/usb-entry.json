@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "status": "Trial9 operational observation passed; approved bench network and USB boot saved; ROMMON parameter persistence and autonomous cold test pending",
+  "status": "Startup and exact ROMMON loader parameter saved; preparing passive autonomous warm test",
   "source_candidate": "experimental-recovery/c8235-b-bootstrap-20261101/candidate.json",
   "console_source": ".git/recovery-private/c8235-analysis-20261101/20261101-072310-usb-entry/console.log",
   "physical_confirmation": "Same owner-confirmed setup retained throughout cold2/cold3 and probe; exclusive console handed off cleanly",
@@ -16,7 +16,7 @@
   "confreg": "0x3922",
   "no_startup_save": false,
   "no_firmware_write": true,
-  "updated_at": "2026-11-01T08:08:16.285381-05:00",
+  "updated_at": "2026-11-01T08:10:08.938399-05:00",
   "trials": [
     {
       "number": 1,
@@ -352,6 +352,43 @@
       "bytes": 272895,
       "sha256": "f3eab84c44eca8d42f16b7a7c0800b67068b69f08569288a6a761a6e5c411988",
       "type": "Immutable ongoing capture prefix"
+    },
+    "post_IOS_save_ROMMON": {
+      "at": "2026-11-01T08:09:37.968002-05:00",
+      "BOOT": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+      "USER_BOOT_PARAM": "absent",
+      "finding": "IOS startup save preserved USB BOOT but did not persist temporary kernel parameter"
+    },
+    "ROMMON_parameter_sync": {
+      "at": "2026-11-01T08:09:54.666618-05:00",
+      "command": "sync",
+      "result": "Returned rommon5 prompt without error; exact BOOT/parameter readback verified after sync",
+      "qualification": "Persistence across reset/power loss still pending"
     }
-  }
+  },
+  "closed_capture": {
+    "raw_local": "router-console-logs/20261101-072310-C8235-B-usb-entry-investigation.log",
+    "public": "sanitized-evidence/router-console-logs/20261101-072310-C8235-B-usb-entry-investigation.log",
+    "bytes": 279491,
+    "sha256": "c5b3e31fc5d90dc5d18ac657013d7fd619ff6ed276bc7ef9c2014a630e22f0ba",
+    "closed_at": "2026-11-01T08:10:14.740606-05:00",
+    "session_exit": 0
+  },
+  "autonomous_trials": [
+    {
+      "kind": "warm",
+      "status": "Armed; reset issued, result pending",
+      "observer": {
+        "source": "experimental-recovery/c8235-b-bootstrap-20261101/observe-one-autoboot.py",
+        "sha256": "65cdf1fd7bde2531773ffba626242bf6a1df1b24fcb5ba4d9241fd413e6e29a1",
+        "private_directory": ".git/recovery-private/c8235-analysis-20261101/20261101-081015-one-autoboot",
+        "armed_at": "2026-11-01T08:10:15.211033-05:00",
+        "session": 90725
+      },
+      "trigger": "ROMMON reset; no subsequent TX intended until IOS welcome/readiness observation",
+      "reset_observed_by": "2026-11-01T08:10:24.179119-05:00",
+      "saved_parameter_source": "trials number9 parameter",
+      "saved_BOOT": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin,12;"
+    }
+  ]
 }

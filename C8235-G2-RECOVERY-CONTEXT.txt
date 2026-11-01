@@ -10,6 +10,21 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+SAVED PARAMETER; AUTONOMOUS WARM TEST ACTIVE — 2026-11-01,08:10 EST
+After IOS save/reload, fresh B/LocalSoft ROMMON showed USB BOOT retained but
+USER_BOOT_PARAM absent. Set/read exact trial9 parameter, sync08:09:54 returned
+prompt without error; exact BOOT/parameter readback verified. Persistence test
+is now required; no assumption that sync alone proves autonomous startup.
+Old guarded capture62256 closed exit0, full279491B original retained as
+router-console-logs/20261101-072310-C8235-B-usb-entry-investigation.log
+SHA256c5b3e31fc5d90dc5d18ac657013d7fd619ff6ed276bc7ef9c2014a630e22f0ba.
+Fresh exclusive one-autoboot observer90725 armed08:10:15 at115200/8N1,
+.git/recovery-private/c8235-analysis-20261101/20261101-081015-one-autoboot.
+ROMMON reset08:10:23 is the sole intended transmission until IOS welcome.
+First matching B reset is allowed; second/mismatched reset is stopped. Do not
+reuse the earlier always-stop capture for a standalone startup test. Warm
+result pending; owner physical cold cycle will follow a successful warm test.
+
 TRIAL9 OPERATIONAL PASS; STARTUP SAVED — 2026-11-01,08:08 EST
 Five-minute sampled check08:02:03.399882–08:07:07.079690=303.679808s:
 CPP21054 unchanged, keepalives17->37->72->139->169, rx=tx/zero misses;
