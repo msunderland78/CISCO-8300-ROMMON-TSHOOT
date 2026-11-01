@@ -1,8 +1,10 @@
 # Cisco router recovery: test plan and tracking log
 
 Created: **2026-10-24** · Time zone: **America/New_York**  
-Last updated: **2026-10-31**\
+Last updated: **2026-11-01**\
 Workspace: `/Users/games/Documents/SOFTWARE`
+
+**C8235 overnight owner report — November 1, 06:57 EST (C8235-05):** owner reports the router with the loopback correction ran all night and remains stable. This follows the C8235-B / FGL2835LBHU powered-on handoff; actual serial, assembly/battery/cables and console ownership have not yet been reconfirmed today. **Owner-reported overnight stability; fresh uptime, CPP/keepalive counters and capture review remain pending.** No router interaction in this checkpoint. Preserve the running session first: confirm physical identity/state and console ownership, then capture uptime/reload reason, platform/CPP health, keepalives, error logs and environment against yesterday's baseline. Next complete corrected cold boots 2 and 3 with the guarded helper, then investigate standalone persistence and separately verify intended startup configuration/boot target. The correction and bench network were RAM/running-only at the last verified handoff; no permanent fix or new acceptance-gate pass is claimed. Performance remains deferred. [Previous measured baseline and helper results](c8235-recovery/crash-review-20261031/repeatable-boot.json).
 
 This is the active tracking document for the five routers below. It expands the discussion and [initial bench worksheet](recovery-prep-20261024/TODAY-BENCH-PLAN.txt). Use this Markdown file for subsequent measurements, results, decisions, and next steps. The earlier recovery-context files remain the detailed history.
 
@@ -865,6 +867,8 @@ The new full report **44,201,929 bytes** and info **12,207 bytes** were preserve
 
 ### C8235-05 — Crash analysis and controlled stability tests
 
+**November 1, 06:57 EST resume:** owner reports stable operation overnight following the corrected-boot handoff. Record this as an owner observation; no new console commands or independent uptime/process/capture verification yet. Keep B powered until its current evidence is preserved. After physical/console confirmation, compare current uptime/reload reason, CPP PID (last 21018), punt keepalives (last 190/190, zero misses), platform state and errors with the October 31 baseline. Then complete cold boots 2 and 3; standalone application of the correction and intended startup network/boot settings remain separate pending work. This updates the overnight observation status without marking the defined soak or other incomplete gates passed. Longer performance work stays deferred.
+
 **October 31, America/New_York:** owner switches priority back to C8235. Offline review locates the October 25 USB archive and verifies **48 private copies / 531,659,680 bytes**, including the cleaned 26.2.1 report. **New lead:** repeated NIX0 / ATTACH_RESOURCES **-28** failures precede QFP interface-attachment failures and CPP **SIGSEGV at address zero**. The cleaned report includes a completed CPP core. Archived 17.18.3a and 26.1.1 evidence also contains the allocation failure; overlapping reports do not establish independent crash counts. This points toward platform resource initialization/firmware-driver compatibility, with hardware and shared software defects still unresolved. [Review, provenance and limitations](c8235-recovery/crash-review-20261031/REVIEW.md), [structured evidence](c8235-recovery/crash-review-20261031/analysis.json).
 
 **Current console check, 15:58 EDT:** fresh `lsof` showed no cu/tty owner. Two exclusive, bounded four-second reads at 115200/8N1/no flow, second after one CR, received **zero bytes**. Both captures closed cleanly; no prompt or current firmware/runtime state confirmed, and no reboot/configuration write. [Capture provenance](c8235-recovery/crash-review-20261031/analysis.json). Next baseline needs a controlled captured power-on; do not infer CPU failure from silence. Coin-cell confirmation was bundled; other network cables were not individually enumerated.
@@ -926,7 +930,8 @@ The new full report **44,201,929 bytes** and info **12,207 bytes** were preserve
 - [ ] Select, verify and test one justified alternate IOS or supported resource/profile correction.
 - [x] Implement and test one complete guarded console-assisted warm boot on B/26.2.1; preserve transport failures, exact guards and native readiness evidence.
 - [x] Complete cold1 with the guarded helper and304-second health observation; restore/compare bench network and preserve handoff.
-- [ ] Complete cold2and3; owner stops after first cold test today.
+- [ ] Complete cold2and3; owner stopped after the first cold test on October 31.
+- [ ] Preserve and verify the overnight run reported November 1 with fresh uptime/process/keepalive evidence and available capture coverage.
 - [ ] Separately demonstrate standalone boot persistence; the Mac console helper is not permanent recovery.
 - [ ] Verify intended startup configuration and boot target without treating a configuration save as persistence of the RAM hook.
 - [ ] Pass operational-forwarding, restart and soak gates above; further performance/load work is deferred at owner request.

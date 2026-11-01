@@ -1,5 +1,5 @@
 C8235-G2 / ARATA PROTOTYPE ROUTER — RECOVERY CONTEXT
-Updated: 2026-10-31, America/New_York
+Updated: 2026-11-01, America/New_York
 Workspace: /Users/games/Documents/SOFTWARE
 
 START HERE
@@ -9,6 +9,26 @@ older status summaries where they differ.
 Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
+
+OVERNIGHT OWNER REPORT — 2026-11-01, 06:57 EST — C8235-05
+Owner reports the router with the loopback correction ran all night and is
+stable. This follows B/FGL2835LBHU's powered-on handoff below; no fresh serial,
+assembly/battery/cable or console-ownership confirmation yet. This is an owner
+observation, not an independently measured overnight acceptance-gate pass.
+No router access, reboot, configuration save or firmware write this checkpoint.
+
+Immediate next step: preserve this running reference before any reboot. After
+physical/console confirmation, capture uptime/reload reason, R0/F0/0/0 state,
+CPP PID and keepalives, error logs and environment. Compare against last
+CPP21018, keepalives190/190/zero misses and the preserved cold1 capture; inspect
+available overnight capture coverage without assuming its process survived.
+Then complete corrected cold2and3 with the guarded console helper. Separately
+investigate standalone persistence and verify intended startup network/boot
+settings. The last verified correction is RAM-only; saving IOS configuration
+does not preserve it. One warm and one cold pass remain the measured baseline.
+Further performance work remains deferred. Earlier pending overnight status
+below is historical; fresh diagnostic verification of this report is pending.
+Use host America/New_York dates: today's EST follows yesterday's EDT.
 
 SESSION HANDOFF — 2026-10-31, 18:50 EDT — LEAVE B POWERED ON
 Owner stops after the current five-minute observation and chooses powered-on
