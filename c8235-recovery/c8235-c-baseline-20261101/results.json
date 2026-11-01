@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "timezone": "America/New_York (EST UTC-05:00)",
   "tracking_id": "C8235-C",
-  "status": "USB_absent_cold_install_boot_verified_final_health_active",
+  "status": "Internal install warm and USB-free cold boot/health passed; owner-authorized performance tests next",
   "identity": {
     "owner_description": "Third C8235-G2; power, serial and USB moved from router #2",
     "chassis_serial": "FGL2835L41Z",
@@ -61,7 +61,7 @@
     "cpld_reported": "24073021",
     "limitations": "Reported matching BIOS/ROMMON/CPLD versions do not establish full-chip byte identity or physical bank mapping. C RAM correction reaches stable IOS; uncorrected native IOS comparison was not performed."
   },
-  "next": "Complete cold sampled health after11:24:55EST, archive final evidence, close/release console and sync final handoff. No further power cycle needed.",
+  "next": "C-specific 850Mbps/1Gbps two-port and10Gbps port8 VLAN-routing comparison; no further power cycle needed.",
   "firmware_comparison": [
     {
       "field_prefix": "Firmware Version:",
@@ -668,7 +668,7 @@
     }
   },
   "cold_trial": {
-    "status": "USB_absent_cold_install_boot_verified_five_minute_health_active",
+    "status": "USB_absent_autonomous_install_cold_boot_and_five_minute_health_pass",
     "private_capture": ".git/recovery-private/c8235-c-baseline-20261101/20261101-111155-one-autoboot/console.log",
     "session": 35323,
     "armed_at": "2026-11-01T11:11:55.375814-05:00",
@@ -676,7 +676,7 @@
     "expected": "PowerOn/C UUID, zeroTX through IOS welcome, internal packages.conf/C4 hook,\u2265300s health and saved config/boot/hash checks",
     "owner_confirmation": "usb removed and it is powered back on",
     "confirmation_observed_by": "2026-11-01T11:16:14-05:00",
-    "physical_state": "USB storage removed; owner completed requested off/on. Same console/cooling/battery/assembly, Ethernet remains disconnected.",
+    "physical_state": "USB absent throughout cold boot. Owner moved Ethernet from B to C ports7/8, far ends unchanged, confirmed by11:22:55; ports remained administratively down during final idle check. Same cooling/battery/assembly/exclusive console.",
     "early_capture": "IOS USB-device-removal event appears before fresh boot-stub banner; raw ordering retained. No consoleTX sent. PowerOn/UUID/IOS not yet reached at this checkpoint.",
     "boot_cause": "PowerOn",
     "identity_match": true,
@@ -702,7 +702,7 @@
     "reported_CPLD": "24073021",
     "cold_hashes": "C4, C8235CFIX1, packages.conf and installed-startup backup match; C4 also verified the exact .bin before init",
     "installed_package_sizes": "All14 names/sizes unchanged; fullSHA512 checks passed on prior warm boot",
-    "configuration_comparisons": "Installed-startup vs NVRAM and installed-running vs current running both report No changes",
+    "configuration_comparisons": "At11:19:55 both comparisons No changes. Final startup still No changes; running differs only by removal of negotiation auto on Te0/0/8 after DAC insertion, before any network configuration. Cabling-associated native default change observed; no config command during interval.",
     "bootflash_total_bytes": 20229492736,
     "bootflash_free_bytes": 16995086336,
     "initial_module_state": "0/0 booting at11:19:27; ready by11:19:55",
@@ -730,9 +730,47 @@
           "send_errors": 0,
           "CPP_pid": 20164,
           "CPP_session": 18159
+        },
+        {
+          "at": "2026-11-01T11:20:32.002185-05:00",
+          "rx": 44,
+          "tx": 44,
+          "miss": 0,
+          "send_errors": 0,
+          "CPP_pid": 20164,
+          "CPP_session": 18159
+        },
+        {
+          "at": "2026-11-01T11:21:53.404503-05:00",
+          "rx": 85,
+          "tx": 85,
+          "miss": 0,
+          "send_errors": 0,
+          "CPP_pid": 20164,
+          "CPP_session": 18159
+        },
+        {
+          "at": "2026-11-01T11:22:55.419845-05:00",
+          "rx": 116,
+          "tx": 116,
+          "miss": 0,
+          "send_errors": 0,
+          "CPP_pid": 20164,
+          "CPP_session": 18159
+        },
+        {
+          "at": "2026-11-01T11:25:09.254499-05:00",
+          "rx": 182,
+          "tx": 182,
+          "miss": 0,
+          "send_errors": 0,
+          "CPP_pid": 20164,
+          "CPP_session": 18159
         }
       ],
-      "result": "pending"
+      "result": "pass",
+      "end": "2026-11-01T11:25:09.254499-05:00",
+      "duration_seconds": 313.325355
     },
     "initial_health_evidence": {
       "raw_path": "router-console-logs/20261101-111155-C8235-C-cold-initial-health-snapshot.log",
@@ -740,6 +778,24 @@
       "bytes": 39846,
       "sha256": "7bf9ee22245c9cf602cf1f44fe6d12f5e531a5422ea09f45c2b90fed7fdb75d6",
       "snapshot_of_active_capture": true
-    }
+    },
+    "final_environment": {
+      "inlet_C": 35,
+      "outlet_C": 35,
+      "CPU_C": 52,
+      "main_12V_mV": 12071,
+      "main_5V_mV": 4947,
+      "current_mA": 1428,
+      "power_W": 16,
+      "12V_DG_ST": "0mV/Critical_Low"
+    },
+    "closed_evidence": {
+      "raw_path": "router-console-logs/20261101-111155-C8235-C-install-autonomous-cold.log",
+      "public_path": "sanitized-evidence/router-console-logs/20261101-111155-C8235-C-install-autonomous-cold.log",
+      "bytes": 56921,
+      "sha256": "0b28c0e3017ec2407e8d5bf89056741d568a75202aea2000a556c4fba01719dc",
+      "closed": true
+    },
+    "session_closed": true
   }
 }

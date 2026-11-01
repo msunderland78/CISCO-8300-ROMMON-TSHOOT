@@ -10,6 +10,19 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-C COLD HEALTH PASS; PERFORMANCE NEXT — 2026-11-01,11:25 EST
+USB-free autonomous install startup and313.325355s health pass, unchanged
+CPP20164/session18159, keepalives26→182/zero misses/send errors, platforms ready.
+Startup unchanged; after owner DAC insertion running Te0/0/8 loses negotiation
+auto default. No network commands during cold interval. Main35/35/52C,12V12071mV,
+5V4947mV,16W; standby12V/TPM unresolved. Cold capture closed.
+Owner now authorizes850Mbps/1Gbps/10Gbps tests and confirms cables moved B→C
+ports7/8 with far ends unchanged. Both ports remained administratively down
+through health interval. USB absent; same assembly/cooling/battery/console.
+Ubuntu5.3 reachable, old root83/24 via5.4 route and test namespace persist;
+namespace has no IPv4, no iperf listener. New C-specific bounded setup next.
+Evidence: c8235-recovery/c8235-c-baseline-20261101/results.json
+
 C8235-C USB-FREE COLD BOOT VERIFIED; HEALTH ACTIVE — 2026-11-01, 11:20 EST
 Owner confirms USB storage removed and router powered back on. Fresh PowerOn,
 C UUID and all 16 unchanged early firmware fields are captured. Zero console TX
