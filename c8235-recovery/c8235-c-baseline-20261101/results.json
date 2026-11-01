@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "timezone": "America/New_York (EST UTC-05:00)",
   "tracking_id": "C8235-C",
-  "status": "first_corrected_USB_bundle_health_passed_native_install_conversion_started",
+  "status": "native_install_conversion_complete_saved_internal_autoboot_trial_active",
   "identity": {
     "owner_description": "Third C8235-G2; power, serial and USB moved from router #2",
     "chassis_serial": "FGL2835L41Z",
@@ -61,7 +61,7 @@
     "cpld_reported": "24073021",
     "limitations": "Reported matching BIOS/ROMMON/CPLD versions do not establish full-chip byte identity or physical bank mapping. C RAM correction reaches stable IOS; uncorrected native IOS comparison was not performed."
   },
-  "next": "Observe native install conversion; configure/readback/save exact C4 ROMMON parameter and automatic boot settings, then verify internal install warm and USB-absent cold startup. No power cycle requested yet.",
+  "next": "Observe saved autonomous internal install startup, then verify actual image/packages/commit/config and\u2265300s idle health; only afterward ask for USB-absent physical cold boot.",
   "firmware_comparison": [
     {
       "field_prefix": "Firmware Version:",
@@ -317,15 +317,16 @@
     "private_capture": ".git/recovery-private/c8235-c-baseline-20261101/20261101-105024-ios/console.log",
     "session": 1629,
     "settings": "115200 8N1 no flow",
-    "closed": false,
+    "closed": true,
     "behavior": "Private secret placeholder substituted only within restricted console capture; generic observer stops any reset at UUID. No automatic boot.",
     "evidence": {
-      "raw_path": "router-console-logs/20261101-105024-C8235-C-first-IOS-preparation.log",
-      "public_path": "sanitized-evidence/router-console-logs/20261101-105024-C8235-C-first-IOS-preparation.log",
-      "bytes": 94321,
-      "sha256": "4034059299dd2ec106acbf3bb58162b8456a6bbd968f53bd8e4d518086a86f10",
-      "snapshot_of_active_capture": true
-    }
+      "raw_path": "router-console-logs/20261101-105024-C8235-C-install-conversion.log",
+      "public_path": "sanitized-evidence/router-console-logs/20261101-105024-C8235-C-install-conversion.log",
+      "bytes": 105910,
+      "sha256": "6f94abad2a2f3fd67c937ae2068f935e17a2ced8bf4f45260207ac4512486111",
+      "snapshot_of_active_capture": false
+    },
+    "closed_at": "2026-11-01T11:02:45-05:00"
   },
   "first_IOS": {
     "mode": "26.02.01 /26.02.1 USB bundle",
@@ -396,8 +397,39 @@
     "fix_hash_matches": true,
     "install_command_started_at": "2026-11-01T10:58:01.151542-05:00",
     "install_command": "install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit",
-    "status": "conversion command sent; native result and first internal startup pending",
-    "persistent_parameter": "Not set/saved yet; current correction remains RAM-only",
-    "target": "packages.conf INSTALL with exact .bin retained as loader guard/fallback"
+    "status": "native_Add_Activate_Commit_success_saved_boot_settings_readback_pass_first_internal_reset_active",
+    "persistent_parameter": {
+      "set_at": "2026-11-01T11:02:31.124360-05:00",
+      "exact_value_record": "experimental-recovery/c8235-c-bootflash-20261101/candidate.json",
+      "config_register_change": "0x1820 ->0x3922",
+      "native_summary": "115200 console; image specified by boot system commands",
+      "sync_and_readback_at": "2026-11-01T11:02:37.689864-05:00",
+      "exact_parameter_and_BOOT_match": true,
+      "no_rommon_code_TPM_or_provisioning_commands": true,
+      "host_preflight_correction": "First host-only length assertion mistakenly counted CR against239-byte command; corrected to239 plus CR before any TX."
+    },
+    "target": "packages.conf INSTALL with exact .bin retained as loader guard/fallback",
+    "activation_preview": "All14 exact expected26.2.1 package names matched; individual installed hashes pending",
+    "activation_confirmed_at": "2026-11-01T10:59:45.161499-05:00",
+    "native_success": "Add/Activate/ACTIVATE_POSTCHECK/Commit and complete install_add_activate_commit returned success; observed by11:01EST",
+    "transition_observation": "Read-only bootvar/install-summary commands sent11:01:04 while native reload began; no CLI responses, no effect inferred.",
+    "post_install_rommon": {
+      "uuid": "13 FF FF 87 79 AD FB 83 CA 80 82 43",
+      "matching_firmware": true,
+      "stopped_at": "2026-11-01T11:01:59.144110-05:00",
+      "BOOT": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+      "USER_BOOT_PARAM_initially_absent": true,
+      "directory": "C4 2504B, C8235CFIX1 3056B, exact .bin1048008916B, all14 packages and packages.conf8405B present"
+    }
+  },
+  "internal_warm_trial": {
+    "status": "reset_sent_boot_pending",
+    "private_capture": ".git/recovery-private/c8235-c-baseline-20261101/20261101-110245-one-autoboot/console.log",
+    "session": 55997,
+    "observer_armed_at": "2026-11-01T11:02:45.761827-05:00",
+    "reset_sent_at": "2026-11-01T11:02:50.238479-05:00",
+    "USB": "present",
+    "ethernet": "absent",
+    "expected": "packages.conf startup with savedC4 parameter and runtime correction, no furtherTX through welcome; verify native image/committed state/all14 package hashes and\u2265300s health before physical cold test"
   }
 }

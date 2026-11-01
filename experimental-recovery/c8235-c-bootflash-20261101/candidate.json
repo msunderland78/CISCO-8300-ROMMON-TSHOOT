@@ -3,7 +3,7 @@
   "timezone": "America/New_York",
   "chassis": "C8235-C / FGL2835L41Z",
   "soc_uuid": "13 FF FF 87 79 AD FB 83 CA 80 82 43",
-  "status": "deployed_exact_hashes_verified_not_yet_booted",
+  "status": "deployed_hash_verified_parameter_saved_first_internal_reset_active",
   "loader": {
     "source": "experimental-recovery/c8235-c-bootflash-20261101/auto-bootflash.sh",
     "bootflash_name": "C4",
@@ -28,5 +28,9 @@
     "method": "IOS native Tcl binary hex writes,90-byte source chunks under240command characters; no Ethernet",
     "initial_failure": "280-byte source chunks exceeded native Tcl line limit; incomplete statements left C4 at0bytes. Ctrl-C, re-entry/reset of parser, then rewrite of own empty scratch candidate. Each shortened chunk checked for normal prompt/no errors; final exact SHA512 passes. No failed candidate executed.",
     "verified_at": "2026-11-01T10:57:14.752583-05:00"
-  }
+  },
+  "saved_at": "2026-11-01T11:02:37.689864-05:00",
+  "configuration_register": "0x3922",
+  "BOOT": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+  "configuration_register_reference": "https://www.cisco.com/c/en/us/support/docs/routers/10000-series-routers/50421-config-register-use.html"
 }

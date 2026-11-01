@@ -10,6 +10,22 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-C NATIVE INSTALL COMPLETE; SAVED INTERNAL BOOT ACTIVE — 2026-11-01,11:03 EST
+Add, Activate and Commit/ACTIVATE_POSTCHECK all succeed. Activation list matched
+all14 exact26.2.1 package names. Native reload returns matching C ROMMON/UUID;
+installer saved packages.conf first and retained .bin fallback. All boot files
+remain present. Set exactC4 USER_BOOT_PARAM11:02:31; changed original0x1820 to
+0x3922, native summary confirms115200/boot-system selection. Sync/readback pass
+11:02:37. No firmware-code/TPM/provisioning command. The first host length check
+counted CR incorrectly and was corrected before sending the239-byte command.
+
+Conversion capture closed. C-only observer55997 armed11:02:45, allows one matching
+reset and stops any later/mismatched reset. Reset11:02:50 starts first autonomous
+internal install test; USB still present, no Ethernet. IOS/hook/package hashes
+and five-minute health remain pending; no physical power cycle requested yet.
+Evidence: c8235-recovery/c8235-c-baseline-20261101/results.json
+Closed capture: sanitized-evidence/router-console-logs/20261101-105024-C8235-C-install-conversion.log
+
 C8235-C FIRST IOS HEALTH PASS; INTERNAL INSTALL PREPARATION — 2026-11-01,10:58 EST
 Native chassis C8230X-8M2X/FGL2835L41Z (owner typed FGL2835SL41Z); UUID remains
 13 FF FF 87 79 AD FB 83 CA 80 82 43. CPLD24073021 matches B, as do all16 early
