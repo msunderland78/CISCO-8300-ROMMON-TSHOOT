@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: A-specific flash identification and unpowered mapping preparation",
   "recorded_at": "2026-11-01T12:25:48-05:00",
   "timezone": "America/New_York",
-  "status": "Photo identification complete; electrical mapping not started",
+  "status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -22,7 +22,8 @@
       "recorded_at": "2026-11-01T12:27:49-05:00",
       "response": "confirmed",
       "scope": "A/FGL2835L42B; battery removed; power/console/USB/Ethernet disconnected; no programmer/clip; Pi disconnected from router. Meter model not specified by this response."
-    }
+    },
+    "subsequent_photo": "IMG_1303 shows microclips/probes and blue/purple header leads; their remote ends are outside frame. Passive-meter-only confirmation requested; prior residual/baseline readings still unreported."
   },
   "flash_chips": [
     {
@@ -35,7 +36,7 @@
       "package": "SOIC-16",
       "evidence": "PHOTOS2/IMG_1302.jpeg",
       "pin1": "Molded circular depression at lower-left of package in IMG_1302; red paint at upper-right is not pin1.",
-      "role": "Primary/golden role unresolved; no electrical or external read confirmation"
+      "role": "Primary/golden role unresolved; no external flash read. Ground and supply header paths now owner-reported in j2507-mapping.json."
     },
     {
       "reference": "U2901",
@@ -47,7 +48,7 @@
       "package": "SOIC-16",
       "evidence": "PHOTOS2/IMG_1302.jpeg",
       "pin1": "Molded circular depression at lower-left of package in IMG_1302; red paint at upper-right is not pin1.",
-      "role": "Primary/golden role unresolved; no electrical or external read confirmation"
+      "role": "Primary/golden role unresolved; no external flash read. Ground and supply header paths now owner-reported in j2507-mapping.json."
     }
   ],
   "part_identification": {
@@ -131,7 +132,60 @@
     "Map a small batch of explicitly identified J2901 posts to flash pin10 using actual ohms; then pin2. Record stable versus changing readings.",
     "Compare separate U2900/U2901 results before choosing supply/ground access. Continuity alone does not qualify an injection point or determine board loading."
   ],
-  "electrical_measurements": [],
+  "electrical_measurements": [
+    {
+      "header": "J2507",
+      "header_pin": 2,
+      "chip": "U2900",
+      "physical_chip_pin": 10,
+      "net_supported": "GND / VSS",
+      "reported_resistance_ohm_approx": 1,
+      "raw_description": "about 1 ohm with micro clips",
+      "source": "Owner report in conversation",
+      "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
+      "stability": "not separately described",
+      "lead_baseline_ohm": null
+    },
+    {
+      "header": "J2507",
+      "header_pin": 2,
+      "chip": "U2901",
+      "physical_chip_pin": 10,
+      "net_supported": "GND / VSS",
+      "reported_resistance_ohm_approx": 1,
+      "raw_description": "about 1 ohm with micro clips",
+      "source": "Owner report in conversation",
+      "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
+      "stability": "not separately described",
+      "lead_baseline_ohm": null
+    },
+    {
+      "header": "J2507",
+      "header_pin": 8,
+      "chip": "U2900",
+      "physical_chip_pin": 2,
+      "net_supported": "VCC",
+      "reported_resistance_ohm_approx": 1,
+      "raw_description": "about 1 ohm with micro clips",
+      "source": "Owner report in conversation",
+      "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
+      "stability": "not separately described",
+      "lead_baseline_ohm": null
+    },
+    {
+      "header": "J2507",
+      "header_pin": 8,
+      "chip": "U2901",
+      "physical_chip_pin": 2,
+      "net_supported": "VCC",
+      "reported_resistance_ohm_approx": 1,
+      "raw_description": "about 1 ohm with micro clips",
+      "source": "Owner report in conversation",
+      "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
+      "stability": "not separately described",
+      "lead_baseline_ohm": null
+    }
+  ],
   "hardware_actions_this_checkpoint": [],
   "original_photos": [
     {
@@ -188,6 +242,11 @@
       "path": "PHOTOS2/IMG_1302.jpeg",
       "bytes": 9993048,
       "sha256": "10321d0cad212444e9ce5f2552cd943be46b5d9020b8e8a1bb4b46007927eb40"
+    },
+    {
+      "path": "PHOTOS2/IMG_1303.jpeg",
+      "bytes": 11570085,
+      "sha256": "a8a8661be62588f6bfbcd05c62b6b6c05145c68e43e3b548c792c2ec552e8b8e"
     }
   ],
   "derived_crop": {
@@ -206,5 +265,10 @@
       "meter model"
     ],
     "status": "requested, no readings yet; stay in DC voltage mode"
-  }
+  },
+  "initial_status": "Photo identification complete; electrical mapping not started",
+  "updated_at": "2026-11-01T12:44:18-05:00",
+  "latest_header_evidence": "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json",
+  "preferred_header": "J2507, following owner-reported four low-resistance paths; see j2507-mapping.json. J2901 remains unmeasured.",
+  "planned_sequence_status": "Initial J2901 plan not performed; follow J2507 evidence and pending checks instead."
 }

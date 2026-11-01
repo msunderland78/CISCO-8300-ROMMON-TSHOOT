@@ -10,6 +10,27 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A J2507 GROUND/VCC MAPPING — 2026-11-01, 12:44 EST
+Owner adds original PHOTOS2/IMG_1303.jpeg. J2507 label and its corner2/8 markings
+are readable. Owner reports four separate paths, each about1ohm with microclips:
+- J2507 pin2 to U2900 physical pin10 and U2901 physical pin10 (VSS/GND).
+- J2507 pin8 to U2900 physical pin2 and U2901 physical pin2 (VCC).
+These support accessible common ground/supply paths for both flash chips. Keep
+approximately1ohm as the raw measurement; lead/contact contribution unresolved.
+Do not substitute the C8375 P1 map or confuse J2507-8 with flash pin8/DQ1.
+
+J2507 is now preferred over the earlier unmeasured J2901 candidate. No need to
+repeat those four paths merely to fill a new table. Photograph shows blue/purple
+header leads and flash probes; far ends outside frame. Prior A/battery-out/all-
+cable/Pi isolation confirmation retained; asked whether new leads are passive
+meter extensions with isolation unchanged. Residual J2507-8 to2 DC voltage and
+shorted-microclip resistance baseline are also requested, not yet reported.
+Keep bare router unpowered, cooling off. No programmer connection/read/write
+performed by agent; no bank assignment, actual powered voltage or board-loading
+qualification. After zero-voltage/baseline checks, assess supply-to-ground load
+before considering programmer power. No new physical hardware test by agent.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json
+
 C8235-A PHOTOS2 / PHYSICAL PINOUT — 2026-11-01, 12:25 EST
 Owner supplied eleven original PHOTOS2 JPEGs, reporting battery removed first.
 Photos show a bare board with empty coin-cell holder and cooling removed. This

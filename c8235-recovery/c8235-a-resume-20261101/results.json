@@ -91,7 +91,7 @@
     "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c",
     "closed": true
   },
-  "handoff": "Owner confirms PHOTOS2 is A/FGL2835L42B, battery out, all external cables/programmer/clip disconnected and Pi separated. Bare board cooling is removed; keep router unpowered. Meter model and separate chip residual DC readings requested, pending. No external flash read/write; see photo inspection.",
+  "handoff": "A/PHOTOS2: owner reports J2507-2 to both physical flash pin10/GND and J2507-8 to both pin2/VCC, each about1ohm using microclips. New photo confirms header label; lead remote ends outside frame. Prior isolation/battery-out confirmation retained, but new leads passive-meter-only status, residual DC and shorted-microclip baseline requested/pending. Keep bare router unpowered; no programmer read/write.",
   "recovery_scope": "Existing recovery authorization retained; read-only preservation first. No speculative TPM clear, provisioning change, golden selector, jumper, or cross-chassis full-chip clone.",
   "external_acquisition_preparation": {
     "equipment": "Owner confirms prior Pi5,1.8Vadapter andSOIC16clip setup available.",
@@ -101,5 +101,6 @@
     "subsequent_owner_action": "Owner removed battery before PHOTOS2; fresh board/chip photos supplied. Electrical checks remain pending."
   },
   "prior_handoff_before_PHOTOS2": "Powered at the fatal TPM halt, with confirmed assembly/cables unchanged. No write/transfer in progress. Programmer remains disconnected; owner asked whether prior Pi5/1.8V/SOIC16 setup is available. Physical chip identity and electrical setup must be established for A before any acquisition.",
-  "photo_inspection": "c8235-recovery/c8235-a-photos2-20261101/photo-inspection.json"
+  "photo_inspection": "c8235-recovery/c8235-a-photos2-20261101/photo-inspection.json",
+  "j2507_mapping": "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json"
 }

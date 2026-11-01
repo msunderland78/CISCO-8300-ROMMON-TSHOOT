@@ -1,0 +1,96 @@
+{
+  "task": "C8235-01 / R-01: J2507 ground and flash-supply mapping",
+  "recorded_at": "2026-11-01T12:44:18-05:00",
+  "timezone": "America/New_York",
+  "status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
+  "identity": {
+    "tracking": "C8235-A",
+    "chassis_serial": "FGL2835L42B",
+    "board_label": "FOC28292GUQ",
+    "binding": "Continuation of owner-confirmed A/PHOTOS2 session; no chassis move reported."
+  },
+  "photo": {
+    "path": "PHOTOS2/IMG_1303.jpeg",
+    "bytes": 11570085,
+    "sha256": "a8a8661be62588f6bfbcd05c62b6b6c05145c68e43e3b548c792c2ec552e8b8e"
+  },
+  "visual_observations": [
+    "J2507 silkscreen readable beside 2x4/eight-post header; corner2 and8 markings visible on left column in IMG_1303 orientation.",
+    "U2900/U2901 visible below header in this photo; camera orientation differs from IMG_1302.",
+    "Blue and purple header leads plus microclips/probes at flash area are visible; remote ends outside frame and some contacts obscured. Photograph alone does not verify wire endpoint continuity or programmer separation."
+  ],
+  "owner_report": "J2507 pin 2 is ground, and measures about 1 ohm with micro clips to U2900 and U2901 pin 10; J2507 pin 8 is VCC, and measures about 1 ohm with micro clips to U2900 and U2901 pin 2.",
+  "physical_state": {
+    "last_explicit_confirmation": "2026-11-01: A, battery removed, all router cables and Pi/programmer disconnected; cooling removed.",
+    "new_observation": "Owner now using microclips and added header leads in photo. Asked whether these are passive meter extensions with isolation unchanged; reply pending.",
+    "instruction": "Keep router unpowered with cooling removed. No supply/programmer connection based only on these resistance results."
+  },
+  "measurements": [
+    {
+      "header": "J2507",
+      "header_pin": 2,
+      "chip": "U2900",
+      "physical_chip_pin": 10,
+      "net_supported": "GND / VSS",
+      "reported_resistance_ohm_approx": 1,
+      "raw_description": "about 1 ohm with micro clips",
+      "source": "Owner report in conversation",
+      "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
+      "stability": "not separately described",
+      "lead_baseline_ohm": null
+    },
+    {
+      "header": "J2507",
+      "header_pin": 2,
+      "chip": "U2901",
+      "physical_chip_pin": 10,
+      "net_supported": "GND / VSS",
+      "reported_resistance_ohm_approx": 1,
+      "raw_description": "about 1 ohm with micro clips",
+      "source": "Owner report in conversation",
+      "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
+      "stability": "not separately described",
+      "lead_baseline_ohm": null
+    },
+    {
+      "header": "J2507",
+      "header_pin": 8,
+      "chip": "U2900",
+      "physical_chip_pin": 2,
+      "net_supported": "VCC",
+      "reported_resistance_ohm_approx": 1,
+      "raw_description": "about 1 ohm with micro clips",
+      "source": "Owner report in conversation",
+      "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
+      "stability": "not separately described",
+      "lead_baseline_ohm": null
+    },
+    {
+      "header": "J2507",
+      "header_pin": 8,
+      "chip": "U2901",
+      "physical_chip_pin": 2,
+      "net_supported": "VCC",
+      "reported_resistance_ohm_approx": 1,
+      "raw_description": "about 1 ohm with micro clips",
+      "source": "Owner report in conversation",
+      "meter_mode": "Resistance inferred from reported ohm units; exact meter model/range not supplied",
+      "stability": "not separately described",
+      "lead_baseline_ohm": null
+    }
+  ],
+  "interpretation": [
+    "Low-resistance paths support J2507-2 as access to both flash VSS pins and J2507-8 as access to both flash VCC pins.",
+    "A common ground and common supply connection are supported, but lead/contact contribution and exact net resistance are unresolved until the same-microclip baseline is supplied.",
+    "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
+    "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
+  ],
+  "pending": [
+    "Confirm new blue/purple leads are only passive meter extensions, no Pi/programmer connection and isolation unchanged.",
+    "DC voltage J2507 physical8 relative to2; prior requested chip DC readings remain unreported.",
+    "Same microclip/lead setup shorted-tip resistance baseline, measured off board.",
+    "After residual voltage is checked, assess unpowered VCC-to-GND resistance/loading before considering any supply attachment."
+  ],
+  "agent_hardware_actions": [],
+  "programmer_read_or_write": "none this checkpoint"
+}
