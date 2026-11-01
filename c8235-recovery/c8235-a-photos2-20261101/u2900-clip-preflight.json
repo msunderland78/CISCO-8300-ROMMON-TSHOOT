@@ -7,7 +7,7 @@
     "chassis_serial": "FGL2835L42B",
     "board_label": "FOC28292GUQ"
   },
-  "status": "Owner has 100 ohm / 0.5 W / 1% resistor measured 99 ohms and breadboard. Unpowered supply-only wiring/checks requested; VCC source jumper stays unplugged, Pi off, no powered trial yet.",
+  "status": "Owner reports Pi off and complete OUTPUT 8 -> resistor -> blue J2507-8 wiring, purple ground to OUTPUT 4. New-path readings pending; temporarily disconnect OUTPUT 8 end for resistance check, remain unplugged/unpowered.",
   "target": {
     "read_target": "U2900",
     "clip": "Owner-added intact short clip connected to existing1.8Vconverter",
@@ -89,7 +89,7 @@
   ],
   "agent_hardware_actions": [],
   "powered_programming_or_read": "Owner attempted Pi-only supply of the U2900-connected fixture; Pi did not start and the target rail briefly displayed about 0.1 V. Pi starts disconnected; adapter output subsequently reported as 1.802 V. No agent GPIO/SPI/flash operation, read or write.",
-  "updated_at": "2026-11-01T14:01:03-05:00",
+  "updated_at": "2026-11-01T14:07:28-05:00",
   "reset_grabber_contact": {
     "recorded_at": "2026-11-01T13:03:26-05:00",
     "source": "Owner measurement report followed by explicit endpoint clarification",
@@ -270,7 +270,7 @@
   },
   "power_only_diagnostic_preparation": {
     "recorded_at": "2026-11-01T13:57:28-05:00",
-    "state": "99 ohm measured resistor accepted for diagnostic preparation. Unpowered wiring and two new-path checks requested below. VCC source end deliberately remains disconnected from OUTPUT 8; no powered trial instructed.",
+    "state": "Owner describes complete series wiring with Pi off, including OUTPUT 8 source connection. Fresh DC/path checks not reported. Adjusted unpowered check asks to remove only OUTPUT 8 wire end; no powered trial instructed.",
     "purpose": "Separate the verified J2507 supply path from all SPI/clip contacts, with a series resistor bounding current instead of repeating direct connected startup failures.",
     "candidate_topology": "Final candidate: converter OUTPUT 8 -> measured 99 ohm series resistor -> J2507 pin 8 / blue VCC; converter OUTPUT 4 -> J2507 pin 2 / purple ground. Current requested stage leaves the OUTPUT 8 jumper loose for an unambiguous series-path resistance check. Clip/cable completely removed from converter OUTPUT and off router; other board leads free.",
     "power_constraints": "Router own power/cables/battery remain disconnected, cooling off. Pi power unplugged and residual voltage absent for wiring changes. No higher voltage, second supply, RESET resistor, SPI action or flash read/write.",
@@ -332,6 +332,47 @@
       }
     ],
     "hold_state": "Leave VCC jumper disconnected from OUTPUT 8 and Pi unpowered after measurements. No reset resistor, SPI/read/write or powered supply-only trial yet.",
-    "status": "Instructions issued; actual wiring, residual voltages and both path readings pending."
+    "status": "Assembly description received with source end already on OUTPUT 8. Two new-path readings and fresh residual DC remain pending; adjusted check below temporarily removes source end."
+  },
+  "supply_only_assembly_report": {
+    "recorded_at": "2026-11-01T14:07:28-05:00",
+    "source": "Owner description; no new photograph or agent electrical observation.",
+    "owner_report": "pi is off ... wire from output 8 to one side of bread board resistor ... blue wire from other side of bread board resistor to pin 8 ... purple wire to output 4",
+    "interpreted_connections": [
+      "Converter OUTPUT 8 -> one side of breadboard 99 ohm measured resistor.",
+      "Other resistor side -> blue access lead -> J2507 pin 8 / VCC.",
+      "Purple existing J2507 pin 2 / GND lead -> converter OUTPUT 4."
+    ],
+    "scope": "Pin 8 and purple ground interpreted as the previously identified J2507 access leads, not physical flash or Pi GPIO pin numbers. Description matches the intended final series topology; actual breadboard isolation and electrical path values remain unverified.",
+    "power_state_report": "Pi is off. This does not separately confirm USB-C physically unplugged or residual voltage absent; those prerequisites reiterated before measurements.",
+    "difference_from_requested_hold": "Owner connected the source jumper to OUTPUT 8, whereas the prior preflight requested its adapter end loose. No powered trial reported. Request temporary disconnection of only that end to avoid an adapter-side parallel measurement path.",
+    "still_unreported": [
+      "Fresh residual DC readings",
+      "New series VCC path resistance",
+      "New direct ground path resistance"
+    ],
+    "other_isolation_scope": "Router power/cables/battery removal, clip absence and free RESET grabber remain required; owner did not separately restate them in the assembly reply."
+  },
+  "adjusted_unpowered_check_request": {
+    "requested_at": "2026-11-01T14:07:28-05:00",
+    "preconditions": "Pi USB-C physically unplugged; router own power/cables/battery removed; entire clip disconnected from adapter and board; U2901 RESET grabber loose. Verify 0 V across converter OUTPUT 8-to-4 and J2507 pin 8-to-2.",
+    "single_change": "Temporarily unplug only the wire end at converter OUTPUT 8; leave breadboard/resistor/blue wiring and direct purple ground in place.",
+    "reason": "Avoid an adapter-side parallel path during the series resistance measurement.",
+    "measurements": [
+      {
+        "mode": "Ohms",
+        "endpoint_a": "Now-loose OUTPUT 8 wire metal tip",
+        "endpoint_b": "J2507 pin 8 / VCC",
+        "expected": "Approximately measured resistor 99 ohms plus lead/contact contribution"
+      },
+      {
+        "mode": "Ohms",
+        "endpoint_a": "Converter OUTPUT 4",
+        "endpoint_b": "J2507 pin 2 / GND",
+        "expected": "Low resistance near lead/contact baseline; actual raw value requested"
+      }
+    ],
+    "afterward": "Leave OUTPUT 8 wire unplugged and Pi off. No powered supply-only trial or SPI operation yet.",
+    "status": "Requested; no result yet."
   }
 }

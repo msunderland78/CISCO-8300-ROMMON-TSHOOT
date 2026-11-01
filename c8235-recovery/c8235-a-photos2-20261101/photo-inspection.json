@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: A-specific flash identification and unpowered mapping preparation",
   "recorded_at": "2026-11-01T12:25:48-05:00",
   "timezone": "America/New_York",
-  "status": "99 ohm measured series resistor and breadboard available. Unpowered supply-only wiring/checks requested; clip removed from adapter and board, source VCC jumper loose, Pi off.",
+  "status": "Owner reports Pi off and supply-only series wiring connected, including OUTPUT 8. Fresh residual/path checks pending; temporary OUTPUT 8 disconnection requested before measuring.",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -16,7 +16,7 @@
     "owner_report": "Battery removed before photos.",
     "photo_observation": "Board removed from enclosure; coin-cell holder empty; processor exposed and heatsinks/fans not mounted; external ports visibly empty in IMG_1293/1294; no clip visible.",
     "supersedes": "Earlier November1 powered/assembled/battery-installed console handoff.",
-    "pending": "New unpowered supply-only fixture requested after verifying residual 0 V. Report series VCC and direct ground resistance; leave OUTPUT 8 jumper unplugged. Actual wiring/measurements not yet reported.",
+    "pending": "Supply-only assembly owner-reported, no new photo. Pi off explicit; USB-C unplug/residual 0 V and clip absence reiterated. Remove only OUTPUT 8 wire end for the two pending resistance readings, then remain unpowered.",
     "power_instruction": "Router own power/cables/battery remain disconnected with cooling removed. Pi unplugged; clip cable absent from adapter/board, RESET grabber free. Unpowered supply-only assembly/checks only; no powered trial until results reviewed.",
     "owner_isolation_confirmation": {
       "recorded_at": "2026-11-01T12:27:49-05:00",
@@ -277,7 +277,7 @@
     "status": "Original per-chip DC request not individually answered; owner instead reports0V across the mapped common header pair, with0.2ohm clip baseline and540ohm header rail resistance. See qualification."
   },
   "initial_status": "Photo identification complete; electrical mapping not started",
-  "updated_at": "2026-11-01T14:01:03-05:00",
+  "updated_at": "2026-11-01T14:07:28-05:00",
   "latest_header_evidence": "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json",
   "preferred_header": "J2507, following owner-reported four low-resistance paths; see j2507-mapping.json. J2901 remains unmeasured.",
   "planned_sequence_status": "Initial J2901 plan not performed; follow J2507 evidence and pending checks instead.",

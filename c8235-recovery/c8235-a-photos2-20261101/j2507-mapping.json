@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: J2507 ground and flash-supply mapping",
   "recorded_at": "2026-11-01T12:44:18-05:00",
   "timezone": "America/New_York",
-  "status": "Supply-only preparation: 100 ohm nominal resistor measured 99 ohms available. Unpowered J2507 supply/ground wiring checks requested, VCC source end loose; no powered trial yet.",
+  "status": "Owner describes series-resistor VCC and direct ground assembled with Pi off. New-path checks pending; OUTPUT 8 end must be temporarily unplugged for resistance measurement.",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -98,13 +98,13 @@
     "No SPI signal, primary/golden or bank-selector assignment; J2901 remains unmeasured."
   ],
   "pending": [
-    "Residual 0 V and actual unpowered supply-only wiring; VCC series path approximately 99 ohms and new direct ground path raw resistance.",
-    "Powered source/board rail readings not yet selected or obtained. Board loading versus seated-clip/signal interaction remains unresolved."
+    "Fresh residual 0 V and isolated series VCC/direct ground readings; no new values in assembly report.",
+    "Powered supply-only trial not yet instructed or reported; board-loading cause remains unresolved."
   ],
   "agent_hardware_actions": [],
   "programmer_read_or_write": "none this checkpoint",
   "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
-  "updated_at": "2026-11-01T14:01:03-05:00",
+  "updated_at": "2026-11-01T14:07:28-05:00",
   "qualification": {
     "recorded_at": "2026-11-01T12:48:24-05:00",
     "source": "Owner report in conversation",
@@ -147,6 +147,6 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "After Pi unplug and residual 0 V, remove clip cable entirely, assemble resistor in blue VCC path with source jumper loose and direct purple ground. Report loose VCC jumper-to-J2507-8 resistance and OUTPUT 4-to-J2507-2 resistance; leave source disconnected and Pi off.",
+  "next_stage": "Confirm power unplugged/residual 0 V and clip absent. Temporarily unplug only OUTPUT 8 wire, then report loose source tip-to-J2507-8 resistance and OUTPUT 4-to-J2507-2 resistance; keep source loose/Pi off afterward.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json"
 }

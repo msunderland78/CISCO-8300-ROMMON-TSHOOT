@@ -10,6 +10,24 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A SUPPLY-ONLY ASSEMBLY REPORTED — 2026-11-01, 14:07 EST
+Owner says Pi is off and describes OUTPUT 8 -> breadboard resistor -> blue ->
+J2507-8/VCC, purple existing J2507-2/GND -> OUTPUT 4. Interpret pin numbers as
+the established header/adapter labels. Description matches final series path;
+actual breadboard isolation and electrical readings remain unverified. Source
+end is connected, differing from the prior requested loose-end check. No new
+powered trial, residual DC or resistance readings reported; no new photo.
+
+Next reiterated: Pi USB-C physically unplugged, router power/cables/battery
+removed, clip absent from adapter and board, RESET grabber loose. Verify 0 V
+at OUTPUT 8-to-4 and J2507 8-to-2. Temporarily unplug only OUTPUT 8 wire end,
+leaving resistor/blue/ground wiring in place. Measure loose tip -> J2507-8
+(about 99 ohms) and OUTPUT 4 -> J2507-2 (low resistance). This avoids an
+adapter-side parallel path; no further clip continuity scans requested.
+Leave source unplugged and Pi off after reporting. Results pending; no
+powered supply-only trial, SPI/read/write or reset assertion instructed.
+Evidence: c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json
+
 C8235-A 99 OHM RESISTOR / UNPOWERED SUPPLY WIRING — 2026-11-01, 14:01 EST
 Owner reports 100 ohm nominal, 1/2 W, 1% resistor measured 99 ohms and breadboard
 available. Measurement was requested with resistor isolated; no fresh lead
