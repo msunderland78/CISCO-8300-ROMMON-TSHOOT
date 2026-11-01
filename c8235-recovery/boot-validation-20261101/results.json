@@ -359,7 +359,7 @@
       ],
       "health_interval_seconds": 311.772911,
       "health_finished_at": "2026-11-01T07:22:20.410818-05:00",
-      "final_environment": "CPU52C; preexisting standby12V0mV warning remains",
+      "final_environment": "CPU52C; all reported voltage rails, currents and power zero in both07:17:08 and07:22:20 samples. Actual rail voltages not measured; telemetry fault/cause unresolved.",
       "saved_boot_unchanged": true,
       "native_reset_reason": [
         "PowerOn"
@@ -486,6 +486,11 @@
             "state": "supervised_command_sent"
           }
         ]
+      },
+      "environment_correction": {
+        "reviewed_at": "2026-11-01T08:03:29.083259-05:00",
+        "previous_summary": "CPU52C; preexisting standby12V0mV warning remains",
+        "correction": "Previous summary mentioned only standby rail; review of preserved cold3 raw capture shows all rails zero in both environment samples. Cold2 and overnight readings differ. Retain operational/CPP results but do not claim normal voltage telemetry."
       }
     }
   ],

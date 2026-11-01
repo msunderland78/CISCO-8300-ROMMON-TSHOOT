@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "timezone": "America/New_York",
-  "status": "Full loader reaches IOS but console handoff unresolved; supervised power cycle needed for next unsaved transport trial",
+  "status": "Automatic correction, interactive IOS and platform readiness PASS; sampled health interval started",
   "source_candidate": "experimental-recovery/c8235-b-bootstrap-20261101/candidate.json",
   "console_source": ".git/recovery-private/c8235-analysis-20261101/20261101-072310-usb-entry/console.log",
   "physical_confirmation": "Same owner-confirmed setup retained throughout cold2/cold3 and probe; exclusive console handed off cleanly",
@@ -16,7 +16,7 @@
   "confreg": "0x3922",
   "no_startup_save": true,
   "no_firmware_write": true,
-  "updated_at": "2026-11-01T07:54:29.618366-05:00",
+  "updated_at": "2026-11-01T08:03:53.830894-05:00",
   "trials": [
     {
       "number": 1,
@@ -200,9 +200,62 @@
       "kind": "Same exact B3 loader; remove serial kernel console override to restore original default",
       "parameter": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
       "set_command_bytes": 227,
-      "result": "Prepared, awaiting owner power cycle",
+      "result": "Automatic correction, interactive IOS and platform readiness PASS; sampled health interval started",
       "change": "Only remove console=ttyAMA0,115200n8; loader still sets ttyAMA0 speed115200 itself. No saved setting change.",
-      "candidate": "experimental-recovery/c8235-b-bootstrap-20261101/auto-candidate-v2.json"
+      "candidate": "experimental-recovery/c8235-b-bootstrap-20261101/auto-candidate-v2.json",
+      "owner_confirmation": "It is on now; same instructed off10seconds/on setup",
+      "native_reset_reason": "PowerOn",
+      "rommon_identity_verified_at": "2026-11-01T07:58:45.264593-05:00",
+      "readback_verified": true,
+      "boot_command_observed_by": "2026-11-01T07:59:15.850380-05:00",
+      "boot_at": "2026-11-01T07:59:14.670877-05:00",
+      "ios_console_reached_at": "2026-11-01T08:01:15.261479-05:00",
+      "health": {
+        "started_at": "2026-11-01T08:02:03.399882-05:00",
+        "due_no_earlier_than": "2026-11-01T08:07:03.399882-05:00",
+        "status": "In progress",
+        "scope": "Sampled health interval; includes subsequent bench network restoration, not a controlled idle/load gate",
+        "samples": [
+          {
+            "at": "2026-11-01T08:02:03.399882-05:00",
+            "rx": 17,
+            "tx": 17,
+            "miss": 0,
+            "CPP": 21054
+          },
+          {
+            "at": "2026-11-01T08:02:42.559248-05:00",
+            "rx": 37,
+            "tx": 37,
+            "miss": 0,
+            "CPP": 21054
+          }
+        ]
+      },
+      "network_restore": {
+        "commands_source": "results.json network_restore.commands",
+        "applied_at": [
+          "2026-11-01T08:02:40.347108-05:00",
+          "2026-11-01T08:02:41.453810-05:00"
+        ],
+        "native_diff": "No changes compared with pre-cold2 running USB export",
+        "convergence": "Initial query down/down; subsequent both ports up/up, default via5.1 installed, sampled interface errors/drops zero",
+        "ping": "Initial1500DF5.3 from83.1=4/5; repeat pending"
+      },
+      "startup_preserved": {
+        "file": "usb0:C8235-B-FGL2835LBHU-20261031-DIAGNOSTIC/pre-auto-20261101-startup.cfg",
+        "bytes": 3127,
+        "sha512": "7351a8706582cd0e3875d115e132f3d485d1ee24a5c6361f989bb27b49f7a0d556c96cae334b9231e4bd171eb6c91ca081e4b02597f145633c670c9544028f59",
+        "verified_at": "2026-11-01T08:03:27.898183-05:00",
+        "matches_pre_cold2": true
+      },
+      "environment": "CPU52C; reported all voltage rails/current/power zero. Matches previously understated cold3 observation; physical rail voltage and cause unverified.",
+      "readiness_snapshot": {
+        "raw_local": "router-console-logs/20261101-080410-C8235-B-auto-loader-console-pass-snapshot.log",
+        "bytes": 256716,
+        "sha256": "5e5c02eaaa6b4e3e51775f1df87d612d2ee8375c6b8dbf5b74dcdd031ce1ffe3",
+        "type": "Immutable ongoing capture prefix; health interval still in progress"
+      }
     }
   ],
   "maintenance_reboot_correction": {
@@ -220,5 +273,39 @@
     "purpose": "Allow one matching B reset without transmitting; stop subsequent or mismatched resets. Explicit live mode only; not yet used.",
     "validation": "Default plan has no serial access; three pipe-only unittest cases pass: fragmented first boot/noTX, second reset/stop, wrong identity/firmware/stop",
     "test_source": "tests/test_c8235_autoboot_observer.py"
+  },
+  "rommon_help": {
+    "observed_at": "2026-11-01T07:59:09.914536-05:00",
+    "sync": "write monitor environment to NVRAM",
+    "unset": "unset a variable from monitor environment",
+    "qualification": "Native help only; no sync or persistent setting change performed"
+  },
+  "console_source_review": {
+    "date": "2026-11-01 America/New_York",
+    "method": "unsquashfs -o4096 selected four files from existing 26.2.1 mono package; vendor source read, not executed",
+    "extraction_limit": "Mac could not preserve security.selinux xattrs (exit2); four file contents extracted. Not a restore image.",
+    "sources": [
+      {
+        "path": ".git/recovery-private/c8235-analysis-20261101/console-sources/etc/init.d/agetty-iosd",
+        "bytes": 5166,
+        "sha256": "a5f71c018e9250905ee664b86151166bcbea2a19ce8df665edeb94d554dc65ff"
+      },
+      {
+        "path": ".git/recovery-private/c8235-analysis-20261101/console-sources/usr/binos/conf/console.sh",
+        "bytes": 814,
+        "sha256": "4d231d530334284e6ba19bafed0ab24b8681f7799f48606c4905d5f41bd37b0f"
+      },
+      {
+        "path": ".git/recovery-private/c8235-analysis-20261101/console-sources/usr/binos/conf/get_console.sh",
+        "bytes": 969,
+        "sha256": "ca562268abab61f3ea483c4b2a436d372c739f40b8875cc12784baea6f49ec73"
+      },
+      {
+        "path": ".git/recovery-private/c8235-analysis-20261101/console-sources/usr/lib/systemd/system/agetty-iosd.service",
+        "bytes": 272,
+        "sha256": "06dba0a08a7418929dab2f5dcc71f7bd07e3de8c1b3852b7a4f5d563587fba6e"
+      }
+    ],
+    "observation": "agetty-iosd uses REAL_CONSOLE and flashutil console baud; source review alone does not establish why trial8 lost interactive CLI"
   }
 }

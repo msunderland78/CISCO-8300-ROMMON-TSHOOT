@@ -10,6 +10,33 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+AUTOMATIC USB CORRECTION AND IOS CONSOLE PASS — 2026-11-01,08:04 EST
+Owner confirms requested power cycle; nativePowerOn/B UUID/developmentROMMON
+verified. Trial9 uses identical usb0:B3 loader and removes only the serial
+kernel-console override. Exact227-byte set command read back; boot07:59:14.
+Automatic image/source/RAM guards, USB unmount and runtime hook pass; interactive
+IOS08:01:15, R0/F0 active and0/0ok08:02:03. The override removal resolves the
+observed CLI handoff failure in this comparison; exact underlying cause unknown.
+Five-minute sampled operational check08:02:03–08:07:03 minimum is IN PROGRESS.
+CPP21054, keepalives17->37/zero misses so far. Bench network restored; native
+running diff against pre-cold2 file has no changes, links/default installed.
+Fresh pre-auto-20261101-startup.cfg3127B SHA512 matches preserved original.
+Saved BOOT is still old packages.conf; confreg0x3922, no startup/environment save.
+
+ENVIRONMENT CORRECTION: cold3 raw log actually reports ALL voltage rails0mV,
+current/power0 at both07:17 and07:22, not only standby12V. Earlier summary was
+incomplete; results.json retains/corrects it. Current trial9 similarly reports
+all-zero voltage/current/power and CPU52C. Cold2/overnight had normal main12V.
+Do not claim normal voltage telemetry or infer measured physical rail failure;
+cause unresolved. Operational/CPP results are separate from this sensor issue.
+
+Next: finish sampled operational check, verify/save intended bench network and
+USB boot target, then save the verified loader parameter and test startup with
+no console commands. This remains a USB-dependent guarded workaround, not a
+firmware/profile repair. Raw/sanitized snapshots and all trials in
+c8235-recovery/boot-validation-20261101/usb-entry.json. Existing exclusive
+reset-stopping capture62256 remains active; one-autoboot observer NOT active.
+
 AUTOMATIC CORRECTION REACHES IOS; CONSOLE HANDOFF OPEN — 2026-11-01,07:54 EST
 Trial7/B2 failed safely because early environment lacks cmp; original retained.
 Trial8/B3 uses SHA256 for self-copy verification and succeeds automatically:

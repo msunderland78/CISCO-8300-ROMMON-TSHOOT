@@ -2,7 +2,7 @@
   "task": "C8235-05",
   "chassis": "C8235-B / FGL2835LBHU",
   "created_at": "2026-11-01T07:47:18.476689-05:00",
-  "status": "USB v2 SHA256 verified, synced/remounted read-only; trial8 boot pending",
+  "status": "Trial8 reached IOS but interactive console failed; trial9 removes kernel console override and reaches interactive IOS/platform readiness. Health/persistence still pending.",
   "parameter": "console=ttyAMA0,115200n8 rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
   "set_command_bytes": 252,
   "files": [
@@ -25,11 +25,13 @@
     "Exact original correction source SHA256 unchanged"
   ],
   "limitations": [
-    "Five-second USB delay has only one entry observation; repeated boots still needed",
+    "Fixed five-second USB delay has repeated successful entry, but saved autonomous cold boot still pending",
     "No saved boot change or standalone persistence yet",
     "Initial loader execution depends on verified USB bytes; this is not secure-boot authentication"
   ],
   "failure_behavior": "Guard failure holds maintenance shells from PID1; missing USB/file falls back to shell before loader. Keep console attached for prototype testing.",
   "change_from_v1": "Replace unavailable cmp with self SHA256 before/after RAM copy; original v1 source/USB file preserved",
-  "deployed_at": "2026-11-01T07:49:55.593374-05:00"
+  "deployed_at": "2026-11-01T07:49:55.593374-05:00",
+  "verified_trial9_parameter": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro$IFS/dev/sda1$IFS/u&&test$IFS-r$IFS/u/B3&&exec${IFS}bash$IFS/u/B3$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+  "verified_trial9_set_command_bytes": 227
 }
