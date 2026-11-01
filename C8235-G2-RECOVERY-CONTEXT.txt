@@ -10,6 +10,48 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-C PERFORMANCE COMPLETE — 2026-11-01, 11:42 EST (C8235-05)
+Owner requested 850Mbps, 1Gbps and 10Gbps tests, then saving the normal port7/8
+network. Native C identity FGL2835L41Z, USB absent, same cooling/battery/assembly,
+exclusive RJ45 console; owner moved B's Ethernet cables to C, far ends unchanged.
+Port7 negotiated 1G to 3850 Gi2/0/3, VLAN5; port8 negotiated 10G to Te2/1/3,
+native VLAN1/tagged83. Ubuntu5.3 root and isolated namespace83.50 prove routing
+through C with routes, MACs and TTL1 probes; both endpoints share one VM.
+
+Initial 10G tests delivered 2.300/2.301Gbps; four streams 2.319Gbps. Owner then
+confirmed the VM had moved and returned it to the 10G host. Preserve that entire
+phase. Six repeats on the restored host, single TCP stream, receiver throughput:
+- Port7 paced850Mbps/30s: 849.994Mbps, 162 retransmissions.
+- Port7 uncapped60s, 5→83 / 83→5: 940.084 / 941.472Mbps, 2207 / 0 retransmissions.
+- Port8 paced850Mbps/30s: 850.018Mbps, 0 retransmissions.
+- Port8 uncapped60s, 5→83 / 83→5: 9.163 / 9.296Gbps, 4551 / 3353 retransmissions.
+These are comparable with B's short results. The host move removes the 2.3Gbps
+ceiling without router tuning; the exact physical limiting component was not
+independently inventoried. No claim of loss-free traffic or two-port10G capacity.
+
+All 13 runs preserve CPP20164/session18159, zero missed keepalives/send errors,
+CRC/interface errors/output drops. Background QFP/unknown-protocol counts are
+retained separately. Final keepalives697/697, platforms ready, CPU52C, inlet/outlet
+36/36C, 18W. QFP samples at full10G load41%/39%; standby12V/TPM remain unresolved.
+No new boot, firmware, security-provisioning or RAM-correction change was made.
+
+Normal network saved[OK]11:34:47 and restored11:41:34: port7 192.168.5.4/24;
+port8 native1 and VLAN83 192.168.83.1/24; default via192.168.5.1; DHCP .50–.225,
+DNS192.168.3.10/208.67.222.222, no NAT. Temporaryport8.5 removed from config;
+IOS still displays its deleted/down placeholder. BOOT/packages.conf/0x3922 intact.
+Post-startup3716B and post-running8087B exports hash correctly; native comparisons
+both No changes. Saving incorporated the already native-running system mode
+insecure/default representations; no mode-selection command was issued.
+Final restoration probes initially0/5 then4/5, followed by5/5 full-size DF each
+way; failures retained. No neighbor flush or tuning. Only this session's verified
+DHCP/iperf processes stopped; no5201 listener, namespace back to noIPv4/routes,
+root routes exactly match pre-test JSON. Existing namespace and ens224 retained.
+Router stays powered, USB absent, ports7/8 connected; console released. No power
+cycle needed. Longer loaded stability, standby sensor/TPM and board-ID attribution
+remain separate unresolved work. Raw evidence stays local; generated copies public.
+Evidence: c8235-recovery/c8235-c-performance-20261101/results.json
+Console: sanitized-evidence/router-console-logs/20261101-112543-C8235-C-performance-complete.log
+
 C8235-C PERFORMANCE / HOST CORRECTION — 2026-11-01,11:35 EST
 Cold health passed. Owner moves cables B→C ports7/8,farendsunchanged and
 requests850Mbps/1Gbps/10Gbps tests. Port7 links1G to3850Gi2/0/3nativeVLAN5;

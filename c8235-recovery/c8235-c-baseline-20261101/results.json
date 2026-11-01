@@ -3,7 +3,7 @@
   "date": "2026-11-01",
   "timezone": "America/New_York (EST UTC-05:00)",
   "tracking_id": "C8235-C",
-  "status": "Internal install warm and USB-free cold boot/health passed; owner-authorized performance tests next",
+  "status": "Internal install warm/cold health and owner-requested short throughput tests completed",
   "identity": {
     "owner_description": "Third C8235-G2; power, serial and USB moved from router #2",
     "chassis_serial": "FGL2835L41Z",
@@ -61,7 +61,7 @@
     "cpld_reported": "24073021",
     "limitations": "Reported matching BIOS/ROMMON/CPLD versions do not establish full-chip byte identity or physical bank mapping. C RAM correction reaches stable IOS; uncorrected native IOS comparison was not performed."
   },
-  "next": "C-specific 850Mbps/1Gbps two-port and10Gbps port8 VLAN-routing comparison; no further power cycle needed.",
+  "next": "No further power cycle. Retain C4/C8235CFIX1/exact.bin/packages. Performance and saved network handoff: ../c8235-c-performance-20261101/results.json",
   "firmware_comparison": [
     {
       "field_prefix": "Firmware Version:",
@@ -314,19 +314,9 @@
     "runtime_hook": "C8235_BOUND16_HOOK_BEGIN and C8235_BOUND16_HOOK_COMPLETE observed after init"
   },
   "current_console": {
-    "private_capture": ".git/recovery-private/c8235-c-baseline-20261101/20261101-105024-ios/console.log",
-    "session": 1629,
-    "settings": "115200 8N1 no flow",
-    "closed": true,
-    "behavior": "Private secret placeholder substituted only within restricted console capture; generic observer stops any reset at UUID. No automatic boot.",
-    "evidence": {
-      "raw_path": "router-console-logs/20261101-105024-C8235-C-install-conversion.log",
-      "public_path": "sanitized-evidence/router-console-logs/20261101-105024-C8235-C-install-conversion.log",
-      "bytes": 105910,
-      "sha256": "6f94abad2a2f3fd67c937ae2068f935e17a2ced8bf4f45260207ac4512486111",
-      "snapshot_of_active_capture": false
-    },
-    "closed_at": "2026-11-01T11:02:45-05:00"
+    "status": "released after performance tests",
+    "session_closed": 26008,
+    "at": "2026-11-01T11:42:23-05:00"
   },
   "first_IOS": {
     "mode": "26.02.01 /26.02.1 USB bundle",
@@ -797,5 +787,6 @@
       "closed": true
     },
     "session_closed": true
-  }
+  },
+  "performance_handoff": "../c8235-c-performance-20261101/results.json"
 }

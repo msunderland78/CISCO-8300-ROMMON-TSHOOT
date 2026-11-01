@@ -1,18 +1,18 @@
 C8235-C / FGL2835L41Z — internal install-mode recovery trial
 2026-11-01, America/New_York (EST UTC-05:00); C8235-01/05
 
-CURRENT STATUS — 11:12 EST
-Native26.2.1 install conversion, autonomous packages.conf warm startup and
-all14 installed package sizes/fullSHA512 pass. Only initiating resetTX through
-IOS welcome; C4 input/patch/hook guards and runtime correction all automatic.
-IOS reports bootflash:packages.conf, IMG C26.02.01.0.263, inactive abort timer,
-confreg0x3922. R0/F0/0/0 ready. Warm health11:06:41.353584–11:11:48.332841 EST:
-306.979257seconds, CPP20621/session18202 unchanged, matched keepalives27→181,
-zero misses/send errors. Final installed startup/running comparisons unchanged.
-Main sensors35/35/52C,12083mV12V,4943mV5V,17W; standby12V0 unresolved.
-Warm capture closed. Fresh C-only observer35323 armed11:11:55. Owner asked to
-power off, remove only USB storage, wait10s and power on, leaving console and
-assembly unchanged, no Ethernet. USB-absent cold outcome remains PENDING.
+CURRENT STATUS — 11:42 EST
+Native26.2.1 install conversion, all14 full package SHA512 checks and autonomous
+packages.conf warm/cold startup pass. Warm health306.979257s; USB-absent cold
+health313.325355s with zero console TX through cold IOS welcome, unchanged CPP
+within each interval and zero missed keepalives. C4 guards/hook run automatically.
+IOS reports IMG C26.02.01.0.263, inactive abort timer and confreg0x3922.
+Short throughput tests after owner VM-host correction reach850Mbps,940/941Mbps
+and9.163/9.296Gbps; initial2.3Gbps host phase retained. Normal port7/8 network is
+saved; temporary10G .5 removed. No extended loaded qualification is claimed.
+Router powered on without USB, console released; no further power cycle needed.
+See ../../c8235-recovery/c8235-c-baseline-20261101/results.json and
+../../c8235-recovery/c8235-c-performance-20261101/results.json for complete evidence.
 
 REQUIRED INTERNAL FILES
 bootflash:packages.conf and all14 packages in
@@ -67,10 +67,13 @@ internally under C8235C-PRE-INSTALL-* and C8235C-INSTALL-*; exact files/hashes a
 recorded in results.json. Installed startup also has a matching USB backup.
 The initial mandatory enable secret is held locally only in
 .git/recovery-private/c8235-c-FGL2835L41Z-enable-secret.txt; do not publish it.
-Native running system mode insecure appears after reboot but is absent from
-saved startup; no command selecting it was issued. Native security/clock/TPM
-warnings are retained. No network service or security qualification was done.
-All physical data ports have no IP address; no Ethernet cables are connected.
+Native running system mode insecure appeared after reboot, initially absent from
+startup; the owner-authorized network save later included that existing native
+state. No mode-selection command was issued. Security/clock/TPM warnings remain.
+Port7 now has192.168.5.4/24; port8 carries native1 and VLAN83/192.168.83.1.
+The normal network is saved, both Ethernet cables connected; USB remains absent.
+No security qualification was performed. Pre/post performance exports and hashes
+are recorded separately; preserve the earlier installed-only snapshots.
 
 BIOS/ROMMON/CPLD reported versions match B, including developmentv12.1.22 and
 CPLD24073021. This does not prove full-chip byte equality. The C R0 serial report

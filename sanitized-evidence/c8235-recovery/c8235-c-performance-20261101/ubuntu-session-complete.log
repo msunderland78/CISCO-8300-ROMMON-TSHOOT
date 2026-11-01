@@ -1,0 +1,1717 @@
+
+===== 20261101-112325-415474-ssh.log =====
+
+ubt-dc-dns-crt
+uid=0(root) gid=0(root) groups=0(root)
+7.0.0-38-generic
+2026-11-01T16:23:25+00:00
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> 
+ens192           UP             00:50:56:ad:fa:7e <BROADCAST,MULTICAST,UP,LOWER_UP> 
+ens224           UP             00:50:56:ad:34:b0 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+docker0          DOWN           fe:f7:65:17:e2:74 <NO-CARRIER,BROADCAST,MULTICAST,UP> 
+lo               UNKNOWN        127.0.0.1/8 
+ens192           UP             192.168.5.3/24 
+docker0          DOWN           172.17.0.1/16 
+default via 192.168.5.1 dev ens192 proto static 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+192.168.5.0/24 dev ens192 proto kernel scope link src 192.168.5.3 
+192.168.83.0/24 via 192.168.5.4 dev ens192 proto static 
+c8235-perf83 (id: 0)
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> 
+ens256           UP             00:50:56:ad:5f:63 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+lo               UNKNOWN        127.0.0.1/8 
+Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+6138 sudo -S -p  -- /bin/bash -c set -eu hostname id uname -r date -Is ip -br link ip -br -4 addr ip -4 route show ip netns list if ip netns list | grep -q '^c8235-perf83 '; then  ip -n c8235-perf83 -br link  ip -n c8235-perf83 -br -4 addr  ip -n c8235-perf83 -4 route show  ip netns exec c8235-perf83 ss -lntup fi ss -lntup '( sport = :5201 )' pgrep -a -f 'iperf3|dhcpcd.*ens256' || true iperf3 --version 
+6141 /bin/bash -c set -eu hostname id uname -r date -Is ip -br link ip -br -4 addr ip -4 route show ip netns list if ip netns list | grep -q '^c8235-perf83 '; then  ip -n c8235-perf83 -br link  ip -n c8235-perf83 -br -4 addr  ip -n c8235-perf83 -4 route show  ip netns exec c8235-perf83 ss -lntup fi ss -lntup '( sport = :5201 )' pgrep -a -f 'iperf3|dhcpcd.*ens256' || true iperf3 --version 
+iperf 3.20 (cJSON 1.7.15)
+Linux ubt-dc-dns-crt 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:10:14 UTC 2026 x86_64
+Optional features available: CPU affinity setting, IPv6 flow label, SCTP, TCP congestion algorithm setting, sendfile / zerocopy, socket pacing, authentication, bind to device, support IPv4 don't fragment, POSIX threads
+
+===== 20261101-112519-475627-ssh.log =====
+
+/usr/sbin/dhcpcd
+/usr/bin/iperf3
+/usr/bin/mpstat
+192.168.5.4 dev ens192 lladdr e4:a4:1c:82:dd:a7 STALE 
+b277542ddd273c402ef923774cd9972cc3906f94dd0e91312fd4bf5971860716  /var/tmp/c8235-c-performance-20261101/pre-namespace-address.json
+37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570  /var/tmp/c8235-c-performance-20261101/pre-namespace-route.json
+6b240030f706005727ba0d9704103471c08bedbb169e24e6e4b582cf422539d3  /var/tmp/c8235-c-performance-20261101/pre-root-address.json
+44016d99ac458ac0f6d925af895be36e431702d5dc9e310273ffd7ea9da9d91c  /var/tmp/c8235-c-performance-20261101/pre-root-route.json
+
+===== 20261101-112557-063311-ssh.log =====
+
+PING 192.168.5.4 (192.168.5.4) from 192.168.5.3 ens192: 56(84) bytes of data.
+
+--- 192.168.5.4 ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, time 2037ms
+
+192.168.5.4 dev ens192 lladdr e4:a4:1c:82:dd:a7 DELAY 
+
+===== 20261101-112627-349514-ssh.log =====
+
+6482
+192.168.5.4 dev ens192 lladdr e4:a4:1c:82:dc:e7 STALE 
+
+===== 20261101-112628-743026-ssh.log =====
+6547
+
+===== 20261101-112632-436258-ssh.log =====
+
+dhcpcd-10.3.0 starting
+network namespace: c8235-perf83
+ens256: rebinding lease of 192.168.83.52
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                          
+LISTEN 0      4096     192.168.5.3:5201      0.0.0.0:*    users:(("iperf3",pid=6548,fd=3))
+   6482       1 timeout --signal=TERM 3600s ip netns exec c8235-perf83 dhcpcd -4 -B -L -w -t 30 -f /dev/null -c /bin/true -I 01:00:50:56:ad:5f:63 ens256
+   6484    6482 dhcpcd: ens256 [ip4]
+   6547       1 timeout --signal=TERM 3600s iperf3 -s -B 192.168.5.3 -p 5201 -i 5 --forceflush
+   6548    6547 iperf3 -s -B 192.168.5.3 -p 5201 -i 5 --forceflush
+
+===== 20261101-112636-967026-ssh.log =====
+
+dhcpcd-10.3.0 starting
+network namespace: c8235-perf83
+ens256: rebinding lease of 192.168.83.52
+ens256: DHCP lease expired
+ens256: soliciting a DHCP lease
+ens256: offered 192.168.83.50 from 192.168.83.1
+ens256: probing address 192.168.83.50/24
+lo               UNKNOWN        127.0.0.1/8 
+
+===== 20261101-112707-606501-ssh.log =====
+
+dhcpcd-10.3.0 starting
+network namespace: c8235-perf83
+ens256: rebinding lease of 192.168.83.52
+ens256: DHCP lease expired
+ens256: soliciting a DHCP lease
+ens256: offered 192.168.83.50 from 192.168.83.1
+ens256: probing address 192.168.83.50/24
+ens256: leased 192.168.83.50 for 86400 seconds
+ens256: adding route to 192.168.83.0/24
+ens256: adding default route via 192.168.83.1
+lo               UNKNOWN        127.0.0.1/8 
+ens256           UP             192.168.83.50/24 
+192.168.5.3 via 192.168.83.1 dev ens256 src 192.168.83.50 uid 0 
+    cache 
+192.168.83.50 via 192.168.5.4 dev ens192 src 192.168.5.3 uid 0 
+    cache 
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+1480 bytes from 192.168.83.50: icmp_seq=2 ttl=63 time=0.873 ms
+1480 bytes from 192.168.83.50: icmp_seq=3 ttl=63 time=1.05 ms
+1480 bytes from 192.168.83.50: icmp_seq=4 ttl=63 time=1.24 ms
+1480 bytes from 192.168.83.50: icmp_seq=5 ttl=63 time=1.22 ms
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 4 received, 20% packet loss, time 4031ms
+rtt min/avg/max/mdev = 0.873/1.093/1.235/0.146 ms
+PING 192.168.5.3 (192.168.5.3) 1472(1500) bytes of data.
+1480 bytes from 192.168.5.3: icmp_seq=1 ttl=63 time=0.900 ms
+1480 bytes from 192.168.5.3: icmp_seq=2 ttl=63 time=1.18 ms
+1480 bytes from 192.168.5.3: icmp_seq=3 ttl=63 time=1.18 ms
+1480 bytes from 192.168.5.3: icmp_seq=4 ttl=63 time=1.41 ms
+1480 bytes from 192.168.5.3: icmp_seq=5 ttl=63 time=1.01 ms
+
+--- 192.168.5.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4031ms
+rtt min/avg/max/mdev = 0.900/1.138/1.413/0.174 ms
+PING 192.168.5.3 (192.168.5.3) 56(84) bytes of data.
+From 192.168.83.1 icmp_seq=1 Time to live exceeded
+
+--- 192.168.5.3 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+192.168.5.4 dev ens192 lladdr e4:a4:1c:82:dc:e7 REACHABLE 
+192.168.83.1 dev ens256 lladdr e4:a4:1c:82:dc:e8 REACHABLE 
+
+===== 20261101-112720-124877-ssh.log =====
+
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+1480 bytes from 192.168.83.50: icmp_seq=1 ttl=63 time=1.05 ms
+1480 bytes from 192.168.83.50: icmp_seq=2 ttl=63 time=1.12 ms
+1480 bytes from 192.168.83.50: icmp_seq=3 ttl=63 time=1.29 ms
+1480 bytes from 192.168.83.50: icmp_seq=4 ttl=63 time=1.00 ms
+1480 bytes from 192.168.83.50: icmp_seq=5 ttl=63 time=0.989 ms
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4005ms
+rtt min/avg/max/mdev = 0.989/1.089/1.291/0.110 ms
+
+===== 20261101-112757-819820-ssh.log =====
+
+2026-11-01T16:27:27+00:00
+{
+  "id": "port7-reverse850",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:27:27 GMT",
+    "timesecs": 1793550447,
+    "timemillisecs": 1793550447771
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 30,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 1,
+    "tos": 0,
+    "target_bitrate": 850000000,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.004727,
+          "seconds": 30.004727,
+          "bytes": 3188064256,
+          "bits_per_second": 850016533.9947935,
+          "retransmits": 993,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.004116,
+          "seconds": 30.004116,
+          "bytes": 3187802112,
+          "bits_per_second": 849963948.1463144,
+          "sender": false
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 30.004727,
+      "seconds": 30.004727,
+      "bytes": 3188064256,
+      "bits_per_second": 850016533.9947935,
+      "retransmits": 993,
+      "sender": false
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 30.004116,
+      "seconds": 30.004116,
+      "bytes": 3187802112,
+      "bits_per_second": 849963948.1463144,
+      "sender": false
+    },
+    "cpu_utilization_percent": {
+      "host_total": 10.3047093757518,
+      "host_user": 0.6703295007731982,
+      "host_system": 9.634376542443187,
+      "remote_total": 2.6688809384434755,
+      "remote_user": 0.12235730158440257,
+      "remote_system": 2.5465203040532116
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "386d1efae9f2d1d324f5674f9703f5b501a42e8f3b3a6bba6cb5dac324f1a5f2"
+}
+
+===== 20261101-112856-425493-ssh.log =====
+
+7.0.0-38-generic
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           45 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Vendor ID:                               GenuineIntel
+Model name:                              13th Gen Intel(R) Core(TM) i9-13900H
+CPU family:                              6
+Model:                                   186
+Thread(s) per core:                      1
+Core(s) per socket:                      1
+Socket(s):                               4
+Stepping:                                2
+BogoMIPS:                                5990.40
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch ssbd ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves arat umip pku ospke gfni vaes vpclmulqdq rdpid movdiri movdir64b fsrm md_clear flush_l1d arch_capabilities
+Hypervisor vendor:                       VMware
+Virtualization type:                     full
+L1d cache:                               192 KiB (4 instances)
+L1i cache:                               128 KiB (4 instances)
+Settings for ens192:
+	Supported ports: [ TP ]
+	Supported link modes:   1000baseT/Full
+	                        10000baseT/Full
+	Supported pause frame use: No
+	Supports auto-negotiation: No
+	Supported FEC modes: Not reported
+	Advertised link modes:  Not reported
+	Advertised pause frame use: No
+	Advertised auto-negotiation: No
+	Advertised FEC modes: Not reported
+	Speed: 10000Mb/s
+	Duplex: Full
+	Auto-negotiation: off
+	Port: Twisted Pair
+	PHYAD: 0
+	Transceiver: internal
+	MDI-X: Unknown
+	Supports Wake-on: uag
+	Wake-on: d
+	Link detected: yes
+Settings for ens256:
+	Supported ports: [ TP ]
+	Supported link modes:   1000baseT/Full
+	                        10000baseT/Full
+	Supported pause frame use: No
+	Supports auto-negotiation: No
+	Supported FEC modes: Not reported
+	Advertised link modes:  Not reported
+	Advertised pause frame use: No
+	Advertised auto-negotiation: No
+	Advertised FEC modes: Not reported
+	Speed: 10000Mb/s
+	Duplex: Full
+	Auto-negotiation: off
+	Port: Twisted Pair
+	PHYAD: 0
+	Transceiver: internal
+	MDI-X: Unknown
+	Supports Wake-on: uag
+	Wake-on: d
+	Link detected: yes
+
+===== 20261101-112901-364959-ssh.log =====
+
+2026-11-01T16:28:01+00:00
+{
+  "id": "port7-reverse-unlimited",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:28:01 GMT",
+    "timesecs": 1793550481,
+    "timemillisecs": 1793550481318
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 60,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 1,
+    "tos": 0,
+    "target_bitrate": 0,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.005238,
+          "seconds": 60.005238,
+          "bytes": 6891372544,
+          "bits_per_second": 918769463.9591297,
+          "retransmits": 1634,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.004878,
+          "seconds": 60.004878,
+          "bytes": 6889930752,
+          "bits_per_second": 918582752.8221955,
+          "sender": false
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 60.005238,
+      "seconds": 60.005238,
+      "bytes": 6891372544,
+      "bits_per_second": 918769463.9591297,
+      "retransmits": 1634,
+      "sender": false
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 60.004878,
+      "seconds": 60.004878,
+      "bytes": 6889930752,
+      "bits_per_second": 918582752.8221955,
+      "sender": false
+    },
+    "cpu_utilization_percent": {
+      "host_total": 14.658338318788026,
+      "host_user": 1.083014069814141,
+      "host_system": 13.575320916079384,
+      "remote_total": 1.8394721649138173,
+      "remote_user": 0.03145057773854714,
+      "remote_system": 1.8080215871752705
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "9dc785dfe6d309218e469c18bf44bd58d6e9c8ce8fb84043d67d2eddde0c9696"
+}
+
+===== 20261101-112929-046747-ssh.log =====
+
+port7-reverse850 [(0, 844.75), (5.0, 855.22), (10.0, 849.97), (15.0, 849.99), (20.0, 849.97), (25.0, 849.89)]
+Average:     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+Average:     all    0.18    0.00    2.51    0.01    0.00    1.59    0.00    0.00    0.00   95.71
+Average:       0    0.42    0.00    5.90    0.00    0.00    0.21    0.00    0.00    0.00   93.48
+Average:       1    0.00    0.00    0.00    0.00    0.00    0.21    0.00    0.00    0.00   99.79
+Average:       2    0.14    0.00    2.10    0.00    0.00    1.42    0.00    0.00    0.00   96.35
+Average:       3    0.16    0.00    1.94    0.04    0.00    4.86    0.00    0.00    0.00   93.00
+port7-reverse-unlimited [(0, 915.56), (5.0, 922.13), (10.0, 926.73), (15.0, 915.92), (20.0, 913.1), (25.0, 927.78), (30.0, 911.0), (35.0, 920.44), (40.0, 937.43), (45.0, 921.91), (50.0, 895.9), (55.0, 915.1)]
+Average:     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+Average:     all    0.31    0.00    2.79    0.01    0.00    3.34    0.00    0.00    0.00   93.56
+Average:       0    0.20    0.00    2.22    0.02    0.00    0.43    0.00    0.00    0.00   97.13
+Average:       1    0.60    0.00    6.82    0.00    0.00   12.71    0.00    0.00    0.00   79.87
+Average:       2    0.23    0.00    1.69    0.00    0.00    0.00    0.00    0.00    0.00   98.07
+Average:       3    0.20    0.00    0.49    0.02    0.00    0.49    0.00    0.00    0.00   98.81
+
+===== 20261101-113005-484071-ssh.log =====
+
+2026-11-01T16:29:05+00:00
+{
+  "id": "port7-forward-unlimited",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:29:05 GMT",
+    "timesecs": 1793550545,
+    "timemillisecs": 1793550545405
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 60,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 0,
+    "tos": 0,
+    "target_bitrate": 0,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.005314,
+          "seconds": 60.005314,
+          "bytes": 7064911872,
+          "bits_per_second": 941904828.2290466,
+          "retransmits": 33,
+          "reorder": 0,
+          "max_snd_cwnd": 4329520,
+          "max_snd_wnd": 11604992,
+          "max_rtt": 33881,
+          "min_rtt": 24035,
+          "mean_rtt": 27024,
+          "sender": true
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.033692,
+          "seconds": 60.005314,
+          "bytes": 7064387584,
+          "bits_per_second": 941389722.82431,
+          "sender": true
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 60.005314,
+      "seconds": 60.005314,
+      "bytes": 7064911872,
+      "bits_per_second": 941904828.2290466,
+      "retransmits": 33,
+      "sender": true
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 60.033692,
+      "seconds": 60.033692,
+      "bytes": 7064387584,
+      "bits_per_second": 941389722.82431,
+      "sender": true
+    },
+    "cpu_utilization_percent": {
+      "host_total": 2.213900576188305,
+      "host_user": 0.0359984375458271,
+      "host_system": 2.17790547152254,
+      "remote_total": 36.243286396478666,
+      "remote_user": 3.849057727670519,
+      "remote_system": 32.394228668808154
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "dc0cf7fcd49bd27467ce5cc7a1de49443b38afb7fd0aa9bccd6f1c2d0b9e0619"
+}
+
+===== 20261101-113028-034818-ssh.log =====
+
+192.168.83.50 via 192.168.5.4 dev ens192 src 192.168.5.3 uid 0 
+    cache 
+192.168.5.3 via 192.168.83.1 dev ens256 src 192.168.83.50 uid 0 
+    cache 
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+1480 bytes from 192.168.83.50: icmp_seq=3 ttl=63 time=0.895 ms
+1480 bytes from 192.168.83.50: icmp_seq=4 ttl=63 time=0.911 ms
+1480 bytes from 192.168.83.50: icmp_seq=5 ttl=63 time=0.699 ms
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 3 received, 40% packet loss, time 4127ms
+rtt min/avg/max/mdev = 0.699/0.835/0.911/0.096 ms
+PING 192.168.5.3 (192.168.5.3) 1472(1500) bytes of data.
+1480 bytes from 192.168.5.3: icmp_seq=1 ttl=63 time=0.708 ms
+1480 bytes from 192.168.5.3: icmp_seq=2 ttl=63 time=0.870 ms
+1480 bytes from 192.168.5.3: icmp_seq=3 ttl=63 time=0.764 ms
+1480 bytes from 192.168.5.3: icmp_seq=4 ttl=63 time=1.06 ms
+1480 bytes from 192.168.5.3: icmp_seq=5 ttl=63 time=1.04 ms
+
+--- 192.168.5.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4095ms
+rtt min/avg/max/mdev = 0.708/0.888/1.059/0.142 ms
+PING 192.168.5.3 (192.168.5.3) 56(84) bytes of data.
+From 192.168.83.1 icmp_seq=1 Time to live exceeded
+
+--- 192.168.5.3 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+192.168.5.4 dev ens192 lladdr e4:a4:1c:82:dc:e8 REACHABLE 
+192.168.83.1 dev ens256 lladdr e4:a4:1c:82:dc:e8 REACHABLE 
+
+===== 20261101-113039-633918-ssh.log =====
+
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+1480 bytes from 192.168.83.50: icmp_seq=1 ttl=63 time=0.719 ms
+1480 bytes from 192.168.83.50: icmp_seq=2 ttl=63 time=1.14 ms
+1480 bytes from 192.168.83.50: icmp_seq=3 ttl=63 time=1.03 ms
+1480 bytes from 192.168.83.50: icmp_seq=4 ttl=63 time=0.781 ms
+1480 bytes from 192.168.83.50: icmp_seq=5 ttl=63 time=1.10 ms
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4070ms
+rtt min/avg/max/mdev = 0.719/0.955/1.142/0.172 ms
+
+===== 20261101-113109-977482-ssh.log =====
+
+2026-11-01T16:30:39+00:00
+{
+  "id": "port8-reverse850",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:30:39 GMT",
+    "timesecs": 1793550639,
+    "timemillisecs": 1793550639947
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 30,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 1,
+    "tos": 0,
+    "target_bitrate": 850000000,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.00123,
+          "seconds": 30.00123,
+          "bytes": 3187671040,
+          "bits_per_second": 850010760.2254975,
+          "retransmits": 4,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.000286,
+          "seconds": 30.000286,
+          "bytes": 3187539968,
+          "bits_per_second": 850002554.7756445,
+          "sender": false
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 30.00123,
+      "seconds": 30.00123,
+      "bytes": 3187671040,
+      "bits_per_second": 850010760.2254975,
+      "retransmits": 4,
+      "sender": false
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 30.000286,
+      "seconds": 30.000286,
+      "bytes": 3187539968,
+      "bits_per_second": 850002554.7756445,
+      "sender": false
+    },
+    "cpu_utilization_percent": {
+      "host_total": 11.856407121016845,
+      "host_user": 0.8859292181193952,
+      "host_system": 10.97047790289745,
+      "remote_total": 3.348524146346317,
+      "remote_user": 0.12935462315949733,
+      "remote_system": 3.219166189992036
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "c1961bd738873e5723e274b770926653366172f8a0181abba53cac4631c54b16"
+}
+
+===== 20261101-113146-381145-ssh.log =====
+
+16:31:33       3    1.53    0.00   22.00    0.00    0.00   32.68    0.00    0.00    0.00   43.79
+
+16:31:33     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+16:31:38     all    0.31    0.00    6.92    0.00    0.00    9.55    0.00    0.00    0.00   83.22
+16:31:38       0    0.00    0.00    0.20    0.00    0.00    0.40    0.00    0.00    0.00   99.40
+16:31:38       1    0.00    0.00    0.00    0.00    0.00    0.22    0.00    0.00    0.00   99.78
+16:31:38       2    0.00    0.00    5.02    0.00    0.00    0.00    0.00    0.00    0.00   94.98
+16:31:38       3    1.24    0.00   22.31    0.00    0.00   37.60    0.00    0.00    0.00   38.84
+
+16:31:38     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+16:31:43     all    0.26    0.00    6.20    0.00    0.00    9.56    0.00    0.00    0.00   83.98
+16:31:43       0    0.00    0.00    0.00    0.00    0.00    0.20    0.00    0.00    0.00   99.80
+16:31:43       1    0.00    0.00    0.00    0.00    0.00    0.22    0.00    0.00    0.00   99.78
+16:31:43       2    0.00    0.00    4.82    0.00    0.00    0.00    0.00    0.00    0.00   95.18
+16:31:43       3    1.03    0.00   19.71    0.00    0.00   37.58    0.00    0.00    0.00   41.68
+State Recv-Q Send-Q  Local Address:Port  Peer Address:Port                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+ESTAB 0      3873400   192.168.5.3:5201 192.168.83.50:54311
+	 cubic wscale:10,10 rto:210 rtt:9.237/0.198 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:2030 ssthresh:1767 bytes_sent:9316481024 bytes_retrans:167968 bytes_acked:9314133816 bytes_received:37 segs_out:6435229 segs_in:1647605 data_segs_out:6435228 data_segs_in:1 send 2545796254bps lastsnd:2 lastrcv:32436 lastack:2 pacing_rate 3054914160bps delivery_rate 2346526568bps delivered:6433608 busy:32436ms sndbuf_limited:92ms(0.3%) unacked:1505 retrans:0/116 rcv_space:14480 rcv_ssthresh:64088 notsent:1694160 minrtt:0.139 snd_wnd:20282368 rcv_wnd:65536
+ESTAB 0      0         192.168.5.3:5201 192.168.83.50:40569
+	 cubic wscale:10,10 rto:206 rtt:5.574/10.35 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:10 bytes_sent:4 bytes_acked:4 bytes_received:202 segs_out:6 segs_in:8 data_segs_out:4 data_segs_in:3 send 20782203bps lastsnd:32436 lastrcv:32437 lastack:32395 pacing_rate 41561608bps delivery_rate 29932816bps delivered:5 app_limited busy:43ms rcv_space:14480 rcv_ssthresh:64088 minrtt:0.223 snd_wnd:64512 rcv_wnd:65536                                                                                                                                           
+State Recv-Q Send-Q Local Address:Port  Peer Address:Port                                                                                                                                                                                                                                                                                                                                                                                                                             
+ESTAB 0      0      192.168.83.50:40569  192.168.5.3:5201
+	 cubic wscale:10,10 rto:201 rtt:0.569/0.246 ato:40 mss:1448 pmtu:1500 rcvmss:536 advmss:1448 cwnd:10 bytes_sent:202 bytes_acked:203 bytes_received:4 segs_out:8 segs_in:7 data_segs_out:3 data_segs_in:4 send 203585237bps lastsnd:32446 lastrcv:32445 lastack:32445 pacing_rate 407081040bps delivery_rate 56645472bps delivered:4 app_limited rcv_space:14480 rcv_ssthresh:64088 minrtt:0.399 snd_wnd:65536 rcv_wnd:64512
+ESTAB 79640  0      192.168.83.50:54311  192.168.5.3:5201
+	 cubic wscale:10,10 rto:201 rtt:0.257/0.128 ato:40 mss:1448 pmtu:1500 rcvmss:1448 advmss:1448 cwnd:10 bytes_sent:37 bytes_acked:38 bytes_received:9318322880 segs_out:1647969 segs_in:6436502 data_segs_out:1 data_segs_in:6436500 send 450739300bps lastsnd:32446 pacing_rate 900165128bps delivery_rate 29475824bps delivered:2 app_limited rcv_rtt:7.66 rcv_space:6313008 rcv_ssthresh:20315788 minrtt:0.238 rcv_ooopack:8581 snd_wnd:65536 rcv_wnd:20316160
+
+===== 20261101-113213-976745-ssh.log =====
+
+2026-11-01T16:31:13+00:00
+{
+  "id": "port8-reverse-unlimited",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:31:13 GMT",
+    "timesecs": 1793550673,
+    "timemillisecs": 1793550673923
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 60,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 1,
+    "tos": 0,
+    "target_bitrate": 0,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.008238,
+          "seconds": 60.008238,
+          "bytes": 17254711296,
+          "bits_per_second": 2300312339.91573,
+          "retransmits": 298,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.004193,
+          "seconds": 60.004193,
+          "bytes": 17251172352,
+          "bits_per_second": 2299995582.242061,
+          "sender": false
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 60.008238,
+      "seconds": 60.008238,
+      "bytes": 17254711296,
+      "bits_per_second": 2300312339.91573,
+      "retransmits": 298,
+      "sender": false
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 60.004193,
+      "seconds": 60.004193,
+      "bytes": 17251172352,
+      "bits_per_second": 2299995582.242061,
+      "sender": false
+    },
+    "cpu_utilization_percent": {
+      "host_total": 34.11123567538612,
+      "host_user": 2.165323612253765,
+      "host_system": 31.945912063132358,
+      "remote_total": 5.231847897962952,
+      "remote_user": 0,
+      "remote_system": 5.231847897962952
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "c0a79ca7664e3c81109a845a1b900aa45f22f112f2ba6ac741a701ed6f8ae435"
+}
+
+===== 20261101-113256-624565-ssh.log =====
+
+       drv dropped tx total: 0
+       drv dropped tx total: 0
+       drv dropped tx total: 0
+       drv dropped tx total: 0
+       drv dropped rx total: 0
+          xdp drops: 0
+       drv dropped rx total: 0
+          xdp drops: 0
+       drv dropped rx total: 0
+          xdp drops: 0
+       drv dropped rx total: 0
+          xdp drops: 0
+       drv dropped tx total: 0
+       drv dropped tx total: 0
+       drv dropped tx total: 0
+       drv dropped tx total: 0
+       drv dropped rx total: 0
+          xdp drops: 0
+       drv dropped rx total: 0
+          xdp drops: 0
+       drv dropped rx total: 0
+          xdp drops: 0
+       drv dropped rx total: 0
+          xdp drops: 0
+
+===== 20261101-113315-806886-ssh.log =====
+
+2026-11-01T16:32:15+00:00
+{
+  "id": "port8-forward-unlimited",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:32:15 GMT",
+    "timesecs": 1793550735,
+    "timemillisecs": 1793550735757
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 60,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 0,
+    "tos": 0,
+    "target_bitrate": 0,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.0049,
+          "seconds": 60.0049,
+          "bytes": 17259560960,
+          "bits_per_second": 2301086872.5720735,
+          "retransmits": 67,
+          "reorder": 0,
+          "max_snd_cwnd": 3388320,
+          "max_snd_wnd": 16373760,
+          "max_rtt": 11492,
+          "min_rtt": 4936,
+          "mean_rtt": 9324,
+          "sender": true
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.007155,
+          "seconds": 60.0049,
+          "bytes": 17259560960,
+          "bits_per_second": 2301000400.3689227,
+          "sender": true
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 60.0049,
+      "seconds": 60.0049,
+      "bytes": 17259560960,
+      "bits_per_second": 2301086872.5720735,
+      "retransmits": 67,
+      "sender": true
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 60.007155,
+      "seconds": 60.007155,
+      "bytes": 17259560960,
+      "bits_per_second": 2301000400.3689227,
+      "sender": true
+    },
+    "cpu_utilization_percent": {
+      "host_total": 5.050972386554902,
+      "host_user": 0.09889012948489342,
+      "host_system": 4.952083923542253,
+      "remote_total": 32.53839154296935,
+      "remote_user": 2.281932651338063,
+      "remote_system": 30.256460558099057
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "5989e296f23aa7df8b8c014905004ba4c036f53314c836b7c85224cd4da928c6"
+}
+
+===== 20261101-113348-117198-ssh.log =====
+
+2026-11-01T16:33:18+00:00
+{
+  "id": "port8-reverse-fourstreams",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:33:18 GMT",
+    "timesecs": 1793550798,
+    "timemillisecs": 1793550798057
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 4,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 30,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 1,
+    "tos": 0,
+    "target_bitrate": 0,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.011152,
+          "seconds": 30.011152,
+          "bytes": 2094661632,
+          "bits_per_second": 558368870.8783988,
+          "retransmits": 758,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.004571,
+          "seconds": 30.004571,
+          "bytes": 2090598400,
+          "bits_per_second": 557407976.271349,
+          "sender": false
+        }
+      },
+      {
+        "sender": {
+          "socket": 7,
+          "start": 0,
+          "end": 30.011152,
+          "seconds": 30.011152,
+          "bytes": 1920598016,
+          "bits_per_second": 511969154.9328063,
+          "retransmits": 623,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 7,
+          "start": 0,
+          "end": 30.004571,
+          "seconds": 30.004571,
+          "bytes": 1916796928,
+          "bits_per_second": 511067977.742458,
+          "sender": false
+        }
+      },
+      {
+        "sender": {
+          "socket": 9,
+          "start": 0,
+          "end": 30.011152,
+          "seconds": 30.011152,
+          "bytes": 1850212352,
+          "bits_per_second": 493206619.19275874,
+          "retransmits": 491,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 9,
+          "start": 0,
+          "end": 30.004571,
+          "seconds": 30.004571,
+          "bytes": 1847197696,
+          "bits_per_second": 492511010.00577545,
+          "sender": false
+        }
+      },
+      {
+        "sender": {
+          "socket": 11,
+          "start": 0,
+          "end": 30.011152,
+          "seconds": 30.011152,
+          "bytes": 2846359552,
+          "bits_per_second": 758747162.2548845,
+          "retransmits": 1937,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 11,
+          "start": 0,
+          "end": 30.004571,
+          "seconds": 30.004571,
+          "bytes": 2842951680,
+          "bits_per_second": 758004953.311947,
+          "sender": false
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 30.011152,
+      "seconds": 30.011152,
+      "bytes": 8711831552,
+      "bits_per_second": 2322291807.258848,
+      "retransmits": 3809,
+      "sender": false
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 30.004571,
+      "seconds": 30.004571,
+      "bytes": 8697544704,
+      "bits_per_second": 2318991917.331529,
+      "sender": false
+    },
+    "cpu_utilization_percent": {
+      "host_total": 28.848451460028553,
+      "host_user": 1.712154969664153,
+      "host_system": 27.1362964903644,
+      "remote_total": 5.7846695080531685,
+      "remote_user": 0,
+      "remote_system": 5.7846761722385365
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "ffb0814a163160f194a22dd24a54a5daabf89982c423fde02901ae43f232824a"
+}
+
+===== 20261101-113454-273737-ssh.log =====
+
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+1480 bytes from 192.168.83.50: icmp_seq=2 ttl=63 time=1.11 ms
+1480 bytes from 192.168.83.50: icmp_seq=3 ttl=63 time=4.09 ms
+1480 bytes from 192.168.83.50: icmp_seq=4 ttl=63 time=3.86 ms
+1480 bytes from 192.168.83.50: icmp_seq=5 ttl=63 time=3.50 ms
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 4 received, 20% packet loss, time 4008ms
+rtt min/avg/max/mdev = 1.108/3.139/4.089/1.191 ms
+PING 192.168.5.3 (192.168.5.3) 1472(1500) bytes of data.
+1480 bytes from 192.168.5.3: icmp_seq=1 ttl=63 time=3.79 ms
+1480 bytes from 192.168.5.3: icmp_seq=2 ttl=63 time=3.46 ms
+1480 bytes from 192.168.5.3: icmp_seq=3 ttl=63 time=3.88 ms
+1480 bytes from 192.168.5.3: icmp_seq=4 ttl=63 time=0.359 ms
+1480 bytes from 192.168.5.3: icmp_seq=5 ttl=63 time=0.246 ms
+
+--- 192.168.5.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4045ms
+rtt min/avg/max/mdev = 0.246/2.347/3.875/1.675 ms
+192.168.5.4 dev ens192 lladdr e4:a4:1c:82:dc:e7 REACHABLE 
+192.168.83.1 dev ens256 lladdr e4:a4:1c:82:dc:e8 REACHABLE 
+
+===== 20261101-113502-525523-ssh.log =====
+
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+1480 bytes from 192.168.83.50: icmp_seq=1 ttl=63 time=0.216 ms
+1480 bytes from 192.168.83.50: icmp_seq=2 ttl=63 time=0.277 ms
+1480 bytes from 192.168.83.50: icmp_seq=3 ttl=63 time=0.340 ms
+1480 bytes from 192.168.83.50: icmp_seq=4 ttl=63 time=0.258 ms
+1480 bytes from 192.168.83.50: icmp_seq=5 ttl=63 time=0.307 ms
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4079ms
+rtt min/avg/max/mdev = 0.216/0.279/0.340/0.042 ms
+
+===== 20261101-113533-953187-ssh.log =====
+
+2026-11-01T16:35:25+00:00
+ 16:35:25 up 18:59,  3 users,  load average: 0.07, 0.16, 0.08
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Model name:                              13th Gen Intel(R) Core(TM) i9-13900H
+Hypervisor vendor:                       VMware
+NUMA node0 CPU(s):                       0-3
+lo               UNKNOWN        127.0.0.1/8 
+ens192           UP             192.168.5.3/24 
+docker0          DOWN           172.17.0.1/16 
+c8235-perf83 (id: 0)
+lo               UNKNOWN        127.0.0.1/8 
+ens256           UP             192.168.83.50/24 
+192.168.83.50 via 192.168.5.4 dev ens192 src 192.168.5.3 uid 0 
+    cache 
+192.168.5.3 via 192.168.83.1 dev ens256 src 192.168.83.50 uid 0 
+    cache 
+State  Recv-Q Send-Q Local Address:Port Peer Address:PortProcess                          
+LISTEN 0      4096     192.168.5.3:5201      0.0.0.0:*    users:(("iperf3",pid=6548,fd=3))
+    PID    PPID COMMAND
+   6482       1 timeout --signal=TERM 3600s ip netns exec c8235-perf83 dhcpcd -4 -B -L -w -t 30 -f /dev/null -c /bin/true -I 01:00:50:56:ad:5f:63 ens256
+   6484    6482 dhcpcd: ens256 [ip4]
+   6547       1 timeout --signal=TERM 3600s iperf3 -s -B 192.168.5.3 -p 5201 -i 5 --forceflush
+   6548    6547 iperf3 -s -B 192.168.5.3 -p 5201 -i 5 --forceflush
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+1480 bytes from 192.168.83.50: icmp_seq=1 ttl=63 time=0.185 ms
+1480 bytes from 192.168.83.50: icmp_seq=2 ttl=63 time=0.220 ms
+1480 bytes from 192.168.83.50: icmp_seq=3 ttl=63 time=0.379 ms
+1480 bytes from 192.168.83.50: icmp_seq=4 ttl=63 time=0.319 ms
+1480 bytes from 192.168.83.50: icmp_seq=5 ttl=63 time=0.307 ms
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4122ms
+rtt min/avg/max/mdev = 0.185/0.282/0.379/0.070 ms
+PING 192.168.5.3 (192.168.5.3) 1472(1500) bytes of data.
+1480 bytes from 192.168.5.3: icmp_seq=1 ttl=63 time=0.180 ms
+1480 bytes from 192.168.5.3: icmp_seq=2 ttl=63 time=0.274 ms
+1480 bytes from 192.168.5.3: icmp_seq=3 ttl=63 time=0.292 ms
+1480 bytes from 192.168.5.3: icmp_seq=4 ttl=63 time=0.309 ms
+1480 bytes from 192.168.5.3: icmp_seq=5 ttl=63 time=0.328 ms
+
+--- 192.168.5.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4093ms
+rtt min/avg/max/mdev = 0.180/0.276/0.328/0.051 ms
+
+===== 20261101-113607-904816-ssh.log =====
+
+2026-11-01T16:35:37+00:00
+{
+  "id": "port7-reverse850-10ghost",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:35:37 GMT",
+    "timesecs": 1793550937,
+    "timemillisecs": 1793550937690
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 30,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 1,
+    "tos": 0,
+    "target_bitrate": 850000000,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.004694,
+          "seconds": 30.004694,
+          "bytes": 3188064256,
+          "bits_per_second": 850017468.8667046,
+          "retransmits": 162,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.004291,
+          "seconds": 30.004291,
+          "bytes": 3187933184,
+          "bits_per_second": 849993938.26703,
+          "sender": false
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 30.004694,
+      "seconds": 30.004694,
+      "bytes": 3188064256,
+      "bits_per_second": 850017468.8667046,
+      "retransmits": 162,
+      "sender": false
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 30.004291,
+      "seconds": 30.004291,
+      "bytes": 3187933184,
+      "bits_per_second": 849993938.26703,
+      "sender": false
+    },
+    "cpu_utilization_percent": {
+      "host_total": 4.766737636267383,
+      "host_user": 0.249191781390301,
+      "host_system": 4.51754585487708,
+      "remote_total": 3.5305927166694215,
+      "remote_user": 0.08265369830140318,
+      "remote_system": 3.447939018368018
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "f6745563871afebe17f0e060ef904d92cc173d1aa3cd4598c35690339af3da2e"
+}
+
+===== 20261101-113712-014263-ssh.log =====
+
+2026-11-01T16:36:11+00:00
+{
+  "id": "port7-reverse-unlimited-10ghost",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:36:11 GMT",
+    "timesecs": 1793550971,
+    "timemillisecs": 1793550971793
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 60,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 1,
+    "tos": 0,
+    "target_bitrate": 0,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.004755,
+          "seconds": 60.004755,
+          "bytes": 7052066816,
+          "bits_per_second": 940201064.5323024,
+          "retransmits": 2207,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.004407,
+          "seconds": 60.004407,
+          "bytes": 7051149312,
+          "bits_per_second": 940084192.416067,
+          "sender": false
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 60.004755,
+      "seconds": 60.004755,
+      "bytes": 7052066816,
+      "bits_per_second": 940201064.5323024,
+      "retransmits": 2207,
+      "sender": false
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 60.004407,
+      "seconds": 60.004407,
+      "bytes": 7051149312,
+      "bits_per_second": 940084192.416067,
+      "sender": false
+    },
+    "cpu_utilization_percent": {
+      "host_total": 5.480220357433477,
+      "host_user": 0.28220528683124374,
+      "host_system": 5.198015070602233,
+      "remote_total": 2.1301657228305593,
+      "remote_user": 0.016602014026618685,
+      "remote_system": 2.11356370880394
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "e708f29584952b7ab48b097dad8d938f335914c969aab6ebc268e3f674477792"
+}
+
+===== 20261101-113822-503925-ssh.log =====
+
+2026-11-01T16:37:22+00:00
+{
+  "id": "port7-forward-unlimited-10ghost",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:37:22 GMT",
+    "timesecs": 1793551042,
+    "timemillisecs": 1793551042253
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 60,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 0,
+    "tos": 0,
+    "target_bitrate": 0,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.00549,
+          "seconds": 60.00549,
+          "bytes": 7064911872,
+          "bits_per_second": 941902065.5610012,
+          "retransmits": 0,
+          "reorder": 0,
+          "max_snd_cwnd": 4267256,
+          "max_snd_wnd": 6361088,
+          "max_rtt": 33116,
+          "min_rtt": 25940,
+          "mean_rtt": 29647,
+          "sender": true
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.032869,
+          "seconds": 60.00549,
+          "bytes": 7064911872,
+          "bits_per_second": 941472495.2758796,
+          "sender": true
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 60.00549,
+      "seconds": 60.00549,
+      "bytes": 7064911872,
+      "bits_per_second": 941902065.5610012,
+      "retransmits": 0,
+      "sender": true
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 60.032869,
+      "seconds": 60.032869,
+      "bytes": 7064911872,
+      "bits_per_second": 941472495.2758796,
+      "sender": true
+    },
+    "cpu_utilization_percent": {
+      "host_total": 2.3118061566884855,
+      "host_user": 0.034214305169138086,
+      "host_system": 2.2775918515193476,
+      "remote_total": 4.979624084366427,
+      "remote_user": 0.28044962356881564,
+      "remote_system": 4.69917446079761
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "f68db6cae049279edee41b6650a4635d95ac58e463b346a843fcb45de7c650eb"
+}
+
+===== 20261101-113839-889837-ssh.log =====
+
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+1480 bytes from 192.168.83.50: icmp_seq=2 ttl=63 time=0.251 ms
+1480 bytes from 192.168.83.50: icmp_seq=3 ttl=63 time=0.276 ms
+1480 bytes from 192.168.83.50: icmp_seq=4 ttl=63 time=0.324 ms
+1480 bytes from 192.168.83.50: icmp_seq=5 ttl=63 time=0.465 ms
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 4 received, 20% packet loss, time 4072ms
+rtt min/avg/max/mdev = 0.251/0.329/0.465/0.082 ms
+PING 192.168.5.3 (192.168.5.3) 1472(1500) bytes of data.
+1480 bytes from 192.168.5.3: icmp_seq=1 ttl=63 time=0.236 ms
+1480 bytes from 192.168.5.3: icmp_seq=2 ttl=63 time=0.327 ms
+1480 bytes from 192.168.5.3: icmp_seq=3 ttl=63 time=0.317 ms
+1480 bytes from 192.168.5.3: icmp_seq=4 ttl=63 time=0.244 ms
+1480 bytes from 192.168.5.3: icmp_seq=5 ttl=63 time=0.271 ms
+
+--- 192.168.5.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4118ms
+rtt min/avg/max/mdev = 0.236/0.279/0.327/0.037 ms
+PING 192.168.5.3 (192.168.5.3) 56(84) bytes of data.
+From 192.168.83.1 icmp_seq=1 Time to live exceeded
+
+--- 192.168.5.3 ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+192.168.5.4 dev ens192 lladdr e4:a4:1c:82:dc:e8 REACHABLE 
+192.168.83.1 dev ens256 lladdr e4:a4:1c:82:dc:e8 REACHABLE 
+
+===== 20261101-113848-974962-ssh.log =====
+
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+1480 bytes from 192.168.83.50: icmp_seq=1 ttl=63 time=0.197 ms
+1480 bytes from 192.168.83.50: icmp_seq=2 ttl=63 time=0.364 ms
+1480 bytes from 192.168.83.50: icmp_seq=3 ttl=63 time=0.288 ms
+1480 bytes from 192.168.83.50: icmp_seq=4 ttl=63 time=0.327 ms
+1480 bytes from 192.168.83.50: icmp_seq=5 ttl=63 time=0.357 ms
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4130ms
+rtt min/avg/max/mdev = 0.197/0.306/0.364/0.061 ms
+
+===== 20261101-113919-622191-ssh.log =====
+
+2026-11-01T16:38:49+00:00
+{
+  "id": "port8-reverse850-10ghost",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:38:49 GMT",
+    "timesecs": 1793551129,
+    "timemillisecs": 1793551129406
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 30,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 1,
+    "tos": 0,
+    "target_bitrate": 850000000,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.004986,
+          "seconds": 30.004986,
+          "bytes": 3188064256,
+          "bits_per_second": 850009196.738169,
+          "retransmits": 0,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 30.004691,
+          "seconds": 30.004691,
+          "bytes": 3188064256,
+          "bits_per_second": 850017553.855162,
+          "sender": false
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 30.004986,
+      "seconds": 30.004986,
+      "bytes": 3188064256,
+      "bits_per_second": 850009196.738169,
+      "retransmits": 0,
+      "sender": false
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 30.004691,
+      "seconds": 30.004691,
+      "bytes": 3188064256,
+      "bits_per_second": 850017553.855162,
+      "sender": false
+    },
+    "cpu_utilization_percent": {
+      "host_total": 3.0602981773790643,
+      "host_user": 0.1062322108287469,
+      "host_system": 2.954065966550318,
+      "remote_total": 3.877996612764878,
+      "remote_user": 0.22375601828801683,
+      "remote_system": 3.6542405944768612
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "d3560e9400798afa5eb45fcd01695770f780b65f3819f8926d0183bf1fe1a2fc"
+}
+
+===== 20261101-114024-455071-ssh.log =====
+
+2026-11-01T16:39:24+00:00
+{
+  "id": "port8-reverse-unlimited-10ghost",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:39:24 GMT",
+    "timesecs": 1793551164,
+    "timemillisecs": 1793551164222
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 60,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 1,
+    "tos": 0,
+    "target_bitrate": 0,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.005476,
+          "seconds": 60.005476,
+          "bytes": 68727996416,
+          "bits_per_second": 9162896588.43803,
+          "retransmits": 4551,
+          "reorder": 0,
+          "max_snd_cwnd": 0,
+          "max_snd_wnd": 0,
+          "max_rtt": 0,
+          "min_rtt": 0,
+          "mean_rtt": 0,
+          "sender": false
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.004554,
+          "seconds": 60.004554,
+          "bytes": 68724457472,
+          "bits_per_second": 9162565557.54085,
+          "sender": false
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 60.005476,
+      "seconds": 60.005476,
+      "bytes": 68727996416,
+      "bits_per_second": 9162896588.43803,
+      "retransmits": 4551,
+      "sender": false
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 60.004554,
+      "seconds": 60.004554,
+      "bytes": 68724457472,
+      "bits_per_second": 9162565557.54085,
+      "sender": false
+    },
+    "cpu_utilization_percent": {
+      "host_total": 20.933318228319155,
+      "host_user": 0.721204433568301,
+      "host_system": 20.212115461235207,
+      "remote_total": 22.572695403364747,
+      "remote_user": 0,
+      "remote_system": 22.572697069879236
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "06912bb71bbef60fbbae7d9036d1bd5bd8169b4a0f85a1ff1a2e79070a605fa7"
+}
+
+===== 20261101-114126-089747-ssh.log =====
+
+2026-11-01T16:40:25+00:00
+{
+  "id": "port8-forward-unlimited-10ghost",
+  "error": null,
+  "start": {
+    "time": "Sun, 01 Nov 2026 16:40:25 GMT",
+    "timesecs": 1793551225,
+    "timemillisecs": 1793551225834
+  },
+  "test": {
+    "protocol": "TCP",
+    "num_streams": 1,
+    "blksize": 131072,
+    "omit": 0,
+    "duration": 60,
+    "bytes": 0,
+    "blocks": 0,
+    "reverse": 0,
+    "tos": 0,
+    "target_bitrate": 0,
+    "bidir": 0,
+    "fqrate": 0,
+    "interval": 5
+  },
+  "end": {
+    "streams": [
+      {
+        "sender": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.005926,
+          "seconds": 60.005926,
+          "bytes": 69731483648,
+          "bits_per_second": 9296612957.593555,
+          "retransmits": 3353,
+          "reorder": 0,
+          "max_snd_cwnd": 4238296,
+          "max_snd_wnd": 12493824,
+          "max_rtt": 2907,
+          "min_rtt": 2021,
+          "mean_rtt": 2476,
+          "sender": true
+        },
+        "receiver": {
+          "socket": 5,
+          "start": 0,
+          "end": 60.008783,
+          "seconds": 60.005926,
+          "bytes": 69731483648,
+          "bits_per_second": 9296170348.663795,
+          "sender": true
+        }
+      }
+    ],
+    "sum_sent": {
+      "start": 0,
+      "end": 60.005926,
+      "seconds": 60.005926,
+      "bytes": 69731483648,
+      "bits_per_second": 9296612957.593555,
+      "retransmits": 3353,
+      "sender": true
+    },
+    "sum_received": {
+      "start": 0,
+      "end": 60.008783,
+      "seconds": 60.008783,
+      "bytes": 69731483648,
+      "bits_per_second": 9296170348.663795,
+      "sender": true
+    },
+    "cpu_utilization_percent": {
+      "host_total": 24.062540531012992,
+      "host_user": 0.3025576847083928,
+      "host_system": 23.759987845632942,
+      "remote_total": 21.710120410355866,
+      "remote_user": 0.48787184384581517,
+      "remote_system": 21.222251899355015
+    },
+    "sender_tcp_congestion": "cubic",
+    "receiver_tcp_congestion": "cubic"
+  },
+  "sha256": "f8fb4719ae825fa9c200801d15ebf6bf7fedf3ff865a917ae01d5b00026d1dc1"
+}
+
+===== 20261101-114141-311207-ssh.log =====
+
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 0 received, 100% packet loss, time 4084ms
+
+
+===== 20261101-114207-838165-ssh.log =====
+
+192.168.5.4 dev ens192 lladdr e4:a4:1c:82:dc:e7 STALE 
+192.168.83.50 via 192.168.5.4 dev ens192 src 192.168.5.3 uid 0 
+    cache 
+PING 192.168.5.3 (192.168.5.3) 1472(1500) bytes of data.
+1480 bytes from 192.168.5.3: icmp_seq=2 ttl=63 time=0.385 ms
+1480 bytes from 192.168.5.3: icmp_seq=3 ttl=63 time=0.413 ms
+1480 bytes from 192.168.5.3: icmp_seq=4 ttl=63 time=0.279 ms
+1480 bytes from 192.168.5.3: icmp_seq=5 ttl=63 time=0.314 ms
+
+--- 192.168.5.3 ping statistics ---
+5 packets transmitted, 4 received, 20% packet loss, time 4100ms
+rtt min/avg/max/mdev = 0.279/0.347/0.413/0.053 ms
+PING 192.168.83.50 (192.168.83.50) 1472(1500) bytes of data.
+1480 bytes from 192.168.83.50: icmp_seq=1 ttl=63 time=0.196 ms
+1480 bytes from 192.168.83.50: icmp_seq=2 ttl=63 time=0.226 ms
+1480 bytes from 192.168.83.50: icmp_seq=3 ttl=63 time=0.334 ms
+1480 bytes from 192.168.83.50: icmp_seq=4 ttl=63 time=0.370 ms
+1480 bytes from 192.168.83.50: icmp_seq=5 ttl=63 time=0.308 ms
+
+--- 192.168.83.50 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4118ms
+rtt min/avg/max/mdev = 0.196/0.286/0.370/0.065 ms
+192.168.5.4 dev ens192 lladdr e4:a4:1c:82:dc:e7 REACHABLE 
+
+===== 20261101-114223-419147-ssh.log =====
+
+PING 192.168.5.3 (192.168.5.3) 1472(1500) bytes of data.
+1480 bytes from 192.168.5.3: icmp_seq=1 ttl=63 time=0.263 ms
+1480 bytes from 192.168.5.3: icmp_seq=2 ttl=63 time=0.288 ms
+1480 bytes from 192.168.5.3: icmp_seq=3 ttl=63 time=0.222 ms
+1480 bytes from 192.168.5.3: icmp_seq=4 ttl=63 time=0.224 ms
+1480 bytes from 192.168.5.3: icmp_seq=5 ttl=63 time=0.393 ms
+
+--- 192.168.5.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4097ms
+rtt min/avg/max/mdev = 0.222/0.278/0.393/0.062 ms
+Verified test timeout/child identities; stopped only this session DHCP and iperf processes.
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess
+lo               UNKNOWN        127.0.0.1/8 
+default via 192.168.5.1 dev ens192 proto static 
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+192.168.5.0/24 dev ens192 proto kernel scope link src 192.168.5.3 
+192.168.83.0/24 via 192.168.5.4 dev ens192 proto static 

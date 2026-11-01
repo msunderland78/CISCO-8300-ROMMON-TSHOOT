@@ -1,0 +1,15 @@
+dhcpcd-10.3.0 starting
+network namespace: c8235-perf83
+ens256: rebinding lease of 192.168.83.52
+ens256: DHCP lease expired
+ens256: soliciting a DHCP lease
+ens256: offered 192.168.83.50 from 192.168.83.1
+ens256: probing address 192.168.83.50/24
+ens256: leased 192.168.83.50 for 86400 seconds
+ens256: adding route to 192.168.83.0/24
+ens256: adding default route via 192.168.83.1
+received SIGTERM, stopping
+ens256: removing interface
+ens256: deleting route to 192.168.83.0/24
+ens256: deleting default route via 192.168.83.1
+dhcpcd exited
