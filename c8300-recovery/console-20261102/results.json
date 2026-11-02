@@ -4,7 +4,7 @@
   "time_zone": "America/New_York",
   "tracking_id": "C8300-A",
   "pid": "C8300-1N1S-4T2X",
-  "chassis_serial": null,
+  "chassis_serial": "FDO25150HVC",
   "physical_confirmation": {
     "source": "Owner confirmed combined preflight in conversation and separately confirmed coin-cell installed",
     "power_before_capture": "off",
@@ -133,7 +133,7 @@
     }
   },
   "diagnosis": "No root cause established. A zero-byte capture is distinct from gibberish or a readable firmware halt.",
-  "updated_at": "2026-11-02T17:09:21.820094-05:00",
+  "updated_at": "2026-11-02T17:16:50.928838-05:00",
   "rj45_capture": {
     "events": "rj45-events.jsonl",
     "raw_original": "rj45-console.log (ignored local source)",
@@ -142,14 +142,35 @@
     "port_released": true
   },
   "next_step": {
-    "state": "Requested; owner isolation confirmation pending",
-    "action": "Power off, disconnect all power cords and external cables including native USB and RJ45; retain battery, cover and cooling for initial identity/isolation confirmation; next unpowered DIMM/connector inspection",
+    "state": "Owner confirms isolation and chassis serial; cover removal and initial DIMM inspection requested, observations pending",
+    "action": "Inspect seated DIMM latches/alignment and read accessible capacity/part label before any reseat; keep power and external cables disconnected, battery/cooling fitted",
     "hardware_work_not_performed": [
       "DIMM removal or reseat",
       "internal electrical measurement",
       "flash read",
       "flash write"
     ],
-    "chassis_serial": "Still pending; requested from label"
+    "chassis_serial": "FDO25150HVC (owner-reported chassis label)"
+  },
+  "chassis_serial_source": {
+    "source": "Owner reports chassis-label serial after console tests; no native console identity available",
+    "recorded_at": "2026-11-02T17:16:50.928838-05:00"
+  },
+  "post_console_physical_state": {
+    "task_id": "C8300-02",
+    "recorded_at": "2026-11-02T17:16:50.928838-05:00",
+    "timing_limit": "Time records this update, not a measured power-off or cover-removal instant",
+    "source": "Owner: chassis powered off, everything disconnected, cover still on; serial FDO25150HVC",
+    "power": "off",
+    "power_cords_and_external_cables": "all disconnected per owner",
+    "cover": "on at confirmation",
+    "battery": "installed per earlier confirmation; removal not requested",
+    "cooling": "fitted per earlier confirmation; removal not requested",
+    "console": "Both captures closed; no new port opened",
+    "inspection_requested": "With ESD strap to chassis, remove top cover only; leave DIMM seated and report both latch positions, even seating, readable capacity/part label",
+    "inspection_observation": "pending",
+    "DIMM_reseat": "not performed",
+    "internal_electrical_measurements": "not performed",
+    "flash_read_or_write": "not performed"
   }
 }
