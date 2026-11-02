@@ -6,15 +6,22 @@
   "pid": "C8300-1N1S-4T2X",
   "chassis_serial": "FDO25150HVC",
   "reason": "Owner asks for another test while deciding whether to order compatible memory; same-DIMM reseat and captured retest did not improve startup",
-  "status": "Planned conditionally; current PSU inventory/state requested, no test performed",
+  "status": "Original two-installed-supply comparison unavailable on reported setup; alternate same-model PSU availability/identity requested, no test performed",
   "requested_information": [
     "number of installed supplies",
     "which currently have power cords connected",
     "externally readable PSU part/model numbers",
     "current router on/off state"
   ],
-  "installed_PSUs": null,
-  "current_power_state": null,
+  "installed_PSUs": [
+    {
+      "model": "PWR-CC1-250WAC",
+      "serial": null,
+      "source": "Current owner report",
+      "count_reported": 1
+    }
+  ],
+  "current_power_state": "Owner confirms off and unplugged",
   "prerequisites": [
     "Confirm current physical target/state and compatible AC PSU identities",
     "If two suitable AC supplies are present, preserve their physical slot assignments; do not mix with C8375/G2 records",
@@ -49,5 +56,29 @@
       "supports": "C8300-1N1S dual PSU design, PSU0/PSU1 identification, main PWR/STATUS/ENV/console indicator definitions"
     }
   ],
-  "indicator_note": "Record individual PSU indicators as well as main LEDs. With one installed PSU deliberately unpowered, the main PWR LED may report a supply/redundancy condition; do not automatically interpret this as a new CPU/boot failure."
+  "indicator_note": "Record individual PSU indicators as well as main LEDs. With one installed PSU deliberately unpowered, the main PWR LED may report a supply/redundancy condition; do not automatically interpret this as a new CPU/boot failure.",
+  "updated_at": "2026-11-02T18:34:28.853503-05:00",
+  "owner_followup": {
+    "recorded_at": "2026-11-02T18:34:28.853503-05:00",
+    "report": "it is off and unplugged ... it only supports one power supply ... PWR-CC1-250WAC is installed",
+    "scope": "One installed supply and off/unplugged state are current owner observations. Claim that chassis only supports one supply is not independently verified; Cisco guide depicts PSU0/PSU1 for this PID. No second installed module is assumed."
+  },
+  "original_plan_status": "The preceding two-installed-PSU prerequisites/sequence are retained as the initial conditional proposal, not executed instructions for the reported one-supply setup.",
+  "replacement_plan": {
+    "status": "Availability and distinct physical PSU identity pending",
+    "candidate": "PWR-CC1-250WAC / LIT2852A9TJ, historically used in C8375-A / FDO2742M0FK",
+    "historical_evidence": "../../c8375-recovery/acquisition-evidence/20261031-C8375-PSU-slot-comparison.json",
+    "historical_result": "Powered successful C8375 automatic 17.15.6 cold boot on October 31; fan cycling and unsupported-model recognition on that G2 platform persisted. This is not a complete PSU electrical health qualification.",
+    "compatibility": "Cisco classic C8300-1N1S-4T2X guide explicitly lists PWR-CC1-250WAC; G2 support discrepancy does not imply incompatibility with classic C8300.",
+    "required_confirmation": [
+      "Candidate current location and availability",
+      "Candidate serial is distinct from the currently installed C8300 supply; same model name does not prove a second physical unit",
+      "Donor target/current state before any shutdown or removal",
+      "Both affected chassis off and AC disconnected before physical exchange; preserve separate PSU identities",
+      "C8300 cover/cooling fitted, PSU latched, DIMM and coin-cell unchanged; fresh console cabling/ownership check before capture"
+    ],
+    "test": "If a distinct available candidate is confirmed, replace the original PSU in the same C8300 slot, retaining same AC cord/outlet and remaining hardware; capture native USB startup at 115200/8N1/no flow and compare indicators/output with prior baseline.",
+    "interpretation": "A boot/output improvement would implicate original PSU/contact path; unchanged silence would not validate all internal rails or prove ROMMON corruption.",
+    "performed": false
+  }
 }
