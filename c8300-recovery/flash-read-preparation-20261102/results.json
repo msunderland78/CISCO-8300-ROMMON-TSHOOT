@@ -1,0 +1,133 @@
+{
+  "task_id": "C8300-03-READ-PREP",
+  "recorded_at": "2026-11-02T18:42:22.753773-05:00",
+  "time_zone": "America/New_York",
+  "target": {
+    "tracking_id": "C8300-A",
+    "pid": "C8300-1N1S-4T2X",
+    "chassis_serial": "FDO25150HVC"
+  },
+  "status": "Plan prepared; owner stops hardware work tonight and requests resumption tomorrow. No new measurement, programmer access or flash read/write performed.",
+  "owner_updates": [
+    "No separate PSU is available; installed PWR-CC1-250WAC is the same physical supply previously used to boot C8375.",
+    "Raspberry Pi 5, wide SOIC-16 clip and multimeter are available.",
+    "Owner requests a test plan and stopping point for tonight, with work to resume tomorrow."
+  ],
+  "handoff_state": {
+    "router_power": "Last owner-confirmed off and unplugged",
+    "cover": "Previously secured; subsequent removal requested for isolation but not confirmed",
+    "coin_cell": "Previously installed; removal requested for electrical isolation but not confirmed",
+    "dimm": "Original Micron MTA36ASF4G72PZ-2G6E1 / 32 GB remains selected; reseated and covered startup previously failed to improve symptoms",
+    "console": "All agent captures closed and released; no new session opened",
+    "programmer": "No C8300 connection performed or confirmed. Instructions were to keep Pi/CH341A/clip disconnected; reconfirm physically on resume.",
+    "tonight": "No further disassembly, measurement, power-on or hookup requested; leave router off and external power disconnected."
+  },
+  "psu_interpretation": "Same physical PSU has previously supported C8375 cold boot. This lowers suspicion of a gross external PSU failure but does not establish load-dependent regulation or all C8300 internal rails. No independent replacement comparison was possible or performed.",
+  "photo_reference": "../../PHOTOS3/IMG_1312.jpeg",
+  "flash_targets": [
+    {
+      "reference": "U1_BS",
+      "marking": "RW164",
+      "decoded_part": "MT25QL256ABA8ESF-0SIT",
+      "main_array_bytes": 33554432,
+      "supply_range_V": [
+        2.7,
+        3.6
+      ],
+      "package": "wide SOIC-16 / SF",
+      "role": "Candidate CPU boot storage; primary/golden and actual contents unverified"
+    },
+    {
+      "reference": "U2_BS",
+      "marking": "RW164",
+      "decoded_part": "MT25QL256ABA8ESF-0SIT",
+      "main_array_bytes": 33554432,
+      "supply_range_V": [
+        2.7,
+        3.6
+      ],
+      "package": "wide SOIC-16 / SF",
+      "role": "Candidate CPU boot storage; primary/golden and actual contents unverified"
+    }
+  ],
+  "tomorrow_sequence": [
+    {
+      "stage": 1,
+      "action": "Reconfirm C8300 serial, power/all cables, cover, coin-cell, DIMM, clip/programmer and console ownership. Record actual state; do not infer completion of tonight\u2019s unconfirmed preparation."
+    },
+    {
+      "stage": 2,
+      "action": "With external sources and programmer absent, establish board isolation for electrical checks. Record coin-cell removal/orientation when performed, leaving DIMM/heatsinks installed. Identify each chip and its own pin-1 indicator from physical board plus photo. Verify residual VCC-to-VSS voltage before resistance/continuity. Record meter model, lead jacks/mode and lead baseline."
+    },
+    {
+      "stage": 3,
+      "action": "Qualify a 3.3 V-class target supply and SPI signals for this board. Check off-board clip-to-pin continuity/orientation and adjacent shorts, reset/hold/write-protect requirements, source capability and board loading. Pi GPIO level compatibility does not establish safe in-circuit power delivery. Do not reuse the G2 1.8 V adapter or prior reset pulldown unchanged; do not attach historical bare CH341A with approximately 5.18 V signals. No guessed headers or shared-net assumptions."
+    },
+    {
+      "stage": 4,
+      "action": "Only after electrical qualification, probe one explicitly identified chip using read-only commands. Preserve JEDEC ID and read-only status/configuration data. Require repeatable plausible samples below and above 16 MiB before full reads. No force-detection, erase, programming, nonvolatile register change, OTP/security modification or reset-jumper experiment."
+    },
+    {
+      "stage": 5,
+      "action": "Acquire two separate full 33,554,432-byte original reads of each qualified chip, with distinct chassis/chip/session filenames and hashes. Verify byte equality, complete address coverage, and absence of all-FF/00 or aliased halves; repeatability alone does not prove accuracy. Stop for unstable ID/data, excessive loading or unsafe levels; isolate/resolve setup before another attempt."
+    },
+    {
+      "stage": 6,
+      "action": "Analyze preserved copies offline for boot structures, versions and available integrity checks, and compare relevant regions with vendor-selected CE9331/curie1ru references. Differences between chips or versions alone are not corruption. The extracted 8 MiB update is not a whole 32 MiB chip image. Decide subsequent diagnosis from evidence; no firmware write is part of this test plan."
+    }
+  ],
+  "manufacturer_pin_reference": {
+    "scope": "Datasheet SF package, configuration option 8; reference only, not a qualified harness or board header map",
+    "VCC": 2,
+    "VSS": 10,
+    "pin1": "DQ3/HOLD#",
+    "RESET#": 3,
+    "S#": 7,
+    "DQ1_MISO": 8,
+    "W#_DQ2": 9,
+    "DQ0_MOSI": 15,
+    "C_clock": 16,
+    "DNU": [
+      4,
+      5,
+      6,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  "open_questions": [
+    "Current isolation/cover/battery state on resume",
+    "Actual 3.3 V supply and level implementation; safe board loading",
+    "Clip mapping/contact and shared bus/reset behavior",
+    "Accurate chip contents and physical boot roles",
+    "DIMM functional health and internal CPU/DRAM rails remain untested"
+  ],
+  "performed": {
+    "offline_photo_and_datasheet_review": true,
+    "router_measurement": false,
+    "programmer_access": false,
+    "flash_read": false,
+    "firmware_write": false,
+    "new_boot": false
+  },
+  "sources": [
+    {
+      "title": "Micron official exact part catalog",
+      "url": "https://www.micron.com/products/storage/nor-flash/serial-nor/part-catalog/part-detail/mt25ql256aba8esf-0sit"
+    },
+    {
+      "title": "Micron MT25QL256ABA manufacturer datasheet, Rev K: pp1-2,13,85",
+      "url": "https://device.report/m/fceb28e67ae38113c9ca24b44f4b36594ad417cad67f74e07f004cef89882437.pdf"
+    },
+    {
+      "title": "Raspberry Pi hardware documentation",
+      "url": "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#gpio"
+    },
+    {
+      "title": "Cisco internal component and PSU service",
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/cloud_edge/c8300/hardware_installation/b-catalyst-8300-series-edge-platforms-hig/m-install-internal-modules-FRUs.html"
+    }
+  ]
+}

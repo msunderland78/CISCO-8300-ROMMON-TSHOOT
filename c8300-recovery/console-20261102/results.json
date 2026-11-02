@@ -133,7 +133,7 @@
     }
   },
   "diagnosis": "DIMM reseat did not change the observed silent 115200 native USB startup or LEDs. RAM functional fault remains possible; ROMMON corruption, early CPU/power/reset/clock and other board faults remain unresolved.",
-  "updated_at": "2026-11-02T18:34:28.853503-05:00",
+  "updated_at": "2026-11-02T18:42:22.753773-05:00",
   "rj45_capture": {
     "events": "rj45-events.jsonl",
     "raw_original": "rj45-console.log (ignored local source)",
@@ -142,9 +142,9 @@
     "port_released": true
   },
   "next_step": {
-    "state": "C8300 off/unplugged with one reported PWR-CC1-250WAC; availability of a distinct same-model substitute pending",
-    "action": "Check whether historically booting C8375 PSU LIT2852A9TJ is separately available; confirm identities/states before any replacement. No new test begun.",
-    "plan": "../psu-comparison-20261102/results.json",
+    "state": "Owner stops for tonight; read-only flash test plan prepared for tomorrow",
+    "action": "Fresh state/isolation check, qualify 3.3 V flash access, then staged read-only identification and repeated full backups if prerequisites pass; no new test performed",
+    "plan": "../flash-read-preparation-20261102/results.json",
     "memory_candidate_status": "Preserved in memory review; exact part/listing and purchase decision remain unresolved",
     "hardware_work_not_performed": [
       "PSU comparison",
@@ -155,7 +155,9 @@
     ],
     "chassis_serial": "FDO25150HVC",
     "candidate_review": "../../research-evidence/c8300-a-review-20261102/memory-review.json",
-    "current_owner_power_report": "Off and unplugged; one PWR-CC1-250WAC installed"
+    "current_owner_power_report": "Off and unplugged; one PWR-CC1-250WAC installed",
+    "psu_result": "Same physical 250W supply previously booted C8375; no separate PSU is available, no replacement test performed",
+    "unconfirmed_preparation": "Cover and coin-cell removal requested but not confirmed before owner stopped; reconfirm on resume"
   },
   "chassis_serial_source": {
     "source": "Owner reports chassis-label serial after console tests; no native console identity available",

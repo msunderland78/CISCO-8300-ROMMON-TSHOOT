@@ -1,11 +1,13 @@
-# C8375-G2 recovery context — current handoff October 31, 2026
+# C8375-G2 recovery context — current handoff November 2, 2026
 
 This is the consolidated handoff for the device identifying as **C8375-E-G2**, chassis **FDO2742M0FK**. Read this file before acting on older notes. It retains the working IOS state from October 23, the subsequent ROMMON experiments and failure to boot, and the later external-acquisition research.
 
 Workspace: `/Users/games/Documents/SOFTWARE`  
-Original recovery session: **2026-10-23**; latest handoff: **2026-10-31**, America/New_York. Router timestamps such as May 29, 2025, and 1970/1979 file dates were incorrect clock values; they are not the actual dates of this work.
+Original recovery session: **2026-10-23**; latest handoff: **2026-11-02**, America/New_York. Router timestamps such as May 29, 2025, and 1970/1979 file dates were incorrect clock values; they are not the actual dates of this work.
 
 ## 1. Current state — start here
+
+**November 2, 18:42 EST shared-PSU correction:** during C8300 work, owner confirms the installed PWR-CC1-250WAC is the **same physical supply** previously used here (historical serial LIT2852A9TJ), and no separate supply is available. It is now reported installed in **C8300-A / FDO25150HVC**, off/unplugged. Therefore the October 31 C8375 **on / PSU in P1** observation below is historical and must not be treated as the present state. Current C8375 power/cabling/PSU-bay state was not freshly reported; reconfirm before access. No C8375 hardware or software operation occurred during this update. [Owner report and limits](c8300-recovery/psu-comparison-20261102/results.json).
 
 ### Resume checkpoint — October 31, 15:48 EDT
 
