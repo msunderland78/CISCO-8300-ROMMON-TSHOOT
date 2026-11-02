@@ -62,18 +62,27 @@
   "assessment": {
     "capacity": "Within Cisco documented supported capacity",
     "exact_qualification": "Public primary-source CPN 15-107071-01 to MEM-C8300-32GB mapping not established in this review",
-    "health": "Unknown; label and installed appearance do not test DIMM, SPD contents, contacts or memory controller",
-    "seating": "Both end latches and full insertion not established by close-up",
+    "health": "Owner reports clean appearance, no brown/black spots and pins look fine; electrical/functional health remains untested",
+    "seating": "Owner reports DIMM reseated and clicked into place",
     "electrical_note": "1.2 V is a DIMM VDD specification, not a board measurement or a programmer setting; separate from BS flash voltage"
   },
   "next_action": {
-    "state": "Requested; not yet reported complete",
+    "state": "Reseat and cover restoration confirmed; first post-reseat power-on preceded capture, controlled captured restart now requested",
     "procedure": "Record pre-removal latch/alignment state; with power/all cables disconnected and ESD precautions, remove same DIMM by edges and inspect contacts/socket. Stop if damage/corrosion/scorching. Otherwise align notch and reseat fully with both latches locked, replace cover; remain powered off for captured retest. Keep battery and heatsink installed.",
     "pending": [
-      "initial latch/alignment observation",
-      "contact/socket inspection",
-      "reseat and cover restored confirmation",
-      "fresh post-reseat console test"
+      "controlled post-reseat power cycle after capture-ready",
+      "received-byte and LED observations"
     ]
-  }
+  },
+  "reseat_report": {
+    "recorded_at": "2026-11-02T17:35:09.360427-05:00",
+    "source": "Owner report in conversation",
+    "owner_observation": "Memory looks brand new/fine, no brown or black spots, all pins look fine; memory reseated and clicked into place",
+    "outcome": "Same DIMM reseat reported complete",
+    "initial_latch_alignment": "Not reported before removal; cannot reconstruct retrospectively",
+    "limit": "Visual appearance and seating do not establish electrical or functional health",
+    "power_state": "Last confirmed off with all external cables disconnected; no subsequent power-on reported",
+    "cover_restoration": "Owner explicitly confirms cover secured, native mini-USB connected, RJ45 console unplugged after first post-reseat power-on"
+  },
+  "updated_at": "2026-11-02T17:37:15.732706-05:00"
 }
