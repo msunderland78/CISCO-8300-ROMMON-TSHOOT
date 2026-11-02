@@ -57,7 +57,7 @@
     "result": "Zero bytes through more than five minutes after owner cold-start report; no banner/gibberish observed."
   },
   "native_usb": {
-    "state": "Live native USB capture remains open at owner-requested 9600",
+    "state": "Complete; native USB capture closed at 115200 and port released",
     "port": "/dev/cu.usbmodem84301",
     "enumeration": "native-usb-enumeration.json",
     "capture_ready": "2026-11-02T16:46:56.995856-05:00",
@@ -66,13 +66,13 @@
     "cold_start": "Owner reports powered on again while capture already armed at 115200; off duration not supplied. Capture remained open without error/re-enumeration. Changed to 9600 after owner request.",
     "receive_only": true,
     "power_on_report_marker": "2026-11-02T16:48:59.712262-05:00",
-    "owner_requested_baud": 9600,
+    "owner_requested_baud": 115200,
     "returned_to_9600": "2026-11-02T16:49:21.995578-05:00",
     "seconds_from_power_on_report_to_9600_change": 22.283,
     "received_bytes_as_of_change": 0,
     "tty_session_id_historical": 68000,
     "capture_process_pid_historical": 39028,
-    "ownership_note": "Intentional ongoing receive-only capture; reconfirm live ownership/session/physical state before resuming. SecureCRT must not compete for this port.",
+    "ownership_note": "Session closed after fresh 115200 startup observation; reconfirm device, state and ownership before another session",
     "snapshot": {
       "time": "2026-11-02T16:51:59.748131-05:00",
       "received_bytes": 0,
@@ -89,15 +89,67 @@
       "seconds_at_current_9600": 358.099,
       "events": "native-usb-events-through-165520.jsonl",
       "capture_continues": true
+    },
+    "fresh_115200_cold_start": {
+      "task_id": "C8300-01-NATIVE-USB-115200",
+      "armed_at": "2026-11-02T16:56:39.625133-05:00",
+      "framing": "8N1",
+      "flow_control": "none",
+      "tx_bytes": 0,
+      "owner_power_off_report_marker": "2026-11-02T17:03:11.186647-05:00",
+      "owner_power_on_report_marker": "2026-11-02T17:04:15.290718-05:00",
+      "off_interval": "Owner reported power off and waiting 30 seconds, then powered on; switch timing not instrumented",
+      "seconds_between_owner_report_markers": 64.102,
+      "timing_limit": "Durations are from receipt of owner reports; capture was armed before power-cycle instructions",
+      "LED_report_marker": "2026-11-02T17:04:38.089133-05:00",
+      "LED_report": "Owner confirms power/status/fan green/red/green and right USB console-active light green",
+      "one_minute_checkpoint": {
+        "time": "2026-11-02T17:05:22.492806-05:00",
+        "seconds_after_power_on_report": 67.202,
+        "received_bytes": 0
+      },
+      "state": "Completed; zero bytes through more than five minutes after owner power-on report",
+      "no_capture_error_through": "2026-11-02T17:09:21.820094-05:00",
+      "five_minute_checkpoint": {
+        "time": "2026-11-02T17:09:21.816571-05:00",
+        "seconds_after_power_on_report": 306.526,
+        "received_bytes": 0
+      },
+      "capture_closed": "2026-11-02T17:09:21.820094-05:00",
+      "seconds_from_power_on_report_to_close": 306.529
+    },
+    "final_capture": {
+      "closed_at": "2026-11-02T17:09:21.820094-05:00",
+      "baud_at_close": 115200,
+      "received_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "events": "native-usb-events.jsonl",
+      "raw_original": "native-usb-console.log (ignored local source)",
+      "sanitized_public": "../../sanitized-evidence/c8300-recovery/console-20261102/native-usb-console.log",
+      "port_released": true,
+      "lsof_returncode": 1,
+      "capture_errors": 0,
+      "tx_bytes": 0
     }
   },
   "diagnosis": "No root cause established. A zero-byte capture is distinct from gibberish or a readable firmware halt.",
-  "updated_at": "2026-11-02T16:55:20.094507-05:00",
+  "updated_at": "2026-11-02T17:09:21.820094-05:00",
   "rj45_capture": {
     "events": "rj45-events.jsonl",
     "raw_original": "rj45-console.log (ignored local source)",
     "raw_bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "port_released": true
+  },
+  "next_step": {
+    "state": "Requested; owner isolation confirmation pending",
+    "action": "Power off, disconnect all power cords and external cables including native USB and RJ45; retain battery, cover and cooling for initial identity/isolation confirmation; next unpowered DIMM/connector inspection",
+    "hardware_work_not_performed": [
+      "DIMM removal or reseat",
+      "internal electrical measurement",
+      "flash read",
+      "flash write"
+    ],
+    "chassis_serial": "Still pending; requested from label"
   }
 }
