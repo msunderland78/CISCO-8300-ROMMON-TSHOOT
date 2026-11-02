@@ -62,7 +62,7 @@
     "enumeration": "native-usb-enumeration.json",
     "capture_ready": "2026-11-02T16:46:56.995856-05:00",
     "private_directory": ".git/recovery-private/c8300-console-20261102/20261102-164656",
-    "owner_cable_and_LED_report": "Requested; not yet received. Device appearance/Cisco identity observed independently. RJ45 disconnection and USB-active LED confirmation remain pending.",
+    "owner_cable_and_LED_report": "Owner reports right console-active indicator green during native USB test. Physical RJ45 disconnection not explicitly restated; retain that limit rather than claiming it.",
     "cold_start": "Owner reports powered on again while capture already armed at 115200; off duration not supplied. Capture remained open without error/re-enumeration. Changed to 9600 after owner request.",
     "receive_only": true,
     "power_on_report_marker": "2026-11-02T16:48:59.712262-05:00",
@@ -81,10 +81,18 @@
       "events": "native-usb-events-through-165159.jsonl",
       "raw_original": "native-usb-through-165159-console.log (ignored local source)",
       "capture_continues": true
+    },
+    "latest_snapshot": {
+      "time": "2026-11-02T16:55:20.094507-05:00",
+      "received_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "seconds_at_current_9600": 358.099,
+      "events": "native-usb-events-through-165520.jsonl",
+      "capture_continues": true
     }
   },
   "diagnosis": "No root cause established. A zero-byte capture is distinct from gibberish or a readable firmware halt.",
-  "updated_at": "2026-11-02T16:51:59.748131-05:00",
+  "updated_at": "2026-11-02T16:55:20.094507-05:00",
   "rj45_capture": {
     "events": "rj45-events.jsonl",
     "raw_original": "rj45-console.log (ignored local source)",
