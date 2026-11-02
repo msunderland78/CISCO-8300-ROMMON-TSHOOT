@@ -1,0 +1,77 @@
+[
+  {
+    "family": "firmware_curie1ru",
+    "checksum_checks": 20,
+    "payloads": [
+      {
+        "name": "ce9331_uefi64_rel_ios_upgrade_SPA.bin",
+        "bytes": 8388608,
+        "sha256": "fa10209f76a14608155f3af73dfa07d814f1673b2a1f48fb11caae6dda4fa343",
+        "version_matches": [
+          {
+            "offset": 5869606,
+            "encoding": "ascii",
+            "text": "$CE9331"
+          }
+        ]
+      },
+      {
+        "name": "ce9331_uefi64_rel_update_capsule_image_SPA.bin",
+        "bytes": 17780692,
+        "sha256": "c8562ff7ffdd96a067712f19cd5da889ab4ea354cec416d0049ce1bb8aa0d8af",
+        "version_matches": [
+          {
+            "offset": 15214162,
+            "encoding": "ascii",
+            "text": "$CE9331"
+          },
+          {
+            "offset": 17747264,
+            "encoding": "ascii",
+            "text": "PlatformName3=CE9331"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "family": "firmware_curie2ru",
+    "checksum_checks": 8,
+    "payloads": [
+      {
+        "name": "ce9351_uefi64_rel_ios_upgrade_SPA.bin",
+        "bytes": 25165824,
+        "sha256": "f51dd06321578c65a4ea3db2d5540eb934dc731a125d92139aa067ac92c5a8b5",
+        "version_matches": [
+          {
+            "offset": 8585362,
+            "encoding": "ascii",
+            "text": "CE9351Sx"
+          },
+          {
+            "offset": 8585421,
+            "encoding": "ascii",
+            "text": "CE9351Sx_LDWM"
+          }
+        ]
+      },
+      {
+        "name": "ce9351_uefi64_rel_update_capsule_image_SPA.bin",
+        "bytes": 34328060,
+        "sha256": "358e0f780ece61e4a1f1693c5d7cbb1a5627035556b6d6e7e5654525ba8f4ecf",
+        "version_matches": [
+          {
+            "offset": 17701214,
+            "encoding": "ascii",
+            "text": "CE9351Sx"
+          },
+          {
+            "offset": 17701273,
+            "encoding": "ascii",
+            "text": "CE9351Sx_LDWM"
+          }
+        ]
+      }
+    ]
+  }
+]

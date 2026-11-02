@@ -2,6 +2,8 @@
 
 Reviewed **2026-11-02, America/New_York**, under C8300-01/02/03. The October 24 photo request is now fulfilled by ten originals in **[PHOTOS3](../../PHOTOS3)**. Originals remain unchanged in the owner's supplied folder. This replaces “awaiting photographs”; it records no new hardware test.
 
+**Later November 2 session:** the [live console record](../../c8300-recovery/console-20261102/README.md) now documents owner-confirmed assembled startup tests. The newly supplied IOS XE 26.2.1 contains the selected [1N1S ROMMON 26.1(1r) reference](../../ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/README.md). The observations below describe the earlier offline photo review.
+
 **Identification:** `IMG_1310` clearly shows **C8300-1N1S-4T2X**, the classic Catalyst 8300. Chassis serial and PSU labels are not established by these photos. Visible assembly labels include `800-108840-01 03+` near the CPU and `800-108841-01 03+` near the SFP cages; a board label is not substituted for a chassis serial.
 
 The owner reports green power/fan indications, persistent steady red STATUS, and console silence. The October 24 confirmation that native USB was unplugged during the RJ45 attempt remains valid for that attempt. Exact settings, known-good cable validation and a timed byte capture remain unrecorded. Photos show the cover absent and CPU heatsink, fans and DIMM installed; they do not establish present power/cable/battery state. Reflections are not recorded as illuminated LEDs.

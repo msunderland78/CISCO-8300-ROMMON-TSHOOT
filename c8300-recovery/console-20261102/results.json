@@ -1,0 +1,57 @@
+{
+  "task_id": "C8300-01",
+  "date": "2026-11-02",
+  "time_zone": "America/New_York",
+  "tracking_id": "C8300-A",
+  "pid": "C8300-1N1S-4T2X",
+  "chassis_serial": null,
+  "physical_confirmation": {
+    "source": "Owner confirmed combined preflight in conversation and separately confirmed coin-cell installed",
+    "power_before_capture": "off",
+    "cover_heatsinks_fans": "fitted",
+    "programmer": "none attached",
+    "battery": "installed",
+    "console_path": "Same previously used USB-to-RS232 cable to RJ45 CONSOLE",
+    "native_usb_console": "unplugged",
+    "console_ownership": "Owner released SecureCRT; lsof confirmed no handles on cu/tty aliases before open; exclusive capture active"
+  },
+  "capture_helper": "scripts/c8300_console_capture.py",
+  "capture_helper_sha256": "e292912e85784635e8ff02b9acca7866b101004c5f7976af00441ba891ac65b2",
+  "raw_private_directory": ".git/recovery-private/c8300-console-20261102/20261102-162845",
+  "initial_software_attempt": {
+    "directory": ".git/recovery-private/c8300-console-20261102/20261102-162820",
+    "outcome": "Opened then closed before capture_ready: post-open lsof check of both aliases returned nonzero because unused alias had no owner; corrected post-open check to opened node after TIOCEXCL. Not a router failure or evidence of an actual competing owner.",
+    "reproduced_lsof_behavior": {
+      "both_aliases_returncode": 1,
+      "opened_alias_returncode": 0,
+      "same_single_owner_pid": 33860,
+      "result": "Explains overly strict initial post-open return-code check; single actual node check succeeds."
+    }
+  },
+  "rj45_9600": {
+    "capture_ready": "2026-11-02T16:28:45.953023-05:00",
+    "owner_power_on_report_marker": "2026-11-02T16:29:40.220318-05:00",
+    "power_on_timing_limit": "Marker records receipt of owner report, not instrumented power-switch time. Capture was armed before owner was told to power on.",
+    "phase_end": "2026-11-02T16:35:21.598689-05:00",
+    "seconds_from_owner_report_to_baud_change": 341.379,
+    "received_bytes": 0,
+    "framing": "8N1",
+    "flow_control": "none",
+    "tx_bytes": 0,
+    "led_report": "Owner: green red green from power on; interpreted as power/status/fan consistent with initial report. Separate explicit confirmation: RJ45 console-active upper-left light green.",
+    "result": "Zero bytes through more than five minutes after owner power-on report. Ten-minute checkpoint at this baud not performed; proceeded to requested alternate baud."
+  },
+  "rj45_115200": {
+    "armed_at": "2026-11-02T16:35:21.598689-05:00",
+    "state": "Cold-start capture active",
+    "received_bytes_so_far": 0,
+    "owner_power_on_report_marker": "2026-11-02T16:37:16.607035-05:00",
+    "off_interval_seconds_owner_report": 30,
+    "led_report": "green red green again"
+  },
+  "native_usb": {
+    "state": "Planned; not connected/tested in this session yet"
+  },
+  "diagnosis": "No root cause established. A zero-byte capture is distinct from gibberish or a readable firmware halt.",
+  "updated_at": "2026-11-02T16:36:12.676977-05:00"
+}

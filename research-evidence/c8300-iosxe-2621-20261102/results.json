@@ -1,0 +1,122 @@
+{
+  "session_date": "2026-11-02",
+  "time_zone": "America/New_York",
+  "task_id": "C8300-03",
+  "recorded_at": "2026-11-02T16:33:32.674585-05:00",
+  "source": {
+    "source": "/Volumes/CISCO FILES/c8000be-universalk9.26.02.01.SPA.bin",
+    "bytes": 1080756706,
+    "sha256": "6d0b610b1f8f1dc426268000f6a04a7ddcf01cc0a621de0be6cd0fda7e3b4717",
+    "squashfs_magic_offsets": [
+      46041570
+    ],
+    "elapsed_seconds": 6.05
+  },
+  "extraction": {
+    "outer_squashfs_offset": 46041570,
+    "mono_package": "c8000be-mono-universalk9.26.02.01.SPA.pkg",
+    "mono_bytes": 901611520,
+    "mono_sha256": "90029a387be07ae4c07b85ae92b8c14a96dcfa6e22debc77d61c3b9aa0863d70",
+    "mono_squashfs_offset": 4096,
+    "curie1ru_iso_offset": 1080,
+    "curie2ru_iso_offset": 1084,
+    "tools": [
+      "Python 3 standard library",
+      "Homebrew unsquashfs",
+      "macOS bsdtar"
+    ],
+    "first_attempt": "unsquashfs returned 2 for unsupported security.selinux xattrs on macOS; repeated extraction with -no-xattrs returned 0. Firmware data not patched.",
+    "temporary_intermediates": "/tmp/c8300-ios-2621-review-20261102",
+    "vendor_scripts_executed": false
+  },
+  "platform_selection": {
+    "source": "vendor-firmware_autoupgrade.sh",
+    "lines": [
+      104,
+      108,
+      117,
+      121,
+      282,
+      283,
+      284,
+      285
+    ],
+    "C8300_1N1S": [
+      "RADIUM",
+      "THALLIUM",
+      "firmware_curie1ru.pkg"
+    ],
+    "C8300_2N2S": [
+      "URANIUM",
+      "THORIUM",
+      "firmware_curie2ru.pkg"
+    ],
+    "archive_alias_caveat": "curie1ru contains URANIUM/THORIUM aliases too; select using vendor logic, not path presence alone.",
+    "prior_standalone_2N2S_package": "Separate CE9351/curie2ru family; not selected by vendor logic for this 1N1S."
+  },
+  "version": {
+    "banner": "System Bootstrap, Version 26.1(1r), RELEASE SOFTWARE",
+    "source": "ce9331_uefi64_rel_ios_upgrade_SPA.bin",
+    "lzma_alone_stream_file_offset": 458920,
+    "decompressed_bytes": 14381184,
+    "banner_decompressed_offset": 10901728,
+    "encoding": "UTF-16LE",
+    "method": "Python lzma.LZMADecompressor FORMAT_ALONE, 64 MiB memory limit, max 32 MiB output; read-only inspection, no firmware execution."
+  },
+  "checksum_checks": {
+    "curie1ru": 20,
+    "curie2ru": 8,
+    "result": "All embedded MD5/SHA-1 checks pass"
+  },
+  "authentication": "Cisco package/payload signatures and independent download-catalog hash not authenticated here.",
+  "external_write_candidate": false,
+  "external_write_limitation": "8 MiB CE9331 upgrade payload and 17,780,692-byte capsule are not established full images of either photographed 32 MiB chip; preserve independent dumps and map all changed/preserved regions first.",
+  "retained_outside_repository": "Full IOS image remains on CISCO FILES; large mono/ISO/full extraction remain temporary outside repository. Only selected exact canonical artifacts and small evidence are published.",
+  "canonical_files": [
+    {
+      "path": "ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/archive-listing.txt",
+      "bytes": 7198,
+      "sha256": "3f328eda81fc317fd6e35e46bb8ca6dda795200cdf72134ca8a8e2a3fdded577"
+    },
+    {
+      "path": "ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/ce9331_uefi64_rel_ios_upgrade_SPA.bin",
+      "bytes": 8388608,
+      "sha256": "fa10209f76a14608155f3af73dfa07d814f1673b2a1f48fb11caae6dda4fa343"
+    },
+    {
+      "path": "ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/ce9331_uefi64_rel_ios_upgrade_SPA.bin.md5",
+      "bytes": 57,
+      "sha256": "69056e4db5d0f55fbf85b1b4a5d54eb62cf6979430a1e281288ae08512a314d3"
+    },
+    {
+      "path": "ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/ce9331_uefi64_rel_ios_upgrade_SPA.bin.sha1",
+      "bytes": 65,
+      "sha256": "4e1e2567e9e40b529a39e2b04224f2b82a5031f5b4d76b078cc551d33fe65616"
+    },
+    {
+      "path": "ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/ce9331_uefi64_rel_update_capsule_image_SPA.bin",
+      "bytes": 17780692,
+      "sha256": "c8562ff7ffdd96a067712f19cd5da889ab4ea354cec416d0049ce1bb8aa0d8af"
+    },
+    {
+      "path": "ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/ce9331_uefi64_rel_update_capsule_image_SPA.bin.md5",
+      "bytes": 58,
+      "sha256": "a8fb0bafd72467ae47eb84220fb8e2941793254b4716edcba74b9b7d88f982e0"
+    },
+    {
+      "path": "ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/ce9331_uefi64_rel_update_capsule_image_SPA.bin.sha1",
+      "bytes": 66,
+      "sha256": "01895afb6a31d0e225654ffe4c43b4cad30a04b3152a248a5485adbfcc94e278"
+    },
+    {
+      "path": "ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/firmware_curie1ru.pkg",
+      "bytes": 7875640,
+      "sha256": "cf6050063e5fec0502096c452866e8b3a5445ce2d2d0c91e7e69f984d9ed4ca4"
+    },
+    {
+      "path": "ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/package-info.txt",
+      "bytes": 722,
+      "sha256": "647dc74034efb927b113d2d35f638bd5780a247ba2c05d79fff46b09d3ccafef"
+    }
+  ]
+}

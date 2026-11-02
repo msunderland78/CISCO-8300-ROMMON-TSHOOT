@@ -2,6 +2,8 @@
 
 Reviewed **2026-11-02, America/New_York**, under C8300-03. Exact reference artifacts; **not an approved external-programmer restore** for C8300-A, whose front panel identifies **C8300-1N1S-4T2X**.
 
+**Later November 2 finding:** the new [IOS XE 26.2.1 extraction](../iosxe-26.02.01/curie1ru/README.md) supplies the 1N1S CE9331/curie1ru package and confirms its 26.1(1r) banner. The vendor selector chooses that package for RADIUM/THALLIUM (1N1S), and the separate CE9351/curie2ru family for URANIUM/THORIUM (2N2S). This resolves the earlier family-selection uncertainty without converting this standalone 2N2S file into a 1N1S restore. The earlier observations below remain preserved.
+
 Source: `/Volumes/CISCO FILES/C8000-2N2S-17-18-1r.pkg`. USB source read only. Package: **12,635,196 bytes**, SHA-256 `c8844d91e2d64ddff5b939fd538221ff03b5d8fcd64c4f33634de87bf73b394d`.
 
 | Artifact | Bytes | SHA-256 |
