@@ -67,11 +67,12 @@
     "electrical_note": "1.2 V is a DIMM VDD specification, not a board measurement or a programmer setting; separate from BS flash voltage"
   },
   "next_action": {
-    "state": "Reseat and cover restoration confirmed; first post-reseat power-on preceded capture, controlled captured restart now requested",
+    "state": "Same-DIMM reseat and controlled startup comparison complete; compatible known-working alternate DIMM availability pending",
     "procedure": "Record pre-removal latch/alignment state; with power/all cables disconnected and ESD precautions, remove same DIMM by edges and inspect contacts/socket. Stop if damage/corrosion/scorching. Otherwise align notch and reseat fully with both latches locked, replace cover; remain powered off for captured retest. Keep battery and heatsink installed.",
     "pending": [
-      "controlled post-reseat power cycle after capture-ready",
-      "received-byte and LED observations"
+      "spare DIMM availability and exact label if available",
+      "fresh power/all-cable isolation before any internal comparison",
+      "known-working compatible DIMM test, or qualified targeted board diagnosis if unavailable"
     ]
   },
   "reseat_report": {
@@ -84,5 +85,16 @@
     "power_state": "Last confirmed off with all external cables disconnected; no subsequent power-on reported",
     "cover_restoration": "Owner explicitly confirms cover secured, native mini-USB connected, RJ45 console unplugged after first post-reseat power-on"
   },
-  "updated_at": "2026-11-02T17:37:15.732706-05:00"
+  "updated_at": "2026-11-02T17:55:39.247710-05:00",
+  "post_reseat_test": {
+    "capture_ready": "2026-11-02T17:36:05.128358-05:00",
+    "owner_power_on_report_marker": "2026-11-02T17:50:27.295841-05:00",
+    "capture_closed": "2026-11-02T17:55:39.247710-05:00",
+    "settings": "Native USB 115200 / 8N1 / no flow, receive-only",
+    "received_bytes": 0,
+    "seconds_after_owner_report": 311.953,
+    "LED_report": "Owner confirms power/status/fan green/red/green and right USB console-active indicator green for this captured post-reseat startup",
+    "evidence": "../../c8300-recovery/console-20261102/results.json",
+    "result": "No observed improvement from same-DIMM reseat; RAM electrical/functional health not established"
+  }
 }

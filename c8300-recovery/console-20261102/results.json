@@ -132,8 +132,8 @@
       "tx_bytes": 0
     }
   },
-  "diagnosis": "No root cause established. A zero-byte capture is distinct from gibberish or a readable firmware halt.",
-  "updated_at": "2026-11-02T17:39:06.548062-05:00",
+  "diagnosis": "DIMM reseat did not change the observed silent 115200 native USB startup or LEDs. RAM functional fault remains possible; ROMMON corruption, early CPU/power/reset/clock and other board faults remain unresolved.",
+  "updated_at": "2026-11-02T17:55:39.247710-05:00",
   "rj45_capture": {
     "events": "rj45-events.jsonl",
     "raw_original": "rj45-console.log (ignored local source)",
@@ -142,13 +142,13 @@
     "port_released": true
   },
   "next_step": {
-    "state": "Capture ready; owner controlled power-cycle report pending",
-    "action": "Off at least 30 seconds then on, keep cover and USB connected; observe native USB at 115200 matching prior baseline",
+    "state": "Captured reseat comparison complete; compatible known-working spare DIMM availability requested, response pending",
+    "action": "Power-off may now proceed; before any internal work reconfirm all-power/all-cable isolation. If a compatible known-working spare exists, verify its label and perform one controlled comparison. Otherwise define targeted power/reset/flash diagnosis with electrical prerequisites; no speculative ROMMON write.",
     "hardware_work_not_performed": [
+      "known-working alternate DIMM comparison",
       "internal electrical measurement",
       "flash read",
-      "flash write",
-      "controlled post-reseat cold-start capture result"
+      "flash write"
     ],
     "chassis_serial": "FDO25150HVC"
   },
@@ -161,12 +161,12 @@
     "recorded_at": "2026-11-02T17:16:50.928838-05:00",
     "timing_limit": "Time records this update, not a measured power-off or cover-removal instant",
     "source": "Owner: chassis powered off, everything disconnected, cover still on; serial FDO25150HVC",
-    "power": "Owner reports powered on after reseat; controlled captured off/on restart now requested",
-    "power_cords_and_external_cables": "Owner confirms native mini-USB connected, RJ45 unplugged; power restored for post-reseat test",
+    "power": "Last confirmed powered on, assembled, with unchanged LEDs; power-off suggested after capture, not yet confirmed",
+    "power_cords_and_external_cables": "Last confirmed power and native USB connected, RJ45 unplugged; no later disconnection confirmed",
     "cover": "Owner confirms cover secured after DIMM reseat",
     "battery": "installed per earlier confirmation; removal not requested",
     "cooling": "fitted per earlier confirmation; removal not requested",
-    "console": "Fresh native USB capture opened at 115200 after independent enumeration and ownership checks",
+    "console": "Post-reseat native USB capture closed and released; no terminal remains open",
     "inspection_requested": "With ESD strap to chassis, remove top cover only; leave DIMM seated and report both latch positions, even seating, readable capacity/part label",
     "inspection_observation": "Owner reports memory looks brand new/fine, no brown/black spots and all pins look fine; no electrical or functional test implied",
     "DIMM_reseat": "Owner reports same DIMM reseated and clicked into place",
@@ -186,14 +186,14 @@
     "recorded_at": "2026-11-02T17:35:09.360427-05:00",
     "chassis_serial": "FDO25150HVC",
     "physical_change": "Same Micron MTA36ASF4G72PZ-2G6E1 DIMM inspected and reseated per owner",
-    "state": "Capture ready; controlled off >=30 seconds/on restart requested, owner report pending",
+    "state": "Complete; captured post-reseat startup received zero bytes; capture closed and port released",
     "planned_baud": 115200,
     "baud_reason": "Match the immediately preceding native USB cold-start baseline",
     "framing": "8N1",
     "flow_control": "none",
     "planned_console": "Native mini-USB; RJ45 unplugged",
     "current_host_enumeration": "Only /dev/cu.usbserial-AL00F7EQ present at initial check; no native USB node yet",
-    "port_opened": true,
+    "port_opened": false,
     "uncaptured_power_on": {
       "source": "Owner reported router powered on and green/red/green before new capture was armed",
       "early_startup_captured": false,
@@ -209,20 +209,17 @@
     "private_directory": ".git/recovery-private/c8300-console-20261102/20261102-173605",
     "tty_session_id_historical": 30774,
     "latest_snapshot": {
-      "time": "2026-11-02T17:39:06.548062-05:00",
-      "event": "heartbeat",
+      "time": "2026-11-02T17:55:39.247710-05:00",
+      "event": "capture_closed",
       "port": "/dev/cu.usbmodem84301",
       "baud": 115200,
       "pid": "C8300-1N1S-4T2X",
       "received_bytes": 0,
       "phase_bytes": 0,
-      "elapsed_seconds": 181.542,
-      "phase_seconds": 181.542,
+      "elapsed_seconds": 1174.243,
+      "phase_seconds": 1174.243,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "receive_only": true,
-      "events": "post-reseat-events-through-173906.jsonl",
-      "raw_original": "post-reseat-through-173906-console.log (ignored local source)",
-      "capture_continues": true
+      "receive_only": true
     },
     "native_usb_enumeration": {
       "product": "Cisco USB Console",
@@ -230,6 +227,47 @@
       "PID": "0x0009",
       "locationID": 138608640,
       "ownership_check": "Both cu/tty aliases had no owners before open; helper claims exclusive ownership"
+    },
+    "controlled_startup": {
+      "owner_power_on_report_marker": "2026-11-02T17:50:27.295841-05:00",
+      "elapsed_seconds_at_report": 862.29,
+      "received_bytes_at_report": 0,
+      "power_cycle": "Owner reports powered back on in response to off-at-least-30-seconds/on instruction; physical switch timing and off interval not instrumented",
+      "timing_limit": "Observation durations start at receipt of owner report, not the physical switch event",
+      "capture_armed_before_request": true,
+      "baud": 115200,
+      "framing": "8N1",
+      "flow_control": "none",
+      "LED_report": "Owner confirms power/status/fan green/red/green and right USB console-active indicator green for this captured post-reseat startup",
+      "state": "Complete; no observed improvement compared with pre-reseat native USB 115200 baseline",
+      "one_minute_checkpoint": {
+        "time": "2026-11-02T17:51:55.333996-05:00",
+        "seconds_after_power_on_report": 88.039,
+        "received_bytes": 0
+      },
+      "LED_report_marker": "2026-11-02T17:52:16.838812-05:00",
+      "five_minute_checkpoint": {
+        "time": "2026-11-02T17:55:39.243672-05:00",
+        "seconds_after_power_on_report": 311.949,
+        "received_bytes": 0
+      },
+      "seconds_from_power_on_report_to_close": 311.953,
+      "received_bytes": 0,
+      "capture_closed": "2026-11-02T17:55:39.247710-05:00"
+    },
+    "initial_ready_snapshot_events": "post-reseat-events-through-173906.jsonl",
+    "final_capture": {
+      "closed_at": "2026-11-02T17:55:39.247710-05:00",
+      "baud_at_close": 115200,
+      "received_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "events": "post-reseat-native-usb-events.jsonl",
+      "raw_original": "post-reseat-native-usb-console.log (ignored local source)",
+      "sanitized_public": "../../sanitized-evidence/c8300-recovery/console-20261102/post-reseat-native-usb-console.log",
+      "capture_errors": 0,
+      "tx_bytes": 0,
+      "port_released": true,
+      "lsof_returncode": 1
     }
   }
 }
