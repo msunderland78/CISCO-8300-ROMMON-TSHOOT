@@ -67,12 +67,13 @@
     "electrical_note": "1.2 V is a DIMM VDD specification, not a board measurement or a programmer setting; separate from BS flash voltage"
   },
   "next_action": {
-    "state": "Same-DIMM reseat and controlled startup comparison complete; compatible known-working alternate DIMM availability pending",
+    "state": "Owner considering 16 GB DDR4-2400 ECC RDIMM; basic specifications compared, exact identity/compatibility pending",
     "procedure": "Record pre-removal latch/alignment state; with power/all cables disconnected and ESD precautions, remove same DIMM by edges and inspect contacts/socket. Stop if damage/corrosion/scorching. Otherwise align notch and reseat fully with both latches locked, replace cover; remain powered off for captured retest. Keep battery and heatsink installed.",
     "pending": [
-      "spare DIMM availability and exact label if available",
-      "fresh power/all-cable isolation before any internal comparison",
-      "known-working compatible DIMM test, or qualified targeted board diagnosis if unavailable"
+      "exact candidate manufacturer/part number or listing URL if purchase is pursued",
+      "verify platform compatibility before calling the substitute qualified",
+      "fresh power/all-cable isolation before any internal work",
+      "qualified targeted board diagnosis remains available if a suitable DIMM is unavailable"
     ]
   },
   "reseat_report": {
@@ -85,7 +86,7 @@
     "power_state": "Last confirmed off with all external cables disconnected; no subsequent power-on reported",
     "cover_restoration": "Owner explicitly confirms cover secured, native mini-USB connected, RJ45 console unplugged after first post-reseat power-on"
   },
-  "updated_at": "2026-11-02T17:55:39.247710-05:00",
+  "updated_at": "2026-11-02T18:18:23.232149-05:00",
   "post_reseat_test": {
     "capture_ready": "2026-11-02T17:36:05.128358-05:00",
     "owner_power_on_report_marker": "2026-11-02T17:50:27.295841-05:00",
@@ -96,5 +97,67 @@
     "LED_report": "Owner confirms power/status/fan green/red/green and right USB console-active indicator green for this captured post-reseat startup",
     "evidence": "../../c8300-recovery/console-20261102/results.json",
     "result": "No observed improvement from same-DIMM reseat; RAM electrical/functional health not established"
+  },
+  "spare_inventory_report": {
+    "recorded_at": "2026-11-02T18:15:10.889486-05:00",
+    "source": "Owner reports possible non-ECC spare, many DDR3 DIMMs and uncertain DDR4 availability",
+    "qualified_spare_identified": false,
+    "candidate_part_number": null,
+    "state": "Exact label/part number requested; no alternate DIMM selected or inserted"
+  },
+  "candidate_screening": {
+    "basis": "Match the installed DDR4 registered ECC family for a meaningful known-working comparison; this is not a blanket claim that every generic RDIMM is qualified by Cisco",
+    "DDR3": "Incompatible generation/connector; not a candidate for the DDR4 slot",
+    "non_ECC_desktop_DDR4": "Does not match the installed registered ECC module; not selected for this comparison",
+    "ECC_UDIMM_or_LRDIMM": "ECC alone or a physically fitting DDR4 connector does not establish the correct buffering type or platform support",
+    "capacity": "Cisco lists C8300 memory options at 8, 16 and 32 GB; a comparison module need not be 32 GB, but exact part/platform compatibility must be checked",
+    "required_before_substitution": "Candidate part number, appropriate module type/platform support, known-working condition and fresh router isolation confirmation",
+    "purchase": "Owner is considering a described 16 GB module; purchase not performed or recommended as confirmed-compatible",
+    "sources": [
+      {
+        "title": "Kingston DDR4 overview",
+        "url": "https://www.kingston.com/en/memory/ddr4-overview",
+        "supports": "DDR3 and DDR4 DIMMs differ in key location, pin count and voltage; generations are not interchangeable"
+      },
+      {
+        "title": "Micron RDIMM FAQ",
+        "url": "https://www.micron.com/products/memory/dram-modules/rdimm",
+        "supports": "Registered and unbuffered memory use different interfaces and require system support; physical fit/capacity alone does not prove compatibility"
+      }
+    ]
+  },
+  "proposed_order_candidate": {
+    "recorded_at": "2026-11-02T18:18:23.232149-05:00",
+    "source": "Owner-supplied listing description; no URL/manufacturer/part number supplied",
+    "description": "16GB DDR4 2400MHz PC4-19200 ECC RDIMM 2Rx4 Dual Rank 1.2V ECC Registered DIMM 288-Pin",
+    "manufacturer": null,
+    "part_number": null,
+    "listing_url": null,
+    "described_specifications": {
+      "capacity_GB": 16,
+      "technology": "DDR4",
+      "module_type": "Registered ECC RDIMM",
+      "rated_data_rate_MT_per_s": 2400,
+      "rank_organization": "2Rx4",
+      "nominal_voltage_V": 1.2,
+      "pins": 288
+    },
+    "rating_note": "The supplied DDR4-2400/PC4-19200 designation is expressed as 2400 MT/s; actual memory clock and trained operating rate are not measured",
+    "comparison_with_installed": {
+      "same_listed_features": [
+        "DDR4",
+        "Registered ECC RDIMM",
+        "2Rx4 organization",
+        "1.2 V nominal VDD",
+        "288 pins"
+      ],
+      "capacity": "16 GB candidate versus 32 GB installed",
+      "rated_data_rate": "2400 MT/s candidate versus 2666 MT/s installed; about 10 percent lower",
+      "platform_capacity": "Cisco lists a 16 GB C8300 option, so capacity is suitable in a correctly qualified module",
+      "diagnostic_limit": "Lower rated speed alone does not establish incompatibility or actual operating speed; exact vendor/module qualification is unresolved",
+      "conclusion": "General description is a plausible comparison candidate, not verified C8300 compatibility"
+    },
+    "purchase_state": "Considered by owner; no order reported and no purchasing action taken",
+    "verification_pending": "Exact manufacturer/part number or listing URL; no substitute selected or installed"
   }
 }

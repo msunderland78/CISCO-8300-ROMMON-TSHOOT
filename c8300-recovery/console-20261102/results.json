@@ -133,7 +133,7 @@
     }
   },
   "diagnosis": "DIMM reseat did not change the observed silent 115200 native USB startup or LEDs. RAM functional fault remains possible; ROMMON corruption, early CPU/power/reset/clock and other board faults remain unresolved.",
-  "updated_at": "2026-11-02T17:55:39.247710-05:00",
+  "updated_at": "2026-11-02T18:18:23.232149-05:00",
   "rj45_capture": {
     "events": "rj45-events.jsonl",
     "raw_original": "rj45-console.log (ignored local source)",
@@ -142,15 +142,23 @@
     "port_released": true
   },
   "next_step": {
-    "state": "Captured reseat comparison complete; compatible known-working spare DIMM availability requested, response pending",
-    "action": "Power-off may now proceed; before any internal work reconfirm all-power/all-cable isolation. If a compatible known-working spare exists, verify its label and perform one controlled comparison. Otherwise define targeted power/reset/flash diagnosis with electrical prerequisites; no speculative ROMMON write.",
+    "state": "Owner considering described 16 GB DDR4-2400 registered ECC RDIMM; exact candidate identity/compatibility pending",
+    "action": "Compare proposed 16 GB/2400 MT/s module with installed 32 GB/2666 MT/s Micron: listed type, 2Rx4, 1.2 V and 288 pins match. Cisco supports 16 GB capacity, but exact part/listing is needed to qualify the proposed module before purchase/substitution. No new hardware test or order reported.",
     "hardware_work_not_performed": [
       "known-working alternate DIMM comparison",
       "internal electrical measurement",
       "flash read",
       "flash write"
     ],
-    "chassis_serial": "FDO25150HVC"
+    "chassis_serial": "FDO25150HVC",
+    "spare_inventory_report": {
+      "recorded_at": "2026-11-02T18:15:10.889486-05:00",
+      "source": "Owner reports possible non-ECC spare, many DDR3 DIMMs and uncertain DDR4 availability",
+      "qualified_spare_identified": false,
+      "candidate_part_number": null,
+      "state": "Exact label/part number requested; no alternate DIMM selected or inserted"
+    },
+    "candidate_review": "../../research-evidence/c8300-a-review-20261102/memory-review.json"
   },
   "chassis_serial_source": {
     "source": "Owner reports chassis-label serial after console tests; no native console identity available",
