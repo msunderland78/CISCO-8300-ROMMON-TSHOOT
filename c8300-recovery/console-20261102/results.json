@@ -43,15 +43,53 @@
   },
   "rj45_115200": {
     "armed_at": "2026-11-02T16:35:21.598689-05:00",
-    "state": "Cold-start capture active",
+    "state": "Capture completed; port closed",
     "received_bytes_so_far": 0,
     "owner_power_on_report_marker": "2026-11-02T16:37:16.607035-05:00",
     "off_interval_seconds_owner_report": 30,
-    "led_report": "green red green again"
+    "led_report": "green red green again",
+    "capture_closed": "2026-11-02T16:42:29.593912-05:00",
+    "seconds_from_owner_report_to_close": 312.987,
+    "received_bytes": 0,
+    "tx_bytes": 0,
+    "framing": "8N1",
+    "flow_control": "none",
+    "result": "Zero bytes through more than five minutes after owner cold-start report; no banner/gibberish observed."
   },
   "native_usb": {
-    "state": "Planned; not connected/tested in this session yet"
+    "state": "Live native USB capture remains open at owner-requested 9600",
+    "port": "/dev/cu.usbmodem84301",
+    "enumeration": "native-usb-enumeration.json",
+    "capture_ready": "2026-11-02T16:46:56.995856-05:00",
+    "private_directory": ".git/recovery-private/c8300-console-20261102/20261102-164656",
+    "owner_cable_and_LED_report": "Requested; not yet received. Device appearance/Cisco identity observed independently. RJ45 disconnection and USB-active LED confirmation remain pending.",
+    "cold_start": "Owner reports powered on again while capture already armed at 115200; off duration not supplied. Capture remained open without error/re-enumeration. Changed to 9600 after owner request.",
+    "receive_only": true,
+    "power_on_report_marker": "2026-11-02T16:48:59.712262-05:00",
+    "owner_requested_baud": 9600,
+    "returned_to_9600": "2026-11-02T16:49:21.995578-05:00",
+    "seconds_from_power_on_report_to_9600_change": 22.283,
+    "received_bytes_as_of_change": 0,
+    "tty_session_id_historical": 68000,
+    "capture_process_pid_historical": 39028,
+    "ownership_note": "Intentional ongoing receive-only capture; reconfirm live ownership/session/physical state before resuming. SecureCRT must not compete for this port.",
+    "snapshot": {
+      "time": "2026-11-02T16:51:59.748131-05:00",
+      "received_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "seconds_at_current_9600": 157.753,
+      "events": "native-usb-events-through-165159.jsonl",
+      "raw_original": "native-usb-through-165159-console.log (ignored local source)",
+      "capture_continues": true
+    }
   },
   "diagnosis": "No root cause established. A zero-byte capture is distinct from gibberish or a readable firmware halt.",
-  "updated_at": "2026-11-02T16:36:12.676977-05:00"
+  "updated_at": "2026-11-02T16:51:59.748131-05:00",
+  "rj45_capture": {
+    "events": "rj45-events.jsonl",
+    "raw_original": "rj45-console.log (ignored local source)",
+    "raw_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "port_released": true
+  }
 }

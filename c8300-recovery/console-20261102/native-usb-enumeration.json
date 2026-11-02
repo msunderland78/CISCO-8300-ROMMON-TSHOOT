@@ -1,0 +1,14 @@
+{
+  "observed_at": "2026-11-02T16:47:28.698493-05:00",
+  "source_command": "ioreg -r -c IOUSBHostDevice -a; Python plistlib, Cisco device only",
+  "devices": [
+    {
+      "product": "Cisco USB Console",
+      "vendor": "Cisco",
+      "vid": 1446,
+      "pid": 9,
+      "location_id": 138608640,
+      "callout_devices": []
+    }
+  ]
+}

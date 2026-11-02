@@ -431,6 +431,16 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
+      "bytes": 0,
+      "path": "c8300-recovery/console-20261102/native-usb-through-165159-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 0,
+      "path": "c8300-recovery/console-20261102/rj45-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 8196,
       "path": "c8375-recovery/.DS_Store",
       "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
@@ -1938,9 +1948,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 25532,
+      "bytes": 25619,
       "path": "README.md",
-      "sha256": "b1e948111e33683f28db3c91c6550cf675216a63f4690c46384eda65e91d22a1"
+      "sha256": "2432fcfc951df3767644aa700b4428dabd1b0e01952e368e4bd228273690142e"
     },
     {
       "bytes": 3934,
@@ -2138,9 +2148,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 423670,
+      "bytes": 426212,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "b4d8b94d5b938b48c8d30b9de0a83f7015dfd939f8069486ed59b89c4dfcd36f"
+      "sha256": "0e223a4dd3de3732bfdd0f2050d8fac42fa1e246a1f8c411435e2b4fd4c9368b"
     },
     {
       "bytes": 6850655,
@@ -2423,14 +2433,29 @@
       "sha256": "b956ba64ffee87007fc6dff503cd9a35445721114d9c0368b20ef24c0b1615d9"
     },
     {
-      "bytes": 3447,
+      "bytes": 5047,
       "path": "c8300-recovery/console-20261102/README.md",
-      "sha256": "5d580651299dd6bbeea87a181f9221ee8c12cbf872bc0cc3230f9f2c5a80d928"
+      "sha256": "ec6b2f0a6b084c678fe3dfa66337efc5dddb63110f566dc95da5ea943dfd63bb"
     },
     {
-      "bytes": 3057,
+      "bytes": 336,
+      "path": "c8300-recovery/console-20261102/native-usb-enumeration.json",
+      "sha256": "d1c4a14fb3dcbf766c2928a1bdc0567843ee6371dd523bea804aa7aeea419a2e"
+    },
+    {
+      "bytes": 6620,
+      "path": "c8300-recovery/console-20261102/native-usb-events-through-165159.jsonl",
+      "sha256": "5b857217bf383237eb96b685b429990a8918557e61ba080655772f70c5ea800a"
+    },
+    {
+      "bytes": 5223,
       "path": "c8300-recovery/console-20261102/results.json",
-      "sha256": "4c010fd19ea6be5ceb935001946ab1cd20680dd2a2e819905daff0a25c7a9deb"
+      "sha256": "ae3e6d936ed0f124971bb1bdd46ac8f82738badaa349dafcd065945987920c8c"
+    },
+    {
+      "bytes": 15787,
+      "path": "c8300-recovery/console-20261102/rj45-events.jsonl",
+      "sha256": "769462f85509cdbb511029e52a900ed9be80012cc1423831fbf063591f8bfac9"
     },
     {
       "bytes": 119959,
@@ -4003,6 +4028,16 @@
       "sha256": "efa80b2090da1b8d5dfadc910ddf5419c45b99d2cfe26d96ee75421bfc0c69b7"
     },
     {
+      "bytes": 0,
+      "path": "sanitized-evidence/c8300-recovery/console-20261102/native-usb-through-165159-console.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "sanitized-evidence/c8300-recovery/console-20261102/rj45-console.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
       "bytes": 378868,
       "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-100652-console.log",
       "sha256": "04f8336fb4ea7722450e7b774352487c7a13308e04597d99617638786fd9f82e"
@@ -4951,6 +4986,8 @@
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-session-handoff-20261031.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-vlan83-dhcp-before-vm-move.log",
     "sanitized-evidence/c8235-recovery/crash-review-20261031/ubuntu-vlan83-inventory-before-vm-move.log",
+    "sanitized-evidence/c8300-recovery/console-20261102/native-usb-through-165159-console.log",
+    "sanitized-evidence/c8300-recovery/console-20261102/rj45-console.log",
     "sanitized-evidence/c8375-recovery/historical-17.15.6-boot-2026-10-22.log",
     "sanitized-evidence/c8375-recovery/console-logs/20261023-100652-console.log",
     "sanitized-evidence/c8375-recovery/console-logs/20261023-100652-readable.txt",
@@ -5100,8 +5137,8 @@
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 322,
-    "included_bytes_without_manifest": 1070162080,
-    "included_files_without_manifest": 650
+    "excluded_local_files": 324,
+    "included_bytes_without_manifest": 1070191218,
+    "included_files_without_manifest": 655
   }
 }
