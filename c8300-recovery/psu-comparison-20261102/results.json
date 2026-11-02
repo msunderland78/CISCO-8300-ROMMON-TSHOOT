@@ -1,0 +1,53 @@
+{
+  "task_id": "C8300-02-PSU-COMPARE",
+  "recorded_at": "2026-11-02T18:29:09.745531-05:00",
+  "time_zone": "America/New_York",
+  "tracking_id": "C8300-A",
+  "pid": "C8300-1N1S-4T2X",
+  "chassis_serial": "FDO25150HVC",
+  "reason": "Owner asks for another test while deciding whether to order compatible memory; same-DIMM reseat and captured retest did not improve startup",
+  "status": "Planned conditionally; current PSU inventory/state requested, no test performed",
+  "requested_information": [
+    "number of installed supplies",
+    "which currently have power cords connected",
+    "externally readable PSU part/model numbers",
+    "current router on/off state"
+  ],
+  "installed_PSUs": null,
+  "current_power_state": null,
+  "prerequisites": [
+    "Confirm current physical target/state and compatible AC PSU identities",
+    "If two suitable AC supplies are present, preserve their physical slot assignments; do not mix with C8375/G2 records",
+    "Keep cover, cooling and both PSU modules fitted; leave current DIMM/battery unchanged",
+    "Use same AC cord and outlet for both comparisons, with no other AC feed to router",
+    "Reconfirm native USB console and exclusive ownership before arming capture; keep RJ45 console unplugged"
+  ],
+  "proposed_sequence": [
+    "Prepare fresh receive-only native USB capture at 115200/8N1/no flow before power-on, matching prior baseline",
+    "With router off, feed first explicitly identified PSU only; record PSU-specific indicators, front LEDs and console bytes through controlled startup",
+    "Power off, remove AC feed and wait at least 30 seconds; move the same cord to the other identified PSU, retaining same outlet and other hardware/settings",
+    "Record the equivalent second startup, then close capture and compare outcomes"
+  ],
+  "control_note": "This compares the powered supply/slot path; both PSU modules remain fitted. It is not complete electrical isolation of a potentially loading unpowered module. No live PSU removal or open-cover powered probing requested.",
+  "interpretation": {
+    "different_outcomes": "Supports a supply-specific or slot/power-path issue; does not yet separate PSU from slot",
+    "both_unchanged": "Does not prove all power rails good or diagnose ROMMON corruption; remaining board-rail/reset/clock/firmware faults unresolved",
+    "one_supply_only": "Do not invent a second test; assess a confirmed compatible alternate supply or define qualified board measurements instead"
+  },
+  "hardware_action_performed": false,
+  "console_opened": false,
+  "firmware_written": false,
+  "sources": [
+    {
+      "title": "Cisco C8300 hardware installation guide: power supply service and covered operation",
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/cloud_edge/c8300/hardware_installation/b-catalyst-8300-series-edge-platforms-hig/m-install-internal-modules-FRUs.html",
+      "supports": "Model-specific PSU types, single/redundant operation, disconnect power before removing sole supply, maintain covers/cooling"
+    },
+    {
+      "title": "Cisco C8300 overview: dual supplies and LEDs",
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/cloud_edge/c8300/hardware_installation/b-catalyst-8300-series-edge-platforms-hig/m-overview.html",
+      "supports": "C8300-1N1S dual PSU design, PSU0/PSU1 identification, main PWR/STATUS/ENV/console indicator definitions"
+    }
+  ],
+  "indicator_note": "Record individual PSU indicators as well as main LEDs. With one installed PSU deliberately unpowered, the main PWR LED may report a supply/redundancy condition; do not automatically interpret this as a new CPU/boot failure."
+}
