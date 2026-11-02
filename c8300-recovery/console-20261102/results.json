@@ -133,7 +133,7 @@
     }
   },
   "diagnosis": "No root cause established. A zero-byte capture is distinct from gibberish or a readable firmware halt.",
-  "updated_at": "2026-11-02T17:16:50.928838-05:00",
+  "updated_at": "2026-11-02T17:22:07.132381-05:00",
   "rj45_capture": {
     "events": "rj45-events.jsonl",
     "raw_original": "rj45-console.log (ignored local source)",
@@ -142,13 +142,14 @@
     "port_released": true
   },
   "next_step": {
-    "state": "Owner confirms isolation and chassis serial; cover removal and initial DIMM inspection requested, observations pending",
-    "action": "Inspect seated DIMM latches/alignment and read accessible capacity/part label before any reseat; keep power and external cables disconnected, battery/cooling fitted",
+    "state": "Same-DIMM inspection/reseat requested; completion pending",
+    "action": "Record pre-removal latch/alignment state; with power/all cables disconnected and ESD precautions, remove same DIMM by edges and inspect contacts/socket. Stop if damage/corrosion/scorching. Otherwise align notch and reseat fully with both latches locked, replace cover; remain powered off for captured retest. Keep battery and heatsink installed.",
     "hardware_work_not_performed": [
-      "DIMM removal or reseat",
+      "DIMM reseat not yet confirmed",
       "internal electrical measurement",
       "flash read",
-      "flash write"
+      "flash write",
+      "post-reseat boot test"
     ],
     "chassis_serial": "FDO25150HVC (owner-reported chassis label)"
   },
@@ -163,14 +164,22 @@
     "source": "Owner: chassis powered off, everything disconnected, cover still on; serial FDO25150HVC",
     "power": "off",
     "power_cords_and_external_cables": "all disconnected per owner",
-    "cover": "on at confirmation",
+    "cover": "Previously confirmed on; subsequent internal close-up received, but present cover/restoration state not separately reported",
     "battery": "installed per earlier confirmation; removal not requested",
     "cooling": "fitted per earlier confirmation; removal not requested",
     "console": "Both captures closed; no new port opened",
     "inspection_requested": "With ESD strap to chassis, remove top cover only; leave DIMM seated and report both latch positions, even seating, readable capacity/part label",
-    "inspection_observation": "pending",
-    "DIMM_reseat": "not performed",
+    "inspection_observation": "Memory label identified from new close-up; both latch/alignment and contact/socket observations still pending",
+    "DIMM_reseat": "Requested after label review; completion and result pending",
     "internal_electrical_measurements": "not performed",
-    "flash_read_or_write": "not performed"
+    "flash_read_or_write": "not performed",
+    "memory_label_review": {
+      "recorded_at": "2026-11-02T17:22:07.132381-05:00",
+      "evidence": "../../research-evidence/c8300-a-review-20261102/memory-review.json",
+      "part_number": "MTA36ASF4G72PZ-2G6E1",
+      "capacity_GB": 32,
+      "CPN": "15-107071-01",
+      "source": "Owner-supplied PHOTOS3/IMG_1316.jpeg; DIMM shown installed; both end latches not visible"
+    }
   }
 }

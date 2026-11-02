@@ -4,6 +4,8 @@ Reviewed **2026-11-02, America/New_York**, under C8300-01/02/03. The October 24 
 
 **Later November 2 session:** the [live console record](../../c8300-recovery/console-20261102/README.md) now documents owner-confirmed assembled startup tests. The newly supplied IOS XE 26.2.1 contains the selected [1N1S ROMMON 26.1(1r) reference](../../ROMMON-extracted/classic-c8300/iosxe-26.02.01/curie1ru/README.md). The observations below describe the earlier offline photo review.
 
+**Memory-label follow-up, November 2:** the owner identifies chassis **FDO25150HVC** and supplies an eleventh original, **IMG_1316.jpeg**, after confirming power off and all external cables disconnected. The installed DIMM label reads **Micron MTA36ASF4G72PZ-2G6E1, 32GB, CPN 15-107071-01**. Both retaining-latch states and contact condition cannot be established from this close-up. Same-module inspection/reseat has been requested; completion and the post-reseat boot test remain pending. [Detailed label, original hash and source review](../../research-evidence/c8300-a-review-20261102/memory-review.json).
+
 **Identification:** `IMG_1310` clearly shows **C8300-1N1S-4T2X**, the classic Catalyst 8300. Chassis serial and PSU labels are not established by these photos. Visible assembly labels include `800-108840-01 03+` near the CPU and `800-108841-01 03+` near the SFP cages; a board label is not substituted for a chassis serial.
 
 The owner reports green power/fan indications, persistent steady red STATUS, and console silence. The October 24 confirmation that native USB was unplugged during the RJ45 attempt remains valid for that attempt. Exact settings, known-good cable validation and a timed byte capture remain unrecorded. Photos show the cover absent and CPU heatsink, fans and DIMM installed; they do not establish present power/cable/battery state. Reflections are not recorded as illuminated LEDs.
@@ -20,8 +22,15 @@ The owner reports green power/fan indications, persistent steady red STATUS, and
 | [IMG_1312](../../PHOTOS3/IMG_1312.jpeg) | Micron U1_BS and U2_BS, both marked RW164; adjacent debug connectors |
 | [IMG_1313](../../PHOTOS3/IMG_1313.jpeg) | BOOT OK, BOOT FAIL, PWR OK labels; powered states/logic meanings unmeasured |
 | [IMG_1315](../../PHOTOS3/IMG_1315.jpeg) | Macronix U4_UC/U5_UC near Microsemi SmartFusion2 U2_UC; UC GLDN, UC RST, UC BSPI DEDI labels |
+| [IMG_1316](../../PHOTOS3/IMG_1316.jpeg) | Later installed-memory close-up: Micron MTA36ASF4G72PZ-2G6E1, 32GB, CPN 15-107071-01; both end latches outside the useful view |
 
 No obvious large burn, broken cooling attachment or disconnected fan plug is apparent. This limited visual observation is not a board-health verdict. DIMM contact quality, underside damage and rails remain untested.
+
+## Installed DIMM follow-up
+
+The readable label also records **DPAPN31002**, identifier **MXA2435CNYT**, marking **2034**, and Product of CHINA; no date interpretation is assigned. Micron's [family datasheet](https://www.mouser.lt/datasheet/2/671/asf36c4gx72pz_8576911-3698462.pdf) identifies MTA36ASF4G72PZ as a 32 GB, 288-pin, dual-rank registered ECC DDR4 module. The -2G6 speed grade is 2666 MT/s, with nominal VDD 1.2 V. These are component specifications, not measured board rails; they are unrelated to the BS flash programming supply.
+
+Cisco's [ordering guide](https://www.cisco.com/c/en/us/products/collateral/routers/catalyst-8300-series-edge-platforms/cat-8300-8200-series-edge-plat-og.html) supports a 32 GB upgrade in the C8300's single DIMM slot and lists MEM-C8300-32GB. This establishes supported capacity, not proof of this module's health or an exact public CPN-to-orderable-SKU qualification. No SPD read, memory test, contact inspection or reseat has yet been reported. Preserve the initial seating/latch observation before one controlled same-DIMM reseat, restore the cover, and leave power off until the next capture is ready.
 
 ## Flash identification and limits
 

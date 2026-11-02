@@ -1,0 +1,79 @@
+{
+  "task_id": "C8300-02-DIMM",
+  "recorded_at": "2026-11-02T17:22:07.132381-05:00",
+  "time_zone": "America/New_York",
+  "tracking_id": "C8300-A",
+  "pid": "C8300-1N1S-4T2X",
+  "chassis_serial": "FDO25150HVC",
+  "photo": {
+    "path": "PHOTOS3/IMG_1316.jpeg",
+    "bytes": 10274296,
+    "sha256": "6f6fe29c6359027b17bc2432d2d05de96222b6d9a545d8292fa3d2c6626d6a45",
+    "method": "Original photograph visually inspected; no image alteration or generated enhancement",
+    "context": "Owner supplied memory-label close-up following confirmed power/all-external-cable disconnection; picture shows DIMM installed, not both end latches"
+  },
+  "label_observed": {
+    "manufacturer": "Micron",
+    "part_number": "MTA36ASF4G72PZ-2G6E1",
+    "capacity": "32GB",
+    "CPN": "15-107071-01",
+    "DPAPN": "31002",
+    "identifier": "MXA2435CNYT",
+    "additional_marking": "2034",
+    "country_marking": "Product of CHINA"
+  },
+  "manufacturer_family_specification": {
+    "technology": "DDR4 SDRAM",
+    "module_type": "Registered ECC RDIMM",
+    "capacity_GB": 32,
+    "pins": 288,
+    "rank": "dual rank; x4 DRAM components",
+    "rated_data_rate_MT_per_s": 2666,
+    "nominal_VDD_volts": 1.2,
+    "revision_limit": "Family datasheet covers MTA36ASF4G72PZ-2G6__; E1 is retained as observed, not independently qualified for this chassis"
+  },
+  "sources": [
+    {
+      "title": "Micron MTA36ASF4G72PZ 32GB RDIMM datasheet, Rev K 3/21",
+      "url": "https://www.mouser.lt/datasheet/2/671/asf36c4gx72pz_8576911-3698462.pdf",
+      "type": "Micron-authored primary datasheet mirrored by distributor",
+      "relevant_pages": [
+        1,
+        2
+      ],
+      "supports": "Family type/capacity/rank, 288 pins, 1.2 V VDD and -2G6 rated at 2666 MT/s"
+    },
+    {
+      "title": "Cisco Catalyst 8300/8200 ordering guide, system memory and storage",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/routers/catalyst-8300-series-edge-platforms/cat-8300-8200-series-edge-plat-og.html",
+      "supports": "C8300 supports 16/32 GB upgrades in single DIMM slot; MEM-C8300-32GB option"
+    },
+    {
+      "title": "Cisco Catalyst 8300 series datasheet",
+      "url": "https://www.cisco.com/c/en/us/products/collateral/routers/catalyst-8300-series-edge-platforms/datasheet-c78-744088.html",
+      "supports": "All classic C8300 models support up to 32 GB DRAM"
+    },
+    {
+      "title": "Cisco C8300 hardware installation, DIMM removal and installation",
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/cloud_edge/c8300/hardware_installation/b-catalyst-8300-series-edge-platforms-hig/m-install-internal-modules-FRUs.html",
+      "supports": "Power isolation, ESD, edge handling, notch/latches, cover restored before power"
+    }
+  ],
+  "assessment": {
+    "capacity": "Within Cisco documented supported capacity",
+    "exact_qualification": "Public primary-source CPN 15-107071-01 to MEM-C8300-32GB mapping not established in this review",
+    "health": "Unknown; label and installed appearance do not test DIMM, SPD contents, contacts or memory controller",
+    "seating": "Both end latches and full insertion not established by close-up",
+    "electrical_note": "1.2 V is a DIMM VDD specification, not a board measurement or a programmer setting; separate from BS flash voltage"
+  },
+  "next_action": {
+    "state": "Requested; not yet reported complete",
+    "procedure": "Record pre-removal latch/alignment state; with power/all cables disconnected and ESD precautions, remove same DIMM by edges and inspect contacts/socket. Stop if damage/corrosion/scorching. Otherwise align notch and reseat fully with both latches locked, replace cover; remain powered off for captured retest. Keep battery and heatsink installed.",
+    "pending": [
+      "initial latch/alignment observation",
+      "contact/socket inspection",
+      "reseat and cover restored confirmation",
+      "fresh post-reseat console test"
+    ]
+  }
+}
