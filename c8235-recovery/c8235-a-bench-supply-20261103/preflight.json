@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "CORRECTED: J2507 pin 2 = VCC to actual flash pin 2; pin 8 = ground to physical pin 10. Owner used red paint instead of molded black pin-1 dimple; J2504 was a typo. Earlier powered arrangement was reversed and withdrawn. Rebuild/verify unpowered supply-only paths; no corrected powered result.",
+  "status": "Owner reseated U2900 clip with corrected orientation; OUTPUT4-to-J2507-8 and OUTPUT8-to-J2507-2 each 0.8 ohm. Pi starts normally; corrected rail 1.721 V DC steady, same level shifter used, bench completely disconnected. RESET qualification must be redone; next is Pi-off actual U2901 pin3 contact/VCC/reset-pair checks, no SPI.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -51,7 +51,7 @@
     "prerequisites": "Identity and listed power/cable/coin-cell/Pi USB-C isolation confirmed. Preserve that state. Before handling confirm J2507-8 to 2 residual 0 V. Remove all Pi/adapter/CH341A-to-board paths, old parallel supply connections and any RESET resistor/ground connection. Keep RESET grabber free. No native router power; assembly/cooling state not newly restated.",
     "first_topology": "Supply-only: bench negative -> J2507-2/GND; bench positive -> existing isolated/measured nominal 100-ohm (previously 99-ohm) resistor -> J2507-8/VCC. Use separate breadboard strips for resistor legs. Clip may remain physically seated with entire cable/adapter connection electrically disconnected and free contacts insulated. All adapter/Pi/CH341A paths absent; U2901 RESET lead free.",
     "settings": "Jesverty OUT OFF, CHG and OPN disabled; normal voltage preset 1.80 V and normal current-limit preset 0.020 A. In separate OCP screen set 0.020 A and enable OCP. Keep series resistor for first comparison; 20 mA is a cautious diagnostic starting setting, not established safe/adequate operating current. With 99 ohms, ideal branch limit at 1.8 V is about 18.2 mA.",
-    "pending_measurements": "Corrected unpowered supply preflight: plus lead through retained 100-ohm resistor to J2507-2/VCC; minus lead to J2507-8/GND. Clip and RESET grabber removed, source tips unplugged. Verify zero DC and measure source-tip-to-actual-U2900-pin2 approximately100ohms; negative-tip-to-actual-pin10 near baseline. No corrected powered test yet.",
+    "pending_measurements": "Current owner-confirmed Pi/adapter/U2900 setup yields steady +1.721 V with bench disconnected. Next shut down/unplug Pi, wait corrected header rail0V, attach free U2901 actual-pin3 grabber, record contact/RESET-to-VCC and accessible inter-chip actual-RESET resistance. No reset assertion or SPI.",
     "later_spi": "Complete Pi/adapter/target wiring and power sequencing remain unqualified. Need stable loaded target rail within 1.7-2.0 V, understood load and a verified supply separation/translation arrangement before SPI. No automatic resistor bypass, current increase, RESET assertion or read."
   },
   "performed_by_agent": "Read-only local evidence/reference review and repository documentation only. No SSH, serial, GPIO, SPI, supply command, flash acquisition/write or router test.",
@@ -382,7 +382,7 @@
   },
   "corrected_supply_preflight": {
     "selected_at": "2026-11-03T18:20:16-05:00",
-    "status": "Planned unpowered preparation only; no rewiring, new ohms result or corrected-polarity powered test reported.",
+    "status": "Superseded, not performed: owner instead corrected existing Pi/adapter/U2900 clip and reports valid power paths/Pi startup/steady 1.721 V. Preserve proposed bench-only steps as history; do not mark completed.",
     "sequence": [
       "Bench OUT off and supply off; both board leads physically unplugged from supply. Pi/adapter/CH341A and all native router power/cables/coin-cell remain disconnected.",
       "Remove U2900 clip and any U2901 RESET grabber so the old, misoriented harness cannot remain part of the circuit. Do not reuse its signal assignments without a separate full mapping.",
@@ -392,5 +392,55 @@
       "In ohms measure loose positive lead supply-end tip to actual U2900 physical pin 2, approximately 100 ohms expected; then loose negative lead supply-end tip to actual U2900 physical pin 10, close to probe baseline expected. Report actual values and leave source ends unplugged/OUT off."
     ],
     "later": "Only after corrected endpoint checks select a bounded supply-only powered measurement; Pi/SPI still excluded pending full target power and eight-signal harness qualification. No new firmware, TPM or configuration action."
+  },
+  "corrected_pi_checkpoint": {
+    "recorded_at": "2026-11-03T18:28:26-05:00",
+    "owner_action": "Owner advanced independently: reseated U2900 clip in corrected direction, checked power/ground paths, powered Pi5 successfully and measured corrected header rail. This supersedes proposed bench-only preflight; do not mark that unperformed preflight complete or require its repetition.",
+    "path_measurements": [
+      {
+        "from": "Adapter OUTPUT 4",
+        "to": "J2507 pin 8 / corrected ground",
+        "ohms": 0.8
+      },
+      {
+        "from": "J2507 pin 2 / corrected VCC",
+        "to": "Adapter OUTPUT 8",
+        "ohms": 0.8
+      }
+    ],
+    "power_result": {
+      "pi_startup": "Normal, owner reported",
+      "voltage_v_dc": 1.721,
+      "red_probe": "J2507 pin 2 / VCC",
+      "black_probe": "J2507 pin 8 / ground",
+      "stability": "Steady, owner confirmed in grouped follow-up",
+      "fixture": "Pi -> same 1.8 V level-shifting adapter -> correctly oriented U2900 clip; owner confirmed.",
+      "bench_supply": "Both leads completely disconnected, owner confirmed.",
+      "native_router_sources": "Power/console/USB/network cables and coin-cell remain disconnected, owner confirmed.",
+      "reset_grabber": "Removed or electrically loose, owner confirmed grouped scope; exact physical attachment among these two alternatives not distinguished."
+    },
+    "limits": [
+      "1.721 V is within flash 1.7-2.0 V range but only 21 mV above nominal minimum; static spot reading/owner steadiness does not establish SPI transient margin or full health.",
+      "Keep fresh 0.8-ohm paths raw; new lead baseline and exact resistance-test power state not separately supplied. Narrative places checks before reported Pi power-on.",
+      "Successful Pi start/positive rail does not qualify every SPI signal, actual RESET network, repeated full flash reads or absence of prior damage.",
+      "Earlier RESET contact/OL screens based on wrong orientation are invalid for RESET and must be repeated on actual physical pin3. No grounding/assertion selected."
+    ],
+    "agent_action": "Local evidence review/documentation only; no SSH/serial/GPIO/SPI command, power control or flash access."
+  },
+  "reset_requalification": {
+    "selected_at": "2026-11-03T18:28:26-05:00",
+    "status": "Planned unpowered checks only; Pi shutdown/unplug, grabber placement and new values not yet reported.",
+    "target": "Unused U2901 actual SOIC16 physical pin3 / RESET#, while U2900 remains clipped as intended read target.",
+    "pin_identity": "Count from molded black pin1 dimple, not red paint. In PHOTOS2/IMG_1302 orientation, U2901 pin3 is bottom-row third leg from left; pin2/VCC is immediately before it. Micron Figure6 identifies dedicated pin3 RESET#.",
+    "sequence": [
+      "Shut down Pi normally and unplug USB-C before moving any probe/grabber. Keep bench/CH341A and all native router sources/cables/coin-cell disconnected.",
+      "Meter COM/V-ohm inputs, DC volts first, red J2507-2/VCC and black J2507-8/GND: wait until approximately0V before resistance checks; no discharge short.",
+      "Leave U2900 clip seated. Remove/move any old RESET grabber to U2901 actual pin3, secure on that one physical leg without adjacent bridges. Its wire free end remains disconnected from all resistors, ground, VCC, Pi and adapter.",
+      "Record probes-touching baseline, then measure actual U2901 pin3 solder foot to grabber free end for contact continuity. Expect near baseline, not a fabricated specific value.",
+      "Measure black J2507-2/VCC to red grabber free end, in ohms, to screen actual U2901 RESET for a low-resistance VCC tie. Report real value or OL.",
+      "Only if actual U2900 pin3 solder foot is safely accessible with clip seated, measure black actual U2900 pin3 to red U2901 grabber free end in ohms. If covered/unclear, report inaccessible; do not reseat the working clip just for this step.",
+      "Leave Pi unplugged and grabber free, report contact/VCC/reset-pair readings plus baseline. No 10k resistor, direct ground jumper, reset assertion or SPI."
+    ],
+    "later": "After actual-net screens and accessible endpoints are assessed, choose an appropriate native RESET/supply voltage check before any reset assertion. Full signal/power/read qualification remains separate."
   }
 }

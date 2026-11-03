@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: J2507 ground and flash-supply mapping",
   "recorded_at": "2026-11-01T12:44:18-05:00",
   "timezone": "America/New_York",
-  "status": "SUPERSEDED ORIENTATION INTERPRETATION: owner confirms red-paint pin-1 counting error on C8235-A. Corrected J2507-2=VCC/actual flash2, J2507-8=GND/actual flash10. Historical header/clip/reset assignments and positive-rail load interpretations below must not guide powered work; see 2026-11-03 correction.",
+  "status": "CURRENT corrected map: J2507-2=VCC/physical flash2, J2507-8=ground/physical flash10. November3 corrected U2900 clip paths OUTPUT8->header2 and OUTPUT4->header8 each0.8ohm; Pi boots, steady +1.721V red2/black8. Old orientation-dependent arrays remain historical/withdrawn; RESET and full SPI qualification pending.",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -104,7 +104,7 @@
   "agent_hardware_actions": [],
   "programmer_read_or_write": "none this checkpoint",
   "initial_status": "Four low-resistance paths owner-reported; residual DC and microclip baseline pending",
-  "updated_at": "2026-11-03T18:20:16-05:00",
+  "updated_at": "2026-11-03T18:28:26-05:00",
   "qualification": {
     "recorded_at": "2026-11-01T12:48:24-05:00",
     "source": "Owner report in conversation",
@@ -147,7 +147,7 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "Corrected unpowered U2900 supply-path preflight in current evidence. No powered test/SPI until actual physical endpoints qualify.",
+  "next_stage": "Current Pi/adapter supply result accepted; qualify actual U2901 RESET pin3 while Pi off, then powered controls and SPI separately. See current evidence.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json",
   "status_before_20261103_orientation_correction": "CH341A resistor-limited source/board values 1.793/0.423 V match Pi (~13.8 mA inferred). Comparison complete; CH341A USB unplug/socket adapter confirmed. Flash supply qualification incomplete.",
   "orientation_correction_20261103": {
@@ -188,5 +188,17 @@
       "flash_physical_pin": 10,
       "function": "VSS / ground"
     }
-  ]
+  ],
+  "corrected_pi_checkpoint_20261103": {
+    "recorded_at": "2026-11-03T18:28:26-05:00",
+    "evidence": "c8235-recovery/c8235-a-bench-supply-20261103/preflight.json",
+    "output4_to_header8_ohms": 0.8,
+    "output8_to_header2_ohms": 0.8,
+    "voltage_v_dc": 1.721,
+    "polarity": "red header2 / black header8",
+    "steady": true,
+    "bench_disconnected": true,
+    "pi_startup": "normal, owner report",
+    "scope": "Static corrected power path only; no SPI/RESET assertion or whole-chip read."
+  }
 }

@@ -10,6 +10,34 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A CORRECTED CLIP / PI STARTS / STEADY +1.721 V — 2026-11-03, 18:28 EST
+Owner advances independently: U2900 clip reseated in correct direction; reports
+OUTPUT4 -> J2507-8/GND =0.8ohm, J2507-2/VCC -> OUTPUT8 =0.8ohm, then normal Pi5
+startup and rail1.721VDC. Grouped follow-up confirms Pi -> SAME1.8V level shifter
+-> corrected U2900 clip; BOTH bench leads completely disconnected; native router
+power/cables/coin-cell still disconnected; U2901 RESET grabber removed or loose;
+red meter J2507-2 / black J2507-8, reading STEADY. Exact grabber attachment among
+removed/loose alternatives not distinguished. No new agent hardware operation.
+
+Accept current positive-rail checkpoint; proposed corrected bench-only preflight
+was not performed and is superseded, not marked complete. 1.721V is within
+1.7-2.0V but near low end; no SPI transient margin/chip-health/full-read proof.
+Keep fresh0.8ohm paths raw; no fresh lead baseline. Earlier wrong-pin RESET
+screens remain invalid; no resistor or direct RESET-ground connection selected.
+
+Next: shut down Pi normally/unplug USB-C, keep bench/native sources isolated,
+wait corrected J2507-2 to8 DC approximately0V. Leave U2900 clip seated. Put free
+RESET grabber on UNUSED U2901 actual physical3: third leg from molded black
+pin1 dimple, bottom third-from-left in IMG_1302. Do not use red paint. Verify
+single-leg fit/no bridge; free wire remains disconnected. Record probe baseline;
+measure (1)actual U2901pin3 solder foot -> free grabber contact, (2)blackJ2507-2/
+VCC -> redgrabber resistance, (3)blackactual U2900pin3 -> redU2901grabber ONLY if
+safely accessible with clip seated. If covered, report inaccessible; do not move
+working clip just for that check. Leave Pi unplugged and report values/OL.
+No10k, direct ground, reset assertion, SPI or new flash read/write. Shutdown,
+new grabber placement and actual RESET readings not yet reported.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A POWER POLARITY CORRECTED — 2026-11-03, 18:20 EST
 CURRENT MAP: J2507 pin2 = VCC -> actual flash physical2; J2507 pin8 = ground
 -> actual flash physical10. Owner explicitly admits using RED PAINT as pin1,
