@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Owner reports complete positive series path 99.4 ohms. Immediate 20 mA OCP remains unresolved; next selected control is bench supply with resistor alone and router fully disconnected, settings unchanged.",
+  "status": "Resistor-only control holds at reported 1.763 V / 0.017 A with CV-to-CC transition; prior board-connected OCP confirmed as actual output shutdown/alarm. Next selected board characterization lowers normal limit to 0.010 A, retains enabled OCP 0.020 A, 1.80 V ceiling and 100-ohm resistor; result pending.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -50,7 +50,7 @@
     "prerequisites": "Identity and listed power/cable/coin-cell/Pi USB-C isolation confirmed. Preserve that state. Before handling confirm J2507-8 to 2 residual 0 V. Remove all Pi/adapter/CH341A-to-board paths, old parallel supply connections and any RESET resistor/ground connection. Keep RESET grabber free. No native router power; assembly/cooling state not newly restated.",
     "first_topology": "Supply-only: bench negative -> J2507-2/GND; bench positive -> existing isolated/measured nominal 100-ohm (previously 99-ohm) resistor -> J2507-8/VCC. Use separate breadboard strips for resistor legs. Clip may remain physically seated with entire cable/adapter connection electrically disconnected and free contacts insulated. All adapter/Pi/CH341A paths absent; U2901 RESET lead free.",
     "settings": "Jesverty OUT OFF, CHG and OPN disabled; normal voltage preset 1.80 V and normal current-limit preset 0.020 A. In separate OCP screen set 0.020 A and enable OCP. Keep series resistor for first comparison; 20 mA is a cautious diagnostic starting setting, not established safe/adequate operating current. With 99 ohms, ideal branch limit at 1.8 V is about 18.2 mA.",
-    "pending_measurements": "New series-path result 99.4 ohms accepted. Next control isolates router completely and connects only nominal 100-ohm resistor across supply + and -, retaining 1.80 V/0.020 A current limit/0.020 A OCP. Record DC volts/current/CV-CC/OCP during one output enable, then off. Result pending; no board retry or setting increase.",
+    "pending_measurements": "One planned board characterization at normal limit 0.010 A, OCP 0.020 A enabled, 1.80 V ceiling and retained 100-ohm resistor; restore board topology after removing resistor-only negative return. Measure A/B to J2507-2, display current, CV/CC and stability, then OUT off. Stop on OCP/source >2 V/unexpected activity. No result yet.",
     "later_spi": "Complete Pi/adapter/target wiring and power sequencing remain unqualified. Need stable loaded target rail within 1.7-2.0 V, understood load and a verified supply separation/translation arrangement before SPI. No automatic resistor bypass, current increase, RESET assertion or read."
   },
   "performed_by_agent": "Read-only local evidence/reference review and repository documentation only. No SSH, serial, GPIO, SPI, supply command, flash acquisition/write or router test.",
@@ -142,6 +142,58 @@
       "Expect approximately 1.8 V and 0.018 A in CV for the resistor-only control, subject to actual supply/protection behavior. Report result before reconnecting router."
     ],
     "limits": "Passing this resistor-only control would not qualify the router load or dynamic startup behavior; a trip would show that this symptom can occur without the router. No new powered control result yet.",
-    "agent_action": "Evidence review/documentation only; no electrical, SSH, serial, GPIO or SPI access."
+    "agent_action": "Evidence review/documentation only; no electrical, SSH, serial, GPIO or SPI access.",
+    "control_outcome": "Owner subsequently reports 1.763 V DC and 0.017 A, initially CV then CC; see whole_path_and_resistor_control. Do not label a sustained CV pass."
+  },
+  "whole_path_and_resistor_control": {
+    "recorded_at": "2026-11-03T17:50:36-05:00",
+    "whole_path": {
+      "ohms": 641.8,
+      "owner_endpoints": "From supply in, through 100-ohm resistor, wire to J2507 pin 8, through board and out J2507 pin 2.",
+      "limitations": "Supply disconnection, zero residual DC, meter polarity/range and probe baseline not separately restated. Retain as a distinct owner whole-path resistance report, not a chip resistance or steady operating load model."
+    },
+    "resistor_only_control": {
+      "meter_voltage_v_dc": 1.763,
+      "supply_display_current_a": 0.017,
+      "mode": "Owner explicitly says it started in CV and then switched to CC.",
+      "fixture": "In response to requested supply + -> nominal 100-ohm resistor -> supply - control with router completely disconnected; numeric reply does not separately restate each connection or duration.",
+      "requested_settings": "1.80 V, normal current limit 0.020 A, enabled OCP trip 0.020 A, unchanged.",
+      "comparison": "1.763 V / historical isolated 99 ohms is approximately 17.8 mA, broadly consistent with displayed 17 mA; not an independent precision current measurement. CC transition means voltage regulation was not maintained throughout. No calibrated current-limit accuracy or startup waveform established."
+    },
+    "interpretation": [
+      "Whole-path 641.8 ohms does not supersede the 99.4-ohm positive series path; endpoints differ. Do not infer current at 1.8 V from an ohmmeter measurement through semiconductor circuitry.",
+      "Manual distinguishes CC current regulation with active output from OCP alarm/output shutdown. The observed resistor-only CV-to-CC change is not itself an OCP trip.",
+      "Earlier board-connected immediate OCP was owner-described. Ask whether output actually shut off with flashing/alarming OCP or only CC illuminated; retain original report pending clarification."
+    ],
+    "next": "Prior CC-versus-OCP question resolved. Next is one lower-normal-current board characterization as specified in ten_ma_board_trial; no OCP/voltage increase.",
+    "performed_by_agent": "Local evidence and manufacturer-manual review/documentation only; no hardware, SSH, serial, GPIO or SPI operation.",
+    "earlier_ocp_clarification": {
+      "recorded_at": "2026-11-03T17:51:21-05:00",
+      "owner_answer": "Output shut off; OCP flashed/alarmed",
+      "interpretation": "Confirms earlier board-connected actual OCP shutdown, not a mislabeled CC transition. No reason or waveform established."
+    }
+  },
+  "ten_ma_board_trial": {
+    "selected_at": "2026-11-03T17:51:21-05:00",
+    "status": "Planned only, no reported assembly/power/result yet.",
+    "reason": "Prior equal 20 mA current-limit/OCP settings produced resistor-only CC around displayed 17 mA, while board connection tripped actual OCP. Lowering normal current limit to 10 mA gives nominal separation from unchanged 20 mA shutdown threshold; it may permit regulated characterization but does not prove nuisance trip or guarantee startup behavior.",
+    "settings": {
+      "voltage_preset_v": 1.8,
+      "normal_current_limit_a": 0.01,
+      "ocp_trip_a": 0.02,
+      "ocp_enabled": true,
+      "series_resistor_nominal_ohms": 100,
+      "CHG": "off",
+      "OPN": "off"
+    },
+    "sequence": [
+      "OUT off, supply off/leads unplugged while changing wiring; verify residual approximately 0 V before reconnecting. Preserve confirmed router native power/cables/coin-cell isolation and keep Pi/adapter/CH341A absent.",
+      "Remove resistor-only return connection from resistor board-side leg to supply black -. Restore supply + -> resistor source-side A -> 100-ohm resistor -> board-side B -> J2507-8; supply black - -> J2507-2. No direct B-to-supply-negative wire remains. RESET grabber free.",
+      "With OUT off set normal current limit 0.010 A; retain 1.80 V and separately enabled OCP 0.020 A. Do not alter or bypass series resistor.",
+      "Meter COM/V-ohm, DC volts. Black meter probe stays J2507-2; verify board residual approximately 0 V. Enable supply OUT once, measure A and B sequentially by moving only red meter probe, then note display current and CV/CC.",
+      "Turn OUT off after brief readings. If OCP trips, source exceeds 2.0 V or unexpected board activity/warming occurs, leave/switch OUT off and report; no restart or setting increase."
+    ],
+    "interpretation_limits": "CC and source/board voltage below 1.8 V can be expected in current-limited characterization. Board must not be connected to SPI or treated as read-qualified. Actual A/B/current/mode/stability pending.",
+    "agent_scope": "Documentation/reference review only; no hardware control."
   }
 }

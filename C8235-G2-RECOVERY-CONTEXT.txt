@@ -10,6 +10,34 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A RESISTOR CONTROL 1.763 V / 17 mA, CV TO CC — 2026-11-03, 17:50 EST
+Owner reports complete source/resistor/J2507-8/board/J2507-2 path 641.8 ohms.
+This is separate from positive-only series path 99.4 ohms; fresh power/residual,
+polarity/range/baseline not restated. Do not use it as a fixed operating load.
+Requested resistor-only control reports meter 1.763 V DC and supply display
+0.017 A; follow-up explicitly says started CV then switched CC. Ratio using
+historical isolated 99 ohms is about 17.8 mA, broadly consistent with display;
+no precision current-limit accuracy or waveform qualification. Not a sustained
+CV pass. Requested 1.80 V / 0.020 A normal limit and OCP remain unchanged.
+
+Manufacturer manual distinguishes CC (current regulation, output active) from
+OCP (output shutdown/alarm). Owner explicitly confirms earlier board-connected
+output shut off and OCP flashed/alarmed; that was a real trip, cause unresolved.
+Next selected characterization lowers ONLY normal current limit to 0.010 A;
+retain 1.80 V ceiling, enabled OCP trip 0.020 A, nominal 100-ohm resistor and
+CHG/OPN off. This gives nominal regulation/trip separation, not proven trip
+cause or startup guarantee. OUT/supply off for changes, verify zero residual.
+Remove resistor-only return from resistor leg B to supply negative, then
+restore supply + -> resistor A -> resistor -> B/J2507-8; supply - -> J2507-2.
+No direct B-to-negative connection remains; Pi/adapter/CH341A absent, native
+router isolation retained and RESET grabber free. With DC meter black J2507-2,
+enable OUT once and move only red probe A then B; record current/CV-CC/stability,
+then OUT off. Stop for OCP, source >2 V or unexpected activity/warming; no retry
+or setting increase. CC/low rail is diagnostic, not SPI qualification.
+Result pending. No new agent hardware access; control duration/final physical
+off not separately restated. No firmware read/write or bank assignment.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A SERIES PATH 99.4 OHMS / RESISTOR-ONLY CONTROL — 2026-11-03, 17:43 EST
 Owner reports 99.4 ohms in response to loose positive supply-lead tip -> J2507-8
 check. Accept expected approximately 100-ohm path; this is not a fresh isolated
