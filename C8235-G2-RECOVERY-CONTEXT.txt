@@ -10,6 +10,27 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A 10 mA TRIAL HOLDS / BOARD 0.396 V — 2026-11-03, 17:58 EST
+Owner reports no OCP, CC active, resistor source A=1.161 V DC, board B=0.396 V
+DC, supply display 0.006 A. Follow-up explicitly confirms steady and OUT off.
+Prior settings: 1.80 V ceiling, normal limit 0.010 A, enabled OCP 0.020 A,
+nominal 100-ohm resistor retained, Pi/adapter absent and router isolated.
+Difference 0.765 V / historical isolated 99 ohms implies about 7.7 mA through
+resistor; preserve separately from displayed 6 mA and nominal 10 mA setting.
+No precision calibration, OCP-cause or component/backfeed diagnosis follows.
+Board rail is below 1.7-2.0 V flash range; no SPI/read qualification.
+
+Next selected is ONE additional point with same wiring/resistor and voltage:
+OUT off, change only normal current limit to 0.015 A; keep enabled OCP 0.020 A
+and 1.80 V. DC black J2507-2, enable OUT once, after about five seconds measure
+A then B with red probe only; record current/CV-CC/steadiness, then OUT off.
+Stop on OCP, A >2.0 V or unexpected activity/warming; no restart/higher setting.
+If B remains near 0.4 V, stop current escalation and investigate shared-rail
+loading. No resistor bypass, 200 mA step, voltage increase or Pi connection.
+This compares board-voltage response at another bounded operating point; no
+new result yet. Agent only reviewed/documented owner measurements.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A RESISTOR CONTROL 1.763 V / 17 mA, CV TO CC — 2026-11-03, 17:50 EST
 Owner reports complete source/resistor/J2507-8/board/J2507-2 path 641.8 ohms.
 This is separate from positive-only series path 99.4 ohms; fresh power/residual,
