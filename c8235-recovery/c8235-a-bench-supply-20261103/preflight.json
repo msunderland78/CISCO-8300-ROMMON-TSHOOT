@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Owner reports immediate OCP at 0.020 A; separately confirms normal current limit and OCP trip both 0.020 A. Loaded A/B/current/stability unreported; hold output off and check new series path unpowered.",
+  "status": "Owner reports complete positive series path 99.4 ohms. Immediate 20 mA OCP remains unresolved; next selected control is bench supply with resistor alone and router fully disconnected, settings unchanged.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -50,7 +50,7 @@
     "prerequisites": "Identity and listed power/cable/coin-cell/Pi USB-C isolation confirmed. Preserve that state. Before handling confirm J2507-8 to 2 residual 0 V. Remove all Pi/adapter/CH341A-to-board paths, old parallel supply connections and any RESET resistor/ground connection. Keep RESET grabber free. No native router power; assembly/cooling state not newly restated.",
     "first_topology": "Supply-only: bench negative -> J2507-2/GND; bench positive -> existing isolated/measured nominal 100-ohm (previously 99-ohm) resistor -> J2507-8/VCC. Use separate breadboard strips for resistor legs. Clip may remain physically seated with entire cable/adapter connection electrically disconnected and free contacts insulated. All adapter/Pi/CH341A paths absent; U2901 RESET lead free.",
     "settings": "Jesverty OUT OFF, CHG and OPN disabled; normal voltage preset 1.80 V and normal current-limit preset 0.020 A. In separate OCP screen set 0.020 A and enable OCP. Keep series resistor for first comparison; 20 mA is a cautious diagnostic starting setting, not established safe/adequate operating current. With 99 ohms, ideal branch limit at 1.8 V is about 18.2 mA.",
-    "pending_measurements": "The first loaded comparison tripped OCP immediately at confirmed 0.020 A normal limit and OCP. A/B/current/stability remain unreported. Hold off; next check is zero residual DC, lead baseline and loose positive supply-lead tip to J2507-8 resistance, approximately 100 ohms expected. No powered repeat or current increase selected.",
+    "pending_measurements": "New series-path result 99.4 ohms accepted. Next control isolates router completely and connects only nominal 100-ohm resistor across supply + and -, retaining 1.80 V/0.020 A current limit/0.020 A OCP. Record DC volts/current/CV-CC/OCP during one output enable, then off. Result pending; no board retry or setting increase.",
     "later_spi": "Complete Pi/adapter/target wiring and power sequencing remain unqualified. Need stable loaded target rail within 1.7-2.0 V, understood load and a verified supply separation/translation arrangement before SPI. No automatic resistor bypass, current increase, RESET assertion or read."
   },
   "performed_by_agent": "Read-only local evidence/reference review and repository documentation only. No SSH, serial, GPIO, SPI, supply command, flash acquisition/write or router test.",
@@ -123,6 +123,25 @@
       "Record probes-together lead baseline. In ohms, measure from the loose positive supply-lead tip (the end removed from supply +) to J2507 pin 8. This tests the complete new series path with the resistor still installed.",
       "Expected approximately 100 ohms, based on earlier isolated resistor 99 ohms; near zero suggests a resistor bypass/wrong node, OL suggests an open path. Report actual value and baseline; leave unpowered."
     ],
-    "not_performed": "No new agent electrical/SSH/serial/GPIO/SPI action. No follow-up resistance or loaded voltage measurement reported."
+    "not_performed": "No new agent electrical/SSH/serial/GPIO/SPI action. No follow-up resistance or loaded voltage measurement reported.",
+    "unpowered_check_outcome": "Owner subsequently reports 99.4 ohms for requested full series path; see series_path_result. Fresh probe baseline remains unreported."
+  },
+  "series_path_result": {
+    "recorded_at": "2026-11-03T17:43:34-05:00",
+    "owner_report": "99.4 ohms",
+    "endpoints": "Loose positive supply-lead tip (removed from supply +) to J2507 pin 8, in response to exact requested full-series-path check.",
+    "ohms": 99.4,
+    "measurement_limits": "Requested supply disconnection and zero-DC conditions not separately restated in numeric reply. Fresh shorted-probe baseline not supplied. This is a path measurement, not a new isolated resistor measurement.",
+    "interpretation": "Consistent with the nominal 100-ohm series path and prior isolated 99-ohm resistor. Supports that resistor is present in the measured path; does not exclude every alternate source-to-ground branch or determine startup/protection behavior.",
+    "next_control": [
+      "Keep OUT off while changing wiring. Supply leads disconnected during changes; Pi/adapter/CH341A and native router power/cables/coin-cell remain disconnected.",
+      "Disconnect both J2507 board leads from the breadboard/supply fixture and insulate their free ends. No router/clip/adapter connection may remain in this test circuit; clip may remain physically seated with its cable electrically isolated.",
+      "Connect supply red + to one end of the same nominal 100-ohm resistor and supply black - to the other end. Use separate breadboard connection strips for resistor ends; no board wire on either strip.",
+      "Retain 1.80 V preset, normal current limit 0.020 A and separately enabled OCP trip 0.020 A, CHG/OPN off. No setting increase or OCP disable.",
+      "Meter COM/V-ohm inputs, DC volts, red on resistor + side and black on resistor - side. Enable OUT once, record measured voltage, displayed current, CV/CC and whether OCP trips; turn OUT off after readings. If OCP trips leave output off.",
+      "Expect approximately 1.8 V and 0.018 A in CV for the resistor-only control, subject to actual supply/protection behavior. Report result before reconnecting router."
+    ],
+    "limits": "Passing this resistor-only control would not qualify the router load or dynamic startup behavior; a trip would show that this symptom can occur without the router. No new powered control result yet.",
+    "agent_action": "Evidence review/documentation only; no electrical, SSH, serial, GPIO or SPI access."
   }
 }

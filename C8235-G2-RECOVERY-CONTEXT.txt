@@ -10,6 +10,26 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A SERIES PATH 99.4 OHMS / RESISTOR-ONLY CONTROL — 2026-11-03, 17:43 EST
+Owner reports 99.4 ohms in response to loose positive supply-lead tip -> J2507-8
+check. Accept expected approximately 100-ohm path; this is not a fresh isolated
+resistor value. Fresh probe baseline/residual DC not separately supplied.
+Result supports resistor in measured path; other branches and supply startup/
+protection behavior remain unresolved. Immediate 20 mA OCP remains preserved.
+
+Next selected control keeps router entirely out of the circuit: with OUT off
+and source leads disconnected during changes, detach both J2507 leads from
+breadboard/supply fixture and insulate. Pi/adapter/CH341A stay disconnected;
+seated clip may remain only with cable electrically isolated. Connect supply
+red + -> same nominal 100-ohm resistor -> supply black -, resistor legs in
+separate breadboard strips and no router wires on either strip. Retain 1.80 V,
+normal current limit 0.020 A and enabled OCP trip 0.020 A, CHG/OPN off. Meter DC
+across resistor. Enable OUT once; report volts/current/CV-CC or OCP, then OUT
+off. Expected about 1.8 V/0.018 A in CV if control holds. If OCP trips leave off;
+no setting increase or board reconnection yet. A pass would not qualify router
+load; a trip would reproduce symptom without router. Control result pending.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A IMMEDIATE OCP AT 20 mA — 2026-11-03, 17:39 EST
 Owner reports supply immediately enters OCP at 0.02 A, then explicitly confirms
 normal current limit and separate OCP trip BOTH 0.020 A. That was the selected
