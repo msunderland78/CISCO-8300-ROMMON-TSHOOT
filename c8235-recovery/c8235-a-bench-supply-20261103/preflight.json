@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Owner reseated U2900 clip with corrected orientation; OUTPUT4-to-J2507-8 and OUTPUT8-to-J2507-2 each 0.8 ohm. Pi starts normally; corrected rail 1.721 V DC steady, same level shifter used, bench completely disconnected. RESET qualification must be redone; next is Pi-off actual U2901 pin3 contact/VCC/reset-pair checks, no SPI.",
+  "status": "Corrected U2900 clip gives normal Pi startup and steady +1.721 V at J2507-2/VCC to J2507-8/GND. Fresh U2901 actual pin3 grabber contact 0.7 ohm; RESET-to-VCC 1000 ohm; U2900-to-U2901 actual RESET pair 2000 ohm. Pull-up topology and powered independence unresolved. Next: native VCC/both RESET DC baseline with free grabber, same Pi/1.8 V adapter only; no pull-down or SPI.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -429,7 +429,7 @@
   },
   "reset_requalification": {
     "selected_at": "2026-11-03T18:28:26-05:00",
-    "status": "Planned unpowered checks only; Pi shutdown/unplug, grabber placement and new values not yet reported.",
+    "status": "Fresh corrected-pin contact/VCC/reset-pair readings reported. Owner now confirms Pi still shut down and adapter actually disconnected. Native RESET voltages and powered independence not measured; fresh residual DC and probe baseline not reported.",
     "target": "Unused U2901 actual SOIC16 physical pin3 / RESET#, while U2900 remains clipped as intended read target.",
     "pin_identity": "Count from molded black pin1 dimple, not red paint. In PHOTOS2/IMG_1302 orientation, U2901 pin3 is bottom-row third leg from left; pin2/VCC is immediately before it. Micron Figure6 identifies dedicated pin3 RESET#.",
     "sequence": [
@@ -441,6 +441,58 @@
       "Only if actual U2900 pin3 solder foot is safely accessible with clip seated, measure black actual U2900 pin3 to red U2901 grabber free end in ohms. If covered/unclear, report inaccessible; do not reseat the working clip just for this step.",
       "Leave Pi unplugged and grabber free, report contact/VCC/reset-pair readings plus baseline. No 10k resistor, direct ground jumper, reset assertion or SPI."
     ],
-    "later": "After actual-net screens and accessible endpoints are assessed, choose an appropriate native RESET/supply voltage check before any reset assertion. Full signal/power/read qualification remains separate."
+    "later": "Review native VCC and both RESET voltages before choosing a measured, bounded reset load test. No resistor value or direct grounding selected; signal mapping and full read qualification remain pending.",
+    "reported_results": {
+      "recorded_at": "2026-11-03T18:38:50-05:00",
+      "raw_owner_report": "u2901 pin 3 grabber to J2507 pin 2 = 1000 ohms ... u2900 pin 3 to u2901 pin 3 grabber = 2000 ohms",
+      "contact_followup": "0.7 ohms is the grabber resistance",
+      "contact_question_scope": "Question explicitly requested actual U2901 pin-3 solder foot to grabber free end; accept owner follow-up as the contact result. Initial contact reply did not address power state; subsequent shutdown/adapter-disconnected confirmation is recorded in power_followup.",
+      "measurements": [
+        {
+          "from": "Actual U2901 physical pin3 / RESET# solder foot",
+          "to": "Grabber free end",
+          "ohms": 0.7
+        },
+        {
+          "from": "U2901 physical pin3 / RESET# grabber",
+          "to": "J2507 pin2 / corrected VCC",
+          "ohms": 1000
+        },
+        {
+          "from": "Actual U2900 physical pin3 / RESET#",
+          "to": "U2901 physical pin3 / RESET# grabber",
+          "ohms": 2000
+        }
+      ],
+      "meter_and_state_limits": "Reported units are ohms. Owner confirms Pi shut down and adapter disconnected. Fresh probes-touching baseline, range, exact polarity, stability and zero-residual reading were not supplied; no lead subtraction or residual-voltage confirmation fabricated.",
+      "interpretation": [
+        "0.7 ohm is a low-resistance grabber contact result; no lead-resistance subtraction fabricated.",
+        "1000 ohm to VCC and 2000 ohm between RESET pins are consistent with about 1 kohm from each RESET to shared VCC, but do not prove resistor topology or independent powered reset control.",
+        "These fresh physical-pin readings supersede the earlier wrong-orientation OL/contact interpretations; raw historical results remain preserved.",
+        "Do not automatically reuse the C8375 10 kohm pull-down. With an assumed 1 kohm pull-up, a 10 kohm pull-down would leave approximately 1.565 V at VCC=1.721 V, above VIH minimum 0.7*VCC. Actual network remains unverified."
+      ],
+      "datasheet_reference": {
+        "url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+        "document": "Micron MT25QU256ABA, Rev. L 02/2024",
+        "pinout": "Figure6, printed page12: physical3 RESET#, internal pull-up",
+        "input_thresholds": "Table47, printed page82: VIL maximum 0.3*VCC; VIH minimum 0.7*VCC"
+      },
+      "agent_action": "Local documentation and datasheet review only; no SSH/serial/GPIO/SPI, reset assertion or flash access.",
+      "power_followup": "Owner: pi is still shut down, adapter actually disconnected. Accept shutdown and adapter disconnection; exact disconnected interface and USB-C unplug were not specified. Bench/native source isolation retained from prior explicit confirmation."
+    },
+    "next_native_voltage_check": {
+      "selected_at": "2026-11-03T18:38:50-05:00",
+      "status": "Planned; no native RESET voltage results yet.",
+      "sequence": [
+        "Start with Pi shut down and USB-C unplugged. Keep both bench leads completely disconnected and native router power/console/USB/network/coin-cell disconnected. Leave corrected U2900 clip and U2901 actual pin3 grabber in place; grabber free end has no resistor/ground connection. Reconnect the same 1.8 V adapter in the previous arrangement that gave steady +1.721 V, with all power off.",
+        "Before powering, verify residual DC is approximately zero, then recheck adapter OUTPUT4 to J2507 pin8/GND and OUTPUT8 to J2507 pin2/VCC, each near the earlier 0.8 ohm. If either differs substantially or is open, stop and report rather than power. No resistor or reset-ground connection.",
+        "Meter leads in COM and V/ohm sockets; switch to DC volts before powering. Black meter reference is J2507 pin8 / GND throughout.",
+        "Power only the Pi through its normal USB-C supply, using the same 1.8 V level-shifting adapter and corrected clip. No SPI command.",
+        "Measure red J2507 pin2 / VCC first. If below 1.70 V or above 2.00 V, stop, shut down/unplug Pi and report; do not raise voltage.",
+        "If VCC is in range, measure red on free U2901 actual pin3 grabber end. Then measure actual U2900 physical pin3 only if its solder foot is safely accessible without moving the clip or bridging adjacent legs; otherwise report inaccessible.",
+        "Record VCC and both RESET DC readings and steadiness. Shut down Pi normally and unplug USB-C afterward; leave grabber free. No pull-down, direct grounding, bench power or SPI operation."
+      ],
+      "purpose": "Establish native RESET levels relative to present positive VCC before selecting any reset load/assertion test; static voltages alone do not establish reset independence or safe full flash access."
+    }
   }
 }

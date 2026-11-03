@@ -10,6 +10,37 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A ACTUAL RESET RESISTANCES / CONTACT — 2026-11-03, 18:38 EST
+C8235-A/FGL2835L42B, board FOC28292GUQ; U2900 remains intended read target.
+Owner reports U2901 actual pin3 grabber -> J2507-2/VCC =1000ohm;
+actual U2900 pin3 -> U2901 pin3 grabber =2000ohm. Follow-up answer to explicit
+actual U2901 pin3 solder-foot -> free grabber-end check: 0.7ohm grabber resistance.
+Accept low-resistance contact. Owner then confirms Pi still shut down, adapter
+actually disconnected. Exact adapter separation point/USB-C unplug not stated.
+Probe baseline, fresh zero residual and range not supplied; do not invent them.
+Earlier wrong-orientation OL results remain history.
+
+Values are consistent with about1kohm pulls from each RESET to shared VCC,
+but do not establish exact components or independent powered RESET control.
+A10kohm pull-down against an assumed1kohm pull-up leaves about1.565V at1.721V
+VCC, still high. Do not automatically reuse C8375 pull-down recipe or hard-ground
+RESET. Micron Rev.L Table47: VILmax0.3*VCC, VIHmin0.7*VCC; Figure6 actualpin3
+RESET# has internal pull-up. Source and calculation recorded in evidence JSON.
+
+Next selected, not performed: start Pi shut down/USB-C unplugged; bench leads
+fully disconnected, native router power/cables/coin-cell isolated. Keep corrected
+U2900 clip and actual U2901pin3 grabber; free end has no resistor/ground tie.
+Reconnect same adapter in prior1.721V arrangement while Pi USB-C unplugged.
+At zero residual, recheck OUTPUT4->J2507-8 and OUTPUT8->J2507-2 each near earlier
+0.8ohm; stop if substantially different/open. Then switch meter to DC volts with COM/V-ohm inputs before powering only Pi through
+same1.8V adapter. Black reference J2507-8/GND; red J2507-2/VCC first. If outside
+1.70-2.00V, stop/shut down/unplug and report; no voltage increase. If in range,
+read free U2901RESET grabber then safely accessible actual U2900pin3 solder foot
+without moving clip or bridging legs; report inaccessible if blocked. Record
+steadiness, shut down/unplug Pi afterward. No native RESET results, pull-down,
+reset assertion, SPI/read/write or agent hardware access in this checkpoint.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A CORRECTED CLIP / PI STARTS / STEADY +1.721 V — 2026-11-03, 18:28 EST
 Owner advances independently: U2900 clip reseated in correct direction; reports
 OUTPUT4 -> J2507-8/GND =0.8ohm, J2507-2/VCC -> OUTPUT8 =0.8ohm, then normal Pi5
