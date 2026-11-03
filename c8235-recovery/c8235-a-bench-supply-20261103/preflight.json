@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Corrected VCC, U2901 actual RESET grabber and U2900 clip wire leading to actual physical pin3 all steady at 1.72 V DC relative to J2507-8/GND. Owner resolved endpoint wording; no repeat baseline required. Nominal 1 kohm resistor available, isolated value pending. Next is conditional bounded 1 kohm U2901 RESET load with VCC/U2900 monitoring, no SPI; no load result yet.",
+  "status": "Corrected VCC, U2901 actual RESET grabber and U2900 clip wire leading to actual physical pin3 all steady at 1.72 V DC relative to J2507-8/GND. Owner resolved endpoint wording; no repeat baseline required. Nominal 1 kohm resistor measures 986 ohms, owner reported; suitable for selected load test. Next is conditional bounded 1 kohm U2901 RESET load with VCC/U2900 monitoring, no SPI; no load result yet.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -506,7 +506,6 @@
       "fixture": "Requested same Pi/1.8 V level shifter/corrected U2900 clip; U2901 grabber free; bench and native router sources/cables/coin-cell disconnected under preceding confirmation. No new signal harness qualification reported.",
       "interpretation": "VCC is within 1.7-2.0 V near minimum; both actual RESET pins are high at the reported steady baseline. Equal levels do not demonstrate independent RESET control, SPI margin, flash health or successful reads.",
       "pending": [
-        "Isolated measured resistance of available nominal 1 kohm resistor; local verification 950-1050 ohms is required before using selected conditional load procedure",
         "Post-test Pi USB-C unplug not explicitly reported; required before any resistor wiring",
         "Actual loaded VCC/U2901 RESET/U2900 RESET values and steadiness"
       ],
@@ -528,12 +527,19 @@
     },
     "next_load_preparation": {
       "selected_at": "2026-11-03T18:45:08-05:00",
-      "status": "Nominal 1 kohm part available; owner is measuring it. U2900 endpoint clarified. Conditional procedure selected below; no load attached or tested yet.",
+      "status": "Part value reported: 986 ohms, within selected 950-1050-ohm range. No connection or load result reported; power-off wiring prerequisites still apply.",
       "resistor_requested_ohms": 1000,
       "instruction": "Shut down Pi normally and physically unplug USB-C, keep bench/native sources disconnected. Measure nominal 1 kohm resistor by itself, disconnected from board. Proceed with selected bounded procedure only if approximately 1 kohm (950-1050 ohms); otherwise report value and leave unconnected.",
       "rationale": "A 1 kohm load to ground would limit its branch to about 1.72 mA even if driven at full present rail. If the RESET source behaves like a 1 kohm pull-up, expected loaded RESET is about 0.86 V; this is a diagnostic intermediate level, not a valid reset-low qualification. Compare VCC and actual U2900 RESET to detect coupling before selecting a stronger pull-down.",
       "not_selected": "No direct ground jumper, smaller resistor, increased supply voltage, SPI command or firmware operation.",
-      "availability": "Owner has nominal 1 kohm resistor and will measure it; numeric isolated value pending."
+      "availability": "Owner has nominal 1 kohm resistor; subsequently reports isolated measurement 986 ohms.",
+      "measured_resistor": {
+        "recorded_at": "2026-11-03T18:50:13-05:00",
+        "nominal_ohms": 1000,
+        "reported_ohms": 986,
+        "owner_report": "the 1k ohm resistor measure 986 ohms",
+        "context": "Response to isolated/off-board measurement request; no new probe-baseline value supplied."
+      }
     },
     "bounded_reset_load_test": {
       "selected_at": "2026-11-03T18:48:40-05:00",
@@ -548,9 +554,10 @@
         "If supply remains in range, measure U2901 RESET at grabber/resistor junction and U2900 actual physical pin3 via its identified clip wire. Record actual voltages and steadiness; do not substitute adapter OUTPUT3.",
         "Shut down normally and unplug Pi USB-C after readings. Leave resistor unchanged until unpowered; do not switch to a smaller value or start SPI based on an intermediate RESET level."
       ],
-      "conditional_prediction": "For a 1 kohm pull-up and 1 kohm load, U2901 RESET about0.86 V and load current about0.86 mA at VCC1.72 V. VCC and U2900 RESET should remain near original1.72 V if uncoupled; this is a prediction, not an observed result.",
-      "load_bound": "At VCC1.72 V and 950-1050-ohm load, full-rail branch current at most about1.81 mA. This current bound alone is not proof of driver topology or complete hardware safety.",
-      "interpretation_limit": "Predicted0.86 V lies between VILmax0.516 V and VIHmin1.204 V at VCC1.72 V. No valid reset-low qualification, stronger pull-down selection or SPI permission follows from prediction."
+      "conditional_prediction": "For an assumed 1 kohm pull-up and measured 986-ohm load, U2901 RESET about0.854 V and load current about0.866 mA at VCC1.72 V. VCC and U2900 RESET should remain near original1.72 V if uncoupled; this is a prediction, not an observed result.",
+      "load_bound": "At VCC1.72 V and measured986-ohm load, full-rail branch current is about1.744 mA (about2.03 mA at maximum2.00 V operating supply). Current bound alone does not establish driver topology or complete hardware safety.",
+      "interpretation_limit": "Predicted0.86 V lies between VILmax0.516 V and VIHmin1.204 V at VCC1.72 V. No valid reset-low qualification, stronger pull-down selection or SPI permission follows from prediction.",
+      "resistor_measured_ohms": 986
     }
   }
 }
