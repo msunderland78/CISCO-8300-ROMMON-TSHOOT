@@ -10,6 +10,24 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A NATIVE VCC / RESET BASELINE — 2026-11-03, 18:45 EST
+C8235-A/FGL2835L42B, board FOC28292GUQ: owner reports J2507-2/VCC1.72V,
+U2901 actual pin3 free grabber1.72V and "clip U2900 pin3"1.72V. Requested
+DC reference black J2507-8/GND; probe colors not separately restated.
+VCC is within1.7-2.0V near minimum; U2901 RESET is high. Clarification pending:
+U2900 actual chip physical3 versus adapter/cable connector3, all-readings
+steadiness, and post-measurement shutdown/USB-C unplug. Do not infer powered
+independence or full hardware/read qualification from matching idle levels.
+
+Next preparation only: shut down/unplug Pi, bench/native sources remain isolated,
+grabber free. Locate nominal1kohm resistor, measure alone off board and report.
+A later1kohm load would predict about0.86V with a1kohm pull-up; this is an
+intermediate input level, not reset assertion. At VCC1.72V, Micron Table47
+VILmax=0.516V and VIHmin=1.204V. Actual network still unresolved. No powered
+load instruction before endpoint/state/resistor clarification; no direct ground,
+stronger pull-down, voltage increase, SPI or flash read/write performed.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A ACTUAL RESET RESISTANCES / CONTACT — 2026-11-03, 18:38 EST
 C8235-A/FGL2835L42B, board FOC28292GUQ; U2900 remains intended read target.
 Owner reports U2901 actual pin3 grabber -> J2507-2/VCC =1000ohm;
