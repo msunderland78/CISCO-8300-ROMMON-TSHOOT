@@ -10,6 +10,42 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A POWER POLARITY CORRECTED — 2026-11-03, 18:20 EST
+CURRENT MAP: J2507 pin2 = VCC -> actual flash physical2; J2507 pin8 = ground
+-> actual flash physical10. Owner explicitly admits using RED PAINT as pin1,
+missing the molded BLACK dimple and counting with 180-degree wrong orientation.
+Initial corrected message said J2504; owner confirms J2507, J2504 was a typo.
+Fresh connections reported, not numerical ohms/full four-way results; exact
+chip designator in that reply not restated. Next preflight explicitly U2900.
+
+WITHDRAW earlier pin8=VCC / pin2=GND wiring. Prior bench positive through resistor
+to8 and negative to2 were reversed relative to actual VCC/VSS. Raw A/B/current
+readings remain unchanged, but B +0.396/+0.418 V at red8/black2 means actual flash
+VCC-to-ground approximately -0.396/-0.418 V. Earlier 0.423 V comparisons likewise
+are not normal positive-VCC loading tests. Polarity explains a plausible clamp
+mechanism; exact path/OCP cause/Pi outage mechanism and damage/health remain
+unverified. Do not claim current limiting proves no damage. Assistant withdrew
+instructions and acknowledged orientation should have been checked earlier.
+
+C8235-A clip signal/power and U2901 RESET-grabber assignments based on wrong
+counting are unqualified; earlier RESET screens are not verified reset-net
+measurements. Separate C8375 successful restore and isolated adapter controls
+are not automatically invalidated. Historical evidence remains preserved;
+November1 mapping/clip/photo records now carry explicit correction notices.
+
+Next unpowered preflight: bench off/both source tips unplugged; Pi/adapter/
+CH341A/native router power/cables/coin-cell remain disconnected. Remove U2900
+clip and U2901 RESET grabber; do not rotate/reuse old harness without remapping.
+Rebuild ONLY loose positive lead -> 100-ohm resistor -> J2507-2, and loose
+negative lead -> J2507-8. Identify actual U2900 legs from molded black dimple:
+in IMG_1302 pin2 bottom second from left, pin10 top second from right. DC2-to10
+must be approximately0V before ohms; record probes-touching baseline. Measure
+loose positive source tip -> actual U2900 physical2 (about100ohms), and loose
+negative source tip -> actual U2900 physical10 (near baseline). Leave both tips
+unplugged/OUT off and report. Corrected rewiring/readings/power test NOT yet
+reported; no SPI/firmware/security action or verified bank assignment.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A CAPACITOR MAP / POWER-PIN AUDIT REQUIRED — 2026-11-03, 18:12 EST
 Owner reports selected 470 capacitor + end 600 ohms, opposite end described as
 where a number is 0.6 ohms. Follow-up explicitly confirms fixed BLACK probe

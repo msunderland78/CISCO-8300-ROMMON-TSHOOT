@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Capacitor mapping reports 600 ohms to + end and 0.6 ohms to opposite numbered end, fixed black probe on J2507-8 explicitly confirmed. Possible polarity/reference conflict; suspend powered use of earlier header map pending direct physical flash-pin cross-check. All power held disconnected.",
+  "status": "CORRECTED: J2507 pin 2 = VCC to actual flash pin 2; pin 8 = ground to physical pin 10. Owner used red paint instead of molded black pin-1 dimple; J2504 was a typo. Earlier powered arrangement was reversed and withdrawn. Rebuild/verify unpowered supply-only paths; no corrected powered result.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -44,13 +44,14 @@
     "Reported paths are consistent with established ground/VCC mapping. They do not measure VCC-to-ground resistance or establish load current, isolation, signal mapping or a safe 200 mA operating point.",
     "J2507-8 maps to physical pin 2/VCC on both U2900 and U2901; J2507-2 maps to physical pin 10/VSS on both. This is a shared board supply, not verified flash-only isolation.",
     "Prior source 1.793 V / board 0.423 V through measured 99 ohms implies about 13.8 mA only at that operating point; no extrapolation to 1.8 V load current.",
-    "Pi GPIO uses 3.3 V logic; the bench supply does not replace signal-level translation. The existing adapter has a regulator and translator; external supply must not be paralleled with its OUTPUT 8."
+    "Pi GPIO uses 3.3 V logic; the bench supply does not replace signal-level translation. The existing adapter has a regulator and translator; external supply must not be paralleled with its OUTPUT 8.",
+    "SUPERSEDED 2026-11-03: earlier list item identifying J2507-8 as VCC/pin2 as ground is withdrawn; see orientation_correction. Raw voltage/current observations remain, their positive-rail interpretations do not."
   ],
   "next_preparation": {
     "prerequisites": "Identity and listed power/cable/coin-cell/Pi USB-C isolation confirmed. Preserve that state. Before handling confirm J2507-8 to 2 residual 0 V. Remove all Pi/adapter/CH341A-to-board paths, old parallel supply connections and any RESET resistor/ground connection. Keep RESET grabber free. No native router power; assembly/cooling state not newly restated.",
     "first_topology": "Supply-only: bench negative -> J2507-2/GND; bench positive -> existing isolated/measured nominal 100-ohm (previously 99-ohm) resistor -> J2507-8/VCC. Use separate breadboard strips for resistor legs. Clip may remain physically seated with entire cable/adapter connection electrically disconnected and free contacts insulated. All adapter/Pi/CH341A paths absent; U2901 RESET lead free.",
     "settings": "Jesverty OUT OFF, CHG and OPN disabled; normal voltage preset 1.80 V and normal current-limit preset 0.020 A. In separate OCP screen set 0.020 A and enable OCP. Keep series resistor for first comparison; 20 mA is a cautious diagnostic starting setting, not established safe/adequate operating current. With 99 ohms, ideal branch limit at 1.8 V is about 18.2 mA.",
-    "pending_measurements": "Powered use of prior J2507-8 VCC / pin-2 ground map suspended pending direct unpowered U2901 physical-pin 2/10 cross-check against header pins 8/2. New capacitor readings + end 600 ohms/opposite 0.6 ohms have confirmed black reference J2507-8. No supply reconnection or blind lead swap.",
+    "pending_measurements": "Corrected unpowered supply preflight: plus lead through retained 100-ohm resistor to J2507-2/VCC; minus lead to J2507-8/GND. Clip and RESET grabber removed, source tips unplugged. Verify zero DC and measure source-tip-to-actual-U2900-pin2 approximately100ohms; negative-tip-to-actual-pin10 near baseline. No corrected powered test yet.",
     "later_spi": "Complete Pi/adapter/target wiring and power sequencing remain unqualified. Need stable loaded target rail within 1.7-2.0 V, understood load and a verified supply separation/translation arrangement before SPI. No automatic resistor bypass, current increase, RESET assertion or read."
   },
   "performed_by_agent": "Read-only local evidence/reference review and repository documentation only. No SSH, serial, GPIO, SPI, supply command, flash acquisition/write or router test.",
@@ -351,6 +352,45 @@
         "red": "U2901 physical pin 2 / VCC"
       }
     ],
-    "after": "Report actual A/B/C/D ohms and probe baseline. Leave unpowered. No pin reassignment or rewiring to supply until results reconcile; no SPI/firmware/security action."
+    "after": "Report actual A/B/C/D ohms and probe baseline. Leave unpowered. No pin reassignment or rewiring to supply until results reconcile; no SPI/firmware/security action.",
+    "outcome": "Owner confirms 180-degree counting mistake and corrected same-header mapping; see orientation_correction. Full four numeric readings not supplied. Next preflight targets actual U2900 supply legs."
+  },
+  "orientation_correction": {
+    "recorded_at": "2026-11-03T18:20:16-05:00",
+    "owner_report": "Owner did not see molded black pin-1 dimple and used red paint as pin 1; explicitly says chip orientation was flipped. Reports actual flash pin 2 connected to header pin 2/VCC, physical pin 10 connected to header pin 8/ground.",
+    "header_typo_resolution": "Initial corrected message said J2504; owner explicitly confirms J2507 and says J2504 was a typo. No new header or J2504 mapping established.",
+    "corrected_header": "J2507",
+    "corrected_mapping": [
+      {
+        "header_pin": 2,
+        "flash_physical_pin": 2,
+        "function": "VCC, nominal 1.8 V"
+      },
+      {
+        "header_pin": 8,
+        "flash_physical_pin": 10,
+        "function": "VSS / ground"
+      }
+    ],
+    "evidence_scope": "Owner-reported connections after recognizing molded black pin-1 dimple. Fresh numeric resistance, complete four-way cross-check, probe baseline and exact flash designator in this reply not separately supplied; do not fabricate them. Next unpowered preflight explicitly uses U2900.",
+    "withdrawn_mapping": "J2507 pin 8 = VCC / pin 2 = ground is withdrawn for C8235-A. Earlier records are retained as incorrectly interpreted pin-number reports, not valid current wiring.",
+    "prior_power_interpretation": "Earlier instructed bench positive -> resistor -> J2507-8 and negative -> J2507-2 were reversed relative to the corrected physical VCC/VSS assignment. Raw red-J2507-8/black-J2507-2 readings retain their recorded signs/endpoints, but actual flash VCC-to-VSS polarity is opposite: 0.396/0.418 V reported B corresponds to approximately -0.396/-0.418 V. Prior 0.423 V source comparisons likewise cannot be treated as normal positive-VCC load qualification.",
+    "conclusion_limits": "Wrong orientation/polarity is a concrete correction and is compatible with the low-voltage/current-limit/OCP behavior. It does not prove the exact clamp path, cause of every earlier Pi outage, whether damage occurred, chip health, bank identity or firmware state. No assurance of no damage follows from current limiting.",
+    "other_assignments": "C8235-A clip signal, VCC/GND and U2901 RESET-grabber assignments based on the mistaken count are unqualified and must be rechecked. Do not preserve the old RESET-to-VCC/RESET-pair screens as verified reset-net evidence. This correction does not automatically invalidate separate C8375 verified restore/fixture history or adapter-only/Pi-only controls.",
+    "responsibility": "Assistant explicitly withdrew earlier powered wiring instructions and acknowledged that orientation should have been verified before guiding powered tests.",
+    "hold": "Keep all sources disconnected. Do not rotate the clip or swap two live leads and resume. Rebuild/verify supply-only paths first; no corrected powered trial or SPI yet selected."
+  },
+  "corrected_supply_preflight": {
+    "selected_at": "2026-11-03T18:20:16-05:00",
+    "status": "Planned unpowered preparation only; no rewiring, new ohms result or corrected-polarity powered test reported.",
+    "sequence": [
+      "Bench OUT off and supply off; both board leads physically unplugged from supply. Pi/adapter/CH341A and all native router power/cables/coin-cell remain disconnected.",
+      "Remove U2900 clip and any U2901 RESET grabber so the old, misoriented harness cannot remain part of the circuit. Do not reuse its signal assignments without a separate full mapping.",
+      "Using actual molded black pin-1 dimple, identify U2900 physical pin 2/VCC and pin 10/VSS. In IMG_1302 orientation, pin 2 is bottom second from left and pin 10 top second from right; red paint is not pin 1.",
+      "Rebuild only loose positive supply lead -> nominal 100-ohm resistor -> J2507 pin 2. Loose negative supply lead -> J2507 pin 8. Keep both source ends unplugged from bench.",
+      "Meter COM/V-ohm, DC volts first: actual U2900 physical 2 relative to 10 approximately 0 V before ohms. Record probes-touching resistance baseline.",
+      "In ohms measure loose positive lead supply-end tip to actual U2900 physical pin 2, approximately 100 ohms expected; then loose negative lead supply-end tip to actual U2900 physical pin 10, close to probe baseline expected. Report actual values and leave source ends unplugged/OUT off."
+    ],
+    "later": "Only after corrected endpoint checks select a bounded supply-only powered measurement; Pi/SPI still excluded pending full target power and eight-signal harness qualification. No new firmware, TPM or configuration action."
   }
 }
