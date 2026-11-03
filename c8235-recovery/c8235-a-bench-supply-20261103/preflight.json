@@ -1,0 +1,85 @@
+{
+  "recorded_at": "2026-11-03T17:17:51-05:00",
+  "tasks": [
+    "C8235-01",
+    "R-01"
+  ],
+  "status": "Owner equipment/continuity report; supply-only preparation proposed, not connected or tested.",
+  "identity": {
+    "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
+    "expected_chassis": "C8235-A / FGL2835L42B",
+    "expected_board": "FOC28292GUQ",
+    "fresh_serial_and_isolation_confirmation": "Owner replied confirmed to grouped chassis FGL2835L42B, board FOC28292GUQ, router power/console/USB/network/coin-cell disconnected and Pi USB-C unplugged question. Accept these explicitly listed conditions; no new assembly/cooling or console process check performed."
+  },
+  "owner_report": {
+    "bench_supply": {
+      "maximum_voltage_v": 30,
+      "maximum_current_a": 10,
+      "reported_voltage_setting_v": 1.8,
+      "reported_ocp_setting_a": 0.2,
+      "make_model": "Jesverty SPS-3010C, owner identified",
+      "leads_connected_to_fixture": false,
+      "output_enable_state": "Not reported",
+      "ocp_vs_cc_behavior": "Manufacturer manual documents separate adjustable current limit and adjustable OCP trip; actual low-current behavior of this unit untested."
+    },
+    "pi": "Owner confirms Pi USB-C unplugged and clip not connected to Pi.",
+    "clip": "Attached to U2900",
+    "resistance_paths": [
+      {
+        "from": "Reported OUTPUT 4",
+        "to": "J2507 pin 2",
+        "ohms": 0.8
+      },
+      {
+        "from": "Reported OUTPUT 8",
+        "to": "J2507 pin 8",
+        "ohms": 0.8
+      }
+    ],
+    "measurement_limits": "OUTPUT interpreted in prior adapter/harness numbering, not physical flash numbering. Fresh lead baseline, meter mode/range, residual DC and actual adapter attachment not separately reported.",
+    "available": "Breadboards and Dupont cables. Grouped confirmed answer does not clearly resolve whether old resistor branch/RESET grabber remains connected; selected preparation removes all old source paths and leaves RESET grabber free."
+  },
+  "interpretation": [
+    "New bench supply availability supersedes the November 1 no-bench-supply state; earlier observations remain historical.",
+    "Reported paths are consistent with established ground/VCC mapping. They do not measure VCC-to-ground resistance or establish load current, isolation, signal mapping or a safe 200 mA operating point.",
+    "J2507-8 maps to physical pin 2/VCC on both U2900 and U2901; J2507-2 maps to physical pin 10/VSS on both. This is a shared board supply, not verified flash-only isolation.",
+    "Prior source 1.793 V / board 0.423 V through measured 99 ohms implies about 13.8 mA only at that operating point; no extrapolation to 1.8 V load current.",
+    "Pi GPIO uses 3.3 V logic; the bench supply does not replace signal-level translation. The existing adapter has a regulator and translator; external supply must not be paralleled with its OUTPUT 8."
+  ],
+  "next_preparation": {
+    "prerequisites": "Identity and listed power/cable/coin-cell/Pi USB-C isolation confirmed. Preserve that state. Before handling confirm J2507-8 to 2 residual 0 V. Remove all Pi/adapter/CH341A-to-board paths, old parallel supply connections and any RESET resistor/ground connection. Keep RESET grabber free. No native router power; assembly/cooling state not newly restated.",
+    "first_topology": "Supply-only: bench negative -> J2507-2/GND; bench positive -> existing isolated/measured nominal 100-ohm (previously 99-ohm) resistor -> J2507-8/VCC. Use separate breadboard strips for resistor legs. Clip may remain physically seated with entire cable/adapter connection electrically disconnected and free contacts insulated. All adapter/Pi/CH341A paths absent; U2901 RESET lead free.",
+    "settings": "Jesverty OUT OFF, CHG and OPN disabled; normal voltage preset 1.80 V and normal current-limit preset 0.020 A. In separate OCP screen set 0.020 A and enable OCP. Keep series resistor for first comparison; 20 mA is a cautious diagnostic starting setting, not established safe/adequate operating current. With 99 ohms, ideal branch limit at 1.8 V is about 18.2 mA.",
+    "pending_measurements": "With all router/Pi/adapter wiring absent, enable only supply output and verify DC voltage/polarity across red + / black - terminals (not green GND); report measured value, disable OUT and verify discharge. Only with near-1.80 V verified and board residual 0 V, assemble stated resistor-limited supply-only topology while output remains OFF. Report unloaded value and completed unpowered wiring; no powered board trial yet selected.",
+    "later_spi": "Complete Pi/adapter/target wiring and power sequencing remain unqualified. Need stable loaded target rail within 1.7-2.0 V, understood load and a verified supply separation/translation arrangement before SPI. No automatic resistor bypass, current increase, RESET assertion or read."
+  },
+  "performed_by_agent": "Read-only local evidence/reference review and repository documentation only. No SSH, serial, GPIO, SPI, supply command, flash acquisition/write or router test.",
+  "references": [
+    "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json",
+    "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json",
+    "c8375-recovery/acquisition-evidence/20261027-Pi5-adapter-photo-inspection.json",
+    "https://www.raspberrypi.com/documentation/computers/raspberry-pi.html",
+    "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+    "https://raw.githubusercontent.com/flashrom/flashrom/main/doc/user_docs/in_system.rst",
+    "https://www.keysight.com/blogs/en/tech/bench/2022/03/02/protect-your-device-against-high-power",
+    "https://www.jesverty.com/products/view?id=21851&lang=en",
+    "https://wsimg.jesverty.com/Upfile/438/Annex/2025/02/21/1740121067.pdf",
+    "https://m.media-amazon.com/images/I/91eGSrhqHRL.pdf"
+  ],
+  "owner_followup": {
+    "adapter": "Owner confirms prior use of the 1.8 V adapter, believes new supply removes need for it. Clarified that Pi 3.3 V SPI still needs 1.8 V translation; supply can replace target power only.",
+    "isolation": "Grouped confirmation accepted as above."
+  },
+  "manufacturer_manual_review": {
+    "manufacturer_url": "https://wsimg.jesverty.com/Upfile/438/Annex/2025/02/21/1740121067.pdf",
+    "read_copy_url": "https://m.media-amazon.com/images/I/91eGSrhqHRL.pdf",
+    "manual_pages": "3-4 specifications/panel; 7-8 controls; 9-10 CV/CC",
+    "findings": [
+      "Voltage resolution 0.01 V, current resolution 0.001 A; display accuracy 0.5% + 5 digits. This is not a calibrated low-current measurement of the target.",
+      "Normal A-COARSE/A-FINE settings govern CV/CC crossover; OCP screen separately adjusts trip point and enable state. OCP trips output off.",
+      "Output uses red positive and black negative. Green GND is a separate grounding terminal. Do not substitute it for output negative.",
+      "Manual presents automatic output OPN and battery-charge CHG modes; leave both disabled for this preparation."
+    ],
+    "limitations": "Manual does not establish connected board current, startup overshoot at 1.8 V or safe current injection into this shared rail."
+  }
+}

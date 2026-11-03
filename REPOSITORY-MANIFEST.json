@@ -1668,9 +1668,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 176297,
+      "bytes": 178613,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "e930d026b347f07943d040c50e3704571272b761adb70c8ccc2ce2167184c915"
+      "sha256": "539039295038a602fc3e818b9cf7dc9160102d207e07142ca2f0b2984e9a58ce"
     },
     {
       "bytes": 106687,
@@ -2168,9 +2168,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 445649,
+      "bytes": 447839,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "d6b617b23b953f839558926e9080b9252d5e33730746999f99b11c30e37fee9f"
+      "sha256": "55f280791235e916d08d8f930972cac67c874c7a0ccd45bfc2ba8d38a18550f9"
     },
     {
       "bytes": 6850655,
@@ -2326,6 +2326,11 @@
       "bytes": 25944,
       "path": "c8235-recovery/bootflash-validation-20261101/results.json",
       "sha256": "4eb51bc4627a08ce08477d5f72e3bd902c847491a492a9472f7d97ff26567baf"
+    },
+    {
+      "bytes": 7191,
+      "path": "c8235-recovery/c8235-a-bench-supply-20261103/preflight.json",
+      "sha256": "53f6bb9b0ae1495954fe63f0ff26b5392f2093932fd7ed0088e8403438823982"
     },
     {
       "bytes": 244774,
@@ -5211,7 +5216,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 327,
-    "included_bytes_without_manifest": 1080586366,
-    "included_files_without_manifest": 666
+    "included_bytes_without_manifest": 1080598063,
+    "included_files_without_manifest": 667
   }
 }

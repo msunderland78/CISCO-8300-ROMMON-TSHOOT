@@ -1,5 +1,5 @@
 C8235-G2 / ARATA PROTOTYPE ROUTER — RECOVERY CONTEXT
-Updated: 2026-11-01, America/New_York
+Updated: 2026-11-03, America/New_York
 Workspace: /Users/games/Documents/SOFTWARE
 
 START HERE
@@ -9,6 +9,39 @@ older status summaries where they differ.
 Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
+
+C8235-A NEW BENCH SUPPLY / UNPOWERED PREPARATION — 2026-11-03, EST
+Owner resumes router number 1, clip attached to U2900; Pi off and clip not
+connected to Pi. New Jesverty SPS-3010C (30 V / 10 A) reportedly set to 1.8 V
+and OCP 0.2 A; its leads have NOT been connected. Breadboards/Dupont available.
+Owner reports OUTPUT 4 -> J2507-2 = 0.8 ohm and OUTPUT 8 -> J2507-8 = 0.8 ohm.
+Retain raw values: no fresh lead baseline or residual DC measurement.
+Owner confirms grouped identity A/FGL2835L42B / board FOC28292GUQ, router power,
+console/USB/network and coin-cell disconnected, Pi USB-C unplugged. Exact old
+resistor/RESET fixture disposition remains ambiguous; remove old source paths
+and leave RESET grabber free for proposed preparation. Assembly/cooling state
+not freshly restated; no native router power or console/programmer action.
+
+New supply supersedes November 1's lack of a bench supply, not its unresolved
+shared-rail loading. J2507-8 feeds both flash VCC pins. These path readings do
+not qualify 200 mA or establish a flash-only supply. Owner suggests adapter is
+no longer needed; corrected: bench supply replaces target power only, Pi 3.3 V
+SPI still needs 1.8 V level translation. Never parallel bench positive with
+adapter OUTPUT 8. Complete combined wiring/power sequencing is unqualified.
+
+Manufacturer manual confirms separate normal current limit and OCP trip.
+Selected preparation: OUT OFF, voltage 1.80 V, normal current limit 0.020 A,
+separate OCP trip 0.020 A/enabled; CHG/OPN disabled. Off-board DC verification
+across red + / black - (not green GND), then OUT off/discharge. After acceptable
+unloaded voltage and J2507 residual 0 V, assemble only supply negative ->
+J2507-2 and positive -> existing nominal 100-ohm series resistor -> J2507-8,
+resistor legs on separate breadboard strips. Pi/adapter/CH341A entirely absent;
+clip may stay physically seated with cable electrically disconnected/insulated.
+Keep OUT OFF and report unloaded voltage plus completed wiring. No board power
+trial selected yet. 20 mA is a cautious starting setting, not established safe
+or adequate current. With 99 ohms, ideal branch limit at 1.8 V is about 18.2 mA.
+No automatic increase/bypass. No SPI/read/write or hardware test by agent.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
 
 OWNER STOP / NEXT-SESSION HANDOFF — 2026-11-01, 15:18 EST
 Owner is stopping work for now. No new hardware action or measurement.
