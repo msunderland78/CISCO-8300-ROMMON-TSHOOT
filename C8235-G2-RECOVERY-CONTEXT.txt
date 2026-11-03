@@ -10,6 +10,17 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A SUPPLY-ONLY WIRING ASSEMBLED / OUT OFF — 2026-11-03, 17:26 EST
+Owner reports all requested wiring done and output not turned on. Accept
+assembly of the preceding supply-only resistor topology; retain confirmed
+chassis/isolation. No unloaded meter value, residual DC, actual settings or
+powered result supplied. Ask for the unloaded voltage if already measured.
+Otherwise keep OUT off, unplug both board leads at the supply (leave board/
+breadboard assembly intact), measure DC directly red + to black - during an
+unloaded OUT-on check, then turn OUT off and report. Pi/adapter stay detached;
+no board energization, resistor bypass, current increase or SPI selected.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A NEW BENCH SUPPLY / UNPOWERED PREPARATION — 2026-11-03, EST
 Owner resumes router number 1, clip attached to U2900; Pi off and clip not
 connected to Pi. New Jesverty SPS-3010C (30 V / 10 A) reportedly set to 1.8 V

@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Owner equipment/continuity report; supply-only preparation proposed, not connected or tested.",
+  "status": "Owner reports supply-only wiring assembled, OUT not enabled; unloaded meter voltage still unreported, no powered board test.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -50,7 +50,7 @@
     "prerequisites": "Identity and listed power/cable/coin-cell/Pi USB-C isolation confirmed. Preserve that state. Before handling confirm J2507-8 to 2 residual 0 V. Remove all Pi/adapter/CH341A-to-board paths, old parallel supply connections and any RESET resistor/ground connection. Keep RESET grabber free. No native router power; assembly/cooling state not newly restated.",
     "first_topology": "Supply-only: bench negative -> J2507-2/GND; bench positive -> existing isolated/measured nominal 100-ohm (previously 99-ohm) resistor -> J2507-8/VCC. Use separate breadboard strips for resistor legs. Clip may remain physically seated with entire cable/adapter connection electrically disconnected and free contacts insulated. All adapter/Pi/CH341A paths absent; U2901 RESET lead free.",
     "settings": "Jesverty OUT OFF, CHG and OPN disabled; normal voltage preset 1.80 V and normal current-limit preset 0.020 A. In separate OCP screen set 0.020 A and enable OCP. Keep series resistor for first comparison; 20 mA is a cautious diagnostic starting setting, not established safe/adequate operating current. With 99 ohms, ideal branch limit at 1.8 V is about 18.2 mA.",
-    "pending_measurements": "With all router/Pi/adapter wiring absent, enable only supply output and verify DC voltage/polarity across red + / black - terminals (not green GND); report measured value, disable OUT and verify discharge. Only with near-1.80 V verified and board residual 0 V, assemble stated resistor-limited supply-only topology while output remains OFF. Report unloaded value and completed unpowered wiring; no powered board trial yet selected.",
+    "pending_measurements": "Wiring reported assembled with OUT off. Unloaded meter reading remains unreported; requested. If not yet measured, disconnect both board leads at supply with OUT off, verify unloaded DC directly at supply +/-, disable OUT and report. Board remains unpowered, Pi/adapter disconnected. Residual DC and current/OCP-setting confirmation still not numerically reported.",
     "later_spi": "Complete Pi/adapter/target wiring and power sequencing remain unqualified. Need stable loaded target rail within 1.7-2.0 V, understood load and a verified supply separation/translation arrangement before SPI. No automatic resistor bypass, current increase, RESET assertion or read."
   },
   "performed_by_agent": "Read-only local evidence/reference review and repository documentation only. No SSH, serial, GPIO, SPI, supply command, flash acquisition/write or router test.",
@@ -81,5 +81,13 @@
       "Manual presents automatic output OPN and battery-charge CHG modes; leave both disabled for this preparation."
     ],
     "limitations": "Manual does not establish connected board current, startup overshoot at 1.8 V or safe current injection into this shared rail."
+  },
+  "assembly_report": {
+    "recorded_at": "2026-11-03T17:26:51-05:00",
+    "owner_report": "All of the requested wiring is done, but output has not been turned on.",
+    "accepted": "Supply-only resistor wiring reported assembled per preceding instructions, with OUT off. Prior chassis/isolation confirmation retained.",
+    "not_inferred": "No numerical unloaded voltage, residual voltage, actual current-limit/OCP-setting verification or powered board result supplied. Do not infer the earlier unloaded check passed from wiring completion.",
+    "next": "Keep OUT off with board connected. Ask for unloaded multimeter reading if already obtained. Otherwise, with OUT off unplug both board leads at the supply terminals, leaving board/breadboard assembly intact; meter in DC volts with leads in COM and V/ohm, measure directly red supply + to black supply - during one unloaded OUT-on check, then OUT off and report reading. No board energization selected.",
+    "hardware_scope": "Owner assembly report only; no agent SSH/serial/GPIO/SPI or supply operation."
   }
 }
