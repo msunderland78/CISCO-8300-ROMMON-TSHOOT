@@ -10,6 +10,31 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A CAPACITOR MAP / POWER-PIN AUDIT REQUIRED — 2026-11-03, 18:12 EST
+Owner reports selected 470 capacitor + end 600 ohms, opposite end described as
+where a number is 0.6 ohms. Follow-up explicitly confirms fixed BLACK probe
+on J2507 pin 8, not pin 2. Preserve both endpoints/raw readings; no new baseline,
+residual DC or steadiness supplied. Original IMG_1298 has a PCB + at one end;
+that does not alone establish ground or either net. Low-ohm opposite-end path
+raises a potential polarity/reference conflict with prior header map, not proof
+of reversed wiring or failed flash. Earlier November 1 mappings remain intact
+as history; their powered-use interpretation is suspended pending direct audit.
+Keep all sources disconnected; no lead swap, voltage/current increase or SPI.
+
+Rechecked Micron Rev.L Figure6 (SOIC16): actual physical2=VCC, physical10=VSS.
+Next use exposed U2901, not clip/adapter contacts. Match IMG_1302: molded pin1
+dot lower-left, bottom row1..8 left-to-right, top row16..9 left-to-right. Thus
+pin2 bottom second from left, pin10 top second from right; red paint is not1.
+Bench off/both board leads unplugged, Pi/adapter/CH341A/native sources/coin-cell
+isolated. DC across actual U2901 pins2/10 must be approximately0V before ohms;
+record probes-touching baseline. Then black header / red actual chip leg:
+A J2507-8 -> U2901 physical10; B J2507-8 -> U2901 physical2;
+C J2507-2 -> U2901 physical10; D J2507-2 -> U2901 physical2.
+Report actual values, leave unpowered. If access/orientation unclear, stop.
+This targeted repeat is justified by new potentially contradictory evidence;
+no new direct-pin measurement, rail reassignment, component change or power test.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A 15 mA POINT / CURRENT RAMP STOPPED — 2026-11-03, 18:02 EST
 Owner reports CC, A=1.671 V DC, B=0.418 V DC, supply display 0.015 A; follow-up
 explicitly confirms steady and OUT off. Nominal normal limit 15 mA, OCP 20 mA,

@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "15 mA comparison completed: steady CC, A 1.671 V / B 0.418 V, supply display 0.015 A; OUT off explicitly confirmed. About 12.7 mA inferred. Current escalation stopped; next is unpowered mapping to photographed nearby capacitor, no new powered trial.",
+  "status": "Capacitor mapping reports 600 ohms to + end and 0.6 ohms to opposite numbered end, fixed black probe on J2507-8 explicitly confirmed. Possible polarity/reference conflict; suspend powered use of earlier header map pending direct physical flash-pin cross-check. All power held disconnected.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -50,7 +50,7 @@
     "prerequisites": "Identity and listed power/cable/coin-cell/Pi USB-C isolation confirmed. Preserve that state. Before handling confirm J2507-8 to 2 residual 0 V. Remove all Pi/adapter/CH341A-to-board paths, old parallel supply connections and any RESET resistor/ground connection. Keep RESET grabber free. No native router power; assembly/cooling state not newly restated.",
     "first_topology": "Supply-only: bench negative -> J2507-2/GND; bench positive -> existing isolated/measured nominal 100-ohm (previously 99-ohm) resistor -> J2507-8/VCC. Use separate breadboard strips for resistor legs. Clip may remain physically seated with entire cable/adapter connection electrically disconnected and free contacts insulated. All adapter/Pi/CH341A paths absent; U2901 RESET lead free.",
     "settings": "Jesverty OUT OFF, CHG and OPN disabled; normal voltage preset 1.80 V and normal current-limit preset 0.020 A. In separate OCP screen set 0.020 A and enable OCP. Keep series resistor for first comparison; 20 mA is a cautious diagnostic starting setting, not established safe/adequate operating current. With 99 ohms, ideal branch limit at 1.8 V is about 18.2 mA.",
-    "pending_measurements": "Current ramp stopped at steady B 0.418 V. Next unpowered map: after full source isolation/zero residual, measure J2507-8 to both ends of photographed 470 capacitor beside R68 below coin-cell holder; record probe baseline. No new powered trial or resistor bypass.",
+    "pending_measurements": "Powered use of prior J2507-8 VCC / pin-2 ground map suspended pending direct unpowered U2901 physical-pin 2/10 cross-check against header pins 8/2. New capacitor readings + end 600 ohms/opposite 0.6 ohms have confirmed black reference J2507-8. No supply reconnection or blind lead swap.",
     "later_spi": "Complete Pi/adapter/target wiring and power sequencing remain unqualified. Need stable loaded target rail within 1.7-2.0 V, understood load and a verified supply separation/translation arrangement before SPI. No automatic resistor bypass, current increase, RESET assertion or read."
   },
   "performed_by_agent": "Read-only local evidence/reference review and repository documentation only. No SSH, serial, GPIO, SPI, supply command, flash acquisition/write or router test.",
@@ -269,7 +269,7 @@
   },
   "passive_power_section_mapping": {
     "selected_at": "2026-11-03T18:02:58-05:00",
-    "status": "Preparation only; no new electrical mapping result.",
+    "status": "Owner capacitor readings obtained; fixed reference confirmed. Electrical rail identity remains unresolved; direct physical-pin audit selected.",
     "photo_review": {
       "originals": [
         "PHOTOS2/IMG_1297.jpeg",
@@ -289,6 +289,68 @@
       "Record probes-together resistance baseline. In ohms, keep one probe on J2507 pin 8 and measure to each capacitor metal end separately: end nearest coin-cell holder, then opposite end. Report actual values/steadiness, not only a beep.",
       "Leave all sources disconnected afterward; do not remove a component, lift a leg, cut a trace, bridge a header, change selector/reset state or inject power at the capacitor."
     ],
-    "limitations": "Continuity would establish a path only, not power direction, intended voltage or a safe disconnect. Board component loading still unresolved."
+    "limitations": "Continuity would establish a path only, not power direction, intended voltage or a safe disconnect. Board component loading still unresolved.",
+    "result": {
+      "recorded_at": "2026-11-03T18:12:25-05:00",
+      "black_probe": "J2507 pin 8, owner explicitly confirmed in follow-up.",
+      "red_probe_measurements": [
+        {
+          "endpoint": "Capacitor end described as side with plus sign",
+          "ohms": 600
+        },
+        {
+          "endpoint": "Opposite capacitor end described as where there is a number",
+          "ohms": 0.6
+        }
+      ],
+      "measurement_limits": "Fresh probe baseline, exact range/polarity at capacitor beyond requested red probe, numerical zero residual and stability not restated. Do not silently swap endpoints or relabel either capacitor terminal as ground.",
+      "photo_review": "Re-viewed original PHOTOS2/IMG_1298.jpeg; PCB + marking visible adjacent to one end of selected 470-marked capacitor near R68. Marking/proximity alone does not establish ground or either rail.",
+      "interpretation": [
+        "0.6-ohm result supports a low-resistance path to the owner-described opposite/numbered capacitor end. It does not by itself establish that end is ground.",
+        "If the opposite end is ground, this would conflict with the earlier J2507-8=flash VCC assignment; fixed probe on J2507-8 is now confirmed, so do not dismiss it as the previous pin-2 voltage-test reference.",
+        "Possible reference, header numbering, physical-chip pin or capacitor-net interpretation conflict requires independent recheck. No reversed-polarity, damaged-chip or safe-rewire conclusion yet.",
+        "Earlier November 1 header-to-both-chip readings remain historical evidence. Their powered-use interpretation is suspended pending direct physical-leg audit; do not overwrite history or continue current injection."
+      ]
+    }
+  },
+  "physical_pin_crosscheck": {
+    "selected_at": "2026-11-03T18:12:25-05:00",
+    "status": "Planned only; no fresh direct physical-leg results.",
+    "reason": "New capacitor-end readings create a material potential contradiction with prior VCC/GND interpretation, justifying a targeted recheck before any further power.",
+    "reference": {
+      "chip": "U2901, exposed neighboring flash; keep distinct from clip target U2900.",
+      "part": "MT25QU256ABA8ESF-0SIT, SOIC16",
+      "datasheet": "Micron Rev. L 02/2024 Figure 6, page 12: physical pin 2 VCC, physical pin 10 VSS/GND. Rechecked manufacturer PDF through web source.",
+      "photo": "PHOTOS2/IMG_1302.jpeg",
+      "orientation": "Match original photo: molded pin-1 dot at lower-left of each chip (not red paint); bottom row left-to-right 1..8, top row left-to-right 16..9. U2901 pin 2 is bottom second from left; pin 10 top second from right. Header/adapter numbering is separate."
+    },
+    "preconditions": [
+      "Keep all power disconnected: bench off and both board leads unplugged at supply; Pi/adapter/CH341A absent; native router power/cables/coin-cell remain disconnected. No automatic swaps or powered confirmation.",
+      "Use accessible physical metal legs/solder feet only; if orientation or access unclear, stop and clarify. No probing through the clip or guessing from red paint/cable colors.",
+      "Meter COM/V-ohm inputs; DC first across actual U2901 physical 2 and 10 must read approximately 0 V before resistance mode. Record probes-touching baseline."
+    ],
+    "resistance_tests": [
+      {
+        "label": "A",
+        "black": "J2507 header pin 8",
+        "red": "U2901 physical pin 10 / VSS"
+      },
+      {
+        "label": "B",
+        "black": "J2507 header pin 8",
+        "red": "U2901 physical pin 2 / VCC"
+      },
+      {
+        "label": "C",
+        "black": "J2507 header pin 2",
+        "red": "U2901 physical pin 10 / VSS"
+      },
+      {
+        "label": "D",
+        "black": "J2507 header pin 2",
+        "red": "U2901 physical pin 2 / VCC"
+      }
+    ],
+    "after": "Report actual A/B/C/D ohms and probe baseline. Leave unpowered. No pin reassignment or rewiring to supply until results reconcile; no SPI/firmware/security action."
   }
 }
