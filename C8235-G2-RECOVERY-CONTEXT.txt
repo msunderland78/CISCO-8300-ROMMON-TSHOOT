@@ -10,6 +10,31 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A 15 mA POINT / CURRENT RAMP STOPPED — 2026-11-03, 18:02 EST
+Owner reports CC, A=1.671 V DC, B=0.418 V DC, supply display 0.015 A; follow-up
+explicitly confirms steady and OUT off. Nominal normal limit 15 mA, OCP 20 mA,
+1.80 V ceiling and 100-ohm resistor retained. Drop 1.253 V / historical 99 ohms
+implies about 12.7 mA, distinct from displayed 15 mA. Compared with prior steady
+7.7 mA inferred / 0.396 V board, about 4.93 mA more accompanies only 22 mV rise.
+This supports nonlinear loading over these points; it does not identify a bad
+flash, diode/regulator/backfeed path, short, TPM fault or OCP mechanism. No
+current-at-1.8 V prediction. Board supply remains unqualified for SPI.
+
+As planned, stop current escalation: no 20/200 mA test, resistor bypass, higher
+voltage or Pi connection. Reviewed original PHOTOS2/IMG_1297/1298/1302/1303;
+no verified flash-only isolation point. Next passive candidate is the black
+rectangular capacitor marked 470 beside gray R68 immediately below empty coin-
+cell holder (IMG_1297). No voltage/net/part role inferred from position/marking.
+OUT/supply off, unplug both board supply leads at source; retain native router/
+Pi/adapter/coin-cell isolation. DC first: J2507-8 to 2 and across capacitor ends
+must be approximately 0 V. Then record probes-together baseline and ohms from
+J2507-8 to each capacitor metal end: nearest coin-cell, then opposite. Only
+probe if location/access is clear. Report actual ohms/steadiness, leave off.
+This maps a possible connection to nearby power section only; no new injection
+point, jumper, component removal, selector/reset change or powered test.
+Mapping result pending; agent performed photo/reference review/documentation.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A 10 mA TRIAL HOLDS / BOARD 0.396 V — 2026-11-03, 17:58 EST
 Owner reports no OCP, CC active, resistor source A=1.161 V DC, board B=0.396 V
 DC, supply display 0.006 A. Follow-up explicitly confirms steady and OUT off.

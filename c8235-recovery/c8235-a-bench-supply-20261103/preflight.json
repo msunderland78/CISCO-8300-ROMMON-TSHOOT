@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "10 mA normal-limit board trial completed: no OCP, CC, A 1.161 V, B 0.396 V, displayed 6 mA; owner confirms steady and OUT off. About 7.7 mA inferred through resistor. One 15 mA comparison selected with same resistor and 20 mA OCP; no result yet.",
+  "status": "15 mA comparison completed: steady CC, A 1.671 V / B 0.418 V, supply display 0.015 A; OUT off explicitly confirmed. About 12.7 mA inferred. Current escalation stopped; next is unpowered mapping to photographed nearby capacitor, no new powered trial.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -50,7 +50,7 @@
     "prerequisites": "Identity and listed power/cable/coin-cell/Pi USB-C isolation confirmed. Preserve that state. Before handling confirm J2507-8 to 2 residual 0 V. Remove all Pi/adapter/CH341A-to-board paths, old parallel supply connections and any RESET resistor/ground connection. Keep RESET grabber free. No native router power; assembly/cooling state not newly restated.",
     "first_topology": "Supply-only: bench negative -> J2507-2/GND; bench positive -> existing isolated/measured nominal 100-ohm (previously 99-ohm) resistor -> J2507-8/VCC. Use separate breadboard strips for resistor legs. Clip may remain physically seated with entire cable/adapter connection electrically disconnected and free contacts insulated. All adapter/Pi/CH341A paths absent; U2901 RESET lead free.",
     "settings": "Jesverty OUT OFF, CHG and OPN disabled; normal voltage preset 1.80 V and normal current-limit preset 0.020 A. In separate OCP screen set 0.020 A and enable OCP. Keep series resistor for first comparison; 20 mA is a cautious diagnostic starting setting, not established safe/adequate operating current. With 99 ohms, ideal branch limit at 1.8 V is about 18.2 mA.",
-    "pending_measurements": "One 15 mA normal-current comparison with unchanged 1.80 V, enabled OCP 20 mA and 100-ohm resistor; A/B/current/CV-CC/stability then OUT off. Stop on OCP or abnormal voltage/activity. If B remains near 0.4 V, stop current escalation and investigate shared rail. No result yet.",
+    "pending_measurements": "Current ramp stopped at steady B 0.418 V. Next unpowered map: after full source isolation/zero residual, measure J2507-8 to both ends of photographed 470 capacitor beside R68 below coin-cell holder; record probe baseline. No new powered trial or resistor bypass.",
     "later_spi": "Complete Pi/adapter/target wiring and power sequencing remain unqualified. Need stable loaded target rail within 1.7-2.0 V, understood load and a verified supply separation/translation arrangement before SPI. No automatic resistor bypass, current increase, RESET assertion or read."
   },
   "performed_by_agent": "Read-only local evidence/reference review and repository documentation only. No SSH, serial, GPIO, SPI, supply command, flash acquisition/write or router test.",
@@ -64,7 +64,11 @@
     "https://www.keysight.com/blogs/en/tech/bench/2022/03/02/protect-your-device-against-high-power",
     "https://www.jesverty.com/products/view?id=21851&lang=en",
     "https://wsimg.jesverty.com/Upfile/438/Annex/2025/02/21/1740121067.pdf",
-    "https://m.media-amazon.com/images/I/91eGSrhqHRL.pdf"
+    "https://m.media-amazon.com/images/I/91eGSrhqHRL.pdf",
+    "PHOTOS2/IMG_1297.jpeg",
+    "PHOTOS2/IMG_1298.jpeg",
+    "PHOTOS2/IMG_1302.jpeg",
+    "PHOTOS2/IMG_1303.jpeg"
   ],
   "owner_followup": {
     "adapter": "Owner confirms prior use of the 1.8 V adapter, believes new supply removes need for it. Clarified that Pi 3.3 V SPI still needs 1.8 V translation; supply can replace target power only.",
@@ -217,7 +221,7 @@
   },
   "fifteen_ma_board_trial": {
     "selected_at": "2026-11-03T17:58:11-05:00",
-    "status": "Planned comparison only; no user setting change or powered result yet.",
+    "status": "Owner-performed comparison complete; steady readings and OUT off explicitly confirmed.",
     "purpose": "One additional point with same bench source/fixture tests how much board voltage changes as nominal current limit increases from 10 to 15 mA. It remains a resistor-limited characterization, not an attempt to force the board rail to operating voltage.",
     "settings": {
       "voltage_preset_v": 1.8,
@@ -235,6 +239,56 @@
       "Turn OUT off after readings. If OCP trips, A exceeds 2.0 V or unexpected board activity/warming occurs, stop/leave OUT off; no restart or higher setting.",
       "Report A/B/current/mode/stability. If B remains near 0.4 V, stop further current escalation and investigate shared-rail loading; no automatic 20/200 mA trial, voltage increase, resistor removal or SPI."
     ],
-    "limits": "No guaranteed current or protection accuracy inferred from nominal settings; series resistor and existing OCP remain. A higher point alone will not diagnose the loading component."
+    "limits": "No guaranteed current or protection accuracy inferred from nominal settings; series resistor and existing OCP remain. A higher point alone will not diagnose the loading component.",
+    "result": {
+      "recorded_at": "2026-11-03T18:02:58-05:00",
+      "source_side_a_v_dc": 1.671,
+      "board_side_b_v_dc": 0.418,
+      "supply_display_current_a": 0.015,
+      "mode": "CC",
+      "owner_followup": "Steady; OUT is off",
+      "ocp": "No new OCP event reported; output provided readings in CC. Do not invent a separate OCP-status measurement.",
+      "voltage_difference_v": 1.2530000000000001,
+      "branch_current_inferred_a": 0.012656565656565658,
+      "calculation": "1.253 V / historical isolated resistor 99 ohms = approximately 12.7 mA. Retain separately from supply display 15 mA and nominal current-limit setting 15 mA.",
+      "comparison": {
+        "prior_board_v": 0.396,
+        "current_board_v": 0.418,
+        "board_voltage_change_v": 0.022,
+        "prior_inferred_current_a": 0.007727272727272728,
+        "current_inferred_current_a": 0.012656565656565658,
+        "inferred_current_change_a": 0.00492929292929293
+      },
+      "interpretation": [
+        "About 4.93 mA more inferred branch current accompanied only 22 mV more board voltage, supporting a nonlinear load over these two steady operating points.",
+        "The approximately 0.4 V rail remains far below the flash 1.7-2.0 V operating range; no Pi/SPI connection or read qualification.",
+        "This does not identify a damaged flash, a specific diode/regulator/backfeed path, a hard short, TPM fault or the cause of the earlier OCP trip. No extrapolation to required current at 1.8 V."
+      ],
+      "decision": "Stop current escalation as previously planned; no 20/200 mA trial, resistor bypass or higher voltage. Keep output off."
+    }
+  },
+  "passive_power_section_mapping": {
+    "selected_at": "2026-11-03T18:02:58-05:00",
+    "status": "Preparation only; no new electrical mapping result.",
+    "photo_review": {
+      "originals": [
+        "PHOTOS2/IMG_1297.jpeg",
+        "PHOTOS2/IMG_1298.jpeg",
+        "PHOTOS2/IMG_1302.jpeg",
+        "PHOTOS2/IMG_1303.jpeg"
+      ],
+      "method": "Visual review of preserved originals with view_image; no image generation/editing/cropping.",
+      "observation": "Large gray R68-marked inductor directly below empty coin-cell holder; adjacent black rectangular capacitor marked 470 to its right in IMG_1297 orientation. Two capacitor end terminations appear accessible. No definite capacitor reference designator, rail voltage, isolation role or electrical connection assigned from appearance.",
+      "boundary": "These photos still do not establish a safe flash-only supply isolation point."
+    },
+    "purpose": "Test whether mapped J2507-8 flash supply has a low-resistance connection to either end of this nearby capacitor. This is a mapping candidate, not a new supply-injection or isolation point.",
+    "sequence": [
+      "OUT confirmed off. Switch supply off and unplug both board leads from supply terminals; retain router native power/cable/coin-cell isolation and Pi/adapter/CH341A absence. No powered board test.",
+      "Locate the black rectangular capacitor marked 470 immediately beside the gray R68 block below the empty coin-cell holder, using IMG_1297. Use only safely accessible metal end terminations; if location/access is uncertain, stop and clarify rather than probe another part.",
+      "Meter leads COM/V-ohm, DC volts first: verify approximately 0 V between J2507-8 and J2507-2, and directly across the two capacitor ends before switching to resistance mode. No shorting/discharge jumper.",
+      "Record probes-together resistance baseline. In ohms, keep one probe on J2507 pin 8 and measure to each capacitor metal end separately: end nearest coin-cell holder, then opposite end. Report actual values/steadiness, not only a beep.",
+      "Leave all sources disconnected afterward; do not remove a component, lift a leg, cut a trace, bridge a header, change selector/reset state or inject power at the capacitor."
+    ],
+    "limitations": "Continuity would establish a path only, not power direction, intended voltage or a safe disconnect. Board component loading still unresolved."
   }
 }
