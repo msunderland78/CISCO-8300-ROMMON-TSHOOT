@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Owner reports corrected VCC, free U2901 RESET grabber and U2900 pin3 point each 1.72 V DC relative to J2507-8/GND. U2900 actual-chip versus connector endpoint clarification, steadiness and post-test shutdown pending. No RESET load or SPI performed. Next preparation: isolated 1 kohm resistor measurement and Pi unplugged; grabber remains free.",
+  "status": "Owner reports corrected VCC, free U2901 RESET grabber and U2900 pin3 point each 1.72 V DC relative to J2507-8/GND. Owner confirms readings steady and has nominal 1 kohm resistor; isolated value, U2900 actual-chip versus connector endpoint clarification and post-test shutdown pending. No RESET load or SPI performed. Next preparation: isolated 1 kohm resistor measurement and Pi unplugged; grabber remains free.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -482,7 +482,7 @@
     },
     "next_native_voltage_check": {
       "selected_at": "2026-11-03T18:38:50-05:00",
-      "status": "Three 1.72 V readings reported. U2900 endpoint clarification, steadiness and post-test shutdown confirmation pending; no unreported setup/path checks marked complete.",
+      "status": "Three 1.72 V readings reported and confirmed steady. U2900 endpoint clarification and post-test shutdown confirmation pending; no unreported setup/path checks marked complete.",
       "sequence": [
         "Start with Pi shut down and USB-C unplugged. Keep both bench leads completely disconnected and native router power/console/USB/network/coin-cell disconnected. Leave corrected U2900 clip and U2901 actual pin3 grabber in place; grabber free end has no resistor/ground connection. Reconnect the same 1.8 V adapter in the previous arrangement that gave steady +1.721 V, with all power off.",
         "Before powering, verify residual DC is approximately zero, then recheck adapter OUTPUT4 to J2507 pin8/GND and OUTPUT8 to J2507 pin2/VCC, each near the earlier 0.8 ohm. If either differs substantially or is open, stop and report rather than power. No resistor or reset-ground connection.",
@@ -506,16 +506,17 @@
       "fixture": "Requested same Pi/1.8 V level shifter/corrected U2900 clip; U2901 grabber free; bench and native router sources/cables/coin-cell disconnected under preceding confirmation. No new signal harness qualification reported.",
       "interpretation": "VCC is within 1.7-2.0 V but near minimum; U2901 RESET is high. U2900 reading also indicates high if it was actual physical pin3. Equal baseline voltages do not demonstrate independent RESET control, SPI margin, flash health or successful reads.",
       "pending": [
-        "Owner confirmation all readings steady and Pi shutdown/USB-C unplugged after measurement",
         "Clarify actual U2900 physical chip pin3 versus adapter/cable connector pin3",
-        "Availability and isolated measured resistance of nominal 1 kohm resistor; no resistor connection yet"
+        "Isolated measured resistance of available nominal 1 kohm resistor; no connection yet",
+        "Post-test Pi shutdown/USB-C unplugged not explicitly reported; required before resistor wiring"
       ],
       "logic_thresholds_at_reported_vcc": {
         "VIL_max_v": 0.516,
         "VIH_min_v": 1.204,
         "source": "Micron MT25QU256ABA Rev.L Table47, reviewed 2026-11-03; same PDF URL in reported_results.datasheet_reference"
       },
-      "agent_action": "Documentation/datasheet review only; no reset assertion, SPI/SSH/serial/GPIO command or flash read/write."
+      "agent_action": "Documentation/datasheet review only; no reset assertion, SPI/SSH/serial/GPIO command or flash read/write.",
+      "steadiness": "Owner confirms all three readings steady in follow-up: steady yet ... I do have a 1k ohm resistor ... I will go measure it."
     },
     "next_load_preparation": {
       "selected_at": "2026-11-03T18:45:08-05:00",
@@ -523,7 +524,8 @@
       "resistor_requested_ohms": 1000,
       "instruction": "Shut down Pi normally, unplug USB-C, keep bench/native sources disconnected and grabber free. Measure nominal 1 kohm resistor by itself, disconnected from board, and report actual value.",
       "rationale": "A 1 kohm load to ground would limit its branch to about 1.72 mA even if driven at full present rail. If the RESET source behaves like a 1 kohm pull-up, expected loaded RESET is about 0.86 V; this is a diagnostic intermediate level, not a valid reset-low qualification. Compare VCC and actual U2900 RESET to detect coupling before selecting a stronger pull-down.",
-      "not_selected": "No direct ground jumper, smaller resistor, increased supply voltage, SPI command or firmware operation."
+      "not_selected": "No direct ground jumper, smaller resistor, increased supply voltage, SPI command or firmware operation.",
+      "availability": "Owner has nominal 1 kohm resistor and will measure it; numeric isolated value pending."
     }
   }
 }
