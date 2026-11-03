@@ -10,6 +10,26 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A IMMEDIATE OCP AT 20 mA — 2026-11-03, 17:39 EST
+Owner reports supply immediately enters OCP at 0.02 A, then explicitly confirms
+normal current limit and separate OCP trip BOTH 0.020 A. That was the selected
+20 mA initial setting; 0.2 A/200 mA is not selected. No loaded A/B/current/mode
+or stability values supplied; earlier 1.807 V is unloaded only. No flash read.
+
+At steady 1.807 V through an actual series 99-ohm resistor, the ideal branch
+maximum is about 18.3 mA even for a short beyond it. This does not bound supply
+startup transients or prove OCP accuracy. Wiring/bypass and supply protection
+behavior remain unresolved; do not infer a bad chip or 200 mA board demand.
+Leave OUT off/no repeat. Next: switch supply off and unplug both board leads
+at supply terminals, leaving board/breadboard wiring otherwise intact. Pi,
+adapter/CH341A and native router sources remain absent. Meter COM/V-ohm, DC
+first: verify J2507-8 to 2 and loose positive supply-lead tip to J2507-2 are
+approximately 0 V. Then record shorted-lead baseline and measure resistance
+from loose positive supply-lead tip (removed from supply +) to J2507-8.
+Expect approximately 100 ohms for the complete new series path; report actual
+value, no power-up/current increase/resistor bypass selected. Result pending.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A JESVERTY UNLOADED 1.807 V / LOADED CHECK NEXT — 2026-11-03, 17:28 EST
 Owner reports 1.807 V DC in response to the explicit unloaded supply-terminal
 measurement question. Accept nominal 1.8 V output; prior missing-value state
