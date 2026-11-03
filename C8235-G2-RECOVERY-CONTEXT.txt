@@ -10,6 +10,22 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A JESVERTY UNLOADED 1.807 V / LOADED CHECK NEXT — 2026-11-03, 17:28 EST
+Owner reports 1.807 V DC in response to the explicit unloaded supply-terminal
+measurement question. Accept nominal 1.8 V output; prior missing-value state
+is superseded. This does not establish loaded rail/current/transient behavior.
+Supply-only wiring reported assembled with OUT off; isolation retained.
+Next selected: retain 100-ohm series resistor and Pi/adapter/CH341A absence;
+with OUT off verify 1.80 V, normal current limit 0.020 A, separate enabled OCP
+trip 0.020 A, CHG/OPN off and board residual approximately 0 V. DC meter black
+J2507-2; enable supply OUT once, after about five seconds measure resistor
+source-side A, then board-side B/J2507-8. Record current display and CV/CC or
+OCP; turn OUT off after readings. Stop for source >2.0 V, OCP or unexpected
+activity/warming; no bypass, restart, voltage/current increase or SPI. Low B
+is diagnostic under this series resistor, not flash-read qualification.
+Loaded result/stability pending; no agent hardware access or board test.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A SUPPLY-ONLY WIRING ASSEMBLED / OUT OFF — 2026-11-03, 17:26 EST
 Owner reports all requested wiring done and output not turned on. Accept
 assembly of the preceding supply-only resistor topology; retain confirmed

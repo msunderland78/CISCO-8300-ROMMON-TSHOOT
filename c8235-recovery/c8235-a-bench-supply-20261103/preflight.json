@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Owner reports supply-only wiring assembled, OUT not enabled; unloaded meter voltage still unreported, no powered board test.",
+  "status": "Supply-only wiring reported assembled and OUT off; owner reports unloaded supply 1.807 V DC. First resistor-limited board voltage comparison selected, not yet performed.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -50,7 +50,7 @@
     "prerequisites": "Identity and listed power/cable/coin-cell/Pi USB-C isolation confirmed. Preserve that state. Before handling confirm J2507-8 to 2 residual 0 V. Remove all Pi/adapter/CH341A-to-board paths, old parallel supply connections and any RESET resistor/ground connection. Keep RESET grabber free. No native router power; assembly/cooling state not newly restated.",
     "first_topology": "Supply-only: bench negative -> J2507-2/GND; bench positive -> existing isolated/measured nominal 100-ohm (previously 99-ohm) resistor -> J2507-8/VCC. Use separate breadboard strips for resistor legs. Clip may remain physically seated with entire cable/adapter connection electrically disconnected and free contacts insulated. All adapter/Pi/CH341A paths absent; U2901 RESET lead free.",
     "settings": "Jesverty OUT OFF, CHG and OPN disabled; normal voltage preset 1.80 V and normal current-limit preset 0.020 A. In separate OCP screen set 0.020 A and enable OCP. Keep series resistor for first comparison; 20 mA is a cautious diagnostic starting setting, not established safe/adequate operating current. With 99 ohms, ideal branch limit at 1.8 V is about 18.2 mA.",
-    "pending_measurements": "Wiring reported assembled with OUT off. Unloaded meter reading remains unreported; requested. If not yet measured, disconnect both board leads at supply with OUT off, verify unloaded DC directly at supply +/-, disable OUT and report. Board remains unpowered, Pi/adapter disconnected. Residual DC and current/OCP-setting confirmation still not numerically reported.",
+    "pending_measurements": "Unloaded supply result 1.807 V DC accepted. Supply-only assembly reported OUT off. Next is one bounded board comparison with nominal 100-ohm series resistor, 1.80 V/0.020 A settings verified first; source-side A and board-side B to J2507-2, supply current/mode/stability, then OUT off. No results yet.",
     "later_spi": "Complete Pi/adapter/target wiring and power sequencing remain unqualified. Need stable loaded target rail within 1.7-2.0 V, understood load and a verified supply separation/translation arrangement before SPI. No automatic resistor bypass, current increase, RESET assertion or read."
   },
   "performed_by_agent": "Read-only local evidence/reference review and repository documentation only. No SSH, serial, GPIO, SPI, supply command, flash acquisition/write or router test.",
@@ -89,5 +89,20 @@
     "not_inferred": "No numerical unloaded voltage, residual voltage, actual current-limit/OCP-setting verification or powered board result supplied. Do not infer the earlier unloaded check passed from wiring completion.",
     "next": "Keep OUT off with board connected. Ask for unloaded multimeter reading if already obtained. Otherwise, with OUT off unplug both board leads at the supply terminals, leaving board/breadboard assembly intact; meter in DC volts with leads in COM and V/ohm, measure directly red supply + to black supply - during one unloaded OUT-on check, then OUT off and report reading. No board energization selected.",
     "hardware_scope": "Owner assembly report only; no agent SSH/serial/GPIO/SPI or supply operation."
+  },
+  "unloaded_supply_result": {
+    "recorded_at": "2026-11-03T17:28:21-05:00",
+    "voltage_v_dc": 1.807,
+    "endpoints": "Jesverty red + to black - terminals, in response to explicit unloaded multimeter-check question.",
+    "interpretation": "Consistent with nominal 1.8 V. This is an unloaded DC result, not a loaded board voltage, current-limit test or transient qualification.",
+    "present_state": "Owner reports supply-only wiring assembled and output not enabled with board connected; prior isolation retained.",
+    "selected_next_test": [
+      "Keep Pi/adapter/CH341A disconnected, router native sources/cables/coin-cell removed, U2901 RESET lead free; retain nominal 100-ohm series resistor.",
+      "With OUT off verify normal voltage preset 1.80 V, normal current limit 0.020 A and separate OCP trip 0.020 A enabled, CHG/OPN off. Meter leads COM and V/ohm, DC volts; confirm J2507-8 to 2 residual approximately 0 V before test.",
+      "Fix black meter lead at J2507-2 ground. Enable only Jesverty OUT once. After about five seconds measure A: source-side resistor leg to J2507-2; then B: board-side resistor leg/J2507-8 to J2507-2.",
+      "Record supply current display and CV/CC indication, or OCP alarm if it trips. Turn OUT off after readings and report A/B/current/mode/stability.",
+      "If A exceeds 2.0 V, unexpected board activity/warming occurs or OCP trips, switch/leave OUT off and report; no restart or setting increase. A low B is a diagnostic result with the resistor, not a reason to bypass it."
+    ],
+    "not_performed": "No new powered board observation or SPI/read/write. Loaded results remain pending."
   }
 }
