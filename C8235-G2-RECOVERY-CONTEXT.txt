@@ -10,6 +10,28 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A U2900 RESET CLIP-LEAD CLARIFICATION — 2026-11-03, 18:48 EST
+Owner corrects assistant: "u2900 clip wire that leads to pin 3". Earlier answer
+"Adapter/cable connector pin3" was misread as adapter OUTPUT3. Accept actual
+U2900 physical3 via clip wire; withdraw that assistant interpretation, no repeat
+baseline requested. VCC, actual U2901 RESET and actual U2900 RESET are all1.72V,
+steady. Earlier2kohm remains owner-reported actual RESET pair; no independent
+new continuity result invented and no net reassignment without evidence.
+
+Nominal1kohm resistor available; isolated measurement pending. Conditional next
+procedure: Pi shutdown/USB-C unplug, bench/native sources/cables/battery isolated,
+zero residual. Only use isolated resistor measuring950-1050ohm. With power off,
+U2901 actualpin3 grabber ->1kohm ->J2507-8/GND (separate breadboard rows if used).
+Keep corrected clip and other wiring unchanged. Switch DCV, power only Pi/same
+1.8V adapter; blackJ2507-8, redVCC/J2507-2 first, then U2901 grabber junction and
+identified U2900physical3 clip lead. Stop for VCC outside1.70-2.00V, instability
+or abnormal Pi behavior; no voltage/current increase. Record levels/steadiness,
+shut down/unplug afterward. Predicted U2901about0.86V assumes1kohm pull-up;
+VCC/U2900 should remain near1.72V if uncoupled. Intermediate0.86V is NOT a valid
+reset-low qualification. No load/result, stronger pull-down, direct short or
+SPI/read/write performed. Endpoint question resolved; resistor value still due.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A NATIVE VCC / RESET BASELINE — 2026-11-03, 18:45 EST
 C8235-A/FGL2835L42B, board FOC28292GUQ: owner reports J2507-2/VCC1.72V,
 U2901 actual pin3 free grabber1.72V and "clip U2900 pin3"1.72V. Requested
