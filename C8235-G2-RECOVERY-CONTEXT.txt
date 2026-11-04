@@ -10,6 +10,19 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A USB IOS / RAM FIX VERIFIED — 2026-11-04,10:05 EST
+Fresh USB image hash and A-specific RAM guards/hook pass; IOS26.02.01 boots
+from USB. Native chassis FGL2835L42B and R0 FOC28292GUQ now independently match
+the current board photo association. R0/F0/0/0 ready; CPP20777/session18541,
+keepalives36/36/zero misses/send errors. Main28/27/52C, standby12V0 unresolved.
+Before IOS, p2/p3 and incomplete453MB bundle archived/hash-verified under USB
+C8235-A-L42B-20261104. Both configuration partitions were initially unusable
+to IOS; no startup-config found. Mandatory secret created privately and native
+setup save[OK]; early startup3126B and settled running7445B exported on bootflash.
+Native day0 deinitialization accounts for their provisioning differences.
+Full internal image copy is active; install, saved A4 startup and cleanup pending.
+No network configuration/performance test. See session results for exact hashes.
+
 C8235-A NATIVE ROMMON RECOVERED — 2026-11-04, 09:57 EST
 Owner confirms A/FGL2835L42B, battery restored after noticing omission, board
 back in case/cooling restored and all programmer/clip/RESET wiring removed.

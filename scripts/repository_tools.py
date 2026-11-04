@@ -24,7 +24,7 @@ CONFIG = re.compile(
     r"^([ \t]*(?:[+-][ \t]*)?(?:[\w.()/:-]+[>#][ \t]*)?"
     r"(?:enable[ \t]+(?:secret|password)|"
     r"username[ \t]+\S+(?:[ \t]+privilege[ \t]+\d+)?[ \t]+(?:one-time[ \t]+)?(?:secret|password)|"
-    r"password|snmp-server[ \t]+community|key-string)[ \t]+)([^\r\n]+)$",
+    r"password|snmp-server[ \t]+community|key-string)[ \t]+)([^\r\n]+)(?=\r?$)",
     re.I | re.M,
 )
 PROMPT = re.compile(

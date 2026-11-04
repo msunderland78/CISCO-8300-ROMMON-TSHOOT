@@ -78,6 +78,21 @@ class PublicationTests(unittest.TestCase):
         self.assertIn(TOOLS.MARKER.encode(), result)
         self.assertEqual([], TOOLS.findings(result, {value}))
 
+    def test_crlf_native_credentials_are_discovered_without_changing_line_endings(self):
+        value = "demo" + "7"
+        for prefix in ("", "-", "+", "Router(config)#"):
+            with self.subTest(prefix=prefix):
+                content = ("before\r\n" + prefix
+                           + "username onboarding privilege 15 one-time "
+                           + "password 0 " + value + "\r\nafter\r\n")
+                self.assertEqual([value], list(TOOLS.config_values(content)))
+                self.assertTrue(TOOLS.findings(content.encode()))
+                result = TOOLS.sanitize(content.encode(), set())
+                self.assertNotIn(value.encode(), result)
+                self.assertEqual(3, result.count(b"\r\n"))
+                self.assertTrue(result.endswith(b"\r\nafter\r\n"))
+                self.assertEqual([], TOOLS.findings(result))
+
     def test_tokens_private_keys_and_unknown_hashes_are_removed(self):
         token = "ghp_" + "Q" * 36
         key = "-----BEGIN " + "PRIVATE KEY-----\nTESTDATA\n-----END " + "PRIVATE KEY-----"
@@ -116,7 +131,7 @@ class PublicationTests(unittest.TestCase):
             source = root / "router-console-logs/example.log"
             source.parent.mkdir()
             value = "example-" + "preserved-credential"
-            raw = ("enable " + "secret 0 " + value + "\n").encode()
+            raw = ("enable " + "secret 0 " + value + "\r\n").encode()
             source.write_bytes(raw)
             private = root / ".git/recovery-private"
             private.mkdir(parents=True)

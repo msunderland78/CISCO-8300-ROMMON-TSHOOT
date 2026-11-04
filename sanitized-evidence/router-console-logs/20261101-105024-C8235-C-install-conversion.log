@@ -7,7 +7,7 @@
 
 The following configuration command script was created:
 
-enable secret 9 [REDACTED]
+enable secret [REDACTED]
 !
 end
 
@@ -397,9 +397,9 @@ memory free low-watermark processor 62065
 !
 spanning-tree extend system-id
 !
-enable secret 9 [REDACTED]
+enable secret [REDACTED]
 !
-username webui privilege 15 one-time password 0 cisco
+username webui privilege 15 one-time password [REDACTED]
 !
 redundancy
  mode none
@@ -997,7 +997,7 @@ crypto pki certificate chain TP-self-signed-691797532
  -certificate self-signed 01 nvram:IOS-Self-Sig#1.cer
 crypto pki certificate chain SLA-TrustPoint
  -certificate ca 01 nvram:CiscoLicensi#1CA.cer
--username webui privilege 15 one-time password 0 cisco
+-username webui privilege 15 one-time password [REDACTED]
 interface Vlan1
  -vrf forwarding 65500
  -ip address 192.168.1.1 255.255.255.0

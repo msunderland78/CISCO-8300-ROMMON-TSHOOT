@@ -7,7 +7,7 @@
     "C8235-05"
   ],
   "chassis": "C8235-A / FGL2835L42B",
-  "board": "FOC28292GUQ (current physical photo association; native inventory pending)",
+  "board": "FOC28292GUQ, now independently confirmed in native R0 inventory at10:05:24",
   "owner_confirmed_state": {
     "battery": "Reinstalled after initially noticing omission; confirmed before this power-on",
     "programmer": "All clip/adapter/RESET wiring removed",
@@ -40,25 +40,131 @@
       "file": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin",
       "bytes": 1048008916,
       "sha256_expected": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456",
-      "fresh_hash": "in_progress"
+      "fresh_hash": "Verified in maintenance from read-only USB mount; exact SHA256 match, status0"
     },
     "bootflash_image": {
       "file": "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin",
       "bytes": 453050368,
-      "status": "incomplete_by_size; preserve before replacement"
+      "status": "incomplete_by_size; preserve before replacement",
+      "sha256": "8120baa78b64ac83c2cdace8d090ad25d20bb144bd35b0589f515047695c7f26"
     },
     "old_packages": "No .pkg or packages.conf in root ROMMON listing; IOS inventory still required"
   },
   "usb_boot": {
     "started": "2026-11-04T09:58:15-05:00",
-    "status": "maintenance_shell_reached; IOS not started",
+    "status": "verified_26.02.01_USB_bundle_IOS_and_modules_ready",
     "kernel": "6.6.95",
     "board": "arata",
     "pid1_continuation": "Verified exact temporary rdinit shell continuation; no sync",
     "console": "Maintenance initially 9600, both ends restored to115200"
   },
-  "fix": "A-specific guarded source prepared offline; not applied yet",
+  "fix": {
+    "prepare_at": "2026-11-04T10:02:11-05:00",
+    "source_sha256": "fd1eb73602bbb3b5f37c857e1261d709f9781e90dbcbbe41b633786b570f396a",
+    "source": "experimental-recovery/c8235-a-bootflash-20261104/boot-bound16.sh",
+    "status": "Transferred exact source; bash syntax and live guards pass; PREPARE_STATUS0 and expected RAM patch/hook hashes. Runtime HOOK_BEGIN/HOOK_COMPLETE observed after shell exit10:02:16.",
+    "ram_patch_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857",
+    "runtime_hook_sha256": "ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4",
+    "vendor_files": "No vendor image/package or ROMMON code modified"
+  },
   "install": "pending",
   "cleanup": "pending",
-  "performance_testing": "explicitly excluded by owner"
+  "performance_testing": "explicitly excluded by owner",
+  "preservation": {
+    "usb_directory": "usb0:C8235-A-L42B-20261104",
+    "completed": "2026-11-04T10:01:00-05:00",
+    "partitions": {
+      "mmcblk0p2-before.bin": {
+        "bytes": 33554432,
+        "sha256": "6c1e3c5c702e60a969c071d6b339c74e30be696b0fe0e7fc2968e05adb43ffe8"
+      },
+      "mmcblk0p3-before.bin": {
+        "bytes": 33554432,
+        "sha256": "6c1e3c5c702e60a969c071d6b339c74e30be696b0fe0e7fc2968e05adb43ffe8"
+      }
+    },
+    "incomplete_image": {
+      "file": "incomplete-26.02.01-before.bin",
+      "bytes": 453050368,
+      "sha256": "8120baa78b64ac83c2cdace8d090ad25d20bb144bd35b0589f515047695c7f26"
+    },
+    "verification": "Source and destination SHA256 all match; preserve command and sync status0. Bootflash mounted ro,noload. USB archive retained locally, not in public repository.",
+    "scope": "p2/p3 and existing incomplete bundle only; not a full eMMC backup"
+  },
+  "offline_validation": {
+    "tests": 125,
+    "result": "pass",
+    "observer_tests": 4,
+    "shell_syntax": "both A scripts pass",
+    "checkpoint_commit": "a77ca3b1fead168c6a399fbd5b59ade5e74557c2",
+    "checkpoint_ci": "https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT/actions/runs/41853453571",
+    "checkpoint_ci_result": "success"
+  },
+  "console_handoff": {
+    "at": "2026-11-04T10:04:24-05:00",
+    "reason": "Idle initial setup prompt; reopened with private-credential input and explicit one-autoboot control. Brief handoff between captures, not claimed continuous.",
+    "second_private_log": ".git/recovery-private/c8235-a-ios-20261104/supervised-20261104-100424/console.log",
+    "local_wrapper": ".git/recovery-private/c8235-a-ios-20261104/supervisor.py",
+    "wrapper_sha256": "890bb518d9f64196970380997ff66d2402771b3bc665bd839b32e8ecd6faad6c",
+    "dependency": "Existing standard-library Console and A-specific tested OneAutobootConsole; no secret value on stdout"
+  },
+  "initial_setup": {
+    "observed": "No startup-config; failed to initialize nvram and backup nvram before initial setup. Both pre-boot p2/p3 originals preserved.",
+    "action": "Declined optional configuration dialog; satisfied mandatory enable-secret creation with generated restricted local credential, then native save selection2.",
+    "credential_file_private": ".git/recovery-private/c8235-a-FGL2835L42B-enable-secret.txt",
+    "saved_result": "Native [OK] after10:04:51 selection2; privileged access works. Native day0 cleanup subsequently removes transient provisioning configuration from running state; both early saved and settled running copies preserved before boot edits.",
+    "network_configuration": "none"
+  },
+  "usb_baseline": {
+    "at": "2026-11-04T10:05:24-05:00",
+    "chassis": "C8230X-8M2X/FGL2835L42B",
+    "module_R0_serial": "FOC28292GUQ",
+    "version": "26.02.01",
+    "system_image": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin",
+    "platforms": "R0/F0 ok active;0/0 ok",
+    "cpp_pid": 20777,
+    "cpp_session": 18541,
+    "keepalive_rx": 36,
+    "keepalive_tx": 36,
+    "keepalive_miss": 0,
+    "keepalive_send_errors": 0,
+    "install_state": "IMG C26.02.01.0.263; abort timer inactive (bundle boot, not yet install-mode proof)",
+    "bootvar": "absent",
+    "confreg": "0x1820",
+    "CPLD": "24073021",
+    "temperature_C": {
+      "inlet": 28,
+      "outlet": 27,
+      "CPU": 52
+    },
+    "main_12V_mV": 12198,
+    "main_5V_mV": 4945,
+    "power_W": 18,
+    "unresolved": "Standby12V_DG_ST0mV/Critical_Low; early TPM/clock/security/default warnings retained; no performance tests",
+    "startup_backup": {
+      "file": "bootflash:C8235A-PRE-INSTALL-startup.cfg",
+      "bytes": 3126
+    },
+    "running_backup": {
+      "file": "bootflash:C8235A-PRE-INSTALL-running.cfg",
+      "bytes": 7445
+    },
+    "image_preservation": "Renamed incomplete internal original to bootflash:C8235A-INCOMPLETE-26.02.01.bin; independent exact USB archive already verified"
+  },
+  "published_captures": [
+    {
+      "path": "sanitized-evidence/router-console-logs/20261104-095616-C8235-A-USB-maintenance-and-IOS.log",
+      "raw_sha256": "6ac41aa79e49a117ef4e1ae4e1557b9ad1223ab88501fc81afc8990d6400f4b6"
+    },
+    {
+      "path": "sanitized-evidence/router-console-logs/20261104-100424-C8235-A-first-IOS-baseline.log",
+      "raw_sha256": "fd099f20d2a194146c4f2d3c8b3749a63f48852df9a8b018568a9269d481f259"
+    }
+  ],
+  "publication_correction": {
+    "issue": "CONFIG end-of-line regex missed CRLF native configuration lines, including short one-time credentials. Existing HASH/known-value checks did not cover every short plaintext context.",
+    "fix": "Allow terminal CR in matching without altering source bytes or line endings; regenerate earlier public copies.",
+    "tests": "126 offline tests pass, including CRLF discovery/redaction and exact-original preservation.",
+    "limitations": "Known-value/pattern checks do not prove absence of all unknown secrets in binaries."
+  }
 }

@@ -1,0 +1,843 @@
+
+[TX 2026-11-04T10:04:32.371225-05:00] b'no\r'
+no
+
+  The enable secret is a password used to protect
+  access to privileged EXEC and configuration modes.
+  This password, after entered, becomes encrypted in
+  the configuration.
+  -------------------------------------------------
+  secret should be of minimum 10 characters and maximum 32 characters with
+  at least 1 upper case, 1 lower case, 1 digit and
+  should not be [cisco]
+  -------------------------------------------------
+  Enter enable secret: 
+[TX 2026-11-04T10:04:40.243063-05:00] b'[REDACTED]\r'
+****************************
+  Confirm enable secret: 
+[TX 2026-11-04T10:04:45.211337-05:00] b'[REDACTED]\r'
+****************************
+
+The following configuration command script was created:
+
+enable secret [REDACTED]
+!
+end
+
+
+[0] Go to the IOS command prompt without saving this config.
+[1] Return back to the setup without saving this config.
+[2] Save this configuration to nvram and exit.
+
+Enter your selection [2]: 
+[TX 2026-11-04T10:04:51.933763-05:00] b'2\r'
+2
+Building configuration...
+[OK]
+Use the enabled mode 'configure' command to modify this configuration.
+
+
+
+
+Press RETURN to get started!
+
+
+*May 29 2025 18:51:04.478: yang-infra: Default hostkey created (NETCONF_SSH_RSA_KEY)
+*May 29 2025 18:51:04.496: yang-infra: Netconf SSH RSA key generated
+*May 29 2025 18:51:05.100: %LINK-5-CHANGED: Interface TwoGigabitEthernet0/0/6, changed state to administratively down
+*May 29 2025 18:51:05.111: %LINK-5-CHANGED: Interface TwoGigabitEthernet0/0/7, changed state to administratively down
+*May 29 2025 18:51:05.113: %LINK-5-CHANGED: Interface TenGigabitEthernet0/0/8, changed state to administratively down
+*May 29 2025 18:51:05.117: %LINK-5-CHANGED: Interface TenGigabitEthernet0/0/9, changed state to administratively down
+*May 29 2025 18:51:05.130: %LINK-5-CHANGED: Interface GigabitEthernet0, changed state to administratively down
+[TX 2026-11-04T10:05:08.615636-05:00] b'\r'
+
+Router>
+*May 29 2025 18:51:14.941: %IOXN_APP-6-PRE_INIT_DAY0_GS_INFO: Day0 Guestshell de-initilization API is being invoked
+
+*May 29 2025 18:51:14.987: %SYS-5-CONFIG_P: Configured programmatically by process DHCP Autoinstall from console as vty0
+*May 29 2025 18:51:14.993: %SYS-5-CONFIG_P: Configured programmatically by process DHCP Autoinstall from console as vty0
+[TX 2026-11-04T10:05:12.413851-05:00] b'enable\r'
+enable
+Password: 
+*May 29 2025 18:51:16.924: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created successfully
+*May 29 2025 18:51:16.939: %PKI-4-NOCONFIGAUTOSAVE: Configuration was modified.  Issue "write memory" to save new IOS PKI configuration
+*May 29 2025 18:51:16.780: %IM-6-IOX_ENABLEMENT: R0/0: ioxman: IOX is ready.
+*May 29 2025 18:51:18.096: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorizedGuestshell destroyed successfully 
+
+[TX 2026-11-04T10:05:17.008194-05:00] b'[REDACTED]\r'
+
+Router#
+*May 29 2025 18:51:21.067: %IOXN_APP-6-PRE_INIT_DAY0_GS_INFO: Day0 Guestshell destroyed
+
+*May 29 2025 18:51:21.626: %UICFGEXP-6-SERVER_NOTIFIED_STOP: R0/0: psd: Server iox has been notified to stop
+[TX 2026-11-04T10:05:24.394138-05:00] b'terminal length 0\rterminal width 512\rshow version\rshow inventory\rshow platform\rshow platform software process list F0 name cpp_cp_svr\rshow platform software infra punt-keepalive\rshow install summary\rshow bootvar\rshow environment all\r'
+terminal length 0
+Router#terminal width 512
+Router#show version
+Cisco IOS XE Software, Version 26.02.01
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+Router uptime is 2 minutes
+Uptime for this control processor is 6 minutes
+System returned to ROM by PowerOn
+System image file is "usb0:c8kg2be-universalk9.26.02.01.SPA.bin"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Perpetual    essentials         essentials        
+
+The current crypto throughput level is 250000 kbps (Aggregate) 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8230X-8M2X (1RU) processor with 7788651K/6147K bytes of memory.
+Processor board ID FGL2835L42B
+Router operating mode: Autonomous
+1 Virtual Ethernet interface
+8 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+16777216K bytes of physical memory.
+20249599K bytes of flash memory at bootflash:.
+60062720K bytes of USB flash at usb0:.
+
+Configuration register is 0x1820
+
+Router#show inventory
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO: Please use "show license UDI" to get serial number for licensing.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NAME: "Chassis", DESCR: "Cisco isr1000 Series Chassis"
+PID: C8230X-8M2X       , VID: V00  , SN: FGL2835L42B
+
+NAME: "Power Supply Module 0", DESCR: "External 66W Power Supply Module"
+PID: PWR-CC2-66WAC     , VID: V02  , SN:            
+
+NAME: "module 0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID:      , SN:            
+
+NAME: "NIM subslot 0/0", DESCR: "8M-2xSFP+"
+PID: 8M-2xSFP+         , VID: V01  , SN:            
+
+NAME: "module R0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID: V00  , SN: FOC28292GUQ
+
+NAME: "module F0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID:      , SN:            
+
+
+Router#show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:02:39      
+ 0/0      8M-2xSFP+           ok                    00:01:53      
+R0        C8230X-8M2X         ok, active            00:02:39      
+F0        C8230X-8M2X         ok, active            00:02:39      
+P0        PWR-CC2-66WAC       ok                    00:02:07      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+Router#show platform software process list F0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 20777
+  Parent process id: 20764
+  Group id         : 20777
+  Status           : S
+  Session id       : 18541
+  User time        : 472
+  Kernel time      : 504
+  Priority         : 20
+  Virtual bytes    : 2219233280
+  Resident pages   : 40611
+  Resident limit   : 18446744073709551615
+  Minor page faults: 44277
+  Major page faults: 606
+
+
+Router#show platform software infra punt-keepalive
+
+----- punt inject keepalive settings -----
+punt keepalive fatal (warn count)      = 15
+punt keepalive interval (sec)          = 2
+punt keepalive warning count (miss)    = 10
+Disable XE kernel core                 = Yes
+
+----- punt inject keepalive status -----
+Last punt keepalive proc sched            = 1.304 sec ago
+Last punt keepalive sent                  = 1.304 sec ago
+punt keepalive rx count                   = 36
+punt keepalive tx count                   = 36
+punt keepalive miss count                 = 0
+punt keepalive last keepalive received    = yes
+
+----- punt inject keepalive errors -----
+punt keepalive failed to send no buffers  = 0
+punt keepalive tx fail count              = 0
+
+Router#show install summary
+[ R0 ] Installed Package(s) Information:
+State (St): I - Inactive, U - Activated & Uncommitted,
+            C - Activated & Committed, D - Deactivated & Uncommitted
+--------------------------------------------------------------------------------
+Type  St   Filename/Version
+--------------------------------------------------------------------------------
+IMG   C    26.02.01.0.263
+
+--------------------------------------------------------------------------------
+Auto abort timer: inactive
+--------------------------------------------------------------------------------
+
+
+Router#show bootvar
+BOOT variable does not exist
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x1820
+
+Standby not ready to show bootvar
+
+Router#show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          28 Celsius
+ Temp: Outlet            R0              Normal          27 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12198 mV
+ V: 5V                   R0              Normal          4945 mV
+ V: 3.3V_SB              R0              Normal          3286 mV
+ V: 3.3V_SFP             R0              Normal          3299 mV
+ V: 3.3V                 R0              Normal          3290 mV
+ V: 1.8V                 R0              Normal          1789 mV
+ V: 1.2V                 R0              Normal          1196 mV
+ V: 1.1V_DDR             R0              Normal          1104 mV
+ V: 0.75V_CORE           R0              Normal          761 mV
+ V: 0.75V_SYS            R0              Normal          849 mV
+ V: 0.8V_SW              R0              Normal          801 mV
+ V: 0.8V                 R0              Normal          800 mV
+ V: 0.75V                R0              Normal          750 mV
+ I: VP12P0_MB            R0              Normal          1593 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          18 Watts
+
+
+Router#
+*May 29 2025 18:51:28.971: %IOXN_APP-6-IOX_START_STOP_REQ: Got IOX DOWN COMPLETE event, invoking registered callback(s)
+
+[TX 2026-11-04T10:05:44.735509-05:00] b'show startup-config\rshow running-config\rdir bootflash:\r'
+show startup-config
+Using 3126 out of 33554432 bytes
+!
+! Last configuration change at 18:50:56 UTC Thu May 29 2025
+!
+version 26.2
+service timestamps debug datetime msec year
+service timestamps log datetime msec year
+platform qfp utilization monitor load 80
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition 65500
+ !
+ address-family ipv4
+ exit-address-family
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+logging console emergencies
+no aaa new-model
+!
+!
+!
+!
+!
+!
+ip dhcp pool PnPWebUI1
+ vrf 65500
+ host 192.168.1.3 255.255.255.0
+ client-identifier 0077.6562.7569
+ dns-server 192.168.1.1 
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+ipv6 unicast-routing
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3840936823
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3840936823
+ revocation-check none
+ rsakeypair TP-self-signed-3840936823
+ hash sha512
+!
+!
+crypto pki certificate chain TP-self-signed-3840936823
+ certificate self-signed 01 nvram:IOS-Self-Sig#1.cer
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice-card 0/4
+!
+diagnostic bootup level minimal
+!
+license udi pid C8230X-8M2X sn FGL2835L42B
+memory free low-watermark processor 62065
+!
+spanning-tree extend system-id
+!
+enable secret [REDACTED]
+!
+username webui privilege 15 one-time password [REDACTED]
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface TwoGigabitEthernet0/0/0
+!
+interface TwoGigabitEthernet0/0/1
+!
+interface TwoGigabitEthernet0/0/2
+!
+interface TwoGigabitEthernet0/0/3
+!
+interface TwoGigabitEthernet0/0/4
+ switchport
+!
+interface TwoGigabitEthernet0/0/5
+ switchport
+!
+interface TwoGigabitEthernet0/0/6
+ negotiation auto
+!
+interface TwoGigabitEthernet0/0/7
+ negotiation auto
+!
+interface TenGigabitEthernet0/0/8
+ negotiation auto
+!
+interface TenGigabitEthernet0/0/9
+ negotiation auto
+!
+interface Service-Engine0/4/0
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ negotiation auto
+!
+interface Vlan1
+ vrf forwarding 65500
+ ip address 192.168.1.1 255.255.255.0
+!
+ip rcmd domain-lookup
+ip forward-protocol nd
+ip forward-protocol udp
+ip forward-protocol udp tftp
+ip telnet tos C0
+ip telnet comport enable
+ip telnet comport flow level 16
+ip telnet comport receive window 4128
+ip telnet comport disconnect delay 0
+ip tftp source-interface GigabitEthernet0
+ip tftp arp-glean
+ip tftp blocksize 512
+ip ftp passive
+no ip http server
+ip http authentication local
+ip http secure-server
+!
+ip ssh bulk-mode 131072
+ip ssh stricthostkeycheck accept-new
+!
+!
+!
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ activation-character 13
+ stopbits 1
+ speed 115200
+line aux 0
+ activation-character 13
+line vty 0 4
+ activation-character 13
+ login
+ transport input ssh
+line vty 5 14
+ activation-character 13
+ login
+ transport input ssh
+!
+!
+!
+!
+!
+!
+!
+end
+
+Router#show running-config
+Building configuration...
+
+Current configuration : 7445 bytes
+!
+! Last configuration change at 18:51:14 UTC Thu May 29 2025
+!
+version 26.2
+service timestamps debug datetime msec year
+service timestamps log datetime msec year
+platform qfp utilization monitor load 80
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+login on-success log
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3840936823
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3840936823
+ revocation-check none
+ rsakeypair TP-self-signed-3840936823
+ hash sha512
+!
+crypto pki trustpoint SLA-TrustPoint
+ enrollment pkcs12
+ revocation-check crl
+ hash sha512
+!
+!
+crypto pki certificate chain TP-self-signed-3840936823
+ certificate self-signed 01
+  30820430 30820298 A0030201 02020101 300D0609 2A864886 F70D0101 0D050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 33383430 39333638 3233301E 170D3235 30353239 31383530 
+  30395A17 0D333530 35323931 38353030 395A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 38343039 
+  33363832 33308201 A2300D06 092A8648 86F70D01 01010500 0382018F 00308201 
+  8A028201 8100B511 433D831F E66051D2 DA3B85EA 780AAC93 E4943B65 A853FA95 
+  E36D5BB5 3113F561 7D28FBCB 1125C16B 3376314D F402C4D2 00D7B7F6 F800C39E 
+  65FD1155 5D4B4D09 5926A63D AAFB2906 BAE69C89 C04E2F5A 825B8979 7823F15B 
+  2B933174 B6F6105E 631EDC9D 3E47FBD3 C25BD2F3 F7AA5662 DBD520B2 F74AE99B 
+  81567582 19C6D8DC 6DE8A859 73B23FDD 062CC86E 11349B85 DFCDE342 46C023CE 
+  01E1EFD3 E7D86720 F3974B4C 41F73EE6 C6465231 0CA5B8CE 0C9ADEF2 49276056 
+  96E1D2DA 5A95388F 6CBA8153 94BCB8BC 45BD6ECD 2D70A304 880682C3 B3A94CE9 
+  A759ACD1 194D53AB F16B7A75 0AA58164 C6EFF4B9 7C12D860 0DF97351 9CEE69D3 
+  49AEBDAE 58866803 B05846B8 51582CE4 02E57AE9 EF1B714B 3B1B1980 A506D767 
+  47F80B2E 40C30FC8 8BFE82AB 61743B36 C40712EE BA95B4F6 62F0EBAC 26BAD9C5 
+  BB4DC1B1 B4EC5AE2 5A115CB3 F2F6526A B8AA9D25 7358A298 63B86F86 0EE2D515 
+  566E8960 61E72B07 EE4E7A08 75308DD3 9770889A CE8589AE 1622C3B5 C5B32E11 
+  38391BE8 AAAF0203 010001A3 53305130 1D060355 1D0E0416 04143B1E 64D27A91 
+  312F00B2 0E727C9B D718F894 4735301F 0603551D 23041830 1680143B 1E64D27A 
+  91312F00 B20E727C 9BD718F8 94473530 0F060355 1D130101 FF040530 030101FF 
+  300D0609 2A864886 F70D0101 0D050003 82018100 43BBD303 AD117CC6 6D04D308 
+  EDDFB3E9 5999C9F7 3EF816F5 BD64613D 5FD83B9C 6FEC25F3 5FC1E507 A8413549 
+  E47F3E76 CB015334 24F62DF1 160FEAF1 3D792947 F9FBF0EA 75676C27 FCE85E3F 
+  955C05D8 CD6B6E52 60BE5F1C 28F40280 A0BF693F AA92830E 8FE6FE2F 56D16400 
+  61EEE057 4136FFDE CA78F58F 41BCAE32 67E0E5CE CE62DD87 4FCC8978 AB8C7528 
+  22B8414B 7161E08D 1C93EF0E BA0D4B6D 768995A6 43DEDE0B E3080A34 B9B968B9 
+  5B66770C 74E48869 46AAF098 F5987082 1C23AC3A 4ED4C9F2 617BAA8C 77BE04D1 
+  A76C195C 44B18519 21E0A5DC 8D499B30 B2B6F39E 4289940E 1FF1E9C7 9C07BD54 
+  9A1A540B 59054C64 A8150070 1454EDB3 A3A65C4C E3C5F2B3 5E93DC9D 98E1188B 
+  4DE72D7C A63AFFDA 3E2C8B77 4A4C1938 7024A3CB A41F2BCD 554054A2 A7DC544B 
+  3102604B 9F9EEEAE 717D9639 F8834BEE AE5C3A30 9DAFA640 BA3632ED A3A3CCF5 
+  368B96F5 C80E256F BAB9C917 DCA31648 2D65B9B8 0AA0CE47 A0977258 F153DA65 
+  A26B30D7 ED81A372 0DAAEAB5 E826B632 BE432205
+  	quit
+crypto pki certificate chain SLA-TrustPoint
+ certificate ca 01
+  30820321 30820209 A0030201 02020101 300D0609 2A864886 F70D0101 0B050030 
+  32310E30 0C060355 040A1305 43697363 6F312030 1E060355 04031317 43697363 
+  6F204C69 63656E73 696E6720 526F6F74 20434130 1E170D31 33303533 30313934 
+  3834375A 170D3338 30353330 31393438 34375A30 32310E30 0C060355 040A1305 
+  43697363 6F312030 1E060355 04031317 43697363 6F204C69 63656E73 696E6720 
+  526F6F74 20434130 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 
+  82010A02 82010100 A6BCBD96 131E05F7 145EA72C 2CD686E6 17222EA1 F1EFF64D 
+  CBB4C798 212AA147 C655D8D7 9471380D 8711441E 1AAF071A 9CAE6388 8A38E520 
+  1C394D78 462EF239 C659F715 B98C0A59 5BBB5CBD 0CFEBEA3 700A8BF7 D8F256EE 
+  4AA4E80D DB6FD1C9 60B1FD18 FFC69C96 6FA68957 A2617DE7 104FDC5F EA2956AC 
+  7390A3EB 2B5436AD C847A2C5 DAB553EB 69A9A535 58E9F3E3 C0BD23CF 58BD7188 
+  68E69491 20F320E7 948E71D7 AE3BCC84 F10684C7 4BC8E00F 539BA42B 42C68BB7 
+  C7479096 B4CB2D62 EA2F505D C7B062A4 6811D95B E8250FC4 5D5D5FB8 8F27D191 
+  C55F0D76 61F9A4CD 3D992327 A8BB03BD 4E6D7069 7CBADF8B DF5F4368 95135E44 
+  DFC7C6CF 04DD7FD1 02030100 01A34230 40300E06 03551D0F 0101FF04 04030201 
+  06300F06 03551D13 0101FF04 05300301 01FF301D 0603551D 0E041604 1449DC85 
+  4B3D31E5 1B3E6A17 606AF333 3D3B4C73 E8300D06 092A8648 86F70D01 010B0500 
+  03820101 00507F24 D3932A66 86025D9F E838AE5C 6D4DF6B0 49631C78 240DA905 
+  604EDCDE FF4FED2B 77FC460E CD636FDB DD44681E 3A5673AB 9093D3B1 6C9E3D8B 
+  D98987BF E40CBD9E 1AECA0C2 2189BB5C 8FA85686 CD98B646 5575B146 8DFC66A8 
+  467A3DF4 4D565700 6ADF0F0D CF835015 3C04FF7C 21E878AC 11BA9CD2 55A9232C 
+  7CA7B7E6 C1AF74F6 152E99B7 B1FCF9BB E973DE7F 5BDDEB86 C71E3B49 1765308B 
+  5FB0DA06 B92AFE7F 494E8A9E 07B85737 F3A58BE1 1A48A229 C37C1E69 39F08678 
+  80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB 
+  418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 
+  D697DF7F 28
+  	quit
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice-card 0/4
+!
+diagnostic bootup level minimal
+!
+license udi pid C8230X-8M2X sn FGL2835L42B
+memory free low-watermark processor 62065
+!
+spanning-tree extend system-id
+!
+enable secret [REDACTED]
+!
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface TwoGigabitEthernet0/0/0
+!
+interface TwoGigabitEthernet0/0/1
+!
+interface TwoGigabitEthernet0/0/2
+!
+interface TwoGigabitEthernet0/0/3
+!
+interface TwoGigabitEthernet0/0/4
+ switchport
+!
+interface TwoGigabitEthernet0/0/5
+ switchport
+!
+interface TwoGigabitEthernet0/0/6
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface TwoGigabitEthernet0/0/7
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface TenGigabitEthernet0/0/8
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface TenGigabitEthernet0/0/9
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface Service-Engine0/4/0
+ no ip address
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface Vlan1
+ no ip address
+!
+ip rcmd domain-lookup
+ip forward-protocol nd
+ip forward-protocol udp
+ip forward-protocol udp tftp
+ip telnet tos C0
+ip telnet comport enable
+ip telnet comport flow level 16
+ip telnet comport receive window 4128
+ip telnet comport disconnect delay 0
+ip tftp source-interface GigabitEthernet0
+ip tftp arp-glean
+ip tftp blocksize 512
+ip ftp passive
+ip http server
+ip http authentication local
+ip http secure-server
+!
+ip ssh bulk-mode 131072
+ip ssh stricthostkeycheck accept-new
+!
+!
+!
+!
+control-plane
+!
+!
+mgcp behavior rsip-range tgcp-only
+mgcp behavior comedia-role none
+mgcp behavior comedia-check-media-src disable
+mgcp behavior comedia-sdp-force disable
+!
+mgcp profile default
+!
+!
+!
+!
+!
+!
+line con 0
+ activation-character 13
+ stopbits 1
+ speed 115200
+line aux 0
+ activation-character 13
+line vty 0 4
+ activation-character 13
+ login
+ transport input ssh
+line vty 5 14
+ activation-character 13
+ login
+ transport input ssh
+!
+!
+!
+!
+!
+!
+!
+end
+
+Router#dir bootflash:
+Directory of bootflash:/
+
+22      -rw-        453050368  May 29 2025 18:54:19 +00:00  c8kg2be-universalk9.26.02.01.SPA.bin
+915713  drwx             4096  May 29 2025 18:53:55 +00:00  core
+261633  drwx             4096  May 29 2025 18:52:47 +00:00  .prst_sync
+261637  drwx             4096  May 29 2025 18:51:07 +00:00  pnp-tech
+1046530  drwx             4096  May 29 2025 18:51:01 +00:00  .dbpersist
+915715  drwx             4096  May 29 2025 18:49:55 +00:00  guest-share
+18      -rw-              275  May 29 2025 18:49:52 +00:00  .iox_dir_list
+261635  drwx             4096  May 29 2025 18:49:51 +00:00  pnp-info
+784901  drwx             4096  May 29 2025 18:49:49 +00:00  iox_host_data_share
+784899  drwx             4096  May 29 2025 18:49:49 +00:00  .geo
+392465  drwx             4096  May 29 2025 18:49:45 +00:00  license_evlog
+523268  drwx             4096  May 29 2025 18:49:43 +00:00  virtual-instance
+16      -rw-             1939  May 29 2025 18:49:40 +00:00  trustidrootx3_ca_062035.ca
+15      -rw-            34967  May 29 2025 18:49:40 +00:00  ios_core.p7b
+20      -rw-               30  May 29 2025 18:49:36 +00:00  throughput_monitor_params
+14      -rw-           144751  May 29 2025 18:49:28 +00:00  memleak.tcl
+784897  drwx             4096  May 29 2025 18:49:11 +00:00  .rollback_timer
+392449  drwx             4096  May 29 2025 18:48:54 +00:00  sysboot
+12      -rwx             1172  May 29 2025 18:48:53 +00:00  mode_event_log
+17      drwx             4096  May 29 2025 18:48:45 +00:00  tracelogs
+523265  drwx             4096  May 29 2025 18:48:43 +00:00  .installer
+1046529  drwx             4096  May 29 2025 18:48:40 +00:00  pcap
+130817  drwx             4096  May 29 2025 18:48:40 +00:00  SHARED-IOX
+11      drwx            16384  May 29 2025 18:48:37 +00:00  lost+found
+
+20229492736 bytes total (17449611264 bytes free)
+Router#
+*May 29 2025 18:51:51.068: %SYS-4-INSECURE_WARNING: Module: HTTP - Command: ip http server  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Use http secure server to ensure secure web access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:52:08.045: %SMART_LIC-3-COMM_FAILED: Communications failure with the Cisco Smart License Utility (CSLU) : Unable to resolve server hostname/domain name 
