@@ -10,6 +10,25 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A RECOVERY COMPLETE / CURRENT HANDOFF — 2026-11-04,10:30–10:33 EST
+Owner removed USB and power cycled. Fresh matching A UUID/PowerOn automatically
+selects packages.conf; all16 early firmware fields unchanged. A4 input/RAM
+hashes and HOOK_COMPLETE pass; zero console TX through IOS welcome.
+IOS26.02.01 reads bootflash:packages.conf, IMG C/inactive timer, confreg0x3922.
+No USB filesystem. Native reason is now PowerOn; earlier warm rc139/Image
+Install metadata retained without diagnosing its origin. R0/F0/0/0 ready once
+0/0 completes startup; CPP20192/session18162,keepalives19/19,zero errors.
+Startup and settled running match installed backups; initial booting-interface
+diffs disappeared when0/0 became ready. All14 package names/sizes and source/
+manifest hashes preserved after cleanup; free16,777,342,976bytes.
+Final cold environmental readings mostly zero (CPU52C), observed twice despite
+earlier populated USB readings. Reporting remains unresolved, not measured
+physical rails. TPM/clock/security warnings and extended qualification remain.
+No traffic/performance tests. Capture closed10:33:58, both serial aliases free.
+Router left ON in install mode, USB ABSENT. Preserve USB archive and required
+internal A4/C8235AFIX1/current.bin. No further hardware action for this request.
+Exact evidence: c8235-recovery/c8235-a-ios-20261104/results.json
+
 C8235-A NATIVE CLEANUP COMPLETE — 2026-11-04,10:24–10:28 EST
 Native install remove inactive and postcheck succeed. Exact preview selects
 only incomplete453MB original and current required .bin. Protected subdirectory

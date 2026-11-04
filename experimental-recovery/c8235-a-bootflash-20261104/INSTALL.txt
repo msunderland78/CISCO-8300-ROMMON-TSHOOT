@@ -1,11 +1,14 @@
 C8235-A / FGL2835L42B — 26.2.1 internal recovery
 2026-11-04; America/New_York (EST UTC-05:00); tasks C8235-01/03/05
 
-STATUS: USB corrected IOS and autonomous internal install boot verified.
-All14 full package hashes and native inactive cleanup pass. USB-free physical
-cold boot remains pending. Native IOS reads bootflash:packages.conf, IMG C26.02.01.0.263 and
-confreg0x3922; A4 input/RAM hashes and runtime hook complete automatically.
-Initial warm CPP20641/session18177, keepalives14/14/zero misses; no load test.
+STATUS: Completed November4,10:33 EST. Corrected USB IOS, autonomous internal
+warm boot, USB-free physical cold boot and native inactive cleanup verified.
+IOS26.02.01 reads bootflash:packages.conf, IMG C26.02.01.0.263, confreg0x3922.
+All14 full package hashes match. A4 input/RAM guards and runtime hook complete
+without console input on both internal boots. Cold native reason is PowerOn.
+R0/F0/0/0 ready, CPP20192/session18162; keepalives19/19 with zero misses/errors.
+Startup and settled running both match their installed backups. Console closed
+and both serial aliases released; router left on, USB absent. No load test.
 Current results: ../../c8235-recovery/c8235-a-ios-20261104/results.json
 
 Required final files: packages.conf and all14 packages in
@@ -14,7 +17,7 @@ plus A4, C8235AFIX1, and c8kg2be-universalk9.26.02.01.SPA.bin.
 The exact .bin remains required even in install mode because A4 hashes it.
 The .bin and native packages are not patched. A4 applies the same guarded RAM
 resource-budget correction validated on this A USB boot, before native init.
-Exact source hashes and proposed239-byte ROMMON command are in candidate.json.
+Exact source hashes and saved239-byte ROMMON command are in candidate.json.
 Do not use another chassis's named loader or configuration as an A backup.
 
 Source derivation: separate A copies from preserved B/C work; changed identity
@@ -51,9 +54,11 @@ native deletion list, then immediately restore the required root filename and
 verify it after cleanup. Do not reboot between deletion and restoration.
 Keep A4, C8235AFIX1, packages.conf and every active package.
 
-No performance testing is authorized in this session. Initial main sensors
-are populated; standby12V0 and earlier TPM/clock/security warnings remain
-unresolved. Do not turn them into an assertion of full functional stability.
+No performance testing was performed. USB main sensor readings were populated,
+but final cold observations report most sensors as zero (CPU52C); this unresolved
+reporting is not a measured rail-voltage result. Earlier TPM/clock/security
+warnings remain. Warm rc139/Image Install metadata was not reproduced as a
+fresh crash; cold readback reports PowerOn. No full stability/security claim.
 
 Cisco native install/cleanup reference:
 https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/software-config-guide/secure-8200-series-scg/isr9000swcfg-xe-16-12-book_chapter_0111.html

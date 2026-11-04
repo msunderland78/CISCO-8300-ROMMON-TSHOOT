@@ -1651,13 +1651,18 @@
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
-      "bytes": 210067,
+      "bytes": 259115,
       "path": "router-console-logs/20261104-100424-C8235-A-install-and-cleanup.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
     },
     {
       "bytes": 22299,
       "path": "router-console-logs/20261104-101500-C8235-A-install-warm-zero-TX.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 23440,
+      "path": "router-console-logs/20261104-1030-C8235-A-USB-free-cold-zero-TX.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
@@ -1693,9 +1698,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 228111,
+      "bytes": 229478,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "8fee32c61d938ebbec09a468ce72776fec788a1350a10b78fd204d5d363fbdb7"
+      "sha256": "cab7c0e733ac63ce5e5473a74a9d04b00b541c03381d7d9ca1c4ae7d4c081310"
     },
     {
       "bytes": 106687,
@@ -1993,9 +1998,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 29055,
+      "bytes": 29138,
       "path": "README.md",
-      "sha256": "730132459eb52864601ee438f0546505d9c14b31307e51105cc4a42353363f49"
+      "sha256": "320b0cad014af9a13b651e53a578d9ec74976d3040407b72148ed3c68b152dd4"
     },
     {
       "bytes": 3934,
@@ -2193,9 +2198,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 485781,
+      "bytes": 487166,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "bf59767233a856644976cf84cbec688d6c51245b9bdcf76b28503b7f702c8ea9"
+      "sha256": "fb72abf431a1a5e646ef1ea77005810e8542bb76100281f2b0c27b5993b5f510"
     },
     {
       "bytes": 6850655,
@@ -2368,9 +2373,9 @@
       "sha256": "6f43e31f388afed85fc728173ba8af34a68392ab22c66c1ea51c369afab27100"
     },
     {
-      "bytes": 18257,
+      "bytes": 22331,
       "path": "c8235-recovery/c8235-a-ios-20261104/results.json",
-      "sha256": "2fa1b83fa3057d69086fa5764c59c5185f4ad02e91d2bd426268a66eb1ae9c18"
+      "sha256": "2f30da4ea77dc951c29d9c9902d717b28961133817215ec1a8e122ffdcd718d8"
     },
     {
       "bytes": 244774,
@@ -3273,9 +3278,9 @@
       "sha256": "8a63e68c3fa4bf8e9b23375302db8e3f4926e67a03b92a37aa41b6ed1954a9e6"
     },
     {
-      "bytes": 3886,
+      "bytes": 4274,
       "path": "experimental-recovery/c8235-a-bootflash-20261104/INSTALL.txt",
-      "sha256": "3a969ab246fd34afb1e00164409dd65f8282af5a1e3f435702469952102b59eb"
+      "sha256": "f2b801bac0e629508dd65567b2a172df98315af748d1a1aec1131496d7063512"
     },
     {
       "bytes": 2504,
@@ -3288,9 +3293,9 @@
       "sha256": "fd1eb73602bbb3b5f37c857e1261d709f9781e90dbcbbe41b633786b570f396a"
     },
     {
-      "bytes": 2022,
+      "bytes": 2089,
       "path": "experimental-recovery/c8235-a-bootflash-20261104/candidate.json",
-      "sha256": "38e51e38598c291c4e6358adffd88251baa2ca80a9c6c7a581bf30ac5b60155f"
+      "sha256": "4d11315fdefe5094d4309e32284e9a6e0a69747a713635bed4d6a35e73c7e208"
     },
     {
       "bytes": 3223,
@@ -4978,14 +4983,19 @@
       "sha256": "c6ccd2b8f0fb2de44518c78abb2ce1546a374b5006c5cf39059933b5476674e8"
     },
     {
-      "bytes": 209839,
+      "bytes": 258869,
       "path": "sanitized-evidence/router-console-logs/20261104-100424-C8235-A-install-and-cleanup.log",
-      "sha256": "d646256603abea8646ea84004b1fd002a91ed20e7006053219258ca69087a48b"
+      "sha256": "244e4aba12d36429e915dafb5a630573bec89b5b6bce1907fd4f83196a61a084"
     },
     {
       "bytes": 22299,
       "path": "sanitized-evidence/router-console-logs/20261104-101500-C8235-A-install-warm-zero-TX.log",
       "sha256": "3651ae7b2048e0412efdcccf54d41897bc27ac49ae1d3e26f9efca48bcdf21cb"
+    },
+    {
+      "bytes": 23440,
+      "path": "sanitized-evidence/router-console-logs/20261104-1030-C8235-A-USB-free-cold-zero-TX.log",
+      "sha256": "78ff482c61e7c2b3ce1738889920473ce0d03c66737d29f3523bbb31882abfe5"
     },
     {
       "bytes": 17692,
@@ -5426,12 +5436,13 @@
     "sanitized-evidence/router-console-logs/20261104-095617-C8235-A-restored-ROMMON.log",
     "sanitized-evidence/router-console-logs/20261104-100424-C8235-A-first-IOS-baseline.log",
     "sanitized-evidence/router-console-logs/20261104-100424-C8235-A-install-and-cleanup.log",
-    "sanitized-evidence/router-console-logs/20261104-101500-C8235-A-install-warm-zero-TX.log"
+    "sanitized-evidence/router-console-logs/20261104-101500-C8235-A-install-warm-zero-TX.log",
+    "sanitized-evidence/router-console-logs/20261104-1030-C8235-A-USB-free-cold-zero-TX.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 332,
-    "included_bytes_without_manifest": 1081470934,
-    "included_files_without_manifest": 704
+    "excluded_local_files": 333,
+    "included_bytes_without_manifest": 1081550768,
+    "included_files_without_manifest": 705
   }
 }

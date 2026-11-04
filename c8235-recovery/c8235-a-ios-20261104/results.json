@@ -104,7 +104,10 @@
     "keepalive_misses": 0,
     "keepalive_send_errors": 0,
     "recovery_directory": "Empty after native rename; retained",
-    "scope": "No older installed package set was present; only current14 active packages remain. Required current .bin retained for A4 and fallback. Native cores and configuration backups preserved."
+    "scope": "No older installed package set was present; only current14 active packages remain. Required current .bin retained for A4 and fallback. Native cores and configuration backups preserved.",
+    "checkpoint_commit": "e163157d843c90edd526697c75c251a6f20b052b",
+    "checkpoint_ci_result": "success",
+    "checkpoint_ci": "https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT/actions/runs/41858493576"
   },
   "performance_testing": "explicitly excluded by owner",
   "preservation": {
@@ -202,8 +205,13 @@
     },
     {
       "path": "sanitized-evidence/router-console-logs/20261104-100424-C8235-A-install-and-cleanup.log",
-      "raw_sha256": "e9d3a2d281b285fbe64c897079ead3317b6938b1608d3c50b7f0aaba782e6777",
-      "scope": "Snapshot through cleanup final checks, before requested cold power cycle; original remains private"
+      "raw_sha256": "8ccf741eb7905357a632aa06250178d79a4ad9d498c917b456f9342297c0bc8e",
+      "scope": "Complete closed second capture: first IOS, install, warm boot, cleanup and final USB-free cold boot/readback; original retained privately"
+    },
+    {
+      "path": "sanitized-evidence/router-console-logs/20261104-1030-C8235-A-USB-free-cold-zero-TX.log",
+      "raw_sha256": "78ff482c61e7c2b3ce1738889920473ce0d03c66737d29f3523bbb31882abfe5",
+      "scope": "Derived byte-exact cold segment through IOS welcome, before first console transmission"
     }
   ],
   "publication_correction": {
@@ -294,7 +302,7 @@
     "free_bootflash_bytes": 16324317184,
     "zero_TX_through_IOS_welcome": true,
     "zero_TX_snapshot": "sanitized-evidence/router-console-logs/20261104-101500-C8235-A-install-warm-zero-TX.log",
-    "reload_metadata_caveat": "IOS says LocalSoftADR and Last reload reason Critical process cpp_cp_svr fault on fp_0_0 (rc=139),Image Install. Preserve this unexplained metadata: continuous current capture shows only intentional installer LocalSoft and manual ResetRequest banners; no fresh runtime fatal notification or unexpected reset is captured. Do not assert metadata cleared or diagnose its origin.",
+    "reload_metadata_caveat": "IOS says LocalSoftADR and Last reload reason Critical process cpp_cp_svr fault on fp_0_0 (rc=139),Image Install. Preserve this unexplained metadata: continuous current capture shows only intentional installer LocalSoft and manual ResetRequest banners; no fresh runtime fatal notification or unexpected reset is captured. Do not assert metadata cleared or diagnose its origin. Subsequent USB-free cold boot reports PowerOn consistently; prior warm metadata origin remains unresolved.",
     "manifest_sha512": "aed00702b34462f9f6ee911e6f3e4c1d72fef4d051739a06f782ae1e7cb4c37d58ee1ffc08f48f47a8b83708ccc47e66a753988e383be9d098405a9a81a8e891",
     "package_verification": {
       "count": 14,
@@ -319,9 +327,68 @@
     "checkpoint_ci_result": "success"
   },
   "internal_cold_boot": {
-    "status": "pending_owner_power_cycle_USB_removed",
+    "status": "verified_USB_absent_autonomous_PowerOn_install_boot",
+    "owner_confirmation": "Powered back on without USB",
     "capture_armed": "2026-11-04T10:28:51.518339-05:00",
-    "capture": "Same continuous supervised capture; no reopen/handoff; byte offset recorded privately",
-    "instructions": "Router off; remove CISCO FILES USB; wait about10s; power back on; retain serial"
+    "matching_ROMMON_observed": "2026-11-04T10:30:59.144879-05:00",
+    "welcome_observed_by": "2026-11-04T10:33:18.465479-05:00",
+    "first_console_TX": "2026-11-04T10:33:21.217332-05:00",
+    "zero_TX_through_welcome": true,
+    "zero_TX_snapshot": "sanitized-evidence/router-console-logs/20261104-1030-C8235-A-USB-free-cold-zero-TX.log",
+    "reset": "PowerOn",
+    "early_firmware_fields_unchanged": 16,
+    "automatic_loader": "A4 internal PID1 entry, input hashes, RAM patch/hook hashes, unmount and HOOK_COMPLETE all pass",
+    "ios_readback": "2026-11-04T10:33:34.322789-05:00",
+    "version": "26.02.01",
+    "system_image": "bootflash:packages.conf",
+    "reload_reason": "PowerOn",
+    "chassis": "C8230X-8M2X/FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "USB_absence": "Owner confirms drive removed; show file systems has no USB filesystem, dir usb0 rejected because unavailable",
+    "install_state": "IMG C26.02.01.0.263; auto-abort inactive",
+    "BOOT": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+    "confreg": "0x3922",
+    "initial_module_readback": "0/0 booting at10:33:34; partial interface diffs at this point are preserved",
+    "ready_readback": "2026-11-04T10:33:49.315822-05:00",
+    "platforms": "R0/F0 ok active;0/0 ok;P0 ok",
+    "cpp_pid": 20192,
+    "cpp_session": 18162,
+    "keepalive_initial_rx_tx": [
+      11,
+      11
+    ],
+    "keepalive_ready_rx_tx": [
+      19,
+      19
+    ],
+    "keepalive_miss": 0,
+    "keepalive_send_errors": 0,
+    "startup_vs_installed_backup": "No changes were found",
+    "running_vs_installed_backup": "No changes were found once0/0 finished startup",
+    "startup_vs_running": "Expected native representation/default differences: system mode insecure, certificate content vs NVRAM references, Service-Engine no-ip-address line. No configuration changes made during cold verification.",
+    "all14_package_names_sizes_match": true,
+    "loader_fix_manifest_full_sha512_match": true,
+    "free_bootflash_bytes": 16777342976,
+    "logging_cpp_PMAN_filter": "No matching entries in cold IOS readback",
+    "sensor_readback": {
+      "CPU_C": 52,
+      "inlet_C": 0,
+      "outlet_C": 0,
+      "all_reported_voltage_mV": 0,
+      "reported_current_mA": 0,
+      "reported_power_W": 0,
+      "status": "Unresolved widespread zero-valued environmental reporting, observed twice at10:33:34/49; earlier USB main readings were populated. These are IOS reports, not measured rail voltages. No sensor repair or performance test attempted."
+    },
+    "qualification": "Boot/readiness and preservation checks only; no forwarding, traffic, performance or extended stability test"
+  },
+  "handoff": {
+    "at": "2026-11-04T10:33:58.478141-05:00",
+    "router": "Left powered on in committed26.2.1 install mode from bootflash; USB absent",
+    "console": "Supervisor closed cleanly; both serial aliases have no lsof owners",
+    "current_console_original": ".git/recovery-private/c8235-a-ios-20261104/supervised-20261104-100424/console.log",
+    "original_sha256": "8ccf741eb7905357a632aa06250178d79a4ad9d498c917b456f9342297c0bc8e",
+    "performance_testing": "None",
+    "outstanding": "Environmental sensor reporting, TPM/clock/security warnings and extended functional qualification remain unresolved; no firmware-code rewrite this session",
+    "next_hardware_step": "No further action required for requested boot/install/cleanup. Retain USB archive and required internal A4/C8235AFIX1/current.bin; later qualification only when requested."
   }
 }
