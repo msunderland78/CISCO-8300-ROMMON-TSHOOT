@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-04T09:58:02.655927-05:00",
+  "chassis": "C8235-A/FGL2835L42B",
+  "soc_uuid": "13 FF FF 78 86 52 04 83 8A BF FF 48",
+  "status": "prepared_only_not_deployed",
+  "derivation": "Separate A copies from preserved C/B sources; same runtime RAM correction. Only identifying comments, loader name, correction filename and source hash differ. Original vendor image/packages stay unchanged.",
+  "files": {
+    "boot-bound16.sh": {
+      "bytes": 3070,
+      "sha256": "fd1eb73602bbb3b5f37c857e1261d709f9781e90dbcbbe41b633786b570f396a",
+      "sha512": "341a8a487a4e2098444abdf60b8a5a8ce3b947366095f2979e4062f5873a65aea9088185deed6f2d3e90dc7098d9b0593294244e8db82c4e4a99a38d3dce817d"
+    },
+    "auto-bootflash.sh": {
+      "bytes": 2504,
+      "sha256": "b0eb761dc661d50d6291ce2da0a5b6aafe187d90c6b17be9a56672861a5803f7",
+      "sha512": "d479ebdf5f26419abee38c3a584c978974d0113feb65c0004af3411ff98c2b21084082ae61817b3311d89b677ec6ab4fd54053f96269b39affcc28ff964e8a3f"
+    }
+  },
+  "deployment": {
+    "auto-bootflash.sh": "A4",
+    "boot-bound16.sh": "C8235AFIX1"
+  },
+  "validation": "bash -n passed for both files; live guards and boot not yet tested"
+}

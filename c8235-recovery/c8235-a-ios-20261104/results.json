@@ -1,0 +1,64 @@
+{
+  "session_date": "2026-11-04",
+  "timezone": "America/New_York (EST, UTC-05:00)",
+  "tasks": [
+    "C8235-01",
+    "C8235-03",
+    "C8235-05"
+  ],
+  "chassis": "C8235-A / FGL2835L42B",
+  "board": "FOC28292GUQ (current physical photo association; native inventory pending)",
+  "owner_confirmed_state": {
+    "battery": "Reinstalled after initially noticing omission; confirmed before this power-on",
+    "programmer": "All clip/adapter/RESET wiring removed",
+    "assembly": "Board restored to case; cooling/heatsinks/fans restored",
+    "cables": "Normal power, exclusive RJ45 console and CISCO FILES USB; no Ethernet"
+  },
+  "capture": {
+    "start": "2026-11-04T09:56:17-05:00",
+    "port": "/dev/cu.usbserial-AL00F7EQ",
+    "settings": "115200 8N1, no flow control",
+    "ownership": "Both serial aliases free before open; exclusive TIOCEXCL; sole Python PID 4624 confirmed",
+    "private_path": ".git/recovery-private/c8235-a-ios-20261104/capture-20261104-095616/console.log",
+    "rommon_snapshot": "router-console-logs/20261104-095617-C8235-A-restored-ROMMON.log",
+    "rommon_snapshot_sha256": "cbe2477a1c6f4f6c35d490df7be9dd1bf5473ac2c4d78b629c215cc5ae6ed889"
+  },
+  "native_boot": {
+    "status": "verified_rommon_reached",
+    "rommon_time": "2026-11-04T09:57:16-05:00",
+    "reset": "PowerOn",
+    "uuid": "13 FF FF 78 86 52 04 83 8A BF FF 48",
+    "version": "SDK112312-SoC1-SB-v12.1.22 DEVELOPMENT",
+    "board_banner": "mirabile-arata, Revision r2; Serial unknown",
+    "bootloader_signature_report": "return_code 0x00000000; bootloader image verified successfully; ROMMON itself explicitly NON-Secure development image",
+    "confreg_initial": "0x1820",
+    "boot_initial": "No BOOT or USER_BOOT_PARAM in fresh set output",
+    "firmware_write_this_session": false
+  },
+  "storage_initial": {
+    "usb_image": {
+      "file": "usb0:c8kg2be-universalk9.26.02.01.SPA.bin",
+      "bytes": 1048008916,
+      "sha256_expected": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456",
+      "fresh_hash": "in_progress"
+    },
+    "bootflash_image": {
+      "file": "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin",
+      "bytes": 453050368,
+      "status": "incomplete_by_size; preserve before replacement"
+    },
+    "old_packages": "No .pkg or packages.conf in root ROMMON listing; IOS inventory still required"
+  },
+  "usb_boot": {
+    "started": "2026-11-04T09:58:15-05:00",
+    "status": "maintenance_shell_reached; IOS not started",
+    "kernel": "6.6.95",
+    "board": "arata",
+    "pid1_continuation": "Verified exact temporary rdinit shell continuation; no sync",
+    "console": "Maintenance initially 9600, both ends restored to115200"
+  },
+  "fix": "A-specific guarded source prepared offline; not applied yet",
+  "install": "pending",
+  "cleanup": "pending",
+  "performance_testing": "explicitly excluded by owner"
+}

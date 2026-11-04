@@ -10,6 +10,20 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A NATIVE ROMMON RECOVERED — 2026-11-04, 09:57 EST
+Owner confirms A/FGL2835L42B, battery restored after noticing omission, board
+back in case/cooling restored and all programmer/clip/RESET wiring removed.
+Normal power, RJ45 console and CISCO FILES USB only; no Ethernet. Exclusive
+1152008N1 capture records PowerOn and development SDK112312-SoC1-SB-v12.1.22,
+A UUID13 FF FF78 86 52 04 83 8A BF FF48 and ROMMON prompt. This supersedes the
+overnight untested-native-boot state; prior TPM halt is retained below.
+No new SPI write. Initial confreg0x1820, no BOOT/USER_BOOT_PARAM. Full USB image
+1,048,008,916B; internal same-named copy only453,050,368B, preserve before replace.
+Temporary unsynced USB maintenance entry works; PID1 continuation/kernel6.6.95
+verified, console restored from maintenance9600 to115200. Hash/fix/install and
+cleanup pending. Performance testing explicitly excluded.
+Evidence: c8235-recovery/c8235-a-ios-20261104/results.json
+
 C8235-A U2900 RESTORE VERIFIED — END OF NIGHT 2026-11-04, 00:48 EST
 FIRST RESUME FILE: c8235-recovery/c8235-a-u2900-restore-20261104/HANDOFF.txt
 Full result: c8235-recovery/c8235-a-u2900-restore-20261104/result.json
