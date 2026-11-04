@@ -10,6 +10,32 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A ISOLATED ADAPTER LOOPBACK PASSES — 2026-11-03, 19:27 EST
+Owner replies clip removed, OUTPUT2/5 connected, Pi on to full router-isolation
+preparation. Fresh new Pi boot, expected RP1/controller, no programmer/device
+holder, all deployed hashes match. Existing checked GPIO adapter-only loopback
+runs once19:27:51-19:27:56:12 transfers x64bytes=768bytes, zero bit/byte errors,
+exit0. Independent postflight verifies SPI driver restored/CS high/no holders,
+same boot and exact original report hash. Transmitted pattern hashes recomputed.
+No router flash chip attached during arbitrary-pattern test; no native boot,
+array read/write or additional flash-ID command. MOSI/MISO path works in isolated
+fixture; CS/CLK output routing, clip contacts, board loading and chip state remain
+unqualified by this loopback. Earlier000000 ID remains unresolved.
+
+Owner reports RESET pair2004ohm and explicitly confirms bare actual U2900pin3
+with clip off-chip ->U2901pin3/grabber, router fully unpowered,218ohm ground branch
+disconnected. Accept direct result; no near-zero RESET tie observed, no repeat.
+Next: Pi shutdown/USB-C unplug, remove adapter2-to5 jumper; keep entire cable
+off adapter, U2900 clip off-chip and218ohm branch disconnected. At board0V,
+record probe baseline then actual U2900->U2901 like-pin7/CS,8/MISO,15/MOSI,16/CLK
+ohms/OL. These are physical16-pin chip numbers from molded black dimple.
+Purpose is to find verified shared-node references for later clip contact checks;
+no common net inferred from matching labels. Leave isolated/off and report.
+Pi shutdown/USB-C unplug before jumper removal/fixture changes; no live movement
+or ID retry. Preserve both old reported2000ohm and new2004ohm with exact scopes.
+Evidence: c8235-recovery/c8235-a-u2900-id-20261103/adapter-loopback.json
+Direct-pair follow-up: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A FIRST GPIO ID FAILS / CLEANUP VERIFIED — 2026-11-03, 19:17–19:18 EST
 Owner reports accessible OUTPUT1/3/7 each1.76V, leaves Pi on for agent test,
 confirms unchanged working C8375 signal harness and identical Pi setup. Fresh

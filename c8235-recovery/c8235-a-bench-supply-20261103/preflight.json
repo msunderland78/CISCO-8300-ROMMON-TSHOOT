@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Static supply/RESET/control levels acceptable, but first GPIO ID transaction returned000000 and stopped. Owner confirms unchanged previously working signal harness and Pi config, explicitly asks agent test with Pi on. Cleanup independently verified; post-test VCC/U2900 pin3=1.725 V, U2901 grabber=.309 V. No firmware bytes read/written. Next isolate adapter entirely from router for OUTPUT2-to5 loopback; no ID retry.",
+  "status": "Isolated adapter loopback passed12 tests/768 bytes; U2900 ID000000 unresolved. Owner confirms direct bare U2900 RESET-to-U2901 RESET2004ohm with board unpowered, clip off-chip and218-ohm branch disconnected. Next unpowered like-pin cross-chip CS/MISO/MOSI/CLK mapping to identify possible exposed board-side clip-contact check points; no net sharing assumed or SPI retry.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -688,7 +688,7 @@
   },
   "next_adapter_loopback_preparation": {
     "selected_at": "2026-11-03T19:23:15-05:00",
-    "status": "Preparation instructions selected; router disconnection/jumper/Pi state not yet reported. No loopback run.",
+    "status": "Completed: owner confirms clip removed, OUTPUT2/5 jumper and Pi on; agent ran isolated adapter-only loopback once.12 tests pass; no router attached/ID retry.",
     "reason": "Check current MOSI-to-MISO translation/return path separately from router after all-zero ID. Earlier C8375 loopback pass predates these A fixture/polarity events and does not exclude a current fault.",
     "sequence": [
       "Shut down Pi normally and physically unplug USB-C. Keep bench leads and native router sources/cables/coin-cell disconnected. Verify approximately0 V redJ2507-2/black8 before handling connections.",
@@ -698,5 +698,55 @@
       "Report that entire clip cable is off adapter OUTPUT, no other Pi/adapter-to-router connection remains, only adapter OUTPUT2-to5 jumper is fitted, and Pi is on. Agent must obtain this physical-state confirmation before any loopback byte transmission."
     ],
     "next_test_only_after_confirmation": "Existing checked pi_gpio_loopback.py --adapter-loopback through bounded wrapper, current GPIO/controller/ownership preflight and cleanup verification. Sends arbitrary test bytes; NEVER run with router attached. No automatic flash-ID retry follows a loopback result."
+  },
+  "adapter_loopback_checkpoint": {
+    "recorded_at": "2026-11-03T19:33:01-05:00",
+    "evidence": "../c8235-a-u2900-id-20261103/adapter-loopback.json",
+    "result": "12 transfers,768 bytes, zero bit/byte errors; matched source hashes, current ownership preflight and independent driver/CS cleanup."
+  },
+  "direct_reset_pair_followup": {
+    "recorded_at": "2026-11-03T19:33:01-05:00",
+    "owner_report": "reset to reset is still 2000 ohms, actually 2004",
+    "reported_ohms": 2004,
+    "status": "Accepted fresh direct unpowered RESET-pair result:2004ohm. No repeat requested. Probe baseline and exact meter polarity not separately restated.",
+    "clarification_requested": "Actual U2900 physical3 leg with clip off-chip to U2901 physical3/grabber; board isolated from all power;218-ohm reset-to-ground branch disconnected.",
+    "interpretation": "Direct2004ohm reading supports no near-zero/direct RESET tie under this unpowered setup; consistent with earlier approximate2000ohm. Does not establish every powered coupling condition or identify a discrete component.",
+    "confirmation": {
+      "recorded_at": "2026-11-03T19:35:03-05:00",
+      "owner_response": "Yes, all of those conditions",
+      "scope": "Actual U2900 physicalpin3 leg with clip off-chip to U2901 physicalpin3/grabber; router isolated from all power;218-ohm RESET-to-ground branch disconnected."
+    }
+  },
+  "next_unpowered_scope": {
+    "selected_at": "2026-11-03T19:35:03-05:00",
+    "status": "Four cross-chip signal resistance checks planned; no results yet.",
+    "purpose": "Find whether exposed U2901 signal pins are verified board-side references for later checking U2900 clip contacts without probing under the clip. Equal function labels alone do not establish electrical commonality.",
+    "state": "Shut down Pi and unplug USB-C before removing adapter OUTPUT2-to5 jumper. Keep entire clip cable off adapter and U2900 clip off chip. Native router sources/cables/coin-cell and bench leads disconnected. U2901 grabber may stay attached but its218-ohm ground branch remains disconnected as owner confirmed.",
+    "meter_preparation": "Verify DC redJ2507-2/black8 approximately0 V; then ohms with COM/V-ohm inputs, record probes-touching baseline. Never use ohms on a powered circuit.",
+    "measurements": [
+      {
+        "black": "Actual U2900 physicalpin7",
+        "red": "Actual U2901 physicalpin7",
+        "signal": "CS#"
+      },
+      {
+        "black": "Actual U2900 physicalpin8",
+        "red": "Actual U2901 physicalpin8",
+        "signal": "MISO/DQ1"
+      },
+      {
+        "black": "Actual U2900 physicalpin15",
+        "red": "Actual U2901 physicalpin15",
+        "signal": "MOSI/DQ0"
+      },
+      {
+        "black": "Actual U2900 physicalpin16",
+        "red": "Actual U2901 physicalpin16",
+        "signal": "CLK"
+      }
+    ],
+    "pin_numbering": "These are16-pin CHIP physical numbers counted from molded black pin1 dimple, not8-pin adapter OUTPUT numbers. If a bare-chip endpoint is inaccessible/unclear, report rather than substitute a connector or nearby component.",
+    "after": "Report all four actual ohms/OL plus baseline; leave router/clip/adapter isolated, Pi unplugged, jumper removed and218-ohm branch disconnected. No powered refit, net jumper, new signal assignment, ID retry or array read selected.",
+    "conditional_use": "Only an actually measured near-baseline pair can later serve as a candidate shared-node test reference. Resistive/OL paths do not authorize treating pins as a common net."
   }
 }

@@ -10,7 +10,7 @@
     "target_chip": "U2900",
     "other_chip": "U2901"
   },
-  "status": "First and only ID transaction returned000000; stopped without retry. No array read/write. SPI driver/CS cleanup independently verified. Post-test owner DC values match pre-test. Cause unresolved; prepare isolated adapter-only loopback next.",
+  "status": "First and only ID transaction returned000000; stopped without retry. No array read/write; cleanup independently verified and post-test DC unchanged. Subsequent isolated adapter loopback passes12 tests/768 bytes, narrowing further work to remaining routing/control/board-loaded behavior; no definitive cause.",
   "owner_authorization_and_fixture": {
     "test_request": "Owner: I left it on for you to do the test.",
     "harness": "Owner explicitly confirms signal wiring unchanged from working C8375 setup apart from moving/reorienting clip and218-ohm U2901 RESET resistor; adds Pi configured exactly as for8375.",
@@ -163,5 +163,9 @@
     "copy_verified_against_remote_hash": true,
     "public_artifact": "This authored result summary, not a copy of raw console logs."
   },
-  "next": "Power off/unplug Pi and isolate entire adapter OUTPUT from router, then adapter-only OUTPUT2-to5 loopback preparation. No repeat ID or array read before diagnostic review; wiring confirmation required before arbitrary loopback bytes."
+  "next": "Isolated adapter loopback passed. Direct bare-chip RESET pair2004ohm confirmed with board unpowered/pull-down disconnected. Next unpowered CS/MISO/MOSI/CLK cross-chip map before choosing accessible contact checks; no ID retry.",
+  "adapter_loopback_followup": {
+    "evidence": "adapter-loopback.json",
+    "result": "12 isolated adapter transfers/768 bytes; all zero bit/byte differences; independent cleanup/report-hash verification."
+  }
 }

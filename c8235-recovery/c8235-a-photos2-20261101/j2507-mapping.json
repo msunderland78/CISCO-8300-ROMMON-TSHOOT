@@ -147,7 +147,7 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "OUTPUT1/3/7 each1.76 V; first ID transaction subsequently returned000000 and stopped. Static levels remain recorded; no valid ID/full read. Next fully isolate adapter from board for OUTPUT2-to5 loopback preparation; see ../c8235-a-u2900-id-20261103/result.json and current preflight evidence.",
+  "next_stage": "Isolated adapter loopback passed12 tests/768 bytes after ID000000. Owner direct unpowered RESET pair2004ohm confirmed, clip off/218-ohm branch disconnected. Next unpowered cross-chip physical7/8/15/16 map to identify possible accessible board-side contact references; no common net assumed or ID retry.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json",
   "status_before_20261103_orientation_correction": "CH341A resistor-limited source/board values 1.793/0.423 V match Pi (~13.8 mA inferred). Comparison complete; CH341A USB unplug/socket adapter confirmed. Flash supply qualification incomplete.",
   "orientation_correction_20261103": {

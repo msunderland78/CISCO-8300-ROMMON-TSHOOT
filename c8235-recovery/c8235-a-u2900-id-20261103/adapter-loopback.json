@@ -1,0 +1,277 @@
+{
+  "recorded_at": "2026-11-03T19:33:01-05:00",
+  "tasks": [
+    "C8235-01",
+    "R-01"
+  ],
+  "scope": "Adapter-only diagnostic during C8235-A recovery; no router or flash chip attached to adapter output.",
+  "owner_confirmation": {
+    "report": "clip removed, 2 and 5 are connected, pi is back on",
+    "accepted_context": "Direct response to explicit entire clip cable/no other router connection, adapter OUTPUT2/MISO-to5/MOSI only, Pi on preparation. No new question required to repeat that authorized setup.",
+    "limits": "Exact physical clip seating on the chip versus removed from the chip was not separately distinguished; router isolation from adapter is the operative loopback condition."
+  },
+  "status": "PASS:12 transfers,768 bytes total, zero differing bytes/bits. No router flash command, read, write or native boot during this isolated test.",
+  "preflight": {
+    "recorded_at": "2026-11-03T19:27:16.201302-05:00",
+    "hostname": "PI-MATT-UBT",
+    "model": "Raspberry Pi 5 Model B Rev 1.1",
+    "kernel": "7.0.0-1020-raspi",
+    "boot_id": "dd5698d4-c24c-46b4-869b-3330101513d5",
+    "uptime_seconds": 44.89,
+    "spidev_exists": true,
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "spidev_holders": [],
+    "possible_programmer_processes": [],
+    "gpiod_version": "2.2.0",
+    "pinctrl_returncode": 0,
+    "pinctrl": "8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK",
+    "gpiochip_label": "pinctrl-rp1",
+    "lines": [
+      {
+        "offset": 8,
+        "name": "GPIO8",
+        "used": true,
+        "consumer": "spi0 CS0"
+      },
+      {
+        "offset": 9,
+        "name": "GPIO9",
+        "used": false,
+        "consumer": null
+      },
+      {
+        "offset": 10,
+        "name": "GPIO10",
+        "used": false,
+        "consumer": null
+      },
+      {
+        "offset": 11,
+        "name": "GPIO11",
+        "used": false,
+        "consumer": null
+      }
+    ],
+    "source_hashes": {
+      "pi_gpio_c8235_a_u2900_id.py": "61f87572fe2dd438838824240dc2241ca5e62b5686a7975fa53d7f695f5d0f20",
+      "pi_gpio_loopback.py": "422dcdbef11a082c03ebcee23a19d0861fe4847ae82a20c3bbfbc1303191e376",
+      "pi_spi_loopback.py": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405",
+      "pi_u1_direct_read.py": "a9931f4108bc8501cbaa9f25ec656f6b2a9b9b501b11f14125da250a5ea7873e"
+    },
+    "source_hashes_match_deployment": true,
+    "source_hashes_match_current_local": true
+  },
+  "execution": {
+    "started_at": "2026-11-03T19:27:50-05:00",
+    "finished_at": "2026-11-03T19:27:56-05:00",
+    "exit_code": 0,
+    "command_public_form": "sudo timeout --signal=INT --kill-after=10s 60s python3 <verified-tools-directory>/pi_gpio_loopback.py --adapter-loopback",
+    "method": "libgpiod GPIO software SPI, mode0/MSB-first; no SPI engine transfers",
+    "phase_wait_seconds": 0.0002,
+    "timing_limit": "Three waits per bit plus Python/Linux/GPIO overhead; no exact clock claim",
+    "driver_restored_by_helper": true,
+    "test_count": 12,
+    "bytes_total": 768,
+    "tests": [
+      {
+        "pattern": "zeros",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+        "rx_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "zeros",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+        "rx_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "ones",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "rx_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "ones",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "rx_sha256": "8667e718294e9e0df1d30600ba3eeb201f764aad2dad72748643e4a285e1d1f7",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "55",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "3d9eae666b06b1a975071aca838b4bb5f27a8324eb2ddab0c8eccd71ceae6b50",
+        "rx_sha256": "3d9eae666b06b1a975071aca838b4bb5f27a8324eb2ddab0c8eccd71ceae6b50",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "55",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "3d9eae666b06b1a975071aca838b4bb5f27a8324eb2ddab0c8eccd71ceae6b50",
+        "rx_sha256": "3d9eae666b06b1a975071aca838b4bb5f27a8324eb2ddab0c8eccd71ceae6b50",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "aa",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "693e5f0f347a5d70acbb7baaab9beb988301b3e9588e32c73d7dcdfb7b2c4604",
+        "rx_sha256": "693e5f0f347a5d70acbb7baaab9beb988301b3e9588e32c73d7dcdfb7b2c4604",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "aa",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "693e5f0f347a5d70acbb7baaab9beb988301b3e9588e32c73d7dcdfb7b2c4604",
+        "rx_sha256": "693e5f0f347a5d70acbb7baaab9beb988301b3e9588e32c73d7dcdfb7b2c4604",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "ramp",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108",
+        "rx_sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "ramp",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108",
+        "rx_sha256": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "pseudorandom",
+        "pass": 1,
+        "bytes": 64,
+        "tx_sha256": "cb8ef19a7c568885a687e63ca917dbda87ae304165a6f17e8252e6c35a0b98e3",
+        "rx_sha256": "cb8ef19a7c568885a687e63ca917dbda87ae304165a6f17e8252e6c35a0b98e3",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      },
+      {
+        "pattern": "pseudorandom",
+        "pass": 2,
+        "bytes": 64,
+        "tx_sha256": "cb8ef19a7c568885a687e63ca917dbda87ae304165a6f17e8252e6c35a0b98e3",
+        "rx_sha256": "cb8ef19a7c568885a687e63ca917dbda87ae304165a6f17e8252e6c35a0b98e3",
+        "different_bytes": 0,
+        "different_bits": 0,
+        "lost_one_bits": 0,
+        "added_one_bits": 0,
+        "first_difference_offset": null,
+        "last_difference_offset": null
+      }
+    ]
+  },
+  "independent_validation": {
+    "postflight": {
+      "boot_id": "dd5698d4-c24c-46b4-869b-3330101513d5",
+      "spidev_exists": true,
+      "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+      "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+      "spidev_holders": [],
+      "original_report_sha256": "8793b55f5f8963817fcc1ced40ed3df60c00e6f517872e7a4888a7d46387165b",
+      "pinctrl_returncode": 0,
+      "pinctrl": "8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK",
+      "same_boot_as_preflight": true,
+      "original_report_matches_stdout": true
+    },
+    "transmitted_pattern_hashes_recomputed": true,
+    "reported_receive_hashes_match_recomputed_transmit_hashes": true,
+    "original_report_copied_and_hash_verified": true,
+    "limitation": "Received bytes were compared/hashed by the checked runtime helper; no separate raw RX byte dump was produced. Report and source hashes are retained."
+  },
+  "interpretation": [
+    "Pi GPIO MOSI through the existing adapter OUTPUT5-to2 loopback and MISO return path reproduces all tested patterns with router disconnected.",
+    "This pass does not qualify clip contacts/routing, connector-to-chip continuity, physical CS/CLK outputs, loaded board waveforms, target RESET identity, chip health or firmware contents.",
+    "The earlier one-shot U2900 ID000000 remains unresolved; no automatic ID retry or array read follows."
+  ],
+  "original_retention": {
+    "directory": ".git/recovery-private/c8235-a-20261103/adapter-loopback",
+    "mode": "directory0700/files0600",
+    "files": [
+      "preflight.stdout",
+      "preflight.stderr",
+      "preflight.json",
+      "execution-start.json",
+      "execution.stdout",
+      "execution.stderr",
+      "execution.json",
+      "postflight.stderr",
+      "postflight.json",
+      "report.original.json"
+    ],
+    "original_report_sha256": "8793b55f5f8963817fcc1ced40ed3df60c00e6f517872e7a4888a7d46387165b",
+    "public_artifact": "Authored result summary extracted from checked report; original raw evidence remains private."
+  },
+  "next": "Owner confirmed direct unpowered RESET pair2004ohm (U2900 clip off,218-ohm branch disconnected). Next four unpowered cross-chip CS7/MISO8/MOSI15/CLK16 resistance checks to find verified board-side contact references. No shared net assumed, router reconnection or ID retry."
+}
