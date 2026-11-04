@@ -10,6 +10,25 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A BARE-CHIP SIGNAL MAP — 2026-11-03, 19:48 EST
+C8235-A/FGL2835L42B, boardFOC28292GUQ. U2900->U2901 actual like-pin results:
+7/CS=939ohm,8/MISO=1.5ohm,15/MOSI=1.5ohm,16/CLK about1.5Mohm. Owner explicitly
+corrects initial "7 to8" to7-to7; do not invent a separate cross-function test.
+Probe baseline not supplied; retain raw values. Prior all-power isolation,
+U2900 clip off and218ohm branch disconnected were explicitly confirmed for the
+immediately preceding directRESET test; new residual/baseline not restated.
+Low-ohm8/15 paths support candidate U2901-side references for clip data contacts.
+No common CS/CLK net or damaged clock trace established; no bridging those pins.
+
+Next: Pi USB-C unplug, board0V, remove adapter2-to5 jumper, entire clip cable
+OFF adapter. Refit U2900 clip in corrected black-dimple orientation; U2901grabber
+free of218ohm ground branch. Meter ohms/probe baseline, then black free CLIP-CABLE
+terminal normally mating OUTPUT2 -> redactual U2901pin8; black cable OUTPUT5
+terminal -> redactual U2901pin15. Expect low resistance through clip+measured
+board paths, record actual/OL. Do not probe disconnected adapter sockets for
+these checks. Leave cable off adapter/Pi off; no new jumper, power or ID retry.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A ISOLATED ADAPTER LOOPBACK PASSES — 2026-11-03, 19:27 EST
 Owner replies clip removed, OUTPUT2/5 connected, Pi on to full router-isolation
 preparation. Fresh new Pi boot, expected RP1/controller, no programmer/device

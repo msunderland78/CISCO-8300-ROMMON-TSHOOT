@@ -163,7 +163,7 @@
     "copy_verified_against_remote_hash": true,
     "public_artifact": "This authored result summary, not a copy of raw console logs."
   },
-  "next": "Isolated adapter loopback passed. Direct bare-chip RESET pair2004ohm confirmed with board unpowered/pull-down disconnected. Next unpowered CS/MISO/MOSI/CLK cross-chip map before choosing accessible contact checks; no ID retry.",
+  "next": "Isolated adapter loopback and direct RESET pair accepted; cross-chip map finds1.5ohm MISO/MOSI paths,939ohm CS and1.5Mohm CLK. Next unpowered U2900 clip data-contact checks via exposed U2901pin8/15. No common CS/CLK assumption or ID retry.",
   "adapter_loopback_followup": {
     "evidence": "adapter-loopback.json",
     "result": "12 isolated adapter transfers/768 bytes; all zero bit/byte differences; independent cleanup/report-hash verification."

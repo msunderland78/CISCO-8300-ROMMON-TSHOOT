@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Isolated adapter loopback passed12 tests/768 bytes; U2900 ID000000 unresolved. Owner confirms direct bare U2900 RESET-to-U2901 RESET2004ohm with board unpowered, clip off-chip and218-ohm branch disconnected. Next unpowered like-pin cross-chip CS/MISO/MOSI/CLK mapping to identify possible exposed board-side clip-contact check points; no net sharing assumed or SPI retry.",
+  "status": "Owner bare-chip cross-map: CS7-to7=939ohm (7-to8 wording explicitly corrected), MISO8-to8=1.5ohm, MOSI15-to15=1.5ohm, CLK16-to16=1.5Mohm. Probe baseline not supplied. Low-ohm data paths permit candidate U2901-side MISO/MOSI contact checks after unpowered U2900 clip refit; no common CS/CLK net inferred or SPI retry.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -719,7 +719,7 @@
   },
   "next_unpowered_scope": {
     "selected_at": "2026-11-03T19:35:03-05:00",
-    "status": "Four cross-chip signal resistance checks planned; no results yet.",
+    "status": "Four raw readings reported; owner explicitly corrects first endpoint7-to8 to7-to7. No probe baseline or separate new residual-voltage value supplied. Next connector-to-board MISO/MOSI check selected separately.",
     "purpose": "Find whether exposed U2901 signal pins are verified board-side references for later checking U2900 clip contacts without probing under the clip. Equal function labels alone do not establish electrical commonality.",
     "state": "Shut down Pi and unplug USB-C before removing adapter OUTPUT2-to5 jumper. Keep entire clip cable off adapter and U2900 clip off chip. Native router sources/cables/coin-cell and bench leads disconnected. U2901 grabber may stay attached but its218-ohm ground branch remains disconnected as owner confirmed.",
     "meter_preparation": "Verify DC redJ2507-2/black8 approximately0 V; then ohms with COM/V-ohm inputs, record probes-touching baseline. Never use ohms on a powered circuit.",
@@ -748,5 +748,78 @@
     "pin_numbering": "These are16-pin CHIP physical numbers counted from molded black pin1 dimple, not8-pin adapter OUTPUT numbers. If a bare-chip endpoint is inaccessible/unclear, report rather than substitute a connector or nearby component.",
     "after": "Report all four actual ohms/OL plus baseline; leave router/clip/adapter isolated, Pi unplugged, jumper removed and218-ohm branch disconnected. No powered refit, net jumper, new signal assignment, ID retry or array read selected.",
     "conditional_use": "Only an actually measured near-baseline pair can later serve as a candidate shared-node test reference. Resistive/OL paths do not authorize treating pins as a common net."
+  },
+  "cross_chip_signal_map": {
+    "recorded_at": "2026-11-03T19:48:37-05:00",
+    "tasks": [
+      "C8235-01",
+      "R-01"
+    ],
+    "identity": "C8235-A/FGL2835L42B, boardFOC28292GUQ",
+    "owner_report": "939 ohms7 to8 ...1.5 ohm8 to8 ...1.5 ohms15 to15 ... and1.5 mega ohms16 to16",
+    "endpoint_correction": {
+      "owner_response": "939 \u03a9 was7\u21947; \u201c7 to8\u201d was a typo",
+      "accepted": "U2900 actual physical7 to U2901 actual physical7 =939ohm; preserve original wording as corrected history, not a separate7-to8 measurement."
+    },
+    "measurement_context": "Requested black actual U2900 physical pin, red matching actual U2901 pin, ohms. Prior direct RESET check explicitly confirmed U2900 clip off-chip, router fully isolated from power,218-ohm branch disconnected; these conditions retained in immediate next map instructions. New baseline, residual DC and removal of adapter loopback jumper were requested but not separately reported.",
+    "readings": [
+      {
+        "U2900_physical_pin": 7,
+        "U2901_physical_pin": 7,
+        "signal": "CS#",
+        "ohms": 939
+      },
+      {
+        "U2900_physical_pin": 8,
+        "U2901_physical_pin": 8,
+        "signal": "MISO/DQ1",
+        "ohms": 1.5
+      },
+      {
+        "U2900_physical_pin": 15,
+        "U2901_physical_pin": 15,
+        "signal": "MOSI/DQ0",
+        "ohms": 1.5
+      },
+      {
+        "U2900_physical_pin": 16,
+        "U2901_physical_pin": 16,
+        "signal": "CLK",
+        "reported": "1.5 mega ohms",
+        "ohms_approximate": 1500000
+      }
+    ],
+    "probe_baseline": "Requested, not supplied; keep raw values, do not subtract invented lead resistance.",
+    "interpretation": [
+      "Pin8 and15 pairs have low-resistance paths consistent with shared data nodes; exposed U2901 endpoints are candidates for testing U2900 clip MISO/MOSI contact through the measured board paths.",
+      "939ohm CS path is not near-zero continuity; do not treat the two CS pins as one node.",
+      "Approximately1.5Mohm clock path does not demonstrate common clocks, a failed trace, multiplexer topology or chip fault. Do not bridge the clock pins or use U2901 clock as U2900 reference.",
+      "No clip contact, clock waveform, bus response, bank role or firmware integrity is newly verified by this passive map."
+    ],
+    "agent_action": "Local evidence review/documentation only this checkpoint; no new SSH/GPIO/SPI or router power operation."
+  },
+  "next_clip_data_contact_check": {
+    "selected_at": "2026-11-03T19:48:37-05:00",
+    "status": "Planned unpowered refit and two data-contact checks; no results yet.",
+    "setup": [
+      "Pi shut down and USB-C physically unplugged; bench/native router sources/cables/coin-cell disconnected. Verify approximately0 V redJ2507-2/black8 before handling/testing.",
+      "Remove adapter OUTPUT2-to5 loopback jumper if still present. Keep the ENTIRE clip cable disconnected from adapter OUTPUT; no other programmer-to-router connections.",
+      "Refit clip on U2900 in the corrected orientation referenced to molded black pin1 dimple. Keep U2901 grabber attached but its free end disconnected from218-ohm ground branch. Do not power up."
+    ],
+    "meter": "Ohms, COM/V-ohm inputs; record probes-touching baseline. Probe cable-side terminals that normally mate adapter OUTPUT contacts, not disconnected adapter sockets.",
+    "measurements": [
+      {
+        "black": "Free CLIP-CABLE terminal normally mating adapter OUTPUT2 / MISO",
+        "red": "Exposed actual U2901 physicalpin8 / MISO",
+        "reference": "Bare U2900pin8-to-U2901pin8 raw1.5ohm; expect low resistance including clip/cable/contact path."
+      },
+      {
+        "black": "Free CLIP-CABLE terminal normally mating adapter OUTPUT5 / MOSI",
+        "red": "Exposed actual U2901 physicalpin15 / MOSI",
+        "reference": "Bare U2900pin15-to-U2901pin15 raw1.5ohm; expect low resistance including clip/cable/contact path."
+      }
+    ],
+    "after": "Report both actual values/OL and probe baseline; leave Pi unplugged, cable off adapter, loopback jumper removed and reset ground branch disconnected. No new CS/CLK jumper, powered reconnection or ID retry selected.",
+    "limitations": "These two checks target data contacts through measured low-ohm board paths. They do not authenticate CS/CLK contact or loaded signal levels. If a cable contact is inaccessible/unclear, report rather than infer a substitute."
   }
 }

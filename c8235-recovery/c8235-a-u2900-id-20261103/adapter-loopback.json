@@ -273,5 +273,5 @@
     "original_report_sha256": "8793b55f5f8963817fcc1ced40ed3df60c00e6f517872e7a4888a7d46387165b",
     "public_artifact": "Authored result summary extracted from checked report; original raw evidence remains private."
   },
-  "next": "Owner confirmed direct unpowered RESET pair2004ohm (U2900 clip off,218-ohm branch disconnected). Next four unpowered cross-chip CS7/MISO8/MOSI15/CLK16 resistance checks to find verified board-side contact references. No shared net assumed, router reconnection or ID retry."
+  "next": "Cross-chip map completed:1.5ohm MISO/MOSI paths,939ohm CS,1.5Mohm CLK. Next unpowered clip data-contact checks through exposed U2901pin8/15; no common CS/CLK assumption or further SPI test."
 }
