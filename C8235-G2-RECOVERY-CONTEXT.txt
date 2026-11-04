@@ -10,6 +10,30 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A BOUNDED GPIO SAMPLE READS PASS — 2026-11-03, 23:29–23:30 EST
+C8235-A / FGL2835L42B, board FOC28292GUQ, U2900. Owner explicitly authorizes
+small reads and confirms unchanged successful ID fixture. Last measured supply /
+U2900 RESET / U2901 RESET = 1.717 / 1.717 / 0.308 V, not a new meter capture.
+Clip remains seated, same 1.8 V adapter, U2901 RESET through measured 218 ohm;
+bench/native/cables/battery remain isolated. Fresh same-boot ownership/source
+checks pass. New helper passes 21 offline tests (8 new); initial local Python
+bit_count compatibility failure fixed before deployment and final test pass.
+
+Three passes over four 512-byte regions: 00000000, 001f2000, 01000000, 01fffe00.
+Total 6,144 array bytes, 2,048 unique bytes; only 9f RDID / 13 native READ.
+All 13 IDs are 20bb19; all eight repeat comparisons have zero differing bytes
+and bits. Region 001f2000 has 223 distinct byte values; other three are all FF.
+This is limited repeatability, not proof of upper-address decoding, whole-chip
+accuracy, firmware compatibility, primary/golden role or native boot. No writes,
+register operations, mode changes or full backup. Test exits 0 at 23:30:22 EST.
+
+Independent postflight verifies driver restored, CS high, no holders/same boot.
+All 25 originals (12 samples, 12 raw responses, report) copied privately with
+exact hashes; independently verified response payloads/statistics/comparisons.
+Keep fixture unchanged. Next qualify bounded hardware-SPI samples against saved
+GPIO references before full-chip backups. No hardware-SPI test yet on C8235-A.
+Evidence: c8235-recovery/c8235-a-u2900-samples-20261103/result.json
+
 C8235-A ID PASSES AFTER CLIP RESEATING — 2026-11-03, 23:22 EST
 C8235-A / FGL2835L42B, board FOC28292GUQ, target U2900. Owner confirms all
 requested preparation and steady VCC / U2900 RESET / U2901 RESET readings

@@ -1,0 +1,688 @@
+{
+  "recorded_at": "2026-11-03T23:32:34-05:00",
+  "tasks": [
+    "C8235-01",
+    "R-01"
+  ],
+  "status": "Passed bounded GPIO repeatability: four512-byte regions read three times;6144 total array bytes,2048 unique address bytes; zero bit/byte differences in eight repeat comparisons; all13 IDs20bb19. No flash writes.",
+  "identity": {
+    "chassis": "C8235-A/FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "target_chip": "U2900",
+    "other_chip_RESET_held": "U2901"
+  },
+  "owner_authorization": "do the small read tests, everything is still that way it was",
+  "fixture": "Unchanged successful ID fixture; last reported VCC/U2900RESET/U2901RESET1.717/1.717/0.308V;218ohm U2901RESET branch; same1.8V adapter; bench/native/cables/battery isolated; clip unchanged.",
+  "voltage_scope": "Last measured1.717/1.717/0.308V before successful ID; owner confirms unchanged fixture for this test. No new meter or transient measurements fabricated.",
+  "preparation": {
+    "helper": "scripts/pi_gpio_c8235_a_u2900_samples.py",
+    "tests": "tests/test_pi_gpio_c8235_a_u2900_samples.py",
+    "offline_tests": {
+      "command": "python3 -m unittest discover -s tests -p 'test_pi_gpio*.py' -v",
+      "passed": 21,
+      "new_sample_tests": 8,
+      "initial_failure": "Three tests failed because local Python lacks int.bit_count; replaced with bin(x).count before deployment; final21 passed."
+    },
+    "deployed_sha256": {
+      "pi_gpio_c8235_a_u2900_samples.py": "dd6b57bf78dcd7f1a8b9b919f1d6142437717afd58cc68a27f3a351949410e8c",
+      "pi_gpio_c8235_a_u2900_id.py": "61f87572fe2dd438838824240dc2241ca5e62b5686a7975fa53d7f695f5d0f20",
+      "pi_gpio_loopback.py": "422dcdbef11a082c03ebcee23a19d0861fe4847ae82a20c3bbfbc1303191e376",
+      "pi_spi_loopback.py": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405",
+      "pi_u1_direct_read.py": "a9931f4108bc8501cbaa9f25ec656f6b2a9b9b501b11f14125da250a5ea7873e"
+    },
+    "deployment_sources_match": true,
+    "remote_help_exit_code": 0,
+    "source_review": "Only9f RDID/13 native4-byte READ. Fixed addresses,512 bytes each,three passes; ID before each sample and after final sample. Stop first mismatch/incomplete response/bad ID; preserve originals exclusive-create0600. Existing guarded GPIO ownership/cleanup transport reused.",
+    "datasheet": {
+      "url": "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf",
+      "reference": "Micron MT25QU256ABA Rev.L02/2024, command table printedp37 and Table23 printedp45;13h is native four-byte READ,1-1-1/no dummy cycles. No register/address-mode change required for this opcode.",
+      "address_selection": "Four numerical sample locations across the32MiB range; no partition/firmware-role inference from offsets. Upper-address samples are allFF and cannot independently exclude address aliasing."
+    }
+  },
+  "preflight": {
+    "recorded_at": "2026-11-03T23:29:24.100424-05:00",
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a",
+    "model": "Raspberry Pi 5 Model B Rev 1.1",
+    "kernel": "7.0.0-1020-raspi",
+    "gpiod_version": "2.2.0",
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "gpiochip_label": "pinctrl-rp1",
+    "lines": [
+      {
+        "offset": 8,
+        "name": "GPIO8",
+        "used": true,
+        "consumer": "spi0 CS0"
+      },
+      {
+        "offset": 9,
+        "name": "GPIO9",
+        "used": false,
+        "consumer": null
+      },
+      {
+        "offset": 10,
+        "name": "GPIO10",
+        "used": false,
+        "consumer": null
+      },
+      {
+        "offset": 11,
+        "name": "GPIO11",
+        "used": false,
+        "consumer": null
+      }
+    ],
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "checks": {
+      "pi5": true,
+      "root": true,
+      "RP1": true,
+      "controller": true,
+      "driver": true,
+      "spidev": true,
+      "no_holders": true,
+      "no_competing_readers": true,
+      "sources_match": true,
+      "same_boot_as_successful_ID": true,
+      "lines": true,
+      "CS_high": true
+    }
+  },
+  "execution": {
+    "command": "sudo timeout --signal=INT --kill-after=10s 120s python3 <verified-tools-directory>/pi_gpio_c8235_a_u2900_samples.py --read",
+    "started_at": "2026-11-03T23:29:42.762789-05:00",
+    "finished_at": "2026-11-03T23:30:22.409200-05:00",
+    "exit_code": 0,
+    "status": "passed",
+    "method": "libgpiod GPIO software SPI, mode0/MSB-first; no SPI engine transfers",
+    "opcodes": [
+      "0x9f RDID",
+      "0x13 native four-byte READ"
+    ],
+    "requested_wait_seconds_per_phase": 0.0002,
+    "timing_limit": "Three waits per bit plus Python/Linux/GPIO overhead; no exact clock claim",
+    "addresses": [
+      "0x0",
+      "0x1f2000",
+      "0x1000000",
+      "0x1fffe00"
+    ],
+    "bytes_per_sample": 512,
+    "passes": 3,
+    "array_bytes_received": 6144,
+    "unique_address_bytes": 2048,
+    "total_transactions": 25,
+    "identities": [
+      {
+        "stage": "pass1-address00000000",
+        "bytes_received": 4,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass1-address001f2000",
+        "bytes_received": 4,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass1-address01000000",
+        "bytes_received": 4,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass1-address01fffe00",
+        "bytes_received": 4,
+        "response_hex": "8020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass2-address00000000",
+        "bytes_received": 4,
+        "response_hex": "8020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass2-address001f2000",
+        "bytes_received": 4,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass2-address01000000",
+        "bytes_received": 4,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass2-address01fffe00",
+        "bytes_received": 4,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass3-address00000000",
+        "bytes_received": 4,
+        "response_hex": "0320bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass3-address001f2000",
+        "bytes_received": 4,
+        "response_hex": "0320bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass3-address01000000",
+        "bytes_received": 4,
+        "response_hex": "0720bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "pass3-address01fffe00",
+        "bytes_received": 4,
+        "response_hex": "0720bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "after-all-samples",
+        "bytes_received": 4,
+        "response_hex": "1f20bb19",
+        "id": "20bb19"
+      }
+    ],
+    "samples": [
+      {
+        "pass": 1,
+        "address": "0x0",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-read1.response.bin",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      },
+      {
+        "pass": 1,
+        "address": "0x1f2000",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-read1.response.bin",
+        "response_sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-read1.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "zero_bytes": 3,
+        "ff_bytes": 4,
+        "distinct_byte_values": 223
+      },
+      {
+        "pass": 1,
+        "address": "0x1000000",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-read1.response.bin",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      },
+      {
+        "pass": 1,
+        "address": "0x1fffe00",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-read1.response.bin",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      },
+      {
+        "pass": 2,
+        "address": "0x0",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-read2.response.bin",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      },
+      {
+        "pass": 2,
+        "address": "0x1f2000",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-read2.response.bin",
+        "response_sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-read2.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "zero_bytes": 3,
+        "ff_bytes": 4,
+        "distinct_byte_values": 223
+      },
+      {
+        "pass": 2,
+        "address": "0x1000000",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-read2.response.bin",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      },
+      {
+        "pass": 2,
+        "address": "0x1fffe00",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-read2.response.bin",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      },
+      {
+        "pass": 3,
+        "address": "0x0",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-read3.response.bin",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-read3.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      },
+      {
+        "pass": 3,
+        "address": "0x1f2000",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-read3.response.bin",
+        "response_sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-read3.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "zero_bytes": 3,
+        "ff_bytes": 4,
+        "distinct_byte_values": 223
+      },
+      {
+        "pass": 3,
+        "address": "0x1000000",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-read3.response.bin",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-read3.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      },
+      {
+        "pass": 3,
+        "address": "0x1fffe00",
+        "requested_bytes": 512,
+        "response_bytes": 517,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-read3.response.bin",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "complete": true,
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-read3.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      }
+    ],
+    "comparisons": [
+      {
+        "address": "0x0",
+        "baseline_pass": 1,
+        "pass": 2,
+        "different_bytes": 0,
+        "different_bits": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "baseline_pass": 1,
+        "pass": 2,
+        "different_bytes": 0,
+        "different_bits": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "baseline_pass": 1,
+        "pass": 2,
+        "different_bytes": 0,
+        "different_bits": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "baseline_pass": 1,
+        "pass": 2,
+        "different_bytes": 0,
+        "different_bits": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "baseline_pass": 1,
+        "pass": 3,
+        "different_bytes": 0,
+        "different_bits": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "baseline_pass": 1,
+        "pass": 3,
+        "different_bytes": 0,
+        "different_bits": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "baseline_pass": 1,
+        "pass": 3,
+        "different_bytes": 0,
+        "different_bits": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "baseline_pass": 1,
+        "pass": 3,
+        "different_bytes": 0,
+        "different_bits": 0,
+        "first_difference_address": null
+      }
+    ],
+    "nonuniform_regions": [
+      "0x1f2000"
+    ],
+    "equal_cross_region_pairs": [
+      [
+        "0x0",
+        "0x1000000"
+      ],
+      [
+        "0x0",
+        "0x1fffe00"
+      ],
+      [
+        "0x1000000",
+        "0x1fffe00"
+      ]
+    ],
+    "helper_driver_restored": true,
+    "stderr": "Whitespace only; no error/warning text.",
+    "flash_writes": 0
+  },
+  "independent_postflight": {
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a",
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "spidev_exists": true,
+    "holders": [],
+    "pinctrl_returncode": 0,
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "checks": {
+      "same_boot": true,
+      "controller_unchanged": true,
+      "driver_restored": true,
+      "spidev_present": true,
+      "no_holders": true,
+      "CS_idle_high": true,
+      "original_report_matches_stdout": true,
+      "all_file_hashes_match": true,
+      "response_payloads_match_samples": true,
+      "all_independent_comparisons_equal": true
+    },
+    "original_file_receipts": {
+      "report.json": {
+        "bytes": 11704,
+        "sha256": "d848e49242f6e13e1b51d405a4c437445f80f8767c951f645dbcbb220f26a89a"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-read1.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-read2.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-read3.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-read3.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-read3.response.bin": {
+        "bytes": 517,
+        "sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-read3.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-read3.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-read3.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-read3.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-read3.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      }
+    },
+    "independent_comparisons": [
+      {
+        "address": "0x0",
+        "pass": 2,
+        "different_bytes": 0,
+        "different_bits": 0
+      },
+      {
+        "address": "0x0",
+        "pass": 3,
+        "different_bytes": 0,
+        "different_bits": 0
+      },
+      {
+        "address": "0x1f2000",
+        "pass": 2,
+        "different_bytes": 0,
+        "different_bits": 0
+      },
+      {
+        "address": "0x1f2000",
+        "pass": 3,
+        "different_bytes": 0,
+        "different_bits": 0
+      },
+      {
+        "address": "0x1000000",
+        "pass": 2,
+        "different_bytes": 0,
+        "different_bits": 0
+      },
+      {
+        "address": "0x1000000",
+        "pass": 3,
+        "different_bytes": 0,
+        "different_bits": 0
+      },
+      {
+        "address": "0x1fffe00",
+        "pass": 2,
+        "different_bytes": 0,
+        "different_bits": 0
+      },
+      {
+        "address": "0x1fffe00",
+        "pass": 3,
+        "different_bytes": 0,
+        "different_bits": 0
+      }
+    ],
+    "regions": {
+      "0x0": {
+        "bytes": 512,
+        "reads": 3,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      },
+      "0x1f2000": {
+        "bytes": 512,
+        "reads": 3,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "zero_bytes": 3,
+        "ff_bytes": 4,
+        "distinct_byte_values": 223
+      },
+      "0x1000000": {
+        "bytes": 512,
+        "reads": 3,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      },
+      "0x1fffe00": {
+        "bytes": 512,
+        "reads": 3,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "zero_bytes": 0,
+        "ff_bytes": 512,
+        "distinct_byte_values": 1
+      }
+    }
+  },
+  "evidence_preservation": {
+    "private_directory": ".git/recovery-private/c8235-a-20261103/samples-20261103-232922",
+    "originals_directory": ".git/recovery-private/c8235-a-20261103/samples-20261103-232922/originals",
+    "original_file_count": 25,
+    "original_report_sha256": "d848e49242f6e13e1b51d405a4c437445f80f8767c951f645dbcbb220f26a89a",
+    "permissions": "Private directories0700/files0600; originals remain ignored/local and separately preserved on Pi. Public result is authored metadata, not raw firmware contents.",
+    "checks": "Every downloaded original matches remote byte length/SHA-256. Independently verified report equals helper stdout, response[5:] equals sample, sample hashes/statistics match, and all eight byte/bit comparisons are zero."
+  },
+  "interpretation": [
+    "Read repeatability passes at the four sampled locations with this unchanged fixture and low-rate GPIO method.",
+    "The512-byte region at0x001f2000 has223 distinct byte values; three exact copies provide a meaningful nonuniform-data repeatability check.",
+    "The sampled regions at0,0x01000000 and0x01fffe00 are each512 bytes ofFF. This alone does not diagnose corruption/erasure across other regions or prove high-address decoding.",
+    "Only2048 unique bytes of32MiB were sampled; no whole-chip backup, firmware compatibility, physical primary/golden bank role or native boot is established."
+  ],
+  "next": "Keep clip/218ohm RESET branch/adapter unchanged. Before full-chip acquisition, qualify the hardware-SPI path with bounded samples compared byte-for-byte against these saved GPIO references. Hardware-SPI samples and full-chip backups have not run on C8235-A."
+}

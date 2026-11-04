@@ -147,7 +147,7 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "Preserve successful U2900 clip seating and established fixture; qualify bounded repeated sample reads before separate full-chip backups. No sample/full-array read or write performed at this checkpoint. See c8235-recovery/c8235-a-u2900-id-20261103/reseated-clip-id.json.",
+  "next_stage": "Bounded GPIO sample repeatability now passes four512-byte regions x3, zero differences; originals/cleanup independently verified. Keep successful U2900 clip seating and fixture; qualify hardware-SPI samples against these GPIO references before separate full-chip backups. No writes/full backup. See c8235-recovery/c8235-a-u2900-samples-20261103/result.json.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json",
   "status_before_20261103_orientation_correction": "CH341A resistor-limited source/board values 1.793/0.423 V match Pi (~13.8 mA inferred). Comparison complete; CH341A USB unplug/socket adapter confirmed. Flash supply qualification incomplete.",
   "orientation_correction_20261103": {

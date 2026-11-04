@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Reseated U2900 clip: owner confirms complete preparation and steady VCC/U2900RESET/U2901RESET1.717/1.717/0.308V, Pi on. Fresh Pi/source/ownership checks pass; bounded ID test returns20bb19 all3 times, independent cleanup/report hash verified. No array read/write. Preserve clip; sample-read repeatability remains next.",
+  "status": "Reseated U2900 fixture now passes ID and bounded GPIO sample repeatability:13 IDs20bb19, four512-byte regions x3,6144 bytes total/2048 unique, zero repeat differences; one varied region and three allFF. Independent originals/cleanup verified. No writes/full backup. Preserve fixture; hardware-SPI sample comparison next.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -922,5 +922,24 @@
     "original_report_sha256": "f3a96292852ea86c7fefac299ca4c8784c7a20264f821d00560c0dd983e4f0ad",
     "evidence": "c8235-recovery/c8235-a-u2900-id-20261103/reseated-clip-id.json",
     "next": "Keep clip/wiring undisturbed. Qualify repeated sample reads before separate full backups; no array read/write at this checkpoint."
+  },
+  "bounded_sample_read_checkpoint": {
+    "recorded_at": "2026-11-03T23:32:34-05:00",
+    "owner_authorization": "do the small read tests, everything is still that way it was",
+    "identity": "C8235-A/FGL2835L42B/FOC28292GUQ/U2900",
+    "fixture_unchanged": true,
+    "last_meter_volts": [
+      1.717,
+      1.717,
+      0.308
+    ],
+    "meter_scope": "Previous VCC/U2900RESET/U2901RESET values, not fresh measurements.",
+    "started_at": "2026-11-03T23:29:42.762789-05:00",
+    "finished_at": "2026-11-03T23:30:22.409200-05:00",
+    "result": "12 samples/6144 array bytes; all13 IDs expected; eight repeat comparisons zero different bits/bytes; independent copies/driver cleanup pass.",
+    "unique_address_bytes": 2048,
+    "flash_writes": 0,
+    "evidence": "c8235-recovery/c8235-a-u2900-samples-20261103/result.json",
+    "next": "Keep fixture unchanged; bounded hardware-SPI comparison against GPIO references before full backups."
   }
 }

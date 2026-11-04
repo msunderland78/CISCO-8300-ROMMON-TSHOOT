@@ -1668,9 +1668,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 211003,
+      "bytes": 212646,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "8cde663c997f36e3844f544ea3960ddad0190ad2ee9d4e4b6b7c44d28737ea23"
+      "sha256": "2ebd46ea088c1591405cd106739f6d2c56d203a52853796b2da73157c860db53"
     },
     {
       "bytes": 106687,
@@ -1968,9 +1968,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 27101,
+      "bytes": 27578,
       "path": "README.md",
-      "sha256": "c6f4afdbe5186952c5cbbb550975542d1a540a640238291b7c5911db03b6f68b"
+      "sha256": "135de989bedbd9650e312d1a3a9cff773580fc0efbfe1c30022f9b5d64f5cd20"
     },
     {
       "bytes": 3934,
@@ -2168,9 +2168,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 469732,
+      "bytes": 470875,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "42374c728466a1dc4ef2e9312df889570a9bba23efd08748e73827b6133fa626"
+      "sha256": "0ccc4c3ab5ef1ef4d8d05b643645ebadd527c318755f8a11267ddd0e05e1e076"
     },
     {
       "bytes": 6850655,
@@ -2328,9 +2328,9 @@
       "sha256": "4eb51bc4627a08ce08477d5f72e3bd902c847491a492a9472f7d97ff26567baf"
     },
     {
-      "bytes": 80412,
+      "bytes": 81360,
       "path": "c8235-recovery/c8235-a-bench-supply-20261103/preflight.json",
-      "sha256": "96895ddaf1887f9bcd6a3ecd3708bfd098f7571ec3c852cf30acba884bf1963e"
+      "sha256": "ecf17f93abe746813c18c9fe4a0755f037cf038381c10e1fc9c1b0dc668a72a3"
     },
     {
       "bytes": 244774,
@@ -2338,9 +2338,9 @@
       "sha256": "ba0dda6b3a99bccd3c5bf4e99c01fecb3628be4eeb763ae1c32ad642d183fff4"
     },
     {
-      "bytes": 14084,
+      "bytes": 14172,
       "path": "c8235-recovery/c8235-a-photos2-20261101/j2507-mapping.json",
-      "sha256": "b2f18d6ffe5e3a556e1b752e1fa2516c2b8a42e3fa874574217a3012c84c2a1c"
+      "sha256": "877f3f0bc210f0305eb76f71072a2e70225f58f8b3355c0d308fe0c7777eeb45"
     },
     {
       "bytes": 17008,
@@ -2363,14 +2363,19 @@
       "sha256": "306314f9b477aaadf57be96962d204ddaefc08020bda28dbbd8027cc19f0ac1d"
     },
     {
-      "bytes": 6880,
+      "bytes": 6911,
       "path": "c8235-recovery/c8235-a-u2900-id-20261103/reseated-clip-id.json",
-      "sha256": "fc136009e5c6fa36531ea733f6c5fc0d715e5115d3c86f5ac9e487e5dd22750f"
+      "sha256": "914d01bab53284a9eb0550438aee85e399a69da91079719bf850fe2377a3bbb6"
     },
     {
       "bytes": 9223,
       "path": "c8235-recovery/c8235-a-u2900-id-20261103/result.json",
       "sha256": "312c34c93c53ca84d533e54bd93b0f4b2c558b47712e33c8e236cd4932d8fe98"
+    },
+    {
+      "bytes": 25026,
+      "path": "c8235-recovery/c8235-a-u2900-samples-20261103/result.json",
+      "sha256": "2da7bd049ff51495df1d12408cdbdd88d4e1b873a540eab8f51f1e68188c93e6"
     },
     {
       "bytes": 37586,
@@ -4878,6 +4883,11 @@
       "sha256": "61f87572fe2dd438838824240dc2241ca5e62b5686a7975fa53d7f695f5d0f20"
     },
     {
+      "bytes": 6054,
+      "path": "scripts/pi_gpio_c8235_a_u2900_samples.py",
+      "sha256": "dd6b57bf78dcd7f1a8b9b919f1d6142437717afd58cc68a27f3a351949410e8c"
+    },
+    {
       "bytes": 6787,
       "path": "scripts/pi_gpio_loopback.py",
       "sha256": "422dcdbef11a082c03ebcee23a19d0861fe4847ae82a20c3bbfbc1303191e376"
@@ -4951,6 +4961,11 @@
       "bytes": 3811,
       "path": "tests/test_pi_gpio_c8235_a_u2900_id.py",
       "sha256": "5cb379ef8ba628f492705265463cfd7be396c7506a3c173290f82be8bd8246a7"
+    },
+    {
+      "bytes": 6319,
+      "path": "tests/test_pi_gpio_c8235_a_u2900_samples.py",
+      "sha256": "173b20f325aac20f1af460c27dd0286c9eca47803af9ae0cae7b988b0578da58"
     },
     {
       "bytes": 2195,
@@ -5241,7 +5256,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 327,
-    "included_bytes_without_manifest": 1080772443,
-    "included_files_without_manifest": 672
+    "included_bytes_without_manifest": 1080814172,
+    "included_files_without_manifest": 675
   }
 }

@@ -152,5 +152,5 @@
     "The response supports functional command/clock/data communication under tested conditions, without independent CS/CLK contact or waveform measurements.",
     "Does not establish full-array repeatability, firmware integrity, physical primary/golden role, complete dynamic bus isolation or native boot."
   ],
-  "next": "Keep the clip and established fixture undisturbed. Next qualification is a bounded repeated sample read before separate full-chip backups; no sample/full-array read executed or selected command recorded at this checkpoint."
+  "next": "Subsequent bounded GPIO sample test passed23:29-23:30 EST; see ../c8235-a-u2900-samples-20261103/result.json. Preserve fixture; qualify hardware-SPI samples against saved GPIO references before full backups. This ID record itself contains no array data."
 }
