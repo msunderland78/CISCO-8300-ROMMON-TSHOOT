@@ -10,6 +10,38 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A DEVELOPMENT-FIRMWARE CANDIDATE PREPARED — 2026-11-04T00:17:40.956361-05:00
+Offline C8235-03 analysis supports a controlled same-SoC1 restore experiment.
+Target A/FGL2835L42B, board FOC28292GUQ, physical U2900; source B/FGL2835LBHU
+logical mtd0ro development backup, physical bank unknown. Both original pairs
+reverify. Thirteen same-offset TIM headers; all eleven payload SHA-256s per
+image match; identical 2,556-byte embedded firmware layout; every non-FF prefix
+byte covered by a header/payload. This advances the earlier comparison-only
+0–0xd10000 boundary to an evidence-supported experimental replacement window.
+Candidate is B[0:0xd10000]+A[0xd10000:0x2000000], 33,554,432 bytes, SHA-256:
+65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07
+Changes 4,055,731 bytes in 1,156 4-KiB sectors / 27 runs; all 19,857,408 suffix bytes
+remain exactly A, including native updater's manufacturing/environment regions.
+No full B clone or SoC2 hybrid. All B firmware/header/signature bytes unchanged.
+Independent reconstruction from READ2 originals, exact sector-map verification,
+10 focused and 111 total tests pass. Candidate stays private, not programmed:
+.git/recovery-private/c8235-a-20261104-development-candidate/
+C8235-A-FGL2835L42B-U2900-B-development-code-A-preserved-EXPERIMENTAL.bin
+
+Owner explicitly accepts that A may require the IOS instability fix after
+ROMMON recovery. The embedded runtime DTBs differ in only 1 of 1,628 properties:
+RVU admin num-rvu-vfs A release 16 versus B development 32. Keep donor intact;
+separate runtime correction/testing remains for later. Same-family/layout and
+hash evidence do not prove Cisco signature authentication, boot acceptance or
+IOS stability. Do not infer physical banks from generic DTB defaults. U2901
+remains optional/unread; no TPM/fuse/lifecycle/provisioning change proposed.
+No Pi, console, USB-drive or hardware operation in this analysis; fixture was
+not moved. Next prepare exact-candidate differential writer/full readback,
+then fresh A/U2900 ownership and voltage/RESET qualification before hardware.
+Evidence:
+c8235-recovery/c8235-a-development-candidate-20261104/analysis.txt
+c8235-recovery/c8235-a-development-candidate-20261104/result.json
+
 C8235-A U2901 READ IS RECOMMENDED, NOT A BLANKET WRITE PREREQUISITE — 2026-11-04T00:04:54-05:00
 Owner asks whether U2901 must be read before replacing U2900 contents with
 old development ROMMON. Clarification: earlier U2901-first sequence was a

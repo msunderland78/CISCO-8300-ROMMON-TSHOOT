@@ -1668,9 +1668,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 218671,
+      "bytes": 220904,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "ee77d259b18cf9efa7084c80d5073b16c6bec53fc1208061422727454cb61d2a"
+      "sha256": "c0bb87bf591e99ce4baf8ba84aa673b7ea06fc230cca29286a6085cdaab02e2f"
     },
     {
       "bytes": 106687,
@@ -2168,9 +2168,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 475075,
+      "bytes": 478193,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "973be6fddd57b43c08296735758e1e06513a997ec409b17315f7607828b91129"
+      "sha256": "ff34949787a34af38d4270130ba0dd394a65deab478d58cfb87b68d62f8ade61"
     },
     {
       "bytes": 6850655,
@@ -2331,6 +2331,16 @@
       "bytes": 82638,
       "path": "c8235-recovery/c8235-a-bench-supply-20261103/preflight.json",
       "sha256": "3987bf0f9dc5d9daefbfe77bba30b02ee49c913fff081a4536bc2bd7c423781f"
+    },
+    {
+      "bytes": 6562,
+      "path": "c8235-recovery/c8235-a-development-candidate-20261104/analysis.txt",
+      "sha256": "eadb608e5eadebc4ec1fe09d63e32acb7adbe08186ac0fd449cb1aa48f93f763"
+    },
+    {
+      "bytes": 38683,
+      "path": "c8235-recovery/c8235-a-development-candidate-20261104/result.json",
+      "sha256": "6f43e31f388afed85fc728173ba8af34a68392ab22c66c1ea51c369afab27100"
     },
     {
       "bytes": 244774,
@@ -4883,6 +4893,11 @@
       "sha256": "c79a52e73a08f7e8362a1364862e7b8c41da36a854df037bd395f9add969cf9c"
     },
     {
+      "bytes": 17692,
+      "path": "scripts/c8235_a_development_candidate.py",
+      "sha256": "22c28ebf03cdf60e6453a69f74356449bed0b38c07d501af61ad70480b629a8b"
+    },
+    {
       "bytes": 16688,
       "path": "scripts/c8235_b_console_boot.py",
       "sha256": "0a31f203cca08ae1668e1ae5269aa1b37c84bfc9244b51cdd24f8d6740d23602"
@@ -4966,6 +4981,11 @@
       "bytes": 15847,
       "path": "scripts/repository_tools.py",
       "sha256": "7b10936e569ddd8317a17b6d6db5e6579ee6f45aa5cb4fb038b41a5b0db54422"
+    },
+    {
+      "bytes": 6542,
+      "path": "tests/test_c8235_a_development_candidate.py",
+      "sha256": "2553076089b33bd29ba5fba6e8e77fe47082f4f22da59d8afc9d0dd5dcc2cf9b"
     },
     {
       "bytes": 2245,
@@ -5296,7 +5316,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 327,
-    "included_bytes_without_manifest": 1080990079,
-    "included_files_without_manifest": 683
+    "included_bytes_without_manifest": 1081064909,
+    "included_files_without_manifest": 687
   }
 }

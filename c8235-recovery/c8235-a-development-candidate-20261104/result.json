@@ -1,0 +1,1143 @@
+{
+  "schema": 1,
+  "date": "2026-11-04T00:15:23.756425-05:00",
+  "task_ids": [
+    "C8235-03",
+    "C8235-01",
+    "R-01"
+  ],
+  "status": "offline experimental development-firmware restore candidate; NOT PROGRAMMED",
+  "target": {
+    "chassis": "C8235-A/FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "chip": "U2900",
+    "pair_bytes_each": 33554432,
+    "pair_equal": true,
+    "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5"
+  },
+  "donor": {
+    "chassis": "C8235-B/FGL2835LBHU",
+    "source": "logical /dev/mtd0ro spi0.0",
+    "physical_chip": "unresolved",
+    "pair_bytes_each": 33554432,
+    "pair_equal": true,
+    "sha256": "cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857",
+    "firmware_provenance": "Historical B console: SDK112312-SoC1-SB-v12.1.22 development ROMMON"
+  },
+  "release": {
+    "file": "ROMMON-extracted/soc1/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin",
+    "sha256": "a84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e",
+    "bytes": 13697024,
+    "matches_all_of_A_prefix": true
+  },
+  "method": "Observed TIM package lengths/IDOL/COIM/IHSH fields; corroborated by all payload SHA-256s and embedded layout. Not a general format specification.",
+  "A_components": [
+    {
+      "offset": "0x10000",
+      "name_in_header": "tim0",
+      "header_bytes": 2160,
+      "signed_length_field": 1628,
+      "header_sha256": "eadc7e6e09720422f2eb5a5fdf05622e5d7326126cd8d9519e356732995ad91c",
+      "packages": [
+        "BTAD",
+        "BSNI",
+        "VNAM",
+        "OTAD",
+        "OTAD",
+        "TDOL",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained"
+    },
+    {
+      "offset": "0x20000",
+      "name_in_header": "gserp-cn10xx.fw",
+      "header_bytes": 1824,
+      "signed_length_field": 1292,
+      "header_sha256": "c3cfe24c648f1d225228438419361cad2454db628445ee0cd3eab74ea76d7079",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "TDOL",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained"
+    },
+    {
+      "offset": "0x40000",
+      "name_in_header": "scp_bl1.bin",
+      "header_bytes": 1912,
+      "signed_length_field": 1380,
+      "header_sha256": "50b7adebcb7197b9f848f857272e2557096d4159cac18937b3294d601a2146e5",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "IDOL",
+        "IHSH",
+        "RTCC",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x41000",
+        "end_exclusive": "0x65004",
+        "bytes": 147460,
+        "sha256": "e23f2d3b678abea23dcd9bc874f87a69e50c7ea7d6f57a7beb296189eb307c77",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "absolute"
+      }
+    },
+    {
+      "offset": "0xa0000",
+      "name_in_header": "mcp_bl1.bin",
+      "header_bytes": 1928,
+      "signed_length_field": 1396,
+      "header_sha256": "285bd2fbf3cb937e4dd96a36ed70e6118423e471da2b75450b8cc43df8306141",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "RTCC",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0xa1000",
+        "end_exclusive": "0xae760",
+        "bytes": 55136,
+        "sha256": "3bc413959629ec868e2740f865fa690e22e952e1bb66a915711bd247ad9c23c6",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0xd0000",
+      "name_in_header": "ecp_bl1.bin",
+      "header_bytes": 1928,
+      "signed_length_field": 1396,
+      "header_sha256": "4db5540801be3a75aa06bbd4dd94bd8bd8fc83812279809a6a6d1856cdbc7151",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "RTCC",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0xd1000",
+        "end_exclusive": "0xe9e88",
+        "bytes": 102024,
+        "sha256": "50dec59681235fac6afa7379e54f7fee5907ed96517cc56d5073fbcd8c4839fb",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x100000",
+      "name_in_header": "init.bin",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "9ea22c3808209937f9d88ad2f21f29c9624ad3467dc0809b2cf89ec430ea3b02",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x101000",
+        "end_exclusive": "0x38e048",
+        "bytes": 2674760,
+        "sha256": "3414ee5bf96ec6e4f4a539d4cbf35abadb4f82764e1aaf727406156a55671236",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x460000",
+      "name_in_header": "gserm-cn10xx.fw",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "f9b824e41c7c3f94903ced4346946729c9b08cabb34da2564de26308a5bda31c",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x461000",
+        "end_exclusive": "0x481000",
+        "bytes": 131072,
+        "sha256": "58d348f5bad18ac7171b45725e5058a754644031f0d1677e2e299c5d89399489",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x490000",
+      "name_in_header": "gserp-cn10xx.fw",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "468437958b9669853601aa1f1780dca0b65877783a77a9d4e5edaec01495da02",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x491000",
+        "end_exclusive": "0x4b1000",
+        "bytes": 131072,
+        "sha256": "e59064cfbd8522ccaaef78f218bb0d15c2db02d40fa624486c24edf4181def5b",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x4c0000",
+      "name_in_header": "bl2.bin",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "f25f19b0cd200e56d0dc2c8854d8566a9387a0dcfc689aed5ef9d7dac42ae1dd",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x4c1000",
+        "end_exclusive": "0x4f3e10",
+        "bytes": 208400,
+        "sha256": "3c2e06b7b1ac33b0c9930a6b99f5955f38419730728aabed3820ca99d40af635",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x540000",
+      "name_in_header": "bl31.bin",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "50a1dd7cfb3e5be95356ce603c7d368733c56e587d08a4a8e276f44aa0d6d695",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x541000",
+        "end_exclusive": "0x5dd050",
+        "bytes": 639056,
+        "sha256": "9a6be4916ca96e276ed10cb61305750ce62810f2f6b1d9760b998a550c353a89",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x600000",
+      "name_in_header": "uefi.bin",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "08ee0f9d04f7aa345bdcf83bc198161220095b1a5bf0f23681027b7227e49089",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x601000",
+        "end_exclusive": "0x881000",
+        "bytes": 2621440,
+        "sha256": "e815670a3a989891952e4976e243b4e47379c3bc02c76357113a42c95a0a0a28",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0xa00000",
+      "name_in_header": "npc_mkex-cn10xx.fw",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "e21e0bed4549e1d6cc2bc4c58362afc2f26dbeb76e40c2dd123def870fc37c2a",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0xa01000",
+        "end_exclusive": "0xa186f0",
+        "bytes": 95984,
+        "sha256": "a78e9c0439f852cd869c01e27ddd8bacc98fd0fe89e2343e41ff3f0f0132c3c8",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0xa60000",
+      "name_in_header": "cisco-bootstub.bin",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "614837800feddf20e09cc4f6adf74388d3eb0efa9c17fb577adeff124a40231e",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0xa61000",
+        "end_exclusive": "0xb61000",
+        "bytes": 1048576,
+        "sha256": "2945ab704e8e72c3e4b53ac58ad66e6c7e01e3a058b5b1428c6a64f869cdee62",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    }
+  ],
+  "B_components": [
+    {
+      "offset": "0x10000",
+      "name_in_header": "tim0",
+      "header_bytes": 4436,
+      "signed_length_field": 3904,
+      "header_sha256": "28ca4fbb9aaf64a77efed5af081c431aec737053521c41e16516f49024c3db76",
+      "packages": [
+        "BTAD",
+        "BSNI",
+        "VNAM",
+        "OTAD",
+        "OTAD",
+        "TDOL",
+        "TASR",
+        "TASR",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained"
+    },
+    {
+      "offset": "0x20000",
+      "name_in_header": "gserp-cn10xx.fw",
+      "header_bytes": 1824,
+      "signed_length_field": 1292,
+      "header_sha256": "ae185f92925865d42b0ae997c293c43a5ff642174366f13c94728f79bd8acb3b",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "TDOL",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained"
+    },
+    {
+      "offset": "0x40000",
+      "name_in_header": "scp_bl1.bin",
+      "header_bytes": 1912,
+      "signed_length_field": 1380,
+      "header_sha256": "c9187124366beb8472b0da4a65d84cfc0db258170a3058eb39f2902b62573a87",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "IDOL",
+        "IHSH",
+        "RTCC",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x41000",
+        "end_exclusive": "0x65004",
+        "bytes": 147460,
+        "sha256": "e23f2d3b678abea23dcd9bc874f87a69e50c7ea7d6f57a7beb296189eb307c77",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "absolute"
+      }
+    },
+    {
+      "offset": "0xa0000",
+      "name_in_header": "mcp_bl1.bin",
+      "header_bytes": 1928,
+      "signed_length_field": 1396,
+      "header_sha256": "45487403638df2560ab3d83f92ea619279536e637105c5ccef44710b6ee485d4",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "RTCC",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0xa1000",
+        "end_exclusive": "0xae760",
+        "bytes": 55136,
+        "sha256": "3bc413959629ec868e2740f865fa690e22e952e1bb66a915711bd247ad9c23c6",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0xd0000",
+      "name_in_header": "ecp_bl1.bin",
+      "header_bytes": 1928,
+      "signed_length_field": 1396,
+      "header_sha256": "3b0109ab0035d9f8224ba25b49227484d7583c47bfb01eff9fe4d846cde2405f",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "RTCC",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0xd1000",
+        "end_exclusive": "0xe98b0",
+        "bytes": 100528,
+        "sha256": "e445a48eef238236dfd6cbc04bcbac5580d7299febc34462e31d0ba395bfac97",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x100000",
+      "name_in_header": "init.bin",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "fea65c13ec38560395120b846f32b42fb0259a3e607301359488743f6448633b",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x101000",
+        "end_exclusive": "0x37f398",
+        "bytes": 2614168,
+        "sha256": "74895e66c113f753461fec014e44c8e96da2669c7b93dc4d72a137ad9734a5fc",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x460000",
+      "name_in_header": "gserm-cn10xx.fw",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "a37a8b1bdfd995262ff6a1aa7d049ecb1e5ff7a29766a19f55b5e0dd08af7588",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x461000",
+        "end_exclusive": "0x481000",
+        "bytes": 131072,
+        "sha256": "e174ce56d5ba1488f165f06de2b1b31493710722275a1a56e717102b29d0af47",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x490000",
+      "name_in_header": "gserp-cn10xx.fw",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "64e7e6afba9570f738e09fab943ef0034672864188b4c9c0402e8579ddfa0d4a",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x491000",
+        "end_exclusive": "0x4b1000",
+        "bytes": 131072,
+        "sha256": "e59064cfbd8522ccaaef78f218bb0d15c2db02d40fa624486c24edf4181def5b",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x4c0000",
+      "name_in_header": "bl2.bin",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "dd631cec92df9eb9f2f4c05f2035f208a1eedcd2abe70a2b64c5d68e8e4aff91",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x4c1000",
+        "end_exclusive": "0x4f3e10",
+        "bytes": 208400,
+        "sha256": "2275f9afc24f432f4baed788989bec558ba5e10ea1d7189433cca1964ceec775",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x540000",
+      "name_in_header": "bl31.bin",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "2152cdaec1c617a93bcd1526d00a36bd45263ec8d02ede87caf9529a7c16d829",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x541000",
+        "end_exclusive": "0x5da050",
+        "bytes": 626768,
+        "sha256": "0c8931090ee63965ded9391913fe6ee14940162966b4c91f4713170b6967337c",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0x600000",
+      "name_in_header": "uefi.bin",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "720ad929ae48a22c913a92b44ee1ff369efc6c6bbe08a04a467410e165511f33",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0x601000",
+        "end_exclusive": "0x881000",
+        "bytes": 2621440,
+        "sha256": "047475bb37219c9bfa73d068941df8ec88a140ae029b3f404dd984f0b946ee4d",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0xa00000",
+      "name_in_header": "npc_mkex-cn10xx.fw",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "42f3ca4b9df893185c521bf2f0693a504e369bb552976c56532caf6370c86a62",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0xa01000",
+        "end_exclusive": "0xa186f0",
+        "bytes": 95984,
+        "sha256": "2b46b35d21997484807b3d106ed71adaa6aa6704826ed7213138e1d5bcb883df",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    },
+    {
+      "offset": "0xa60000",
+      "name_in_header": "cisco-bootstub.bin",
+      "header_bytes": 1904,
+      "signed_length_field": 1372,
+      "header_sha256": "e247e5cf67f0f8e3b535fda9fac8a868da14d2c37ca25c0991acd53331a5a2b1",
+      "packages": [
+        "OTAD",
+        "OTAD",
+        "OTAD",
+        "COIM",
+        "IDOL",
+        "IHSH",
+        "TASR",
+        "TNSD"
+      ],
+      "signature_authentication": "not performed; original bytes retained",
+      "payload": {
+        "start": "0xa61000",
+        "end_exclusive": "0xb61000",
+        "bytes": 1048576,
+        "sha256": "69af68c838fa4cec9114a856897fd8f2da9ca7ad12d5809ac33bfaa1ab573616",
+        "embedded_sha256_matches": true,
+        "address_interpretation": "TIM-relative"
+      }
+    }
+  ],
+  "classification": {
+    "headers_each": 13,
+    "payload_hash_matches_each": 11,
+    "non_ff_bytes_outside_headers_and_payloads_in_prefix_each": 0,
+    "unclassified_suffix": "All A bytes retained; no role inferred merely from offset."
+  },
+  "embedded_layout": {
+    "A": {
+      "offset": "0x1ed390",
+      "bytes": 2556,
+      "sha256": "3bc837fc121060720503886b7afd5a136d0312ec807b35c704f8bea76c57ac40"
+    },
+    "B": {
+      "offset": "0x1ebfa8",
+      "bytes": 2556,
+      "sha256": "3bc837fc121060720503886b7afd5a136d0312ec807b35c704f8bea76c57ac40"
+    },
+    "byte_hashes_equal": true,
+    "entries": [
+      {
+        "node": "/cavium,bdk/firmware-layout/tim0@00010000/reg",
+        "start": "0x10000",
+        "bytes": 16384,
+        "end_exclusive": "0x14000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/rom-script0.fw@00020000/reg",
+        "start": "0x20000",
+        "bytes": 131072,
+        "end_exclusive": "0x40000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/scp_bl1.bin@00040000/reg",
+        "start": "0x40000",
+        "bytes": 393216,
+        "end_exclusive": "0xa0000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/mcp_bl1.bin@000A0000/reg",
+        "start": "0xa0000",
+        "bytes": 196608,
+        "end_exclusive": "0xd0000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/ecp_bl1.bin@000D0000/reg",
+        "start": "0xd0000",
+        "bytes": 196608,
+        "end_exclusive": "0x100000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/init.bin@00100000/reg",
+        "start": "0x100000",
+        "bytes": 3538944,
+        "end_exclusive": "0x460000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/gserm-cn10xx.fw@00460000/reg",
+        "start": "0x460000",
+        "bytes": 196608,
+        "end_exclusive": "0x490000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/gserp-cn10xx.fw@00490000/reg",
+        "start": "0x490000",
+        "bytes": 196608,
+        "end_exclusive": "0x4c0000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/bl2.bin@004C0000/reg",
+        "start": "0x4c0000",
+        "bytes": 524288,
+        "end_exclusive": "0x540000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/bl31.bin@00540000/reg",
+        "start": "0x540000",
+        "bytes": 786432,
+        "end_exclusive": "0x600000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/uefi.bin@00600000/reg",
+        "start": "0x600000",
+        "bytes": 4194304,
+        "end_exclusive": "0xa00000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/npc_mkex-cn10xx.fw@00a00000/reg",
+        "start": "0xa00000",
+        "bytes": 393216,
+        "end_exclusive": "0xa60000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/tee.bin@00ac0000/reg",
+        "start": "0xac0000",
+        "bytes": 2424832,
+        "end_exclusive": "0xd10000"
+      },
+      {
+        "node": "/cavium,bdk/firmware-layout/cisco-bootstub.bin@00A60000/reg",
+        "start": "0xa60000",
+        "bytes": 1052672,
+        "end_exclusive": "0xb61000"
+      }
+    ],
+    "limitations": "The identical table also declares tee.bin at 0xac0000 overlapping the bootstub slot. No independent TIM there; actual hash-validated payload spans take precedence. Generic runtime DTB has other defaults; it is not a measured physical partition map."
+  },
+  "embedded_runtime_dtb": {
+    "A": {
+      "offset": "0x1f8eec",
+      "bytes": 52930,
+      "sha256": "7dfff0e61c94179c2bf159d6d1b16fb0a0e0501263dcb564f58c591041dc496e"
+    },
+    "B": {
+      "offset": "0x1f7b04",
+      "bytes": 52930,
+      "sha256": "75018543538d166310237ab7cc634df05c3653122b68e3511f1da1d6625e26cc"
+    },
+    "property_count_each": 1628,
+    "only_property_difference": "/soc@0/pci@878020000000/rvu-admin@0/num-rvu-vfs",
+    "A_value": 16,
+    "B_value": 32,
+    "interpretation": "Original donor retained, including 32-VF setting. ROMMON recovery does not establish IOS stability; B required a separate runtime resource correction."
+  },
+  "candidate": {
+    "bytes": 33554432,
+    "sha256": "65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07",
+    "composition": "B[0:0xd10000] + A[0xd10000:0x2000000]",
+    "replacement_window": {
+      "start": "0x0",
+      "end_exclusive": "0xd10000",
+      "sha256": "9040112e2f8e0294409feb676fff2883bf5222b5b20d585ed0feb3e3f65445bb"
+    },
+    "preserved_window": {
+      "start": "0xd10000",
+      "end_exclusive": "0x2000000",
+      "bytes": 19857408,
+      "sha256": "c5717191a1adade4fae5fcf17689f8daf41b5bc6b0804e4cb6e283a3cdb85d35",
+      "exact_A_equality": true
+    },
+    "differing_bytes_from_A": 4055731,
+    "changed_4096_byte_sectors": 1156,
+    "changed_sector_runs": [
+      {
+        "start": "0x10000",
+        "end_exclusive": "0x12000",
+        "bytes": 8192,
+        "sectors_4096": 2,
+        "before_sha256": "3bbbe98b83ad5198ae6ea156593f2e35d7a35894f0527de83caab79da526eb0f",
+        "after_sha256": "89230c2b9e2ff7f94ae356dec6560f42945b7cb8118de19d09a50ca26e97aa3d",
+        "differing_bytes": 3565
+      },
+      {
+        "start": "0x20000",
+        "end_exclusive": "0x21000",
+        "bytes": 4096,
+        "sectors_4096": 1,
+        "before_sha256": "58d6aba0fd63f243ab939cb0a206d302aef6cf7e3d660516ef4dd18c500e3f4a",
+        "after_sha256": "a61cb4fc5bf8c4f71365ac901e4ca4e122a22e37e36bd198b58cae68c7cb95fa",
+        "differing_bytes": 1035
+      },
+      {
+        "start": "0x40000",
+        "end_exclusive": "0x41000",
+        "bytes": 4096,
+        "sectors_4096": 1,
+        "before_sha256": "82a02c4b845858c1e55032cddff0f1235264c0ae535be40043e5d717d840248d",
+        "after_sha256": "fda8007c5fe566de07f2e94eb2071c93d8ff171139a5e39755ec58f8dae99cac",
+        "differing_bytes": 1024
+      },
+      {
+        "start": "0xa0000",
+        "end_exclusive": "0xa1000",
+        "bytes": 4096,
+        "sectors_4096": 1,
+        "before_sha256": "60f03b617d3651fd693edbcbd57ae01f041fb4a77a44177b50e2660685c32f5e",
+        "after_sha256": "3d8b4e8bc6876ed4a3ea2378ff54ce0c43a4fe77d99331492f5d17250bc5372d",
+        "differing_bytes": 1028
+      },
+      {
+        "start": "0xd0000",
+        "end_exclusive": "0xea000",
+        "bytes": 106496,
+        "sectors_4096": 26,
+        "before_sha256": "4584cf3e287039becd4b9763032351579881ab110789a4d563fb26cee4eb675b",
+        "after_sha256": "bd26db89ded8f5f9c5c081f7de94b3f683c92666e7ec3124c039dd45d6a9fc72",
+        "differing_bytes": 83277
+      },
+      {
+        "start": "0x100000",
+        "end_exclusive": "0x2b2000",
+        "bytes": 1777664,
+        "sectors_4096": 434,
+        "before_sha256": "24996c10740b173ad23999ba0b5e7e68ceb542d4d24a438e3478a200ea0b2113",
+        "after_sha256": "e936fd72c1580b7c1586edf10a988fd2006be5950abaac7a77b7879f3198b46b",
+        "differing_bytes": 1508567
+      },
+      {
+        "start": "0x2ba000",
+        "end_exclusive": "0x2c7000",
+        "bytes": 53248,
+        "sectors_4096": 13,
+        "before_sha256": "d05e1030c00913fd4709b8f0a60c37a30dd692e717148c62c843285de18d4ee4",
+        "after_sha256": "c5fe3f28785271a51159af613ecbb24454a73d1731fe024ae13abdbfbdc05555",
+        "differing_bytes": 45355
+      },
+      {
+        "start": "0x2ca000",
+        "end_exclusive": "0x2cb000",
+        "bytes": 4096,
+        "sectors_4096": 1,
+        "before_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "after_sha256": "d8a7b42206b9aa349f8c6dd6338b3c0c91e3c47a0b7e0afbf1656ee938952779",
+        "differing_bytes": 203
+      },
+      {
+        "start": "0x2cc000",
+        "end_exclusive": "0x2e4000",
+        "bytes": 98304,
+        "sectors_4096": 24,
+        "before_sha256": "46691bb43d623c7e1315a185b70a482205118e501e829c2fd3f22e8dc45467e1",
+        "after_sha256": "de0974d24c5aa35e68d9db2dae90b97e801fdfea0d303a83070c3e19a3422909",
+        "differing_bytes": 78680
+      },
+      {
+        "start": "0x2e5000",
+        "end_exclusive": "0x318000",
+        "bytes": 208896,
+        "sectors_4096": 51,
+        "before_sha256": "c1c3a188936038d3ed43787715a64b9010f3b1f2b4d3f2928d5760d9536358b4",
+        "after_sha256": "1249cf2717da2dcf876d4d4d516b0fe4c66f546819a1c382560ceb7d87061900",
+        "differing_bytes": 154722
+      },
+      {
+        "start": "0x37f000",
+        "end_exclusive": "0x38f000",
+        "bytes": 65536,
+        "sectors_4096": 16,
+        "before_sha256": "b8991849e9e95b5130263a231c0bd6ecb0ca33cd90307894b83a1dbbcf60b61a",
+        "after_sha256": "53df205215ad4c03c8483a445e2ab618c100026ac96cd9cd3a808fe5afdb919e",
+        "differing_bytes": 60592
+      },
+      {
+        "start": "0x460000",
+        "end_exclusive": "0x481000",
+        "bytes": 135168,
+        "sectors_4096": 33,
+        "before_sha256": "a4044f2f4e519d44387e29b274f73a4380cf26d2cb5338d16823338b117a4cab",
+        "after_sha256": "97bd3dff955ea86af6adddc4f4f062dd9b45e84028f6e50ff35af5d2108fad7f",
+        "differing_bytes": 117150
+      },
+      {
+        "start": "0x490000",
+        "end_exclusive": "0x491000",
+        "bytes": 4096,
+        "sectors_4096": 1,
+        "before_sha256": "0f7498339e4a452a5e5c70ecb8734a8d57cedeb5938b65ebfd915ac4290ee1fc",
+        "after_sha256": "366b94d47c568ede8d21515e4c8e057401ff8aeab0bba20e995c54d180d7d7f3",
+        "differing_bytes": 1034
+      },
+      {
+        "start": "0x4c0000",
+        "end_exclusive": "0x4f1000",
+        "bytes": 200704,
+        "sectors_4096": 49,
+        "before_sha256": "1ecc9d741455439344cc1f9284e6c3fbd2ce97146b30d01880ea11e8ee8db2a1",
+        "after_sha256": "a9024d6ba6d15a8d3680ff79bb0bfa532a193b50b4d302033b483493c6c181e8",
+        "differing_bytes": 120283
+      },
+      {
+        "start": "0x4f2000",
+        "end_exclusive": "0x4f3000",
+        "bytes": 4096,
+        "sectors_4096": 1,
+        "before_sha256": "22109d21755efd4365dde761a8bb2366b5d73f8df0abe1ebd23ce1ccf6da42d9",
+        "after_sha256": "886ecaf935bf2bab6fdd51d790f854cfe668e3c58fcb5ed8b1d5bd49113370d5",
+        "differing_bytes": 29
+      },
+      {
+        "start": "0x540000",
+        "end_exclusive": "0x5cc000",
+        "bytes": 573440,
+        "sectors_4096": 140,
+        "before_sha256": "8c124e774dc8f24941b9e35b1185183b158fc1c707c73b3aac40acd4dce4b916",
+        "after_sha256": "3a6bf135eb8636660b52f766294186b5ac62b72c70450cdd7637a122ae17970d",
+        "differing_bytes": 506237
+      },
+      {
+        "start": "0x5d8000",
+        "end_exclusive": "0x5de000",
+        "bytes": 24576,
+        "sectors_4096": 6,
+        "before_sha256": "1862bfcbbdd917dad840a593d440236072549a18e75a7cf292d00b74b7041dcb",
+        "after_sha256": "8f625bae19a3f1d24a7c471874e8242d354d167bd5d5df1205d43929d776936f",
+        "differing_bytes": 12633
+      },
+      {
+        "start": "0x600000",
+        "end_exclusive": "0x60a000",
+        "bytes": 40960,
+        "sectors_4096": 10,
+        "before_sha256": "14692f898f0e4c09af36960a42e72521c481bed833a99233ec60f0d108818b20",
+        "after_sha256": "0579eb19941e412665b29a724e17de65ec421328b4f814c494062256d0bc6f09",
+        "differing_bytes": 15909
+      },
+      {
+        "start": "0x60b000",
+        "end_exclusive": "0x728000",
+        "bytes": 1167360,
+        "sectors_4096": 285,
+        "before_sha256": "fb4c89c56f772b862f796ffdfac6e68b4dd9005286cc7f42dfc9b65ac560d24f",
+        "after_sha256": "8cca25b489622660c4d639619c6250f4a5b04551ad2efd9f8e7c167cd3c79258",
+        "differing_bytes": 1158882
+      },
+      {
+        "start": "0xa00000",
+        "end_exclusive": "0xa02000",
+        "bytes": 8192,
+        "sectors_4096": 2,
+        "before_sha256": "a956324eefbaa0131042d3a2f731cc0cb4282ce6f3d1d3b13574405b8b30c572",
+        "after_sha256": "0a978f4e8a0a10798e215c568098d624e42d703688e3436139e0f90d2ad2565c",
+        "differing_bytes": 1071
+      },
+      {
+        "start": "0xa08000",
+        "end_exclusive": "0xa09000",
+        "bytes": 4096,
+        "sectors_4096": 1,
+        "before_sha256": "646e1985b4e0dbf4dd5f1b6975c406a64fee4f9cd1b0c6f5a9988b3ea405bc9b",
+        "after_sha256": "1dbe8c9de878cdb07ce944aee34749668c3a5685f04278142bc62e2759b07b25",
+        "differing_bytes": 35
+      },
+      {
+        "start": "0xa0b000",
+        "end_exclusive": "0xa0c000",
+        "bytes": 4096,
+        "sectors_4096": 1,
+        "before_sha256": "815f46a141c9a73133c098c4c5847bfb03b8554a0657cb08f2f11bfd792cfec8",
+        "after_sha256": "ed2d4bf54b94f298ff56d64b1aa8bfc0dc3071390764d184b59ddd3fe013f0e3",
+        "differing_bytes": 3
+      },
+      {
+        "start": "0xa12000",
+        "end_exclusive": "0xa13000",
+        "bytes": 4096,
+        "sectors_4096": 1,
+        "before_sha256": "2faaa82b1512c4a876e80df6aaa3fe9aad37d15059bb2e8783a1e8f66ece88da",
+        "after_sha256": "4fb3c250e573df614d55e2e20ca5c857f199ef5f04924e769076be0917a77577",
+        "differing_bytes": 3
+      },
+      {
+        "start": "0xa16000",
+        "end_exclusive": "0xa18000",
+        "bytes": 8192,
+        "sectors_4096": 2,
+        "before_sha256": "af60590e08ed6b4af5e99679d9b2092a79cedca2f6bf838c182bb4296138650c",
+        "after_sha256": "fdf256e0a39cfc97e8068b806e1b434edbfd60527c50a04e7b0c40848e49b344",
+        "differing_bytes": 23
+      },
+      {
+        "start": "0xa60000",
+        "end_exclusive": "0xa90000",
+        "bytes": 196608,
+        "sectors_4096": 48,
+        "before_sha256": "8bf827e6a3f507308678e39b71d137a2b1d5b813783971c1f87fd6aff479c9f6",
+        "after_sha256": "28f47ae4161e062d892216d04131ee586c160ca560e707af669808f9e06a1246",
+        "differing_bytes": 168903
+      },
+      {
+        "start": "0xb50000",
+        "end_exclusive": "0xb55000",
+        "bytes": 20480,
+        "sectors_4096": 5,
+        "before_sha256": "e597c19a9af85fd93c0f5a41cd2da49956c07947001c558c0bd9f801008aae22",
+        "after_sha256": "14e08733417b4347b600652c14cd8a83ef1a8cc671693c5d33a9e80591003d94",
+        "differing_bytes": 15351
+      },
+      {
+        "start": "0xb58000",
+        "end_exclusive": "0xb59000",
+        "bytes": 4096,
+        "sectors_4096": 1,
+        "before_sha256": "4aada5121764cc9153c04a0f4d8b05ca1b19dacc1b5afa4a8dc68443a58c5284",
+        "after_sha256": "9107756d286f149059d5ef4bc4b3d667d70769638f9750868f618957270e2468",
+        "differing_bytes": 137
+      }
+    ],
+    "signature_authentication": "not independently performed",
+    "compatibility": "plausible same-family recovery experiment, not proven on A",
+    "boot_test": "not performed",
+    "hardware_write": "not performed",
+    "private_file": ".git/recovery-private/c8235-a-20261104-development-candidate/C8235-A-FGL2835L42B-U2900-B-development-code-A-preserved-EXPERIMENTAL.bin",
+    "saved_file_byte_verified": true
+  },
+  "preserved_native_updater_regions": [
+    {
+      "label_from_A_native_flashmon": "board manufacturing data",
+      "start": "0xfd0000",
+      "end_exclusive": "0x1000000",
+      "sha256": "8f13e9f8ce42635d080880ccb6a2e0da87723fd5a315cedc19bbc679ce34f793",
+      "candidate_equal_A": true
+    },
+    {
+      "label_from_A_native_flashmon": "monitor environment",
+      "start": "0x1f30000",
+      "end_exclusive": "0x1f50000",
+      "sha256": "0509b7beafff8b763606447275651c40266fd84992bf9491d425ebb4aa2d10f7",
+      "candidate_equal_A": true
+    }
+  ],
+  "limitations": [
+    "B backup is not A's original and its physical bank remains unresolved.",
+    "U2901 unread; physical primary/golden selection unresolved; reading U2901 is optional preservation work.",
+    "Preserving signature bytes and matching embedded hashes is not cryptographic authentication or proof A will accept the image.",
+    "Fresh hardware identity, ownership, voltage/RESET and write/readback qualification remain before an actual flash experiment.",
+    "No fuse, TPM, provisioning, board/security-data patch, signature bypass, SoC2 substitution or hardware access in this utility."
+  ],
+  "utility_sha256": "22c28ebf03cdf60e6453a69f74356449bed0b38c07d501af61ad70480b629a8b",
+  "independent_validation": {
+    "date": "2026-11-04T00:15:48.233511-05:00",
+    "method": "Independent direct reconstruction from both read2 originals; no candidate utility import",
+    "candidate_sha256": "65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07",
+    "reconstructed_byte_equality": true,
+    "A_read2_hash_unchanged": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+    "B_read2_hash_unchanged": "cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857",
+    "differing_bytes": 4055731,
+    "first_changed_byte": "0x1000c",
+    "last_changed_byte": "0xb58edf",
+    "changed_sector_map_verified": true,
+    "changed_sectors": 1156,
+    "preserved_suffix_equal_A": true,
+    "candidate_permissions": "0o600"
+  },
+  "validation": {
+    "focused_tests": {
+      "command": "python3 -m unittest discover -s tests -p test_c8235_a_development_candidate.py -v",
+      "passed": 10
+    },
+    "full_suite": {
+      "command": "python3 -m unittest discover -s tests -v",
+      "passed": 111
+    },
+    "initial_test_failure": "Three mutation tests exposed bytearray tag handling; converted tag slice to bytes, then all focused/full tests passed. No input or hardware was changed."
+  },
+  "owner_clarification": {
+    "statement": "Expected and acceptable that router 1 will need the IOS instability fix after development ROMMON restoration.",
+    "scope": "Accepts later IOS work; this checkpoint remains offline analysis/candidate preparation, with no chip write."
+  },
+  "evidence_sources": [
+    "recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-SPI-BACKUP-METADATA.json",
+    "c8235-recovery/c8235-a-u2900-backup-20261103/result.json",
+    "c8235-recovery/usb-reference-review-20261103/result.json",
+    "sanitized-evidence/router-console-logs/20261022-ROMMON-recovery-readable.txt",
+    "c8235-recovery/crash-review-20261031/persistence-and-fleet-roadmap.json",
+    "scripts/c8235_a_development_candidate.py",
+    "tests/test_c8235_a_development_candidate.py"
+  ],
+  "fixture": "Offline only. No Pi, console, programmer or USB-drive operation. Last user-confirmed U2900 fixture remains historical: native/bench/battery isolated, Pi+1.8V adapter powering clip, U2901 RESET through 218 ohms to ground. Fresh confirmation required before hardware interaction.",
+  "assessment": "Evidence supports a controlled, experimental same-SoC1 development-firmware restore to A/U2900. Does not establish signature trust, boot success, primary/golden mapping or IOS stability. U2901 acquisition remains optional.",
+  "next": "Prepare a bounded differential write using the exact candidate, retaining A current-image backups. Reconfirm A/chip/fixture and qualify write conditions; program only planned sectors and independently read back the entire chip before native boot. No write helper executed or deployed in this analysis."
+}

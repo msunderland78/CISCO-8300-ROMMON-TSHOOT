@@ -1,0 +1,109 @@
+C8235-A U2900 DEVELOPMENT-FIRMWARE RESTORE CANDIDATE
+2026-11-04, America/New_York (EST) — C8235-03 / C8235-01 / R-01
+
+OUTCOME
+Offline analysis supports a controlled recovery experiment using B's complete
+older SoC1 firmware components while retaining A's remaining flash contents.
+Candidate constructed and independently verified; NOT PROGRAMMED or boot-tested.
+This restores earlier development ROMMON, not a newer production ROMMON upgrade.
+The owner accepts that the separate IOS instability fix may still be needed.
+
+IDENTITY AND ORIGINALS
+Target: C8235-A, chassis FGL2835L42B, board FOC28292GUQ, physical U2900.
+A full-read pair: 33,554,432 bytes each, byte-identical, SHA-256:
+17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5
+Donor: C8235-B / FGL2835LBHU, logical Linux mtd0ro / spi0.0 snapshot,
+physical chip/bank unresolved. Both 33,554,432-byte files match, SHA-256:
+cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857
+Historical B console establishes development ROMMON at backup time; the dump
+is not A's missing pre-upgrade original. A's original and B's historical banners
+both identify SDK112312-SoC1-SB-v12.1.22 on Arata r2 / A0 alt-package hardware.
+Original inputs were rehashed, read-only, and retained unchanged.
+
+LAYOUT EVIDENCE
+A's entire 0x00000000–0x00D0FFFF region exactly matches the canonical new SoC1
+release (13,697,024 bytes; SHA-256 a84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e).
+Both images have 13 TIM headers at identical offsets. All 11 payload SHA-256s
+match their embedded IHSH values in each image. The inferred address handling
+uses absolute 0x41000 for SCP; COIM-bearing payloads use TIM-relative offsets.
+Every non-FF byte in that prefix is covered by the parsed headers/payloads.
+No unclassified non-FF prefix bytes remain, and all unused gaps are FF.
+
+The 2,556-byte layout DTB embedded inside init.bin is identical in both images:
+3bc837fc121060720503886b7afd5a136d0312ec807b35c704f8bea76c57ac40
+It corroborates component locations and a declared image extent of 0xD10000.
+Its tee.bin declaration overlaps cisco-bootstub; no separate TIM exists there.
+Use actual validated payload spans, not every DTB declaration as a live partition.
+The generic runtime DTB has other default layout entries that are not the
+measured Cisco partition map. These observations do not map physical banks.
+
+B component             TIM start   Actual payload start–end (exclusive)
+tim0                    0x010000    header only
+rom-script0 layout slot  0x020000    header only; OTAD name says gserp-cn10xx.fw
+scp_bl1.bin             0x040000    0x041000–0x065004
+mcp_bl1.bin             0x0A0000    0x0A1000–0x0AE760
+ecp_bl1.bin             0x0D0000    0x0D1000–0x0E98B0
+init.bin                0x100000    0x101000–0x37F398
+gserm-cn10xx.fw          0x460000    0x461000–0x481000
+gserp-cn10xx.fw          0x490000    0x491000–0x4B1000
+bl2.bin                 0x4C0000    0x4C1000–0x4F3E10
+bl31.bin                0x540000    0x541000–0x5DA050
+uefi.bin                0x600000    0x601000–0x881000
+npc_mkex-cn10xx.fw       0xA00000    0xA01000–0xA186F0
+cisco-bootstub.bin       0xA60000    0xA61000–0xB61000
+
+EXACT CANDIDATE
+Size: 33,554,432 bytes.
+Composition: B[0:0xD10000] + A[0xD10000:0x2000000].
+SHA-256:
+65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07
+Derived file stays private, mode 0600:
+.git/recovery-private/c8235-a-20261104-development-candidate/
+C8235-A-FGL2835L42B-U2900-B-development-code-A-preserved-EXPERIMENTAL.bin
+
+4,055,731 byte positions differ from current A, first 0x1000C, last 0xB58EDF.
+They occupy 1,156 distinct 4-KiB sectors in 27 contiguous runs. Exact runs and
+before/after hashes are in result.json; these are offline differences, not a
+completed flash operation. A later writer must preserve unchanged sectors and
+verify the complete resulting chip, not merely the changed bytes.
+
+All 19,857,408 bytes from 0xD10000 through 0x1FFFFFF are exactly A's originals:
+c5717191a1adade4fae5fcf17689f8daf41b5bc6b0804e4cb6e283a3cdb85d35
+That includes the regions A's native flashmon explicitly protected on October22:
+board manufacturing data 0xFD0000–0xFFFFFF and monitor environment
+0x1F30000–0x1F4FFFF. Other suffix roles remain unclassified and are preserved.
+The 7,412 A/B suffix differences are NOT copied from B.
+No donor whole-chip clone, SoC2 hybrid, board/security-data patch or signature
+patch is used. Firmware headers, payloads and signatures retain B's exact bytes.
+
+COMPATIBILITY AND IOS FOLLOW-UP
+Both embedded runtime DTBs have 1,628 properties. The only property difference
+is /soc@0/pci@878020000000/rvu-admin@0/num-rvu-vfs: current A release =16,
+B development image =32. Candidate deliberately retains the donor value.
+B previously required a separate runtime resource-budget correction for stable
+IOS. The owner explicitly accepts equivalent follow-up for A. Do not patch
+this signed payload or claim the existing fix is verified on A before testing.
+
+Matching hashes proves internal byte consistency, not Cisco signature trust,
+acceptance by A's boot chain, rollback policy, successful boot, or stability.
+No independent signature authentication was performed. U2901 remains unread;
+its acquisition is optional preservation work, not a blanket prerequisite.
+No changes to TPM, fuses, lifecycle or provisioning are proposed.
+
+VALIDATION AND NEXT STEP
+The candidate was reconstructed independently from both READ2 originals,
+compared byte-for-byte, and its sector map independently recomputed. All pass.
+New helper: Python standard library only, no import-time effects, no hardware
+or network operations. Hash-pinned originals, bounded parsing, full prefix
+coverage, private exclusive output and exact preservation are enforced.
+10 focused tests and all 111 repository tests pass. First mutation tests found
+bytearray tag handling; it was corrected before candidate creation.
+Reproduce to a NEW private directory with:
+python3 scripts/c8235_a_development_candidate.py --output-dir .git/recovery-private/c8235-a-development-recheck
+
+Next: prepare the exact-candidate differential write and full readback process,
+then reconfirm physical A/U2900, exclusive ownership and unchanged qualified
+power/RESET conditions before any hardware access. No firmware-write helper
+was run or deployed; neither flash nor USB drive nor Pi was touched this turn.
+Full raw inputs and candidate remain local/private; public result.json contains
+hashes, component metadata, expected changes and preservation evidence only.
