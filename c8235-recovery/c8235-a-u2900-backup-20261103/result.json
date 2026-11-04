@@ -1,0 +1,774 @@
+{
+  "recorded_at": "2026-11-03T23:52:48-05:00",
+  "tasks": [
+    "C8235-01",
+    "R-01"
+  ],
+  "status": "Verified:two separate33554432-byte U2900 main-array originals, zero byte differences, sameSHA256; all66 IDs and8 GPIO-reference checks pass; exact SoC1 release payload present. No flash writes.",
+  "identity": {
+    "chassis": "C8235-A/FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "physical_chip": "U2900",
+    "other_chip_RESET_held": "U2901"
+  },
+  "preparation": "preparation.json",
+  "owner_authorization": "keep working, everything is staying the same",
+  "fixture": "Unchanged qualified1.8V adapter/clip;218ohm U2901RESET branch; native router sources/cables/coin-cell and bench supply disconnected. Last owner meter1.717/1.717/0.308V; no new meter capture. Pi remains on, fixture unchanged, interface idle after completion.",
+  "execution": {
+    "started_at": "2026-11-03T23:40:51.201248-05:00",
+    "chassis": "C8235-A/FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "physical_chip": "U2900",
+    "reset_held_chip": "U2901",
+    "reset_resistor_ohms": 218,
+    "device": "/dev/spidev0.0",
+    "status": "passed",
+    "method": "SPI_IOC_MESSAGE(1), mode0/MSB-first, native four-byte address",
+    "chip_bytes": 33554432,
+    "requested_hz": 1000000,
+    "chunk_bytes": 512,
+    "reference_report_sha256": "d848e49242f6e13e1b51d405a4c437445f80f8767c951f645dbcbb220f26a89a",
+    "qualification_report_sha256": "0edb53833ee56bd7065e650b7b7bd395eb9db8c028dc73516acfa4241cb947e9",
+    "opcodes": [
+      "0x9f RDID",
+      "0x13 native four-byte READ"
+    ],
+    "limitation": "Matching originals do not establish firmware compatibility, physical bank role or boot",
+    "identities": [
+      {
+        "stage": "full1-before-00000000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00100000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00200000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00300000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00400000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00500000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00600000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00700000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00800000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00900000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00a00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00b00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00c00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00d00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00e00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-00f00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01000000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01100000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01200000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01300000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01400000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01500000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01600000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01700000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01800000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01900000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01a00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01b00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01c00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01d00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01e00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-before-01f00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full1-after-final-byte",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00000000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00100000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00200000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00300000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00400000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00500000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00600000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00700000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00800000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00900000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00a00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00b00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00c00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00d00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00e00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-00f00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01000000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01100000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01200000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01300000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01400000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01500000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01600000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01700000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01800000",
+        "requested_hz": 1000000,
+        "response_hex": "8720bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01900000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01a00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01b00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01c00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01d00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01e00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-before-01f00000",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "full2-after-final-byte",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      }
+    ],
+    "reads": [
+      {
+        "pass": 1,
+        "file": "C8235-A-FGL2835L42B-U2900-full-read1.bin",
+        "complete": true,
+        "bytes_written": 33554432,
+        "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+        "completed_at": "2026-11-03T23:45:28.341149-05:00"
+      },
+      {
+        "pass": 2,
+        "file": "C8235-A-FGL2835L42B-U2900-full-read2.bin",
+        "complete": true,
+        "bytes_written": 33554432,
+        "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+        "completed_at": "2026-11-03T23:50:05.592120-05:00"
+      }
+    ],
+    "reference_checks": [
+      {
+        "pass": 1,
+        "address": "0x0",
+        "matches_GPIO": true
+      },
+      {
+        "pass": 1,
+        "address": "0x1f2000",
+        "matches_GPIO": true
+      },
+      {
+        "pass": 1,
+        "address": "0x1000000",
+        "matches_GPIO": true
+      },
+      {
+        "pass": 1,
+        "address": "0x1fffe00",
+        "matches_GPIO": true
+      },
+      {
+        "pass": 2,
+        "address": "0x0",
+        "matches_GPIO": true
+      },
+      {
+        "pass": 2,
+        "address": "0x1f2000",
+        "matches_GPIO": true
+      },
+      {
+        "pass": 2,
+        "address": "0x1000000",
+        "matches_GPIO": true
+      },
+      {
+        "pass": 2,
+        "address": "0x1fffe00",
+        "matches_GPIO": true
+      }
+    ],
+    "pair_equal": true,
+    "device_closed": true,
+    "finished_at": "2026-11-03T23:50:05.596761-05:00"
+  },
+  "exit_code": 0,
+  "independent_postflight": {
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a",
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "spidev_exists": true,
+    "holders": [],
+    "pinctrl_returncode": 0,
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "original_file_receipts": {
+      "report.json": {
+        "bytes": 11457,
+        "sha256": "2816489f580bb7c44c00163536989f2485173b7eb78c283d6d66e7313fad447e"
+      },
+      "C8235-A-FGL2835L42B-U2900-full-read1.bin": {
+        "bytes": 33554432,
+        "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5"
+      },
+      "C8235-A-FGL2835L42B-U2900-full-read2.bin": {
+        "bytes": 33554432,
+        "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5"
+      }
+    },
+    "checks": {
+      "same_boot": true,
+      "controller_unchanged": true,
+      "driver_bound": true,
+      "spidev_present": true,
+      "no_holders": true,
+      "CS_idle_high": true,
+      "original_report_matches_stdout": true,
+      "all_copies_match_remote_hashes": true,
+      "both_exact_32MiB": true,
+      "pair_byte_identical": true,
+      "all8_GPIO_reference_comparisons_match": true,
+      "all66_IDs_expected": true
+    },
+    "independent_comparison": {
+      "pair_different_bytes": 0,
+      "GPIO_reference_checks": [
+        {
+          "pass": 1,
+          "address": "0x0",
+          "matches_GPIO": true
+        },
+        {
+          "pass": 1,
+          "address": "0x1f2000",
+          "matches_GPIO": true
+        },
+        {
+          "pass": 1,
+          "address": "0x1000000",
+          "matches_GPIO": true
+        },
+        {
+          "pass": 1,
+          "address": "0x1fffe00",
+          "matches_GPIO": true
+        },
+        {
+          "pass": 2,
+          "address": "0x0",
+          "matches_GPIO": true
+        },
+        {
+          "pass": 2,
+          "address": "0x1f2000",
+          "matches_GPIO": true
+        },
+        {
+          "pass": 2,
+          "address": "0x1000000",
+          "matches_GPIO": true
+        },
+        {
+          "pass": 2,
+          "address": "0x1fffe00",
+          "matches_GPIO": true
+        }
+      ],
+      "SoC1_release_reference_sha256": "a84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e",
+      "release_prefix_bytes": 13697024,
+      "release_prefix_exact_match_each": [
+        true,
+        true
+      ],
+      "full_sha256_each": [
+        "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+        "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5"
+      ],
+      "OTP_and_separate_registers": "Not acquired; main array only."
+    },
+    "verified_at": "2026-11-03T23:50:53.351204-05:00"
+  },
+  "content_comparison": {
+    "bytes": 33554432,
+    "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+    "SoC1_reference": "ROMMON-extracted/soc1/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin",
+    "reference_bytes": 13697024,
+    "reference_sha256": "a84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e",
+    "prefix_range": [
+      "0x00000000",
+      "0xd0ffff"
+    ],
+    "prefix_exact_match": true,
+    "prefix_different_bytes": 0,
+    "first_difference": null,
+    "last_difference": null,
+    "suffix_start": "0xd10000",
+    "suffix_bytes": 19857408,
+    "suffix_non_ff_bytes": 95747,
+    "suffix_non_ff_64KiB_windows": [
+      {
+        "start": "0xf30000",
+        "end_inclusive": "0xf3ffff",
+        "non_ff_bytes": 12163,
+        "sha256": "b195be648feab2408449b7dd457d5e78f67f2f26b2d9d7fd8a82a1bbea850e9b"
+      },
+      {
+        "start": "0xf70000",
+        "end_inclusive": "0xf7ffff",
+        "non_ff_bytes": 28,
+        "sha256": "375df00b5f3eeb973c265cc9fcb5d735a2a13a63b221dadd81d40df10f23d9c5"
+      },
+      {
+        "start": "0xfd0000",
+        "end_inclusive": "0xfdffff",
+        "non_ff_bytes": 65536,
+        "sha256": "2d6695812255eeb8daad440a181d87991655a8926adf908ac30b426b2607fde0"
+      },
+      {
+        "start": "0xfe0000",
+        "end_inclusive": "0xfeffff",
+        "non_ff_bytes": 4,
+        "sha256": "d05476d955a33e3d780e43a77e1609e54b595193e48d9f8dddff747cbb66603e"
+      },
+      {
+        "start": "0xff0000",
+        "end_inclusive": "0xffffff",
+        "non_ff_bytes": 325,
+        "sha256": "79424a320b56ea6e6d9d1e73307691494ec2280752b1a6908aecf3590321c857"
+      },
+      {
+        "start": "0x1e30000",
+        "end_inclusive": "0x1e3ffff",
+        "non_ff_bytes": 1279,
+        "sha256": "98289654f7323d021f40baec0c88bf16810c2f82f77589c06228d5b9e8b24f4c"
+      },
+      {
+        "start": "0x1e70000",
+        "end_inclusive": "0x1e7ffff",
+        "non_ff_bytes": 28,
+        "sha256": "e2cfef05f1943c0034579821652e7ae8d3df96c636eeeeb75818a585273b0c0c"
+      },
+      {
+        "start": "0x1f30000",
+        "end_inclusive": "0x1f3ffff",
+        "non_ff_bytes": 8192,
+        "sha256": "89c4f7789d2daa16d73de14eecacb607144eefacc5b7f4cc51b283044f51cd72"
+      },
+      {
+        "start": "0x1f40000",
+        "end_inclusive": "0x1f4ffff",
+        "non_ff_bytes": 8192,
+        "sha256": "89c4f7789d2daa16d73de14eecacb607144eefacc5b7f4cc51b283044f51cd72"
+      }
+    ],
+    "limitation": "Content agreement does not establish boot-selector wiring, firmware compatibility, bank role or a restoration candidate. No writes.",
+    "status": "Final pair validated independently; both complete originals have this exact content comparison.",
+    "suffix_statistics": {
+      "classification": "Unclassified byte statistics only; no board/security/configuration role inferred.",
+      "windows": [
+        {
+          "start": "0xf30000",
+          "bytes": 65536,
+          "ff_bytes": 53373,
+          "zero_bytes": 5798,
+          "distinct_byte_values": 205
+        },
+        {
+          "start": "0xf70000",
+          "bytes": 65536,
+          "ff_bytes": 65508,
+          "zero_bytes": 6,
+          "distinct_byte_values": 24
+        },
+        {
+          "start": "0xfd0000",
+          "bytes": 65536,
+          "ff_bytes": 0,
+          "zero_bytes": 61710,
+          "distinct_byte_values": 172
+        },
+        {
+          "start": "0xfe0000",
+          "bytes": 65536,
+          "ff_bytes": 65532,
+          "zero_bytes": 0,
+          "distinct_byte_values": 5
+        },
+        {
+          "start": "0xff0000",
+          "bytes": 65536,
+          "ff_bytes": 65211,
+          "zero_bytes": 133,
+          "distinct_byte_values": 64
+        },
+        {
+          "start": "0x1e30000",
+          "bytes": 65536,
+          "ff_bytes": 64257,
+          "zero_bytes": 514,
+          "distinct_byte_values": 158
+        },
+        {
+          "start": "0x1e70000",
+          "bytes": 65536,
+          "ff_bytes": 65508,
+          "zero_bytes": 6,
+          "distinct_byte_values": 24
+        },
+        {
+          "start": "0x1f30000",
+          "bytes": 65536,
+          "ff_bytes": 57344,
+          "zero_bytes": 8002,
+          "distinct_byte_values": 68
+        },
+        {
+          "start": "0x1f40000",
+          "bytes": 65536,
+          "ff_bytes": 57344,
+          "zero_bytes": 8002,
+          "distinct_byte_values": 68
+        }
+      ]
+    },
+    "interpretation": "U2900 contains an exact byte copy of the saved SoC1 release payload over0x00000000-0x00d0ffff, plus separately preserved suffix data. This is the current post-upgrade image, not recovery of the missing pre-upgrade development image. Physical primary/golden selection remains unverified."
+  },
+  "preservation": {
+    "private_directory": ".git/recovery-private/c8235-a-20261103/full-pair-20261103-234026",
+    "originals_directory": ".git/recovery-private/c8235-a-20261103/full-pair-20261103-234026/originals",
+    "files": {
+      "report.json": {
+        "bytes": 11457,
+        "sha256": "2816489f580bb7c44c00163536989f2485173b7eb78c283d6d66e7313fad447e"
+      },
+      "C8235-A-FGL2835L42B-U2900-full-read1.bin": {
+        "bytes": 33554432,
+        "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5"
+      },
+      "C8235-A-FGL2835L42B-U2900-full-read2.bin": {
+        "bytes": 33554432,
+        "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5"
+      }
+    },
+    "copies": "Exact full originals remain both on Pi and local Mac; report copied byte-for-byte. File1 copied while file2 acquired, then reverified against final remote hash; file2 copied after completion. All files0600/private directories0700. No original overwritten.",
+    "publication": "Only authored metadata, helper sources and tests published; full binaries, raw logs and report remain ignored/private.",
+    "original_report_sha256": "2816489f580bb7c44c00163536989f2485173b7eb78c283d6d66e7313fad447e"
+  },
+  "limitations": [
+    "This validates repeatability of the32MiB main array and exact agreement with the known release payload; it does not establish factory originality, firmware compatibility with this prototype, primary/golden electrical selection, or successful boot.",
+    "OTP and separate security/configuration registers were not acquired or changed. No TPM/fuse/lifecycle operation, native router power/console action, flash write/erase or register/address-mode command occurred.",
+    "Suffix bytes are preserved as read, without assigning board/security/configuration meaning from address alone.",
+    "U2901 remains unread; original primary development firmware was not saved before the earlier native upgrade."
+  ],
+  "next": {
+    "selection": "Acquire U2901 separately to inspect whether an older development image survives; both-chip evidence remains incomplete.",
+    "physical_dependency": "Requires controlled unpowered fixture change: clip target becomesU2901 and unused-chip RESET branch moves toU2900, followed by fresh contact/voltage qualification. User requested current fixture stay unchanged; no such reconfiguration orU2901 access performed.",
+    "current_state": "Pi on, driver bound, CS high, no interface holder; U2900 clip/adapter/U2901RESET branch left exactly as qualified. No more command queued.",
+    "write_decision": "No write candidate selected. Rewriting the exact same release payload would not change the observed payload bytes; inspect other chip before recovery-image decisions.",
+    "separate_reference_available": "Owner recalled USB backup: C8235-B/FGL2835LBHU logical MTD pair freshly reverified, both cadaa2c6...4857, private local copies preserved. Useful comparison reference; not established pre-upgrade A image or an approved whole-chip transplant. A-B comparison finds differences within and outside the new-release-sized window; this does not define a safe restore layout."
+  },
+  "related_USB_reference_review": "../usb-reference-review-20261103/result.json"
+}

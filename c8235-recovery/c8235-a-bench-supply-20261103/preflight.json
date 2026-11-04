@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Reseated U2900 fixture now passes ID and bounded GPIO sample repeatability:13 IDs20bb19, four512-byte regions x3,6144 bytes total/2048 unique, zero repeat differences; one varied region and three allFF. Independent originals/cleanup verified. No writes/full backup. Preserve fixture; hardware-SPI sample comparison next.",
+  "status": "U2900 current main-array backup verified:two32MiB originals, SHA25617c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5, zero byte differences; complete SoC1 release payload exactly matches saved vendor extraction. Hardware-SPI qualification, independent copies and cleanup pass. No writes; U2901 remains unread; fixture unchanged.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -941,5 +941,33 @@
     "flash_writes": 0,
     "evidence": "c8235-recovery/c8235-a-u2900-samples-20261103/result.json",
     "next": "Keep fixture unchanged; bounded hardware-SPI comparison against GPIO references before full backups."
+  },
+  "full_U2900_backup_checkpoint": {
+    "recorded_at": "2026-11-03T23:52:48-05:00",
+    "evidence": "c8235-recovery/c8235-a-u2900-backup-20261103/result.json",
+    "started_at": "2026-11-03T23:40:51.201248-05:00",
+    "finished_at": "2026-11-03T23:50:05.596761-05:00",
+    "bytes_each": 33554432,
+    "sha256_each": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+    "pair_different_bytes": 0,
+    "expected_ID_checks": 66,
+    "GPIO_reference_checks": 8,
+    "release_payload_exact_bytes": 13697024,
+    "source_release_sha256": "a84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e",
+    "independent_cleanup": {
+      "same_boot": true,
+      "controller_unchanged": true,
+      "driver_bound": true,
+      "spidev_present": true,
+      "no_holders": true,
+      "CS_idle_high": true,
+      "original_report_matches_stdout": true,
+      "all_copies_match_remote_hashes": true,
+      "both_exact_32MiB": true,
+      "pair_byte_identical": true,
+      "all8_GPIO_reference_comparisons_match": true,
+      "all66_IDs_expected": true
+    },
+    "next": "Unpowered fixture reconfiguration and fresh qualification needed for separateU2901 acquisition. Current wiring/Pi unchanged; no write or further command selected."
   }
 }

@@ -684,5 +684,5 @@
     "The sampled regions at0,0x01000000 and0x01fffe00 are each512 bytes ofFF. This alone does not diagnose corruption/erasure across other regions or prove high-address decoding.",
     "Only2048 unique bytes of32MiB were sampled; no whole-chip backup, firmware compatibility, physical primary/golden bank role or native boot is established."
   ],
-  "next": "Keep clip/218ohm RESET branch/adapter unchanged. Before full-chip acquisition, qualify the hardware-SPI path with bounded samples compared byte-for-byte against these saved GPIO references. Hardware-SPI samples and full-chip backups have not run on C8235-A."
+  "next": "Hardware-SPI comparison subsequently passes and two completeU2900 originals are verified; see hardware-spi.json and ../c8235-a-u2900-backup-20261103/result.json. U2901 remains unread; current fixture unchanged."
 }

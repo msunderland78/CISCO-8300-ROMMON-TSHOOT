@@ -10,6 +10,53 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-B USB REFERENCE PAIR REVERIFIED — 2026-11-03, 23:57 EST
+Owner recalls an old image on attached /Volumes/CISCO FILES. Both files in
+C8235-B-FGL2835LBHU-20261025-SPI-READS are present and33554432 bytes each:
+linux-mtd0ro-read1.bin and linux-mtd0ro-read2.bin, byte-identical, both SHA-256
+cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857.
+Fresh hashes match October25 metadata; private local copies also rehashed.
+These belong to B/FGL2835LBHU, acquired from one logical mtd0/spi0.0 while B
+ran development ROMMON. Physical chip/bank mapping remains unresolved. They
+are useful references, not established pre-upgrade backups of A/FGL2835L42B.
+
+Current A/U2900 versus B differs4,055,731 bytes within the new release-sized
+00000000–00d0ffff window and7,412 outside. This is not a restore layout or proof
+of firmware/device-data boundaries, compatibility or safe whole-chip cloning.
+No separately identified pre-upgrade A SPI dump found among212 accessible USB
+ordinary files; macOS metadata directories excluded, archive contents not searched.
+Known C8375-A original72fc3f...45107 also verified on USB and remains separate.
+No USB writes/Pi access/wiring changes. U2901 remains the same-chassis target
+for inspecting a surviving older image; B reference review can inform recovery.
+Private B copies: .git/recovery-private/acquisitions/C8235-B-FGL2835LBHU/20261103-usb-reference-review/
+Evidence: c8235-recovery/usb-reference-review-20261103/result.json
+
+C8235-A U2900 FULL BACKUP PAIR VERIFIED — 2026-11-03, 23:40–23:50 EST
+C8235-A/FGL2835L42B, board FOC28292GUQ, U2900. Two separate 33,554,432-byte
+main-array reads complete, zero differences, both SHA-256:
+17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5
+All 66 IDs20bb19 and eight GPIO reference checks pass. Originals retained on Pi
+and copied to private local storage; independent sizes/hashes/full bytes match.
+Postflight verifies driver bound, CS high, no holders, same boot. Pi stays on;
+clip, same1.8V adapter and218ohm U2901 RESET branch remain unchanged. Last owner
+meter1.717/1.717/0.308V; no new transient/DC measurement invented.
+
+Both full dumps exactly match the entire13,697,024-byte SoC1 release image over
+00000000–00d0ffff; source SHAa84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e.
+Suffix contains95,747 non-FF bytes across nine64KiB windows, preserved without
+assigning configuration/security roles from address alone. This is a backup of
+the current post-upgrade contents, not the missing pre-upgrade development image.
+Native primary/golden selection remains unverified. No flash write/erase, OTP,
+register/address-mode/security operation, native router power or console action.
+
+Next inspect U2901 separately for any surviving older image. That requires a
+controlled unpowered clip-target/unused-RESET swap and fresh contact/voltage
+qualification; owner requested current fixture stay unchanged, so no swap or
+U2901 access performed. No write candidate selected; rewriting the same release
+would not change its observed payload bytes. Both-chip backup remains incomplete.
+Originals: .git/recovery-private/c8235-a-20261103/full-pair-20261103-234026/originals/
+Evidence: c8235-recovery/c8235-a-u2900-backup-20261103/result.json
+
 C8235-A HARDWARE SPI QUALIFIED / FULL READS RUNNING — 2026-11-03, 23:37–23:40 EST
 Owner confirms unchanged C8235-A/FGL2835L42B/FOC28292GUQ/U2900 fixture and asks
 to keep working. Hardware SPI at requested 100/500/1000 kHz, 64/512-byte chunks,
@@ -2707,7 +2754,10 @@ SEPARATE ASSEMBLED UNIT / C8235-B — 2026-10-25, America/New_York
   scheduled/background sync remains. Resume by inspecting the preserved
   fresh report, after reconfirming physical state/console ownership.
 
-CURRENT OUTCOME AND NEXT STEP — WORKED UNIT C8235-A
+HISTORICAL PRE-ACQUISITION OUTCOME — WORKED UNIT C8235-A
+November3 update: external U2900 acquisition is now complete as recorded above;
+the following earlier baseline/intent is retained as history. U2901 and the
+missing original development image remain unresolved.
 - Router is NOT recovered. The primary ROMMON flash operation completed,
   but the release firmware now halts before Cisco ROMMON at a TPM
   manufacturing-status error. IOS XE is no longer reached by that boot path.

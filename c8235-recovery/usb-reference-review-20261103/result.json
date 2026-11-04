@@ -1,0 +1,86 @@
+{
+  "recorded_at": "2026-11-03T23:57:20-05:00",
+  "tasks": [
+    "C8235-01",
+    "R-01"
+  ],
+  "owner_question": "so u2900 has the new image, correct ... didn't we take a back up of the old image on CISCO FILES removeable drive attached to this mac",
+  "status": "Existing C8235-B USB pair found and freshly verified; both historicalSHA256 values intact. These are a different chassis from current C8235-A. No separately identified pre-upgrade A dump found in accessible named-file inventory.",
+  "inventory_scope": {
+    "volume": "/Volumes/CISCO FILES",
+    "ordinary_files": 212,
+    "final_rg_exit_code": 0,
+    "method": "rg filename inventory plus file sizes; hash32MiB files and bounded firmware-named candidates. No router action/USB writes.",
+    "exclusions": "macOS .Trashes/.Spotlight-V100/.fseventsd and AppleDouble metadata; archive contents not searched. Initial broad inventory reported macOS metadata-folder access denials; refined exclusions produced exit0.",
+    "private_inventory": ".git/recovery-private/usb-reference-review-20261103/inventory.json"
+  },
+  "C8235_B": {
+    "recorded_at": "2026-11-03T23:55:51.194257-05:00",
+    "USB_volume": "/Volumes/CISCO FILES",
+    "identity": "C8235-B/FGL2835LBHU; one logical mtd0/spi0.0 snapshot acquired2026-10-25, physical chip/bank mapping unresolved",
+    "original_metadata": "recovery-prep-20261024/C8235-B-FGL2835LBHU-20261025-SPI-BACKUP-METADATA.json",
+    "fresh_checks": "Both USB files exactly33554432 bytes, both match historicalSHA256 and each other; immutable private local copies independently rehashed. No USB file modified.",
+    "files": [
+      {
+        "USB_relative_path": "C8235-B-FGL2835LBHU-20261025-SPI-READS/linux-mtd0ro-read1.bin",
+        "local_original": ".git/recovery-private/acquisitions/C8235-B-FGL2835LBHU/20261103-usb-reference-review/linux-mtd0ro-read1.bin",
+        "bytes": 33554432,
+        "sha256": "cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857"
+      },
+      {
+        "USB_relative_path": "C8235-B-FGL2835LBHU-20261025-SPI-READS/linux-mtd0ro-read2.bin",
+        "local_original": ".git/recovery-private/acquisitions/C8235-B-FGL2835LBHU/20261103-usb-reference-review/linux-mtd0ro-read2.bin",
+        "bytes": 33554432,
+        "sha256": "cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857"
+      }
+    ],
+    "pair_different_bytes": 0,
+    "comparison_with_current_A": {
+      "A_identity": "C8235-A/FGL2835L42B/FOC28292GUQ/U2900",
+      "A_sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+      "B_sha256": "cadaa2c651ae8c8157982fcd1015434f0e03c614dc07369c868e20f54dff4857",
+      "regions": [
+        {
+          "label": "New release-image length comparison only; not a proposed restore layout",
+          "start": "0x0",
+          "end_exclusive": "0xd10000",
+          "bytes": 13697024,
+          "different_bytes": 4055731,
+          "first_difference": "0x1000c",
+          "last_difference": "0xb58edf",
+          "A_sha256": "a84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e",
+          "B_sha256": "9040112e2f8e0294409feb676fff2883bf5222b5b20d585ed0feb3e3f65445bb"
+        },
+        {
+          "label": "Remaining array; roles unclassified",
+          "start": "0xd10000",
+          "end_exclusive": "0x2000000",
+          "bytes": 19857408,
+          "different_bytes": 7412,
+          "first_difference": "0xf30742",
+          "last_difference": "0x1f41eb1",
+          "A_sha256": "c5717191a1adade4fae5fcf17689f8daf41b5bc6b0804e4cb6e283a3cdb85d35",
+          "B_sha256": "2bd89a71529bf885aa4e6e4a6776ac6063ea514fa9480e923120b21484d2697f"
+        }
+      ],
+      "whole_array_different_bytes": 4063143
+    },
+    "interpretation": "A separate C8235 backup does exist and is intact. It came from B while B ran development ROMMON, not an established pre-upgrade snapshot of A. B is a useful research reference; byte comparison alone does not establish firmware/device-data boundaries, cross-chassis compatibility, physical bank mapping or a safe whole-chip transplant. No write candidate selected.",
+    "local_copy_permissions": "Private directories0700/files0600; raw images remain outside publication."
+  },
+  "other_identified_files": {
+    "C8235_new_SoC1_release": {
+      "USB_relative_path": "C8235-G2-ROMMON-17.18-4.1r/mirabile_soc1_uefi64_rel_ios_upgrade_SPA.bin",
+      "bytes": 13697024,
+      "sha256": "a84cad033d019a46d13b99b0908422fe421632b240e131716624402555e21c0e",
+      "assessment": "Matches the complete release payload in both newly acquired A/U2900 dumps."
+    },
+    "C8375_original": {
+      "USB_relative_path": "C8375-RESTORE-ORIGINAL-20261023/C8375-FDO2742M0FK-ORIGINAL-SPI-32MiB.bin",
+      "bytes": 33554432,
+      "sha256": "72fc3f11283783d035c8c918f79a4d1aaee800cc027fcec02d01938fa3845107",
+      "assessment": "Known original for separate C8375-A/FDO2742M0FK; not C8235-A evidence or a SoC1 substitute."
+    }
+  },
+  "next": "Use intact B snapshot as a separately identified comparison reference; classify firmware versus device-specific regions before any candidate decision. U2901 remains the same-chassis chip to inspect for a surviving older image. No whole-B transplant, candidate image, flash write, clip movement or new Pi command performed."
+}
