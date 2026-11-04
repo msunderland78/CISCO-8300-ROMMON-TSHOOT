@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "C8235-A218-ohm RESET test passes static DC levels: VCC and U2900 physical3 each1.725 V, U2901 actual physical3 grabber0.309 V, all steady. Owner left Pi running for reading; no shutdown assumed. Next meter-only U2900 idle CS7/WP9/HOLD1 voltages toJ2507-8, then shutdown/unplug. Current A signal-contact map and read-only identification still pending; no SPI performed.",
+  "status": "C8235-A218-ohm RESET test passes static DC levels: VCC and U2900 physical3 each1.725 V, U2901 actual physical3 grabber0.309 V, all steady. Owner left Pi running for reading; no shutdown assumed. Next meter-only accessible OUTPUT1/CS,3/WP,7/HOLD voltages toJ2507-8, then shutdown/unplug; chip physical destinations7/9/1 distinguished from connector numbers. Current A signal-contact map and read-only identification still pending; no SPI performed.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -628,9 +628,35 @@
   },
   "next_idle_control_check": {
     "selected_at": "2026-11-03T19:06:58-05:00",
-    "status": "Planned meter-only check while owner-confirmed Pi remains running; no results yet.",
+    "status": "Owner identifies accessible OUTPUT1/3/7 endpoints; selected as connector-side DC check with current powered fixture. Values pending; no SPI.",
     "setup": "Keep existing218-ohm U2901 RESET pull-down/clip/wiring fixed. Bench and native router sources remain disconnected. DC volts, leads COM and V/ohm; blackJ2507-8/GND.",
     "measurements": [
+      {
+        "red_point": "Accessible OUTPUT1 / CS#",
+        "intended_U2900_physical_pin": 7,
+        "expected": "Idle high, roughly1.7-1.8 V"
+      },
+      {
+        "red_point": "Accessible OUTPUT3 / WP#/DQ2",
+        "intended_U2900_physical_pin": 9,
+        "expected": "High, roughly1.7-1.8 V"
+      },
+      {
+        "red_point": "Accessible OUTPUT7 / HOLD#/DQ3",
+        "intended_U2900_physical_pin": 1,
+        "expected": "High, roughly1.7-1.8 V"
+      }
+    ],
+    "endpoint_rule": "For this clarified check use eight-pin adapter-style OUTPUT1/3/7, corresponding to intended chip physical7/9/1 respectively. BlackJ2507-8/GND; DC volts. Do not unplug/move clip or live wiring to access chip legs. Connector levels alone do not establish current chip contact; current A signal mapping remains pending.",
+    "after": "Report values/steadiness; shut down Pi normally and physically unplug USB-C. Leave218-ohm resistor and clip in place. No ohms while powered, jumper change or SPI.",
+    "source": "Micron MT25QU256ABA Rev.L Figure6/p12 and signal descriptions/p14; https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf reviewed2026-11-03.",
+    "remaining_afterward": "Current A corrected signal contact mapping is still pending. Historical same-adapter mapping in c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md is only a reference, not new A evidence: OUTPUT1->physical7 CS,2->8 MISO,3->9 WP,5->15 MOSI,6->16 CLK,7->1 HOLD. Existing OUTPUT4/GND and8/VCC paths and actual RESET observations remain recorded separately.",
+    "endpoint_clarification": {
+      "recorded_at": "2026-11-03T19:11:04-05:00",
+      "owner_report": "I can only do it on the clip output ... so output 1, 3, and 7",
+      "accepted_scope": "Use accessible adapter-style eight-pin OUTPUT numbering:1 CS,3 WP,7 HOLD. Corresponding intended chip physical pins7,9,1. This is connector-side voltage measurement; no new chip-leg contact/continuity result inferred. Prior U2900 RESET lead clarification is not changed by this different measurement request."
+    },
+    "original_requested_chip_endpoints": [
       {
         "red_point": "U2900 actual physical pin7 / CS# via identified clip lead",
         "expected": "Idle high, roughly current1.7-1.8 V rail"
@@ -643,10 +669,6 @@
         "red_point": "U2900 actual physical pin1 / HOLD#/DQ3 via identified clip lead",
         "expected": "High, roughly1.7-1.8 V"
       }
-    ],
-    "endpoint_rule": "Numbers are chip physical pins counted from molded black dimple. Use clip leads known to reach those actual pins, as for physical3; do not substitute numerically matching adapter OUTPUT contacts. If inaccessible/unidentified, report rather than move powered clip/wiring.",
-    "after": "Report values/steadiness; shut down Pi normally and physically unplug USB-C. Leave218-ohm resistor and clip in place. No ohms while powered, jumper change or SPI.",
-    "source": "Micron MT25QU256ABA Rev.L Figure6/p12 and signal descriptions/p14; https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf reviewed2026-11-03.",
-    "remaining_afterward": "Current A corrected signal contact mapping is still pending. Historical same-adapter mapping in c8375-recovery/PI5-SPI-ACQUISITION-PLAN.md is only a reference, not new A evidence: OUTPUT1->physical7 CS,2->8 MISO,3->9 WP,5->15 MOSI,6->16 CLK,7->1 HOLD. Existing OUTPUT4/GND and8/VCC paths and actual RESET observations remain recorded separately."
+    ]
   }
 }

@@ -19,8 +19,10 @@ VILmax0.5175V, VIHmin1.2075V. Calculated load1.417mA/source999ohm matches prior
 load model. No actual MISO tri-state/bus-isolation/read proof, no SPI or boot.
 
 Next use still-powered setup only for meter DC readings: blackJ2507-8/GND,
-red U2900 identified clip wires leading to actualphysical7/CS,9/WP,1/HOLD.
-Expect idle high around1.7-1.8V. These are CHIP numbers, not adapter numbers.
+owner clarifies accessible clip outputs at 19:11 EST: red OUTPUT1/CS,3/WP,7/HOLD.
+These eight-pin adapter-style OUTPUT numbers map to intended actual chip7,9,1.
+Expect idle high around1.7-1.8V; connector measurements alone do not verify
+chip contacts. Earlier physical3 RESET lead clarification remains separate.
 Keep218ohm, clip and all wiring fixed; if endpoint inaccessible/unidentified,
 report instead of moving powered wiring. Report values/steadiness; then shut
 down Pi and physically unplug USB-C. Bench/native sources/cables/battery remain
