@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "With measured986-ohm U2901 RESET-to-ground load, owner reports steady VCC1.725 V, U2900 physical3 via identified clip lead1.725 V, U2901 grabber0.857 V. Supports about1 kohm effective pull-up and separate static RESET response under this load; no valid reset-low yet. Owner reports everything shut down and has nominal220-ohm resistor. Next conditional220-ohm low-level test; isolated value/result pending, no SPI.",
+  "status": "With measured986-ohm U2901 RESET-to-ground load, owner reports steady VCC1.725 V, U2900 physical3 via identified clip lead1.725 V, U2901 grabber0.857 V. Supports about1 kohm effective pull-up and separate static RESET response under this load; no valid reset-low yet. Owner reports everything shut down and has nominal220-ohm resistor. Nominal220-ohm resistor now measured218 ohms and accepted. Next218-ohm low-level test; wiring/powered result pending, no SPI.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -583,16 +583,23 @@
     },
     "reset_low_test": {
       "selected_at": "2026-11-03T18:59:50-05:00",
-      "status": "Conditional next test selected, not performed. Owner has nominal220-ohm resistor; isolated value pending. Power-off wiring and isolated resistor checks required before test.",
+      "status": "Owner reports isolated nominal220-ohm resistor measures218 ohms, within selected range. Part accepted; power-off replacement and powered test not yet reported.",
       "resistor": "Measure nominal220-ohm resistor by itself off board. Use only if210-230 ohms; otherwise report value and leave unconnected. Replace986-ohm resistor; do not parallel it or bypass resistance.",
       "power_and_wiring": "Pi shut down and USB-C physically unplugged, verify approximately0 V redJ2507-2/black8. Both bench leads and native router power/cables/coin-cell remain disconnected. Corrected U2900 clip and all other wiring unchanged. Connect U2901 actual physical3 grabber -> measured nominal220-ohm resistor -> J2507-8/GND, resistor ends in separate breadboard rows if used.",
       "measurement_sequence": "Switch meter to DC volts with COM/V-ohm inputs, blackJ2507-8/GND. Power only Pi through existing1.8 V adapter. Read VCC atJ2507-2 first; stop and shut down/unplug if outside1.70-2.00 V, unstable or Pi abnormal. Otherwise read U2901 grabber junction and U2900 actual physical3 via identified clip lead; report actual values and steadiness. Shut down/unplug afterward before any wiring change.",
-      "predicted_U2901_reset_v": 0.3114,
-      "predicted_load_current_ma": 1.4155,
-      "prediction_limits": "Based on approximately999-ohm effective source from preceding loaded point, assuming it remains resistive. Expected U2901 about0.31 V; VCC and U2900 RESET near1.725 V. These are predictions, not observations.",
+      "predicted_U2901_reset_v": 0.3091,
+      "predicted_load_current_ma": 1.4178,
+      "prediction_limits": "Based on approximately999-ohm effective source from preceding loaded point and now measured218-ohm load, assuming source remains resistive. Expected U2901 about0.31 V; VCC and U2900 RESET near1.725 V. Predictions only; no218-ohm loaded readings yet.",
       "acceptance": "Evaluate measured U2901 against VIL<=0.3*measuredVCC (0.5175 V at previous1.725 V), and U2900 against VIH>=0.7*measuredVCC while near its prior rail. Rail must remain in1.70-2.00 V range and steady. DC levels alone do not verify output tri-state/bus contention or authorize SPI.",
       "constraints": "No direct ground jumper, further resistor reduction, voltage increase, simultaneous bench/router powering or SPI command. No reset assertion result yet.",
-      "datasheet": "Micron MT25QU256ABA Rev.L, Table47 input thresholds and p14 RESET# signal description; https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf reviewed2026-11-03."
+      "datasheet": "Micron MT25QU256ABA Rev.L, Table47 input thresholds and p14 RESET# signal description; https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf reviewed2026-11-03.",
+      "measured_resistor": {
+        "recorded_at": "2026-11-03T19:01:43-05:00",
+        "nominal_ohms": 220,
+        "reported_ohms": 218,
+        "owner_report": "it measures 218 ohms",
+        "measurement_context": "Response to isolated/off-board resistor measurement request; no new lead baseline or post-measurement wiring reported."
+      }
     }
   }
 }
