@@ -10,6 +10,27 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A 986-OHM RESET LOAD RESULT — 2026-11-03, 18:59 EST
+C8235-A/FGL2835L42B, boardFOC28292GUQ. Owner reports VCC/J2507-2=1.725V,
+U2900 actualphysical3 via identified clip wire=1.725V, U2901 grabber=0.857V,
+with986ohm from U2901 actualRESET toJ2507-8/GND. Confirms all steady and
+everything shut down; nominal220ohm resistor available, isolated value pending.
+Physical USB-C unplug/residual zero not separately restated; require before edits.
+Calculated load0.869mA and effective pull-up999ohm agree with earlier1kohm
+screen. Supports separate static RESET response under this load, not complete
+bus isolation or reset-low qualification: VILmax is0.5175V at1.725V VCC.
+
+Next conditional test: Pi USB-C unplugged, zero residual, bench/native sources
+still disconnected. Measure nominal220ohm alone; only use210-230ohm. Replace986ohm
+with that resistor between U2901grabber andJ2507-8/GND, other wiring unchanged.
+Meter DCV/blackJ2507-8, power only Pi/same1.8V adapter. Measure VCC first; stop
+outside1.70-2.00V/unstable/abnormalPi. Otherwise measure U2901grabber and actual
+U2900physical3 clip wire. Predict U2901about0.31V from measured source model,
+VCC/U2900 near1.725V. Report all levels/steadiness; shut down/unplug afterward.
+No direct short, further resistor decrease, voltage increase or SPI/read/write.
+Valid measured low/high levels and remaining signal qualification still pending.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A U2900 RESET CLIP-LEAD CLARIFICATION — 2026-11-03, 18:48 EST
 Owner corrects assistant: "u2900 clip wire that leads to pin 3". Earlier answer
 "Adapter/cable connector pin3" was misread as adapter OUTPUT3. Accept actual
