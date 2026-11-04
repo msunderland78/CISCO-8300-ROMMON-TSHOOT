@@ -1,0 +1,84 @@
+C8235-A / ROUTER 1 — END-OF-NIGHT HANDOFF
+2026-11-04, America/New_York (EST)
+
+COMPLETED
+U2900 has the development-firmware recovery candidate. Programming, flashrom's
+automatic verification, a separate native-four-byte full readback, and an
+independent Mac byte comparison all PASS. No native router boot was attempted.
+Do not repeat the restore or full backups merely because a new session starts.
+
+Target: C8235-A / FGL2835L42B; board FOC28292GUQ; physical U2900.
+Source code: C8235-B / FGL2835LBHU logical mtd0ro development snapshot.
+Candidate/readback: 33,554,432 bytes, SHA-256:
+65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07
+The candidate is B[0:0xD10000] plus A[0xD10000:0x2000000].
+The old current-release A/U2900 backup pair remains unchanged, SHA-256:
+17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5
+This A pair contains the newer release; it is NOT the missing pre-upgrade
+A development image. B donor physical chip/bank remains unresolved.
+
+EVIDENCE
+Fresh full flashrom pre-read: 00:26:27–00:30:56 EST, exactly matches A backup.
+Write + automatic verification: 00:30:56–00:41:32 EST, exit0 / VERIFIED.
+Separate native0x13 full readback completed00:46:10 EST: all33,554,432 bytes
+match candidate, zero differing bytes, all33 ID/status checks pass.
+Mac copy/independent verification completed00:47:21 EST. Every remote receipt
+matches. The actual changed sectors exactly equal the planned27 layout runs /
+1,156 4-KiB sectors,4,055,731 changed bytes, all below0xD10000.
+All19,857,408 suffix bytes equal A, including native updater's manufacturing
+0xFD0000–0xFFFFFF and monitor environment0x1F30000–0x1F4FFFF regions.
+The new wrapper passes10 focused tests; all121 repository tests pass.
+
+Raw originals and logs on Mac (private,0600):
+.git/recovery-private/c8235-a-flash-20261104/originals/
+  U2900-prewrite-full-read.bin
+  U2900-development-full-readback.bin
+  completion.json / progress.json / postflight.json
+  pre-read.log / write.log / corresponding stdout logs / restore.layout
+Independent Mac validation:
+.git/recovery-private/c8235-a-flash-20261104/local-validation.json
+Pi copy of inputs, results, logs and write-once lock:
+/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf
+Do not relaunch its worker. Do not overwrite any original or candidate.
+Public report: c8235-recovery/c8235-a-u2900-restore-20261104/result.json
+Candidate/component analysis: c8235-recovery/c8235-a-development-candidate-20261104/
+Full prior A backup: c8235-recovery/c8235-a-u2900-backup-20261103/result.json
+
+NIGHT STATE
+Owner is stopping for the night. Pi accepted systemctl poweroff00:47:50 EST;
+subsequent SSH is unavailable. Owner instructed to unplug Pi USB-C, but physical
+unplug/residual voltage have NOT yet been confirmed. OS shutdown alone is not
+proof that the clip's supply rail is0V.
+Leave the correctly seated U2900 clip and218-ohm U2901 RESET branch in place
+for tonight. Router native power/cables, coin-cell and both bench-supply leads
+remain disconnected; no reassembly or native boot this session.
+Last prewrite meter values, all relative toJ2507-8/GND:
+J2507-2/VCC1.718V; U2900 physical3 RESET1.718V; U2901 RESET grabber0.308V.
+Before shutdown: same Pi boot, SPI driver bound, CS high, no SPI/GPIO holders.
+Raw status changed from initialSR00/FSR80 to readbackSR00/FSR81. FSR bit0
+reports4-byte addressing; no error/busy/suspend/protection flags. Flashrom's
+volatile address-mode setup is recorded; do not claim registers were untouched.
+
+NEXT SESSION — NATIVE BOOT, NOT ANOTHER AUTOMATIC FLASH
+1. Reconfirm physical A/FGL2835L42B and present power/cable/battery/assembly state.
+2. Ensure Pi USB-C unplugged, native power and bench leads disconnected; measure
+   J2507-2 toJ2507-8 and confirm0V before removing the clip or RESET branch.
+3. Remove all programmer/adapter/clip connections and the U2901 RESET grabber /
+   218-ohm branch before router power. Restore the coin-cell in its original
+   orientation while unpowered; verify heatsinks, fans and required assembly.
+   Do not experiment with J2900/J2901 straps or assume a primary/golden selector.
+4. Discover the currently connected console and check exclusive ownership.
+   Capture C8235 at1152008N1/no flow from first native power-on. Do not reuse an
+   old serial path/session. Observe identity, boot-stage versions and whether
+   the development ROMMON prompt is reached; preserve the entire raw capture.
+5. Boot compatibility is still unproven. If ROMMON returns, proceed with IOS
+   recovery and the known resource-budget fix as appropriate. The owner expects
+   and accepts the same class of IOS instability seen on routers2/3. B-derived
+   code retains32 RVU admin VFs; no signed firmware payload was patched to16.
+   Verify the fix and later stability on A rather than transferring B's pass.
+6. U2901 remains unread and unwritten; no need to read it before this already
+   completed U2900 restore. Bank mapping and any surviving A-original copy remain
+   unresolved. No TPM/fuse/lifecycle/provisioning modification is proposed.
+
+Byte integrity/readback success is distinct from signature authentication,
+firmware compatibility, successful native boot and functional stability.

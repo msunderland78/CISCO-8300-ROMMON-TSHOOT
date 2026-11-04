@@ -10,6 +10,43 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A U2900 RESTORE VERIFIED — END OF NIGHT 2026-11-04, 00:48 EST
+FIRST RESUME FILE: c8235-recovery/c8235-a-u2900-restore-20261104/HANDOFF.txt
+Full result: c8235-recovery/c8235-a-u2900-restore-20261104/result.json
+
+U2900 on A/FGL2835L42B, boardFOC28292GUQ, now contains the B-development-code /
+A-preserved-data candidate. Do not repeat the flash on resume. SHA-256 of all
+33,554,432 readback bytes:
+65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07
+Fresh pre-read matched A17c8b5…d6c5. Write/automatic verify passed00:41:32;
+independent native full readback passed00:46:10, zero differing bytes,33 correct
+ID/status checks. Independent Mac verification00:47:21: exact candidate equality,
+all copy receipts match, planned27 runs/1,156 changed4-KiB sectors reproduced,
+4,055,731 changed bytes, entire19,857,408-byte suffix unchanged from A.
+Manufacturing/environment regions retained; originals unchanged/private.
+Local raw readback/pre-read/logs:
+.git/recovery-private/c8235-a-flash-20261104/originals/
+Pi copies remain /home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf.
+Worker/source hashes, exact commands, layout and timestamps are in full result.
+10 new focused tests and121 total tests passed; preparation CI passed.
+
+Owner explicitly ends for night and requests complete context. Pi accepted
+poweroff00:47:50; subsequent SSH unavailable. Owner instructed to UNPLUG Pi
+USB-C; physical unplug and0V are NOT yet confirmed. Keep U2900 clip/218-ohm
+U2901 RESET branch seated tonight, native/bench cables and coin-cell disconnected.
+No assembly/console/native boot operation occurred. Final native statusSR00/
+FSR81 means ready/no errors with4-byte address mode; don't treat OS shutdown
+as electrical isolation or claim volatile flash state was unchanged.
+
+Next session: confirm A identity and physical state; Pi USB-C unplugged and
+J2507-2↔8 at0V before removing clip/adapter/leads AND U2901 RESET branch.
+Restore battery/required assembly/cooling while unpowered; fresh exclusive
+1152008N1 console capture, then first native boot. Do not reuse old serial paths,
+try speculative straps, or change TPM/fuses/lifecycle/provisioning.
+Boot compatibility/signature trust/IOS stability remain UNTESTED after restore.
+Owner expects/accepts later IOS resource-budget fix; candidate retains B's32-VF
+setting. U2901 unread/unwritten; physical primary/golden roles unresolved.
+
 C8235-A U2900 RESTORE WORKER LAUNCHED — 2026-11-04, 00:26 EST
 Owner requests flash and readback; unchanged powered fixture confirmed.
 Fresh VCC/U2900 RESET/U2901 RESET =1.718/1.718/0.308 V relative J2507-8.

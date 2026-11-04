@@ -1,0 +1,606 @@
+{
+  "task_ids": [
+    "C8235-03",
+    "R-01"
+  ],
+  "recorded_at": "2026-11-04T00:50:35.877844-05:00",
+  "target": "C8235-A/FGL2835L42B/U2900",
+  "board": "FOC28292GUQ",
+  "status": "Development-firmware candidate programmed; automatic verification and independent complete readback PASS. Native boot NOT TESTED.",
+  "owner_authorization": "the pi 5 is still powered on and everything is connected, implement the flash and readback",
+  "owner_end_of_night": "make sure all context is captured, I am shutting down for the night, after this",
+  "owner_accepts_later_IOS_fix": true,
+  "preparation": "c8235-recovery/c8235-a-u2900-restore-20261104/preparation.json",
+  "candidate_analysis": "c8235-recovery/c8235-a-development-candidate-20261104/result.json",
+  "execution": {
+    "target": "C8235-A/FGL2835L42B/U2900",
+    "board": "FOC28292GUQ",
+    "started_at": "2026-11-04T00:26:27.119853-05:00",
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a",
+    "directory": "/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf",
+    "before_sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+    "candidate_sha256": "65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07",
+    "status": "verified",
+    "phase": "independent-native-full-readback",
+    "complete": true,
+    "changed_sector_count": 1156,
+    "changed_runs": [
+      [
+        65536,
+        73728
+      ],
+      [
+        131072,
+        135168
+      ],
+      [
+        262144,
+        266240
+      ],
+      [
+        655360,
+        659456
+      ],
+      [
+        851968,
+        958464
+      ],
+      [
+        1048576,
+        2826240
+      ],
+      [
+        2859008,
+        2912256
+      ],
+      [
+        2924544,
+        2928640
+      ],
+      [
+        2932736,
+        3031040
+      ],
+      [
+        3035136,
+        3244032
+      ],
+      [
+        3665920,
+        3731456
+      ],
+      [
+        4587520,
+        4722688
+      ],
+      [
+        4784128,
+        4788224
+      ],
+      [
+        4980736,
+        5181440
+      ],
+      [
+        5185536,
+        5189632
+      ],
+      [
+        5505024,
+        6078464
+      ],
+      [
+        6127616,
+        6152192
+      ],
+      [
+        6291456,
+        6332416
+      ],
+      [
+        6336512,
+        7503872
+      ],
+      [
+        10485760,
+        10493952
+      ],
+      [
+        10518528,
+        10522624
+      ],
+      [
+        10530816,
+        10534912
+      ],
+      [
+        10559488,
+        10563584
+      ],
+      [
+        10575872,
+        10584064
+      ],
+      [
+        10878976,
+        11075584
+      ],
+      [
+        11862016,
+        11882496
+      ],
+      [
+        11894784,
+        11898880
+      ]
+    ],
+    "flashrom_version": "flashrom v1.6.0 on Linux 7.0.0-1020-raspi (aarch64)\nflashrom is free software, get the source code at https://flashrom.org\n\n",
+    "owner_voltage_v": [
+      1.718,
+      1.718,
+      0.308
+    ],
+    "fixture": "U2900 clip, 1.8V adapter, U2901 RESET through 218 ohms; native/bench/battery isolated",
+    "signature_or_boot_validation": "not established by this operation",
+    "initial_status": {
+      "id": "20bb19",
+      "sr": 0,
+      "fsr": 128
+    },
+    "commands": {
+      "pre-read": [
+        "flashrom",
+        "-V",
+        "--progress",
+        "-p",
+        "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+        "-c",
+        "MT25QU256",
+        "-r",
+        "/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf/U2900-prewrite-full-read.bin",
+        "-o",
+        "/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf/pre-read.log"
+      ],
+      "write": [
+        "flashrom",
+        "-V",
+        "--progress",
+        "-p",
+        "linux_spi:dev=/dev/spidev0.0,spispeed=1000",
+        "-c",
+        "MT25QU256",
+        "--sacrifice-ratio",
+        "0",
+        "-l",
+        "/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf/restore.layout",
+        "-i",
+        "fw00",
+        "-i",
+        "fw01",
+        "-i",
+        "fw02",
+        "-i",
+        "fw03",
+        "-i",
+        "fw04",
+        "-i",
+        "fw05",
+        "-i",
+        "fw06",
+        "-i",
+        "fw07",
+        "-i",
+        "fw08",
+        "-i",
+        "fw09",
+        "-i",
+        "fw10",
+        "-i",
+        "fw11",
+        "-i",
+        "fw12",
+        "-i",
+        "fw13",
+        "-i",
+        "fw14",
+        "-i",
+        "fw15",
+        "-i",
+        "fw16",
+        "-i",
+        "fw17",
+        "-i",
+        "fw18",
+        "-i",
+        "fw19",
+        "-i",
+        "fw20",
+        "-i",
+        "fw21",
+        "-i",
+        "fw22",
+        "-i",
+        "fw23",
+        "-i",
+        "fw24",
+        "-i",
+        "fw25",
+        "-i",
+        "fw26",
+        "-w",
+        "/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf/candidate.bin",
+        "-o",
+        "/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf/write.log"
+      ]
+    },
+    "phase_started_at": {
+      "pre-read": "2026-11-04T00:26:27.131507-05:00",
+      "write": "2026-11-04T00:30:56.979254-05:00"
+    },
+    "returncodes": {
+      "pre-read": 0,
+      "write": 0
+    },
+    "phase_finished_at": {
+      "pre-read": "2026-11-04T00:30:56.854399-05:00",
+      "write": "2026-11-04T00:41:32.346909-05:00"
+    },
+    "pre_read": {
+      "bytes": 33554432,
+      "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+      "matches_backup": true
+    },
+    "before_write_status": {
+      "id": "20bb19",
+      "sr": 2,
+      "fsr": 129
+    },
+    "automatic_verify_reported": true,
+    "readback": {
+      "file": "U2900-development-full-readback.bin",
+      "bytes": 33554432,
+      "complete": true,
+      "identities": [
+        {
+          "address": "0x0",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x100000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x200000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x300000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x400000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x500000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x600000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x700000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x800000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x900000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0xa00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0xb00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0xc00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0xd00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0xe00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0xf00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1000000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1100000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1200000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1300000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1400000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1500000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1600000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1700000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1800000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1900000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1a00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1b00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1c00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1d00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1e00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "0x1f00000",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        },
+        {
+          "address": "end",
+          "id": "20bb19",
+          "sr": 0,
+          "fsr": 129
+        }
+      ],
+      "sha256": "65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07",
+      "differing_bytes": 0,
+      "first_difference": null
+    },
+    "finished_at": "2026-11-04T00:46:10.064543-05:00"
+  },
+  "independent_local_validation": {
+    "at": "2026-11-04T00:47:21.343617-05:00",
+    "method": "Independent Mac byte/hash comparison of copied original full readback, saved candidate, A original READ2, and fresh pre-read; exact changed-sector layout recomputed.",
+    "bytes": 33554432,
+    "readback_sha256": "65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07",
+    "candidate_byte_equal": true,
+    "different_bytes_from_candidate": 0,
+    "fresh_pre_read_matches_A_read2": true,
+    "A_original_hash_unchanged": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+    "differing_bytes_from_before": 4055731,
+    "changed_sector_map_exact": true,
+    "changed_4096_byte_sectors": 1156,
+    "all_changes_below": "0xd10000",
+    "preserved_suffix_bytes": 19857408,
+    "preserved_suffix_equal_A": true,
+    "preserved_suffix_sha256": "c5717191a1adade4fae5fcf17689f8daf41b5bc6b0804e4cb6e283a3cdb85d35",
+    "manufacturing_region_equal_A": true,
+    "monitor_environment_equal_A": true,
+    "native_readback_ID_status_checks_passed": 33,
+    "status_values": [
+      0
+    ],
+    "flag_status_values": [
+      129
+    ],
+    "same_Pi_boot": true,
+    "driver_bound_CS_high_no_holders": true,
+    "all_remote_copy_receipts_verified": true
+  },
+  "postflight": {
+    "at": "2026-11-04T00:46:23.776862-05:00",
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a",
+    "holders": [],
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "flashrom_pids": [],
+    "receipts": {
+      "U2900-prewrite-full-read.bin": {
+        "bytes": 33554432,
+        "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5"
+      },
+      "U2900-development-full-readback.bin": {
+        "bytes": 33554432,
+        "sha256": "65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07"
+      },
+      "progress.json": {
+        "bytes": 8229,
+        "sha256": "768d7afa1a1bfd6e26f239ee38cbbe0c90362c687b7f87a4d328cf3d8439f6fe"
+      },
+      "completion.json": {
+        "bytes": 8229,
+        "sha256": "768d7afa1a1bfd6e26f239ee38cbbe0c90362c687b7f87a4d328cf3d8439f6fe"
+      },
+      "launch.json": {
+        "bytes": 498,
+        "sha256": "ef0ad6817447753ad7406720aaa14db5d5455cae1118215ef1bd0f9ef98402d6"
+      },
+      "restore.layout": {
+        "bytes": 621,
+        "sha256": "25565838c69f53ec362cffeb7c22379fce14252c8cc25337a056fead2307c339"
+      },
+      "pre-read-stdout.log": {
+        "bytes": 18028,
+        "sha256": "5bfb55c0f85db4b61b62a05388190caa724aeaa238ea3ce1d1523338e9d62bcd"
+      },
+      "pre-read.log": {
+        "bytes": 17986,
+        "sha256": "c234121f879192e571f4539f70297e594d5ecabfa7f5bd6d7baccd027e6d87ef"
+      },
+      "write-stdout.log": {
+        "bytes": 452548,
+        "sha256": "91fa44ce51173be7828b35bf9dd1a8e33c0f654c7454aae9f8093ebc74d5948e"
+      },
+      "write.log": {
+        "bytes": 452506,
+        "sha256": "806093f349c787cb2d9c2fdccc438e3a4dc04b23efe2fbdc473120f2beababb4"
+      },
+      "launcher.log": {
+        "bytes": 1312,
+        "sha256": "65b500073cc1bcd18d35b5d7c40e5ba13a573a9709b53d299aad89345665e8b2"
+      },
+      "write-once.lock": {
+        "bytes": 33,
+        "sha256": "1320e4f9a08f3acad69ede077e458966ac581e82b84d3a2258c18643784d33dc"
+      }
+    }
+  },
+  "shutdown": {
+    "requested_at": "2026-11-04T00:47:50.474080-05:00",
+    "command": "sudo systemctl poweroff",
+    "exit_code": 0,
+    "reason": "Owner ending for night; completed full local readback verification and copied original evidence before shutdown.",
+    "physical_USB_C_unplug": "pending owner; shutdown alone does not establish target rail at0V",
+    "native_router_power": "keep disconnected",
+    "clip_and_218_ohm_RESET_branch": "leave seated; no rewiring performed",
+    "subsequent_SSH_exit_code": 255,
+    "subsequent_SSH_connection_unavailable": true
+  },
+  "status_register_observation": {
+    "initial_SR": "0x00",
+    "initial_FSR": "0x80",
+    "after_flashrom_pre_read_SR": "0x02",
+    "after_flashrom_pre_read_FSR": "0x81",
+    "all33_native_readback_SR": "0x00",
+    "all33_native_readback_FSR": "0x81",
+    "interpretation": "FSR bit0 indicates4-byte address mode; busy/error/suspend/protection bits were clear. Physical programmer-power removal remains necessary before fixture removal/native boot. Do not claim all volatile flash registers were unchanged.",
+    "source": "https://datasheets.ibselectronics.com/MT25QU256ABA8E12-0AAT-Micron-datasheet-149529383.pdf",
+    "source_location": "Micron MT25QU256ABA Rev.G, Table5, printed page23"
+  },
+  "local_original_directory": ".git/recovery-private/c8235-a-flash-20261104/originals",
+  "raw_original_publication": "Raw pre-read/readback and logs are retained private on Pi and Mac; public report contains hashes/status/commands, not firmware bytes or raw logs.",
+  "software_validation": {
+    "focused_restore_tests": 10,
+    "repository_tests": 121,
+    "preparation_commit": "401699ff36a6f4a1c5a58532972ca449d3ee4766",
+    "preparation_CI": "success",
+    "preparation_CI_url": "https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT/actions/runs/41779461263"
+  },
+  "night_handoff": {
+    "Pi_OS": "systemctl poweroff accepted, subsequent SSH unavailable",
+    "Pi_USB_C": "Owner instructed to unplug; physical removal not yet confirmed",
+    "router_native_power_and_cables": "Still isolated; no native boot or console port opened this session",
+    "coin_cell": "Still removed; no reassembly reported",
+    "bench_supply": "Both leads disconnected; not used during flash/readback",
+    "clip": "Correctly oriented U2900 clip stays seated for night",
+    "unused_flash_RESET": "U2901 physical3 remains through218ohms toJ2507-8/GND",
+    "meter_reference": "J2507-8/GND; fresh prewrite VCC/U2900 RESET/U2901 RESET1.718/1.718/0.308V",
+    "assembly": "No assembly changes made this session; verify cooling/fans/heatsinks before native boot"
+  },
+  "remaining": [
+    "Physical USB-C removal/residual0V confirmation and safe fixture removal before native power.",
+    "First native boot of A with restored development code, complete fresh1152008N1 console capture and identity/banner/ROMMON check.",
+    "Then apply/test appropriate known IOS resource-budget fix as needed; owner expects and accepts this.",
+    "U2901 still unread/unwritten; physical primary/golden mapping unresolved.",
+    "No post-restoration signature-trust, boot-compatibility or functional-stability proof yet; no TPM/fuse/lifecycle/provisioning alteration."
+  ],
+  "repetition_policy": "Do not repeat full backups or reflash merely on resume. This exact U2900 candidate already passed independent full readback. Requalification is conditional on actual changed state/new evidence."
+}
