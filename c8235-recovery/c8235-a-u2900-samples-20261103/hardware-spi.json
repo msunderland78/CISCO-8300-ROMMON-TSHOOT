@@ -1,0 +1,2787 @@
+{
+  "recorded_at": "2026-11-03T23:42:04-05:00",
+  "tasks": [
+    "C8235-01",
+    "R-01"
+  ],
+  "identity": "C8235-A/FGL2835L42B/FOC28292GUQ/U2900",
+  "status": "Passed:48 hardware-SPI samples/24576 bytes,51 expected IDs; every sample matches pinned GPIO references at requested100/500/1000kHz,64/512-byte chunk shapes,two repeats.",
+  "owner_authorization": "keep working, everything is staying the same",
+  "fixture": "Unchanged successful GPIO fixture; same1.8V adapter,218ohm U2901RESET branch, native/bench/cables/battery isolation. Last reported VCC/U2900RESET/U2901RESET1.717/1.717/0.308V; no fresh meter capture.",
+  "offline_tests": {
+    "command": "python3 -m unittest discover -s tests -p 'test_pi*.py' -v",
+    "passed": 57,
+    "new_tests": 6
+  },
+  "source_files_sha256": {
+    "pi_spi_c8235_a_u2900_read.py": "21139fd72c8a7818008decef2b9bfa38ab1897a834a1082b08e41e9d68ccd429",
+    "pi_gpio_c8235_a_u2900_samples.py": "dd6b57bf78dcd7f1a8b9b919f1d6142437717afd58cc68a27f3a351949410e8c",
+    "pi_gpio_c8235_a_u2900_id.py": "61f87572fe2dd438838824240dc2241ca5e62b5686a7975fa53d7f695f5d0f20",
+    "pi_gpio_loopback.py": "422dcdbef11a082c03ebcee23a19d0861fe4847ae82a20c3bbfbc1303191e376",
+    "pi_spi_loopback.py": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405",
+    "pi_u1_direct_read.py": "a9931f4108bc8501cbaa9f25ec656f6b2a9b9b501b11f14125da250a5ea7873e"
+  },
+  "helper": "scripts/pi_spi_c8235_a_u2900_read.py",
+  "tests": "tests/test_pi_spi_c8235_a_u2900_read.py",
+  "command": "sudo timeout --signal=INT --kill-after=10s 120s python3 <verified-tools-directory>/pi_spi_c8235_a_u2900_read.py --samples --reference-directory <verified-original-GPIO-directory> --reference-report-sha256 d848e49242f6e13e1b51d405a4c437445f80f8767c951f645dbcbb220f26a89a",
+  "preflight": {
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a",
+    "model": "Raspberry Pi 5 Model B Rev 1.1",
+    "kernel": "7.0.0-1020-raspi",
+    "euid": 0,
+    "gpiod_version": "2.2.0",
+    "spidev_exists": true,
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "holders": [],
+    "competing": [],
+    "pinctrl_returncode": 0,
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "gpiochip_label": "pinctrl-rp1",
+    "lines": [
+      {
+        "offset": 8,
+        "name": "GPIO8",
+        "used": true,
+        "consumer": "spi0 CS0"
+      },
+      {
+        "offset": 9,
+        "name": "GPIO9",
+        "used": false,
+        "consumer": null
+      },
+      {
+        "offset": 10,
+        "name": "GPIO10",
+        "used": false,
+        "consumer": null
+      },
+      {
+        "offset": 11,
+        "name": "GPIO11",
+        "used": false,
+        "consumer": null
+      }
+    ],
+    "sha256": {
+      "pi_spi_c8235_a_u2900_read.py": "21139fd72c8a7818008decef2b9bfa38ab1897a834a1082b08e41e9d68ccd429",
+      "pi_gpio_c8235_a_u2900_samples.py": "dd6b57bf78dcd7f1a8b9b919f1d6142437717afd58cc68a27f3a351949410e8c",
+      "pi_gpio_c8235_a_u2900_id.py": "61f87572fe2dd438838824240dc2241ca5e62b5686a7975fa53d7f695f5d0f20",
+      "pi_gpio_loopback.py": "422dcdbef11a082c03ebcee23a19d0861fe4847ae82a20c3bbfbc1303191e376",
+      "pi_spi_loopback.py": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405",
+      "pi_u1_direct_read.py": "a9931f4108bc8501cbaa9f25ec656f6b2a9b9b501b11f14125da250a5ea7873e"
+    },
+    "GPIO_reference_report_sha256": "d848e49242f6e13e1b51d405a4c437445f80f8767c951f645dbcbb220f26a89a",
+    "checks": {
+      "pi5": true,
+      "root": true,
+      "RP1": true,
+      "controller": true,
+      "driver": true,
+      "spidev": true,
+      "no_holders": true,
+      "no_competing_readers": true,
+      "sources_match": true,
+      "same_boot": true,
+      "lines": true,
+      "CS_high": true,
+      "reference_report": true
+    },
+    "recorded_at": "2026-11-03T23:36:49.987391-05:00"
+  },
+  "execution": {
+    "started_at": "2026-11-03T23:37:11.348446-05:00",
+    "chassis": "C8235-A/FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "physical_chip": "U2900",
+    "reset_held_chip": "U2901",
+    "reset_resistor_ohms": 218,
+    "device": "/dev/spidev0.0",
+    "status": "passed",
+    "method": "SPI_IOC_MESSAGE(1), mode0/MSB-first",
+    "reference_report_sha256": "d848e49242f6e13e1b51d405a4c437445f80f8767c951f645dbcbb220f26a89a",
+    "reference_hashes": {
+      "0x0": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+      "0x1f2000": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+      "0x1000000": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+      "0x1fffe00": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+    },
+    "requested_hz": [
+      100000,
+      500000,
+      1000000
+    ],
+    "chunks": [
+      64,
+      512
+    ],
+    "opcodes": [
+      "0x9f RDID",
+      "0x13 native four-byte READ"
+    ],
+    "maximum_array_bytes": 24576,
+    "maximum_samples": 48,
+    "timing_limit": "Requested rates only; no measured waveforms",
+    "limitation": "Small sample agreement is not full-array accuracy, bank role or a backup",
+    "samples": [
+      {
+        "address": "0x0",
+        "requested_hz": 100000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0xc0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 100000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0xc0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 100000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 100000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 100000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f20c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f21c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 100000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f20c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f21c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 100000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 100000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 100000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10000c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10001c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 100000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10000c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10001c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 100000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 100000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 100000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffec0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffffc0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 100000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffec0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffffc0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 100000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 100000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 500000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0xc0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 500000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0xc0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 500000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 500000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 500000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f20c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f21c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 500000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f20c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f21c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 500000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 500000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 500000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10000c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10001c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 500000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10000c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10001c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 500000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 500000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 500000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffec0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffffc0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 500000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffec0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffffc0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 500000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 500000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 1000000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0xc0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 1000000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0xc0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 1000000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x0",
+        "requested_hz": 1000000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x0",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 1000000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f20c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f21c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 1000000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f20c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f2180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1f21c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 1000000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1f2000",
+        "requested_hz": 1000000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1f2000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c",
+        "response_sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 1000000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10000c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10001c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 1000000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000040",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000080",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10000c0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000100",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000140",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1000180",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x10001c0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 1000000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1000000",
+        "requested_hz": 1000000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1000000",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 1000000,
+        "chunk_bytes": 64,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffec0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffffc0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 1000000,
+        "chunk_bytes": 64,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffe80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1fffec0",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff00",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff40",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffff80",
+            "response_bytes": 69
+          },
+          {
+            "address": "0x1ffffc0",
+            "response_bytes": 69
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 1000000,
+        "chunk_bytes": 512,
+        "pass": 1,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read1.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read1.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      },
+      {
+        "address": "0x1fffe00",
+        "requested_hz": 1000000,
+        "chunk_bytes": 512,
+        "pass": 2,
+        "complete": true,
+        "response_file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read2.response.bin",
+        "frames": [
+          {
+            "address": "0x1fffe00",
+            "response_bytes": 517
+          }
+        ],
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read2.bin",
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d",
+        "response_sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0,
+        "first_difference_address": null
+      }
+    ],
+    "identities": [
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read1",
+        "requested_hz": 100000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read2",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read1",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read2",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read1",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read2",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read1",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read2",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read1",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read2",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read1",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read2",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read1",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read2",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read1",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read2",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "after-speed-samples",
+        "requested_hz": 100000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read1",
+        "requested_hz": 500000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read2",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read1",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read2",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read1",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read2",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read1",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read2",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read1",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read2",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read1",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read2",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read1",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read2",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read1",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read2",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "after-speed-samples",
+        "requested_hz": 500000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read1",
+        "requested_hz": 1000000,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read2",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read1",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read2",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read1",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read2",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read1",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read2",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read1",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read2",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read1",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read2",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read1",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read2",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read1",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read2",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      },
+      {
+        "stage": "after-speed-samples",
+        "requested_hz": 1000000,
+        "response_hex": "ff20bb19",
+        "id": "20bb19"
+      }
+    ],
+    "array_bytes_received": 24576,
+    "device_closed": true,
+    "finished_at": "2026-11-03T23:37:12.531894-05:00"
+  },
+  "exit_code": 0,
+  "independent_postflight": {
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a",
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "spidev_exists": true,
+    "holders": [],
+    "pinctrl_returncode": 0,
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "checks": {
+      "same_boot": true,
+      "controller_unchanged": true,
+      "driver_bound": true,
+      "spidev_present": true,
+      "no_holders": true,
+      "CS_idle_high": true,
+      "original_report_matches_stdout": true,
+      "all_file_hashes_match": true,
+      "frame_payloads_match_samples": true,
+      "all48_samples_match_GPIO": true
+    },
+    "original_file_receipts": {
+      "report.json": {
+        "bytes": 59238,
+        "sha256": "0edb53833ee56bd7065e650b7b7bd395eb9db8c028dc73516acfa4241cb947e9"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "6ce5023b11b18349f9258c3688a072969a51eeea9919be162f9374729d607639"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "735988458afd21a9950b65883bdf4fb0e6f69c80e36255ad9e3f8f433c74fcd4"
+      },
+      "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "84534c26aad0918734795b8223f3f90be59c57fdbba58c296d061540bc10b36c"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read1.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read2.response.bin": {
+        "bytes": 552,
+        "sha256": "33af0b993b982ad51d4b163bbc2f67f7763225d4456a7e2ede5291ea33c65324"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read1.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read1.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read2.response.bin": {
+        "bytes": 517,
+        "sha256": "1b1f7c1c0f8cca27da0ecb24429249b5f6516c6a16797f2536a29d7693a27c07"
+      },
+      "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read2.bin": {
+        "bytes": 512,
+        "sha256": "9f56cda75fefeab90f6fa5d5ddc9601544b121732c5ecccab32e631060453a5d"
+      }
+    },
+    "independent_comparisons": [
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-100000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-100000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-100000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-100000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-500000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-500000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-500000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-500000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-00000000-1000000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-001f2000-1000000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01000000-1000000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-64B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read1.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      },
+      {
+        "file": "C8235-A-FGL2835L42B-U2900-01fffe00-1000000Hz-512B-read2.bin",
+        "different_bytes_from_GPIO": 0,
+        "different_bits_from_GPIO": 0
+      }
+    ]
+  },
+  "private_originals": {
+    "directory": ".git/recovery-private/c8235-a-20261103/hardware-samples-20261103-233648/originals",
+    "file_count": 97,
+    "report_sha256": "0edb53833ee56bd7065e650b7b7bd395eb9db8c028dc73516acfa4241cb947e9",
+    "permissions": "Directories0700/files0600. All96 sample/raw-response files plus report copied and hash-verified; frame payloads independently reconstructed and every sample compared with local GPIO originals. Raw bytes remain ignored/private."
+  },
+  "references": [
+    "https://docs.kernel.org/spi/spidev.html",
+    "https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf"
+  ],
+  "limits": "Requested rates, not measured waveforms. Same2048 unique addresses as GPIO, one varied region/three allFF; no whole-array accuracy, address-alias exclusion, firmware compatibility, bank role or boot claim. No flash write/reset/register/address-mode operation.",
+  "next": "Full-pair preparation and fresh preflight completed; explicit read-only full-pair worker started. See ../c8235-a-u2900-backup-20261103/preparation.json; completion not claimed here."
+}

@@ -1668,9 +1668,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 212646,
+      "bytes": 214004,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "2ebd46ea088c1591405cd106739f6d2c56d203a52853796b2da73157c860db53"
+      "sha256": "65f1fa11243e92dbfadb96cd8f02e6c20b1516da9d94f05bd48a2c4e5c5202a3"
     },
     {
       "bytes": 106687,
@@ -1968,9 +1968,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 27578,
+      "bytes": 28447,
       "path": "README.md",
-      "sha256": "135de989bedbd9650e312d1a3a9cff773580fc0efbfe1c30022f9b5d64f5cd20"
+      "sha256": "b1a33ee18b6d46c8ae65377147f820cff650abfac1554e26b335e9b4697a35bd"
     },
     {
       "bytes": 3934,
@@ -2168,9 +2168,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 470875,
+      "bytes": 471995,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "0ccc4c3ab5ef1ef4d8d05b643645ebadd527c318755f8a11267ddd0e05e1e076"
+      "sha256": "f98ed89dc33b84d4c010870475f5c553fe0157cde0d7c19c63bac09dbea2da14"
     },
     {
       "bytes": 6850655,
@@ -2358,6 +2358,11 @@
       "sha256": "f07b469f4571b5b54ddcee36e73bb140bff29c0ac732d0d3aab970ae465ec180"
     },
     {
+      "bytes": 5458,
+      "path": "c8235-recovery/c8235-a-u2900-backup-20261103/preparation.json",
+      "sha256": "50daf23e5998b09bdc239d8add53edb7a7e78b8f2bc75b85a33699248fe364e3"
+    },
+    {
       "bytes": 11114,
       "path": "c8235-recovery/c8235-a-u2900-id-20261103/adapter-loopback.json",
       "sha256": "306314f9b477aaadf57be96962d204ddaefc08020bda28dbbd8027cc19f0ac1d"
@@ -2371,6 +2376,11 @@
       "bytes": 9223,
       "path": "c8235-recovery/c8235-a-u2900-id-20261103/result.json",
       "sha256": "312c34c93c53ca84d533e54bd93b0f4b2c558b47712e33c8e236cd4932d8fe98"
+    },
+    {
+      "bytes": 96021,
+      "path": "c8235-recovery/c8235-a-u2900-samples-20261103/hardware-spi.json",
+      "sha256": "84ddf52cc4a85d4a8c71e0cc640a3b4daa4ee0da4a43ebb98db6bdc52a3c65a0"
     },
     {
       "bytes": 25026,
@@ -4903,6 +4913,16 @@
       "sha256": "2f2667bb2999efcb175616c18b5d54b75bc9504adc1f168363c863bd41bf5496"
     },
     {
+      "bytes": 9927,
+      "path": "scripts/pi_spi_c8235_a_u2900_backup.py",
+      "sha256": "d61dec77a8caad2c1373bc0863e3ed70ee28952ef4dcdf4b11c621cc0d5bd9de"
+    },
+    {
+      "bytes": 9509,
+      "path": "scripts/pi_spi_c8235_a_u2900_read.py",
+      "sha256": "21139fd72c8a7818008decef2b9bfa38ab1897a834a1082b08e41e9d68ccd429"
+    },
+    {
       "bytes": 6147,
       "path": "scripts/pi_spi_loopback.py",
       "sha256": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405"
@@ -4976,6 +4996,16 @@
       "bytes": 3495,
       "path": "tests/test_pi_gpio_u1_read.py",
       "sha256": "db3bfd7bbc242082e4cfab14152d7016a072507085714dd83de3872192f9fd70"
+    },
+    {
+      "bytes": 6356,
+      "path": "tests/test_pi_spi_c8235_a_u2900_backup.py",
+      "sha256": "c68eaff2f2cff1748432082f262a1748b44bb0b137b275df252949bf347e822f"
+    },
+    {
+      "bytes": 5860,
+      "path": "tests/test_pi_spi_c8235_a_u2900_read.py",
+      "sha256": "5c80c4eb28e94c4c3d3539c2b5f3be80f8af9af44cc99893e9305b752e2f3a1f"
     },
     {
       "bytes": 2887,
@@ -5256,7 +5286,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 327,
-    "included_bytes_without_manifest": 1080814172,
-    "included_files_without_manifest": 675
+    "included_bytes_without_manifest": 1080950650,
+    "included_files_without_manifest": 681
   }
 }

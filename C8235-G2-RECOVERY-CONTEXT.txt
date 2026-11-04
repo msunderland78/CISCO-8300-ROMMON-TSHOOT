@@ -10,6 +10,25 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A HARDWARE SPI QUALIFIED / FULL READS RUNNING — 2026-11-03, 23:37–23:40 EST
+Owner confirms unchanged C8235-A/FGL2835L42B/FOC28292GUQ/U2900 fixture and asks
+to keep working. Hardware SPI at requested 100/500/1000 kHz, 64/512-byte chunks,
+two repeats: all 48 samples (24,576 bytes) equal pinned GPIO originals; all 51 IDs
+20bb19. Independent reconstruction/copy hashes of all 97 originals and cleanup
+pass. Same 2048 unique bytes; no measured-clock, upper-address alias or firmware
+integrity conclusion. Sample helper57 offline tests pass, then full-reader13
+focused tests pass including7 new backup tests. All sources hash-verified on Pi.
+
+Fresh full-read preflight: same boot, expected controller/driver, no holders or
+competing reader, CS high, pinned GPIO/SPI reports and disk capacity pass.
+Read-only full-pair worker started at23:40 EST: two32MiB originals, native13 at
+requested1MHz/512-byte chunks; ID each1MiB/end, four GPIO sample checks each pass,
+second pass compares each chunk with first. Stop on any mismatch/bad response;
+keep partial originals. Completion pending; no writes/reset/register/mode changes.
+Clip/218ohm RESET branch/adapter stay fixed. Raw samples and captures private.
+Evidence: c8235-recovery/c8235-a-u2900-samples-20261103/hardware-spi.json
+Preparation: c8235-recovery/c8235-a-u2900-backup-20261103/preparation.json
+
 C8235-A BOUNDED GPIO SAMPLE READS PASS — 2026-11-03, 23:29–23:30 EST
 C8235-A / FGL2835L42B, board FOC28292GUQ, U2900. Owner explicitly authorizes
 small reads and confirms unchanged successful ID fixture. Last measured supply /
