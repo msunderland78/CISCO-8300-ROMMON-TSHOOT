@@ -1,0 +1,167 @@
+{
+  "recorded_at": "2026-11-03T19:23:15-05:00",
+  "tasks": [
+    "C8235-01",
+    "R-01"
+  ],
+  "identity": {
+    "chassis": "C8235-A/FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "target_chip": "U2900",
+    "other_chip": "U2901"
+  },
+  "status": "First and only ID transaction returned000000; stopped without retry. No array read/write. SPI driver/CS cleanup independently verified. Post-test owner DC values match pre-test. Cause unresolved; prepare isolated adapter-only loopback next.",
+  "owner_authorization_and_fixture": {
+    "test_request": "Owner: I left it on for you to do the test.",
+    "harness": "Owner explicitly confirms signal wiring unchanged from working C8375 setup apart from moving/reorienting clip and218-ohm U2901 RESET resistor; adds Pi configured exactly as for8375.",
+    "isolation": "Same C8235-A identity; native router power/console/USB/network/coin-cell and both bench leads remain disconnected under preceding explicit confirmations. Pi is sole source through same1.8 V adapter.",
+    "mapping_basis": "Reuse unchanged previously working Pi/adapter/short-clip harness, current corrected orientation and measured power/RESET/control levels. Six new chip-leg continuity values were not obtained because only connector points are accessible; do not mark a fresh A six-signal map complete.",
+    "pretest_v_dc": {
+      "VCC_J2507_2": 1.725,
+      "U2900_physical3_via_owner_identified_clip_wire": 1.725,
+      "U2901_RESET_grabber": 0.309,
+      "adapter_OUTPUT1_CS": 1.76,
+      "adapter_OUTPUT3_WP": 1.76,
+      "adapter_OUTPUT7_HOLD": 1.76
+    },
+    "reset_resistor_ohms": 218,
+    "connector_voltage_limit": "1.76 V is reported for all three outputs; no separate steadiness confirmation for that batch. These are connector-side readings, not new chip-leg measurements."
+  },
+  "software_preparation": {
+    "script": "../../scripts/pi_gpio_c8235_a_u2900_id.py",
+    "authorship": "AI-assisted original ID-only wrapper around existing checked GPIO transport; prepared specifically for C8235-A/U2900.",
+    "source_hashes": {
+      "pi_gpio_c8235_a_u2900_id.py": "61f87572fe2dd438838824240dc2241ca5e62b5686a7975fa53d7f695f5d0f20",
+      "pi_gpio_loopback.py": "422dcdbef11a082c03ebcee23a19d0861fe4847ae82a20c3bbfbc1303191e376",
+      "pi_spi_loopback.py": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405",
+      "pi_u1_direct_read.py": "a9931f4108bc8501cbaa9f25ec656f6b2a9b9b501b11f14125da250a5ea7873e"
+    },
+    "remote_source_hashes_match": true,
+    "remote_help_returncode": 0,
+    "dependencies": "Linux/Python3, libgpiod v2 (observed2.2.0), sudo, GNUtimeout, pgrep; sibling pi_gpio_loopback.py/pi_spi_loopback.py/pi_u1_direct_read.py. Import/help performs no hardware action; explicit --identify required.",
+    "allowed_transfers": "Only packet9f000000; maximum3 transactions, stop on first unexpected/incomplete ID. No array/register/write/erase/reset command.",
+    "offline_validation": {
+      "command": "python3 -m unittest discover -s tests -p 'test_pi_gpio*.py' -v",
+      "tests": 13,
+      "result": "PASS; mocked protocol, failure stops, explicit CLI entry and shared transport cleanup; no hardware accessed by tests"
+    },
+    "source": "Micron MT25QU256ABA Rev.L Table17/p34 and READ ID Table21/p42: manufacturer20,1.8 V typeBB,256 Mb density19, RDID9F. https://www.mouser.com/datasheet/2/671/mt25q_qljs_u_256_aba_0-3178731.pdf"
+  },
+  "preflight": {
+    "hostname": "PI-MATT-UBT",
+    "model": "Raspberry Pi 5 Model B Rev 1.1",
+    "kernel": "7.0.0-1020-raspi",
+    "boot_id": "be6b7a9e-6fbb-4e6e-ba63-b1199a5dd5bf",
+    "uptime_seconds_at_inventory": 715.24,
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "gpiochip_label": "pinctrl-rp1",
+    "pinctrl": "8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK",
+    "lines": [
+      {
+        "offset": 8,
+        "name": "GPIO8",
+        "used": true,
+        "consumer": "spi0 CS0"
+      },
+      {
+        "offset": 9,
+        "name": "GPIO9",
+        "used": false,
+        "consumer": null
+      },
+      {
+        "offset": 10,
+        "name": "GPIO10",
+        "used": false,
+        "consumer": null
+      },
+      {
+        "offset": 11,
+        "name": "GPIO11",
+        "used": false,
+        "consumer": null
+      }
+    ],
+    "spidev_holders": [],
+    "possible_programmer_processes": [],
+    "access": "Existing configured SSH key succeeded; saved sudo credential passed only through encrypted stdin, never embedded in command/source/report. Endpoint/key/credential values retained privately.",
+    "initial_client_error": "Initial SSH invocation mistakenly passed option settings without -o; client treated an option as hostname. Corrected argument construction using same configured key; no Pi hardware action in failed invocation.",
+    "nonroot_inventory": "pinctrl initially returned Must be root; successful read-only sudo inventory above supersedes that incomplete query."
+  },
+  "execution": {
+    "started_at": "2026-11-03T19:17:55-05:00",
+    "finished_at": "2026-11-03T19:17:56-05:00",
+    "exit_code": 1,
+    "command_public_form": "sudo timeout --signal=INT --kill-after=10s 30s python3 <verified-tools-directory>/pi_gpio_c8235_a_u2900_id.py --identify",
+    "exact_command_retention": "Exact remote path/credential-free argv retained in local private id-execution.json; public command omits remote account path.",
+    "method": "libgpiod GPIO software SPI, mode0/MSB-first; no SPI engine transfers",
+    "phase_wait_seconds": 0.0002,
+    "timing_limit": "Three waits per bit plus Python/Linux/GPIO overhead; no exact clock claim",
+    "transactions": [
+      {
+        "attempt": 1,
+        "bytes_received": 4,
+        "response_hex": "00000000",
+        "id": "000000"
+      }
+    ],
+    "expected_id": "20bb19",
+    "failure": "Unexpected chip ID; no force or automatic retry",
+    "driver_restored_by_helper": true,
+    "array_bytes_read": 0,
+    "flash_write_commands": 0,
+    "automatic_retry": false
+  },
+  "independent_postflight": {
+    "boot_id": "be6b7a9e-6fbb-4e6e-ba63-b1199a5dd5bf",
+    "spidev_exists": true,
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "spidev_holders": [],
+    "original_report_sha256": "3d9a9342fa73d1df87832615a43c9c93d2e45b8035ff56830061065d31f93e5a",
+    "pinctrl_returncode": 0,
+    "pinctrl": "8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK",
+    "same_boot_as_preflight": true,
+    "original_report_matches_stdout": true
+  },
+  "posttest_owner_voltages": {
+    "owner_report": "1.725 for both and0.309 for grabber",
+    "VCC_J2507_2_v": 1.725,
+    "U2900_physical3_via_clip_wire_v": 1.725,
+    "U2901_grabber_v": 0.309,
+    "interpretation": "Matches earlier DC spots; does not exclude a transient during the transaction. Shutdown/unplug was requested after readings but not explicitly confirmed in this reply."
+  },
+  "interpretation": [
+    "No valid JEDEC identification from this one transaction. Zero response does not diagnose dead flash, corrupted firmware or exact failed net.",
+    "Signal contact/routing, actual target RESET path, SPI protocol state, translation/return-path behavior and board-level loading/contention remain possible contributors. No unsupported single-cause conclusion.",
+    "No native router power-on, array acquisition, firmware write, erase, register change, reset opcode or security/provisioning change was performed."
+  ],
+  "originals_retained_locally": {
+    "directory": ".git/recovery-private/c8235-a-20261103",
+    "mode": "directory0700, files0600",
+    "files": [
+      "initial-inventory.stdout",
+      "initial-inventory.stderr",
+      "inventory.stdout",
+      "inventory.stderr",
+      "inventory.json",
+      "root-preflight.stdout",
+      "root-preflight.stderr",
+      "root-preflight.json",
+      "deployment.stdout",
+      "deployment.stderr",
+      "deployment.json",
+      "id-execution.stdout",
+      "id-execution.stderr",
+      "id-execution.json",
+      "report.original.json",
+      "postflight.json",
+      "postflight.stderr"
+    ],
+    "original_report_sha256": "3d9a9342fa73d1df87832615a43c9c93d2e45b8035ff56830061065d31f93e5a",
+    "copy_verified_against_remote_hash": true,
+    "public_artifact": "This authored result summary, not a copy of raw console logs."
+  },
+  "next": "Power off/unplug Pi and isolate entire adapter OUTPUT from router, then adapter-only OUTPUT2-to5 loopback preparation. No repeat ID or array read before diagnostic review; wiring confirmation required before arbitrary loopback bytes."
+}

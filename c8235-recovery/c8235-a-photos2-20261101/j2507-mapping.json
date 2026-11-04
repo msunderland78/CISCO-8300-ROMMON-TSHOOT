@@ -147,7 +147,7 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "Current powered idle U2900 CS7/WP9/HOLD1 voltage check, then shutdown/unplug; actual A signal-contact mapping and read-only ID later. See current evidence.",
+  "next_stage": "OUTPUT1/3/7 each1.76 V; first ID transaction subsequently returned000000 and stopped. Static levels remain recorded; no valid ID/full read. Next fully isolate adapter from board for OUTPUT2-to5 loopback preparation; see ../c8235-a-u2900-id-20261103/result.json and current preflight evidence.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json",
   "status_before_20261103_orientation_correction": "CH341A resistor-limited source/board values 1.793/0.423 V match Pi (~13.8 mA inferred). Comparison complete; CH341A USB unplug/socket adapter confirmed. Flash supply qualification incomplete.",
   "orientation_correction_20261103": {
@@ -205,5 +205,9 @@
     "recorded_at": "2026-11-03T19:06:58-05:00",
     "evidence": "../c8235-a-bench-supply-20261103/preflight.json",
     "scope": "Steady static VCC/U2900 RESET1.725 V and U2901 RESET0.309 V with218ohm load. No SPI/full read or dynamic bus-isolation qualification."
+  },
+  "identification_checkpoint_20261103": {
+    "evidence": "../c8235-a-u2900-id-20261103/result.json",
+    "scope": "One GPIO RDID returned000000, no array read/write, cleanup verified; unchanged post-test DC values. No ID retry or loopback yet."
   }
 }

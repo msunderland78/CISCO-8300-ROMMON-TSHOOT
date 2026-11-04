@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "C8235-A218-ohm RESET test passes static DC levels: VCC and U2900 physical3 each1.725 V, U2901 actual physical3 grabber0.309 V, all steady. Owner left Pi running for reading; no shutdown assumed. Next meter-only accessible OUTPUT1/CS,3/WP,7/HOLD voltages toJ2507-8, then shutdown/unplug; chip physical destinations7/9/1 distinguished from connector numbers. Current A signal-contact map and read-only identification still pending; no SPI performed.",
+  "status": "Static supply/RESET/control levels acceptable, but first GPIO ID transaction returned000000 and stopped. Owner confirms unchanged previously working signal harness and Pi config, explicitly asks agent test with Pi on. Cleanup independently verified; post-test VCC/U2900 pin3=1.725 V, U2901 grabber=.309 V. No firmware bytes read/written. Next isolate adapter entirely from router for OUTPUT2-to5 loopback; no ID retry.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -628,7 +628,7 @@
   },
   "next_idle_control_check": {
     "selected_at": "2026-11-03T19:06:58-05:00",
-    "status": "Owner identifies accessible OUTPUT1/3/7 endpoints; selected as connector-side DC check with current powered fixture. Values pending; no SPI.",
+    "status": "Owner reports OUTPUT1/3/7 each1.76 V; connector high-level screen accepted. Subsequent explicit owner test request/harness confirmation led to one failed ID transaction; see ID result.",
     "setup": "Keep existing218-ohm U2901 RESET pull-down/clip/wiring fixed. Bench and native router sources remain disconnected. DC volts, leads COM and V/ohm; blackJ2507-8/GND.",
     "measurements": [
       {
@@ -669,6 +669,34 @@
         "red_point": "U2900 actual physical pin1 / HOLD#/DQ3 via identified clip lead",
         "expected": "High, roughly1.7-1.8 V"
       }
-    ]
+    ],
+    "result": {
+      "recorded_at": "2026-11-03T19:23:15-05:00",
+      "owner_report": "they all ready1.76 vdc",
+      "reference": "DC blackJ2507-8/GND as requested",
+      "OUTPUT1_CS_v": 1.76,
+      "OUTPUT3_WP_v": 1.76,
+      "OUTPUT7_HOLD_v": 1.76,
+      "limits": "Connector-side high levels at reported VCC; no fresh chip-leg continuity or separately stated steadiness."
+    }
+  },
+  "identification_checkpoint": {
+    "recorded_at": "2026-11-03T19:23:15-05:00",
+    "evidence": "../c8235-a-u2900-id-20261103/result.json",
+    "result": "One0x9f transaction, raw00000000 / ID000000 rather than20bb19; stopped; no array read/write. Driver restored/CS high/no spidev holders; same boot; exact remote report hash verified.",
+    "posttest_voltage_report": "VCC and owner-identified U2900pin3 wire1.725 V, U2901grabber.309 V; shutdown after requested readings not explicitly reported."
+  },
+  "next_adapter_loopback_preparation": {
+    "selected_at": "2026-11-03T19:23:15-05:00",
+    "status": "Preparation instructions selected; router disconnection/jumper/Pi state not yet reported. No loopback run.",
+    "reason": "Check current MOSI-to-MISO translation/return path separately from router after all-zero ID. Earlier C8375 loopback pass predates these A fixture/polarity events and does not exclude a current fault.",
+    "sequence": [
+      "Shut down Pi normally and physically unplug USB-C. Keep bench leads and native router sources/cables/coin-cell disconnected. Verify approximately0 V redJ2507-2/black8 before handling connections.",
+      "Unplug the entire clip cable from the1.8 V adapter OUTPUT. Leave clip physically seated on U2900 and218-ohm U2901 RESET-to-J2507-8 resistor in place on the isolated board. Disconnect any other Pi/adapter-to-router wires; no electrical path from adapter/Pi to router may remain.",
+      "On the ADAPTER side, connect only a jumper between OUTPUT2/MISO and OUTPUT5/MOSI. Keep all free clip-cable contacts insulated/clear. Do not put jumper on router/clip-cable side. Pi-to-adapter INPUT wiring stays as previously checked.",
+      "After fixture is assembled with router completely isolated, power only Pi through its normal USB-C supply. Do not run programmer or loopback commands yourself.",
+      "Report that entire clip cable is off adapter OUTPUT, no other Pi/adapter-to-router connection remains, only adapter OUTPUT2-to5 jumper is fitted, and Pi is on. Agent must obtain this physical-state confirmation before any loopback byte transmission."
+    ],
+    "next_test_only_after_confirmation": "Existing checked pi_gpio_loopback.py --adapter-loopback through bounded wrapper, current GPIO/controller/ownership preflight and cleanup verification. Sends arbitrary test bytes; NEVER run with router attached. No automatic flash-ID retry follows a loopback result."
   }
 }

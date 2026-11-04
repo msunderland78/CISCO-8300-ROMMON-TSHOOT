@@ -10,6 +10,35 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A FIRST GPIO ID FAILS / CLEANUP VERIFIED — 2026-11-03, 19:17–19:18 EST
+Owner reports accessible OUTPUT1/3/7 each1.76V, leaves Pi on for agent test,
+confirms unchanged working C8375 signal harness and identical Pi setup. Fresh
+key-auth SSH/root inventory: expected Pi5/RP1/SPI0 driver, no spidev holder or
+competing reader; GPIO8 CS high. C8235-A/FGL2835L42B/FOC28292GUQ/U2900-specific
+ID-only helper prepared/tested (13 offline tests), remote hashes match local.
+One0x9f transaction at19:17:56 returns raw00000000/ID000000, expected20bb19.
+Stops immediately on mismatch, exit1; no further transfer/array read/write,
+reset opcode or register operation. U2901 held through measured218ohm.
+
+Independent postflight: SPI driver restored, CS high, no holders, same boot;
+original remote report fetched and exact hash verified. Raw evidence remains
+private0700/0600. Owner post-test VCC and U2900pin3 wire1.725V, U2901grabber.309V;
+no lasting DC change observed, transient behavior unmeasured. Zero ID does not
+diagnose dead flash or corrupted firmware. Shutdown after readings requested,
+not explicitly confirmed; no more SPI selected.
+
+Next adapter-only preparation: Pi shutdown/USB-C physically unplugged, board0V.
+Disconnect entire clip cable from adapter OUTPUT and any other Pi/adapter-to-
+router wires; clip and218ohm may stay on fully isolated board. Adapter OUTPUT
+must have no router connection. Jumper only ADAPTER OUTPUT2/MISO to5/MOSI,
+not clip-side. Keep free clip contacts clear. Then power only Pi and report
+whole-cable isolation/no other board paths/adapter-only jumper/Pi on. Do not
+run a loopback until this fresh physical-state report: it sends arbitrary bytes
+and MUST NOT run with router attached. Existing shared helper can be used after
+new ownership checks; no ID retry automatically follows. No loopback performed.
+Evidence: c8235-recovery/c8235-a-u2900-id-20261103/result.json
+Wiring: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A STATIC RESET LOW/HIGH CHECKPOINT PASSES — 2026-11-03, 19:06 EST
 C8235-A/FGL2835L42B, boardFOC28292GUQ. With measured218ohm U2901 actualpin3
 RESET-to-J2507-8/GND load, owner reports VCC/J2507-2=1.725V, U2900 actualpin3
