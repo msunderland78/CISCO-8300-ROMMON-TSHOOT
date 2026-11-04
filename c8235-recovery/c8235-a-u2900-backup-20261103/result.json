@@ -768,7 +768,14 @@
     "physical_dependency": "Requires controlled unpowered fixture change: clip target becomesU2901 and unused-chip RESET branch moves toU2900, followed by fresh contact/voltage qualification. User requested current fixture stay unchanged; no such reconfiguration orU2901 access performed.",
     "current_state": "Pi on, driver bound, CS high, no interface holder; U2900 clip/adapter/U2901RESET branch left exactly as qualified. No more command queued.",
     "write_decision": "No write candidate selected. Rewriting the exact same release payload would not change the observed payload bytes; inspect other chip before recovery-image decisions.",
-    "separate_reference_available": "Owner recalled USB backup: C8235-B/FGL2835LBHU logical MTD pair freshly reverified, both cadaa2c6...4857, private local copies preserved. Useful comparison reference; not established pre-upgrade A image or an approved whole-chip transplant. A-B comparison finds differences within and outside the new-release-sized window; this does not define a safe restore layout."
+    "separate_reference_available": "Owner recalled USB backup: C8235-B/FGL2835LBHU logical MTD pair freshly reverified, both cadaa2c6...4857, private local copies preserved. Useful comparison reference; not established pre-upgrade A image or an approved whole-chip transplant. A-B comparison finds differences within and outside the new-release-sized window; this does not define a safe restore layout.",
+    "prerequisite_clarification": {
+      "recorded_at": "2026-11-04T00:04:54-05:00",
+      "owner_question": "do we have to read u2901 before replacing the u2900 flash with the development ROMMON?",
+      "answer": "No blanket requirement to read U2901 first. Earlier sequence is a preservation/inspection recommendation and may recover this chassis's older image. Verified U2900 originals already exist; offline analysis of the B reference can continue with the clip unchanged.",
+      "remaining_write_prerequisites": "Validate source/compatibility and firmware boundaries; preserve A-specific/other bytes; document exact candidate hash and intended changed/preserved regions. Prior comparison window is not an approved restore layout. Current fixture checks and independent readback remain required for any later write.",
+      "scope": "No candidate constructed or validated; no new hardware/Pi access or flash write. The question is not an instruction to write or a permanent decision to omit U2901."
+    }
   },
   "related_USB_reference_review": "../usb-reference-review-20261103/result.json"
 }

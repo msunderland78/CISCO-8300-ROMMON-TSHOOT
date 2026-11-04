@@ -1,5 +1,5 @@
 C8235-G2 / ARATA PROTOTYPE ROUTER — RECOVERY CONTEXT
-Updated: 2026-11-03, America/New_York
+Updated: 2026-11-04, America/New_York
 Workspace: /Users/games/Documents/SOFTWARE
 
 START HERE
@@ -9,6 +9,23 @@ older status summaries where they differ.
 Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
+
+C8235-A U2901 READ IS RECOMMENDED, NOT A BLANKET WRITE PREREQUISITE — 2026-11-04T00:04:54-05:00
+Owner asks whether U2901 must be read before replacing U2900 contents with
+old development ROMMON. Clarification: earlier U2901-first sequence was a
+preservation/inspection recommendation, not an inherent dependency of writing
+U2900. Its contents may supply this chassis's own older image; both-chip backup
+and primary/golden roles remain incomplete. U2900's two current-image originals
+are already verified, so the clip can stay seated for offline B-reference work.
+
+No B-based restore candidate is validated. Before writing, establish source /
+compatibility and firmware boundaries, retain A's bytes outside the intended
+changes, and document the exact candidate hash and changed/preserved regions.
+The prior 0–0xd10000 comparison window is not an approved restore layout.
+A selected write would still require current fixture qualification and separate
+readback verification. Do not reinterpret the owner's question as an immediate
+write instruction or as an explicit decision to skip U2901 permanently.
+No hardware/Pi operation, candidate construction or flash write this checkpoint.
 
 C8235-B USB REFERENCE PAIR REVERIFIED — 2026-11-03, 23:57 EST
 Owner recalls an old image on attached /Volumes/CISCO FILES. Both files in
