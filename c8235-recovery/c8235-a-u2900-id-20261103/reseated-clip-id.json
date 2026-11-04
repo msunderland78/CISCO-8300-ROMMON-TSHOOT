@@ -1,0 +1,156 @@
+{
+  "recorded_at": "2026-11-03T23:24:25-05:00",
+  "tasks": [
+    "C8235-01",
+    "R-01"
+  ],
+  "status": "Passed: all3 bounded RDID responses20bb19 after reseating; independent cleanup verified. No array read/write.",
+  "identity": {
+    "chassis": "C8235-A/FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "target_chip": "U2900",
+    "other_chip_RESET_held": "U2901"
+  },
+  "owner_checkpoint": {
+    "report": "all of that is true ... 1.717, 1.717, 0.308 ... ready to test",
+    "accepted_scope": "Owner confirms preceding complete preparation: U2900 clip left seated after four approximately1ohm paths, loopback jumper removed, temporary U2901pin8/15 measuring leads disconnected,218ohm U2901 actualpin3-to-J2507-8 branch restored, same1.8V adapter/cable orientation, bench/native router sources/cables/coin-cell disconnected, DC readings steady with blackJ2507-8, Pi on for ID.",
+    "VCC_volts": 1.717,
+    "U2900_RESET_volts": 1.717,
+    "U2901_RESET_volts": 0.308,
+    "reset_resistor_ohms": 218,
+    "VIL_max_volts": 0.5151,
+    "VIH_min_volts": 1.2019,
+    "limitation": "DC readings are owner measurements before ID; no powered transient or post-ID DC capture."
+  },
+  "prior_fixture_change": "MOSI contact was OL during reseating while GND/VCC/MISO were low; owner obtained all four approximately1ohm together and requested no further clip movement. Earlier initial ID000000 preserved in result.json.",
+  "preflight": {
+    "recorded_at": "2026-11-03T23:22:38.809361-05:00",
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a",
+    "model": "Raspberry Pi 5 Model B Rev 1.1",
+    "kernel": "7.0.0-1020-raspi",
+    "gpiod_version": "2.2.0",
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "gpiochip_label": "pinctrl-rp1",
+    "lines": [
+      {
+        "offset": 8,
+        "name": "GPIO8",
+        "used": true,
+        "consumer": "spi0 CS0"
+      },
+      {
+        "offset": 9,
+        "name": "GPIO9",
+        "used": false,
+        "consumer": null
+      },
+      {
+        "offset": 10,
+        "name": "GPIO10",
+        "used": false,
+        "consumer": null
+      },
+      {
+        "offset": 11,
+        "name": "GPIO11",
+        "used": false,
+        "consumer": null
+      }
+    ],
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "checks": {
+      "pi5": true,
+      "root": true,
+      "RP1": true,
+      "controller": true,
+      "driver": true,
+      "spidev": true,
+      "no_holders": true,
+      "no_competing_readers": true,
+      "sources_match": true,
+      "lines": true,
+      "pinctrl": true
+    }
+  },
+  "sources_sha256": {
+    "pi_gpio_c8235_a_u2900_id.py": "61f87572fe2dd438838824240dc2241ca5e62b5686a7975fa53d7f695f5d0f20",
+    "pi_gpio_loopback.py": "422dcdbef11a082c03ebcee23a19d0861fe4847ae82a20c3bbfbc1303191e376",
+    "pi_spi_loopback.py": "10eabe4d9c908f0a48473989466f44641c1f45397b28b2f1ca8cffa4abbc7405",
+    "pi_u1_direct_read.py": "a9931f4108bc8501cbaa9f25ec656f6b2a9b9b501b11f14125da250a5ea7873e"
+  },
+  "command": "sudo timeout --signal=INT --kill-after=10s 30s python3 <verified-tools-directory>/pi_gpio_c8235_a_u2900_id.py --identify",
+  "execution": {
+    "local_started_at": "2026-11-03T23:22:52.428049-05:00",
+    "local_finished_at": "2026-11-03T23:22:53.236483-05:00",
+    "reader_started_at": "2026-11-03T23:22:53.108839-05:00",
+    "reader_finished_at": "2026-11-03T23:22:53.190889-05:00",
+    "exit_code": 0,
+    "status": "passed",
+    "method": "libgpiod GPIO software SPI, mode0/MSB-first; no SPI engine transfers",
+    "identities": [
+      {
+        "attempt": 1,
+        "bytes_received": 4,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "attempt": 2,
+        "bytes_received": 4,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      },
+      {
+        "attempt": 3,
+        "bytes_received": 4,
+        "response_hex": "0020bb19",
+        "id": "20bb19"
+      }
+    ],
+    "maximum_transactions": 3,
+    "actual_transactions": 3,
+    "opcodes": [
+      "0x9f RDID"
+    ],
+    "array_bytes_read": 0,
+    "flash_writes": 0,
+    "requested_wait_seconds_per_phase": 0.0002,
+    "timing_limit": "Three waits per bit plus Python/Linux/GPIO overhead; no exact clock claim",
+    "helper_driver_restored": true,
+    "stderr_category": "Whitespace-only stderr; no warning/error text."
+  },
+  "independent_postflight": {
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a",
+    "spidev_exists": true,
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "holders": [],
+    "pinctrl_returncode": 0,
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "original_report_sha256": "f3a96292852ea86c7fefac299ca4c8784c7a20264f821d00560c0dd983e4f0ad",
+    "checks": {
+      "same_boot": true,
+      "driver_restored": true,
+      "controller_unchanged": true,
+      "spidev_present": true,
+      "no_holders": true,
+      "CS_idle_high": true,
+      "original_report_sha256_matches": true,
+      "original_report_matches_stdout": true
+    }
+  },
+  "evidence_preservation": {
+    "local_original_report": ".git/recovery-private/c8235-a-20261103/reseated-id-20261103-232236/report.original.json",
+    "original_report_sha256": "f3a96292852ea86c7fefac299ca4c8784c7a20264f821d00560c0dd983e4f0ad",
+    "permissions": "Private run directory0700, files0600; raw original report/SSH stdout/stderr stay ignored. Public record is an authored structured extraction.",
+    "remote_original_report": "Preserved in separate C8235-A-FGL2835L42B-U2900-ID-* directory, exact path in private execution record."
+  },
+  "interpretation": [
+    "All three expected IDs establish repeatable JEDEC identity response in this particular reseated,1.8V-translated,low-rate GPIO fixture with U2901RESET held low.",
+    "Success after the observed open-to-low MOSI change makes clip contact a likely contributor to the earlier failure; reseating can alter multiple contacts, so a single sole failed contact is not proven.",
+    "The response supports functional command/clock/data communication under tested conditions, without independent CS/CLK contact or waveform measurements.",
+    "Does not establish full-array repeatability, firmware integrity, physical primary/golden role, complete dynamic bus isolation or native boot."
+  ],
+  "next": "Keep the clip and established fixture undisturbed. Next qualification is a bounded repeated sample read before separate full-chip backups; no sample/full-array read executed or selected command recorded at this checkpoint."
+}

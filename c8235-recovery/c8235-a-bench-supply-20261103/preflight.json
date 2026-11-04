@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Owner reports all four U2900 clip GND/VCC/MISO/MOSI paths now approximately1ohm after multiple reseats; MOSI previously OL while other three passed. Preserve clip seating. Intermittent contact is a plausible contributor to earlier ID000000, not established cause. Fresh restored-RESET powered checkpoint pending before bounded ID-only test; no new SPI yet.",
+  "status": "Reseated U2900 clip: owner confirms complete preparation and steady VCC/U2900RESET/U2901RESET1.717/1.717/0.308V, Pi on. Fresh Pi/source/ownership checks pass; bounded ID test returns20bb19 all3 times, independent cleanup/report hash verified. No array read/write. Preserve clip; sample-read repeatability remains next.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -868,7 +868,7 @@
   },
   "next_reseated_clip_power_check": {
     "selected_at": "2026-11-03T23:19:18-05:00",
-    "status": "Requested; fresh wiring/voltage/current power-state response pending. Not performed or approved by elapsed time.",
+    "status": "Completed owner confirmation and fresh readings; followed by three successful bounded ID responses. See reseated_clip_ID_checkpoint.",
     "reason": "Fixture changed materially by reseating; restore known RESET branch and recheck supply/RESET before ID-only test without disturbing clip.",
     "preparation": [
       "Same C8235-A/FGL2835L42B; keep U2900 clip seated. Pi USB-C unplugged and J2507-2 to8 approximately0 V before changing wires.",
@@ -893,5 +893,34 @@
     ],
     "after": "If steady and close to prior expected readings, leave Pi on and report all three levels/current power state for agent ID test. Stop/shutdown/unplug for VCC outside1.70-2.00 V or materially changed/unstable readings. No new GPIO before response review.",
     "subsequent_conditional_action": "Fresh SSH boot/model/controller/ownership/source-hash checks, then existing C8235-A ID-only helper at most3 RDID transactions, immediate stop on first bad response; preserve new report separately. Not an unchanged automatic retry. No array read/write selected."
+  },
+  "reseated_clip_ID_checkpoint": {
+    "recorded_at": "2026-11-03T23:24:25-05:00",
+    "owner_report": "all of that is true ... 1.717, 1.717, 0.308 ... ready to test",
+    "accepted_setup": "Owner confirms preceding complete preparation: U2900 clip left seated after four approximately1ohm paths, loopback jumper removed, temporary U2901pin8/15 measuring leads disconnected,218ohm U2901 actualpin3-to-J2507-8 branch restored, same1.8V adapter/cable orientation, bench/native router sources/cables/coin-cell disconnected, DC readings steady with blackJ2507-8, Pi on for ID.",
+    "VCC_volts": 1.717,
+    "U2900_RESET_volts": 1.717,
+    "U2901_RESET_volts": 0.308,
+    "ID_responses": [
+      "20bb19",
+      "20bb19",
+      "20bb19"
+    ],
+    "started_at": "2026-11-03T23:22:53.108839-05:00",
+    "finished_at": "2026-11-03T23:22:53.190889-05:00",
+    "exit_code": 0,
+    "independent_cleanup_checks": {
+      "same_boot": true,
+      "driver_restored": true,
+      "controller_unchanged": true,
+      "spidev_present": true,
+      "no_holders": true,
+      "CS_idle_high": true,
+      "original_report_sha256_matches": true,
+      "original_report_matches_stdout": true
+    },
+    "original_report_sha256": "f3a96292852ea86c7fefac299ca4c8784c7a20264f821d00560c0dd983e4f0ad",
+    "evidence": "c8235-recovery/c8235-a-u2900-id-20261103/reseated-clip-id.json",
+    "next": "Keep clip/wiring undisturbed. Qualify repeated sample reads before separate full backups; no array read/write at this checkpoint."
   }
 }

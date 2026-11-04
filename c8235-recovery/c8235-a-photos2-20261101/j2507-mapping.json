@@ -2,7 +2,7 @@
   "task": "C8235-01 / R-01: J2507 ground and flash-supply mapping",
   "recorded_at": "2026-11-01T12:44:18-05:00",
   "timezone": "America/New_York",
-  "status": "CURRENT corrected map: J2507-2=VCC/actual flash2, J2507-8=GND/actual flash10. Corrected power paths recorded0.8ohm; latest VCC1.725 V and U2900 RESET1.725 V, U2901 RESET0.309 V with218-ohm load, all steady. Static RESET low/high checkpoint passes; full signal/contact/read qualification pending. Old orientation-dependent arrays remain withdrawn history.",
+  "status": "CURRENT corrected map: J2507-2=VCC/actual flash2, J2507-8=GND/actual flash10. Reseated clip GND/VCC/MISO/MOSI paths approximately1ohm; fresh VCC/U2900RESET/U2901RESET1.717/1.717/0.308V with218ohm U2901RESET load. Bounded ID succeeds20bb19 three times23:22 EST. Old orientation-dependent arrays remain withdrawn history; no array-read qualification yet.",
   "identity": {
     "tracking": "C8235-A",
     "chassis_serial": "FGL2835L42B",
@@ -147,7 +147,7 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "Owner reports all four clipGND/VCC/MISO/MOSI paths approximately1ohm after repeated reseating corrected MOSI OL. Preserve clip seating; restore218ohm U2901 physical3RESET branch and recheck powered VCC/RESET levels before conditional bounded ID-only test. CS/CLK contacts unresolved; see current preflight evidence.",
+  "next_stage": "Preserve successful U2900 clip seating and established fixture; qualify bounded repeated sample reads before separate full-chip backups. No sample/full-array read or write performed at this checkpoint. See c8235-recovery/c8235-a-u2900-id-20261103/reseated-clip-id.json.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json",
   "status_before_20261103_orientation_correction": "CH341A resistor-limited source/board values 1.793/0.423 V match Pi (~13.8 mA inferred). Comparison complete; CH341A USB unplug/socket adapter confirmed. Flash supply qualification incomplete.",
   "orientation_correction_20261103": {

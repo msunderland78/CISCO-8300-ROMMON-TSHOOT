@@ -10,6 +10,29 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A ID PASSES AFTER CLIP RESEATING — 2026-11-03, 23:22 EST
+C8235-A / FGL2835L42B, board FOC28292GUQ, target U2900. Owner confirms all
+requested preparation and steady VCC / U2900 RESET / U2901 RESET readings
+1.717 / 1.717 / 0.308 V, Pi on and ready. Same 1.8 V adapter, loopback removed,
+218 ohm U2901 actual pin-3 RESET branch restored; native/bench/cables/battery
+remain disconnected. Current seating preserves four approximately 1 ohm paths.
+
+Fresh SSH checks: new Pi boot, expected RP1/controller/driver, no competing
+reader/device holder, GPIO mapping and all four deployed source hashes match.
+Existing C8235-A ID-only helper executes three RDID transactions at 23:22:53;
+all raw responses 0020bb19, expected ID 20bb19, exit 0. Independent postflight
+verifies restored driver, CS high, no holders, same boot; original report copied
+byte-for-byte and SHA-256 verified. No array read/write, reset opcode or register
+operation. Raw evidence private; public authored result linked below.
+
+Success after reseating corrected observed MOSI OL supports clip contact as a
+likely contributor to the initial failure. Multiple contacts could have changed;
+sole cause not proven. Functional ID communication passes under tested conditions;
+array repeatability, firmware integrity, bank role and native boot remain open.
+Keep clip and fixture undisturbed. Next qualify bounded repeated sample reads
+before separate full-chip backups; no array-read command performed this checkpoint.
+Evidence: c8235-recovery/c8235-a-u2900-id-20261103/reseated-clip-id.json
+
 C8235-A CLIP CONTACT RESTORED BY RESEATING — 2026-11-03, 23:19 EST
 C8235-A/FGL2835L42B, boardFOC28292GUQ, U2900 clip. Owner reports all four
 paths now approximately1ohm: J2507-8 to clipOUTPUT4/GND, J2507-2 toOUTPUT8/VCC,
