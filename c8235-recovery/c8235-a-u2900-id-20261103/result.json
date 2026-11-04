@@ -163,7 +163,7 @@
     "copy_verified_against_remote_hash": true,
     "public_artifact": "This authored result summary, not a copy of raw console logs."
   },
-  "next": "Isolated adapter loopback and direct RESET pair accepted; cross-chip map finds1.5ohm MISO/MOSI paths,939ohm CS and1.5Mohm CLK. Next unpowered U2900 clip data-contact checks via exposed U2901pin8/15. No common CS/CLK assumption or ID retry.",
+  "next": "Owner reports all four GND/VCC/MISO/MOSI clip paths now approximately1ohm after multiple reseats; MOSI had been OL while other three passed. Contact fault is a plausible contributor, not proven first-ID cause. Keep clip seated; restore218ohm U2901RESET branch and obtain fresh powered VCC/RESET checkpoint, then fresh Pi ownership/hash checks before bounded ID-only test. No new test yet; see current preflight.json.",
   "adapter_loopback_followup": {
     "evidence": "adapter-loopback.json",
     "result": "12 isolated adapter transfers/768 bytes; all zero bit/byte differences; independent cleanup/report-hash verification."

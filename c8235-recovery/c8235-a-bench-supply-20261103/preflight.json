@@ -4,7 +4,7 @@
     "C8235-01",
     "R-01"
   ],
-  "status": "Owner bare-chip cross-map: CS7-to7=939ohm (7-to8 wording explicitly corrected), MISO8-to8=1.5ohm, MOSI15-to15=1.5ohm, CLK16-to16=1.5Mohm. Probe baseline not supplied. Low-ohm data paths permit candidate U2901-side MISO/MOSI contact checks after unpowered U2900 clip refit; no common CS/CLK net inferred or SPI retry.",
+  "status": "Owner reports all four U2900 clip GND/VCC/MISO/MOSI paths now approximately1ohm after multiple reseats; MOSI previously OL while other three passed. Preserve clip seating. Intermittent contact is a plausible contributor to earlier ID000000, not established cause. Fresh restored-RESET powered checkpoint pending before bounded ID-only test; no new SPI yet.",
   "identity": {
     "owner_description": "Router number 1 of the C8235-G2 fleet, clip on U2900",
     "expected_chassis": "C8235-A / FGL2835L42B",
@@ -758,7 +758,7 @@
     "identity": "C8235-A/FGL2835L42B, boardFOC28292GUQ",
     "owner_report": "939 ohms7 to8 ...1.5 ohm8 to8 ...1.5 ohms15 to15 ... and1.5 mega ohms16 to16",
     "endpoint_correction": {
-      "owner_response": "939 \u03a9 was7\u21947; \u201c7 to8\u201d was a typo",
+      "owner_response": "939 Ω was7↔7; “7 to8” was a typo",
       "accepted": "U2900 actual physical7 to U2901 actual physical7 =939ohm; preserve original wording as corrected history, not a separate7-to8 measurement."
     },
     "measurement_context": "Requested black actual U2900 physical pin, red matching actual U2901 pin, ohms. Prior direct RESET check explicitly confirmed U2900 clip off-chip, router fully isolated from power,218-ohm branch disconnected; these conditions retained in immediate next map instructions. New baseline, residual DC and removal of adapter loopback jumper were requested but not separately reported.",
@@ -800,7 +800,7 @@
   },
   "next_clip_data_contact_check": {
     "selected_at": "2026-11-03T19:48:37-05:00",
-    "status": "Planned unpowered refit and two data-contact checks; no results yet.",
+    "status": "Completed owner-reported data checks plus power paths after repeated reseats; results in clip_reseat_contact_result. Probe baseline remains unreported.",
     "setup": [
       "Pi shut down and USB-C physically unplugged; bench/native router sources/cables/coin-cell disconnected. Verify approximately0 V redJ2507-2/black8 before handling/testing.",
       "Remove adapter OUTPUT2-to5 loopback jumper if still present. Keep the ENTIRE clip cable disconnected from adapter OUTPUT; no other programmer-to-router connections.",
@@ -821,5 +821,77 @@
     ],
     "after": "Report both actual values/OL and probe baseline; leave Pi unplugged, cable off adapter, loopback jumper removed and reset ground branch disconnected. No new CS/CLK jumper, powered reconnection or ID retry selected.",
     "limitations": "These two checks target data contacts through measured low-ohm board paths. They do not authenticate CS/CLK contact or loaded signal levels. If a cable contact is inaccessible/unclear, report rather than infer a substitute."
+  },
+  "clip_reseat_contact_result": {
+    "recorded_at": "2026-11-03T23:19:18-05:00",
+    "tasks": [
+      "C8235-01",
+      "R-01"
+    ],
+    "identity": "C8235-A/FGL2835L42B, boardFOC28292GUQ, U2900 clip",
+    "owner_report": "I had to reseat the clip multiple times before I got all of the following 4 to be true: 1) J2507 pin 8 to clip output 4 to be around 1 ohm, 2) J2507 pin 2 to output 8 to be around 1 ohm,3) grabber on u2901 pin 8 to clip output 2 to be around 1 ohm, and 4) grabber on u2901 pin 15 to clip output 5 to be around 1 ohm .... but all of them now read low resistance / connectivity ... and I don't want to move the clip again ... the trickyness of aligning all the pins might have caused the issue reading before, because I had 1), 2) and 3) true, while 4) read OL, until I kept reseating the clip and got all 4 to be true",
+    "measurement_context": "Reply to unpowered U2900 refit/contact instructions: whole cable off adapter, Pi USB-C unplugged, native/bench/battery disconnected, zero residual, loopback jumper removed,218ohm branch disconnected. Latest reply reports resistance/reseating, not separate fresh residual voltage or confirmation of every setup condition. Meter resistance; exact range/polarity/probe baseline not supplied.",
+    "readings": [
+      {
+        "board_endpoint": "J2507 pin8",
+        "clip_cable_output": 4,
+        "signal": "GND",
+        "ohms_approximate": 1
+      },
+      {
+        "board_endpoint": "J2507 pin2",
+        "clip_cable_output": 8,
+        "signal": "VCC",
+        "ohms_approximate": 1
+      },
+      {
+        "board_endpoint": "U2901 actual physicalpin8 via grabber",
+        "clip_cable_output": 2,
+        "signal": "MISO",
+        "ohms_approximate": 1
+      },
+      {
+        "board_endpoint": "U2901 actual physicalpin15 via grabber",
+        "clip_cable_output": 5,
+        "signal": "MOSI",
+        "ohms_approximate": 1
+      }
+    ],
+    "intermediate_failure": "Owner reports first three paths low while U2901pin15-to-clipOUTPUT5/MOSI read OL. Repeated reseating then produced all four low together. No number of reseats or per-reseat values supplied.",
+    "interpretation": [
+      "Supports current low-resistance cable/clip GND,VCC,MISO,MOSI paths through the specified board references. Approximate values retained raw, not baseline-corrected.",
+      "Observed open-to-low MOSI contact after reseating supports an intermittent fixture contact as a plausible contributor to earlier failed ID. No evidence proves MOSI was open at the exact first ID attempt or establishes sole cause.",
+      "CS/CLK/control-pin contacts and loaded signal behavior remain unverified; these four checks do not prove absence of adjacent bridges, chip health, read stability or firmware integrity."
+    ],
+    "owner_constraint": "Keep U2900 clip seated; no further clip movement requested.",
+    "agent_action": "Documentation and local source review only; no new SSH/GPIO/SPI/array read/write."
+  },
+  "next_reseated_clip_power_check": {
+    "selected_at": "2026-11-03T23:19:18-05:00",
+    "status": "Requested; fresh wiring/voltage/current power-state response pending. Not performed or approved by elapsed time.",
+    "reason": "Fixture changed materially by reseating; restore known RESET branch and recheck supply/RESET before ID-only test without disturbing clip.",
+    "preparation": [
+      "Same C8235-A/FGL2835L42B; keep U2900 clip seated. Pi USB-C unplugged and J2507-2 to8 approximately0 V before changing wires.",
+      "Bench supply leads, router native power/console/USB/network and coin-cell remain disconnected; no console capture requested. Remove adapter OUTPUT2-to5 loopback jumper if still present.",
+      "Disconnect temporary U2901pin8/15 measuring leads. Restore measured218ohm branch from U2901 actual physicalpin3/RESET grabber toJ2507-8/GND; never apply that branch to the data pins.",
+      "Reconnect clip cable to same1.8V adapter in established orientation without shifting clip; switch meter to DC volts/COM and V-ohm inputs; power only Pi."
+    ],
+    "reference": "Black probe J2507pin8/GND.",
+    "readings_requested": [
+      {
+        "red": "J2507pin2/VCC",
+        "prior_expected_volts": 1.725
+      },
+      {
+        "red": "Identified U2900 actual physicalpin3 clip wire",
+        "prior_expected_volts": 1.725
+      },
+      {
+        "red": "U2901 actual physicalpin3 RESET grabber",
+        "prior_expected_volts": 0.309
+      }
+    ],
+    "after": "If steady and close to prior expected readings, leave Pi on and report all three levels/current power state for agent ID test. Stop/shutdown/unplug for VCC outside1.70-2.00 V or materially changed/unstable readings. No new GPIO before response review.",
+    "subsequent_conditional_action": "Fresh SSH boot/model/controller/ownership/source-hash checks, then existing C8235-A ID-only helper at most3 RDID transactions, immediate stop on first bad response; preserve new report separately. Not an unchanged automatic retry. No array read/write selected."
   }
 }

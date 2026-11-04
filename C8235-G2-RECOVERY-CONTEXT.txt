@@ -10,6 +10,27 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A CLIP CONTACT RESTORED BY RESEATING — 2026-11-03, 23:19 EST
+C8235-A/FGL2835L42B, boardFOC28292GUQ, U2900 clip. Owner reports all four
+paths now approximately1ohm: J2507-8 to clipOUTPUT4/GND, J2507-2 toOUTPUT8/VCC,
+U2901 actualpin8/grabber toOUTPUT2/MISO, U2901 actualpin15/grabber toOUTPUT5/MOSI.
+First three previously passed while MOSI was OL; multiple reseats made all four
+low together. Probe baseline unreported; keep approximate raw values. Supports
+intermittent fixture contact as a plausible contributor to earlier000000 ID,
+not proof of cause, every contact, loaded behavior or chip health. CS/CLK remain
+unverified. Owner requests no more clip movement; preserve current seating.
+
+Next, without moving U2900 clip: Pi USB-C unplugged/board0V; bench/native sources,
+cables and battery remain isolated. Remove adapter2-to5 loopback jumper and
+temporary U2901pin8/15 measuring leads. Restore218ohm from U2901 ACTUALpin3/RESET
+toJ2507-8/GND, not a data pin. Reconnect same1.8V adapter cable in established
+orientation; meterDC/blackJ2507-8, power onlyPi. Report redVCC/J2507-2, identified
+U2900physical3 clip wire, U2901pin3 grabber; prior1.725/1.725/0.309V. If steady
+and close, leavePi on for fresh SSH ownership/hash checks and existing bounded
+ID-only helper. Stop/shutdown/unplug if VCC outside1.70-2.00V or materially changed
+levels. Current powered-state report pending; no new SPI/array read/write.
+Evidence: c8235-recovery/c8235-a-bench-supply-20261103/preflight.json
+
 C8235-A BARE-CHIP SIGNAL MAP — 2026-11-03, 19:48 EST
 C8235-A/FGL2835L42B, boardFOC28292GUQ. U2900->U2901 actual like-pin results:
 7/CS=939ohm,8/MISO=1.5ohm,15/MOSI=1.5ohm,16/CLK about1.5Mohm. Owner explicitly

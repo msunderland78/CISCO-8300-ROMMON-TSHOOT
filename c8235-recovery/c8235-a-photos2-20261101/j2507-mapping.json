@@ -147,7 +147,7 @@
     "No header signal assignment, actual powered voltage, permitted current, board loading, bank selection or primary/golden identity follows from these four readings.",
     "Prefer this measured header for ground/supply access investigation; earlier J2901 candidate remains unmeasured and is not relabeled."
   ],
-  "next_stage": "Fresh cross-chip map:7/CS939ohm,8/MISO1.5ohm,15/MOSI1.5ohm,16/CLK1.5Mohm. Next unpowered U2900 clip-cable MISO/MOSI contacts checked via exposed U2901pin8/15 low-ohm board paths; no common CS/CLK assumption or ID retry. See current preflight evidence.",
+  "next_stage": "Owner reports all four clipGND/VCC/MISO/MOSI paths approximately1ohm after repeated reseating corrected MOSI OL. Preserve clip seating; restore218ohm U2901 physical3RESET branch and recheck powered VCC/RESET levels before conditional bounded ID-only test. CS/CLK contacts unresolved; see current preflight evidence.",
   "fixture_followup": "c8235-recovery/c8235-a-photos2-20261101/u2900-clip-preflight.json",
   "status_before_20261103_orientation_correction": "CH341A resistor-limited source/board values 1.793/0.423 V match Pi (~13.8 mA inferred). Comparison complete; CH341A USB unplug/socket adapter confirmed. Flash supply qualification incomplete.",
   "orientation_correction_20261103": {
