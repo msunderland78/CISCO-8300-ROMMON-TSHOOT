@@ -2,8 +2,8 @@ C8235-A / FGL2835L42B — 26.2.1 internal recovery
 2026-11-04; America/New_York (EST UTC-05:00); tasks C8235-01/03/05
 
 STATUS: USB corrected IOS and autonomous internal install boot verified.
-All14 package integrity checks, cleanup and USB-free physical cold boot remain
-in progress. Native IOS reads bootflash:packages.conf, IMG C26.02.01.0.263 and
+All14 full package hashes and native inactive cleanup pass. USB-free physical
+cold boot remains pending. Native IOS reads bootflash:packages.conf, IMG C26.02.01.0.263 and
 confreg0x3922; A4 input/RAM hashes and runtime hook complete automatically.
 Initial warm CPP20641/session18177, keepalives14/14/zero misses; no load test.
 Current results: ../../c8235-recovery/c8235-a-ios-20261104/results.json
@@ -35,7 +35,15 @@ C8235A-PRE-INSTALL-startup.cfg and C8235A-PRE-INSTALL-running.cfg.
 Mandatory enable credential is only in the restricted .git/recovery-private
 A-specific file; do not publish its value or password hash.
 
-CLEANUP: preview install remove inactive before confirming. Prior B evidence
+CLEANUP RESULT: November4,10:24–10:28 EST, install remove inactive succeeds.
+Its exact two-file list contains the incomplete453MB original and required
+current .bin. Protected subdirectory copy passed fullSHA512, was excluded from
+the list, and was renamed immediately back to the original root filename.
+Restored image/A4/fix/manifest hashes pass; all14 package names/sizes unchanged.
+Both native config comparisons report no changes. Free16,777,281,536bytes.
+The incomplete original remains archived on USB. No older installed set existed.
+
+FUTURE CLEANUP: preview install remove inactive before confirming. Prior B evidence
 shows it selects the current .bin even though the loader needs it, and changing
 a root copy's extension does not protect it. Preserve and fully hash-verify a
 copy in a recovery subdirectory, ensure that copy is absent from the exact

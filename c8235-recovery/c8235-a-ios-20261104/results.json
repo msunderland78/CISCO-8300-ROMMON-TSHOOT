@@ -78,7 +78,34 @@
     "postinstall_rommon": "2026-11-04T10:13:54-05:00; LocalSoft, expected A UUID/development version; host stops at ROMMON",
     "boot_saved_by_installer": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;"
   },
-  "cleanup": "pending",
+  "cleanup": {
+    "command": "install remove inactive",
+    "started": "2026-11-04T10:24:39.435746-05:00",
+    "confirmed": "2026-11-04T10:24:53.416832-05:00",
+    "result": "SUCCESS Files deleted; REMOVE_POSTCHECK and install_remove SUCCESS",
+    "exact_deletion_list": [
+      "/bootflash/C8235A-INCOMPLETE-26.02.01.bin",
+      "/bootflash/c8kg2be-universalk9.26.02.01.SPA.bin"
+    ],
+    "preservation": "Before confirmation, copied current full image to bootflash:C8235A-RECOVERY/C8235A-CLEANUP-IMAGE.keep; full SHA512 matches. Exact preview excludes protected subdirectory. Incomplete original remains independently archived on USB.",
+    "restored_root_filename_at": "2026-11-04T10:25:01.074538-05:00",
+    "restored_source_sha512": "a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c52115fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02",
+    "restored_source_full_hash_verified_by": "2026-11-04T10:28:36-05:00",
+    "final_verification_at": "2026-11-04T10:28:36-05:00",
+    "all14_active_package_names_sizes_unchanged": true,
+    "loader_fix_manifest_full_sha512_unchanged": true,
+    "native_state": "IMG C26.02.01.0.263, auto-abort inactive; packages.conf-first BOOT and confreg0x3922 unchanged",
+    "startup_and_running_config_diffs": "Both No changes were found against installed backups",
+    "free_bootflash_bytes": 16777281536,
+    "cpp_pid": 20641,
+    "cpp_session": 18177,
+    "keepalive_rx": 320,
+    "keepalive_tx": 320,
+    "keepalive_misses": 0,
+    "keepalive_send_errors": 0,
+    "recovery_directory": "Empty after native rename; retained",
+    "scope": "No older installed package set was present; only current14 active packages remain. Required current .bin retained for A4 and fallback. Native cores and configuration backups preserved."
+  },
   "performance_testing": "explicitly excluded by owner",
   "preservation": {
     "usb_directory": "usb0:C8235-A-L42B-20261104",
@@ -172,6 +199,11 @@
     {
       "path": "sanitized-evidence/router-console-logs/20261104-100424-C8235-A-first-IOS-baseline.log",
       "raw_sha256": "fd099f20d2a194146c4f2d3c8b3749a63f48852df9a8b018568a9269d481f259"
+    },
+    {
+      "path": "sanitized-evidence/router-console-logs/20261104-100424-C8235-A-install-and-cleanup.log",
+      "raw_sha256": "e9d3a2d281b285fbe64c897079ead3317b6938b1608d3c50b7f0aaba782e6777",
+      "scope": "Snapshot through cleanup final checks, before requested cold power cycle; original remains private"
     }
   ],
   "publication_correction": {
@@ -219,7 +251,7 @@
     "scope": "Persistent normal boot-environment/configuration writes; no ROMMON firmware-code rewrite, TPM/fuse/provisioning operation."
   },
   "internal_warm_boot": {
-    "status": "verified_autonomous_install_boot; full_package_hashes_in_progress",
+    "status": "verified_autonomous_install_boot_and_all14_full_package_hashes",
     "reset_time": "2026-11-04T10:15:00.353163-05:00",
     "supervision": "Explicit one matching A reset allowed without TX; further/mismatched resets stop",
     "USB": "still connected",
@@ -281,6 +313,15 @@
         "bytes": 7642,
         "sha512": "d8dff51c7a31c331ec89727b5fe4ac76b0c56fc8503692c8239243e30e832ea82f72e6216e4cba40ead12d4a1144bb42c6b7d8cc0ae15478b9823c7b02307004"
       }
-    }
+    },
+    "checkpoint_commit": "e925804412fde353d1885adca306fb8a4bf1f2df",
+    "checkpoint_ci": "https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT/actions/runs/41857353019",
+    "checkpoint_ci_result": "success"
+  },
+  "internal_cold_boot": {
+    "status": "pending_owner_power_cycle_USB_removed",
+    "capture_armed": "2026-11-04T10:28:51.518339-05:00",
+    "capture": "Same continuous supervised capture; no reopen/handoff; byte offset recorded privately",
+    "instructions": "Router off; remove CISCO FILES USB; wait about10s; power back on; retain serial"
   }
 }
