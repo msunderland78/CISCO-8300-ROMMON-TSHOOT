@@ -10,6 +10,22 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A U2900 RESTORE WORKER LAUNCHED — 2026-11-04, 00:26 EST
+Owner requests flash and readback; unchanged powered fixture confirmed.
+Fresh VCC/U2900 RESET/U2901 RESET =1.718/1.718/0.308 V relative J2507-8.
+Same Pi boot5d4ce5ef-c283-4dad-abb6-d05faf987f9a; controller bound, no holders;
+ID20bb19/SR00/FSR80 three times. Candidate/input/source uploads hash-verified.
+New one-shot orchestration passes10 focused and121 total tests; uses installed
+flashrom1.6.0 plus separate native-four-byte full readback, no flash-driver rewrite.
+Detached worker PID4069, directory:
+/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf
+Fresh full pre-read must equal17c8b5…d6c5 before write. Then candidate65e2ef5a…adf07
+through27 layout runs/1,156 changed4-KiB sectors, automatic full verify, separate
+native32MiB readback. No write timeout or automatic retry; original outputs kept.
+At00:26:43 pre-read6%, no write/readback completion. Keep Pi/clip unchanged.
+No native boot, U2901 read/write or TPM/fuse/OTP/provisioning work.
+Evidence: c8235-recovery/c8235-a-u2900-restore-20261104/preparation.json
+
 C8235-A DEVELOPMENT-FIRMWARE CANDIDATE PREPARED — 2026-11-04T00:17:40.956361-05:00
 Offline C8235-03 analysis supports a controlled same-SoC1 restore experiment.
 Target A/FGL2835L42B, board FOC28292GUQ, physical U2900; source B/FGL2835LBHU

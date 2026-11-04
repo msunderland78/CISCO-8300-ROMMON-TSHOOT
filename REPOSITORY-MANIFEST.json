@@ -1668,9 +1668,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 220904,
+      "bytes": 222001,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "c0bb87bf591e99ce4baf8ba84aa673b7ea06fc230cca29286a6085cdaab02e2f"
+      "sha256": "2c2240f3369fb072af40f75b4c2de424faa57ff8c7428f0bb14b7a9ac8aec957"
     },
     {
       "bytes": 106687,
@@ -2168,9 +2168,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 478193,
+      "bytes": 479230,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "ff34949787a34af38d4270130ba0dd394a65deab478d58cfb87b68d62f8ade61"
+      "sha256": "7f87535d22a487475ef34fb79ba5cfd7edd124405af045bdae4d7c64631240dc"
     },
     {
       "bytes": 6850655,
@@ -2391,6 +2391,11 @@
       "bytes": 9223,
       "path": "c8235-recovery/c8235-a-u2900-id-20261103/result.json",
       "sha256": "312c34c93c53ca84d533e54bd93b0f4b2c558b47712e33c8e236cd4932d8fe98"
+    },
+    {
+      "bytes": 5634,
+      "path": "c8235-recovery/c8235-a-u2900-restore-20261104/preparation.json",
+      "sha256": "81ccc87b0dc15806bce214a16d410b9a583f060b000847905e971573c24d7b71"
     },
     {
       "bytes": 96023,
@@ -4913,6 +4918,11 @@
       "sha256": "9635f8fdc895d09afa8732bb7b76042619192660eaa8b5b9bbcab3115971b868"
     },
     {
+      "bytes": 12696,
+      "path": "scripts/pi_c8235_a_u2900_restore.py",
+      "sha256": "abe9e7cfd36d1941ad4883b0fa45bb2811c20315115bfed8752d40b03972627c"
+    },
+    {
       "bytes": 2542,
       "path": "scripts/pi_gpio_c8235_a_u2900_id.py",
       "sha256": "61f87572fe2dd438838824240dc2241ca5e62b5686a7975fa53d7f695f5d0f20"
@@ -5006,6 +5016,11 @@
       "bytes": 4483,
       "path": "tests/test_c8300_console_capture.py",
       "sha256": "78a6b85eb9fedca5faf1b209c39376ff2eacbfcafabaa6618ae5fb5da1155359"
+    },
+    {
+      "bytes": 8629,
+      "path": "tests/test_pi_c8235_a_u2900_restore.py",
+      "sha256": "b29fbba73deeb5a03a14b6ac97885b6d252ea4c2f771f8d2d07bb11eb7daa31e"
     },
     {
       "bytes": 3811,
@@ -5316,7 +5331,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 327,
-    "included_bytes_without_manifest": 1081064909,
-    "included_files_without_manifest": 687
+    "included_bytes_without_manifest": 1081094002,
+    "included_files_without_manifest": 690
   }
 }

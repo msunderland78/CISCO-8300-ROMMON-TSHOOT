@@ -1,0 +1,140 @@
+{
+  "task_ids": [
+    "C8235-03",
+    "R-01"
+  ],
+  "date": "2026-11-04T00:27:34.581502-05:00",
+  "target": "C8235-A/FGL2835L42B/U2900",
+  "board": "FOC28292GUQ",
+  "status": "Authorized worker launched; fresh full pre-read in progress. Write/readback not complete at this checkpoint.",
+  "owner_authorization": "the pi 5 is still powered on and everything is connected, implement the flash and readback",
+  "owner_current_voltage_v": {
+    "J2507_2_VCC": 1.718,
+    "U2900_physical3_RESET": 1.718,
+    "U2901_RESET_grabber": 0.308,
+    "reference": "J2507 pin8/GND"
+  },
+  "fixture": "Owner confirms unchanged router1 U2900 clip/Pi/1.8V adapter; native router cables, bench supply and coin-cell remain isolated, U2901 RESET through 218 ohms to GND. No clip movement/rewiring requested.",
+  "preflight": {
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a",
+    "model": "Raspberry Pi 5 Model B Rev 1.1",
+    "controller": "/sys/devices/platform/axi/1000120000.pcie/1f00050000.spi",
+    "driver": "/sys/bus/platform/drivers/dw_spi_mmio",
+    "holders": [],
+    "flashrom": "flashrom v1.6.0 on Linux 7.0.0-1020-raspi (aarch64)\nflashrom is free software, get the source code at https://flashrom.org\n\n",
+    "pinctrl": " 8: op dh pu | hi // GPIO8 = output\n 9: a0    pn | lo // GPIO9 = SPI0_MISO\n10: a0    pn | lo // GPIO10 = SPI0_MOSI\n11: a0    pn | lo // GPIO11 = SPI0_SCLK\n",
+    "disk_free_bytes": 236618661888
+  },
+  "initial_ID_status": [
+    {
+      "id": "20bb19",
+      "sr": 0,
+      "fsr": 128
+    },
+    {
+      "id": "20bb19",
+      "sr": 0,
+      "fsr": 128
+    },
+    {
+      "id": "20bb19",
+      "sr": 0,
+      "fsr": 128
+    }
+  ],
+  "deployment": {
+    "directory": "/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf",
+    "files": {
+      "before.bin": {
+        "bytes": 33554432,
+        "sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5"
+      },
+      "candidate.bin": {
+        "bytes": 33554432,
+        "sha256": "65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07"
+      },
+      "pi_c8235_a_u2900_restore.py": {
+        "bytes": 12696,
+        "sha256": "abe9e7cfd36d1941ad4883b0fa45bb2811c20315115bfed8752d40b03972627c"
+      },
+      "pi_u1_direct_read.py": {
+        "bytes": 6869,
+        "sha256": "a9931f4108bc8501cbaa9f25ec656f6b2a9b9b501b11f14125da250a5ea7873e"
+      }
+    },
+    "help_exit": 0,
+    "help_has_explicit_restore_flag": true
+  },
+  "launch": {
+    "pid": 4069,
+    "started_at": "2026-11-04T00:26:26.847867-05:00",
+    "directory": "/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf",
+    "command": [
+      "python3",
+      "/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf/pi_c8235_a_u2900_restore.py",
+      "--restore-and-readback",
+      "--directory",
+      "/home/sundema/C8235-A-U2900-DEVELOPMENT-RESTORE-i9hx5udf",
+      "--expected-boot-id",
+      "5d4ce5ef-c283-4dad-abb6-d05faf987f9a"
+    ],
+    "detached": true,
+    "write_timeout": null
+  },
+  "latest_checkpoint": {
+    "observed_at": "2026-11-04T00:26:43.920920-05:00",
+    "status": "running",
+    "phase": "pre-read",
+    "percent": "6",
+    "failure": null,
+    "pre_read": null,
+    "returncodes": null,
+    "automatic_verify_reported": null,
+    "readback": {},
+    "complete": false,
+    "flashrom_pids": [
+      "4073"
+    ],
+    "launcher_bytes": 0,
+    "boot_id": "5d4ce5ef-c283-4dad-abb6-d05faf987f9a"
+  },
+  "scope": {
+    "candidate_sha256": "65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07",
+    "before_sha256": "17c8b589f6af59a47aa4d7c10a540e1bd6669136cf4da89ea130c6e9f206d6c5",
+    "candidate_bytes": 33554432,
+    "selected_4096_byte_sectors": 1156,
+    "selected_contiguous_runs": 27,
+    "preserved_start": "0xd10000",
+    "preserved_end_exclusive": "0x2000000",
+    "candidate_evidence": "c8235-recovery/c8235-a-development-candidate-20261104/result.json"
+  },
+  "sequence": [
+    "Fresh full flashrom read must exactly equal the saved current A dump before a write can occur.",
+    "One flashrom1.6.0 write invocation, exact 27 layout regions, sacrifice-ratio0, automatic whole-chip verification enabled.",
+    "Independent complete native0x13 readback with correct ID/status checks every MiB and at end; byte/hash compare all32MiB.",
+    "Copy original readback/logs locally and independently verify candidate equality and unchanged A suffix."
+  ],
+  "interruption_policy": "Detached Pi worker survives SSH loss; no external timeout for erase/program; no automatic command retry after write failure. Pre-read bounded1200seconds. Outputs exclusive; write-once lock.",
+  "validation": {
+    "focused_tests_passed": 10,
+    "full_repository_tests_passed": 121,
+    "import_help_has_no_hardware_effect": true,
+    "remote_uploaded_hashes_match": true
+  },
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/doc/classic_cli_manpage.rst",
+      "finding": "Selected layout regions constrain changes; automatic full verification remains enabled. Default sacrifice ratio0 avoids unnecessary larger-block erases."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/flashrom/flashrom/v1.6.0/flashchips/micron.c",
+      "finding": "MT25QU256 entry:32MiB,1.7\u20132.0V, tested read/erase/write, supports4KiB erase and 256-byte programming."
+    }
+  ],
+  "limitations": [
+    "No native boot/firmware compatibility/IOS stability result yet.",
+    "U2901 unread and not selected for writing.",
+    "B physical donor bank and A primary/golden electrical role remain unresolved.",
+    "No TPM/fuse/OTP/lifecycle/provisioning work; later IOS fix accepted by owner."
+  ]
+}
