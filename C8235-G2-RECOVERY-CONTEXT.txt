@@ -10,6 +10,21 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
+C8235-A INTERNAL INSTALL BOOT VERIFIED — 2026-11-04,10:18–10:21 EST
+Native Add/Activate/Commit/postcheck pass. BOOT now selects packages.conf before
+the exact .bin fallback; saved A4 parameter/confreg0x3922 read back after sync.
+Reset10:15:00 reaches IOS without further TX through welcome. All16 early
+firmware fields unchanged; A4 input/RAM hashes and runtime hook pass. Native
+IOS26.02.01 confirms bootflash:packages.conf, IMG C/inactive timer, R0/F0/0/0
+ready, CPP20641/session18177, keepalives14/14/zero misses/errors. All14 full
+package SHA512 values, sizes and manifest references match original bundle.
+Installed startup3261B/running7642B backups hashed. Required image/A4/fix stay.
+Reload history reports rc139 plus Image Install, despite only intentional
+resets/no fresh runtime fatal notification in this capture. Retain origin as
+unresolved; standby12V0/TPM/clock/security warnings also remain.
+Cleanup protection copy underway; USB-free cold boot still pending. No traffic
+or performance testing. Full exact evidence in current session results.
+
 C8235-A USB IOS / RAM FIX VERIFIED — 2026-11-04,10:05 EST
 Fresh USB image hash and A-specific RAM guards/hook pass; IOS26.02.01 boots
 from USB. Native chassis FGL2835L42B and R0 FOC28292GUQ now independently match

@@ -67,12 +67,21 @@
     "runtime_hook_sha256": "ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4",
     "vendor_files": "No vendor image/package or ROMMON code modified"
   },
-  "install": "pending",
+  "install": {
+    "started": "2026-11-04T10:10:11-05:00",
+    "command": "install add file bootflash:c8kg2be-universalk9.26.02.01.SPA.bin activate commit",
+    "state": "native_add_activate_commit_and_postcheck_success",
+    "preparation": "Saved verified .bin fallback through native boot system flash command and write memory[OK]. Existing initial confreg0x1820 retained; console stops reload at ROMMON before saving A4 settings.",
+    "reload_confirmed": "2026-11-04T10:11:47-05:00",
+    "completion_observed_before": "2026-11-04T10:13:14-05:00",
+    "activation_package_set": "Exact14 expected26.2.1 packages matched programmatically before reload confirmation",
+    "postinstall_rommon": "2026-11-04T10:13:54-05:00; LocalSoft, expected A UUID/development version; host stops at ROMMON",
+    "boot_saved_by_installer": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;"
+  },
   "cleanup": "pending",
   "performance_testing": "explicitly excluded by owner",
   "preservation": {
     "usb_directory": "usb0:C8235-A-L42B-20261104",
-    "completed": "2026-11-04T10:01:00-05:00",
     "partitions": {
       "mmcblk0p2-before.bin": {
         "bytes": 33554432,
@@ -89,7 +98,9 @@
       "sha256": "8120baa78b64ac83c2cdace8d090ad25d20bb144bd35b0589f515047695c7f26"
     },
     "verification": "Source and destination SHA256 all match; preserve command and sync status0. Bootflash mounted ro,noload. USB archive retained locally, not in public repository.",
-    "scope": "p2/p3 and existing incomplete bundle only; not a full eMMC backup"
+    "scope": "p2/p3 and existing incomplete bundle only; not a full eMMC backup",
+    "verification_observed_by": "2026-11-04T10:01:25-05:00",
+    "rx_timestamp_limit": "Console raw bytes do not timestamp every receive; end times use subsequent observed/prompt checkpoints, not router clock."
   },
   "offline_validation": {
     "tests": 125,
@@ -143,11 +154,13 @@
     "unresolved": "Standby12V_DG_ST0mV/Critical_Low; early TPM/clock/security/default warnings retained; no performance tests",
     "startup_backup": {
       "file": "bootflash:C8235A-PRE-INSTALL-startup.cfg",
-      "bytes": 3126
+      "bytes": 3126,
+      "sha512": "5a237c057f2a899a6bb43e30e6a19b047bb4018b7d79e085326edffff17bfc6cfdfcf05ba5d6840da2ce3a84251d664c509459cdcb6723828bd85c8cb4901d65"
     },
     "running_backup": {
       "file": "bootflash:C8235A-PRE-INSTALL-running.cfg",
-      "bytes": 7445
+      "bytes": 7445,
+      "sha512": "43fe7440e7de22071ce473dfae6753a588bd0af1b0e463a4a66c8cd342078144ed36f49c222c23c05f3a064adca2ac1c61b8694e0f20940368b6570efec58c63"
     },
     "image_preservation": "Renamed incomplete internal original to bootflash:C8235A-INCOMPLETE-26.02.01.bin; independent exact USB archive already verified"
   },
@@ -165,6 +178,109 @@
     "issue": "CONFIG end-of-line regex missed CRLF native configuration lines, including short one-time credentials. Existing HASH/known-value checks did not cover every short plaintext context.",
     "fix": "Allow terminal CR in matching without altering source bytes or line endings; regenerate earlier public copies.",
     "tests": "126 offline tests pass, including CRLF discovery/redaction and exact-original preservation.",
-    "limitations": "Known-value/pattern checks do not prove absence of all unknown secrets in binaries."
+    "limitations": "Known-value/pattern checks do not prove absence of all unknown secrets in binaries.",
+    "checkpoint_commit": "3e3ca710d332ee9b345813dbb61a585f182308b4",
+    "ci_result": "success",
+    "ci_url": "https://github.com/msunderland78/CISCO-8300-ROMMON-TSHOOT/actions/runs/41854854494"
+  },
+  "internal_staging": {
+    "image_bytes": 1048008916,
+    "image_copy_duration_s": 71.344,
+    "image_sha512": "a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c52115fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02",
+    "loader_sha512": "d479ebdf5f26419abee38c3a584c978974d0113feb65c0004af3411ff98c2b21084082ae61817b3311d89b677ec6ab4fd54053f96269b39affcc28ff964e8a3f",
+    "fix_sha512": "341a8a487a4e2098444abdf60b8a5a8ce3b947366095f2979e4062f5873a65aea9088185deed6f2d3e90dc7098d9b0593294244e8db82c4e4a99a38d3dce817d",
+    "native_hashes_match_expected": true,
+    "files": [
+      "bootflash:A4",
+      "bootflash:C8235AFIX1",
+      "bootflash:c8kg2be-universalk9.26.02.01.SPA.bin"
+    ],
+    "at": "2026-11-04T10:09:53-05:00"
+  },
+  "usb_followup": {
+    "at": "2026-11-04T10:09:53-05:00",
+    "cpp_pid": 20777,
+    "cpp_session": 18541,
+    "keepalive_rx": 171,
+    "keepalive_tx": 171,
+    "keepalive_miss": 0,
+    "keepalive_send_errors": 0,
+    "qualification": "Bounded readiness observation during installation preparation, no forwarding/performance test"
+  },
+  "saved_startup": {
+    "USER_BOOT_PARAM": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/A4&&exec${IFS}bash$IFS/u/A4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+    "loader": "A4",
+    "fix": "C8235AFIX1",
+    "confreg_before": "0x1820",
+    "confreg_after": "0x3922",
+    "native_summary": "115200; boot the image specified by boot system commands",
+    "sync_at": "2026-11-04T10:14:43-05:00",
+    "readback": "exact parameter and packages.conf-first BOOT confirmed after sync",
+    "scope": "Persistent normal boot-environment/configuration writes; no ROMMON firmware-code rewrite, TPM/fuse/provisioning operation."
+  },
+  "internal_warm_boot": {
+    "status": "verified_autonomous_install_boot; full_package_hashes_in_progress",
+    "reset_time": "2026-11-04T10:15:00.353163-05:00",
+    "supervision": "Explicit one matching A reset allowed without TX; further/mismatched resets stop",
+    "USB": "still connected",
+    "performance": "none",
+    "early_firmware_comparison": {
+      "count": 16,
+      "unchanged": true,
+      "fields": [
+        "Firmware Version: 2024-07-17 01:44:08",
+        "cisco-bootstub.bin   version: 0B.17.0C 20240622-0651 00000000",
+        "npc_mkex-cn10xx.fw   version: 01.0E.00 20240501-0640 00000000",
+        "uefi.bin             version: 0B.17.0C 20240622-0651 00000000",
+        "bl31.bin             version: 0B.17.0C 20240622-0651 00000000",
+        "bl2.bin              version: 0B.17.0C 20240622-0651 00000000",
+        "gserp-cn10xx.fw      version: 01.01.0C 20240501-0640 00000000",
+        "gserm-cn10xx.fw      version: 01.01.0A 20240501-0640 00000000",
+        "init.bin             version: 0B.17.0C 20240622-0651 00000000",
+        "ecp_bl1.bin          version: 0C.17.0C 20240501-0638 00000000",
+        "mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000",
+        "scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000",
+        "rom-script0.fw       version: 0B.17.0C 20240622-0651 00000000",
+        "NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)",
+        "NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)",
+        "System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE"
+      ]
+    },
+    "autoboot_selection": "boot: reading file packages.conf, no console transmissions after initiating reset through kernel entry",
+    "ios_readback_at": "2026-11-04T10:18:23-05:00",
+    "version": "26.02.01",
+    "system_image": "bootflash:packages.conf",
+    "install_state": "IMG C26.02.01.0.263; auto-abort inactive",
+    "confreg": "0x3922",
+    "platforms": "R0/F0 ok active,0/0 ok",
+    "cpp_pid": 20641,
+    "cpp_session": 18177,
+    "keepalive_rx": 14,
+    "keepalive_tx": 14,
+    "keepalive_miss": 0,
+    "keepalive_send_errors": 0,
+    "free_bootflash_bytes": 16324317184,
+    "zero_TX_through_IOS_welcome": true,
+    "zero_TX_snapshot": "sanitized-evidence/router-console-logs/20261104-101500-C8235-A-install-warm-zero-TX.log",
+    "reload_metadata_caveat": "IOS says LocalSoftADR and Last reload reason Critical process cpp_cp_svr fault on fp_0_0 (rc=139),Image Install. Preserve this unexplained metadata: continuous current capture shows only intentional installer LocalSoft and manual ResetRequest banners; no fresh runtime fatal notification or unexpected reset is captured. Do not assert metadata cleared or diagnose its origin.",
+    "manifest_sha512": "aed00702b34462f9f6ee911e6f3e4c1d72fef4d051739a06f782ae1e7cb4c37d58ee1ffc08f48f47a8b83708ccc47e66a753988e383be9d098405a9a81a8e891",
+    "package_verification": {
+      "count": 14,
+      "all_full_sha512_match_original_bundle": true,
+      "manifest_exact_reference_set_match": true,
+      "expected": "c8235-recovery/install-validation-20261101/expected-packages.json"
+    },
+    "installed_config_backups": {
+      "startup": {
+        "file": "bootflash:C8235A-INSTALL-startup.cfg",
+        "bytes": 3261,
+        "sha512": "0d9c65a4c4c01533588b9fa472cb7cb41a218831b50a8fd3b33cf30c7311862cd9f0d6978245eceab9d3bfd64ab2f40da92195052a741f2aafd1fce6a42c884a"
+      },
+      "running": {
+        "file": "bootflash:C8235A-INSTALL-running.cfg",
+        "bytes": 7642,
+        "sha512": "d8dff51c7a31c331ec89727b5fe4ac76b0c56fc8503692c8239243e30e832ea82f72e6216e4cba40ead12d4a1144bb42c6b7d8cc0ae15478b9823c7b02307004"
+      }
+    }
   }
 }

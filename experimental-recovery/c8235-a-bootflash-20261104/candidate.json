@@ -2,7 +2,7 @@
   "date": "2026-11-04T09:58:02.655927-05:00",
   "chassis": "C8235-A/FGL2835L42B",
   "soc_uuid": "13 FF FF 78 86 52 04 83 8A BF FF 48",
-  "status": "prepared_only_not_deployed",
+  "status": "native_install_committed; saved_internal_loader_and_runtime_hook_pass; IOS_warm_readback_pending",
   "derivation": "Separate A copies from preserved C/B sources; same runtime RAM correction. Only identifying comments, loader name, correction filename and source hash differ. Original vendor image/packages stay unchanged.",
   "files": {
     "boot-bound16.sh": {
@@ -20,5 +20,10 @@
     "auto-bootflash.sh": "A4",
     "boot-bound16.sh": "C8235AFIX1"
   },
-  "validation": "bash -n passed for both files; live guards and boot not yet tested"
+  "validation": "Both bash -n checks pass;4 A observer pipe tests/126 full offline tests pass. Transferred RAM and USB source hashes match; exact runtime patch/hook hashes and HOOK_COMPLETE verified on A. Internal live boot still pending. First automatic internal packages.conf boot now passes exact image/source/RAM hashes and runtime HOOK_COMPLETE; IOS readback still pending.",
+  "USER_BOOT_PARAM": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/A4&&exec${IFS}bash$IFS/u/A4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0",
+  "set_command_bytes": 239,
+  "saved_at": "2026-11-04T10:14:43-05:00",
+  "configuration_register": "0x3922",
+  "BOOT": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;"
 }
