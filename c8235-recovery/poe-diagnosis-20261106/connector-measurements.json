@@ -37,6 +37,30 @@
           "reported_ohms": 0.5,
           "state": "Owner explicitly confirms AC unplugged for this reading.",
           "limits": "Lead/contact baseline, residual-voltage verification and settled resistance behavior not supplied. Do not interpret 0.5 ohm as exact internal wire resistance or earth bonding."
+        },
+        {
+          "recorded_at": "2026-11-06T18:10:48.449018-05:00",
+          "mode": "DC voltage",
+          "contacts": [
+            "A",
+            "D"
+          ],
+          "reported_volts": 0,
+          "behavior": "Owner reports 0 VDC directly from A to D, including repeated on/off cycles; number of cycles and settling time not supplied.",
+          "state": "Continuation of previously confirmed AC-powered, router-detached external brick test. Independent post-test E-B 12.3 V recheck requested but not yet reported.",
+          "limit": "No sustained A-D output demonstrated. No confirmed pinout, open-circuit operating specification, load test or independent probe-contact check."
+        },
+        {
+          "recorded_at": "2026-11-06T18:10:48.449018-05:00",
+          "mode": "DC voltage",
+          "contacts": [
+            "A-B",
+            "A-C",
+            "D-B",
+            "D-C"
+          ],
+          "reported_behavior": "Approximately 8 to 6 VDC initially, then decreases rapidly. Final settled values and probe polarity not separately supplied.",
+          "interpretation": "Transient readings do not demonstrate a sustained PoE rail. Floating/leakage/capacitive effects are possible, not independently diagnosed."
         }
       ]
     },
@@ -51,16 +75,24 @@
       "scope": "Contact-population comparison only; do not transfer PoE-brick voltage readings to this supply."
     }
   },
-  "interpretation": "Reported values support B/C as the 12 V-side positive contacts and E/F as its return group, not necessarily protective earth. A/D are additional contacts on the PoE brick. A separate floating A-D output remains possible; fading A/D-to-E/F readings alone do not diagnose failed PoE output, establish an enable pin, or prove compatibility.",
+  "interpretation": "The direct A-D result does not demonstrate an energized floating 53.5 V output under the unloaded test conditions, superseding the earlier untested possibility. Prior 12.3 V readings support the low-voltage contact groups; repeat E-B confirmation after the latest cycles is pending. The external high-voltage output, cable/contact path and model-specific enable/minimum-load behavior now need checking before attributing the failure solely to router detection. No exact supply identity, verified A/D net assignment, required enable signal or defective-brick diagnosis has been established.",
   "next_measurement": {
-    "status": "Requested; pending.",
+    "status": "Direct A-D result received; requested E-B recheck remains pending.",
     "mode": "Fluke 111 DC volts/Auto Range; black COM, red V/ohm.",
     "state": "PoE brick AC connected, DC plug detached from router; same isolated single-contact probe access.",
     "black": "D",
     "red": "A",
-    "signed_volts": null,
+    "signed_volts": 0,
     "followup": "Recheck black E/red B for the 12.3 V output, then unplug AC.",
     "limits": "No jumper, load, current or further resistance test selected. Direct A-D voltage does not by itself prove load capacity or router compatibility."
   },
-  "changes": "Documentation only; no router configuration, firmware, register or board changes."
+  "changes": "Documentation only; no router configuration, firmware, register or board changes.",
+  "updated_at": "2026-11-06T18:10:48.449018-05:00",
+  "interpretation_at_initial_readings": "Reported values support B/C as the 12 V-side positive contacts and E/F as its return group, not necessarily protective earth. A/D are additional contacts on the PoE brick. A separate floating A-D output remains possible; fading A/D-to-E/F readings alone do not diagnose failed PoE output, establish an enable pin, or prove compatibility.",
+  "next_step": {
+    "status": "Awaiting owner model/part number and E-B recheck.",
+    "purpose": "Check exact supply compatibility, verified pinout and whether its second output should be active without a load.",
+    "research_result": "Available primary Cisco product references identify power-supply options but have not established an applicable connector pinout or unloaded enable requirement. No enable pin may be inferred from the falling readings.",
+    "limits": "No pin shorting, speculative load, supply opening, mains-side work or new router test selected."
+  }
 }

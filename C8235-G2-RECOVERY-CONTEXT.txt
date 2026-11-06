@@ -10,7 +10,24 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A EXTERNAL PSU READINGS / CURRENT HANDOFF — 2026-11-06,18:01 EST
+C8235-A DIRECT A-D PSU TEST / CURRENT HANDOFF — 2026-11-06, EST
+C8235-06: owner reports direct A-D is 0 VDC even after repeated on/off cycles.
+A-B, A-C, D-B and D-C start around 8 to 6 VDC and fall rapidly; final settled
+values/polarity not supplied. Same external brick test follows confirmed AC-on,
+router-detached setup. Requested post-cycle E-B 12.3 V recheck remains pending.
+This does not demonstrate the energized floating A-D output considered below.
+Transient cross-contact readings do not establish usable PoE power, an enable
+pin, or their exact electrical cause. Prior low-voltage readings remain valid
+as owner observations; no 53.5 V output has been demonstrated in these tests.
+Prioritize exact brick model, verified pinout, output/cable/contact path and
+documented no-load/enable behavior before assigning a router-only fault or
+declaring the brick defective. Exact PWR/341/FA label requested with E-B recheck.
+No verified enable requirement found; no jumper, speculative load, opened PSU,
+board probing or new router access selected. Preserve earlier hypothesis and
+all observations in connector-measurements.json; original photos unchanged.
+Evidence: c8235-recovery/poe-diagnosis-20261106/connector-measurements.json.
+
+C8235-A EXTERNAL PSU READINGS / EARLIER CHECKPOINT — 2026-11-06,18:01 EST
 C8235-06: owner reports A/D absent on the separate non-PoE supplies for B and C.
 On the PoE brick, E/F to B/C gives 12.3 V; black E or F to red A or D starts
 about 0.4 VDC and falls toward zero. Owner confirms voltage tests with AC on
