@@ -1,0 +1,676 @@
+
+[TX 2026-11-06T17:00:44.039569-05:00] b'\r'
+
+R1-C8235G2#
+[TX 2026-11-06T17:00:52.253001-05:00] b'terminal length 0\r'
+terminal length 0
+R1-C8235G2#
+[TX 2026-11-06T17:00:55.255504-05:00] b'show inventory\r'
+show inventory
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO: Please use "show license UDI" to get serial number for licensing.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NAME: "Chassis", DESCR: "Cisco isr1000 Series Chassis"
+PID: C8230X-8M2X       , VID: V00  , SN: FGL2835L42B
+
+NAME: "Power Supply Module 0", DESCR: "External 66W Power Supply Module"
+PID: PWR-CC2-66WAC     , VID: V02  , SN:            
+
+NAME: "module 0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID:      , SN:            
+
+NAME: "NIM subslot 0/0", DESCR: "8M-2xSFP+"
+PID: 8M-2xSFP+         , VID: V01  , SN:            
+
+NAME: "subslot 0/0 transceiver 8", DESCR: "SFP+ 10GBASE-SR"
+PID: SFP-10G-SR          , VID: V03  , SN: FNS15531J79     
+
+NAME: "subslot 0/0 transceiver 9", DESCR: "GE SX"
+PID: SFP-GE-S            , VID: V01  , SN: FNS12061D7A     
+
+NAME: "module R0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID: V00  , SN: FOC28292GUQ
+
+NAME: "module F0", DESCR: "Cisco isr1000 series Unknown Module"
+PID: C8230X-8M2X       , VID:      , SN:            
+
+
+R1-C8235G2#
+[TX 2026-11-06T17:00:58.261573-05:00] b'show version\r'
+show version
+Cisco IOS XE Software, Version 26.02.01
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+R1-C8235G2 uptime is 7 minutes
+Uptime for this control processor is 9 minutes
+System returned to ROM by PowerOn
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Perpetual    essentials         essentials        
+
+The current crypto throughput level is 250000 kbps (Aggregate) 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8230X-8M2X (1RU) processor with 7788651K/6147K bytes of memory.
+Processor board ID FGL2835L42B
+Router operating mode: Autonomous
+1 Virtual Ethernet interface
+8 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+16777216K bytes of physical memory.
+20249599K bytes of flash memory at bootflash:.
+
+Configuration register is 0x3922
+
+R1-C8235G2#
+[TX 2026-11-06T17:01:01.266120-05:00] b'show power inline\r'
+show power inline
+R1-C8235G2#
+[TX 2026-11-06T17:01:05.205020-05:00] b'show environment all\r'
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet             R0              Normal          28 Celsius
+ Temp: Outlet            R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          52 Celsius
+ V: 12V_DG_ST            R0              Critical_Low    0 mV
+ V: 12V                  R0              Normal          12000 mV
+ V: 5V                   R0              Normal          4951 mV
+ V: 3.3V_SB              R0              Normal          3285 mV
+ V: 3.3V_SFP             R0              Normal          3293 mV
+ V: 3.3V                 R0              Normal          3295 mV
+ V: 1.8V                 R0              Normal          1789 mV
+ V: 1.2V                 R0              Normal          1197 mV
+ V: 1.1V_DDR             R0              Normal          1103 mV
+ V: 0.75V_CORE           R0              Normal          760 mV
+ V: 0.75V_SYS            R0              Normal          849 mV
+ V: 0.8V_SW              R0              Normal          800 mV
+ V: 0.8V                 R0              Normal          801 mV
+ V: 0.75V                R0              Normal          751 mV
+ I: VP12P0_MB            R0              Normal          1467 mA
+ I: PIM                  R0              Normal          0 mA
+ P: Power                R0              Normal          17 Watts
+
+
+R1-C8235G2#
+[TX 2026-11-06T17:01:08.452886-05:00] b'show platform\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:08:31      
+ 0/0      8M-2xSFP+           ok                    00:07:45      
+R0        C8230X-8M2X         ok, active            00:08:31      
+F0        C8230X-8M2X         ok, active            00:08:31      
+P0        PWR-CC2-66WAC       ok                    00:07:58      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+R1-C8235G2#
+[TX 2026-11-06T17:01:11.459048-05:00] b'show power\r'
+show power
+Main PSU :
+    Configured Mode : N/A
+    Current runtime state same : N/A
+    Total power available : 66 Watts
+POE Module :
+    Configured Mode : N/A
+    Current runtime state same : N/A
+    Total power available : 0 Watts
+R1-C8235G2#
+[TX 2026-11-06T17:01:14.461723-05:00] b'show power inline ?\r'
+show power inline ?
+  GigabitEthernet     GigabitEthernet IEEE 802.3z
+  TenGigabitEthernet  Ten Gigabit Ethernet
+  TwoGigabitEthernet  Two Gigabit Ethernet
+  meter               Show inline power meter
+  upoe-plus           show power information based on the IEEE 802.3bt standard
+  |                   Output modifiers
+  <cr>                <cr>
+
+R1-C8235G2#show power inline 
+R1-C8235G2#
+[TX 2026-11-06T17:01:18.145497-05:00] b'show platform hardware ?\r'
+show platform hardware ?
+  crypto-device                   crypto device information
+  interface                       Interface information
+  iomd                            IOMD Process
+  network-clocks                  Show network clock device
+  port                            port information
+  qfp                             Quantum Flow Processor
+  raid                            raid information
+  slot                            Slot information
+  subslot                         Subslot information
+  throughput                      show throughput
+  throughput-license-enforcement  Show traffic throughput license enforcement
+                                  method
+  throughput-monitor              Show throughput commands
+
+R1-C8235G2#show platform hardware 
+% Incomplete command.
+
+R1-C8235G2#
+[TX 2026-11-06T17:01:26.237558-05:00] b'show power inline TwoGigabitEthernet 0/0/4\r'
+show power inline TwoGigabitEthernet 0/0/4
+Interface Admin  Oper       Power   Device              Class Max
+                            (Watts)                            
+--------- ------ ---------- ------- ------------------- ----- ----
+Tw0/0/4   auto   off        0.0     n/a                 n/a   30.0 
+R1-C8235G2#
+[TX 2026-11-06T17:01:29.243518-05:00] b'show power inline TwoGigabitEthernet 0/0/6\r'
+show power inline TwoGigabitEthernet 0/0/6
+Interface Admin  Oper       Power   Device              Class Max
+                            (Watts)                            
+--------- ------ ---------- ------- ------------------- ----- ----
+Tw0/0/6   auto   off        0.0     n/a                 n/a   90.0 
+R1-C8235G2#
+[TX 2026-11-06T17:01:32.249736-05:00] b'show logging | include ILPOWER|POE|PoE|poe|POWER|Power\r'
+show logging | include ILPOWER|POE|PoE|poe|POWER|Power
+*May 29 2025 18:49:23.337: %CRYPTO_SL_TP_LEVELS-6-PLATFORM_BASED_LIC: Platform Based License Support, throughput is un-throttledIOSd ipc listen handler status 0Last reload reason is set to "PowerOn"
+R1-C8235G2#
+[TX 2026-11-06T17:01:35.255685-05:00] b'show platform software status control-processor brief\r'
+show platform software status control-processor brief
+Load Average
+ Slot  Status  1-Min  5-Min 15-Min
+  RP0 Healthy   1.55   1.69   1.02
+
+Memory (kB)
+ Slot  Status    Total     Used (Pct)     Free (Pct) Committed (Pct)
+  RP0 Healthy 16150600  3171612 (20%) 12978988 (80%)   3260888 (20%)
+
+CPU Utilization
+ Slot  CPU   User System   Nice   Idle    IRQ   SIRQ IOwait
+  RP0    0   1.79   4.09   0.00  93.10   0.79   0.19   0.00
+         1   0.00   0.00   0.00 100.00   0.00   0.00   0.00
+         2   0.00   0.00   0.00 100.00   0.00   0.00   0.00
+         3   0.00   0.00   0.00 100.00   0.00   0.00   0.00
+         4  12.61  18.61   0.00  64.06   4.70   0.00   0.00
+         5  15.13  18.53   0.00  61.72   4.60   0.00   0.00
+         6  14.01  27.72   0.00  55.05   3.20   0.00   0.00
+         7   0.10   3.70   0.00  90.89   5.30   0.00   0.00
+
+R1-C8235G2#
+[TX 2026-11-06T17:01:38.261499-05:00] b'show platform hardware subslot 0/0 ?\r'
+show platform hardware subslot 0/0 ?
+  backplane  Backplane connection details
+  module     Module Information
+
+R1-C8235G2#show platform hardware subslot 0/0 
+% Incomplete command.
+
+R1-C8235G2#
+[TX 2026-11-06T17:01:44.562571-05:00] b'show diag\r'
+show diag
+% Incomplete command.
+
+R1-C8235G2#
+[TX 2026-11-06T17:01:54.883097-05:00] b'show platform hardware subslot 0/0 module ?\r'
+show platform hardware subslot 0/0 module ?
+  device     Module specific devices
+  host-if    Module Host Interface
+  interface  Interface information
+
+R1-C8235G2#show platform hardware subslot 0/0 module 
+% Incomplete command.
+
+R1-C8235G2#
+[TX 2026-11-06T17:02:02.039417-05:00] b'show diag ?\r'
+show diag ?
+  all      All related information
+  chassis  Chassis related information
+  slot     Slot location information for this command
+  subslot  Subslot location information for this command
+
+R1-C8235G2#show diag 
+% Incomplete command.
+
+R1-C8235G2#
+[TX 2026-11-06T17:02:05.045288-05:00] b'show power inline upoe-plus\r'
+show power inline upoe-plus
+R1-C8235G2#
+[TX 2026-11-06T17:02:08.050631-05:00] b'show power inline TwoGigabitEthernet 0/0/4 detail\r'
+show power inline TwoGigabitEthernet 0/0/4 detail
+ Interface: Tw0/0/4
+ Inline Power Mode: auto
+ Operational status: off
+ Device Detected: no
+ Device Type: n/a
+ IEEE Class: n/a
+ Discovery mechanism used/configured: Unknown
+ Police: off
+
+ Power Allocated 
+ Admin Value: 30.0
+ Power drawn from the source: 0.0
+ Power available to the device: 0.0
+ 
+ Actual consumption
+ Measured at the port: 0.0
+ Maximum Power drawn by the device since powered on: 0.0
+ 
+ Absent Counter: 0
+ Over Current Counter: 0
+ Short Current Counter: 0
+ Invalid Signature Counter: 0
+ Power Denied Counter: 0
+
+ Power Negotiation Used: None
+ LLDP Power Negotiation --Sent to PD--      --Rcvd from PD--
+   Power Type:          -                    -
+   Power Source:        -                    -
+   Power Priority:      -                    -
+   Requested Power(W):  -                    -
+   Allocated Power(W):  -                    -
+
+Four-Pair PoE Supported: No
+Spare Pair Power Enabled: No
+Four-Pair PD Architecture: N/A
+Perpetual POE Enabled: FALSE
+Fast POE Enabled: FALSE
+Meter Start Time: 2025-05-29 18:54:23 UTC
+Metered Energy Value(WattSec): 0.0 
+R1-C8235G2#
+[TX 2026-11-06T17:02:11.057153-05:00] b'show platform hardware subslot 0/0 module device ?\r'
+show platform hardware subslot 0/0 module device ?
+  WORD  Enter name of the device or type 'help'
+
+R1-C8235G2#show platform hardware subslot 0/0 module device 
+% Incomplete command.
+
+R1-C8235G2#
+[TX 2026-11-06T17:02:14.063145-05:00] b'show diag all\r'
+show diag all
+% Incomplete command.
+
+R1-C8235G2#
+[TX 2026-11-06T17:02:17.068760-05:00] b'show power inline TwoGigabitEthernet 0/0/5\r'
+show power inline TwoGigabitEthernet 0/0/5
+Interface Admin  Oper       Power   Device              Class Max
+                            (Watts)                            
+--------- ------ ---------- ------- ------------------- ----- ----
+Tw0/0/5   auto   off        0.0     n/a                 n/a   30.0 
+R1-C8235G2#
+[TX 2026-11-06T17:02:20.074432-05:00] b'show power inline TwoGigabitEthernet 0/0/7\r'
+show power inline TwoGigabitEthernet 0/0/7
+Interface Admin  Oper       Power   Device              Class Max
+                            (Watts)                            
+--------- ------ ---------- ------- ------------------- ----- ----
+Tw0/0/7   auto   off        0.0     n/a                 n/a   90.0 
+R1-C8235G2#
+[TX 2026-11-06T17:02:23.080269-05:00] b'show platform hardware subslot 0/0 module device help\r'
+show platform hardware subslot 0/0 module device help
+
+Devices Available:
+
+1. Internal_If - Type 'Internal_If' to see Internal interface info.
+2. Transceiver - Type 'Transceiver' to see PHY info.
+3. qos - Type 'qos' to see QoS info.
+4. counter - Type 'counter' to see counters info.
+5. rxq-statistics <port_num> - Type 'rxq-statistics' to see rxq stats on L3 intf.
+6. debug - Type 'debug' to simulate UART CLI
+
+R1-C8235G2#
+[TX 2026-11-06T17:02:31.138981-05:00] b'show diag all ?\r'
+show diag all ?
+  eeprom  Eeprom information
+
+R1-C8235G2#show diag all 
+% Incomplete command.
+
+R1-C8235G2#
+[TX 2026-11-06T17:02:40.040650-05:00] b'show platform software ?\r'
+show platform software ?
+  Access-tunnel          Access Tunnel information
+  VP                     Layer 2 Vlan Port Information
+  access-list            Access control list information
+  adjacency              Adjacency platform commands
+  appnav-controller      AppNav Controller information
+  appnav-controller      Service Controller platform commands
+  atm                    ATM
+  audit                  Show selinux audit
+  autovpn                Show AutoVPN Commands
+  batch-manager          Batch manager
+  bfd                    BFD platform commands
+  bootcamp               bootcamp information
+  bound-uds              Show bound Unix-Domain-Sockets information
+  bridge-domain          Bridge domain information
+  bssid                  Wireless BSSID information
+  btrace-manager         Btrace Manager Information
+  capwap                 Wireless CAPWAP information
+  cce                    CCE platform commands
+  cck                    Consistency-Checker information
+  cef                    CEF platform commands
+  cgacl                  Wireless CGACL information
+  chasfs                 Show chassis filesystem information
+  cli-agent              CLI Agent information
+  cloud-mgmt-service     Cloud Mgmt Service information
+  cman                   Chassis manager client
+  common-classification  Common classification
+  conf-sw                Software Conference
+  configuration          Show configuration commands
+  consent-token          Show Consent token statistics
+  console-relay          Console relay client
+  cpu                    system CPU information
+  cr-runtime             CRDU/CRFT/CRPGC/CRDL runtime
+  crimson                Show Crimson data
+  cts                    CTS information
+  custom-port            Wireless custom port information
+  cxsc                   Show CXSC commands
+  dbal                   DB Access Layer
+  dc-monitor             Show Device Classifier info
+  debug                  Debug information
+  device-mode            Device Mode
+  diagnostic             Show diagnostic information
+  dialer-list            Dialer list information
+  dmesg                  kernel logs
+  dpidb                  Datapath Interface Descriptor Block information
+  dpss                   Show ONE-P Datapath Service Set Commands
+  dsp                    DSP information
+  dsprm                  Show DSPRM commands
+  dtls                   Wireless DTLS information
+  eoam                   EOAM information
+  epbr                   EPBR platform commands
+  erspan                 Encapsulated Remote Switch Port Analyzer
+  et-analytics           Show et-analytics commands
+  ether-channel          EtherChannel global information
+  ethernet               Ethernet platform commands
+  evpn                   EVPN information
+  evtmon                 Event monitor information
+  ezman                  Ezman
+  factory-reset          Show factory-reset
+  fhs                    FHS platform commands
+  filesystem             File system information
+  firewall               Firewall information
+  flexlinks              Flex Links information
+  flow                   FNF platform commands
+  flow-control           Flow control Ids
+  fmd                    Show flow-metadata commands
+  fmp                    Show MMA FMP commands
+  fpm                    FPM information
+  frame-relay            Frame Relay
+  fru-tbl                Fru Table Library
+  icmp                   ICMP platform commands
+  icmp6                  Show ICMP6 information
+  iid                    Datapath Interface Identifier information
+  infrastructure         Platform infrastructure
+  inspect                Inspect platform commands
+  install-manager        Install Manager
+  interface              Interface information
+  iomd                   IOMD Process
+  iox-service            Iox Service information
+  ip                     IPv4 information
+  ipc                    Show ipc information
+  iphc                   Show IP Header Compression information
+  ipsec                  IPSec platform show commands
+  ipv6                   IPv6 information
+  kernel                 show system information tcp
+  l2-acl                 platform l2-acl info
+  l2-vlan                Layer 2 VLAN information
+  l2fib                  Layer 2 FIB information
+  l2fib-iosd             Layer 2 FIB IOSd information
+  l2m                    l2m information
+  l2pt                   l2pt platform commands
+  l2vpn                  atom information
+  license                Show license information
+  lisp                   LISP common information
+  lisp-pd                LISP PD info
+  lisp-sfltr             LISP Source Filter
+  loadinfo               Loadbalance objects information
+  matm                   MAC address table management information
+  mdr                    Minimal Disruptive Restart
+  memory                 Show memory related information
+  mfr                    MFR information
+  mlist                  Multicast list information
+  mlppp                  MLPPP informantion
+  mma                    Show MMA commands
+  module                 PSD modules
+  mount                  System mount information
+  mpls                   MPLS platform commands
+  multicast              MULTICAST platform commands
+  nat                    NAT platform commands
+  nat64                  Platform NAT64 information
+  nat66                  Platform NAT66 information
+  nbar                   NBAR platform commands
+  ndbman                 Netconf Database Manager information
+  netflow                NetFlow platform commands
+  nif-mgr                Network Interface Manager
+  node                   node information
+  nwpi                   Show Network Wide Path Insight Commands
+  object-manager         Object Manager information
+  os-interface           Show os-interface information
+  otv                    OTV information
+  pam                    PAM platform commands
+  pbr                    Policy based routing information
+  peer                   Show peer information
+  pfr                    PFR platform commands
+  pfrv3                  PfRv3 platform commands
+  pkt-reorder            Packet reordering info
+  pla                    Platform Licensing Agent information
+  plim                   PLIM QoS Commands
+  pm-port                PM Port information
+  port-channel           Port-channel information
+  portinfo               show selected type port information
+  process                Process information
+  process-manager        Process Manager information
+  ptpd                   Show PTP information
+  punt                   Show punt/inject information
+  punt-policer           Show punt policer setting and stats
+  push-counter           Push Counter OCE
+  qos                    QoS platform commands
+  quic                   QUIC information
+  radio                  Wireless radio information
+  replication            Replication Manager
+  rg                     Show redundancy group information
+  rif-mgr                RIF Manager information
+  route-map              Route-map platform commands
+  sbc                    Session Border Controller
+  sd-routing             SD-Routing
+  selinux                SELinux status
+  service-chain          Service-chain
+  service-directory      Service Directory
+  session-manager        Session Manager information
+  shell                  Shell infrastructure
+  sl-infra               sl-infra platform specific information
+  slot                   Slot information
+  spi4                   Mapping Ids of Spi4 to Marmot Buffers
+  srv6                   SRv6 information
+  sslvpn                 SSLVPN platform show commands
+  stack-mgr              Stack Manager information
+  status                 Show system status
+  steering-policy        Steering Policy information
+  subscriber             Subscriber (ESS) information
+  subslot                Show subslot information
+  swport                 Switch port information
+  swspan                 Switch SPAN information
+  tcpudpport             show system port information
+  tdl-database           TDL database
+  tech-support           Show system information for Tech-Support
+  thread                 Thread information
+  timestamp-engine       Timestamp engine platform show commands
+  trace                  Trace information
+  udf                    user defined fields information
+  udn                    User Defined (Private) Network information
+  umbrella               umbrella information
+  urpf                   Unicast reverse path forwarding information
+  utd                    Show UTD commands
+  vasi                   vasi interface information
+  vlans                  Vlan information
+  vrf                    Platform VRF information
+  vty                    Platform vty management
+  vxlan                  VXLAN information
+  wccp                   WCCP platform commands
+  wired-client           Wired client information
+  wireless-client        Wireless client information
+  wireshark              Wireshark information
+  wlan                   Wireless WLAN information
+  wlavc                  Wireless AVC information
+  yang-management        YANG management
+  zone                   Zone platform commands
+  |                      Output modifiers
+  <cr>                   <cr>
+
+R1-C8235G2#show platform software 
+Device Operating-mode: Autonomous
+
+Device-mode bootup status:
+  
+  Bootup Success
+
+R1-C8235G2#
+[TX 2026-11-06T17:02:43.750331-05:00] b'show diag all eeprom\r'
+show diag all eeprom
+MIDPLANE EEPROM data:
+
+	Product Identifier (PID) : C8230X-8M2X
+	Version Identifier (VID) : V00 
+	PCB Serial Number        : FOC28292GUQ
+	Hardware Revision        : 1.0
+	CLEI Code                : NA        
+Power/Fan Module P0 EEPROM data:
+
+	Product Identifier (PID) : PWR-CC2-66WAC
+	Version Identifier (VID) : V02
+	PCB Serial Number        :            
+	CLEI Code                : IPUPAMFAAB
+Power/Fan Module P1 EEPROM data is not initialized
+
+Internal PoE is not present
+
+Slot R0 EEPROM data:
+
+	Product Identifier (PID) : C8230X-8M2X
+	Version Identifier (VID) : V00 
+	PCB Serial Number        : FOC28292GUQ
+	Hardware Revision        : 1.0
+	CLEI Code                : NA        
+Slot F0 EEPROM data:
+
+	Product Identifier (PID) : C8230X-8M2X
+	Version Identifier (VID) : V00 
+	PCB Serial Number        : FOC28292GUQ
+	Hardware Revision        : 1.0
+	CLEI Code                : NA        
+Slot 0 EEPROM data:
+
+	Product Identifier (PID) : C8230X-8M2X
+	Version Identifier (VID) : V00 
+	PCB Serial Number        : FOC28292GUQ
+	Hardware Revision        : 1.0
+	CLEI Code                : NA        
+SPA EEPROM data for subslot 0/0:
+
+	Product Identifier (PID) : 8M-2xSFP+           
+	Version Identifier (VID) : V01 
+	PCB Serial Number        : 
+	Top Assy. Part Number    : 68-2236-01
+	Top Assy. Revision       : A0  
+	Hardware Revision        : 2.2
+	CLEI Code                : CNUIAHSAAA
+SPA EEPROM data for subslot 0/1 is not available
+
+SPA EEPROM data for subslot 0/2 is not available
+
+SPA EEPROM data for subslot 0/3 is not available
+
+SPA EEPROM data for subslot 0/4 is not available
+
+SPA EEPROM data for subslot 0/5 is not available
+
+R1-C8235G2#
+[TX 2026-11-06T17:02:49.239023-05:00] b'show platform software cman ?\r'
+show platform software cman ?
+  statistics  Status and statistics
+
+R1-C8235G2#show platform software cman 
+% Incomplete command.
+
+R1-C8235G2#
+[TX 2026-11-06T17:02:54.295260-05:00] b'show terminal\r'
+show terminal
+Line 0, Location: "", Type: ""
+Length: 0 lines, Width: 80 columns
+Baud rate (TX/RX) is 115200/115200, no parity, 1 stopbits, 8 databits
+Status: PSI Enabled, Ready, Active, Automore On
+Capabilities: none
+Modem state: Ready
+Group codes:    0
+Special Chars: Escape  Hold  Stop  Start  Disconnect  Activation
+                ^^x    none   -     -       none         
+Timeouts:      Idle EXEC    Idle Session   Modem Answer  Session   Dispatch
+                never         never                        none     not set
+                            Idle Session Disconnect Warning
+                              never 
+                            Login-sequence User Response
+                             00:00:30
+                            Autoselect Initial Wait
+                              not set 
+Modem type is unknown.
+Session limit is not set.
+Time since activation: 00:02:10
+Editing is enabled.
+History is enabled, history size is 10.
+DNS resolution in show commands is enabled
+Full user help is disabled
+Allowed input transports are none.
+Allowed output transports are lat pad telnet rlogin mop nasi ssh.
+Preferred transport is lat.
+Shell: disabled
+Shell trace: off
+No output characters are padded
+No special data dispatching characters
+R1-C8235G2#
+[TX 2026-11-06T17:03:09.731148-05:00] b'terminal length 24\r'
+terminal length 24
+R1-C8235G2#

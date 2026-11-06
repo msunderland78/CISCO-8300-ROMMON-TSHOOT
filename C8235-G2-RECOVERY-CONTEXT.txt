@@ -1,5 +1,5 @@
 C8235-G2 / ARATA PROTOTYPE ROUTER — RECOVERY CONTEXT
-Updated: 2026-11-04, America/New_York
+Updated: 2026-11-06, America/New_York
 Workspace: /Users/games/Documents/SOFTWARE
 
 START HERE
@@ -10,7 +10,36 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A RECOVERY COMPLETE / CURRENT HANDOFF — 2026-11-04,10:30–10:33 EST
+C8235-A PoE DIAGNOSTIC / CURRENT HANDOFF — 2026-11-06,17:00–17:03 EST
+C8235-06: owner confirms router #1 / FGL2835L42B, assembled/battery installed,
+programmer wires removed, powered and booted; native USB console, no competing
+terminal. Fresh exclusive /dev/cu.usbmodem84301 at115200/8N1/no flow confirms
+FGL2835L42B / R0 FOC28292GUQ,26.02.01 install mode and PowerOn reload reason.
+Owner removed enable password; existing privileged prompt used, no credential
+or authentication configuration change. Physical PSU model still requested.
+Observed: inventory/platform/EEPROM identify PWR-CC2-66WAC V02; show power
+reports main66W/PoE0W. show diag all eeprom: "Internal PoE is not present".
+Global show power inline and upoe-plus return no table. Individual ports4–7
+show auto/off/0W, maxima30/30/90/90W. Port4 detects no device; fault counters0.
+This establishes missing software detection/budget, not physical card absence.
+Cisco documents an internal PoE daughter card supplied with initial PoE orders,
+not field-upgradeable; compatible optional PSU is PWR-CC1-230WAC. Missing card
+is a leading possibility, with prototype detection/supply-path faults unresolved.
+Owner reports S and a second "network"-looking light green; actual PoE icon is
+a lightning bolt beneath S. A verified green PoE lamp would conflict with IOS;
+do not discard that report or conclude the adapter is physically the66W model.
+Main telemetry now populated:28/28/52C,12V=12000mV,17W. This supersedes the
+mostly-zero November4 reading for current state while preserving that earlier
+failure; standby12V_DG_ST0mV/Critical_Low remains. No physical measurements.
+Router clock says May2025; session date comes from Mac EST. No reboot, saved
+config/firmware/security change or powered-device test. Pagination0 then24;
+console closed and both aliases free. Router remains powered.
+Next: exact brick label, confirm second LED, then establish daughter-card
+presence/detection. Any internal inspection requires shutdown/isolation first.
+Evidence: c8235-recovery/poe-diagnosis-20261106/results.json and sanitized-evidence/
+router-console-logs/20261106-170039-C8235-A-PoE-USB-readonly.log.
+
+C8235-A RECOVERY COMPLETE / PREVIOUS HANDOFF — 2026-11-04,10:30–10:33 EST
 Owner removed USB and power cycled. Fresh matching A UUID/PowerOn automatically
 selects packages.conf; all16 early firmware fields unchanged. A4 input/RAM
 hashes and HOOK_COMPLETE pass; zero console TX through IOS welcome.

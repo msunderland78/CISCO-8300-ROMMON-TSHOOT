@@ -1,0 +1,141 @@
+{
+  "task_id": "C8235-06",
+  "recorded_at": "2026-11-06T17:03:45.215240-05:00",
+  "timezone": "America/New_York",
+  "identity": {
+    "tracking": "C8235-A",
+    "owner_name": "router #1",
+    "chassis_serial": "FGL2835L42B",
+    "native_pid": "C8230X-8M2X",
+    "native_r0_serial": "FOC28292GUQ"
+  },
+  "physical_state": {
+    "owner_confirmed": "Router #1 identity, assembled with battery installed, programmer wiring removed, no other console session; powered on and booted, Mac attached by native USB console rather than RJ45 serial cable.",
+    "power_supply": "Owner reports attaching a PoE power supply; exact physical label requested and still pending.",
+    "led_report": "Owner says top two lights, the S light and one that looks like a network, are green. Second icon not positively identified; Cisco diagram depicts PoE as a lightning bolt beneath S.",
+    "other_cables": "Not individually enumerated. Inventory detects transceivers in ports 8 and 9; no assumption about Ethernet cables or attached powered devices."
+  },
+  "console": {
+    "device": "/dev/cu.usbmodem84301",
+    "usb_identity": "Cisco USB Console, vendor 1446/product 9",
+    "settings": "115200 baud, 8N1, no flow control",
+    "ownership": "Both cu and tty aliases free before open; exclusive TIOCEXCL; closed after diagnostics and both aliases verified free.",
+    "prompt": "R1-C8235G2#",
+    "credential_handling": "Owner reports removing enable password. Existing privileged prompt used; no password requested, entered, configured, or authentication settings inspected.",
+    "commands": [
+      "b'\\r'",
+      "b'terminal length 0\\r'",
+      "b'show inventory\\r'",
+      "b'show version\\r'",
+      "b'show power inline\\r'",
+      "b'show environment all\\r'",
+      "b'show platform\\r'",
+      "b'show power\\r'",
+      "b'show power inline ?\\r'",
+      "b'show platform hardware ?\\r'",
+      "b'show power inline TwoGigabitEthernet 0/0/4\\r'",
+      "b'show power inline TwoGigabitEthernet 0/0/6\\r'",
+      "b'show logging | include ILPOWER|POE|PoE|poe|POWER|Power\\r'",
+      "b'show platform software status control-processor brief\\r'",
+      "b'show platform hardware subslot 0/0 ?\\r'",
+      "b'show diag\\r'",
+      "b'show platform hardware subslot 0/0 module ?\\r'",
+      "b'show diag ?\\r'",
+      "b'show power inline upoe-plus\\r'",
+      "b'show power inline TwoGigabitEthernet 0/0/4 detail\\r'",
+      "b'show platform hardware subslot 0/0 module device ?\\r'",
+      "b'show diag all\\r'",
+      "b'show power inline TwoGigabitEthernet 0/0/5\\r'",
+      "b'show power inline TwoGigabitEthernet 0/0/7\\r'",
+      "b'show platform hardware subslot 0/0 module device help\\r'",
+      "b'show diag all ?\\r'",
+      "b'show platform software ?\\r'",
+      "b'show diag all eeprom\\r'",
+      "b'show platform software cman ?\\r'",
+      "b'show terminal\\r'",
+      "b'terminal length 24\\r'"
+    ]
+  },
+  "observed": {
+    "ios": "26.02.01, autonomous, bootflash:packages.conf, confreg 0x3922, uptime 7 minutes at show version, PowerOn reload reason",
+    "inventory_power": "P0 PWR-CC2-66WAC V02, External 66W Power Supply Module; no physical PSU serial reported",
+    "show_power": {
+      "main_available_watts": 66,
+      "poe_available_watts": 0
+    },
+    "show_diag_all_eeprom": "Internal PoE is not present",
+    "show_power_inline": "Returns directly to prompt without table, twice including help re-execution; upoe-plus summary also empty.",
+    "ports": [
+      {
+        "interface": "TwoGigabitEthernet0/0/4",
+        "admin": "auto",
+        "oper": "off",
+        "power_watts": 0.0,
+        "device": "n/a",
+        "class": "n/a",
+        "max_watts": 30.0
+      },
+      {
+        "interface": "TwoGigabitEthernet0/0/5",
+        "admin": "auto",
+        "oper": "off",
+        "power_watts": 0.0,
+        "device": "n/a",
+        "class": "n/a",
+        "max_watts": 30.0
+      },
+      {
+        "interface": "TwoGigabitEthernet0/0/6",
+        "admin": "auto",
+        "oper": "off",
+        "power_watts": 0.0,
+        "device": "n/a",
+        "class": "n/a",
+        "max_watts": 90.0
+      },
+      {
+        "interface": "TwoGigabitEthernet0/0/7",
+        "admin": "auto",
+        "oper": "off",
+        "power_watts": 0.0,
+        "device": "n/a",
+        "class": "n/a",
+        "max_watts": 90.0
+      }
+    ],
+    "port4_detail": "Device Detected: no; source/device/actual consumption zero; absent/overcurrent/short/invalid-signature/power-denied counters all zero; negotiation None. This is not evidence of a successful powered-device test.",
+    "modules": "0, 0/0, R0, F0, P0 all ok; CPLD 24073021, development SDK112312-SoC1-SB-v12.1.22",
+    "environment": "Main telemetry populated: inlet/outlet/CPU 28/28/52 C, main 12 V 12000 mV and system power 17 W. Standby 12V_DG_ST remains firmware-reported 0 mV/Critical_Low. No physical rail measurements.",
+    "logging_filter": "ILPOWER|POE|PoE|poe|POWER|Power returns only an unrelated license/PowerOn line; no matching PoE initialization error captured. Log completeness not established.",
+    "clock": "Router timestamps are May 29, 2025 and incorrect for this session. Mac capture dates in EST govern evidence."
+  },
+  "inference": "IOS does not detect internal PoE hardware or usable PoE budget. Missing daughter card is a leading possibility; physical absence is not verified. Prototype/controller detection and supply-path faults remain alternatives. A green actual PoE LED would be a material discrepancy, not grounds to ignore the diagnostic.",
+  "sources": [
+    {
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/hardware-installation-guide/secure-8200-series-hig/overview.html",
+      "accessed": "2026-11-06",
+      "section": "Power specifications for C8235-G2 and LED Indicators",
+      "finding": "Cisco says the internal PoE daughter card comes with initial PoE ordering and is not field-upgradeable. Total PoE budget up to 120 W. PoE indicator is below S and shown as lightning bolt; green indicates PoE supply connected."
+    },
+    {
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/hardware-installation-guide/secure-8200-series-hig/preinstall.html",
+      "accessed": "2026-11-06",
+      "section": "Table 2: Power Requirements for C8235-G2",
+      "finding": "Standard adapter PWR-CC2-66WAC; optional PWR-CC1-230WAC has +12 V system and -54 V PoE outputs."
+    }
+  ],
+  "historical_photo_review": "PHOTOS2/IMG_1293.jpeg reviewed, bound to A by c8235-a-photos2-20261101/photo-inspection.json. No current daughter-card presence determination or connector-function assignment made from this historical photo.",
+  "changes": "Console-session pagination temporarily set to 0 then to 24. No persistent configuration/save, reboot, firmware/security change, cable move, or powered-device test.",
+  "next_steps": [
+    "Read actual power-brick part number and output label.",
+    "Confirm whether second green lamp is the lightning-bolt PoE indicator.",
+    "If compatible adapter is verified, establish internal daughter-card presence and detection before changing port configuration; any new internal inspection requires shutdown/isolation first."
+  ],
+  "evidence": {
+    "raw_local": "router-console-logs/20261106-170039-C8235-A-PoE-USB-readonly.log",
+    "raw_bytes": 28223,
+    "raw_sha256": "f066cfc4dd32367824020216a303b78bc2b45e1a4b150228e980fd46070b98c6",
+    "public_sanitized": "sanitized-evidence/router-console-logs/20261106-170039-C8235-A-PoE-USB-readonly.log",
+    "helper": "tmp/c8235_poe_console.py (local, ignored, one-off Python standard-library console helper plus existing repository sanitizer; executed only for this diagnostic session)"
+  }
+}
