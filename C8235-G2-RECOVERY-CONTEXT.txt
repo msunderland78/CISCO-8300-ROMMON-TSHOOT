@@ -16,9 +16,15 @@ C8235-06: owner has only 1/2 W resistors, 6 to 8 each of 100/120/150/220/330/
 Selected first stage: six 100 ohm parts as two parallel branches, each with
 three in series; equivalent 150 ohms. At 12.3 V: total 82 mA/1.01 W and each
 resistor about 0.168 W. This bank is ONLY for B-E/12 V, never the PoE pair.
-Owner asked to build it completely unpowered, measure about 150 ohms across
-its ends, and describe a secure insulated mating connection. Reading and
-connection details pending; no energized hookup instructed or test performed.
+Owner now reports building the described breadboard and measuring 149.8 ohms
+end-to-end, consistent with the nominal 150 ohm bank. Lead baseline and an
+assembly photo were not supplied; this is an owner-reported resistance check,
+not independent verification of every connection. Owner subsequently reports
+no mating connector: two stripped wires fit the plug sockets by friction.
+Existing IMG_1319 shows only the bare plug, not this wiring. Insulation, wire
+construction, retention and refreshed AC/DC isolation remain unverified.
+Keep the bank unpowered; next evidence is an unpowered close-up of the actual
+connector/wires and breadboard. No powered load test has been reported.
 Later PoE candidate: six 4.7 kohm parts, three parallel branches of two in
 series; about 3.13 kohm, 17.1 mA/0.91 W total and 0.152 W each at 53.5 V.
 Reserve these parts; no PoE-stage hookup yet. These are preliminary light

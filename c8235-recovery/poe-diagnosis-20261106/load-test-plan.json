@@ -1,11 +1,11 @@
 {
   "task_id": "C8235-06",
   "recorded_at": "2026-11-06T18:20:31.622649-05:00",
-  "status": "Resistor-bank adaptation selected; unpowered assembly/resistance and connection-method checks pending. No load connected to the brick and no powered test performed.",
+  "status": "Owner reports the assembled bank measures 149.8 ohms. Owner has no mating connector and proposes two stripped wires that fit the sockets by friction. Actual insulation, contact retention and present AC/DC isolation are unverified; no powered load-test result.",
   "request": "Owner asks how to perform a loaded test or known-good comparison after A-D zero volts and supply-label identification.",
   "target": "Detached Flextronics FA230LM1-00 / 341-0703-01 external brick, not router PCB. Pin correspondence from supply-label.json.",
-  "known_equipment": "Fluke 111, Jesverty source supply and owner-confirmed 1/2 W resistor assortment (6 to 8 each listed value). Historical probe tips/hooks/breadboard. Proper insulated mating power connection remains unconfirmed.",
-  "question_pending": "Measured resistance across the fully unpowered six-100-ohm bank (about 150 ohms expected), and proposed secure connection method to B/E. Keep brick unplugged; powered hookup instructions await these technical prerequisites.",
+  "known_equipment": "Fluke 111, Jesverty source supply, owner-confirmed 1/2 W resistor assortment and assembled 149.8-ohm breadboard. Owner reports two stripped wires and no mating connector. Historical probe tips/hooks are not established as suitable for this connector.",
+  "question_pending": "Current AC-unplugged/router-disconnected state and an unpowered close-up of the actual proposed wire-to-plug connection and breadboard. Solid/stranded construction, exposed metal and retention remain unknown.",
   "qualification_before_connection": [
     "Verify actual resistor values, 1/2 W ratings, network resistance and secure separated mounting. Current design calculations keep each part below about 0.17 W at the stated voltages; ordinary single resistors are not substituted for the earlier 10 W loads.",
     "Identify a properly mating six-position connector/breakout with secure insulated terminations; do not assume a computer PSU cable has the same pinout. Verify each conductor assignment unpowered before use.",
@@ -26,7 +26,7 @@
       "use": "Use COM/V for voltage; current-input measurements across an output would short the circuit."
     }
   ],
-  "updated_at": "2026-11-06T18:34:16.350526-05:00",
+  "updated_at": "2026-11-06T18:58:29.298418-05:00",
   "owner_inventory": {
     "rating_watts_each": 0.5,
     "values_ohms": [
@@ -95,7 +95,7 @@
       "total_current_amps": 0.082,
       "total_heat_watts": 1.0086000000000002,
       "each_heat_watts": 0.16810000000000003,
-      "status": "Unpowered assembly requested; equivalent resistance and connection method pending."
+      "status": "Owner-reported 149.8 ohms matches nominal resistance. Bare-wire friction-fit connection proposed; insulation/retention and current brick isolation unverified. No powered test."
     },
     {
       "rail": "PoE",
@@ -117,8 +117,33 @@
     }
   ],
   "current_step": [
-    "Build two separate chains of three 100 ohm resistors, then join corresponding ends to put the chains in parallel. Keep all parts disconnected from brick/router/bench supply.",
-    "Use Fluke ohms mode with COM/V leads; record lead baseline and actual resistance between bank ends. Expected approximately 150 ohms; no result received.",
-    "Identify secure insulated connection method for the B/E contacts. No energized hookup yet. Keep resistor bodies separated; intended 12 V bank must never be placed across the PoE pair."
-  ]
+    "Keep the completed 149.8-ohm bank unpowered and the brick disconnected from AC and router.",
+    "Inspect an unpowered close-up of the actual stripped-wire connection and breadboard; determine wire construction, insulation and retention. Existing connector photograph does not show this assembly.",
+    "Establish a secure insulated connection before giving the powered B-E/12 V load-test steps. Do not use the 150-ohm bank on A-D/PoE."
+  ],
+  "bank_measurements": [
+    {
+      "recorded_at": "2026-11-06T18:56:34.236438-05:00",
+      "source": "Owner report: built the described breadboard; 149.8 ohms input to output.",
+      "bank": "12 V, six 100 ohm 1/2 W parts, two parallel branches of three in series as requested.",
+      "reported_end_to_end_ohms": 149.8,
+      "instrument": "Fluke 111 established earlier; reply to unpowered resistance-check request.",
+      "lead_baseline_ohms": null,
+      "interpretation": "Equivalent-resistance sanity check matches 150 ohms within about 0.13%. This is not independent verification of every component or breadboard connection.",
+      "state_limit": "No assembly photo or lead baseline supplied; current AC/DC isolation and mating connection question pending.",
+      "calculated_at_12_3_volts": {
+        "amps": 0.08210947930574099,
+        "total_watts": 1.0099465954606142
+      },
+      "powered_test_performed": false
+    }
+  ],
+  "connection_report": {
+    "recorded_at": "2026-11-06T18:58:29.298418-05:00",
+    "source": "Owner says: I stripped two wires that stick in pretty good; I do not have any type of mating connector.",
+    "observed_photo": "Existing IMG_1319 shows the six recessed socket contacts without these new wires. No photograph of the proposed wiring has been supplied.",
+    "assessment": "Friction fit alone does not establish a retained, insulated test connection. Loose wires could withdraw, expose metal or bridge neighboring contacts; do not energize this unverified arrangement.",
+    "next_evidence": "With AC unplugged and DC disconnected from router, obtain a close-up of the actual connector/wires and breadboard before selecting a suitable connection method.",
+    "powered_load_test_reported": false
+  }
 }
