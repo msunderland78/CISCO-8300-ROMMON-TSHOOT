@@ -10,7 +10,30 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A PoE DIAGNOSTIC / CURRENT HANDOFF — 2026-11-06,17:00–17:03 EST
+C8235-A PoE IDENTITY CORRECTION / CURRENT WORK — 2026-11-06,17:17 EST
+C8235-06: owner says there is NO lightning-bolt icon beside S on this chassis;
+actual icons are S, network-like and downward-arrow/circle. Earlier use of the
+production diagram to identify the actual lamp is withdrawn. Do not treat the
+two green lights as verified PoE power. Owner reports no daughter card and
+rejects66W identification: brick rated12V/9A plus53.5/2.3A (second voltage unit
+inferred from wording), approximately231W combined nameplate, not measured.
+Exact PID/polarity and integrated controller capability remain unresolved.
+Offline26.2.1 tracing establishes Arata pd_type0x11ec. Its PSU identity is
+selected from built-in EEPROM templates using FPGA PoE-status bytes: bytes0/1
+both zero choose arata_66w/PWR-CC2-66WAC; either nonzero chooses the230W template
+PWR-CC1-230WAC. Internal PoE detection separately uses status byte4 plus1/3.
+Thus the66W label is not proof of the physical adapter. Forcing a template is
+not a validated PoE repair; no override/firmware fix has been established.
+Supplementary exclusive USB session17:15 initially responds, then returns no
+text after hardware-slot help; subsequent help/CR also silent. Pagination24
+sent but unacknowledged; closed and aliases free17:16:50. No BREAK or reboot;
+do not infer CPU failure. Raw status flags were not acquired.
+Owner has never tried a powered device. Current test: known-working standard
+PoE phone/AP, direct known-good cable to physical port6, no device adapter or
+injector. RESULT PENDING; no successful PoE claim. Exact analysis/provenance:
+c8235-recovery/poe-diagnosis-20261106/detection-analysis.json.
+
+C8235-A PoE DIAGNOSTIC / EARLIER CHECKPOINT — 2026-11-06,17:00–17:03 EST
 C8235-06: owner confirms router #1 / FGL2835L42B, assembled/battery installed,
 programmer wires removed, powered and booted; native USB console, no competing
 terminal. Fresh exclusive /dev/cu.usbmodem84301 at115200/8N1/no flow confirms
@@ -25,8 +48,9 @@ This establishes missing software detection/budget, not physical card absence.
 Cisco documents an internal PoE daughter card supplied with initial PoE orders,
 not field-upgradeable; compatible optional PSU is PWR-CC1-230WAC. Missing card
 is a leading possibility, with prototype detection/supply-path faults unresolved.
-Owner reports S and a second "network"-looking light green; actual PoE icon is
-a lightning bolt beneath S. A verified green PoE lamp would conflict with IOS;
+Owner reports S and a second "network"-looking light green; production drawing
+shows a lightning bolt beneath S (later owner correction above supersedes its
+application to this prototype). A verified green PoE lamp would conflict with IOS;
 do not discard that report or conclude the adapter is physically the66W model.
 Main telemetry now populated:28/28/52C,12V=12000mV,17W. This supersedes the
 mostly-zero November4 reading for current state while preserving that earlier

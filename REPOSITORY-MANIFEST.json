@@ -1669,6 +1669,16 @@
       "bytes": 28223,
       "path": "router-console-logs/20261106-170039-C8235-A-PoE-USB-readonly.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 850,
+      "path": "router-console-logs/20261106-171536-C8235-A-PoE-USB-readonly.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 45,
+      "path": "router-console-logs/20261106-171757-C8235-A-PoE-USB-readonly.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1703,9 +1713,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 231638,
+      "bytes": 233392,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "06a6aed6c90664e02c6155b0f09b2b65b88d481c8ecc1bca9d2e604727a6e69c"
+      "sha256": "06a12df87676d123da8352e42f1567398c125726e197422967e0ef641157d49c"
     },
     {
       "bytes": 106687,
@@ -2203,9 +2213,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 492017,
+      "bytes": 494412,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "fa95901601ceb5b33b01de68dcbb81fcf54438c8da0a665102d1e3a73bf7b53f"
+      "sha256": "9f5d3983a786cfd9f93e0e4401ee672ab39aaf8cdaa2620fd69ca4b4ef76310e"
     },
     {
       "bytes": 6850655,
@@ -2553,9 +2563,14 @@
       "sha256": "ec6f9f0837e369d77f79a067cf4aebd46d84a21d2d5979c1f1fc08f4f575c74e"
     },
     {
-      "bytes": 7752,
+      "bytes": 8234,
+      "path": "c8235-recovery/poe-diagnosis-20261106/detection-analysis.json",
+      "sha256": "3a1d983af91bfbae05c3779ce7050714f428aba31b41a736585255ca560533ce"
+    },
+    {
+      "bytes": 8009,
       "path": "c8235-recovery/poe-diagnosis-20261106/results.json",
-      "sha256": "3ad69ce6e579ba2029e5ba9053d936d7d81a37e6f971f85374d31a2ace9496f4"
+      "sha256": "cd0471e79bb7121b3b2ee9ac31c9d9e7309d38fd35f10b29ab1cd61190b386de"
     },
     {
       "bytes": 5286,
@@ -5013,6 +5028,16 @@
       "sha256": "f066cfc4dd32367824020216a303b78bc2b45e1a4b150228e980fd46070b98c6"
     },
     {
+      "bytes": 850,
+      "path": "sanitized-evidence/router-console-logs/20261106-171536-C8235-A-PoE-USB-readonly.log",
+      "sha256": "ad26c62f960e5a4027d8059e3c7339c02a17ddc2decb99dad37c3e83874ee730"
+    },
+    {
+      "bytes": 45,
+      "path": "sanitized-evidence/router-console-logs/20261106-171757-C8235-A-PoE-USB-readonly.log",
+      "sha256": "63827ac467835d8d01bebbce5caaed72d4a403442c16b74ac47d00bb1142c320"
+    },
+    {
       "bytes": 17692,
       "path": "scripts/c8235_a_development_candidate.py",
       "sha256": "22c28ebf03cdf60e6453a69f74356449bed0b38c07d501af61ad70480b629a8b"
@@ -5453,12 +5478,14 @@
     "sanitized-evidence/router-console-logs/20261104-100424-C8235-A-install-and-cleanup.log",
     "sanitized-evidence/router-console-logs/20261104-101500-C8235-A-install-warm-zero-TX.log",
     "sanitized-evidence/router-console-logs/20261104-1030-C8235-A-USB-free-cold-zero-TX.log",
-    "sanitized-evidence/router-console-logs/20261106-170039-C8235-A-PoE-USB-readonly.log"
+    "sanitized-evidence/router-console-logs/20261106-170039-C8235-A-PoE-USB-readonly.log",
+    "sanitized-evidence/router-console-logs/20261106-171536-C8235-A-PoE-USB-readonly.log",
+    "sanitized-evidence/router-console-logs/20261106-171757-C8235-A-PoE-USB-readonly.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 334,
-    "included_bytes_without_manifest": 1081593754,
-    "included_files_without_manifest": 707
+    "excluded_local_files": 336,
+    "included_bytes_without_manifest": 1081607289,
+    "included_files_without_manifest": 710
   }
 }

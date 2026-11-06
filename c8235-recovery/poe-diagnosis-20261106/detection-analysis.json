@@ -1,0 +1,108 @@
+{
+  "task_id": "C8235-06",
+  "recorded_at": "2026-11-06T17:17:58.454334-05:00",
+  "timezone": "America/New_York",
+  "owner_correction": {
+    "leds": "Owner explicitly says this chassis has S, network-like and downward-arrow/circle icons, no lightning bolt near S. Earlier application of production diagram to actual chassis is withdrawn. Two green lights do not establish PoE supply status.",
+    "daughter_card": "Owner reports no daughter card. Whether this prototype integrates PoE controller circuitry elsewhere remains unresolved; no new internal inspection performed.",
+    "psu": "Owner rejects 66 W identification and reports 9 A at 12 V plus 2.3 A at 53.5 (typed amp; interpreted as V). Approximately 231.05 W combined nameplate arithmetic, not measured output or a usable PoE budget. Exact PID/polarity not yet supplied.",
+    "prior_poe_use": "Owner has not tried powering a device; directed to standard PoE phone/AP on physical port6, direct cable, no external device adapter or injector. Result pending."
+  },
+  "finding": "IOS builds the PSU identity from a selected bundled EEPROM template. Arata chooses the 66 W template when two PoE supply status bytes are zero, otherwise a 230 W template. Internal PoE detection uses an additional status byte. This explains a credible route to the incorrect displayed rating; it does not establish why the live flags are absent or prove a repair.",
+  "source_package": {
+    "path": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+    "bytes": 962338816,
+    "squashfs_offset": 4096,
+    "sha256": "0c5d0d190bb173062afa9e499df4a7507c84fd8d6cad1bea8ec52e177fd0919d"
+  },
+  "extraction": [
+    {
+      "source": "usr/binos/lib64/libcpa_core_sb_mirabile_common.so",
+      "bytes": 411728,
+      "sha256": "03263fe468511da7234a9ef5a454ff1be3843059ae7577e770f2835eab1a42d6"
+    },
+    {
+      "source": "usr/binos/lib64/libcpa_core_sb_psu_mirabile.so",
+      "bytes": 69256,
+      "sha256": "dc0402cd42dffdfb60f19dd1d10c7442b0489a8dcf870329228f2dcc1dfeac13"
+    },
+    {
+      "source": "usr/binos/lib64/libcpa.so",
+      "bytes": 4230944,
+      "sha256": "a3d810015cb26803d66f770a7fe5fdb990cd78ce1d78942b0b8573db177bc821"
+    },
+    {
+      "source": "usr/binos/lib64/libpoe.so",
+      "bytes": 475088,
+      "sha256": "f3f8b897d62f5319ff7d72e969438ceb8bd62bd1bce1b7152c769a74b54a1bfb"
+    },
+    {
+      "source": "usr/binos/lib64/libngio_poe.so",
+      "bytes": 139872,
+      "sha256": "6d15ee1f2fa27ac40cf7cb7bde091ef0f6ce2b85fdf22ac951f9365003e75fe2"
+    },
+    {
+      "source": "usr/binos/lib64/libdash_fpga_api.so",
+      "bytes": 138528,
+      "sha256": "ea570d093bdcbfb34edc534e1e4615e0ad7d32b01e78d0554b02952d65bcf791"
+    },
+    {
+      "source": "etc/opt/cisco/cpa/esg_eeprom/arata_66w_psu_eeprom",
+      "bytes": 1669,
+      "sha256": "14c33ac57fcf712298175b11d15160231386c0fed748d81fcbe5ec6a39d531df"
+    },
+    {
+      "source": "etc/opt/cisco/cpa/esg_eeprom/wilson_230w_psu_eeprom",
+      "bytes": 1669,
+      "sha256": "94372f163e0d1b053ae7be9996035c89678b199b2118e319dc33b4371125ceaa"
+    },
+    {
+      "source": "usr/lib/modules/6.6.95/extra/dash_fpga/core/dash_fpga.ko",
+      "bytes": 345311,
+      "sha256": "601389e9f2b32ec92a6463c41c41b2d710b17a01cf6b4d088783eedf0f945911"
+    },
+    {
+      "source": "usr/lib/modules/6.6.95/extra/dash_fpga/core/iocomp/dash_fpga_iocomp.ko",
+      "bytes": 416615,
+      "sha256": "58e3d7455d6af65acff6bf7dc863056b48e20efd1ee6c49d8ed658f094a89ca7"
+    }
+  ],
+  "static_trace": [
+    "libcpa_sb_rp_base_data_arata.so: cpa_sb_rp_base_arata_platform_init sets pd_type0x11ec at virtual0xb90/0xbac (object+0x5c0).",
+    "libcpa_core_sb_mirabile_common.so: cpa_sb_get_fru_info_from_hw calls dash_fpga_get_poe_psu_status at0x20f7c, six-byte response at stack+0x10. Dispatch at0x21028 uses halfword table0x4fc7c and base0x21054; pd_type0x11ec resolves to0x2150c.",
+    "At0x2150c\u20130x21518, OR of response bytes0 and1 selects path0x47fb8 (arata_66w_psu_eeprom) if zero, or0x47f4e (wilson_230w_psu_eeprom) otherwise. Selected file becomes a software SPROM symlink at0x215cc. File identities verified as PWR-CC2-66WAC/V02 and PWR-CC1-230WAC respectively. Wilson filename does not establish another chassis or hardware compatibility.",
+    "libdash_fpga_api.so: dash_fpga_get_poe_psu_status issues ioctl0x80066651 (six returned bytes).",
+    "dash_fpga.ko ioctl dispatch0x15d00\u20130x15d0c leads to0x15f54. Reads FPGA region+0x32120 and returns register bits0,2,4,6,8,9 as bytes0\u20135. iocomp variant independently uses same offset and extraction through iocomp_reg_read at0x1c9e4. Neither variant was executed locally.",
+    "libcpa_core_sb_mirabile_common.so: cpa_sb_poe_db_status_get reads the same six-byte status. For non-Charon, non0x1187 path, response byte4 must be nonzero and at least one of bytes1/3 nonzero for returned state0; otherwise state2. Thus a profile-name substitution does not satisfy independent controller detection.",
+    "The sysfs show_poe_status callback reads the same status register; it provides a possible future read-only observation route. No live sysfs path or active driver variant has been established in this follow-up."
+  ],
+  "validation": "Exact template strings and Arata table target independently checked with Python struct against ELF bytes; objdump symbols/disassembly inspected. No vendor executable loaded/executed, source binary patched, firmware flashed, EEPROM modified, or status flag forced.",
+  "limits": "Static code path is established in this local26.2.1 package. Actual current status register, loaded driver variant, electrical supply detection and physical controller capability remain unverified. No supported CLI override or applicable firmware fix established. No conclusion that simply changing the displayed wattage enables PoE.",
+  "followup_console": {
+    "raw_local": "router-console-logs/20261106-171536-C8235-A-PoE-USB-readonly.log",
+    "public_sanitized": "sanitized-evidence/router-console-logs/20261106-171536-C8235-A-PoE-USB-readonly.log",
+    "result": "Exclusive USB1152008N1 session initially returned prompt, pagination0 and chasfs help. No RX text after show platform hardware slot R0 ?; following cman/chasfs help and CR also received no text. Pagination24 transmitted but unacknowledged. Capture closed; both aliases verified free17:16:50. No BREAK/reboot or persistent configuration change. Silence is not proof of router failure.",
+    "bytes": 850,
+    "sha256": "ad26c62f960e5a4027d8059e3c7339c02a17ddc2decb99dad37c3e83874ee730"
+  },
+  "next": "Known powered-device trial on port6. If it powers, investigate reporting/management separately. If it does not, establish controller presence and voltage detection; no profile spoof or speculative firmware/EEPROM write.",
+  "reopen_check": {
+    "raw_local": "router-console-logs/20261106-171757-C8235-A-PoE-USB-readonly.log",
+    "public_sanitized": "sanitized-evidence/router-console-logs/20261106-171757-C8235-A-PoE-USB-readonly.log",
+    "bytes": 45,
+    "sha256": "63827ac467835d8d01bebbce5caaed72d4a403442c16b74ac47d00bb1142c320",
+    "result": "One exclusive reopen at1152008N1, passive receive then one CR/five-second read, no RX bytes. Closed without further commands. No reboot/BREAK."
+  },
+  "method": {
+    "author": "AI-assisted original analysis of extracted Cisco vendor objects; vendor code not authored by the agent.",
+    "tools": "Existing unsquashfs, Apple LLVM objdump, Python3 standard-library pathlib/hashlib/json/struct.",
+    "extraction_command": "unsquashfs -cat -o 4096 c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg <source path from extraction inventory>",
+    "disassembly_command": "objdump -dr --disassemble-symbols=<function> <extracted object>",
+    "local_work": "tmp/c8235-poe-analysis-20261106 (ignored); exact copies, extraction hashes and disassembly retained locally.",
+    "runtime_limit": "No new hash of running libraries/driver or live FPGA register obtained."
+  },
+  "platform_reference": {
+    "path": "c8kg2be-26.02.01-extracted/platform-evidence/usr/binos/lib64/libcpa_sb_rp_base_data_arata.so",
+    "sha256": "80dcd5c94329161573657e0bbf2ac899e398387b7d93dd7187c83df7c1b7e462"
+  }
+}

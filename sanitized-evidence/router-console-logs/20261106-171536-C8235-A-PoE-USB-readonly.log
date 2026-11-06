@@ -1,0 +1,28 @@
+
+[TX 2026-11-06T17:15:41.997840-05:00] b'\r'
+
+R1-C8235G2#
+[TX 2026-11-06T17:15:45.003729-05:00] b'terminal length 0\r'
+terminal length 0
+R1-C8235G2#
+[TX 2026-11-06T17:15:48.009610-05:00] b'show platform software chasfs ?\r'
+show platform software chasfs ?
+  0   SM-Inter-Processor slot 0
+  F0  Embedded-Service-Processor slot 0
+  FP  Embedded-Service-Processor
+  R0  Route-Processor slot 0
+  RP  Route-Processor
+
+R1-C8235G2#show platform software chasfs 
+% Incomplete command.
+
+R1-C8235G2#
+[TX 2026-11-06T17:15:51.015649-05:00] b'show platform hardware slot R0 ?\r'
+
+[TX 2026-11-06T17:15:54.021578-05:00] b'show platform software cman statistics ?\r'
+
+[TX 2026-11-06T17:15:57.022911-05:00] b'show platform software chasfs R0 ?\r'
+
+[TX 2026-11-06T17:16:11.828702-05:00] b'\r'
+
+[TX 2026-11-06T17:16:35.967148-05:00] b'terminal length 24\r'
