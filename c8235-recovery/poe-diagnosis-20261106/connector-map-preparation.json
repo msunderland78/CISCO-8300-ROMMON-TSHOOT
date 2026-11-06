@@ -1,0 +1,72 @@
+{
+  "task_id": "C8235-06",
+  "recorded_at": "2026-11-06T17:41:46.353634-05:00",
+  "scope": "External power brick associated by owner with current C8235-A PoE troubleshooting; no router-board measurement or console access.",
+  "owner_state": "Owner reports brick unplugged and router off. Meter confirmed as the same Fluke 111 used earlier. Detached DC cable plug is the measurement target. Router battery and other cable states were not reconfirmed because no board probing is requested.",
+  "photos": [
+    {
+      "path": "PHOTOS3/IMG_1319.jpeg",
+      "bytes": 7530636,
+      "sha256": "9632634ac3d551690c6dc6dc30481f5627b2e9e8bbca920a80eb4a1cada645f1"
+    },
+    {
+      "path": "PHOTOS3/IMG_1320.jpeg",
+      "bytes": 7809319,
+      "sha256": "e9f172562e47e52e03c23a285bfc8cf4d806ef9911478f4aaac5aac8a3661ff8"
+    }
+  ],
+  "observed": "Both photos show a six-position connector with six visible metal socket contacts. IMG_1319 has the white latch at the top in the mating-face view. IMG_1320 shows the connector rotated, with its latch on the right. No electrical net or manufacturer pin number is established from shape.",
+  "temporary_labels": {
+    "view": "Looking into the cable plug contacts as IMG_1319.jpeg, latch at top; not wire-entry view and not router socket view.",
+    "top_row_left_to_right": [
+      "A",
+      "B",
+      "C"
+    ],
+    "bottom_row_left_to_right": [
+      "D",
+      "E",
+      "F"
+    ],
+    "meaning": "Arbitrary measurement labels only. A is not assumed ground/common. No net assignment established."
+  },
+  "planned_measurements": {
+    "meter": "Fluke 111, DC V, Auto Range, HOLD off; black lead COM, red lead V/ohm, current socket unused.",
+    "conditions": "Check single-contact probe access gently while AC unplugged. Keep DC plug disconnected from router; secure on dry nonconductive surface. If access cannot be isolated, stop and use appropriate insulated test accessories. Brick stays sealed; no mains-side probing.",
+    "powered_stage": "Energize brick from AC only after access is suitable; keep fingers behind probe guards. Record five signed DC readings with black on A and red on B, C, D, E, F. Unplug AC after readings. Voltage mode throughout; no shorting, resistance, current or continuity tests.",
+    "pairs": [
+      {
+        "black": "A",
+        "red": "B",
+        "volts": null
+      },
+      {
+        "black": "A",
+        "red": "C",
+        "volts": null
+      },
+      {
+        "black": "A",
+        "red": "D",
+        "volts": null
+      },
+      {
+        "black": "A",
+        "red": "E",
+        "volts": null
+      },
+      {
+        "black": "A",
+        "red": "F",
+        "volts": null
+      }
+    ],
+    "status": "Requested; no measurements received yet."
+  },
+  "limitations": "Unloaded output mapping does not prove current capacity, rail behavior under load, supply-detection signal function, common/earth relationship, or compatibility with the prototype. No supply PID or label photo supplied by these two images.",
+  "reference": {
+    "url": "https://www.fluke.com/en-gb/learn/blog/digital-multimeters/how-to-measure-dc-voltage-with-a-digital-multimeter",
+    "accessed": "2026-11-06",
+    "use": "DC voltage mode, COM/V input terminals, automatic polarity and the short-circuit hazard of current-input use."
+  }
+}

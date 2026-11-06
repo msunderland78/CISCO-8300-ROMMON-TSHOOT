@@ -10,7 +10,23 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A PoE FUNCTIONAL CHECK / CURRENT HANDOFF — 2026-11-06,17:26 EST
+C8235-A EXTERNAL PSU CONNECTOR MAPPING / CURRENT HANDOFF — 2026-11-06, EST
+C8235-06: owner reports brick unplugged and router OFF, superseding the powered
+state below. Same Fluke 111 confirmed. New originals PHOTOS3/IMG_1319.jpeg and
+IMG_1320.jpeg show the detached cable plug with six populated socket contacts.
+Use IMG_1319 mating-face view, white latch at top: temporary labels A B C on
+top row, D E F below. These are NOT manufacturer pin numbers or net assignments;
+A is only a measurement reference, not verified ground. No board probing or
+console access. External brick voltage-only mapping requested with DC plug
+disconnected from router, COM/V leads, DC V Auto Range, HOLD off, and isolated
+single-contact probe access checked before AC power. Five signed readings:
+black A, red B/C/D/E/F. Unplug AC after readings. No values received yet; do not
+claim the 12 V or PoE output verified. Unloaded voltage does not prove load
+capacity, detection-signal function or prototype compatibility. Full original
+hashes, setup, pending pairs and limits:
+c8235-recovery/poe-diagnosis-20261106/connector-map-preparation.json.
+
+C8235-A PoE FUNCTIONAL CHECK / EARLIER CHECKPOINT — 2026-11-06,17:26 EST
 C8235-06: owner connects9130AP to physical6: no light, then physical4: no light.
 Owner confirms same AP/cable work elsewhere. Fresh config corrects test6: it is
 routed/no-IP/shutdown, so that trial is confounded. Port4 is switchport with no
