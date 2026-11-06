@@ -10,7 +10,24 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A EXTERNAL PSU CONNECTOR MAPPING / CURRENT HANDOFF — 2026-11-06, EST
+C8235-A EXTERNAL PSU READINGS / CURRENT HANDOFF — 2026-11-06,18:01 EST
+C8235-06: owner reports A/D absent on the separate non-PoE supplies for B and C.
+On the PoE brick, E/F to B/C gives 12.3 V; black E or F to red A or D starts
+about 0.4 VDC and falls toward zero. Owner confirms voltage tests with AC on
+and DC plug disconnected from A. E-F resistance is 0.5 ohm with AC unplugged;
+lead/contact baseline and residual-voltage check were not supplied. These are
+owner readings, not an independent meter capture. No protective-earth bond
+established. Values support B/C as the 12 V-side positive contacts and E/F as
+its return, with polarity of the 12.3 V readings inferred from the description.
+A/D may form a separate floating output. Their small readings versus E/F do
+NOT establish a missing PoE rail or a failed brick. Next requested: DC Auto
+Range, black D/red A on AC-powered brick with DC plug detached; signed steady
+reading, then black E/red B recheck and AC unplug. Direct A-D result pending.
+No router access, board probing, jumper or further resistance test selected.
+Keep the three physical supplies separate. Full readings, state and limits:
+c8235-recovery/poe-diagnosis-20261106/connector-measurements.json.
+
+C8235-A EXTERNAL PSU CONNECTOR MAPPING / EARLIER CHECKPOINT — 2026-11-06, EST
 C8235-06: owner reports brick unplugged and router OFF, superseding the powered
 state below. Same Fluke 111 confirmed. New originals PHOTOS3/IMG_1319.jpeg and
 IMG_1320.jpeg show the detached cable plug with six populated socket contacts.

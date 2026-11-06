@@ -1,0 +1,66 @@
+{
+  "task_id": "C8235-06",
+  "recorded_at": "2026-11-06T18:01:19.234593-05:00",
+  "source": "Owner-reported external power-brick measurements; no agent hardware access or independent instrument capture.",
+  "label_reference": "connector-map-preparation.json: cable mating face as PHOTOS3/IMG_1319.jpeg, latch at top, A/B/C above D/E/F; arbitrary labels, not factory pin numbers.",
+  "supplies": {
+    "poe_brick_for_A": {
+      "identity": "Current dual-output brick used in C8235-A troubleshooting; exact PID/serial still unknown.",
+      "voltage_test_state": "Owner explicitly confirms AC connected and DC plug disconnected from router A.",
+      "meter": "Same Fluke 111; DC voltage reported. Auto Range and COM/V lead sockets requested; no current meter photo.",
+      "observations": [
+        {
+          "mode": "DC voltage",
+          "contacts": "E to B, E to C, F to B, F to C",
+          "reported_volts": 12.3,
+          "polarity_note": "Owner calls E/F ground; no minus sign reported. Precise probe orientation for these four readings not separately restated."
+        },
+        {
+          "mode": "DC voltage",
+          "black": [
+            "E",
+            "F"
+          ],
+          "red": [
+            "A",
+            "D"
+          ],
+          "reported_behavior": "About 0.4 VDC initially, decreasing toward zero.",
+          "limit": "No direct A-to-D result yet; these cross-output readings do not establish a missing isolated PoE rail."
+        },
+        {
+          "mode": "resistance",
+          "contacts": [
+            "E",
+            "F"
+          ],
+          "reported_ohms": 0.5,
+          "state": "Owner explicitly confirms AC unplugged for this reading.",
+          "limits": "Lead/contact baseline, residual-voltage verification and settled resistance behavior not supplied. Do not interpret 0.5 ohm as exact internal wire resistance or earth bonding."
+        }
+      ]
+    },
+    "standard_brick_for_B": {
+      "identity": "Owner-associated non-PoE supply for router B; PID/serial not supplied.",
+      "observation": "A and D contacts absent according to owner.",
+      "scope": "Contact-population comparison only; do not transfer PoE-brick voltage readings to this supply."
+    },
+    "standard_brick_for_C": {
+      "identity": "Owner-associated non-PoE supply for router C; PID/serial not supplied.",
+      "observation": "A and D contacts absent according to owner.",
+      "scope": "Contact-population comparison only; do not transfer PoE-brick voltage readings to this supply."
+    }
+  },
+  "interpretation": "Reported values support B/C as the 12 V-side positive contacts and E/F as its return group, not necessarily protective earth. A/D are additional contacts on the PoE brick. A separate floating A-D output remains possible; fading A/D-to-E/F readings alone do not diagnose failed PoE output, establish an enable pin, or prove compatibility.",
+  "next_measurement": {
+    "status": "Requested; pending.",
+    "mode": "Fluke 111 DC volts/Auto Range; black COM, red V/ohm.",
+    "state": "PoE brick AC connected, DC plug detached from router; same isolated single-contact probe access.",
+    "black": "D",
+    "red": "A",
+    "signed_volts": null,
+    "followup": "Recheck black E/red B for the 12.3 V output, then unplug AC.",
+    "limits": "No jumper, load, current or further resistance test selected. Direct A-D voltage does not by itself prove load capacity or router compatibility."
+  },
+  "changes": "Documentation only; no router configuration, firmware, register or board changes."
+}
