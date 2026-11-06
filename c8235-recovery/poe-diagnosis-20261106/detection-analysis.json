@@ -1,12 +1,12 @@
 {
   "task_id": "C8235-06",
-  "recorded_at": "2026-11-06T17:17:58.454334-05:00",
+  "recorded_at": "2026-11-06T17:26:13.206950-05:00",
   "timezone": "America/New_York",
   "owner_correction": {
     "leds": "Owner explicitly says this chassis has S, network-like and downward-arrow/circle icons, no lightning bolt near S. Earlier application of production diagram to actual chassis is withdrawn. Two green lights do not establish PoE supply status.",
     "daughter_card": "Owner reports no daughter card. Whether this prototype integrates PoE controller circuitry elsewhere remains unresolved; no new internal inspection performed.",
     "psu": "Owner rejects 66 W identification and reports 9 A at 12 V plus 2.3 A at 53.5 (typed amp; interpreted as V). Approximately 231.05 W combined nameplate arithmetic, not measured output or a usable PoE budget. Exact PID/polarity not yet supplied.",
-    "prior_poe_use": "Owner has not tried powering a device; directed to standard PoE phone/AP on physical port6, direct cable, no external device adapter or injector. Result pending."
+    "prior_poe_use": "Owner had never tried powering a device before this session. A Cisco 9130 AP stayed dark on physical ports 6 and 4; the same AP/cable work elsewhere. Later configuration inspection showed port 6 shutdown, while port 4 is enabled."
   },
   "finding": "IOS builds the PSU identity from a selected bundled EEPROM template. Arata chooses the 66 W template when two PoE supply status bytes are zero, otherwise a 230 W template. Internal PoE detection uses an additional status byte. This explains a credible route to the incorrect displayed rating; it does not establish why the live flags are absent or prove a repair.",
   "source_package": {
@@ -74,10 +74,10 @@
     "libdash_fpga_api.so: dash_fpga_get_poe_psu_status issues ioctl0x80066651 (six returned bytes).",
     "dash_fpga.ko ioctl dispatch0x15d00\u20130x15d0c leads to0x15f54. Reads FPGA region+0x32120 and returns register bits0,2,4,6,8,9 as bytes0\u20135. iocomp variant independently uses same offset and extraction through iocomp_reg_read at0x1c9e4. Neither variant was executed locally.",
     "libcpa_core_sb_mirabile_common.so: cpa_sb_poe_db_status_get reads the same six-byte status. For non-Charon, non0x1187 path, response byte4 must be nonzero and at least one of bytes1/3 nonzero for returned state0; otherwise state2. Thus a profile-name substitution does not satisfy independent controller detection.",
-    "The sysfs show_poe_status callback reads the same status register; it provides a possible future read-only observation route. No live sysfs path or active driver variant has been established in this follow-up."
+    "The sysfs show_poe_status callback reads the same status register; it provides a possible future read-only observation route. No live sysfs path has been established. Later kernel logs identify the I/O-component driver, but its running binary hash and raw status register remain unverified."
   ],
   "validation": "Exact template strings and Arata table target independently checked with Python struct against ELF bytes; objdump symbols/disassembly inspected. No vendor executable loaded/executed, source binary patched, firmware flashed, EEPROM modified, or status flag forced.",
-  "limits": "Static code path is established in this local26.2.1 package. Actual current status register, loaded driver variant, electrical supply detection and physical controller capability remain unverified. No supported CLI override or applicable firmware fix established. No conclusion that simply changing the displayed wattage enables PoE.",
+  "limits": "Static code path established in local26.2.1; live chassis pd_type matches and dmesg reports I/O component driver. Exact running binary hashes and raw status register not read. Selected profile may reflect enumeration-time state; current raw flags are not measured. Owner-reported no daughter card and failed enabled-port4 AP trial support unavailable PoE hardware/path, but missing vs failed vs misdetected controller is not fully resolved. No supported CLI override or applicable firmware fix established.",
   "followup_console": {
     "raw_local": "router-console-logs/20261106-171536-C8235-A-PoE-USB-readonly.log",
     "public_sanitized": "sanitized-evidence/router-console-logs/20261106-171536-C8235-A-PoE-USB-readonly.log",
@@ -85,7 +85,7 @@
     "bytes": 850,
     "sha256": "ad26c62f960e5a4027d8059e3c7339c02a17ddc2decb99dad37c3e83874ee730"
   },
-  "next": "Known powered-device trial on port6. If it powers, investigate reporting/management separately. If it does not, establish controller presence and voltage detection; no profile spoof or speculative firmware/EEPROM write.",
+  "next": "Confirm whether this prototype has the necessary PoE controller/power path. If it lacks that hardware, configuration cannot supply it. If hardware is present, diagnose supply-detect/card-presence signals and firmware mapping. No template spoofing or speculative update.",
   "reopen_check": {
     "raw_local": "router-console-logs/20261106-171757-C8235-A-PoE-USB-readonly.log",
     "public_sanitized": "sanitized-evidence/router-console-logs/20261106-171757-C8235-A-PoE-USB-readonly.log",
@@ -104,5 +104,44 @@
   "platform_reference": {
     "path": "c8kg2be-26.02.01-extracted/platform-evidence/usr/binos/lib64/libcpa_sb_rp_base_data_arata.so",
     "sha256": "80dcd5c94329161573657e0bbf2ac899e398387b7d93dd7187c83df7c1b7e462"
-  }
+  },
+  "powered_device_trial": {
+    "recorded_at": "2026-11-06T17:21:08.163503-05:00",
+    "chassis": "C8235-A/FGL2835L42B",
+    "device": "Cisco9130 AP; exact variant/serial not supplied",
+    "port": "physical6 / TwoGigabitEthernet0/0/6",
+    "owner_result": "Connected9130AP to port6, no light. Owner confirms this same AP and cable work on another PoE source.",
+    "conditions": "Direct cable/no other device power requested; owner has not separately restated injector/adapter absence. Router remains powered by reported dual-output brick. No measured voltage/current. Fresh port 4 telemetry was acquired after the USB reconnect; see live_port4 below.",
+    "inference": "Owner-observed power-up failure on enabled port 4 with an otherwise working AP/cable supports a router-side supply/controller/detection issue. Port 6 was shutdown, so its trial is inconclusive. No PoE rail voltage or absence of integrated circuitry established.",
+    "next_test": "No additional AP trials selected. Establish actual PoE controller hardware/presence and supply-status detection before any firmware or profile change. No verified software-only repair.",
+    "port4_owner_result": "Same AP/cable on physical4 also has no light.",
+    "usb_reconnect": "Owner confirms USB-only unplug/replug; router power left connected. Fresh CR at17:22 returns IOS privileged prompt; no reboot or BREAK needed.",
+    "correction": "Fresh running-config shows port6 is routed/no IP/shutdown; its no-light test is confounded. Port4 is switchport without shutdown, native interface down/notconnect; its no-light result with otherwise working AP/cable is the stronger diagnostic.",
+    "live_port4": "After owner reports AP on port4: admin auto, operational off, Device Detected no, source/device/actual power0W, negotiationNone, fault and denial counters0. No inline-power disable in interface configuration."
+  },
+  "post_reconnect_console": {
+    "captures": [
+      {
+        "raw_local": "router-console-logs/20261106-172231-C8235-A-PoE-USB-readonly.log",
+        "public_sanitized": "sanitized-evidence/router-console-logs/20261106-172231-C8235-A-PoE-USB-readonly.log",
+        "bytes": 58,
+        "sha256": "2f3ef5ac2a9df152d7df4e63d27071f947f08e081d1c303fd756168f762e443f"
+      },
+      {
+        "raw_local": "router-console-logs/20261106-172249-C8235-A-PoE-USB-readonly.log",
+        "public_sanitized": "sanitized-evidence/router-console-logs/20261106-172249-C8235-A-PoE-USB-readonly.log",
+        "bytes": 71399,
+        "sha256": "a965cf63d9900226c887f2af432621cea8b70f0b75bdc3bd8ad8f94157bd5c46"
+      }
+    ],
+    "result": "USB-only reconnect restored IOS response, no reboot/BREAK/Ctrl-C. Exclusive1152008N1 reads confirm main66W/PoE0W and Internal PoE is not present. Chasfs337 entries shows active chassis/card pd_type4588 (0x11ec), matching static Arata dispatch, pf0 product_idPWR-CC2-66WAC/pd_type3089. Firmware/kernel output confirms I/O component probe success and Dash FPGA I/O component driver loaded, plus missing iocomp-reg-region-names DT property messages. Their causal relevance to PoE is unresolved. No raw PoE status register acquired.",
+    "session_close": "terminal length24 acknowledged; capture closed and both aliases free. Router left powered. No persistent config/save, firmware, EEPROM, register, security or physical assembly change."
+  },
+  "references_ap": [
+    {
+      "url": "https://www.cisco.com/c/en/us/products/collateral/wireless/catalyst-9100ax-access-points/nb-06-cat-9130-ser-ap-ds-cte-en.html",
+      "accessed": "2026-11-06",
+      "finding": "9130AX accepts802.3af/at and Cisco UPOE; port4 is a meaningful startup trial, not a guarantee of all features under every power standard."
+    }
+  ]
 }

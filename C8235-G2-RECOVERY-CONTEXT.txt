@@ -10,7 +10,28 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A PoE IDENTITY CORRECTION / CURRENT WORK — 2026-11-06,17:17 EST
+C8235-A PoE FUNCTIONAL CHECK / CURRENT HANDOFF — 2026-11-06,17:26 EST
+C8235-06: owner connects9130AP to physical6: no light, then physical4: no light.
+Owner confirms same AP/cable work elsewhere. Fresh config corrects test6: it is
+routed/no-IP/shutdown, so that trial is confounded. Port4 is switchport with no
+shutdown; link reports down/notconnect. With AP reported on4, inline detail
+remains auto/off/no-device/0W/no-negotiation, fault/denial counters0. This is the
+stronger failed functional test; no voltage/current or extended test performed.
+USB-only unplug/replug restores console response without reboot/BREAK/Ctrl-C.
+Fresh show power remains66Wmain/0WPoE; diag still Internal PoE is not present.
+Chasfs confirms actual pd_type4588/0x11ec, matching the static Arata template
+selection trace, and PWR-CC2-66WAC software identity. Kernel reports successful
+I/O-component probe and DashFPGA I/O-component driver; missing DT region-name
+messages have unresolved relevance. Raw PoE register was NOT acquired.
+No verified software-only fix. Owner reports no daughter card; a missing PoE
+controller/power path cannot be supplied by configuration. Prototype integrated
+hardware or detection failure remains unresolved. Do not spoof wattage/profile.
+Next establish actual controller/power-path presence, then supply/card detection
+if present. No router firmware/config/security/register changes. Pagination24
+acknowledged; capture closed, aliases free, router powered. Preserve failures.
+Evidence: c8235-recovery/poe-diagnosis-20261106/detection-analysis.json.
+
+C8235-A PoE IDENTITY CORRECTION / EARLIER CHECKPOINT — 2026-11-06,17:17 EST
 C8235-06: owner says there is NO lightning-bolt icon beside S on this chassis;
 actual icons are S, network-like and downward-arrow/circle. Earlier use of the
 production diagram to identify the actual lamp is withdrawn. Do not treat the

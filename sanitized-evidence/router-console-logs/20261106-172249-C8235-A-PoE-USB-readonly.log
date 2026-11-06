@@ -1,0 +1,1253 @@
+
+[TX 2026-11-06T17:22:58.290805-05:00] b'show power\r'
+show power
+Main PSU :
+    Configured Mode : N/A
+    Current runtime state same : N/A
+    Total power available : 66 Watts
+POE Module :
+    Configured Mode : N/A
+    Current runtime state same : N/A
+    Total power available : 0 Watts
+R1-C8235G2#
+[TX 2026-11-06T17:23:13.573597-05:00] b'show platform software chasfs R0 ?\r'
+show platform software chasfs R0 ?
+  brief  Brief display
+  |      Output modifiers
+  <cr>   <cr>
+
+R1-C8235G2#show platform software chasfs R0 
+Chasfs directory being processed: /tmp/chassis/local/rp/chasfs
+
+  /tmp/chassis/local/rp/chasfs/kgv/kgvbiv_erd_rp_0_0 : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/dmi2/sync-rescue-cfg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/tamper/enable : [1]
+  /tmp/chassis/local/rp/chasfs/mgmt_monitor/timeout : [10]
+  /tmp/chassis/local/rp/chasfs/mgmt_monitor/recover : [0]
+  /tmp/chassis/local/rp/chasfs/serdes/cc/0/idprom/assembly/number : [Possible text: 20920^@]
+  /tmp/chassis/local/rp/chasfs/serdes/cc/0/idprom/assembly/revision : [Possible text: 2^@]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/serdes/cc/0/idprom/assembly/type : [4A]
+  /tmp/chassis/local/rp/chasfs/serdes/fp/0/idprom/assembly/number : [Possible text: 20920^@]
+  /tmp/chassis/local/rp/chasfs/serdes/fp/0/idprom/assembly/revision : [Possible text: 2^@]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/serdes/fp/0/idprom/assembly/type : [4A]
+  /tmp/chassis/local/rp/chasfs/serdes/rp/0/idprom/assembly/number : [Possible text: 20920^@]
+  /tmp/chassis/local/rp/chasfs/serdes/rp/0/idprom/assembly/revision : [Possible text: 2^@]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/serdes/rp/0/idprom/assembly/type : [4A]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/89/data : [18]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/89/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/88/data : [0]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/88/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/87/data : [1471]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/87/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/86/data : [750]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/86/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/85/data : [801]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/85/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/84/data : [801]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/84/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/83/data : [849]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/83/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/82/data : [759]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/82/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/81/data : [1104]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/81/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/80/data : [1197]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/80/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/79/data : [1789]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/79/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/78/data : [3294]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/78/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/77/data : [3293]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/77/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/76/data : [3286]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/76/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/75/data : [4951]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/75/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/74/d
+[TX 2026-11-06T17:23:29.480205-05:00] b'\r'
+ata : [11988]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/74/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/73/data : [0]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/73/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/72/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/72/data : [52]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/71/data : [33]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/71/state : [ok]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/70/data : [33]
+  /tmp/chassis/local/rp/chasfs/env/rp/0/sensor/70/state : [ok]
+  /tmp/chassis/local/rp/chasfs/dbm/init_done : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/ncsshd/self_signed_tp : [TP-self-signed-3840936823]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/ncsshd/hostkey_change : []
+  /tmp/chassis/local/rp/chasfs/ncsshd/guestshell_service_up : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/replication/config-done : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/dbal/dbal-mqipc-writer : [0]
+  /tmp/chassis/local/rp/chasfs/subpkg/C9800-Wireless : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_packages.conf : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-rpboot.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-mono-universalk9.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_sm_async.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_prince.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_nim_async.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/req_files/local/bootflash_c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/inbox/rp/0/.last_push : [1748544573
+May 29 2025 18:49:33.308282682]
+  /tmp/chassis/local/rp/chasfs/inbox/rp/0/memory_monitor/mm_rp_0 : [no]
+  /tmp/chassis/local/rp/chasfs/inbox/rp/0/inventory/inventory_cc_00.bin : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/inbox/rp/0/inventory/inventory_fp_00.bin : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/inbox/rp/0/inventory/pf_00_idprom.bin : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/inbox/rp/0/inventory/rp_00_idprom.bin : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/inbox/rp/0/inventory/mp_00_idprom.bin : [ <skipping binary file> ]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/pf_sso_state/0/spa_interface : [idle]
+  /tmp/chassis/local/rp/chasfs/pf_sso_state/0/psm_ha_active : [ <empty file> ]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/pf_sso_state/0/psm_ha_state : [idle]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/pf_sso_state/0/psm_state : [init]
+  /tmp/chassis/local/rp/chasfs/led_state/0/system : [RED]
+  /tmp/chassis/local/rp/chasfs/led_state/0/status : [GREEN]
+  /tmp/chassis/local/rp/chasfs/pman/sw-nginx-service-pending_trigger : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/pman/tam_svcs_done : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/pman/auto-upgrade-client : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/clock_set/cli_update : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/mastership/active-fp-state : [ready]
+  /tmp/chassis/local/rp/chasfs/mastership/red-mode : [1]
+  /tmp/chassis/local/rp/chasfs/mastership/force_cpp_cp_svr_core : [no]
+  /tmp/chassis/local/rp/chasfs/mastership/standby-fp : [fp/1/0]
+  /tmp/chassis/local/rp/chasfs/mastership/active-fp : [fp/0/0]
+  /tmp/chassis/local/rp/chasfs/mastership/standby-rp : [rp/0/1]
+  /tmp/chassis/local/rp/chasfs/mastership/active-rp : [rp/0/0]
+  /tmp/chassis/local/rp/chasfs/mastership/local-rp-slot : [0]
+  /tmp/chassis/local/rp/chasfs/mastership/standby-fp-state : [not-ready]
+  /tmp/chassis/local/rp/chasfs/mastership/standby-rp-ehsa-state : [not-standby]
+  /tmp/chassis/local/rp/chasfs/mastership/standby-rp-state : [not-ready]
+  /tmp/chassis/local/rp/chasfs/memory_monitor/mm_rp_0 : [no]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/idprom/pcb_version_id : [V00 ]
+  /tmp/chassis/local/rp/chasfs/idprom/assembly/number : [Possible text: 20920^@]
+  /tmp/chassis/local/rp/chasfs/idprom/assembly/revision : [Possible text: 2^@]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/idprom/assembly/type : [4A]
+  /tmp/chassis/local/rp/chasfs/midplane/slac_installed : [0]
+  /tmp/chassis/local/rp/chasfs/midplane/board_vtype : [UN]
+  /tmp/chassis/local/rp/chasfs/midplane/board_subtype : [ARATA]
+  /tmp/chassis/local/rp/chasfs/midplane/board_type : [RP]
+  /tmp/chassis/local/rp/chasfs/midplane/chassis_spa_max : [5]
+  /tmp/chassis/local/rp/chasfs/midplane/chassis_slot_max_cc : [0]
+  /tmp/chassis/local/rp/chasfs/midplane/chassis_slot_max_fp : [0]
+  /tmp/chassis/local/rp/chasfs/midplane/chassis_slot_max_rp : [0]
+  /tmp/chassis/local/rp/chasfs/midplane/product_id : [C8230X-8M2X]
+  /tmp/chassis/local/rp/chasfs/midplane/sudi : [FGL2835L42B]
+  /tmp/chassis/local/rp/chasfs/midplane/chassis_serial_number : [FGL2835L42B]
+  /tmp/chassis/local/rp/chasfs/midplane/serial_number : [FOC28292GUQ]
+  /tmp/chassis/local/rp/chasfs/midplane/chassis_model : [C8230X-8M2X]
+  /tmp/chassis/local/rp/chasfs/midplane/platform_fam_type : [ESG]
+  /tmp/chassis/local/rp/chasfs/midplane/chassis_type : [ARATA]
+  /tmp/chassis/local/rp/chasfs/midplane/chassis_ctrl_type : [11EC]
+  /tmp/chassis/local/rp/chasfs/etc/cpu_load_avg_status : [140|1430|2288]
+  /tmp/chassis/local/rp/chasfs/etc/mem_usage_status : [19|88|93]
+  /tmp/chassis/local/rp/chasfs/etc/bootflash.list : [2 41ed 4096 /bootflash/
+11 41c0 16384 /bootflash/lost+found
+12 81ed 1862 /bootflash/mode_event_log
+14 81a4 144751 /bootflash/memleak.tcl
+15 81a4 34967 /bootflash/ios_core.p7b
+16 81a4 1939 /bootflash/trustidrootx3_ca_062035.ca
+17 41ff 12288 /bootflash/tracelogs
+18 81a4 275 /bootflash/.iox_dir_list
+19 8180 1295 /bootflash/tracelogs/btman_rotate_immediate_R0-0.3007_0.20250529185355.bin.gz
+20 81a4 30 /bootflash/throughput_monitor_params
+21 81a4 2146 /bootflash/tracelogs/shutdown_fp0_20250529185413.log
+23 81e4 1048576 /bootflash/tracelogs/vip_secure_write_R0-0.3101_0.20250529185357.bin
+24 81a4 952943 /bootflash/tracelogs/shutdown_journal_rp0_20250529185401.log
+25 81a4 852256 /bootflash/tracelogs/shutdown_journal_rp0_20250529185603.log
+26 81a4 920610 /bootflash/tracelogs/shutdown_journal_rp0_20250529185357.log
+27 81b4 3126 /bootflash/C8235A-PRE-INSTALL-startup.cfg
+28 81b4 3261 /bootflash/C8235A-INSTALL-startup.cfg
+29 81e4 2538 /bootflash/tracelogs/cyaninit_R0-0.3290_0.20250529184845.bin.gz
+30 81b4 7445 /bootflash/C8235A-PRE-INSTALL-running.cfg
+31 81e4 2533 /bootflash/tracelogs/cyaninit_R0-0.2847_0.20250529184843.bin.gz
+32 81a4 2146 /bootflash/tracelogs/shutdown_fp0_20250529185347.log
+33 81a4 2145 /bootflash/tracelogs/shutdown_cc0_20250529185416.log
+34 8180 134613 /bootflash/tracelogs/dmesg
+35 81b6 10 /bootflash/tracelogs/timestamp
+36 81b4 2504 /bootflash/A4
+37 81b4 3070 /bootflash/C8235AFIX1
+38 41ed 4096 /bootflash/.images
+39 41ed 4096 /bootflash/.images/26.02.01.0.263.1790107759
+40 81a4 74019996 /bootflash/c8kg2be-rpboot.26.02.01.SPA.pkg
+41 81a4 1080 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-universalk9.26.02.01.SPA.bin.hdr
+42 81a4 669 /bootflash/.images/26.02.01.0.263.1790107759/.pkginfo
+43 81a4 6807552 /bootflash/c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg
+44 81a4 139264 /bootflash/c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg
+45 81a4 12017664 /bootflash/c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg
+46 81a4 13287424 /bootflash/c8kg2be-firmware_nim_async.26.02.01.SPA.pkg
+47 81a4 11923456 /bootflash/c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg
+48 81a4 2145 /bootflash/tracelogs/shutdown_cc0_20250529185349.log
+49 81a4 5677056 /bootflash/c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg
+50 81a4 10444800 /bootflash/c8kg2be-firmware_prince.26.02.01.SPA.pkg
+51 81a4 53248 /bootflash/c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg
+52 81a4 2145 /bootflash/tracelogs/shutdown_cc0_20250529185350.log
+53 81a4 13889536 /bootflash/c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg
+54 81a4 14700544 /bootflash/c8kg2be-firmware_sm_async.26.02.01.SPA.pkg
+55 81a4 2600960 /bootflash/c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg
+56 81a4 204800 /bootflash/c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg
+57 81a4 962338816 /bootflash/c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+58 81a4 8405 /bootflash/.images/26.02.01.0.263.1790107759/packages.conf
+59 a1ff 51 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_prince.26.02.01.SPA.pkg.lnk
+60 81a4 13479 /bootflash/tracelogs/shutdown_rp0_20250529185553.log
+61 a1ff 58 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg.lnk
+62 a1ff 53 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg.lnk
+63 81a4 2146 /bootflash/tracelogs/shutdown_fp0_20250529185411.log
+64 a1ff 54 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg.lnk
+65 a1ff 55 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg.lnk
+66 81a4 973343 /bootflash/tracelogs/shutdown_journal_rp0_20250529185423.log
+67 a1ff 56 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg.lnk
+68 a1ff 53 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_sm_async.26.02.01.SPA.pkg.lnk
+69 a1ff 54 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_nim_async.26.02.01.SPA.pkg.lnk
+70 a1ff 57 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg.lnk
+71 a1ff 53 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg.lnk
+72 a1ff 42 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-rpboot.26.02.01.SPA.pkg.lnk
+73 81a4 2145 /bootflash/tracelogs/shutdown_cc0_20250529185413.log
+74 a1ff 52 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-mono-universalk9.26.02.01.SPA.pkg.lnk
+75 81a4 8405 /bootflash/c8kg2be-universalk9.26.02.01.SPA.conf
+76 a1ff 58 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg.lnk
+77 a1ff 56 /bootflash/.images/26.02.01.0.263.1790107759/c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg.lnk
+78 81a4 939 /bootflash/.images/26.02.01.0.263.1790107759/install_add_pkg_list.txt
+79 81a4 1024 /bootflash/.images/26.02.01.0.263.1790107759/checksum
+80 81a4 1024 /bootflash/.images/26.02.01.0.263.1790107759/src_filename
+81 81a4 1024 /bootflash/.images/26.02.01.0.263.1790107759/cisco_image_name
+82 81a4 12150 /bootflash/tracelogs/shutdown_rp0_20250529185353.log
+83 81a4 8405 /bootflash/packages.conf
+84 81a4 2196 /bootflash/tracelogs/shutdown_cc0_20250529185910.log
+85 81a4 11908 /bootflash/tracelogs/shutdown_rp0_20250529185354.log
+86 81a4 3474 /bootflash/tracelogs/shutdown_rp0_20250529185911.log
+87 8180 4944 /bootflash/tracelogs/pvp_0-0.21654_0.20250529184928.bin.gz
+88 8180 1451 /bootflash/tracelogs/hman_pman_0-0.22124_1.20250529184929.bin.gz
+89 8180 3896 /bootflash/tracelogs/hman_0-0.22132_0.20250529184929.bin.gz
+90 8180 1428 /bootflash/tracelogs/cmcc_pman_0-0.22297_1.20250529184930.bin.gz
+91 8180 1512 /bootflash/tracelogs/btman_pman_0-0.22651_1.20250529184931.bin.gz
+92 8180 12608 /bootflash/tracelogs/btman_0-0.22666_0.20250529184931.bin.gz
+93 8180 1487 /bootflash/tracelogs/iomd_pman_0-0.23149_1.20250529184931.bin.gz
+94 8180 23747 /bootflash/tracelogs/iomd_0-0.23157_0.20250529184932.bin.gz
+95 8180 1495 /bootflash/tracelogs/iomd_pman_0-4.23406_1.20250529184932.bin.gz
+96 8180 9831 /bootflash/tracelogs/iomd_0-4.23413_0.20250529184932.bin.gz
+97 8180 1559 /bootflash/tracelogs/ngiolite_pman_0-0.23745_1.20250529184937.bin.gz
+98 8180 26040 /bootflash/tracelogs/ngiolite_0-0.23752_0.20250529184937.bin.gz
+99 8180 1519 /bootflash/tracelogs/ngiolite_pman_0-4.23999_1.20250529184937.bin.gz
+100 8180 4938 /bootflash/tracelogs/ngiolite_0-4.24007_0.20250529184937.bin.gz
+101 81a4 11980 /bootflash/tracelogs/shutdown_rp0_20250529185417.log
+102 8180 60613 /bootflash/tracelogs/cmcc_0-0.22304_1.20250529185411.bin.gz
+103 8180 3511 /bootflash/tracelogs/btman_rotate_immediate_R0-0.12470_0.20250529185911.bin.gz
+104 8180 1828 /bootflash/tracelogs/psvp_R0-0.3377_0.20250529184845.bin.gz
+105 8180 1418 /bootflash/tracelogs/psd_pman_R0-0.3825_1.20250529184846.bin.gz
+106 8180 644 /bootflash/tracelogs/oom_R0-0.4719_0.20250529184847.bin.gz
+107 8180 1493 /bootflash/tracelogs/vman_pman_R0-0.4814_1.20250529184848.bin.gz
+108 8180 1405 /bootflash/tracelogs/sessmgrd_pman_R0-0.5034_1.20250529184848.bin.gz
+109 8180 1476 /bootflash/tracelogs/smand_pman_R0-0.5255_1.20250529184848.bin.gz
+110 8180 2726 /bootflash/tracelogs/repm_pman_R0-0.5489_0.20250529184849.bin.gz
+111 8180 2704 /bootflash/tracelogs/plogd_pman_R0-0.5634_0.20250529184849.bin.gz
+112 8180 1426 /bootflash/tracelogs/keyman_pman_R0-0.5795_1.20250529184849.bin.gz
+113 8180 1488 /bootflash/tracelogs/hman_pman_R0-0.5940_1.20250529184850.bin.gz
+114 8180 1492 /bootflash/tracelogs/fman_rp_pman_R0-0.6092_1.20250529184850.bin.gz
+115 8180 2508 /bootflash/tracelogs/emd_pman_R0-0.6398_0.20250529184851.bin.gz
+116 8180 1380 /bootflash/tracelogs/dbm_pman_R0-0.6690_1.20250529184851.bin.gz
+117 8180 1435 /bootflash/tracelogs/cmand_pman_R0-0.6973_1.20250529184852.bin.gz
+118 8180 3249 /bootflash/tracelogs/cli_agent_pman_R0-0.7211_0.20250529184852.bin.gz
+119 8180 639 /bootflash/tracelogs/iptbl_R0-0.7544_0.20250529184852.bin.gz
+120 8180 1502 /bootflash/tracelogs/btman_pman_R0-0.7932_1.20250529184853.bin.gz
+121 8180 1423 /bootflash/tracelogs/tams_proc_pman_R0-0.8175_1.20250529184853.bin.gz
+122 8180 1452 /bootflash/tracelogs/tam_svcs_esg_cfg_pman_R0-0.8890_1.20250529184854.bin.gz
+123 8180 2539 /bootflash/tracelogs/autodns_pman_R0-0.9264_0.20250529184854.bin.gz
+124 8180 689 /bootflash/tracelogs/kernel_smu_sh_R0-0.13786_0.20250529184913.bin.gz
+125 8180 754 /bootflash/tracelogs/selinux_smu_R0-0.13796_0.20250529184913.bin.gz
+126 8180 1769 /bootflash/tracelogs/kernel_ftrace_log_R0-0.13842_0.20250529184913.bin.gz
+127 8180 662 /bootflash/tracelogs/inst_rollback_timer_R0-0.13866_0.20250529184913.bin.gz
+128 8180 8610 /bootflash/tracelogs/psd_R0-0.3847_0.20250529184914.bin.gz
+129 8180 6503 /bootflash/tracelogs/vman_R0-0.4822_0.20250529184915.bin.gz
+130 8180 19670 /bootflash/tracelogs/smd_R0-0.5041_0.20250529184916.bin.gz
+131 8180 8609 /bootflash/tracelogs/smand_R0-0.5267_0.20250529184916.bin.gz
+132 8180 50442 /bootflash/tracelogs/IOSRP_R0-0.4287_1.20250529184916.bin.gz
+133 8180 5247 /bootflash/tracelogs/repm_R0-0.5497_0.20250529184916.bin.gz
+134 8180 1430 /bootflash/tracelogs/lman_pman_R0-0.16037_1.20250529184917.bin.gz
+135 8180 3645 /bootflash/tracelogs/lman_R0-0.16044_0.20250529184917.bin.gz
+136 8180 4073 /bootflash/tracelogs/sec_key_agent_R0-0.5802_0.20250529184918.bin.gz
+137 8180 6837 /bootflash/tracelogs/hman_R0-0.5947_0.20250529184919.bin.gz
+138 8180 8801 /bootflash/tracelogs/fman_rp_R0-0.6099_0.20250529184919.bin.gz
+139 8180 3838 /bootflash/tracelogs/flash_check_sh_pman_R0-0.17017_0.20250529184920.bin.gz
+140 8180 2238 /bootflash/tracelogs/emd_R0-0.6411_32.20250529184921.bin.gz
+141 8180 14548 /bootflash/tracelogs/dbm_R0-0.6697_0.20250529184921.bin.gz
+142 8180 46674 /bootflash/tracelogs/cmand_R0-0.6981_0.20250529184921.bin.gz
+143 8180 6701 /bootflash/tracelogs/cli_agent_R0-0.7221_0.20250529184921.bin.gz
+144 8180 3108 /bootflash/tracelogs/cdev_srv_R0-0.7604_0.20250529184922.bin.gz
+145 8180 20563 /bootflash/tracelogs/btman_R0-0.7953_0.20250529184922.bin.gz
+146 8180 3227 /bootflash/tracelogs/tams_proc_R0-0.8182_0.20250529184922.bin.gz
+147 8180 2514 /bootflash/tracelogs/tamd_proc_R0-0.8466_0.20250529184923.bin.gz
+148 8180 3739 /bootflash/tracelogs/sort_files_by_inode_sh_pman_R0-0.18779_0.20250529184923.bin.gz
+149 8180 13771 /bootflash/tracelogs/pistisd_R0-0.19239_0.20250529184924.bin.gz
+150 8180 2718 /bootflash/tracelogs/tam_svcs_esg_cfg_R0-0.8906_0.20250529184924.bin.gz
+151 8180 1071 /bootflash/tracelogs/autodns_R0-0.9273_0.20250529184924.bin.gz
+152 8180 9000 /bootflash/tracelogs/pvp_R0-0.3468_1.20250529184924.bin.gz
+153 8180 733 /bootflash/tracelogs/reflector_R0-0.7452_2.20250529184931.bin.gz
+156 8180 3813 /bootflash/tracelogs/nginx_helper_sh_pman_R0-0.28728_0.20250529185116.bin.gz
+157 8180 5798 /bootflash/tracelogs/nginx_pman_R0-0.28874_0.20250529185117.bin.gz
+158 8180 40804 /bootflash/tracelogs/install_mgr_R0-0.16455_1.20250529185733.bin.gz
+159 8180 747 /bootflash/tracelogs/droputil_R0-0.6941_17.20250529185831.bin.gz
+160 8180 973 /bootflash/tracelogs/plogd_R0-0.5642_11.20250529185841.bin.gz
+161 8180 1024 /bootflash/tracelogs/pistisd_pman_R0-0.19220_1.20250529185909.bin.gz
+162 8180 994 /bootflash/tracelogs/install_mgr_pman_R0-0.16448_1.20250529185909.bin.gz
+163 8180 971 /bootflash/tracelogs/cdev_srv_pman_R0-0.7585_1.20250529185909.bin.gz
+164 8180 996 /bootflash/tracelogs/linux_iosd_image_pman_R0-0.4274_2.20250529185910.bin.gz
+165 8180 381 /bootflash/tracelogs/tamd_proc_pman_R0-0.8443_2.20250529185910.bin.gz
+166 8180 6833 /bootflash/tracelogs/btman_rotate_immediate_R0-0.12511_0.20250529185911.bin.gz
+167 81a4 2124 /bootflash/tracelogs/shutdown_fp0_20250529185912.log
+168 8180 4555 /bootflash/tracelogs/pvp_F0-0.18702_0.20250529184923.bin.gz
+169 8180 1469 /bootflash/tracelogs/hman_pman_F0-0.19315_1.20250529184924.bin.gz
+170 8180 3856 /bootflash/tracelogs/hman_F0-0.19333_0.20250529184924.bin.gz
+171 8180 1389664 /bootflash/tracelogs/utf_R0-0.7953_0.20250529184922.bin.gz
+172 8180 29664 /bootflash/tracelogs/qfpxucodexmirabile_F0-0.19995_0.20250529184924.bin.gz
+173 8180 1498 /bootflash/tracelogs/qfp_ucode_mirabile_pman_F0-0.19976_1.20250529184924.bin.gz
+174 8180 4771 /bootflash/tracelogs/cpp_sp_F0-0.20276_0.20250529184925.bin.gz
+175 8180 13508 /bootflash/tracelogs/fman_fp_F0-0.19642_0.20250529184925.bin.gz
+176 8180 1551 /bootflash/tracelogs/cpp_ha_top_level_server_pman_F0-0.20498_1.20250529184925.bin.gz
+177 8180 4949 /bootflash/tracelogs/cpp_ha_F0-0.20505_0.20250529184925.bin.gz
+178 8180 1525 /bootflash/tracelogs/cpp_driver_pman_F0-0.20632_1.20250529184925.bin.gz
+179 8180 3433 /bootflash/tracelogs/cpp_driver_F0-0.20639_0.20250529184925.bin.gz
+180 8180 1439 /bootflash/tracelogs/cman_fp_pman_F0-0.20922_1.20250529184926.bin.gz
+181 8180 3892 /bootflash/tracelogs/cman_fp_F0-0.20929_0.20250529184926.bin.gz
+182 8180 14081 /bootflash/tracelogs/cpp_cp_F0-0.20777_0.20250529184926.bin.gz
+183 8180 1502 /bootflash/tracelogs/btman_pman_F0-0.21147_1.20250529184926.bin.gz
+184 8180 10715 /bootflash/tracelogs/btman_F0-0.21160_0.20250529184926.bin.gz
+185 8180 493 /bootflash/tracelogs/cpp_sp_svr_pman_F0-0.20263_2.20250529185910.bin.gz
+186 8180 461 /bootflash/tracelogs/cpp_cp_svr_pman_F0-0.20764_2.20250529185910.bin.gz
+187 8180 623 /bootflash/tracelogs/fman_fp_image_pman_F0-0.19624_2.20250529185910.bin.gz
+188 8180 4019 /bootflash/tracelogs/btman_rotate_immediate_R0-0.12671_0.20250529185913.bin.gz
+189 81e4 1048576 /bootflash/tracelogs/vip_secure_write_R0-0.12854_0.20250529185915.bin
+190 81a4 383902 /bootflash/tracelogs/shutdown_journal_rp0_20250529185915.log
+191 a1ff 10 /bootflash/bootflash
+192 81e4 2536 /bootflash/tracelogs/cyaninit_R0-0.2922_0.20250529184842.bin.gz
+193 81b4 7642 /bootflash/C8235A-INSTALL-running.cfg
+194 81e4 2532 /bootflash/tracelogs/cyaninit_R0-0.2877_0.20250529184843.bin.gz
+130817 41ff 4096 /bootflash/SHARED-IOX
+130818 41ed 4096 /bootflash/C8235A-RECOVERY
+130819 81b4 1048008916 /bootflash/c8kg2be-universalk9.26.02.01.SPA.bin
+261633 41ff 4096 /bootflash/.prst_sync
+261634 41ed 4096 /bootflash/.CRFT
+261635 41ed 4096 /bootflash/pnp-info
+261636 81a4 16572 /bootflash/pnp-tech/pnp-tech-time
+261637 41ed 4096 /bootflash/pnp-tech
+261638 81a4 110052 /bootflash/pnp-tech/pnp-tech-discovery-summary
+261641 81a4 68 /bootflash/.prst_sync/check
+392449 41ed 4096 /bootflash/sysboot
+392450 81a4 5441 /bootflash/license_evlog/SAEventRegular20250529_184927.log
+392464 41fd 4096 /bootflash/gs_script
+392465 41ed 4096 /bootflash/license_evlog
+392466 81a4 1277 /bootflash/license_evlog/SAEventRegular20250529_185012.log
+392467 41ed 4096 /bootflash/caf
+392468 81a4 5646 /bootflash/license_evlog/SAEventRegular20250529_184945.log
+523265 41ed 4096 /bootflash/.installer
+523266 81a4 5 /bootflash/.installer/install_global_trans_lock
+523268 41ff 4096 /bootflash/virtual-instance
+523269 41ed 4096 /bootflash/.installer/rollback
+523270 41ed 4096 /bootflash/.installer/rollback/rb_points
+523271 41ed 4096 /bootflash/.installer/rollback/rb_points/0
+523272 8124 7400 /bootflash/.installer/rollback/rb_points/0/packages.conf
+523273 81a4 0 /bootflash/.installer/rollback/rb_points/0/bundle_mode
+523274 81a4 0 /bootflash/.installer/rollback/rb_points/0/patch0.sta
+523275 a1ff 10 /bootflash/.installer/rollback/rb_points/0/patch.sta
+523276 81a4 19 /bootflash/.installer/rollback/rb_points/0/bootdir
+523277 81a4 719 /bootflash/.installer/rollback/rb_points/0/pkginfo
+523278 81a4 117 /bootflash/.installer/rollback/rollback_points.txt
+523279 81a4 11 /bootflash/.installer/watchlist
+523283 81a4 10 /bootflash/.installer/install_state
+523284 41ed 4096 /bootflash/.installer/rollback/rb_points/1
+523285 8124 8405 /bootflash/.installer/rollback/rb_points/1/packages.conf
+523286 81a4 10 /bootflash/.installer/rollback/rb_points/1/bootdir
+523287 81a4 719 /bootflash/.installer/rollback/rb_points/1/pkginfo
+523288 81a4 0 /bootflash/.installer/rollback/rb_points/1/patch0.sta
+523289 a1ff 10 /bootflash/.installer/rollback/rb_points/1/patch.sta
+654081 41ed 4096 /bootflash/.USWAP
+654082 41ed 4096 /bootflash/.USWAP/rp
+654083 41ed 4096 /bootflash/.USWAP/fp
+654084 41ed 4096 /bootflash/.USWAP/cc
+654085 41c1 4096 /bootflash/docker
+654086 41c1 4096 /bootflash/docker/1000000.1000000
+654087 41c9 4096 /bootflash/docker/1000000.1000000/containerd
+654088 41c9 4096 /bootflash/docker/1000000.1000000/containerd/daemon
+654089 41c0 4096 /bootflash/docker/1000000.1000000/containerd/daemon/tmpmounts
+654090 41ed 4096 /bootflash/docker/1000000.1000000/containerd/daemon/io.containerd.content.v1.content
+654091 41ed 4096 /bootflash/docker/1000000.1000000/containerd/daemon/io.containerd.content.v1.content/ingest
+654092 41c0 4096 /bootflash/docker/1000000.1000000/containerd/daemon/io.containerd.snapshotter.v1.native
+654093 41c0 4096 /bootflash/docker/1000000.1000000/containerd/daemon/io.containerd.snapshotter.v1.native/snapshots
+654094 41c0 4096 /bootflash/docker/1000000.1000000/containerd/daemon/io.containerd.snapshotter.v1.overlayfs
+654095 41c0 4096 /bootflash/docker/1000000.1000000/containerd/daemon/io.containerd.snapshotter.v1.overlayfs/snapshots
+654096 41c9 4096 /bootflash/docker/1000000.1000000/containerd/daemon/io.containerd.metadata.v1.bolt
+654097 81a4 32768 /bootflash/docker/1000000.1000000/containerd/daemon/io.containerd.metadata.v1.bolt/meta.db
+654098 41c9 4096 /bootflash/docker/1000000.1000000/containerd/daemon/io.containerd.runtime.v1.linux
+654099 41c9 4096 /bootflash/docker/1000000.1000000/containerd/daemon/io.containerd.runtime.v2.task
+654100 41c0 4096 /bootflash/docker/1000000.1000000/runtimes
+654101 41c1 4096 /bootflash/docker/1000000.1000000/containers
+654102 41c0 4096 /bootflash/docker/1000000.1000000/plugins
+654103 41c0 4096 /bootflash/docker/1000000.1000000/tmp
+654104 41c0 4096 /bootflash/docker/1000000.1000000/plugins/tmp
+654105 41c0 4096 /bootflash/docker/1000000.1000000/plugins/storage
+654106 41c0 4096 /bootflash/docker/1000000.1000000/plugins/storage/blobs
+654107 41c0 4096 /bootflash/docker/1000000.1000000/plugins/storage/blobs/tmp
+654108 41c1 4096 /bootflash/docker/1000000.1000000/overlay2
+654109 41c1 4096 /bootflash/docker/1000000.1000000/overlay2/l
+654110 41c0 4096 /bootflash/docker/1000000.1000000/image
+654111 41c0 4096 /bootflash/docker/1000000.1000000/image/overlay2
+654112 41c0 4096 /bootflash/docker/1000000.1000000/image/overlay2/layerdb
+654113 41c0 4096 /bootflash/docker/1000000.1000000/image/overlay2/imagedb
+654114 41c0 4096 /bootflash/docker/1000000.1000000/image/overlay2/imagedb/content
+654115 41c0 4096 /bootflash/docker/1000000.1000000/image/overlay2/imagedb/content/sha256
+654116 41c0 4096 /bootflash/docker/1000000.1000000/image/overlay2/imagedb/metadata
+654117 41c0 4096 /bootflash/docker/1000000.1000000/image/overlay2/imagedb/metadata/sha256
+654118 41c1 4096 /bootflash/docker/1000000.1000000/volumes
+654119 8180 32768 /bootflash/docker/1000000.1000000/volumes/metadata.db
+654120 41c0 4096 /bootflash/docker/1000000.1000000/trust
+654121 8180 19 /bootflash/docker/1000000.1000000/image/overlay2/repositories.json
+654122 41c0 4096 /bootflash/docker/1000000.1000000/image/overlay2/distribution
+654123 41e8 4096 /bootflash/docker/1000000.1000000/network
+654124 41e8 4096 /bootflash/docker/1000000.1000000/network/files
+654125 81a4 65536 /bootflash/docker/1000000.1000000/network/files/local-kv.db
+654126 41c0 4096 /bootflash/docker/1000000.1000000/swarm
+654127 41c0 4096 /bootflash/docker/1000000.1000000/builder
+654128 8180 16384 /bootflash/docker/1000000.1000000/builder/fscache.db
+654129 41c9 4096 /bootflash/docker/1000000.1000000/buildkit
+654130 8180 16384 /bootflash/docker/1000000.1000000/buildkit/snapshots.db
+654131 41ed 4096 /bootflash/docker/1000000.1000000/buildkit/content
+654132 41ed 4096 /bootflash/docker/1000000.1000000/buildkit/content/ingest
+654133 8180 16384 /bootflash/docker/1000000.1000000/buildkit/metadata.db
+654134 41c9 4096 /bootflash/docker/1000000.1000000/buildkit/executor
+654135 8180 32768 /bootflash/docker/1000000.1000000/buildkit/cache.db
+784897 41ed 4096 /bootflash/.rollback_timer
+784898 41f8 4096 /bootflash/vman_fdb
+784899 41ed 4096 /bootflash/.geo
+784900 41ed 4096 /bootflash/iox_data_share
+784901 41ff 4096 /bootflash/iox_host_data_share
+915713 41ed 4096 /bootflash/core
+915714 41ff 4096 /bootflash/core/modules
+915715 41ed 4096 /bootflash/guest-share
+915716 81a4 1 /bootflash/core/.callhome
+915717 81a4 55539269 /bootflash/core/Router_RP_0-system-report_20250529-185554-UTC.tar.gz
+915718 81a4 12291021 /bootflash/core/Router_RP_0-system-report_20250529-185418-UTC.tar.gz
+915719 81a4 7606 /bootflash/core/Router_RP_0-system-report_20250529-185418-UTC-info.txt
+915720 81a4 8494 /bootflash/core/Router_RP_0-system-report_20250529-185554-UTC-info.txt
+915721 81a4 44149763 /bootflash/core/Router_RP_0-system-report_20250529-185354-UTC.tar.gz
+915722 81a4 7759 /bootflash/core/Router_RP_0-system-report_20250529-185354-UTC-info.txt
+915728 81a4 102225920 /bootflash/core/Router_RP_0-system-report_20250529-185354-UTC.tar
+1046529 41ed 4096 /bootflash/pcap
+1046530 41ed 4096 /bootflash/.dbpersist
+1046531 41ed 4096 /bootflash/.dbpersist/history
+1046532 41ed 4096 /bootflash/.dbpersist/INSTALL_MGR_OPER_DB
+1046533 81ed 37151 /bootflash/.dbpersist/INSTALL_MGR_OPER_DB/INSTALL_MGR_OPER_DB
+1046534 81a4 154 /bootflash/.dbpersist/INSTALL_MGR_OPER_DB/INSTALL_MGR_OPER_DB.meta
+1046535 81a4 4362 /bootflash/.dbpersist/stats
+1046536 41ed 4096 /bootflash/iox
+1046537 41ed 4096 /bootflash/iox/repo
+1046538 41ed 4096 /bootflash/iox/network
+1046539 41ed 4096 /bootflash/iox/console
+1046540 41ed 4096 /bootflash/iox/oauth
+1046541 41ed 4096 /bootflash/iox/childauth
+1046542 41ed 4096 /bootflash/iox/broker
+1046543 41ed 4096 /bootflash/iox/scp
+1046544 41ed 4096 /bootflash/iox/push_notifications
+1046545 41ed 4096 /bootflash/iox/autoconfigcli
+1046546 41ed 4096 /bootflash/iox/running_config
+1046547 41ed 4096 /bootflash/iox/repo-docker
+1046548 41ed 4096 /bootflash/iox/repo-docker/docker-data
+1046549 81a4 66 /bootflash/iox/running_config/.task_service
+1046550 41ed 4096 /bootflash/iox/cartridges
+1046551 81a4 9978 /bootflash/iox/running_config/.nconf
+1046552 81a4 18 /bootflash/iox/repo/.stats_config.json
+1046553 81a4 192 /bootflash/iox/running_config/.update
+1046554 41ed 4096 /bootflash/iox/scpdest
+1046555 41ed 4096 /bootflash/iox/dockerstaging
+1046556 41ed 4096 /bootflash/iox/lxcstaging
+1046557 41ed 4096 /bootflash/iox/app_images
+1046558 41ed 4096 /bootflash/iox/iox_layers
+1046559 41ed 4096 /bootflash/iox/datastore
+1046560 41ed 4096 /bootflash/iox/repo-lxc
+1046561 81a4 32 /bootflash/iox/version
+1046562 81a4 11 /bootflash/iox/product_id
+1046563 41ed 4096 /bootflash/iox/security
+1046564 81a4 463 /bootflash/iox/running_config/.monitoring
+1046565 81a4 81 /bootflash/iox/running_config/.broker
+1046566 81a4 16384 /bootflash/iox/broker/broker_token.pag
+1046567 81a4 16 /bootflash/iox/broker/broker_token.dir
+1046568 41ed 4096 /bootflash/iox/app_profiles
+1046569 81a4 76 /bootflash/iox/running_config/.push_service
+1046570 81a4 16384 /bootflash/iox/childauth/token
+1046571 81a4 227 /bootflash/iox/network/.nuuid
+1046572 81a4 1 /bootflash/iox/running_config/.events_counter
+1046573 41ed 4096 /bootflash/iox/system
+1046574 81a4 0 /bootflash/iox/system/mw-state.ini
+1046575 81a4 14 /bootflash/iox/running_config/.appsign
+1046576 41ed 4096 /bootflash/.dbpersist/CTRL_MNG_CFG_DB
+1046577 81ed 439 /bootflash/.dbpersist/CTRL_MNG_CFG_DB/CTRL_MNG_CFG_DB
+1046578 81a4 174 /bootflash/.dbpersist/CTRL_MNG_CFG_DB/CTRL_MNG_CFG_DB.meta
+1046579 41ed 4096 /bootflash/.dbpersist/DMI_STATE_DB
+1046580 81ed 8399 /bootflash/.dbpersist/DMI_STATE_DB/DMI_STATE_DB
+1046581 81a4 172 /bootflash/.dbpersist/DMI_STATE_DB/DMI_STATE_DB.meta
+1046582 81a4 2 /bootflash/iox/network/.macregistry
+1046583 81a4 36 /bootflash/iox/repo/iox_uuid
+1046584 81a4 80 /bootflash/iox/cafevents.log
+1046586 81a4 24 /bootflash/iox/repo/start.ini]
+  /tmp/chassis/local/rp/chasfs/etc/system_shell_timeout : [0]
+  /tmp/chassis/local/rp/chasfs/etc/system_security_mode : [insecure]
+  /tmp/chassis/local/rp/chasfs/etc/punt_link_status : [0]
+  /tmp/chassis/local/rp/chasfs/etc/usb1.list : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/usb0.list : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/reboot_reason : [PowerOn]
+  /tmp/chassis/local/rp/chasfs/etc/ctoken_shell_auth : [0]
+  /tmp/chassis/local/rp/chasfs/etc/throughput : [Possible text: 3000000^@]
+  /tmp/chassis/local/rp/chasfs/etc/smu_status : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/sw-iosd-secure-scan-override : [disable]
+  /tmp/chassis/local/rp/chasfs/etc/sw-cdb-to-ios-push : [stop]
+  /tmp/chassis/local/rp/chasfs/etc/udev/webui/udev-info : [devname:webui
+mntpath:/webui
+devpath:rootfs
+fstype:rootfs
+partsize:
+displayname:WebUI ODM Files
+hidden:n
+priority:1
+ifstype:64
+ifsflags:1025]
+  /tmp/chassis/local/rp/chasfs/etc/udev/bootflash/udev-info : [devname:bootflash
+mntpath:/bootflash
+devpath:/dev/bootflash1
+fstype:ext4
+partsize:20249599
+displayname:flash memory
+priority:1
+ifstype:64
+ifsflags:1027
+ifsfeature:1051489
+hidden:n]
+  /tmp/chassis/local/rp/chasfs/etc/image/subtype : [default]
+  /tmp/chassis/local/rp/chasfs/etc/image/variant : [default]
+  /tmp/chassis/local/rp/chasfs/etc/image/type : [mirabile]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/control_to_data_cpu : [0]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/iosxe_data_processes.cpunum : [7]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/services.cpunum : [3]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/iosxe_control_processes.cpunum : [8]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/total_cpu_num : [8]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/current_template : [service_plane_heavy]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/status : [req_complete]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/dp_core_req : [5]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/dp_core_alloc : [5]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/machine/cpu.shares : [2279]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/machine/cpuset.cpus : [0]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/iosxe_slwctl_processes/cpu.shares : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/iosxe_slwctl_processes/cpuset.cpus : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/iosxe_plfm_processes/cpu.shares : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/iosxe_plfm_processes/cpuset.cpus : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/iosxe_data_processes/cpu.shares : [0]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/iosxe_data_processes/cpuset.cpus : [0,1-7]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/iosxe_control_processes/iosxe_mgmt_processes/cpu.shares : [256]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/iosxe_control_processes/iosxe_mgmt_processes/cpuset.cpus : [-1]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/iosxe_control_processes/cpu.shares : [0]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/iosxe_control_processes/cpuset.cpus : [0]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/data-plane-heavy/max_vm_phys_mem : [10240]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/machine/cpu.shares : [101376]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/machine/cpuset.cpus : [1-3]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/iosxe_slwctl_processes/cpu.shares : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/iosxe_slwctl_processes/cpuset.cpus : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/iosxe_plfm_processes/cpu.shares : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/iosxe_plfm_processes/cpuset.cpus : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/iosxe_data_processes/cpu.shares : [0]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/iosxe_data_processes/cpuset.cpus : [0,1-7]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/iosxe_control_processes/iosxe_mgmt_processes/cpu.shares : [256]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/iosxe_control_processes/iosxe_mgmt_processes/cpuset.cpus : [-1]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/iosxe_control_processes/cpu.shares : [0]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/iosxe_control_processes/cpuset.cpus : [0]
+  /tmp/chassis/local/rp/chasfs/etc/cpuinfo/dca/service-plane-heavy/max_vm_phys_mem : [10240]
+  /tmp/chassis/local/rp/chasfs/etc/vcpu_temp_loc : [/csl_p_0/vcpu_template.txt]
+  /tmp/chassis/local/rp/chasfs/etc/rel_verinfo : [
+# IOS-XE Release Version Information
+
+# 1: [cc] as [mono-universalk9] from [/tmp/sw/cc/0/0/cc/mount/.pkginfo] 
+@ cc 0 0 cc IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 2: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/0/cc_spa/mount/.pkginfo] 
+@ cc 0 0 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 3: [cc] as [mono-universalk9] from [/tmp/sw/cc/0/1/cc/mount/.pkginfo] 
+@ cc 0 1 cc IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 4: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/1/cc_spa/mount/.pkginfo] 
+@ cc 0 1 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 5: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/2/cc_spa/mount/.pkginfo] 
+@ cc 0 2 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 6: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/3/cc_spa/mount/.pkginfo] 
+@ cc 0 3 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 7: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/4/cc_spa/mount/.pkginfo] 
+@ cc 0 4 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 8: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/5/cc_spa/mount/.pkginfo] 
+@ cc 0 5 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 9: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/1/0/cc_spa/mount/.pkginfo] 
+@ cc 1 0 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 10: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/1/1/cc_spa/mount/.pkginfo] 
+@ cc 1 1 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 11: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/1/2/cc_spa/mount/.pkginfo] 
+@ cc 1 2 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 12: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/1/3/cc_spa/mount/.pkginfo] 
+@ cc 1 3 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 13: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/2/0/cc_spa/mount/.pkginfo] 
+@ cc 2 0 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 14: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/2/1/cc_spa/mount/.pkginfo] 
+@ cc 2 1 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 15: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/2/2/cc_spa/mount/.pkginfo] 
+@ cc 2 2 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 16: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/2/3/cc_spa/mount/.pkginfo] 
+@ cc 2 3 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 17: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/3/0/cc_spa/mount/.pkginfo] 
+@ cc 3 0 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 18: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/3/1/cc_spa/mount/.pkginfo] 
+@ cc 3 1 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 19: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/3/2/cc_spa/mount/.pkginfo] 
+@ cc 3 2 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 20: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/3/3/cc_spa/mount/.pkginfo] 
+@ cc 3 3 cc_spa IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 21: [fp] as [mono-universalk9] from [/tmp/sw/fp/0/0/fp/mount/.pkginfo] 
+@ fp 0 0 fp IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 22: [fp] as [mono-universalk9] from [/tmp/sw/fp/0/1/fp/mount/.pkginfo] 
+@ fp 0 1 fp IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 23: [firmware_dsp_analogbri] as [firmware_dsp_analogbri] from [/tmp/sw/rp/0/0/firmware_dsp_analogbri/mount/.pkginfo] 
+@ rp 0 0 firmware_dsp_analogbri IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 24: [firmware_mirabile_mcu] as [firmware_mirabile_mcu] from [/tmp/sw/rp/0/0/firmware_mirabile_mcu/mount/.pkginfo] 
+@ rp 0 0 firmware_mirabile_mcu IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 25: [firmware_ngwic_t1e1] as [firmware_ngwic_t1e1] from [/tmp/sw/rp/0/0/firmware_ngwic_t1e1/mount/.pkginfo] 
+@ rp 0 0 firmware_ngwic_t1e1 IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 26: [firmware_nim_async] as [firmware_nim_async] from [/tmp/sw/rp/0/0/firmware_nim_async/mount/.pkginfo] 
+@ rp 0 0 firmware_nim_async IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 27: [firmware_nim_shdsl] as [firmware_nim_shdsl] from [/tmp/sw/rp/0/0/firmware_nim_shdsl/mount/.pkginfo] 
+@ rp 0 0 firmware_nim_shdsl IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 28: [firmware_nim_xdsl] as [firmware_nim_xdsl] from [/tmp/sw/rp/0/0/firmware_nim_xdsl/mount/.pkginfo] 
+@ rp 0 0 firmware_nim_xdsl IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 29: [firmware_prince] as [firmware_prince] from [/tmp/sw/rp/0/0/firmware_prince/mount/.pkginfo] 
+@ rp 0 0 firmware_prince IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 30: [firmware_pse_si3470a] as [firmware_pse_si3470a] from [/tmp/sw/rp/0/0/firmware_pse_si3470a/mount/.pkginfo] 
+@ rp 0 0 firmware_pse_si3470a IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 31: [firmware_sm_1t3e3] as [firmware_sm_1t3e3] from [/tmp/sw/rp/0/0/firmware_sm_1t3e3/mount/.pkginfo] 
+@ rp 0 0 firmware_sm_1t3e3 IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 32: [firmware_sm_async] as [firmware_sm_async] from [/tmp/sw/rp/0/0/firmware_sm_async/mount/.pkginfo] 
+@ rp 0 0 firmware_sm_async IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 33: [firmware_sm_dsp_sp2700] as [firmware_sm_dsp_sp2700] from [/tmp/sw/rp/0/0/firmware_sm_dsp_sp2700/mount/.pkginfo] 
+@ rp 0 0 firmware_sm_dsp_sp2700 IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 34: [firmware_sm_nim_adpt] as [firmware_sm_nim_adpt] from [/tmp/sw/rp/0/0/firmware_sm_nim_adpt/mount/.pkginfo] 
+@ rp 0 0 firmware_sm_nim_adpt IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 35: [rp_base] as [mono-universalk9] from [/tmp/sw/rp/0/0/rp_base/mount/.pkginfo] 
+@ rp 0 0 rp_base IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 36: [rp_daemons] as [mono-universalk9] from [/tmp/sw/rp/0/0/rp_daemons/mount/.pkginfo] 
+@ rp 0 0 rp_daemons IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 37: [rp_iosd] as [mono-universalk9] from [/tmp/sw/rp/0/0/rp_iosd/mount/.pkginfo] 
+@ rp 0 0 rp_iosd IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 38: [rp_security] as [mono-universalk9] from [/tmp/sw/rp/0/0/rp_security/mount/.pkginfo] 
+@ rp 0 0 rp_security IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 39: [rp_webui] as [mono-universalk9] from [/tmp/sw/rp/0/0/rp_webui/mount/.pkginfo] 
+@ rp 0 0 rp_webui IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 40: [firmware_dsp_analogbri] as [firmware_dsp_analogbri] from [/tmp/sw/rp/0/1/firmware_dsp_analogbri/mount/.pkginfo] 
+@ rp 0 1 firmware_dsp_analogbri IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 41: [firmware_mirabile_mcu] as [firmware_mirabile_mcu] from [/tmp/sw/rp/0/1/firmware_mirabile_mcu/mount/.pkginfo] 
+@ rp 0 1 firmware_mirabile_mcu IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 42: [firmware_ngwic_t1e1] as [firmware_ngwic_t1e1] from [/tmp/sw/rp/0/1/firmware_ngwic_t1e1/mount/.pkginfo] 
+@ rp 0 1 firmware_ngwic_t1e1 IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 43: [firmware_nim_async] as [firmware_nim_async] from [/tmp/sw/rp/0/1/firmware_nim_async/mount/.pkginfo] 
+@ rp 0 1 firmware_nim_async IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 44: [firmware_nim_shdsl] as [firmware_nim_shdsl] from [/tmp/sw/rp/0/1/firmware_nim_shdsl/mount/.pkginfo] 
+@ rp 0 1 firmware_nim_shdsl IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 45: [firmware_nim_xdsl] as [firmware_nim_xdsl] from [/tmp/sw/rp/0/1/firmware_nim_xdsl/mount/.pkginfo] 
+@ rp 0 1 firmware_nim_xdsl IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 46: [firmware_prince] as [firmware_prince] from [/tmp/sw/rp/0/1/firmware_prince/mount/.pkginfo] 
+@ rp 0 1 firmware_prince IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 47: [firmware_pse_si3470a] as [firmware_pse_si3470a] from [/tmp/sw/rp/0/1/firmware_pse_si3470a/mount/.pkginfo] 
+@ rp 0 1 firmware_pse_si3470a IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 48: [firmware_sm_1t3e3] as [firmware_sm_1t3e3] from [/tmp/sw/rp/0/1/firmware_sm_1t3e3/mount/.pkginfo] 
+@ rp 0 1 firmware_sm_1t3e3 IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 49: [firmware_sm_async] as [firmware_sm_async] from [/tmp/sw/rp/0/1/firmware_sm_async/mount/.pkginfo] 
+@ rp 0 1 firmware_sm_async IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 50: [firmware_sm_dsp_sp2700] as [firmware_sm_dsp_sp2700] from [/tmp/sw/rp/0/1/firmware_sm_dsp_sp2700/mount/.pkginfo] 
+@ rp 0 1 firmware_sm_dsp_sp2700 IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 51: [firmware_sm_nim_adpt] as [firmware_sm_nim_adpt] from [/tmp/sw/rp/0/1/firmware_sm_nim_adpt/mount/.pkginfo] 
+@ rp 0 1 firmware_sm_nim_adpt IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 52: [rp_base] as [mono-universalk9] from [/tmp/sw/rp/0/1/rp_base/mount/.pkginfo] 
+@ rp 0 1 rp_base IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 53: [rp_daemons] as [mono-universalk9] from [/tmp/sw/rp/0/1/rp_daemons/mount/.pkginfo] 
+@ rp 0 1 rp_daemons IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 54: [rp_iosd] as [mono-universalk9] from [/tmp/sw/rp/0/1/rp_iosd/mount/.pkginfo] 
+@ rp 0 1 rp_iosd IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 55: [rp_security] as [mono-universalk9] from [/tmp/sw/rp/0/1/rp_security/mount/.pkginfo] 
+@ rp 0 1 rp_security IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# 56: [rp_webui] as [mono-universalk9] from [/tmp/sw/rp/0/1/rp_webui/mount/.pkginfo] 
+@ rp 0 1 rp_webui IOSXE 26.02.01
+ 26.2.
+ 1.0.0
+# Generated:             Thu May 29 18:48:56 2025 
+# Identifiers processed: 56 ]
+  /tmp/chassis/local/rp/chasfs/etc/sw_verinfo : [
+# IOS-XE Package Version Information
+
+# 1: [cc] as [mono-universalk9] from [/tmp/sw/cc/0/0/cc/mount/.pkginfo] 
+@ cc 0 0 cc 26.02.01
+# 2: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/0/cc_spa/mount/.pkginfo] 
+@ cc 0 0 cc_spa 26.02.01
+# 3: [cc] as [mono-universalk9] from [/tmp/sw/cc/0/1/cc/mount/.pkginfo] 
+@ cc 0 1 cc 26.02.01
+# 4: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/1/cc_spa/mount/.pkginfo] 
+@ cc 0 1 cc_spa 26.02.01
+# 5: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/2/cc_spa/mount/.pkginfo] 
+@ cc 0 2 cc_spa 26.02.01
+# 6: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/3/cc_spa/mount/.pkginfo] 
+@ cc 0 3 cc_spa 26.02.01
+# 7: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/4/cc_spa/mount/.pkginfo] 
+@ cc 0 4 cc_spa 26.02.01
+# 8: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/5/cc_spa/mount/.pkginfo] 
+@ cc 0 5 cc_spa 26.02.01
+# 9: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/1/0/cc_spa/mount/.pkginfo] 
+@ cc 1 0 cc_spa 26.02.01
+# 10: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/1/1/cc_spa/mount/.pkginfo] 
+@ cc 1 1 cc_spa 26.02.01
+# 11: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/1/2/cc_spa/mount/.pkginfo] 
+@ cc 1 2 cc_spa 26.02.01
+# 12: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/1/3/cc_spa/mount/.pkginfo] 
+@ cc 1 3 cc_spa 26.02.01
+# 13: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/2/0/cc_spa/mount/.pkginfo] 
+@ cc 2 0 cc_spa 26.02.01
+# 14: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/2/1/cc_spa/mount/.pkginfo] 
+@ cc 2 1 cc_spa 26.02.01
+# 15: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/2/2/cc_spa/mount/.pkginfo] 
+@ cc 2 2 cc_spa 26.02.01
+# 16: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/2/3/cc_spa/mount/.pkginfo] 
+@ cc 2 3 cc_spa 26.02.01
+# 17: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/3/0/cc_spa/mount/.pkginfo] 
+@ cc 3 0 cc_spa 26.02.01
+# 18: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/3/1/cc_spa/mount/.pkginfo] 
+@ cc 3 1 cc_spa 26.02.01
+# 19: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/3/2/cc_spa/mount/.pkginfo] 
+@ cc 3 2 cc_spa 26.02.01
+# 20: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/3/3/cc_spa/mount/.pkginfo] 
+@ cc 3 3 cc_spa 26.02.01
+# 21: [fp] as [mono-universalk9] from [/tmp/sw/fp/0/0/fp/mount/.pkginfo] 
+@ fp 0 0 fp 26.02.01
+# 22: [fp] as [mono-universalk9] from [/tmp/sw/fp/0/1/fp/mount/.pkginfo] 
+@ fp 0 1 fp 26.02.01
+# 23: [firmware_dsp_analogbri] as [firmware_dsp_analogbri] from [/tmp/sw/rp/0/0/firmware_dsp_analogbri/mount/.pkginfo] 
+@ rp 0 0 firmware_dsp_analogbri 26.02.01
+# 24: [firmware_mirabile_mcu] as [firmware_mirabile_mcu] from [/tmp/sw/rp/0/0/firmware_mirabile_mcu/mount/.pkginfo] 
+@ rp 0 0 firmware_mirabile_mcu 26.02.01
+# 25: [firmware_ngwic_t1e1] as [firmware_ngwic_t1e1] from [/tmp/sw/rp/0/0/firmware_ngwic_t1e1/mount/.pkginfo] 
+@ rp 0 0 firmware_ngwic_t1e1 26.02.01
+# 26: [firmware_nim_async] as [firmware_nim_async] from [/tmp/sw/rp/0/0/firmware_nim_async/mount/.pkginfo] 
+@ rp 0 0 firmware_nim_async 26.02.01
+# 27: [firmware_nim_shdsl] as [firmware_nim_shdsl] from [/tmp/sw/rp/0/0/firmware_nim_shdsl/mount/.pkginfo] 
+@ rp 0 0 firmware_nim_shdsl 26.02.01
+# 28: [firmware_nim_xdsl] as [firmware_nim_xdsl] from [/tmp/sw/rp/0/0/firmware_nim_xdsl/mount/.pkginfo] 
+@ rp 0 0 firmware_nim_xdsl 26.02.01
+# 29: [firmware_prince] as [firmware_prince] from [/tmp/sw/rp/0/0/firmware_prince/mount/.pkginfo] 
+@ rp 0 0 firmware_prince 26.02.01
+# 30: [firmware_pse_si3470a] as [firmware_pse_si3470a] from [/tmp/sw/rp/0/0/firmware_pse_si3470a/mount/.pkginfo] 
+@ rp 0 0 firmware_pse_si3470a 26.02.01
+# 31: [firmware_sm_1t3e3] as [firmware_sm_1t3e3] from [/tmp/sw/rp/0/0/firmware_sm_1t3e3/mount/.pkginfo] 
+@ rp 0 0 firmware_sm_1t3e3 26.02.01
+# 32: [firmware_sm_async] as [firmware_sm_async] from [/tmp/sw/rp/0/0/firmware_sm_async/mount/.pkginfo] 
+@ rp 0 0 firmware_sm_async 26.02.01
+# 33: [firmware_sm_dsp_sp2700] as [firmware_sm_dsp_sp2700] from [/tmp/sw/rp/0/0/firmware_sm_dsp_sp2700/mount/.pkginfo] 
+@ rp 0 0 firmware_sm_dsp_sp2700 26.02.01
+# 34: [firmware_sm_nim_adpt] as [firmware_sm_nim_adpt] from [/tmp/sw/rp/0/0/firmware_sm_nim_adpt/mount/.pkginfo] 
+@ rp 0 0 firmware_sm_nim_adpt 26.02.01
+# 35: [rp_base] as [mono-universalk9] from [/tmp/sw/rp/0/0/rp_base/mount/.pkginfo] 
+@ rp 0 0 rp_base 26.02.01
+# 36: [rp_daemons] as [mono-universalk9] from [/tmp/sw/rp/0/0/rp_daemons/mount/.pkginfo] 
+@ rp 0 0 rp_daemons 26.02.01
+# 37: [rp_iosd] as [mono-universalk9] from [/tmp/sw/rp/0/0/rp_iosd/mount/.pkginfo] 
+@ rp 0 0 rp_iosd 26.02.01
+# 38: [rp_security] as [mono-universalk9] from [/tmp/sw/rp/0/0/rp_security/mount/.pkginfo] 
+@ rp 0 0 rp_security 26.02.01
+# 39: [rp_webui] as [mono-universalk9] from [/tmp/sw/rp/0/0/rp_webui/mount/.pkginfo] 
+@ rp 0 0 rp_webui 26.02.01
+# 40: [firmware_dsp_analogbri] as [firmware_dsp_analogbri] from [/tmp/sw/rp/0/1/firmware_dsp_analogbri/mount/.pkginfo] 
+@ rp 0 1 firmware_dsp_analogbri 26.02.01
+# 41: [firmware_mirabile_mcu] as [firmware_mirabile_mcu] from [/tmp/sw/rp/0/1/firmware_mirabile_mcu/mount/.pkginfo] 
+@ rp 0 1 firmware_mirabile_mcu 26.02.01
+# 42: [firmware_ngwic_t1e1] as [firmware_ngwic_t1e1] from [/tmp/sw/rp/0/1/firmware_ngwic_t1e1/mount/.pkginfo] 
+@ rp 0 1 firmware_ngwic_t1e1 26.02.01
+# 43: [firmware_nim_async] as [firmware_nim_async] from [/tmp/sw/rp/0/1/firmware_nim_async/mount/.pkginfo] 
+@ rp 0 1 firmware_nim_async 26.02.01
+# 44: [firmware_nim_shdsl] as [firmware_nim_shdsl] from [/tmp/sw/rp/0/1/firmware_nim_shdsl/mount/.pkginfo] 
+@ rp 0 1 firmware_nim_shdsl 26.02.01
+# 45: [firmware_nim_xdsl] as [firmware_nim_xdsl] from [/tmp/sw/rp/0/1/firmware_nim_xdsl/mount/.pkginfo] 
+@ rp 0 1 firmware_nim_xdsl 26.02.01
+# 46: [firmware_prince] as [firmware_prince] from [/tmp/sw/rp/0/1/firmware_prince/mount/.pkginfo] 
+@ rp 0 1 firmware_prince 26.02.01
+# 47: [firmware_pse_si3470a] as [firmware_pse_si3470a] from [/tmp/sw/rp/0/1/firmware_pse_si3470a/mount/.pkginfo] 
+@ rp 0 1 firmware_pse_si3470a 26.02.01
+# 48: [firmware_sm_1t3e3] as [firmware_sm_1t3e3] from [/tmp/sw/rp/0/1/firmware_sm_1t3e3/mount/.pkginfo] 
+@ rp 0 1 firmware_sm_1t3e3 26.02.01
+# 49: [firmware_sm_async] as [firmware_sm_async] from [/tmp/sw/rp/0/1/firmware_sm_async/mount/.pkginfo] 
+@ rp 0 1 firmware_sm_async 26.02.01
+# 50: [firmware_sm_dsp_sp2700] as [firmware_sm_dsp_sp2700] from [/tmp/sw/rp/0/1/firmware_sm_dsp_sp2700/mount/.pkginfo] 
+@ rp 0 1 firmware_sm_dsp_sp2700 26.02.01
+# 51: [firmware_sm_nim_adpt] as [firmware_sm_nim_adpt] from [/tmp/sw/rp/0/1/firmware_sm_nim_adpt/mount/.pkginfo] 
+@ rp 0 1 firmware_sm_nim_adpt 26.02.01
+# 52: [rp_base] as [mono-universalk9] from [/tmp/sw/rp/0/1/rp_base/mount/.pkginfo] 
+@ rp 0 1 rp_base 26.02.01
+# 53: [rp_daemons] as [mono-universalk9] from [/tmp/sw/rp/0/1/rp_daemons/mount/.pkginfo] 
+@ rp 0 1 rp_daemons 26.02.01
+# 54: [rp_iosd] as [mono-universalk9] from [/tmp/sw/rp/0/1/rp_iosd/mount/.pkginfo] 
+@ rp 0 1 rp_iosd 26.02.01
+# 55: [rp_security] as [mono-universalk9] from [/tmp/sw/rp/0/1/rp_security/mount/.pkginfo] 
+@ rp 0 1 rp_security 26.02.01
+# 56: [rp_webui] as [mono-universalk9] from [/tmp/sw/rp/0/1/rp_webui/mount/.pkginfo] 
+@ rp 0 1 rp_webui 26.02.01
+# Generated:             Thu May 29 18:48:54 2025 
+# Identifiers processed: 56 ]
+  /tmp/chassis/local/rp/chasfs/etc/device_managed_mode : [autonomous]
+  /tmp/chassis/local/rp/chasfs/etc/hidden.list : [/bootflash/.sdwaninstallerfs
+/bootflash/vman_fdb
+/bootflash/.USWAP
+/bootflash/.CRFT
+/tmp/.CRFT
+/vol/harddisk/iox
+/vol/harddisk/caf
+/vol/harddisk/docker
+/vol/harddisk/iox_data_share
+/vol/harddisk/user/gs_script
+/vol/harddisk/gs_script
+/vol/harddisk/user/.ssd
+/vol/harddisk/.ssd
+/vol/harddisk/user/ss_disc
+/vol/harddisk/ss_disc
+/bootflash/iox
+/bootflash/caf
+/bootflash/docker
+/bootflash/iox_data_share
+/bootflash/user/gs_script
+/bootflash/gs_script
+/bootflash/user/.ssd
+/bootflash/.ssd
+/bootflash/user/ss_disc
+/bootflash/ss_disc
+/bootflash/iox_alt_hdd_mount_dir]
+  /tmp/chassis/local/rp/chasfs/etc/boot_mode : [INSTALL_MODE]
+  /tmp/chassis/local/rp/chasfs/pf/redun-mode : [none]
+  /tmp/chassis/local/rp/chasfs/pf/pfu-init-done : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/pf/oper-mode : [normal]
+  /tmp/chassis/local/rp/chasfs/pf/0/fan-air-dir : [unknown]
+  /tmp/chassis/local/rp/chasfs/pf/0/fw_ver_sec : [0:0:0]
+  /tmp/chassis/local/rp/chasfs/pf/0/fw_ver_pri : [0:0:0]
+  /tmp/chassis/local/rp/chasfs/pf/0/ps-capacity : [66]
+  /tmp/chassis/local/rp/chasfs/pf/0/oirtime : [1748544561365]
+  /tmp/chassis/local/rp/chasfs/pf/0/ps-type : [ac]
+  /tmp/chassis/local/rp/chasfs/pf/0/fan/state : [ok]
+  /tmp/chassis/local/rp/chasfs/pf/0/ps-vout-mv : [0]
+  /tmp/chassis/local/rp/chasfs/pf/0/ps-iout-ma : [0]
+  /tmp/chassis/local/rp/chasfs/pf/0/pwr-req : [0]
+  /tmp/chassis/local/rp/chasfs/pf/0/state : [ok]
+  /tmp/chassis/local/rp/chasfs/pf/oirtime : [1748544478218]
+  /tmp/chassis/local/rp/chasfs/pf/redun-pwr : [0]
+  /tmp/chassis/local/rp/chasfs/pf/audit : [disabled]
+  /tmp/chassis/local/rp/chasfs/cc/0/alarm-state : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/cc/0/pwr-state : [accepted]
+  /tmp/chassis/local/rp/chasfs/cc/0/vdsp : [0]
+  /tmp/chassis/local/rp/chasfs/cc/0/lc_presence : [false]
+  /tmp/chassis/local/rp/chasfs/cc/0/4/fpd_version : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/cc/0/4/fru_state : [ok]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/cc/0/4/powered_shut_support : [no]
+  /tmp/chassis/local/rp/chasfs/cc/0/4/state : [online-rspios]
+  /tmp/chassis/local/rp/chasfs/cc/0/4/oirtime : [91820]
+  /tmp/chassis/local/rp/chasfs/cc/0/4/vdsp : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/cc/0/4/pwr-req : [0]
+  /tmp/chassis/local/rp/chasfs/cc/0/4/type : [ABCD]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/fpd_version : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/fru_state : [ok]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/db_count : [0]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/flow_ctrl : [0]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/assoc_scheme : [1]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/port_count : [0]
+/usr/binos/conf/chasfs_listing.sh: line 72: warning: command substitution: ignored null byte in input
+  /tmp/chassis/local/rp/chasfs/cc/0/0/powered_shut_support : [no]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/state : [online-rspios]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/oirtime : [91816]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/pwr-req : [0]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/type : [76E]
+  /tmp/chassis/local/rp/chasfs/cc/0/ha_state : [s_cc_active/48]
+  /tmp/chassis/local/rp/chasfs/cc/0/uptime : [91812]
+  /tmp/chassis/local/rp/chasfs/cc/0/oper_state : [ok]
+  /tmp/chassis/local/rp/chasfs/cc/0/state : [online]
+  /tmp/chassis/local/rp/chasfs/cc/0/fw_verinfo : [SDK112312-SoC1-SB-v12.1.22]
+  /tmp/chassis/local/rp/chasfs/cc/0/cpld_ver : [24073021]
+  /tmp/chassis/local/rp/chasfs/cc/0/hwrdytime : [89196]
+  /tmp/chassis/local/rp/chasfs/cc/0/pwr-req : [0]
+  /tmp/chassis/local/rp/chasfs/cc/0/type : [11EC]
+  /tmp/chassis/local/rp/chasfs/cc/0/cman_cmcc_ipc_channel_state : [peer not attached]
+  /tmp/chassis/local/rp/chasfs/cc/0/cfg_shutdown : [no]
+  /tmp/chassis/local/rp/chasfs/cc/0/mem_warn_threshold : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/cc/0/mem_crit_threshold : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/cc/0/cpu_warn_threshold : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/cc/0/cpu_crit_threshold : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/cc/0/oirtime : [50632]
+  /tmp/chassis/local/rp/chasfs/fp/0/pktrdytime : [98248]
+  /tmp/chassis/local/rp/chasfs/fp/0/ha_state : [s_fp_standalone/16]
+  /tmp/chassis/local/rp/chasfs/fp/0/uptime : [87576]
+  /tmp/chassis/local/rp/chasfs/fp/0/pkt_ready : [true]
+  /tmp/chassis/local/rp/chasfs/fp/0/oper_state : [ok]
+  /tmp/chassis/local/rp/chasfs/fp/0/state : [online]
+  /tmp/chassis/local/rp/chasfs/fp/0/fw_verinfo : [SDK112312-SoC1-SB-v12.1.22]
+  /tmp/chassis/local/rp/chasfs/fp/0/cpld_ver : [24073021]
+  /tmp/chassis/local/rp/chasfs/fp/0/hwrdytime : [84188]
+  /tmp/chassis/local/rp/chasfs/fp/0/pwr-req : [0]
+  /tmp/chassis/local/rp/chasfs/fp/0/type : [11EC]
+  /tmp/chassis/local/rp/chasfs/fp/0/cfg_shutdown : [no]
+  /tmp/chassis/local/rp/chasfs/fp/0/mem_warn_threshold : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/fp/0/mem_crit_threshold : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/fp/0/cpu_warn_threshold : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/fp/0/cpu_crit_threshold : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/fp/0/oirtime : [50632]
+  /tmp/chassis/local/rp/chasfs/rp/console : [1]
+  /tmp/chassis/local/rp/chasfs/rp/0/cpu_crit_threshold : [2288]
+  /tmp/chassis/local/rp/chasfs/rp/0/cpu_warn_threshold : [1430]
+  /tmp/chassis/local/rp/chasfs/rp/0/mem_crit_threshold : [93]
+  /tmp/chassis/local/rp/chasfs/rp/0/mem_warn_threshold : [88]
+  /tmp/chassis/local/rp/chasfs/rp/0/max_vm_bflash_alloc : [4096]
+  /tmp/chassis/local/rp/chasfs/rp/0/max_vm_hdd_alloc : [512000]
+  /tmp/chassis/local/rp/chasfs/rp/0/max_vm_vcpus : [6]
+  /tmp/chassis/local/rp/chasfs/rp/0/max_vm_phys_mem : [10240]
+  /tmp/chassis/local/rp/chasfs/rp/0/max_vms : [4]
+  /tmp/chassis/local/rp/chasfs/rp/0/ios-dual-capable : [1]
+  /tmp/chassis/local/rp/chasfs/rp/0/ios-dual-requested : [0]
+  /tmp/chassis/local/rp/chasfs/rp/0/ios-memory-share : [8000]
+  /tmp/chassis/local/rp/chasfs/rp/0/sdm-template : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/rp/0/totalmemsize : [16150600]
+  /tmp/chassis/local/rp/chasfs/rp/0/ram/ram0-info : [size=16GB
+serial_no=UNKNOWN SERIAL
+manufacture=Cisco
+model=Unknown Part]
+  /tmp/chassis/local/rp/chasfs/rp/0/cpld_ver : [24073021]
+  /tmp/chassis/local/rp/chasfs/rp/0/board_properties/board_pd_type : [4588]
+  /tmp/chassis/local/rp/chasfs/rp/0/board_properties/board_minor_ver : [0]
+  /tmp/chassis/local/rp/chasfs/rp/0/board_properties/board_major_ver : [1]
+  /tmp/chassis/local/rp/chasfs/rp/0/fw_verinfo : [SDK112312-SoC1-SB-v12.1.22]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/dbpersist : [1]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/nv_written : [240]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/ios_config_dirty : [0]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/service_internal : [0]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/configured : [0]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/b2b_state : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/netclk_state : [ready]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/hostinfo/timezone : [UTC0:00]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/hostinfo/log_level : [5]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/hostinfo/hostname : [R1-C8235G2]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/epoch : [0]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/oirtime : [50632]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/ha_state : [s_master_standalone/32]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/state : [online]
+  /tmp/chassis/local/rp/chasfs/rp/0/0/rfrole : [undefined]
+  /tmp/chassis/local/rp/chasfs/rp/0/uptime : [50632]
+  /tmp/chassis/local/rp/chasfs/rp/0/oper_state : [ok]
+  /tmp/chassis/local/rp/chasfs/rp/0/state : [online]
+  /tmp/chassis/local/rp/chasfs/rp/0/oirtime : [50632]
+  /tmp/chassis/local/rp/chasfs/inventory/inventory_cc_00.bin : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/inventory/inventory_fp_00.bin : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/inventory/pf_00_idprom.bin : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/inventory/routing-switch-mode : [flex-l2l3]
+  /tmp/chassis/local/rp/chasfs/inventory/kgvbiv_erd : [{"method":{"name":"json/meth-kgvbiv-init-np","params":null,"id":1}}]
+  /tmp/chassis/local/rp/chasfs/inventory/kgvbiv : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/inventory/rp_00_idprom.bin : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/inventory/mp_00_idprom.bin : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/cpa/pf/0/idprom : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/cpa/pf/0/idprom_length : [256]
+  /tmp/chassis/local/rp/chasfs/cpa/pf/0/location : [1]
+  /tmp/chassis/local/rp/chasfs/cpa/pf/0/group_type : [8]
+  /tmp/chassis/local/rp/chasfs/cpa/pf/0/pd_type : [3089]
+  /tmp/chassis/local/rp/chasfs/cpa/pf/0/product_data : [vendor_id=0]
+  /tmp/chassis/local/rp/chasfs/cpa/pf/0/product_id : [PWR-CC2-66WAC]
+  /tmp/chassis/local/rp/chasfs/cpa/pf/0/version_minor : [0]
+  /tmp/chassis/local/rp/chasfs/cpa/pf/0/version_major : [0]
+  /tmp/chassis/local/rp/chasfs/cpa/card/idprom : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/cpa/card/idprom_length : [256]
+  /tmp/chassis/local/rp/chasfs/cpa/card/location : [0]
+  /tmp/chassis/local/rp/chasfs/cpa/card/group_type : [3]
+  /tmp/chassis/local/rp/chasfs/cpa/card/pd_type : [4588]
+  /tmp/chassis/local/rp/chasfs/cpa/card/product_data : [vendor_id=0]
+  /tmp/chassis/local/rp/chasfs/cpa/card/product_id : [C8230X-8M2X]
+  /tmp/chassis/local/rp/chasfs/cpa/card/version_minor : [0]
+  /tmp/chassis/local/rp/chasfs/cpa/card/version_major : [1]
+  /tmp/chassis/local/rp/chasfs/cpa/chassis/idprom : [ <skipping binary file> ]
+  /tmp/chassis/local/rp/chasfs/cpa/chassis/idprom_length : [256]
+  /tmp/chassis/local/rp/chasfs/cpa/chassis/location : [4294967295]
+  /tmp/chassis/local/rp/chasfs/cpa/chassis/group_type : [1]
+  /tmp/chassis/local/rp/chasfs/cpa/chassis/pd_type : [4588]
+  /tmp/chassis/local/rp/chasfs/cpa/chassis/product_data : [vendor_id=0]
+  /tmp/chassis/local/rp/chasfs/cpa/chassis/product_id : [C8230X-8M2X]
+  /tmp/chassis/local/rp/chasfs/cpa/chassis/version_minor : [0]
+  /tmp/chassis/local/rp/chasfs/cpa/chassis/version_major : [1]
+  /tmp/chassis/local/rp/chasfs/complex/cc0 : [running]
+  /tmp/chassis/local/rp/chasfs/complex/fp : [running]
+
+Chasfs entries processed = 337
+
+R1-C8235G2#
+R1-C8235G2#
+[TX 2026-11-06T17:24:09.353920-05:00] b'show power inline TwoGigabitEthernet 0/0/4 detail\r'
+show power inline TwoGigabitEthernet 0/0/4 detail
+ Interface: Tw0/0/4
+ Inline Power Mode: auto
+ Operational status: off
+ Device Detected: no
+ Device Type: n/a
+ IEEE Class: n/a
+ Discovery mechanism used/configured: Unknown
+ Police: off
+
+ Power Allocated 
+ Admin Value: 30.0
+ Power drawn from the source: 0.0
+ Power available to the device: 0.0
+ 
+ Actual consumption
+ Measured at the port: 0.0
+ Maximum Power drawn by the device since powered on: 0.0
+ 
+ Absent Counter: 0
+ Over Current Counter: 0
+ Short Current Counter: 0
+ Invalid Signature Counter: 0
+ Power Denied Counter: 0
+
+ Power Negotiation Used: None
+ LLDP Power Negotiation --Sent to PD--      --Rcvd from PD--
+   Power Type:          -                    -
+   Power Source:        -                    -
+   Power Priority:      -                    -
+   Requested Power(W):  -                    -
+   Allocated Power(W):  -                    -
+
+Four-Pair PoE Supported: No
+Spare Pair Power Enabled: No
+Four-Pair PD Architecture: N/A
+Perpetual POE Enabled: FALSE
+Fast POE Enabled: FALSE
+Meter Start Time: 2025-05-29 18:54:23 UTC
+Metered Energy Value(WattSec): 0.0 
+R1-C8235G2#
+[TX 2026-11-06T17:24:23.971180-05:00] b'show running-config interface TwoGigabitEthernet 0/0/4\r'
+show running-config interface TwoGigabitEthernet 0/0/4
+Building configuration...
+
+Current configuration : 53 bytes
+!
+interface TwoGigabitEthernet0/0/4
+ switchport
+end
+
+R1-C8235G2#
+[TX 2026-11-06T17:24:26.972850-05:00] b'show running-config interface TwoGigabitEthernet 0/0/6\r'
+show running-config interface TwoGigabitEthernet 0/0/6
+Building configuration...
+
+Current configuration : 84 bytes
+!
+interface TwoGigabitEthernet0/0/6
+ no ip address
+ shutdown
+ negotiation auto
+end
+
+R1-C8235G2#
+[TX 2026-11-06T17:24:29.978895-05:00] b'show diag all eeprom\r'
+show diag all eeprom
+MIDPLANE EEPROM data:
+
+	Product Identifier (PID) : C8230X-8M2X
+	Version Identifier (VID) : V00 
+	PCB Serial Number        : FOC28292GUQ
+	Hardware Revision        : 1.0
+	CLEI Code                : NA        
+Power/Fan Module P0 EEPROM data:
+
+	Product Identifier (PID) : PWR-CC2-66WAC
+	Version Identifier (VID) : V02
+	PCB Serial Number        :            
+	CLEI Code                : IPUPAMFAAB
+Power/Fan Module P1 EEPROM data is not initialized
+
+Internal PoE is not present
+
+Slot R0 EEPROM data:
+
+	Product Identifier (PID) : C8230X-8M2X
+	Version Identifier (VID) : V00 
+	PCB Serial Number        : FOC28292GUQ
+	Hardware Revision        : 1.0
+	CLEI Code                : NA        
+Slot F0 EEPROM data:
+
+	Product Identifier (PID) : C8230X-8M2X
+	Version Identifier (VID) : V00 
+	PCB Serial Number        : FOC28292GUQ
+	Hardware Revision        : 1.0
+	CLEI Code                : NA        
+Slot 0 EEPROM data:
+
+	Product Identifier (PID) : C8230X-8M2X
+	Version Identifier (VID) : V00 
+	PCB Serial Number        : FOC28292GUQ
+	Hardware Revision        : 1.0
+	CLEI Code                : NA        
+SPA EEPROM data for subslot 0/0:
+
+	Product Identifier (PID) : 8M-2xSFP+           
+	Version Identifier (VID) : V01 
+	PCB Serial Number        : 
+	Top Assy. Part Number    : 68-2236-01
+	Top Assy. Revision       : A0  
+	Hardware Revision        : 2.2
+	CLEI Code                : CNUIAHSAAA
+SPA EEPROM data for subslot 0/1 is not available
+
+SPA EEPROM data for subslot 0/2 is not available
+
+SPA EEPROM data for subslot 0/3 is not available
+
+SPA EEPROM data for subslot 0/4 is not available
+
+SPA EEPROM data for subslot 0/5 is not available
+
+R1-C8235G2#
+[TX 2026-11-06T17:24:44.815900-05:00] b'show interfaces TwoGigabitEthernet 0/0/4 | include line protocol\r'
+show interfaces TwoGigabitEthernet 0/0/4 | include line protocol
+TwoGigabitEthernet0/0/4 is down, line protocol is down (notconnect) 
+R1-C8235G2#
+[TX 2026-11-06T17:24:47.819066-05:00] b'show platform software dmesg slot R0 | include poe|PoE|POE|fpga|FPGA|iocomp\r'
+show platform software dmesg slot R0 | include poe|PoE|POE|fpga|FP$rm software dmesg slot R0 | include poe|PoE|POE|fpga|FPG         A|iocomp
+[   23.832359] iocomp iocomp: I/O component probe success!
+[   23.835361] spi-jinghu spi1.0: I/O component device (fpga) add success!
+[   23.845582] Dash FPGA I/O component device driver module init.Date Sep 22 2026 19:56:27
+[   23.845784] spi-jinghu spi1.0: No iocomp-reg-region-names property found in device tree
+[   23.853466] spi-jinghu spi1.0: No iocomp-reg-region-names property found in device tree
+R1-C8235G2#
+[TX 2026-11-06T17:25:19.614381-05:00] b'terminal length 24\r'
+terminal length 24
+R1-C8235G2#
