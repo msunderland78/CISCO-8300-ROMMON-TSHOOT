@@ -5,7 +5,7 @@
   "label_reference": "connector-map-preparation.json: cable mating face as PHOTOS3/IMG_1319.jpeg, latch at top, A/B/C above D/E/F; arbitrary labels, not factory pin numbers.",
   "supplies": {
     "poe_brick_for_A": {
-      "identity": "Current dual-output brick used in C8235-A troubleshooting; exact PID/serial still unknown.",
+      "identity": "Label photo confirms Flextronics FA230LM1-00, P/N 341-0703-01, MPN CIS-A-0230ADU00-101BER; see supply-label.json. Serial/orderable PWR PID not established.",
       "voltage_test_state": "Owner explicitly confirms AC connected and DC plug disconnected from router A.",
       "meter": "Same Fluke 111; DC voltage reported. Auto Range and COM/V lead sockets requested; no current meter photo.",
       "observations": [
@@ -75,7 +75,7 @@
       "scope": "Contact-population comparison only; do not transfer PoE-brick voltage readings to this supply."
     }
   },
-  "interpretation": "The direct A-D result does not demonstrate an energized floating 53.5 V output under the unloaded test conditions, superseding the earlier untested possibility. Prior 12.3 V readings support the low-voltage contact groups; repeat E-B confirmation after the latest cycles is pending. The external high-voltage output, cable/contact path and model-specific enable/minimum-load behavior now need checking before attributing the failure solely to router detection. No exact supply identity, verified A/D net assignment, required enable signal or defective-brick diagnosis has been established.",
+  "interpretation": "Manufacturer label now identifies the measured A-D pair as the -53.5 V output and its separate return. Owner-reported A-D 0 V means the specified output was not present at the connector during the unloaded test. PoE output/cable/contact fault is a stronger suspect; no separate enable/ID pin exists in the labeled assignment. No-load behavior, loaded functionality and prototype compatibility remain unverified; definitive failure diagnosis is not established. Prior 12.3 V remains the low-voltage observation, with post-cycle E-B recheck still pending.",
   "next_measurement": {
     "status": "Direct A-D result received; requested E-B recheck remains pending.",
     "mode": "Fluke 111 DC volts/Auto Range; black COM, red V/ohm.",
@@ -87,12 +87,14 @@
     "limits": "No jumper, load, current or further resistance test selected. Direct A-D voltage does not by itself prove load capacity or router compatibility."
   },
   "changes": "Documentation only; no router configuration, firmware, register or board changes.",
-  "updated_at": "2026-11-06T18:10:48.449018-05:00",
+  "updated_at": "2026-11-06T18:13:56.836369-05:00",
   "interpretation_at_initial_readings": "Reported values support B/C as the 12 V-side positive contacts and E/F as its return group, not necessarily protective earth. A/D are additional contacts on the PoE brick. A separate floating A-D output remains possible; fading A/D-to-E/F readings alone do not diagnose failed PoE output, establish an enable pin, or prove compatibility.",
   "next_step": {
-    "status": "Awaiting owner model/part number and E-B recheck.",
-    "purpose": "Check exact supply compatibility, verified pinout and whether its second output should be active without a load.",
-    "research_result": "Available primary Cisco product references identify power-supply options but have not established an applicable connector pinout or unloaded enable requirement. No enable pin may be inferred from the falling readings.",
-    "limits": "No pin shorting, speculative load, supply opening, mains-side work or new router test selected."
-  }
+    "status": "Label received and inspected; post-cycle E-B recheck remains unanswered.",
+    "purpose": "Confirm the 12 V output remains steady, then prioritize proper supply/cable testing or a known-good supported supply comparison.",
+    "research_result": "The owner label establishes model, signed ratings and all six connector assignments. No separate enable/ID contact is shown. No primary specification for unloaded/minimum-load behavior was established.",
+    "limits": "No speculative pin shorting, load, supply opening, mains-side work, new router access or firmware/profile change."
+  },
+  "label_followup": "supply-label.json: manufacturer label identifies A/P4 as -53.5 V and D/P1 as its positive return. Six pins are assigned to power/returns with no dedicated enable/ID pin shown.",
+  "interpretation_before_label": "The direct A-D result does not demonstrate an energized floating 53.5 V output under the unloaded test conditions, superseding the earlier untested possibility. Prior 12.3 V readings support the low-voltage contact groups; repeat E-B confirmation after the latest cycles is pending. The external high-voltage output, cable/contact path and model-specific enable/minimum-load behavior now need checking before attributing the failure solely to router detection. No exact supply identity, verified A/D net assignment, required enable signal or defective-brick diagnosis has been established."
 }

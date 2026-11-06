@@ -1,0 +1,55 @@
+{
+  "task_id": "C8235-06",
+  "recorded_at": "2026-11-06T18:13:56.836369-05:00",
+  "source": {
+    "path": "PHOTOS3/IMG_1321.jpeg",
+    "bytes": 10794444,
+    "sha256": "5d69586c61c9b9aea94e475757dfef405265388df1d73e0243cc65853337634a",
+    "method": "Visual inspection of original owner photo, including original-resolution view. No image modification or generated marking used."
+  },
+  "identity": {
+    "manufacturer": "Flextronics",
+    "model": "FA230LM1-00",
+    "part_number": "341-0703-01",
+    "mpn": "CIS-A-0230ADU00-101BER",
+    "scope": "Owner identifies this as the external PoE brick being measured for router A. Serial and Cisco orderable PWR PID are not established from this visible portion."
+  },
+  "label_input": "100-240 V AC, 3.5 A, 50-60 Hz",
+  "label_outputs": [
+    {
+      "volts": 12.0,
+      "amps": 9.0,
+      "printed_watts": 108.0
+    },
+    {
+      "volts": -53.5,
+      "amps": 2.3,
+      "printed_watts": 123.0
+    }
+  ],
+  "label_pin_assignments": {
+    "P1": "-53.5 V return (+)",
+    "P2": "GROUND",
+    "P3": "GROUND",
+    "P4": "-53.5 V (-)",
+    "P5": "+12.0 V",
+    "P6": "+12.0 V"
+  },
+  "correspondence_to_session_labels": {
+    "view": "IMG_1319 cable mating face with latch at top; A/B/C above D/E/F. Label drawing places P4/P5/P6 above P1/P2/P3, consistent with cavity keying and reported 12 V groups.",
+    "A": "P4: -53.5 V (-)",
+    "B": "P5: +12.0 V",
+    "C": "P6: +12.0 V",
+    "D": "P1: -53.5 V return (+)",
+    "E": "P2: GROUND (12 V side)",
+    "F": "P3: GROUND (12 V side)"
+  },
+  "interpretation": {
+    "verified_from_label": "A-D is the designated PoE output pair. All six pins have power/return assignments; no separate enable or ID contact is identified. Label names a separate -53.5 V return; do not assume it is tied to E/F or earth.",
+    "expected_polarity_when_active": "With black on D/P1 and red on A/P4, nominal -53.5 V. Reverse probes would give +53.5 V.",
+    "observed_comparison": "Owner reports A-D 0 V through supply power cycles and only decaying cross-contact voltages. Thus the specified PoE output has not appeared at the connector during the unloaded test. Earlier B/C-to-E/F readings are 12.3 V; post-cycle recheck pending.",
+    "inference": "PoE output circuit or cable/contact fault is a stronger suspect. Separate enable-pin speculation is unsupported by the complete labeled connector assignment. The label does not prove no-load/minimum-load behavior, so a definitive defective-supply diagnosis still requires applicable specifications or a proper loaded/known-good comparison.",
+    "limits": "This label does not establish electrical isolation, capacity under load, live router-side voltage, or compatibility with C8235-G2/prototype. Not a confirmed PWR-CC1-230WAC."
+  },
+  "next": "Obtain the already-requested post-cycle E-B steady-voltage recheck. No further A-D cycling or random pin probing needed. If 12 V remains normal, prioritize qualified supply/cable verification or a known-good supported supply comparison; do not force a PSU profile or jumper output pins."
+}

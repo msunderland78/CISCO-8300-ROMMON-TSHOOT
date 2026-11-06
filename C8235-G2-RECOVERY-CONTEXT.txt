@@ -10,7 +10,26 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A DIRECT A-D PSU TEST / CURRENT HANDOFF — 2026-11-06, EST
+C8235-A PSU LABEL / CURRENT HANDOFF — 2026-11-06,18:13 EST
+C8235-06: original PHOTOS3/IMG_1321.jpeg confirms Flextronics FA230LM1-00,
+P/N 341-0703-01, MPN CIS-A-0230ADU00-101BER. Printed outputs: +12 V/9 A/108 W
+and -53.5 V/2.3 A/123 W. This resolves the previously assumed voltage unit and
+polarity, and supersedes unknown physical model; serial/orderable PWR PID and
+C8235 compatibility remain unverified. Label pinout: P1=-53.5 V return (+),
+P2/P3=GROUND, P4=-53.5 V (-), P5/P6=+12 V. Matching the latch-up plug view gives
+A=P4, B=P5, C=P6, D=P1, E=P2, F=P3, consistent with reported 12 V groups.
+All six contacts have power/return assignments; no separate enable/ID contact
+is identified. Do not tie the separately labeled PoE return to E/F by assumption.
+Thus A-D was the correct output pair: owner reports 0 V where an active output
+would give -53.5 V with black D/red A. Output circuit or cable/contact fault is
+a stronger suspect. Unloaded/minimum-load behavior is not specified by the
+label; definitive failure, loaded operation and router compatibility remain
+unproven. Existing 12.3 V observation retained; requested post-cycle E-B recheck
+is still unanswered. No more random probes/cycles, jumper or new router access.
+Full label transcription, original hash, pin correspondence and limits:
+c8235-recovery/poe-diagnosis-20261106/supply-label.json.
+
+C8235-A DIRECT A-D PSU TEST / EARLIER CHECKPOINT — 2026-11-06, EST
 C8235-06: owner reports direct A-D is 0 VDC even after repeated on/off cycles.
 A-B, A-C, D-B and D-C start around 8 to 6 VDC and fall rapidly; final settled
 values/polarity not supplied. Same external brick test follows confirmed AC-on,
