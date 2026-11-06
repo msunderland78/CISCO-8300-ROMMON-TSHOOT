@@ -10,7 +10,19 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A PSU LABEL / CURRENT HANDOFF — 2026-11-06,18:13 EST
+C8235-A LOAD-TEST PREPARATION / CURRENT HANDOFF — 2026-11-06,18:20 EST
+C8235-06: owner asks how to test under load. Conditional external-brick plan
+prepared: qualified 47 ohm/10 W load across B-E first, then a separate qualified
+1 kohm/10 W load across D-A; observe both rail voltages at each stage. Calculated
+loads are about 0.262 A/3.22 W at 12.3 V and 0.0535 A/2.86 W at 53.5 V. These
+are light diagnostic loads, not verified vendor minimums or full-power tests.
+Actual resistor models/wattages, suitable mating breakout and insulated hookup
+are not yet confirmed; equipment question pending. No connection or load test
+performed. Existing Jesverty source is not a load; keep the two returns separate.
+Qualification, power-off rewiring, residual checks, thermal limits and stages:
+c8235-recovery/poe-diagnosis-20261106/load-test-plan.json.
+
+C8235-A PSU LABEL / EARLIER CHECKPOINT — 2026-11-06,18:13 EST
 C8235-06: original PHOTOS3/IMG_1321.jpeg confirms Flextronics FA230LM1-00,
 P/N 341-0703-01, MPN CIS-A-0230ADU00-101BER. Printed outputs: +12 V/9 A/108 W
 and -53.5 V/2.3 A/123 W. This resolves the previously assumed voltage unit and

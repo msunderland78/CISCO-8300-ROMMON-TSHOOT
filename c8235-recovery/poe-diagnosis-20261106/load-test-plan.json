@@ -1,0 +1,60 @@
+{
+  "task_id": "C8235-06",
+  "recorded_at": "2026-11-06T18:20:31.622649-05:00",
+  "status": "Conditional preparation only; no load connected or new measurement performed.",
+  "request": "Owner asks how to perform a loaded test or known-good comparison after A-D zero volts and supply-label identification.",
+  "target": "Detached Flextronics FA230LM1-00 / 341-0703-01 external brick, not router PCB. Pin correspondence from supply-label.json.",
+  "known_equipment": "Fluke 111; Jesverty SPS-3010C source supply; historical small resistors/probe tips/hook clips. No suitable load resistor or mating power breakout availability confirmed.",
+  "question_pending": "Whether owner has power resistors (exact ohms/watts), a DC electronic load (exact model), or an appropriate six-pin mating breakout/extension. Existing source supply is not treated as a current-sinking load.",
+  "candidate_resistive_loads": [
+    {
+      "rail": "12 V",
+      "between": [
+        "B/P5",
+        "E/P2"
+      ],
+      "resistance_ohms": 47,
+      "minimum_nominal_watts": 10,
+      "evaluation_volts": 12.3,
+      "calculated_current_amps": 0.261702,
+      "calculated_heat_watts": 3.218936
+    },
+    {
+      "rail": "53.5 V PoE",
+      "between": [
+        "D/P1 (+)",
+        "A/P4 (-)"
+      ],
+      "resistance_ohms": 1000,
+      "minimum_nominal_watts": 10,
+      "evaluation_volts": 53.5,
+      "calculated_current_amps": 0.0535,
+      "calculated_heat_watts": 2.86225
+    }
+  ],
+  "qualification_before_connection": [
+    "Identify actual power-resistor model/markings and confirm adequate free-air rating or manufacturer-specified heatsinking/derating; ordinary small signal resistors are not substitutes.",
+    "Identify a properly mating six-position connector/breakout with secure insulated terminations; do not assume a computer PSU cable has the same pinout. Verify each conductor assignment unpowered before use.",
+    "Reconfirm brick AC disconnected and DC plug detached from router, check for residual voltage before resistance/continuity checks, and record meter lead baseline for connection mapping.",
+    "Keep the 12 V return and PoE return separate. No connection to the Jesverty output, PC/programmer or router. Fluke remains COM/V in DC-voltage mode, not an across-output current measurement."
+  ],
+  "planned_stages": [
+    "Record a fresh unloaded B-E voltage and A-D voltage after AC is applied, then disconnect AC.",
+    "With AC disconnected and residual voltage checked, attach only the qualified 47 ohm load across B-E. Apply AC and record B-E and A-D voltages. Disconnect AC before changes.",
+    "After removing AC and checking residual voltage, add the separate qualified 1 kohm load across D-A. Apply AC and record both voltages for a brief initial observation (about 15-30 seconds), then disconnect AC and let resistors cool."
+  ],
+  "limits": "This is a proposed light-load diagnostic, not a manufacturer-specified minimum-load or full-power acceptance test. Approximately 0.262 A/3.22 W on 12.3 V and 0.0535 A/2.86 W on 53.5 V. Stable nominal rails would demonstrate operation at those small loads only. Persistent zero PoE output with steady 12 V would strengthen the supply/cable fault suspicion but does not substitute for the missing minimum-load specification. Keep hot resistors supported clear of combustible material and fingers; final wiring instructions depend on actual equipment.",
+  "alternative": "Known-good supported supply comparison, or a service bench with suitable isolated/floating DC-load connections and verified connector mapping. Exact replacement compatibility must be established separately.",
+  "references": [
+    {
+      "url": "https://www.vishay.com/docs/28730/ac_ac-at_ac-ni.pdf",
+      "accessed": "2026-11-06",
+      "use": "Power-resistor heating and ambient-temperature derating; actual selected parts still unconfirmed."
+    },
+    {
+      "url": "https://www.fluke.com/en-ie/learn/blog/digital-multimeters/how-to-measure-dc-voltage-with-a-digital-multimeter",
+      "accessed": "2026-11-06",
+      "use": "Use COM/V for voltage; current-input measurements across an output would short the circuit."
+    }
+  ]
+}
