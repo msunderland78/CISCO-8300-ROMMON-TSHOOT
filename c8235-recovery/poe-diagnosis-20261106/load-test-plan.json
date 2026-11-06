@@ -1,12 +1,52 @@
 {
   "task_id": "C8235-06",
   "recorded_at": "2026-11-06T18:20:31.622649-05:00",
-  "status": "Conditional preparation only; no load connected or new measurement performed.",
+  "status": "Resistor-bank adaptation selected; unpowered assembly/resistance and connection-method checks pending. No load connected to the brick and no powered test performed.",
   "request": "Owner asks how to perform a loaded test or known-good comparison after A-D zero volts and supply-label identification.",
   "target": "Detached Flextronics FA230LM1-00 / 341-0703-01 external brick, not router PCB. Pin correspondence from supply-label.json.",
-  "known_equipment": "Fluke 111; Jesverty SPS-3010C source supply; historical small resistors/probe tips/hook clips. No suitable load resistor or mating power breakout availability confirmed.",
-  "question_pending": "Whether owner has power resistors (exact ohms/watts), a DC electronic load (exact model), or an appropriate six-pin mating breakout/extension. Existing source supply is not treated as a current-sinking load.",
-  "candidate_resistive_loads": [
+  "known_equipment": "Fluke 111, Jesverty source supply and owner-confirmed 1/2 W resistor assortment (6 to 8 each listed value). Historical probe tips/hooks/breadboard. Proper insulated mating power connection remains unconfirmed.",
+  "question_pending": "Measured resistance across the fully unpowered six-100-ohm bank (about 150 ohms expected), and proposed secure connection method to B/E. Keep brick unplugged; powered hookup instructions await these technical prerequisites.",
+  "qualification_before_connection": [
+    "Verify actual resistor values, 1/2 W ratings, network resistance and secure separated mounting. Current design calculations keep each part below about 0.17 W at the stated voltages; ordinary single resistors are not substituted for the earlier 10 W loads.",
+    "Identify a properly mating six-position connector/breakout with secure insulated terminations; do not assume a computer PSU cable has the same pinout. Verify each conductor assignment unpowered before use.",
+    "Reconfirm brick AC disconnected and DC plug detached from router, check for residual voltage before resistance/continuity checks, and record meter lead baseline for connection mapping.",
+    "Keep the 12 V return and PoE return separate. No connection to the Jesverty output, PC/programmer or router. Fluke remains COM/V in DC-voltage mode, not an across-output current measurement."
+  ],
+  "limits": "These adapted loads are lighter than the original proposal: 12 V bank about 82 mA/1.01 W at 12.3 V; later PoE bank about 17.1 mA/0.91 W at 53.5 V. Calculated individual dissipation is about 0.168 W and 0.152 W respectively. They are preliminary light-load checks, not manufacturer minimum-load or full-power acceptance tests. Stable outputs would demonstrate operation at those loads only; zero output still does not exclude an undocumented higher minimum-load requirement. Do not connect the 150-ohm bank to 53.5 V, and do not tie the output returns together. No source-supply backfeed, energized rewiring, improvised short or new router-board access.",
+  "alternative": "Known-good supported supply comparison, or a service bench with suitable isolated/floating DC-load connections and verified connector mapping. Exact replacement compatibility must be established separately.",
+  "references": [
+    {
+      "url": "https://www.vishay.com/docs/28730/ac_ac-at_ac-ni.pdf",
+      "accessed": "2026-11-06",
+      "use": "Power-resistor heating and ambient-temperature derating; actual selected parts still unconfirmed."
+    },
+    {
+      "url": "https://www.fluke.com/en-ie/learn/blog/digital-multimeters/how-to-measure-dc-voltage-with-a-digital-multimeter",
+      "accessed": "2026-11-06",
+      "use": "Use COM/V for voltage; current-input measurements across an output would short the circuit."
+    }
+  ],
+  "updated_at": "2026-11-06T18:34:16.350526-05:00",
+  "owner_inventory": {
+    "rating_watts_each": 0.5,
+    "values_ohms": [
+      100,
+      120,
+      150,
+      220,
+      330,
+      470,
+      560,
+      680,
+      1000,
+      2000,
+      2200,
+      4700
+    ],
+    "reported_quantity_each": "6 to 8; exact counts not separately inventoried. Designs use six of each selected value.",
+    "source": "Current owner report; earlier project notes independently recorded 100 ohm, 1/2 W parts."
+  },
+  "original_candidate_resistive_loads": [
     {
       "rail": "12 V",
       "between": [
@@ -32,29 +72,53 @@
       "calculated_heat_watts": 2.86225
     }
   ],
-  "qualification_before_connection": [
-    "Identify actual power-resistor model/markings and confirm adequate free-air rating or manufacturer-specified heatsinking/derating; ordinary small signal resistors are not substitutes.",
-    "Identify a properly mating six-position connector/breakout with secure insulated terminations; do not assume a computer PSU cable has the same pinout. Verify each conductor assignment unpowered before use.",
-    "Reconfirm brick AC disconnected and DC plug detached from router, check for residual voltage before resistance/continuity checks, and record meter lead baseline for connection mapping.",
-    "Keep the 12 V return and PoE return separate. No connection to the Jesverty output, PC/programmer or router. Fluke remains COM/V in DC-voltage mode, not an across-output current measurement."
-  ],
-  "planned_stages": [
+  "original_planned_stages": [
     "Record a fresh unloaded B-E voltage and A-D voltage after AC is applied, then disconnect AC.",
     "With AC disconnected and residual voltage checked, attach only the qualified 47 ohm load across B-E. Apply AC and record B-E and A-D voltages. Disconnect AC before changes.",
     "After removing AC and checking residual voltage, add the separate qualified 1 kohm load across D-A. Apply AC and record both voltages for a brief initial observation (about 15-30 seconds), then disconnect AC and let resistors cool."
   ],
-  "limits": "This is a proposed light-load diagnostic, not a manufacturer-specified minimum-load or full-power acceptance test. Approximately 0.262 A/3.22 W on 12.3 V and 0.0535 A/2.86 W on 53.5 V. Stable nominal rails would demonstrate operation at those small loads only. Persistent zero PoE output with steady 12 V would strengthen the supply/cable fault suspicion but does not substitute for the missing minimum-load specification. Keep hot resistors supported clear of combustible material and fingers; final wiring instructions depend on actual equipment.",
-  "alternative": "Known-good supported supply comparison, or a service bench with suitable isolated/floating DC-load connections and verified connector mapping. Exact replacement compatibility must be established separately.",
-  "references": [
+  "original_proposal_status": "Separate 10 W parts are not available according to owner; retain the prior plan as history only. Current lower-power resistor banks below supersede it as the immediate proposal.",
+  "current_resistor_banks": [
     {
-      "url": "https://www.vishay.com/docs/28730/ac_ac-at_ac-ni.pdf",
-      "accessed": "2026-11-06",
-      "use": "Power-resistor heating and ambient-temperature derating; actual selected parts still unconfirmed."
+      "rail": "12 V",
+      "between": [
+        "B/P5",
+        "E/P2"
+      ],
+      "resistor_count": 6,
+      "each_ohms": 100,
+      "each_rated_watts": 0.5,
+      "series_per_branch": 3,
+      "parallel_branches": 2,
+      "equivalent_ohms": 150.0,
+      "evaluation_volts": 12.3,
+      "total_current_amps": 0.082,
+      "total_heat_watts": 1.0086000000000002,
+      "each_heat_watts": 0.16810000000000003,
+      "status": "Unpowered assembly requested; equivalent resistance and connection method pending."
     },
     {
-      "url": "https://www.fluke.com/en-ie/learn/blog/digital-multimeters/how-to-measure-dc-voltage-with-a-digital-multimeter",
-      "accessed": "2026-11-06",
-      "use": "Use COM/V for voltage; current-input measurements across an output would short the circuit."
+      "rail": "PoE",
+      "between": [
+        "D/P1 (+)",
+        "A/P4 (-)"
+      ],
+      "resistor_count": 6,
+      "each_ohms": 4700,
+      "each_rated_watts": 0.5,
+      "series_per_branch": 2,
+      "parallel_branches": 3,
+      "equivalent_ohms": 3133.3333333333335,
+      "evaluation_volts": 53.5,
+      "total_current_amps": 0.017074468085106383,
+      "total_heat_watts": 0.9134840425531915,
+      "each_heat_watts": 0.15224734042553192,
+      "status": "Candidate for later stage only; reserve six 4.7 kohm parts. No PoE hookup instructed."
     }
+  ],
+  "current_step": [
+    "Build two separate chains of three 100 ohm resistors, then join corresponding ends to put the chains in parallel. Keep all parts disconnected from brick/router/bench supply.",
+    "Use Fluke ohms mode with COM/V leads; record lead baseline and actual resistance between bank ends. Expected approximately 150 ohms; no result received.",
+    "Identify secure insulated connection method for the B/E contacts. No energized hookup yet. Keep resistor bodies separated; intended 12 V bank must never be placed across the PoE pair."
   ]
 }

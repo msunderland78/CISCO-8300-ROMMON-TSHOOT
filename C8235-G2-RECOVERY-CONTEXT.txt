@@ -10,7 +10,24 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A LOAD-TEST PREPARATION / CURRENT HANDOFF — 2026-11-06,18:20 EST
+C8235-A HALF-WATT LOAD BANK / CURRENT HANDOFF — 2026-11-06, EST
+C8235-06: owner has only 1/2 W resistors, 6 to 8 each of 100/120/150/220/330/
+470/560/680/1000/2000/2200/4700 ohms. Prior separate 10 W parts unavailable.
+Selected first stage: six 100 ohm parts as two parallel branches, each with
+three in series; equivalent 150 ohms. At 12.3 V: total 82 mA/1.01 W and each
+resistor about 0.168 W. This bank is ONLY for B-E/12 V, never the PoE pair.
+Owner asked to build it completely unpowered, measure about 150 ohms across
+its ends, and describe a secure insulated mating connection. Reading and
+connection details pending; no energized hookup instructed or test performed.
+Later PoE candidate: six 4.7 kohm parts, three parallel branches of two in
+series; about 3.13 kohm, 17.1 mA/0.91 W total and 0.152 W each at 53.5 V.
+Reserve these parts; no PoE-stage hookup yet. These are preliminary light
+loads, not verified manufacturer minimums or full-power tests. Keep brick
+unplugged and resistor bodies separated. Do not tie the output returns.
+Updated calculations, inventory, original proposal and prerequisites:
+c8235-recovery/poe-diagnosis-20261106/load-test-plan.json.
+
+C8235-A LOAD-TEST PREPARATION / EARLIER CHECKPOINT — 2026-11-06,18:20 EST
 C8235-06: owner asks how to test under load. Conditional external-brick plan
 prepared: qualified 47 ohm/10 W load across B-E first, then a separate qualified
 1 kohm/10 W load across D-A; observe both rail voltages at each stage. Calculated
