@@ -10,7 +10,19 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A HALF-WATT LOAD BANK / CURRENT HANDOFF — 2026-11-06, EST
+C8235-A FIRST LOADED PSU READING / CURRENT HANDOFF — 2026-11-06, EST
+C8235-06: owner clarifies 149.8 ohms was measured across the two free blue
+connection wires, including bank and wiring; no repeat needed. First powered
+12 V-only check returns 12.15 VDC, explicitly constant, with bank on B/F.
+Calculated load is 81.1 mA / 0.985 W. This establishes owner-reported operation
+at that light load only, not full capacity or PoE operation. Next requested:
+leave bank on B/F/router detached; DC volts black D/red A on the separate PoE
+pair, read after about 10-15 seconds and unplug AC. Expected about -53.5 V if
+active. A/D result pending; never put this 150-ohm bank on A/D or join returns.
+Exact requested conditions, owner readings and limits: load-test-plan.json
+under c8235-recovery/poe-diagnosis-20261106/.
+
+C8235-A HALF-WATT LOAD BANK / EARLIER CHECKPOINT — 2026-11-06, EST
 C8235-06: owner has only 1/2 W resistors, 6 to 8 each of 100/120/150/220/330/
 470/560/680/1000/2000/2200/4700 ohms. Prior separate 10 W parts unavailable.
 Selected first stage: six 100 ohm parts as two parallel branches, each with

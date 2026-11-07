@@ -1,11 +1,11 @@
 {
   "task_id": "C8235-06",
   "recorded_at": "2026-11-06T18:20:31.622649-05:00",
-  "status": "New photos inspected; wires appear on B/F, a valid 12 V pair. Visible exposed/splayed stranded copper was identified, then owner stated it is fixed and near only plastic. Next requested check is about 150 ohms across the two free load leads with both disconnected from the AC-unplugged brick. No powered load-test reading received.",
+  "status": "Owner confirms earlier 149.8-ohm reading included the complete bank and two free blue connection wires. First powered B/F 12 V load test returns 12.15 VDC, explicitly constant. A/D voltage with that 12 V load retained is requested and pending.",
   "request": "Owner asks how to perform a loaded test or known-good comparison after A-D zero volts and supply-label identification.",
   "target": "Detached Flextronics FA230LM1-00 / 341-0703-01 external brick, not router PCB. Pin correspondence from supply-label.json.",
   "known_equipment": "Fluke 111, Jesverty source supply, owner-confirmed 1/2 W resistor assortment and assembled 149.8-ohm breadboard. Owner reports two stripped wires and no mating connector. Historical probe tips/hooks are not established as suitable for this connector.",
-  "question_pending": "Resistance across the two free blue load-wire ends, completely disconnected from the brick and other sources; expected about 150 ohms. This includes the breadboard and connecting wires, beyond the earlier 149.8-ohm bank-only report.",
+  "question_pending": "With the 149.8-ohm bank retained on B/F, measure separate A/D in DC volts (black D, red A), report settled reading/stability, then unplug AC. Do not move the 150-ohm bank to A/D.",
   "qualification_before_connection": [
     "Verify actual resistor values, 1/2 W ratings, network resistance and secure separated mounting. Current design calculations keep each part below about 0.17 W at the stated voltages; ordinary single resistors are not substituted for the earlier 10 W loads.",
     "Establish a secure insulated test connection, with no stray strands able to bridge contacts and leads restrained against withdrawal. A correctly mating connector/breakout is preferred. Do not assume a computer PSU cable has the same pinout. Owner reports correcting the photographed connection; do not imply this was independently re-photographed or pull-tested.",
@@ -26,7 +26,7 @@
       "use": "Use COM/V for voltage; current-input measurements across an output would short the circuit."
     }
   ],
-  "updated_at": "2026-11-06T19:05:25.012996-05:00",
+  "updated_at": "2026-11-06T19:08:09.441723-05:00",
   "owner_inventory": {
     "rating_watts_each": 0.5,
     "values_ohms": [
@@ -95,7 +95,7 @@
       "total_current_amps": 0.082,
       "total_heat_watts": 1.0086000000000002,
       "each_heat_watts": 0.16810000000000003,
-      "status": "Earlier 149.8-ohm bank reading matches nominal. Photos show six resistor bodies and a B/F connection; some jumper endpoints are obscured. Owner reports correcting exposed copper. Free-lead resistance check pending; no powered result.",
+      "status": "Owner-confirmed complete bank/wire resistance 149.8 ohms. Owner reports B/F loaded voltage 12.15 VDC, constant. Connection correction remains owner-reported; A/D voltage under this 12 V load pending.",
       "observed_connection": [
         "B/P5 (+12 V)",
         "F/P3 (12 V GROUND)"
@@ -121,10 +121,10 @@
     }
   ],
   "current_step": [
-    "Keep AC unplugged. Disconnect both blue load wires from the brick and isolate the bank from every other power source.",
-    "Measure resistance across the two free blue wire ends, including the complete bank and wiring. Expected about 150 ohms; previous 149.8-ohm reading was reported at the bank ends. Do not measure resistance through the power brick.",
-    "Return Fluke 111 to DC volts, black COM/red V-ohm, before reconnecting anything. Only the B/F 12 V connection is intended for this bank.",
-    "After the free-lead check and secure insulated hookup, the planned brief powered stage will measure loaded B/F voltage and separate A/D voltage without moving the load. No powered result received."
+    "The confirmed 149.8-ohm free-lead measurement completes the requested pre-power check; no repeat needed.",
+    "First 12 V-only load voltage is owner-reported 12.15 VDC constant.",
+    "Keep the bank on B/F and router disconnected. Measure separate A/D with Fluke DC volts, black D/red A, while the 12 V bank remains connected; expected approximately -53.5 V if active. Read after about 10-15 seconds, then unplug AC.",
+    "Do not join the returns or move the 150-ohm bank onto A/D. A separate high-resistance PoE load has not been assembled or tested."
   ],
   "bank_measurements": [
     {
@@ -140,7 +140,12 @@
         "amps": 0.08210947930574099,
         "total_watts": 1.0099465954606142
       },
-      "powered_test_performed": false
+      "powered_test_performed": false,
+      "endpoint_clarification": {
+        "recorded_at": "2026-11-06T19:08:09.441723-05:00",
+        "owner_confirmation": "Owner confirms the earlier 149.8-ohm result was the same requested measurement across the two free blue wire ends, including bank and wiring. No repeat measurement was needed.",
+        "supersedes": "Earlier distinction between a bank-only measurement and a pending full-wire measurement is resolved by this clarification."
+      }
     }
   ],
   "connection_report": {
@@ -175,5 +180,26 @@
     "initial_assessment": "Correct 12 V contact grouping, but exposed/splayed copper and no independently established retention prompted an unpowered correction before energization.",
     "superseding_owner_report": "Owner subsequently states: it is fixed, it is not near anything but plastic. Treat as an owner-reported correction, not a new photograph or independent retention test.",
     "scope": "No router access, electrical measurement by the agent, powered load test or confirmed PoE repair."
-  }
+  },
+  "powered_observations": [
+    {
+      "recorded_at": "2026-11-06T19:08:09.441723-05:00",
+      "source": "Owner reports 12.15 vdc and then constant in response to the first powered-check instructions.",
+      "target": "Detached Flextronics FA230LM1-00 / 341-0703-01 external brick; router not part of requested circuit.",
+      "stage": "12 V load only",
+      "load_pair": [
+        "B/P5 (+12 V)",
+        "F/P3 (12 V return)"
+      ],
+      "load_ohms": 149.8,
+      "meter": "Fluke 111; requested DC volts, COM/V-ohm, across the two bank input points.",
+      "requested_duration_seconds": 15,
+      "volts_dc_reported": 12.15,
+      "stability_reported": "constant",
+      "calculated_load_amps": 0.08110814419225634,
+      "calculated_load_watts": 0.9854639519359145,
+      "interpretation": "12 V output supplies this approximately 81.1 mA / 0.985 W load at a constant reported voltage. This does not establish full output capacity, PoE output operation or router compatibility.",
+      "state_limit": "Owner response to instructions keeping router detached and unplugging AC afterward; elapsed time, meter display and final AC removal were not independently captured."
+    }
+  ]
 }
