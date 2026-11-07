@@ -1,11 +1,11 @@
 {
   "task_id": "C8235-06",
   "recorded_at": "2026-11-06T18:20:31.622649-05:00",
-  "status": "Owner reports 12.15 VDC across the 149.8-ohm B/F load while A/D measures -0.002 VDC. The PoE output remains effectively zero with the 12 V rail lightly loaded. Separate six-4.7-kohm bank assembly and isolated resistance check requested; no PoE load connected or dual-load result received.",
+  "status": "Owner built the separate PoE load bank and reports X-Y resistance 3093 ohms, close to nominal 3133 ohms. A brief dual-load test has now been requested, retaining 149.8 ohms on B/F and placing 3093 ohms on D/A with separate returns. Powered results for this stage are pending.",
   "request": "Owner asks how to perform a loaded test or known-good comparison after A-D zero volts and supply-label identification.",
   "target": "Detached Flextronics FA230LM1-00 / 341-0703-01 external brick, not router PCB. Pin correspondence from supply-label.json.",
   "known_equipment": "Fluke 111, Jesverty source supply, owner-confirmed 1/2 W resistor assortment and assembled 149.8-ohm breadboard. Owner reports two stripped wires and no mating connector. Historical probe tips/hooks are not established as suitable for this connector.",
-  "question_pending": "With AC unplugged, assemble a separate bank using six 4.7 kohm, 1/2 W resistors as three parallel branches of two in series. Keep it disconnected from brick, existing bank and all other sources; report resistance across free ends, approximately 3.13 kohms expected.",
+  "question_pending": "After AC-off/residual-voltage checks and secure separate wiring, report both DC voltages with both loads attached: new bank black X=D/red Y=A, then original bank black F/red B. Unplug AC after about 15-30 seconds and before any wiring change.",
   "qualification_before_connection": [
     "Verify actual resistor values, 1/2 W ratings, network resistance and secure separated mounting. Current design calculations keep each part below about 0.17 W at the stated voltages; ordinary single resistors are not substituted for the earlier 10 W loads.",
     "Establish a secure insulated test connection, with no stray strands able to bridge contacts and leads restrained against withdrawal. A correctly mating connector/breakout is preferred. Do not assume a computer PSU cable has the same pinout. Owner reports correcting the photographed connection; do not imply this was independently re-photographed or pull-tested.",
@@ -26,7 +26,7 @@
       "use": "Use COM/V for voltage; current-input measurements across an output would short the circuit."
     }
   ],
-  "updated_at": "2026-11-06T19:15:46.835688-05:00",
+  "updated_at": "2026-11-06T19:32:07.896130-05:00",
   "owner_inventory": {
     "rating_watts_each": 0.5,
     "values_ohms": [
@@ -117,14 +117,19 @@
       "total_current_amps": 0.017074468085106383,
       "total_heat_watts": 0.9134840425531915,
       "each_heat_watts": 0.15224734042553192,
-      "status": "Separate unpowered assembly and resistance measurement now requested. Three parallel chains of two 4.7 kohm parts; expect about 3.13 kohms. No connection to the brick or other bank instructed at this stage."
+      "status": "Owner reports assembled X-Y resistance 3093 ohms. Brief dual-load voltage test now requested; no result yet.",
+      "measured_ohms": 3093,
+      "planned_endpoint_mapping": {
+        "X": "D/P1, PoE return (+)",
+        "Y": "A/P4, -53.5 V"
+      }
     }
   ],
   "current_step": [
-    "Unplug AC after the A/D reading; keep router disconnected. The 150-ohm bank remains for the 12 V rail only.",
-    "Build the separate six-4.7-kohm bank, three parallel branches of two series resistors. Keep it electrically separate from the existing bank and every power source.",
-    "Measure resistance across the new bank free ends in ohms mode, with no brick connection. Expect approximately 3133 ohms. No result received.",
-    "A later qualified dual-load voltage test would retain the 149.8-ohm bank on B/F and use only the higher-resistance bank on A/D, with separate returns and no energized rewiring. That hookup has not been instructed or performed."
+    "Owner-reported 3093-ohm X-Y reading completes the requested isolated bank-resistance check.",
+    "Perform the requested brief dual-load voltage check only after the stated AC-off, residual-voltage and secure separate-wiring conditions.",
+    "Record both output voltages and stability, then unplug AC. Never substitute the 150-ohm bank for the PoE load or join the separate returns.",
+    "Interpret only the tested light-load behavior; manufacturer minimum-load requirements and full output capacity remain unverified."
   ],
   "bank_measurements": [
     {
@@ -146,6 +151,21 @@
         "owner_confirmation": "Owner confirms the earlier 149.8-ohm result was the same requested measurement across the two free blue wire ends, including bank and wiring. No repeat measurement was needed.",
         "supersedes": "Earlier distinction between a bank-only measurement and a pending full-wire measurement is resolved by this clarification."
       }
+    },
+    {
+      "recorded_at": "2026-11-06T19:32:07.896130-05:00",
+      "source": "Owner reports: that board is built ... X to Y resistance is 3093 ohms.",
+      "bank": "PoE candidate, six 4.7 kohm 1/2 W resistors, three parallel branches of two series parts as instructed.",
+      "reported_end_to_end_ohms": 3093,
+      "instrument": "Fluke 111 established; owner responds to the isolated unpowered resistance-check request.",
+      "lead_baseline_ohms": null,
+      "interpretation": "Approximately 1.29% below the nominal 3133.33-ohm network, consistent with an approximate 3.13-kohm bank. The total-resistance observation is not independent verification of every component or connection.",
+      "calculated_at_53_5_volts": {
+        "amps": 0.0172971225347559,
+        "total_watts": 0.9253960556094407,
+        "average_watts_per_resistor_if_evenly_shared": 0.15423267593490678
+      },
+      "state_limit": "Reply to instructions requiring bank isolated from brick, existing bank and other sources. No new photo or powered result for this bank supplied."
     }
   ],
   "connection_report": {
@@ -223,5 +243,14 @@
       "interpretation": "Effectively zero relative to the nominal -53.5 V output. The approximately 81.1 mA load on the 12 V rail did not bring up the PoE output. This narrows the observation to the external brick/output cable/contact path under these conditions; it is not a router configuration measurement.",
       "limits": "Owner report, without meter photo or separately confirmed duration/settling/final AC removal. PoE-specific loading has not been tested; no verified minimum-load specification or full-load result is available. Do not classify the supply as conclusively failed or infer a router-only repair from this result."
     }
-  ]
+  ],
+  "requested_dual_load_test": {
+    "recorded_at": "2026-11-06T19:32:07.896130-05:00",
+    "preconditions": "AC unplugged, router disconnected; Fluke DC-voltage check that both outputs have fallen to approximately zero before wiring. Secure insulated connections; no shared breadboard rail or return between the banks.",
+    "12v_load": "Retain 149.8-ohm bank on B/F.",
+    "poe_load": "Connect separate 3093-ohm bank X to D and Y to A.",
+    "meter": "Fluke 111 DC volts, black COM/red V-ohm; no resistance or current-mode measurement across energized outputs.",
+    "sequence": "Apply AC; read new bank black X/red Y (nominal -53.5 V if active), then original bank black F/red B at breadboard connection points. Record stability; unplug AC after about 15-30 seconds, before any wiring change.",
+    "status": "Requested; no dual-load result received."
+  }
 }

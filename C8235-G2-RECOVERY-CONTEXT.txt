@@ -10,7 +10,22 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A PoE OUTPUT WITH 12 V LOAD / CURRENT HANDOFF — 2026-11-06, EST
+C8235-A SECOND LOAD BANK / CURRENT HANDOFF — 2026-11-06, EST
+C8235-06: owner built the separate six-4.7k bank and reports X-Y=3093 ohms,
+about 1.29% below nominal 3133 ohms. At 53.5 V this would draw 17.3 mA /
+0.925 W total, about 0.154 W average per resistor with the specified layout.
+Brief dual-load test now requested: AC unplugged/router disconnected, verify
+both outputs have fallen near zero in DC volts before wiring; retain 149.8
+on B/F and connect the separate 3093-ohm bank X=D, Y=A. Secure insulated
+connections; no common breadboard rail or return between banks. Fluke DC volts,
+COM/V-ohm: apply AC, read black X/red Y (about -53.5 V if active), then original
+bank black F/red B. Report both voltages/stability, unplug AC after about
+15-30 seconds and before changes. No result for this dual-load stage yet.
+Earlier 12 V-only result remains 12.15 V constant, A/D=-0.002 V. These are
+light diagnostic loads, not a verified manufacturer minimum or capacity test.
+Evidence: c8235-recovery/poe-diagnosis-20261106/load-test-plan.json.
+
+C8235-A PoE OUTPUT WITH 12 V LOAD / EARLIER CHECKPOINT — 2026-11-06, EST
 C8235-06: owner reports 12.15 VDC across the 149.8-ohm B/F load and -0.002 VDC
 from D to A (requested black D/red A, Fluke DC volts). This is -2 mV,
 effectively zero compared with nominal -53.5 V. The roughly 81.1 mA 12 V load
