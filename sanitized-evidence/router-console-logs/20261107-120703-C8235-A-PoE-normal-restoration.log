@@ -1,0 +1,834 @@
+
+[TX 2026-11-07T12:07:10.127029-05:00] b'busybox sha256sum /usr/binos/lib64/libiomd_ngmod.so /usr/binos/lib64/libngio_ngswitch.so; echo LIVE_LIBRARY_HASH_CHECK_DONE\r'
+busybox sha256sum /usr/binos/lib64/libiomd_ngmod.so /usr/binos/lib64/libnngio_ngswitch.so; echo LIVE_LIBRARY_HASH_CHECK_DONE
+sha256sum: can't open '/usr/binos/lib64/libiomd_ngmod.so': No such file or directory
+sha256sum: can't open '/usr/binos/lib64/libngio_ngswitch.so': No such file or directory
+LIVE_LIBRARY_HASH_CHECK_DONE
+sh-5.0# 
+[TX 2026-11-07T12:07:21.158104-05:00] b'mkdir -p /m; mount -t squashfs -o ro,loop,offset=4096 /u/c8kg2be-mono-universalk9.26.02.01.SPA.pkg /m && busybox sha256sum /m/usr/binos/lib64/libiomd_ngmod.so /m/usr/binos/lib64/libngio_ngswitch.so; echo INSTALLED_LIBRARY_CHECK_DONE\r'
+mkdir -p /m; mount -t squashfs -o ro,loop,offset=4096 /u/c8kg2be-mono-uniiversalk9.26.02.01.SPA.pkg /m && busybox sha256sum /m/usr/binos/lib64/libiomd_ngmmod.so /m/usr/binos/lib64/libngio_ngswitch.so; echo INSTALLED_LIBRARY_CHECK_DONE [Amod.so /m/usr/binos/lib64/libngio_ngswitch.so; echo INSTALLED_LIBRARY_CHECK_DON[KE
+129bb25e158be56b7ad726cfdff3579f17389945462a01c77d637e4098d92f42  /m/usr/binos/lib64/libiomd_ngmod.so
+a5e57ff5b4713900d905102acd5ff2895fbea8a6a68ac82efc83514927e7f3ae  /m/usr/binos/lib64/libngio_ngswitch.so
+INSTALLED_LIBRARY_CHECK_DONE
+sh-5.0# 
+[TX 2026-11-07T12:08:56.800857-05:00] b'umount /m && umount /u && busybox reboot -f\r'
+umount /m && umount /u && busybox reboot -f
+=======================
+Marvell CN10k Boot Stub
+=======================
+Firmware Version: 2024-07-17 01:44:08
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+Board Model:    mirabile-arata
+Board Revision: r2
+Board Serial:   unknown
+
+Chip:  0xbd Pass A0 (alt pkg)
+SKU:   MV-CN10208C-A0-HF240AG-xxxx-SCP
+LLC:   16384 KB
+Boot:  SPI0_CS0,REMOTE, using SPI0_CS0
+AVS:   Enabled
+
+Press 'B' within 10 seconds for boot menu
+==================
+Marvell CN10K Init
+==================
+EBF Version: 11.23.12, Branch: /nobackup/rmaladi/2312SoC1MrgPostCmt/platforms/ISR/mirabile/packages/marvell_ebf_SDK11.23.12, Built: Wed, 17 Jul 2024 01:42:53 +0000
+
+CORECLK:  1400 Mhz
+MESHCLK:  1050 Mhz
+SCLK:     1000 Mhz
+DFICLK:   1200 Mhz
+CPT-CLK: 500 Mhz
+
+PCIe0: LTSSM DETECT_QUIET, Link Errors Detected During Training
+PCIe1: Link active, 1 lanes, speed gen3
+DMC0: 16 GB/ch, 2Rx8, Solder Down, 32-bit data, non-ECC
+DRAM: 16 GB, 4800 MT/s, DDR5
+cisco-bootstub.bin   version: 0B.17.0C 20240622-0651 00000000
+npc_mkex-cn10xx.fw   version: 01.0E.00 20240501-0640 00000000
+uefi.bin             version: 0B.17.0C 20240622-0651 00000000
+bl31.bin             version: 0B.17.0C 20240622-0651 00000000
+bl2.bin              version: 0B.17.0C 20240622-0651 00000000
+gserp-cn10xx.fw      version: 01.01.0C 20240501-0640 00000000
+gserm-cn10xx.fw      version: 01.01.0A 20240501-0640 00000000
+init.bin             version: 0B.17.0C 20240622-0651 00000000
+ecp_bl1.bin          version: 0C.17.0C 20240501-0638 00000000
+mcp_bl1.bin          version: 0C.17.0C 20240416-0252 00000000
+scp_bl1.bin          version: 0C.17.0A 20231010-1752 00000000
+rom-script0.fw       version: 0B.17.0C 20240622-0651 00000000
+    Loading image file '/rawfs/bl2.bin'
+---
+NOTICE:  BL2: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL2: Built : 18:42:08, Jul 16 2024
+NOTICE:  Secure Non Preserve Memory Region: 0x0 to 0xffffff (16MB)
+NOTICE:  Non-Secure Non Preserve Memory Region: 0x1000000 to 0x3f9ffffff (16272MB)
+NOTICE:  LMT Memory Region: 0x3fa000000 to 0x3feffffff (80MB)
+NOTICE:  Non-Secure Preserve Memory Region: 0x3ff000000 to 0x3ffffffff (16MB)
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.4(release):3d24dbcf (Marvell-11.23.12)
+NOTICE:  BL31: Built : 18:42:53, Jul 16 2024
+NOTICE:  SCMI driver initialized
+NOTICE:  GPIO handlers registered
+
+SecureBoot: BL34: running keyphase-cisco-bootstub version
+SecureBoot: ...D01.00
+SecureBoot: BL34: call SpiNorInit
+SecureBoot: Dual/Octal mode not supported in UEFI. Use x1
+SecureBoot: BL34: Call LDWM verifier
+ ...flash initialization
+ ...verify bootloader
+ ...load verification map from flash
+ ......vmap.flashaddr=====0x00b50000
+ ......vmap.platform_id===0x4c445731
+ ...load image data
+ ......flashload_bootimage_seg0:
+ .........seg_addr========0x00601000
+ .........seg_size========0x00280000
+ .........mem_addr========0x04000000
+ ...code signing results:
+ ......return_code========0x00000000
+ ......key_index==========0x00000002
+ ......key_type===========0x00000002
+ ...bootloader image verified successfully
+  
+Board Identifier: mirabile-arata, Revision: r2, Serial Number: unknown
+
+System Bootstrap, Version SDK112312-SoC1-SB-v12.1.22, DEVELOPMENT SOFTWARE
+Copyright (c) 1994-2024 by cisco Systems, Inc.
+Compiled Tue Jul 16 18:38:18 2024 by rmaladi
+
+
+!!! NON-Secure Boot ROMMON Image. For INTERNAL USE ONLY !!!
+Boot ROM0
+
+Last reset cause: ResetRequest
+SoC1 platform with 16661504 Kbytes of main memory
+
+Soc UUID: 13 FF FF 78 86 52 04 83 8A BF FF 48 
+UUID Len: 0xC
+[TX 2026-11-07T12:09:39.224475-05:00] b'\x03\x03\x03'
+
+
+..
+
+rommon 1 > 
+rommon 1 > 
+rommon 1 > 
+[TX 2026-11-07T12:09:48.476924-05:00] b'set\r'
+set
+PS1=rommon ! > 
+MAC_ADDR=0A:70:40:00:00:21
+DEVICE_MANAGED_MODE=autonomous
+CRYPTO_BI_THPUT=250000
+THRPUT=
+LICENSE_BOOT_LEVEL=
+LICENSE_SUITE=
+BOOT=bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;
+USER_BOOT_PARAM=rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/A4&&exec${IFS}bash$IFS/u/A4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0
+RET_2_RTS=
+BSI=0
+RANDOM_NUM=1918395895
+RET_2_RCALTS=1748544753
+rommon 2 > 
+[TX 2026-11-07T12:09:56.922628-05:00] b'boot bootflash:packages.conf\r'
+boot bootflash:packages.conf
+boot: reading file packages.conf
+#
+
+#######################################################################
+
+network: failed to parse subnet for IPv0
+EFI stub: Booting Linux Kernel...
+EFI stub: EFI_RNG_PROTOCOL unavailable
+EFI stub: Using DTB from configuration table
+EFI stub: Exiting boot services...
+C8235_INTERNAL_BOOTFLASH_ENTRY
+C8235_INTERNAL_RAM_ENTRY pid=1
+C8235_INTERNAL_INPUT_HASHES_PASS
+C8235_BOUND16_BOOTSTRAP_BEGIN
+32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857  /usr/binos/bin/launch_net.sh
+ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4  /c8235-bound16-hook.sh
+C8235_BOUND16_BOOTSTRAP_READY
+C8235_INTERNAL_READY: bootflash unmounted; exec /init from PID 1
+C8235_BOUND16_HOOK_BEGIN
+C8235_BOUND16_HOOK_COMPLETE
+This platform requires a rommon update but it must be done manually
+Detected old ROMMON version SDK112312-SoC1-SB-v12.1.22, manual upgrade required
+May 29 18:48:51.921: %BOOT-5-OPMODE_LOG: R0/0: binos: System booted in AUTONOMOUS mode
+
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           Cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+
+
+This software version supports only Smart Licensing as the software licensing mechanism.
+
+
+Please read the following carefully before proceeding. By downloading,
+installing, and/or using any Cisco software product, application, feature,
+license, or license key (collectively, the "Software"), you accept and
+agree to the following terms. If you do not agree, do not proceed and do not
+use this Software.
+
+This Software and its use are governed by Cisco's General Terms and any 
+relevant supplemental terms found at
+https://www.cisco.com/site/us/en/about/legal/contract-experience/index.html.
+If you have a negotiated agreement with Cisco that includes this Software, the
+terms of that agreement apply as well. In the event of a conflict, the order 
+of precedence stated in your negotiated agreement controls.
+
+Cisco Software is licensed on a term and/or subscription-basis. The license to
+the Software is valid only for the duration of the specified term, or in the
+case of a subscription-based license, only so long as all required subscription
+payments are current and fully paid-up. While Cisco may provide you
+licensing-related alerts, it is your sole responsibility to monitor your usage.
+Using Cisco Software without a valid license is not permitted and may result in
+fees charged to your account. Cisco reserves the right to terminate access to,
+or restrict the functionality of, any Cisco Software, or any features thereof,
+that are being used without a valid license.
+
+
+cisco C8230X-8M2X (1RU) processor with 7788651K/6147K bytes of memory.
+Processor board ID FGL2835L42B
+Router operating mode: Autonomous
+1 Virtual Ethernet interface
+8 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+16777216K bytes of physical memory.
+20249599K bytes of flash memory at bootflash:.
+
+ SECURITY WARNING - Module: RCMD, Command: ip rcmd domain-lookup , Reason: No encryption is configured, Description: Remote command (rcmd) service enabled - allows unencrypted remote command execution without proper authentication, Remediation: This is a legacy feature, please consider disabling it
+ SECURITY WARNING - Module: TFTP, Command: ip forward-protocol udp tftp , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: SNMP Host configured with insufficient authentication - missing privacy encryption, Remediation: This is a legacy feature, please consider disabling it
+ SECURITY WARNING - Module: TELNET, Command: ip telnet tos C0, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport enable , Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport flow level 16, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport receive window 4128, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TELNET, Command: ip telnet comport disconnect delay 0, Reason: IP traffic is not encrypted, Description: IP telnet service enabled - transmits credentials and data in plaintext over the network, Remediation: Migrate to secure SSH-based remote access
+ SECURITY WARNING - Module: TFTP, Command: ip tftp source-interface GigabitEthernet0 , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: TFTP, Command: ip tftp arp-glean , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: TFTP, Command: ip tftp blocksize 512, Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: TFTP service enabled - unencrypted file transfer protocol vulnerable to eavesdropping and tampering, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: FTP, Command: ip ftp passive , Reason: No encryption is configured, Description: FTP service enabled - transmits credentials and data in plaintext, vulnerable to interception, Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+ SECURITY WARNING - Module: HTTP, Command: ip http server , Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication, Description: HTTP server enabled - unencrypted protocol vulnerable to eavesdropping and man-in-the-middle attacks, Remediation: Use http secure server to ensure secure web access
+SETUP: new interface Service-Engine0/4/0 placed in "shutdown" state
+
+ WARNING: ** NOTICE **  The H.323 protocol is no longer supported from IOS-XE release 17.6.1. Please consider using SIP for multimedia applications.
+
+
+
+Press RETURN to get started!
+
+
+*May 29 2025 18:49:14.903: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*May 29 2025 18:49:14.903: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module Integrity Test
+*May 29 2025 18:49:14.912: %CRYPTO-5-SELF_TEST_END: Crypto Integrity self-test completed successfully
+       All tests passed.
+*May 29 2025 18:49:15.246: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*May 29 2025 18:49:16.568: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*May 29 2025 18:49:19.820: NGIOLite module 8M-2xSFP+ success read extended attr from conf file len: 1629
+
+*May 29 2025 18:49:21.101: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*May 29 2025 18:49:21.648: %TLSCLIENT-5-TLSCLIENT_IOS: TLS Client is IOS based
+*May 29 2025 18:49:21.669: %SSH-4-SSH_COMPLIANCE_SSH_RSA_DISABLED: Please note that ssh-rsa algorithm stands disabled from IOS-XE release 17.16.1 onwards and will not be part of the preferred publickey or hostkey algorithms by default. Users may choose to configure them explicitly if required
+*May 29 2025 18:49:21.686: %SPANTREE-5-EXTENDED_SYSID: Extended SysId enabled for type vlan
+*May 29 2025 18:49:21.744: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*May 29 2025 18:49:21.799: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_ENFORCED: Cisco PSB security compliance is being enforced
+*May 29 2025 18:49:21.841: %CUBE-3-LICENSING:  SIP trunking (CUBE) licensing is now based on dynamic sessions counting, static license capacity configuration through 'mode border-element license capacity' would be ignored.
+*May 29 2025 18:49:21.842: %SIP-5-LICENSING: CUBE license reporting period has been set to the minimum value of 8 hours.
+*May 29 2025 18:49:21.882: %VOICE_HA-7-STATUS: CUBE HA-supported platform detected.
+*May 29 2025 18:49:22.335: %CRYPTO_SL_TP_LEVELS-6-PLATFORM_BASED_LIC: Platform Based License Support, throughput is un-throttledIOSd ipc listen handler status 0Last reload reason is set to "Reload Command"
+*May 29 2025 18:49:22.404: %LINK-3-UPDOWN: Interface EOBC0, changed state to up
+*May 29 2025 18:49:22.420: %LINK-3-UPDOWN: Interface Lsmpi0, changed state to up
+*May 29 2025 18:49:22.421: %LINEPROTO-5-UPDOWN: Line protocol on Interface LI-Null0, changed state to up
+*May 29 2025 18:49:22.421: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+*May 29 2025 18:49:22.422: %LINK-3-UPDOWN: Interface LIIN0, changed state to up
+*May 29 2025 18:49:22.422: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to down
+*May 29 2025 18:49:22.424: %IOSXE_RP_ALARM-6-INFO: ASSERT CRITICAL GigabitEthernet0 Physical Port Link Down 
+*May 29 2025 18:49:22.634: %PNP-6-PNP_DISCOVERY_STARTED: PnP Discovery started
+*May 29 2025 18:48:22.334: %IOSXE-3-PLATFORM: R0/0: kernel: tpm tpm0: A TPM error (256) occurred attempting the self test
+*May 29 2025 18:48:22.337: %IOSXE-3-PLATFORM: R0/0: kernel: mdio_thunder 0000:01:01.3: Couldn't translate address for "mdio0_uio"
+*May 29 2025 18:48:22.361: %IOSXE-3-PLATFORM: R0/0: kernel: arm-scmi firmware:scmi: SCMI protocol 19 not implemented
+*May 29 2025 18:48:22.361: %IOSXE-3-PLATFORM: R0/0: kernel: arm-scmi firmware:scmi: SCMI protocol 20 not implemented
+*May 29 2025 18:48:22.362: %IOSXE-3-PLATFORM: R0/0: kernel: arm-scmi firmware:scmi: SCMI protocol 21 not implemented
+*May 29 2025 18:48:51.917: %BOOT-5-OPMODE_LOG: R0/0: binos: System booted in AUTONOMOUS mode
+*May 29 2025 18:49:22.729: yang-infra: Initializing PKI on RF active
+*May 29 2025 18:49:22.729: yang-infra: Skipping PKI initialization because netconf-yang is disabled
+*May 29 2025 18:49:23.005: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*May 29 2025 18:49:23.204: %IOSXE_MGMTVRF-6-CREATE_SUCCESS_INFO: Management vrf Mgmt-intf created with ID 1, ipv4 table-id 0x1, ipv6 table-id 0x1E000001
+*May 29 2025 18:49:23.262: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0IOSD CMAN IPC BR notification receivedcman channel UP, remote location -1/0/0/0IOSD-CMAN IPC setting TDL domian and handleIOSD CMAN IPC setting TDL domaincman channel, local location -1/0/0/0TDL domain set iosd_cmrp.rp_0_0_rp_0_0
+*May 29 2025 18:49:23.405: %LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
+*May 29 2025 18:49:23.406: %LINEPROTO-5-UPDOWN: Line protocol on Interface EOBC0, changed state to up
+*May 29 2025 18:49:23.456: %LINEPROTO-5-UPDOWN: Line protocol on Interface Lsmpi0, changed state to up
+*May 29 2025 18:49:23.457: %LINEPROTO-5-UPDOWN: Line protocol on Interface LIIN0, changed state to up
+*May 29 2025 18:49:23.457: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to down
+*May 29 2025 18:49:23.672: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*May 29 2025 18:49:25.458: %SYS-7-NVRAM_INIT_WAIT_TIME: Waited 0 seconds for NVRAM to be available
+*May 29 2025 18:49:25.675: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named TP-self-signe
+[TX 2026-11-07T12:11:35.336010-05:00] b'\r'
+d-3840936823 has been generated or imported by crypto config
+*May 29 2025 18:49:25.685: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named NETCONF_SSH_RSA_KEY has been generated or imported by crypto config
+*May 29 2025 18:49:25.687: yang-infra: Default hostkey created (NETCONF_SSH_RSA_KEY)
+*May 29 2025 18:49:25.690: %SYS-6-PRIVCFG_DECRYPT_SUCCESS: Successfully apply the private config file
+*May 29 2025 18:49:25.772: %SYS-4-SYSTEM_SECURITY_MODE_CHANGE: System Security Mode Changed from SECURE to INSECURE
+*May 29 2025 18:49:25.789: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: TP-self-signed-3840936823 created successfully
+*May 29 2025 18:49:25.793: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created successfully
+*May 29 2025 18:49:25.809: yang-infra: self-signed cert inserted(TP-self-signed-3840936823)
+*May 29 2025 18:49:26.027: %SYS-5-CONFIG_I: Configured from memory by console
+*May 29 2025 18:49:26.032: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/0, interfaces disabled
+*May 29 2025 18:49:26.032: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/4, interfaces disabled
+*May 29 2025 18:49:26.042: %SPA_OIR-6-OFFLINECARD: SPA (8M-2xSFP+) offline in subslot 0/0
+*May 29 2025 18:49:26.044: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*May 29 2025 18:49:26.090: %IOSXE_OIR-6-INSCARD: Card (fp) inserted in slot F0
+*May 29 2025 18:49:26.090: %IOSXE_OIR-6-ONLINECARD: Card (fp) online in slot F0
+*May 29 2025 18:49:26.120: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 0
+*May 29 2025 18:49:26.126: %IOSXE_RP_PAE_NOT-4-PAE_STARTUP_DELAY: Product Analytics will start in 7 days, configure "no product-analytics" to disable
+*May 29 2025 18:49:26.126: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*May 29 2025 18:49:26.135: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*May 29 2025 18:49:26.322: %SYS-4-MASTER_KEY_NOT_PRESENT: The master key is not configured, so passwords/secrets might not be encrypted. To ensure secure network operations, it is highly recommended to configure the master key. Please note that future system upgrades will be blocked until the master key is configured.Configure the master key by using the following command: "key config-key password-encrypt <encryption-key>"
+*May 29 2025 18:49:27.880: %LINK-5-CHANGED: Interface GigabitEthernet0, changed state to administratively down
+*May 29 2025 18:49:29.804: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 0
+*May 29 2025 18:49:29.825: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*May 29 2025 18:49:29.825: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*May 29 2025 18:49:29.857: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/4
+*May 29 2025 18:49:31.679: Tamper: wait on boolean for tamper event to fetch
+*May 29 2025 18:49:31.680: %SYS-5-RESTART: System restarted --
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Tue 22-Sep-26 19:58 by mcpre
+*May 29 2025 18:49:31.827: %PNP-6-PNP_BEST_UDI_UPDATE: Best UDI [PID:C8230X-8M2X,VID:V00,SN:FGL2835L42B] identified via (entity-mibs)
+*May 29 2025 18:49:31.827: %PNP-6-PNP_CDP_UPDATE: Device UDI [PID:C8230X-8M2X,VID:V00,SN:FGL2835L42B] identified for CDP
+*May 29 2025 18:49:31.827: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Startup Config Present)
+*May 29 2025 18:49:32.291: %SYS-6-BOOTTIME: Time taken to reboot after reload = 4294967114 seconds
+R1-C8235G2#
+*May 29 2025 18:49:33.268: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 0 times and closed 0 times during power down. There is no last known/marked event.
+*May 29 2025 18:49:33.270: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 0 times and closed 0 times during power up. There is no last known/marked event.
+R1-C8235G2#
+*May 29 2025 18:49:36.146: %SYS-5-CONFIG_P: Configured programmatically by process EPM CREATE DEFAULT CWA URL ACL from console as console
+R1-C8235G2#
+*May 29 2025 18:49:38.130: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 29 2025 18:49:38.130: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+R1-C8235G2#
+[TX 2026-11-07T12:11:44.620266-05:00] b'terminal length 0\r'
+terminal length 0
+R1-C8235G2#
+*May 29 2025 18:49:42.143: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*May 29 2025 18:49:42.143: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*May 29 2025 18:49:42.150: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI created successfully
+*May 29 2025 18:49:42.155: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CISCO_IDEVID_SUDI has been generated or imported by pki-sudi
+*May 29 2025 18:49:42.171: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI0 created successfully
+R1-C8235G2#
+[TX 2026-11-07T12:11:45.727906-05:00] b'show platform\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:00:54      
+ 0/0      8M-2xSFP+           booting               00:00:08      
+R0        C8230X-8M2X         ok, active            00:00:54      
+F0        C8230X-8M2X         ok, active            00:00:54      
+P0        PWR-CC2-66WAC       ok                    00:00:21      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+R1-C8235G2#
+*May 29 2025 18:49:42.176: %PKI-2-NON_AUTHORITATIVE_CLOCK: PKI functions can not be initialized until an authoritative time source, like NTP, can be obtained.
+R1-C8235G2#
+[TX 2026-11-07T12:11:46.836825-05:00] b'show power\r'
+show power
+Main PSU :
+    Configured Mode : N/A
+    Current runtime state same : N/A
+    Total power available : 66 Watts
+POE Module :
+    Configured Mode : N/A
+    Current runtime state same : N/A
+    Total power available : 0 Watts
+R1-C8235G2#
+*May 29 2025 18:49:42.600: %SPA_OIR-6-ONLINECARD: SPA (VDSP-CC) online in subslot 0/4
+R1-C8235G2#
+[TX 2026-11-07T12:11:47.945269-05:00] b'show diag | include Internal PoE|FGL|FOC|PWR\r'
+show diag | include Internal PoE|FGL|FOC|PWR
+% Incomplete command before pipe.
+
+R1-C8235G2#
+[TX 2026-11-07T12:11:49.051818-05:00] b'show power inline TwoGigabitEthernet 0/0/4 detail\r'
+show power inline TwoGigabitEthernet 0/0/4 detail
+ Interface: Tw0/0/4
+ Inline Power Mode: auto
+ Operational status: off
+ Device Detected: no
+ Device Type: n/a
+ IEEE Class: n/a
+ Discovery mechanism used/configured: Unknown
+ Police: off
+
+ Power Allocated 
+ Admin Value: 30.0
+ Power drawn from the source: 0.0
+ Power available to the device: 0.0
+ 
+ Actual consumption
+ Measured at the port: 0.0
+ Maximum Power drawn by the device since powered on: 0.0
+ 
+ Absent Counter: 0
+ Over Current Counter: 0
+ Short Current Counter: 0
+ Invalid Signature Counter: 0
+ Power Denied Counter: 0
+
+ Power Negotiation Used: None
+ LLDP Power Negotiation --Sent to PD--      --Rcvd from PD--
+   Power Type:          -                    -
+   Power Source:        -                    -
+   Power Priority:      -                    -
+   Requested Power(W):  -                    -
+   Allocated Power(W):  -                    -
+
+Four-Pair PoE Supported: No
+Spare Pair Power Enabled: No
+Four-Pair PD Architecture: N/A
+Perpetual POE Enabled: FALSE
+Fast POE Enabled: FALSE
+Meter Start Time: 1970-01-01 00:00:00 UTC
+Metered Energy Value(WattSec): 0.0 
+R1-C8235G2#
+*May 29 2025 18:49:45.441: %LINK-3-UPDOWN: Interface Service-Engine0/4/0, changed state to up
+R1-C8235G2#
+*May 29 2025 18:49:46.440: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/4/0, changed state to up
+R1-C8235G2#
+*May 29 2025 18:49:52.812: %ENVIRONMENTAL-1-ALERT: V: 12V_DG_ST, Location: R0, State: Critical_Low, Reading: 0 mV
+R1-C8235G2#
+[TX 2026-11-07T12:11:58.561030-05:00] b'show diag all eeprom | include Internal PoE|FGL|FOC|PWR\r'
+show diag all eeprom | include Internal PoE|FGL|FOC|PWR
+	PCB Serial Number        : FOC28292GUQ
+	Product Identifier (PID) : PWR-CC2-66WAC
+Internal PoE is not present
+	PCB Serial Number        : FOC28292GUQ
+	PCB Serial Number        : FOC28292GUQ
+	PCB Serial Number        : FOC28292GUQ
+R1-C8235G2#
+[TX 2026-11-07T12:11:59.669678-05:00] b'show version | include Version|System image|uptime|Configuration register|Processor board|operating\r'
+show version | include Version|System image|uptime|Configuration r$n | include Version|System image|uptime|Configuration re         gister|Pre Version|System image|uptime|Configuration register|Pro         cessor boSystem image|uptime|Configuration register|Processor boa         rd|operatge|uptime|Configuration register|Processor board|operati         ng
+Cisco IOS XE Software, Version 26.02.01
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.02.1, RELEASE SOFTWARE (fc3)
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+R1-C8235G2 uptime is 0 minutes
+System image file is "bootflash:packages.conf"
+Processor board ID FGL2835L42B
+Router operating mode: Autonomous
+Configuration register is 0x3922
+R1-C8235G2#
+[TX 2026-11-07T12:12:00.776933-05:00] b'show platform software chasfs R0 | include poe|PoE|power|psu\r'
+show platform software chasfs R0 | include poe|PoE|power|psu
+  /tmp/chassis/local/rp/chasfs/cc/0/4/powered_shut_support : [no]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/powered_shut_support : [no]
+R1-C8235G2#
+[TX 2026-11-07T12:12:27.253849-05:00] b'show platform\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:01:35      
+ 0/0      8M-2xSFP+           booting               00:00:49      
+R0        C8230X-8M2X         ok, active            00:01:35      
+F0        C8230X-8M2X         ok, active            00:01:35      
+P0        PWR-CC2-66WAC       ok                    00:01:03      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+R1-C8235G2#
+[TX 2026-11-07T12:12:28.363011-05:00] b'show logging | include PMAN|IOMD|iomd|CRASH|helddown|rc=139\r'
+show logging | include PMAN|IOMD|iomd|CRASH|helddown|rc=139
+R1-C8235G2#
+[TX 2026-11-07T12:12:29.472218-05:00] b'show platform hardware qfp active datapath utilization summary\r'
+show platform hardware qfp active datapath utilization summary
+  CPP 0:                     5 secs        1 min        5 min       60 min
+Input:     Total (pps)            2            3            0            0
+                 (bps)          640         1144          224           16
+Output:    Total (pps)            1            2            0            0
+                 (bps)         2864         6472         1288          104
+Processing: Load (pct)            0            2            2            0
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            2           78           78           78
+            Idle (pct)           98           22           22           22
+
+R1-C8235G2#
+*May 29 2025 18:50:29.634: NGIOLite module 8M-2xSFP+ success read extended attr from conf file len: 1629
+
+*May 29 2025 18:50:29.330: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card F0 took 67 secs to boot
+*May 29 2025 18:50:29.330: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 0 took 62 secs to boot
+R1-C8235G2#
+*May 29 2025 18:50:30.253: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/8
+*May 29 2025 18:50:30.324: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/9
+R1-C8235G2#
+*May 29 2025 18:50:31.792: %SPA_OIR-6-ONLINECARD: SPA (8M-2xSFP+) online in subslot 0/0
+R1-C8235G2#
+[TX 2026-11-07T12:13:02.711187-05:00] b'show install summary\r'
+show install summary
+[ R0 ] Installed Package(s) Information:
+State (St): I - Inactive, U - Activated & Uncommitted,
+            C - Activated & Committed, D - Deactivated & Uncommitted
+--------------------------------------------------------------------------------
+Type  St   Filename/Version
+--------------------------------------------------------------------------------
+IMG   C    26.02.01.0.263
+
+--------------------------------------------------------------------------------
+Auto abort timer: inactive
+--------------------------------------------------------------------------------
+
+
+R1-C8235G2#
+*May 29 2025 18:50:58.782: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+R1-C8235G2#
+[TX 2026-11-07T12:13:03.816009-05:00] b'more bootflash:packages.conf\r'
+more bootflash:packages.conf
+#! /usr/binos/bin/packages_conf.sh
+
+sha1sum: 0e8f1221a24b633208b3afd161fb3f2ee1ea353e
+
+sha256sum: b0334b773f571ce86cdc7c868461bb699ded3dd1991b96941abce284663b12e5
+
+# sha1sum above - used to verify that this file is not corrupted.
+
+#
+# package.conf: provisioned software file for build 2026-09-22_20.09
+#
+
+# NOTE: Editing this file by hand is not recommended. It is generated
+#       as part of the build process, and is subject to boot-time
+#       consistency checks. Automatically-produced package files are
+#       guaranteed to pass those checks. Manually-maintained ones are
+#       not. Because "nfs" and "mount" directives are processed first,
+#       regardless of their position in the file, the recommended
+#       approach is to keep a separate file containing JUST your
+#       personal "nfs" and "mount" directives, and to append it to the
+#       automatically-generated file.
+#
+#     Note further that when SHA-1 checksum verification is enabled,
+#     you will NOT be able to alter this file without updating the
+#     SHA-1 sum.
+
+#
+# This file can contain three types of entries:
+#
+
+#
+# NFS directives (optional)
+#     notes:    NFS directives are processed before all others (mount, iso).
+#               Multiple NFS directives may appear so long as they do not
+#               conflict -- that is, specify the same source or mountpoint.
+#     syntax:   nfs <IP ADDRESS>:<REMOTE_PATH> <LOCAL_MOUNTPOINT>
+#     example:  nfs 127.0.0.1:/auto/some/nfs/path /auto/some/nfs/path
+#
+
+#
+# mount directives (optional)
+#     notes:    mount directives are processed after 'nfs' and before 'iso'.
+#               One mount directive may appear for each F/S/B/P tuple
+#     syntax:   mount FRU SLOT BAY   PACKAGE_NAME   NFS_PATH
+#     example:  mount rp 0 0 rp_base /auto/some/nfs/path/abs_soft/rp_base.ppc
+#
+#               The specified NFS_PATH must
+#               reference the NFS mounts created earlier.
+#
+#               Mount directives cause the package-specific mount link to
+#               be set to the specified path instead of to the mountpoint
+#               in sw for the corresponding ISO.
+#
+
+#
+# iso directives (mandatory)
+#     notes:    iso directives are processed last: any package for which
+#               a 'mount' directive does not appear will be mounted.
+#               One iso directive may appear for each F/S/B/P tuple.
+#     syntax:   iso FRU SLOT BAY   PACKAGE_NAME  PACKAGE_FILE.bin
+#     example:  iso rp 0 0 rp_base rp_base.ppc.bin
+#
+#               PACKAGE_FILE.bin is a path relative to the packages.conf
+#               file.  Although it supports sub-directories for development
+#               purposes, in deployment the files will always be managed
+#               as in the same directory as packages.conf so as to
+#               guarantee that name collisions cannot occur.
+#
+# Note that the RP 0/1 distinction is a convenience for development
+# and testing as it allows us to have a packages.conf describe a
+# SW load that varies depending on whether the RP finds itself in
+# slot 0 or 1.
+#
+# The ISSU process *must* update *both* RP slots simultaneously so that
+# the RP will behave predictably whichever slot it finds itself on [e.g.,
+# if package X is upgraded, and the RP is ejected and put into either
+# slot of a new chassis, we expect to see the upgraded X without regard
+# to slot].
+#
+
+boot   rp 0 0   rp_boot c8kg2be-rpboot.26.02.01.SPA.pkg
+
+iso   rp 0 0   rp_base c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   rp 0 1   rp_base c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   rp 0 0   rp_daemons c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   rp 0 1   rp_daemons c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   rp 0 0   rp_iosd c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   rp 0 1   rp_iosd c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   rp 0 0   rp_security c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   rp 0 1   rp_security c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   rp 0 0   rp_webui c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   rp 0 1   rp_webui c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   fp 0 0   fp c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   fp 0 1   fp c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   cc 0 0   cc c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 1   cc c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   cc 0 0   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 1   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 2   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 3   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 4   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 0 5   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   cc 1 0   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 1 1   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 1 2   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 1 3   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 2 0   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 2 1   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 2 2   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 2 3   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 3 0   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 3 1   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 3 2   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+iso   cc 3 3   cc_spa c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_mirabile_mcu c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_mirabile_mcu c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_nim_shdsl c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_nim_shdsl c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_sm_async c8kg2be-firmware_sm_async.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_sm_async c8kg2be-firmware_sm_async.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_ngwic_t1e1 c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_ngwic_t1e1 c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_prince c8kg2be-firmware_prince.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_prince c8kg2be-firmware_prince.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_sm_1t3e3 c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_sm_1t3e3 c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_nim_async c8kg2be-firmware_nim_async.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_nim_async c8kg2be-firmware_nim_async.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_nim_xdsl c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_nim_xdsl c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_sm_nim_adpt c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_sm_nim_adpt c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_pse_si3470a c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_pse_si3470a c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_sm_dsp_sp2700 c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_sm_dsp_sp2700 c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg
+
+iso   rp 0 0   firmware_dsp_analogbri c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg
+iso   rp 0 1   firmware_dsp_analogbri c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg
+
+
+#
+# -start- superpackage .pkginfo
+#
+# pkginfo: Name: rp_super
+# pkginfo: BuildTime: 2026-09-22_20.09
+# pkginfo: ReleaseDate: Tue-22-Sep-26-19:45
+# pkginfo: .BuildArch: arm64
+# pkginfo: BootArchitecture: arm64
+# pkginfo: .BootArch: arm64
+# pkginfo: RouteProcessor: mirabile
+# pkginfo: Platform: C8KG2BE
+# pkginfo: User: mcpre
+# pkginfo: PackageName: universalk9
+# pkginfo: Build: 26.02.01
+# pkginfo: .SupportedBoards: mirabile
+# pkginfo: .InstallModel: 
+# pkginfo: .PackageRole: rp_super
+# pkginfo: .RestartRole: rp_super
+# pkginfo: CardTypes: 
+# pkginfo: .CardTypes: 
+# pkginfo: .BuildPath: /nobackup/mcpre/s2c-build-ws/binos/linkfarm/mirabile_universalk9-stage/img/rp_super_universalk9
+# pkginfo: .Version: 26.02.01.0.263.1790107759..IOSXE
+# pkginfo: .ControllerVersion: 26.2
+# pkginfo: .InstallVersion: 1.0.0
+# pkginfo: .InstallCapCommitSupport: yes
+# pkginfo: .PKGUID: ed57fdb654ccf593d1a235dae8133b16f79c5c42
+# pkginfo: .SW_DESCRIPTION: V262_1_FC3-0-gcdab22eca498e
+#
+# -end- superpackage .pkginfo
+#
+
+
+R1-C8235G2#
+[TX 2026-11-07T12:13:12.733124-05:00] b'verify /sha256 bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg\r'
+verify /sha256 bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA$256 bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA.         pkg
+verify /sha256 bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg
+           ^
+% Invalid input detected at '^' marker.
+
+R1-C8235G2#
+[TX 2026-11-07T12:13:24.793349-05:00] b'verify ?\x15'
+verify ?
+  /md5        Compute an md5 signature for a file
+  /sha512     Compute sha512 signature for a file
+  bootflash:  File to be verified
+  crashinfo:  File to be verified
+  flash:      File to be verified
+  nvram:      File to be verified
+
+R1-C8235G2#verify        
+[TX 2026-11-07T12:13:30.884480-05:00] b'verify /sha512 bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg\r'
+verify /sha512 bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA$512 bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA.         pkg
+.Done!
+verify /sha512 (bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg) = 5f5221079605a41295eb60787300b34c9dea3da51ab0e0a49fa15ff8988b503f706317e7cc116b799c3c4c7ca266217fe55ecab23913a35c3a80afc1931f228b
+
+
+R1-C8235G2#
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: RCMD - Command: ip rcmd domain-lookup  - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip forward-protocol udp tftp  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet tos C0 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport enable  - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport flow level 16 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport receive window 4128 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: TELNET - Command: ip telnet comport disconnect delay 0 - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_CONFIG: Module: TFTP - Command: ip tftp source-interface GigabitEthernet0  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp arp-glean  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp blocksize 512 - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: FTP - Command: ip ftp passive  - Reason: No encryption is configured - Remediation: Transition to secure file transfer methods using SCP, SFTP, HTTPS protocols - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+R1-C8235G2#
+*May 29 2025 18:51:31.832: %SYS-4-INSECURE_WARNING: Module: HTTP - Command: ip http server  - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: Use http secure server to ensure secure web access - Submode: configure - Parent CLI: Not Applicable - The configuration is inconsistent with secure network operation and is not recommended
+R1-C8235G2#
+[TX 2026-11-07T12:13:38.176285-05:00] b'show platform\r'
+show platform
+Chassis type: C8230X-8M2X
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8230X-8M2X         ok                    00:02:46      
+ 0/0      8M-2xSFP+           ok                    00:02:00      
+R0        C8230X-8M2X         ok, active            00:02:46      
+F0        C8230X-8M2X         ok, active            00:02:46      
+P0        PWR-CC2-66WAC       ok                    00:02:14      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         24073021            SDK112312-SoC1-SB-v12.1.22          
+R0        24073021            SDK112312-SoC1-SB-v12.1.22          
+F0        24073021            SDK112312-SoC1-SB-v12.1.22          
+
+R1-C8235G2#
+[TX 2026-11-07T12:13:46.721211-05:00] b'show power\r'
+show power
+Main PSU :
+    Configured Mode : N/A
+    Current runtime state same : N/A
+    Total power available : 66 Watts
+POE Module :
+    Configured Mode : N/A
+    Current runtime state same : N/A
+    Total power available : 0 Watts
+R1-C8235G2#
+[TX 2026-11-07T12:13:47.828242-05:00] b'show power inline TwoGigabitEthernet 0/0/4 detail\r'
+show power inline TwoGigabitEthernet 0/0/4 detail
+ Interface: Tw0/0/4
+ Inline Power Mode: auto
+ Operational status: off
+ Device Detected: no
+ Device Type: n/a
+ IEEE Class: n/a
+ Discovery mechanism used/configured: Unknown
+ Police: off
+
+ Power Allocated 
+ Admin Value: 30.0
+ Power drawn from the source: 0.0
+ Power available to the device: 0.0
+ 
+ Actual consumption
+ Measured at the port: 0.0
+ Maximum Power drawn by the device since powered on: 0.0
+ 
+ Absent Counter: 0
+ Over Current Counter: 0
+ Short Current Counter: 0
+ Invalid Signature Counter: 0
+ Power Denied Counter: 0
+
+ Power Negotiation Used: None
+ LLDP Power Negotiation --Sent to PD--      --Rcvd from PD--
+   Power Type:          -                    -
+   Power Source:        -                    -
+   Power Priority:      -                    -
+   Requested Power(W):  -                    -
+   Allocated Power(W):  -                    -
+
+Four-Pair PoE Supported: No
+Spare Pair Power Enabled: No
+Four-Pair PD Architecture: N/A
+Perpetual POE Enabled: FALSE
+Fast POE Enabled: FALSE
+Meter Start Time: 1970-01-01 00:00:00 UTC
+Metered Energy Value(WattSec): 0.0 
+R1-C8235G2#
+[TX 2026-11-07T12:13:48.935032-05:00] b'show logging | include PMAN|IOMD|iomd|CRASH|helddown|rc=139\r'
+show logging | include PMAN|IOMD|iomd|CRASH|helddown|rc=139
+*May 29 2025 18:50:30.253: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/8
+*May 29 2025 18:50:30.324: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/9
+R1-C8235G2#
+[TX 2026-11-07T12:13:50.039263-05:00] b'terminal length 24\r'
+terminal length 24
+R1-C8235G2#

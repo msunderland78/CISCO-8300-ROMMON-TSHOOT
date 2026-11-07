@@ -1,0 +1,53 @@
+C8235-A / FGL2835L42B / C8235-06 -- 2026-11-07 EST
+Offline extracted-vendor-code evidence. Apple LLVM objdump21.0.0.
+No vendor library executed or modified. See results.json for source hashes, live installed hash checks and core acquisition provenance.
+Source package: c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+Extraction: unsquashfs -cat -o 4096 <package> usr/binos/lib64/<library>
+
+Observed core: SIGSEGV11/code1/address0xfe8; PC=0xffff97c27594 (libiomd_ngmod.so+0x47594), x8=0, LR=0xffff97ac93c0 (libngio_ngswitch.so+0x293c0).
+At matched installed instruction, null parent ngmod_spa_plugin is dereferenced at+0xfe8 before the caller can test the returned PoE-object pointer. This proves the diagnostic accessor fault, not why PoE detection is zero.
+
+$ objdump -dr --disassemble-symbols=ngmod_get_poe_dev_object tmp/c8235-poe-analysis-20261107/libiomd_ngmod.so
+
+tmp/c8235-poe-analysis-20261107/libiomd_ngmod.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000047580 <ngmod_get_poe_dev_object>:
+   47580: 90000248     	adrp	x8, 0x8f000
+   47584: f0000269     	adrp	x9, 0x96000
+   47588: f946f908     	ldr	x8, [x8, #0xdf0]
+   4758c: f943912a     	ldr	x10, [x9, #0x720]
+   47590: f9400108     	ldr	x8, [x8]
+   47594: f947f500     	ldr	x0, [x8, #0xfe8]
+   47598: 91000548     	add	x8, x10, #0x1
+   4759c: f9039128     	str	x8, [x9, #0x720]
+   475a0: d65f03c0     	ret
+
+$ objdump -dr --start-address=0x293a0 --stop-address=0x293e4 tmp/c8235-poe-analysis-20261107/libngio_ngswitch.so
+
+tmp/c8235-poe-analysis-20261107/libngio_ngswitch.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000028e40 <iomd_poe_comm_iomd_test_poe_cmd_message_handler>:
+   293a0: f9464d08     	ldr	x8, [x8, #0xc98]
+   293a4: 79402102     	ldrh	w2, [x8, #0x10]
+   293a8: f9472c00     	ldr	x0, [x0, #0xe58]
+   293ac: 97ffb78d     	bl	0x171e0 <__BTf_4@plt>
+   293b0: f81d83bf     	stur	xzr, [x29, #-0x28]
+   293b4: 97ffb933     	bl	0x17880 <mcp_cc_spa_tdlh@plt>
+   293b8: aa0003f7     	mov	x23, x0
+   293bc: 97ffb749     	bl	0x170e0 <ngmod_get_poe_dev_object@plt>
+   293c0: b4001b40     	cbz	x0, 0x29728 <iomd_poe_comm_iomd_test_poe_cmd_message_handler+0x8e8>
+   293c4: aa0003f3     	mov	x19, x0
+   293c8: f9409008     	ldr	x8, [x0, #0x120]
+   293cc: b40022a8     	cbz	x8, 0x29820 <iomd_poe_comm_iomd_test_poe_cmd_message_handler+0x9e0>
+   293d0: d2880098     	mov	x24, #0x4004            // =16388
+   293d4: f2ab3e98     	movk	x24, #0x59f4, lsl #16
+   293d8: f2dd2358     	movk	x24, #0xe91a, lsl #32
+   293dc: f2eb3c78     	movk	x24, #0x59e3, lsl #48
+   293e0: b2400700     	orr	x0, x24, #0x3
+
+$ objdump -R tmp/c8235-poe-analysis-20261107/libiomd_ngmod.so
+000000000008fdf0 R_AARCH64_GLOB_DAT       ngmod_spa_plugin

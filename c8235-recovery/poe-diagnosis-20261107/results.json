@@ -1,0 +1,245 @@
+{
+  "task_id": "C8235-06",
+  "date": "2026-11-07",
+  "timezone": "America/New_York",
+  "target": "C8235-A/FGL2835L42B/FOC28292GUQ",
+  "status": "ROMMON/UEFI investigation and normal-startup restoration complete; native PoE diagnostic null-pointer crash identified;230W recognition and functional PoE unresolved",
+  "physical_state": "Owner confirms A identity, assembled/battery installed, same 230W supply, no test/programmer wires, exclusive RJ45 console; AP on port4 included in grouped confirmation. Router initially off, owner powered on after capture/trigger armed.",
+  "console": {
+    "port": "/dev/cu.usbserial-AL00F7EQ",
+    "baud": 115200,
+    "format": "8N1/no flow",
+    "initial_capture": "router-console-logs/20261107-115618-console.log",
+    "initial_ownership": "lsof both aliases free before open; exclusive bridge sole owner after opening"
+  },
+  "rommon": {
+    "uuid": "13 FF FF 78 86 52 04 83 8A BF FF 48",
+    "version": "SDK112312-SoC1-SB-v12.1.22",
+    "reset_reason": "PowerOn",
+    "interruption": "one-shot Ctrl-C x3 after UUID Len: 0xC; prompt reached",
+    "reads": [
+      {
+        "command": "fpgaread fff32120",
+        "effective_address": "0x32120",
+        "value": "0x0"
+      },
+      {
+        "command": "fpgaread fff3212c",
+        "effective_address": "0x3212c",
+        "value": "0x0"
+      },
+      {
+        "command": "fpgaread fff00084",
+        "effective_address": "0x84",
+        "value": "0x82020109"
+      },
+      {
+        "command": "fpgaread fff00008",
+        "effective_address": "0x8",
+        "value": "0x0",
+        "meaning": "internal-device-reset register only; NOT the separate PSE reset accessor"
+      },
+      {
+        "command": "fpgaread fff00004",
+        "stage": "First warm reload,12:05:10 EST",
+        "effective_address": "0x4",
+        "value": "0x0",
+        "meaning": "external_device_reset; static PSE accessor extracts bit7, physical polarity/state unqualified"
+      }
+    ],
+    "uefi_diagnostics": "drvdiag lists only handle84 without controller handles; drivers maps84 to Intel PRO/1000. No PoE diagnostic exposed; no standard/extended/manufacturing test invoked.",
+    "environment": "set readback shows established A4 and packages.conf; no environment changes or sync before initial IOS boot"
+  },
+  "ios_initial": {
+    "version": "26.02.1",
+    "image": "bootflash:packages.conf",
+    "ram_correction": "Original A4 input hashes pass; original launch_net/hook hashes and HOOK_COMPLETE observed",
+    "modules": "0/0 ready before test; R0/F0 active",
+    "power": "66W main/0W PoE, PWR-CC2-66WAC",
+    "port4": "auto/off/no-device/0W; no faults or denied-power counters",
+    "diagnostics": "R0 only TestErrorCounterMonitor; 0/0 has no diagnostic handle, including after ready"
+  },
+  "new_failure": {
+    "command": "test platform hardware poe get 0 global",
+    "basis": "Discovered live native test platform hardware poe get help; advertised read-only get register info",
+    "command_time_est": "2026-11-07T12:02:22.667441-05:00",
+    "time_caveat": "Exact TX timestamp is authoritative in capture; router clock incorrectly May29 2025",
+    "result": "No register output; immediate IOMD rc139/helddown and subslot0/0 removal. No repeat of the PoE get, no PoE set command, and no arbitrary FPGA/PoE register write.",
+    "core_on_router": "bootflash:core/R1-C8235G2_RP_0_iomd_22510_20250529-185109-UTC.core.gz",
+    "core_bytes": 3212596,
+    "coregen_on_router": "bootflash:core/R1-C8235G2_RP_0_iomd_22510_20250529-185109-UTC.core.gz.coregen.dbg",
+    "coregen_bytes": 458421,
+    "recovery": "One normal IOS reload for core acquisition, then early-maintenance reboot; saved A4/BOOT settings returned exactly. Normal packages.conf startup passes original input/RAM-hook hashes and HOOK_COMPLETE; built-in0/0 ok at12:13:38 EST.",
+    "timestamp_correction": "Earlier in-progress record incorrectly selected the help query at12:02:15.689059. Executed command TX is12:02:22.667441; both are preserved in initial capture.",
+    "core_sha256": "a87134864de655cbf32e0404f643acf1a4f3c2125ad35bae7460e0597becd11a",
+    "coregen_capture": "Exact serial capture retained privately; coregen payload omitted from clearly labeled publication excerpt."
+  },
+  "limits": [
+    "230W identification and functional PoE remain unresolved; no successful power delivery or AP startup observed.",
+    "UEFI/native diagnostic absence and null ngmod plugin are not proof of absent physical PoE circuitry.",
+    "No firmware-image, EEPROM, TPM, fuse, persistent config or saved boot change; temporary unsynced rdinit entry only. No arbitrary FPGA/PoE control writes. Native diagnostic get unexpectedly crashed IOMD; core generation/reloads are recorded effects.",
+    "Normal boot/modules verified only during this bounded session; no traffic or extended-stability qualification.",
+    "Raw originals and core data stay local; generated sanitized text excerpts are public. Unknown secrets in binary/core data cannot be ruled out; no core bytes/base32 transfer or coregen body published."
+  ],
+  "crash_analysis": {
+    "signal": {
+      "signal": 11,
+      "code": 1,
+      "address": "0xfe8"
+    },
+    "faulting_thread": {
+      "pid": 22510,
+      "signal": 11,
+      "pc": "0xffff97c27594",
+      "lr": "0xffff97ac93c0",
+      "sp": "0xffffc75d59d0",
+      "x0": "0xaaaaca1e9d08",
+      "x1": "0xaaaab624c09c",
+      "x2": "0x0",
+      "x8": "0x0",
+      "x19": "0xffff7ef58e80",
+      "x20": "0xaaaaca26c948",
+      "pc_mapping": {
+        "file": "libiomd_ngmod.so",
+        "file_offset": "0x47594",
+        "mapping_start": "0xffff97be0000",
+        "mapping_file_offset": "0x0"
+      },
+      "lr_mapping": {
+        "file": "libngio_ngswitch.so",
+        "file_offset": "0x293c0",
+        "mapping_start": "0xffff97aa0000",
+        "mapping_file_offset": "0x0"
+      }
+    },
+    "accessor": "ngmod_get_poe_dev_object",
+    "instruction_at_pc": "ldr x0, [x8, #0xfe8]",
+    "parent_symbol": "ngmod_spa_plugin (GLOB_DAT relocation0x8fdf0)",
+    "finding": "The diagnostic handler calls an accessor which dereferences null ngmod_spa_plugin. x8=0 plus0xfe8 matches SIGSEGV fault address. This occurred before the handler obtained a controller object; no successful controller-register result was returned.",
+    "limit": "This identifies the native test-command failure, not the cause of zero PoE detection flags or physical controller absence. Adding a null check would avoid this fault but does not initialize or enable PoE.",
+    "installed_identity_check": "Read-only mount of installed bootflash mono package; both relevant library SHA256 values exactly match offline extracted objects at12:07:21 EST. Crashing instruction bytes are inferred from hash-matched installed libraries, not included in the transferred notes prefix.",
+    "libraries": [
+      {
+        "source": "usr/binos/lib64/libiomd_ngmod.so",
+        "bytes": 551712,
+        "sha256": "129bb25e158be56b7ad726cfdff3579f17389945462a01c77d637e4098d92f42"
+      },
+      {
+        "source": "usr/binos/lib64/libngio_ngswitch.so",
+        "bytes": 632088,
+        "sha256": "a5e57ff5b4713900d905102acd5ff2895fbea8a6a68ac82efc83514927e7f3ae"
+      }
+    ]
+  },
+  "core_acquisition": {
+    "full_core": "Remains on router bootflash; compressed SHA256 measured from read-only mount. Full core was not transferred to host.",
+    "prefix_bytes": 540672,
+    "prefix_sha256": "96e82d8efd1246541d26ff49bca1364daaf28b85abd102c32e3ab45b0fc238f7",
+    "prefix_content": "ELF64 little-endian AArch64 headers and complete PT_NOTE,24 notes; may contain private process data, excluded from publication.",
+    "transfer": "Extracted in router RAM with busybox dd bs=4096 count=132 after zcat into RAM; gzip62237bytes, BusyBox base32 serial transfer; host base32 decode and gzip decompress; exact remote/local size/hash match.",
+    "retained_private_directory": ".git/recovery-private/c8235-poe-20261106/supervised-20261107-120612/",
+    "parser": "Local AI-assisted offline Python3 struct parser, no hardware/network actions; PT_NOTE alignment4; AArch64 PRSTATUS pid offset32/registers112; SIGINFO address16; NT_FILE page-scaled file offsets. Run on exact captured prefix.",
+    "parser_sha256": "4f1e8f2eb4a19667da051888f53445a08602fbb778ce357d3ec3837bfb449ab0",
+    "intermediate_failures": [
+      "BusyBox head does not support -c; first prefix was empty and rejected. dd replacement succeeds.",
+      "base64 unavailable; available BusyBox base32 used.",
+      "/usr/binos/lib64 absent in early initramfs; mounted installed mono squashfs read-only to hash actual files."
+    ]
+  },
+  "maintenance": {
+    "entry": "Temporary unsynced USER_BOOT_PARAM rdinit shell; no ROMMON sync or saved boot modification.",
+    "bootflash_mount": "/dev/mmcblk0p1 at/u,ro,noload; installed mono at/m,squashfs,ro,loop,offset=4096",
+    "exit": "umount /m && umount /u && busybox reboot -f at12:08:56.800857 EST",
+    "restore_observed": "A UUID matches; Ctrl-C hold12:09:39; saved USER_BOOT_PARAM/BOOT read12:09:48 exactly match initial; normal packages.conf boot12:09:56; original input and RAM-hook hashes/HOOK_COMPLETE observed; native IOS and modules ready verified.",
+    "saved_environment_verification": {
+      "BOOT": {
+        "matches_initial_readback": true,
+        "value": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;"
+      },
+      "USER_BOOT_PARAM": {
+        "matches_initial_readback": true,
+        "value": "rdinit=/bin/sh -c mount$IFS-tdevtmpfs${IFS}none$IFS/dev;sleep${IFS}5;mkdir$IFS/u;mount$IFS-oro,noload$IFS/dev/mmcblk0p1$IFS/u&&test$IFS-r$IFS/u/A4&&exec${IFS}bash$IFS/u/A4$IFS-b;exec${IFS}sh</dev/ttyAMA0&>/dev/ttyAMA0"
+      }
+    }
+  },
+  "captures": [
+    {
+      "local_original": "router-console-logs/20261107-115618-console.log",
+      "publication": "sanitized-evidence/router-console-logs/20261107-115618-console.log",
+      "bytes": 72265,
+      "sha256": "2b4bdaf7312ade3ab3650a39f87417dcc8ba2151085935865cec53e82e590fcf"
+    },
+    {
+      "private_original": ".git/recovery-private/c8235-poe-20261106/supervised-20261107-120250/console.log",
+      "original_bytes": 469364,
+      "original_sha256": "430406d89d4985bcbcd4eba143dcc2beed7c4d2fd9b557a62ab5f4f354fc264d",
+      "derived_excerpt": "router-console-logs/20261107-120250-C8235-A-PoE-recovery-excerpt.log",
+      "excerpt_bytes": 8386,
+      "excerpt_sha256": "1c25c4ab88dcedd165eec65c4357888a88b7d75bf90dbaf006d806fd77136969",
+      "publication": "sanitized-evidence/router-console-logs/20261107-120250-C8235-A-PoE-recovery-excerpt.log",
+      "omission": "Coregen response bytes between first more TX line and following reload TX; complete original and duplicate export retained privately."
+    },
+    {
+      "local_original": "router-console-logs/20261107-120703-C8235-A-PoE-normal-restoration.log",
+      "private_original": ".git/recovery-private/c8235-poe-20261106/supervised-20261107-120703/console.log",
+      "bytes": 50527,
+      "sha256": "0a45845754b7c4e434a18e5e7dc295e94cf5fad7c5ff3d1ce3a4a4be53d7fe3c",
+      "publication": "sanitized-evidence/router-console-logs/20261107-120703-C8235-A-PoE-normal-restoration.log",
+      "scope": "Text-only library-hash check, maintenance exit, saved-env readback, normal boot and final native checks. No encoded core transfer."
+    }
+  ],
+  "ios_restore": {
+    "status": "Verified native IOS26.02.1/Autonomous/0x3922 and A identity,0/0 ready at12:13:38 EST, R0/F0 ok active",
+    "image": "bootflash:packages.conf",
+    "input_hash_guard": "C8235_INTERNAL_INPUT_HASHES_PASS",
+    "ram_launch_net_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857",
+    "ram_hook_sha256": "ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4",
+    "hook_complete": true,
+    "main_watts": 66,
+    "poe_watts": 0,
+    "reported_psu": "PWR-CC2-66WAC",
+    "internal_poe": "not present",
+    "port4_final": "At12:13:47,auto/off/no-device/0W,negotiationNone,fault/denial counters0",
+    "qfp": "Native utilization responds at12:12:29; no traffic or extended stability test",
+    "logging": "At12:13:48 filtered current-boot log shows only normal iomd transceiver insertion; no PMAN/IOMD crash/helddown/rc139 lines",
+    "retained_warning": "12V_DG_ST Critical_Low,0mV remains; existing warning not newly diagnosed",
+    "pagination": "terminal length24 acknowledged12:13:50",
+    "console_closed_est": "2026-11-07T12:13:55.006045-05:00",
+    "ownership_after_close": "lsof both cu/tty aliases exits1 with no output; free",
+    "left_state": "Powered and assembled, battery installed, same230W brick/AP4/RJ45 attached per unchanged owner-confirmed setup; no board access"
+  },
+  "pse_package_check": {
+    "install_summary": "IMG C26.02.01.0.263; Activated and Committed; auto-abort inactive",
+    "packages_conf": "Both RP iso directives for firmware_pse_si3470a present",
+    "file": "c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg",
+    "sha512_observed": "5f5221079605a41295eb60787300b34c9dea3da51ab0e0a49fa15ff8988b503f706317e7cc116b799c3c4c7ca266217fe55ecab23913a35c3a80afc1931f228b",
+    "matches_archived_expected_package": true,
+    "expected_hash_reference": "c8235-recovery/install-validation-20261101/expected-packages.json",
+    "command": "verify /sha512 bootflash:c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg",
+    "time_est": "2026-11-07T12:13:30.884480-05:00",
+    "intermediate_failure": "Native verify /sha256 rejected; help exposes md5/sha512, so SHA512 selected. Assumed local per-package extraction path absent; comparison uses archived exact-package hash inventory.",
+    "limit": "Verifies installed file integrity and packages.conf inclusion, not firmware loaded into a physical controller, signature authenticity, board compatibility, or functional PoE."
+  },
+  "native_help_failure": "show diag | include... rejected incomplete; corrected show diag all eeprom | include... returns internal-PoE state and A board identity.",
+  "decision": "Do not repeat test platform hardware poe get 0 global or force PSU-template/presence/control bits. Null ngmod diagnostic parent explains this command crash, not zero FPGA flags. No qualified software-only correction or alternate diagnostic image established.",
+  "next": "Identify intended PoE controller/daughter circuitry and its presence/reset/power-detection path on this exact Arata r2 prototype, then correlate hardware evidence with0x32120 status mapping before a targeted correction. Same brick ISR4321/AP success remains valid; no more standalone resistor tests selected.",
+  "source_package": {
+    "path": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+    "bytes": 962338816,
+    "squashfs_offset": 4096,
+    "sha256": "0c5d0d190bb173062afa9e499df4a7507c84fd8d6cad1bea8ec52e177fd0919d"
+  },
+  "host_utility": {
+    "path": "tmp/c8235_a_poe_supervisor.py",
+    "sha256": "1e1fc617a923a1c5e466ca63c5d2e600e158f15301b9fd4714c65cfa355b3a6a",
+    "purpose": "Existing AI-assisted explicit-main supervised serial capture; exclusive1152008N1/no flow, A UUID reset guard, metadata-only stdout. Reviewed before use; no serial side effects on import. Actual live control only, not routine validation.",
+    "dependencies": "Python3 standard library,lsof,and existing OneAutobootConsole",
+    "source_reference": "experimental-recovery/c8235-a-bootflash-20261104/observe-one-autoboot.py",
+    "first_capture_utility": "c8235_serial_console.py",
+    "retained_local": true
+  },
+  "evidence_files": {
+    "crash": "crash-disassembly.txt",
+    "reset_status": "reset-read-disassembly.txt"
+  }
+}

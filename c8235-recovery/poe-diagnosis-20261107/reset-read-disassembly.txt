@@ -1,0 +1,168 @@
+C8235-A / C8235-06 -- 2026-11-07 EST: reset-status path, offline only
+
+Exact26.2.1 source hashes:
+libdash_fpga_api.so ea570d093bdcbfb34edc534e1e4615e0ad7d32b01e78d0554b02952d65bcf791
+dash_fpga_iocomp.ko 58e3d7455d6af65acff6bf7dc863056b48e20efd1ee6c49d8ed658f094a89ca7
+
+The PSE reset-status API requests ioctl0x800a6602 and returns byte6.
+The kernel case reads region+4 (external_device_reset), packs bit7 into byte6.
+The separate region+8 read is internal_device_reset and must not be substituted.
+Live compensated ROMMON reads of both returned0. Physical polarity, asserted state,
+controller population and electrical state are not established by that observation.
+No reset/control write was performed. Apple LLVM objdump21.0.0.
+
+$ objdump -dr --disassemble-symbols=dash_fpga_pse_reset_status tmp/c8235-poe-analysis-20261106/libdash_fpga_api.so
+
+tmp/c8235-poe-analysis-20261106/libdash_fpga_api.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+000000000000662c <dash_fpga_pse_reset_status>:
+    662c: d10143ff     	sub	sp, sp, #0x50
+    6630: a9027bfd     	stp	x29, x30, [sp, #0x20]
+    6634: f9001bf5     	str	x21, [sp, #0x30]
+    6638: a9044ff4     	stp	x20, x19, [sp, #0x40]
+    663c: 910083fd     	add	x29, sp, #0x20
+    6640: b0000148     	adrp	x8, 0x2f000
+    6644: d0000149     	adrp	x9, 0x30000
+    6648: aa0003f3     	mov	x19, x0
+    664c: f947c508     	ldr	x8, [x8, #0xf88]
+    6650: f9400108     	ldr	x8, [x8]
+    6654: f81f83a8     	stur	x8, [x29, #-0x8]
+    6658: b0000148     	adrp	x8, 0x2f000
+    665c: f947b108     	ldr	x8, [x8, #0xf60]
+    6660: f9446d2a     	ldr	x10, [x9, #0x8d8]
+    6664: b9400108     	ldr	w8, [x8]
+    6668: 9100054a     	add	x10, x10, #0x1
+    666c: 3100051f     	cmn	w8, #0x1
+    6670: f9046d2a     	str	x10, [x9, #0x8d8]
+    6674: 540002c0     	b.eq	0x66cc <dash_fpga_pse_reset_status+0xa0>
+    6678: 528cc041     	mov	w1, #0x6602             // =26114
+    667c: 910023e2     	add	x2, sp, #0x8
+    6680: 2a0803e0     	mov	w0, w8
+    6684: 72b00141     	movk	w1, #0x800a, lsl #16
+    6688: 97fff8f6     	bl	0x4a60 <ioctl@plt>
+    668c: 2a0003f4     	mov	w20, w0
+    6690: 34000300     	cbz	w0, 0x66f0 <dash_fpga_pse_reset_status+0xc4>
+    6694: b0000148     	adrp	x8, 0x2f000
+    6698: f947bd08     	ldr	x8, [x8, #0xf78]
+    669c: 79400115     	ldrh	w21, [x8]
+    66a0: 97fff8dc     	bl	0x4a10 <__errno_location@plt>
+    66a4: b9400005     	ldr	w5, [x0]
+    66a8: b0000140     	adrp	x0, 0x2f000
+    66ac: 528cc044     	mov	w4, #0x6602             // =26114
+    66b0: 52800201     	mov	w1, #0x10               // =16
+    66b4: 2a1503e2     	mov	w2, w21
+    66b8: 52a06003     	mov	w3, #0x3000000          // =50331648
+    66bc: f947dc00     	ldr	x0, [x0, #0xfb8]
+    66c0: 72b00144     	movk	w4, #0x800a, lsl #16
+    66c4: 97fff7eb     	bl	0x4670 <__BTf_44@plt>
+    66c8: 1400000a     	b	0x66f0 <dash_fpga_pse_reset_status+0xc4>
+    66cc: b0000148     	adrp	x8, 0x2f000
+    66d0: b0000140     	adrp	x0, 0x2f000
+    66d4: 528001e1     	mov	w1, #0xf                // =15
+    66d8: 52a06003     	mov	w3, #0x3000000          // =50331648
+    66dc: f947bd08     	ldr	x8, [x8, #0xf78]
+    66e0: 79400102     	ldrh	w2, [x8]
+    66e4: f947dc00     	ldr	x0, [x0, #0xfb8]
+    66e8: 97fff8be     	bl	0x49e0 <__BTf_0@plt>
+    66ec: 52800274     	mov	w20, #0x13              // =19
+    66f0: 39403be8     	ldrb	w8, [sp, #0xe]
+    66f4: 39000268     	strb	w8, [x19]
+    66f8: b0000148     	adrp	x8, 0x2f000
+    66fc: f947c508     	ldr	x8, [x8, #0xf88]
+    6700: f85f83a9     	ldur	x9, [x29, #-0x8]
+    6704: f9400108     	ldr	x8, [x8]
+    6708: eb09011f     	cmp	x8, x9
+    670c: 540000e1     	b.ne	0x6728 <dash_fpga_pse_reset_status+0xfc>
+    6710: 2a1403e0     	mov	w0, w20
+    6714: a9444ff4     	ldp	x20, x19, [sp, #0x40]
+    6718: a9427bfd     	ldp	x29, x30, [sp, #0x20]
+    671c: f9401bf5     	ldr	x21, [sp, #0x30]
+    6720: 910143ff     	add	sp, sp, #0x50
+    6724: d65f03c0     	ret
+    6728: 97fff852     	bl	0x4870 <__stack_chk_fail@plt>
+
+$ objdump -dr --start-address=0x1c720 --stop-address=0x1c730 tmp/c8235-poe-analysis-20261106/dash_fpga_iocomp.ko
+
+tmp/c8235-poe-analysis-20261106/dash_fpga_iocomp.ko:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+000000000001c490 <dash_ioctl.isra.0>:
+   1c720: 528cc040     	mov	w0, #0x6602             // =26114
+   1c724: 72b00140     	movk	w0, #0x800a, lsl #16
+   1c728: 6b00027f     	cmp	w19, w0
+   1c72c: 54001a40     	b.eq	0x1ca74 <dash_ioctl.isra.0+0x5e4>
+
+$ objdump -dr --start-address=0x1ca74 --stop-address=0x1cb54 tmp/c8235-poe-analysis-20261106/dash_fpga_iocomp.ko
+
+tmp/c8235-poe-analysis-20261106/dash_fpga_iocomp.ko:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+000000000001c490 <dash_ioctl.isra.0>:
+   1ca74: 910023f8     	add	x24, sp, #0x8
+   1ca78: b94002a0     	ldr	w0, [x21]
+		000000000001ca78:  R_AARCH64_LDST32_ABS_LO12_NC	.data
+   1ca7c: f90007ff     	str	xzr, [sp, #0x8]
+   1ca80: 7900131f     	strh	wzr, [x24, #0x8]
+   1ca84: 37108b20     	tbnz	w0, #0x2, 0x1dbe8 <dash_ioctl.isra.0+0x1758>
+   1ca88: 910002b3     	add	x19, x21, #0x0
+		000000000001ca88:  R_AARCH64_ADD_ABS_LO12_NC	.data
+   1ca8c: 91001294     	add	x20, x20, #0x4
+   1ca90: 91002260     	add	x0, x19, #0x8
+   1ca94: 94000000     	bl	0x1ca94 <dash_ioctl.isra.0+0x604>
+		000000000001ca94:  R_AARCH64_CALL26	mutex_lock
+   1ca98: aa1403e0     	mov	x0, x20
+   1ca9c: 910013e1     	add	x1, sp, #0x4
+   1caa0: b90007ff     	str	wzr, [sp, #0x4]
+   1caa4: 94000000     	bl	0x1caa4 <dash_ioctl.isra.0+0x614>
+		000000000001caa4:  R_AARCH64_CALL26	iocomp_reg_read
+   1caa8: 350088c0     	cbnz	w0, 0x1dbc0 <dash_ioctl.isra.0+0x1730>
+   1caac: b94002a0     	ldr	w0, [x21]
+		000000000001caac:  R_AARCH64_LDST32_ABS_LO12_NC	.data
+   1cab0: 37209e40     	tbnz	w0, #0x4, 0x1de78 <dash_ioctl.isra.0+0x19e8>
+   1cab4: b94007f4     	ldr	w20, [sp, #0x4]
+   1cab8: 91002260     	add	x0, x19, #0x8
+   1cabc: 94000000     	bl	0x1cabc <dash_ioctl.isra.0+0x62c>
+		000000000001cabc:  R_AARCH64_CALL26	mutex_unlock
+   1cac0: d2800000     	mov	x0, #0x0                // =0
+   1cac4: 53057e81     	lsr	w1, w20, #5
+   1cac8: 53047e82     	lsr	w2, w20, #4
+   1cacc: 53027e85     	lsr	w5, w20, #2
+   1cad0: 53017e84     	lsr	w4, w20, #1
+   1cad4: b3401c20     	bfxil	x0, x1, #0, #8
+   1cad8: 53037e81     	lsr	w1, w20, #3
+   1cadc: 53077e83     	lsr	w3, w20, #7
+   1cae0: d3524a86     	ubfx	x6, x20, #18, #1
+   1cae4: b3781c40     	bfi	x0, x2, #8, #8
+   1cae8: 53117e82     	lsr	w2, w20, #17
+   1caec: 390043e6     	strb	w6, [sp, #0x10]
+   1caf0: b3701c20     	bfi	x0, x1, #16, #8
+   1caf4: d34d3681     	ubfx	x1, x20, #13, #1
+   1caf8: 390047e1     	strb	w1, [sp, #0x11]
+   1cafc: b3681ca0     	bfi	x0, x5, #24, #8
+   1cb00: d5384101     	mrs	x1, SP_EL0
+   1cb04: b3601c80     	bfi	x0, x4, #32, #8
+   1cb08: b3581e80     	bfi	x0, x20, #40, #8
+   1cb0c: b3501c60     	bfi	x0, x3, #48, #8
+   1cb10: b3481c40     	bfi	x0, x2, #56, #8
+   1cb14: 9200c000     	and	x0, x0, #0x101010101010101
+   1cb18: f90007e0     	str	x0, [sp, #0x8]
+   1cb1c: b9402c20     	ldr	w0, [x1, #0x2c]
+   1cb20: 36a88480     	tbz	w0, #0x15, 0x1dbb0 <dash_ioctl.isra.0+0x1720>
+   1cb24: 9340dec0     	sbfx	x0, x22, #0, #56
+   1cb28: 8a160000     	and	x0, x0, x22
+   1cb2c: 92800121     	mov	x1, #-0xa               // =-10
+   1cb30: f2e00001     	movk	x1, #0x0, lsl #48
+   1cb34: eb01001f     	cmp	x0, x1
+   1cb38: 54ffe4c8     	b.hi	0x1c7d0 <dash_ioctl.isra.0+0x340>
+   1cb3c: 9248fac0     	and	x0, x22, #0xff7fffffffffffff
+   1cb40: d2800142     	mov	x2, #0xa                // =10
+   1cb44: aa1803e1     	mov	x1, x24
+   1cb48: 94000000     	bl	0x1cb48 <dash_ioctl.isra.0+0x6b8>
+		000000000001cb48:  R_AARCH64_CALL26	__arch_copy_to_user
+   1cb4c: b4ffe820     	cbz	x0, 0x1c850 <dash_ioctl.isra.0+0x3c0>
+   1cb50: 17ffff20     	b	0x1c7d0 <dash_ioctl.isra.0+0x340>
+

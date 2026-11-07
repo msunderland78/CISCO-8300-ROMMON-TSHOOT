@@ -1,5 +1,5 @@
 C8235-G2 / ARATA PROTOTYPE ROUTER — RECOVERY CONTEXT
-Updated: 2026-11-06, America/New_York
+Updated: 2026-11-07, America/New_York
 Workspace: /Users/games/Documents/SOFTWARE
 
 START HERE
@@ -10,7 +10,56 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A SOFTWARE OVERRIDE INVESTIGATION / CURRENT HANDOFF — 2026-11-06, 20:23–20:49 EST
+C8235-A ROMMON / PoE DIAGNOSTIC FAULT / CURRENT HANDOFF — 2026-11-07, 11:56–12:13 EST
+C8235-06: fresh owner confirmation A / FGL2835L42B / R0 FOC28292GUQ, assembled,
+battery installed, same 230 W brick/AP on port 4/RJ45 attached, no test/programmer wires,
+exclusive console. Router initially off; owner powers on after capture/trigger armed.
+115200/8N1/no flow on freshly enumerated /dev/cu.usbserial-AL00F7EQ.
+Cold boot interrupted successfully; A UUID/Arata r2/expected development ROMMON.
+Compensated effective 0x32120/0x3212c read 0; low revision 0x84 reads 82020109.
+Internal reset 0x8 and later external reset 0x4 read 0. PSE reset-status accessor uses
+external 0x4 bit 7; zero does not establish physical reset polarity or hardware state.
+UEFI drvdiag exposes only Intel PRO/1000 driver without controller handles;
+no PoE-specific diagnostic exposed; no manufacturing test run. Native R0 diagnostic inventory only
+TestErrorCounterMonitor; 0/0 has no diagnostic handle even after ready.
+
+NEW FAILURE TO AVOID: at 12:02:22.667441 EST, native help-advertised
+  test platform hardware poe get 0 global
+returns no register data and crashes IOMD pid 22510/SIGSEGV/rc139/helddown;
+subslot 0/0 removed/offline, IOS responsive. No repeated PoE get, PoE set or arbitrary register write.
+Earlier in-progress timestamp12:02:15 was the help query, corrected from exact TX.
+Core retained on router under bootflash:core/R1-C8235G2_RP_0_iomd_22510_
+20250529-185109-UTC.core.gz (join the wrapped filename); 3,212,596 bytes.
+Router May2025 clock is wrong. Host EST timestamps date this work.
+Private verified 540672-byte ELF-note prefix: SIGSEGV 11/code 1/address 0xfe8,
+PC=libiomd_ngmod.so+0x47594, x8=0; LR=libngio_ngswitch.so+0x293c0.
+Actual installed library hashes match offline source; the accessor dereferences null
+ngmod_spa_plugin+0xfe8 before returning a PoE object. This establishes the native
+diagnostic-command bug, NOT the reason for zero presence flags; it does not prove absent hardware.
+Adding a null guard alone would not initialize or enable PoE.
+Full core stays on router; prefix/encoded transfer/coregen text retained privately.
+Public recovery capture omits coregen body with explicit excerpt provenance.
+
+RESTORED: reload then temporary unsynced rdinit maintenance shell, bootflash RO.
+Read evidence/library hashes; unmount/reboot. Saved BOOT/USER_BOOT_PARAM return
+and match initial readbacks exactly. Normal packages.conf boot original A4 input
+hashes/RAM-hook hashes/HOOK_COMPLETE pass. IOS 26.02.1/Autonomous/confreg 0x3922.
+At 12:13:38 built-in 0/0 ok, R0/F0 active. No new crash in final filtered boot log.
+Install state is activated/committed; Si3470A PSE package included and native SHA512 matches the archive.
+File inclusion/integrity does not prove firmware loaded in a physical controller.
+Final 66 W main/0 W PoE, PWR-CC2-66WAC, Internal PoE is not present; port 4
+auto/off/no-device/no negotiation/counters 0. Existing 12V_DG_ST Critical_Low persists.
+Pagination 24 acknowledged; console closed 12:13:55, both aliases free. A left powered,
+assembled, battery/brick/AP on port 4/RJ45 unchanged. No traffic/extended-stability test.
+No firmware-image/EEPROM/TPM/fuse/saved-config change or arbitrary PoE control write.
+Evidence: c8235-recovery/poe-diagnosis-20261107/results.json
+Fault: c8235-recovery/poe-diagnosis-20261107/crash-disassembly.txt
+Reset read path: c8235-recovery/poe-diagnosis-20261107/reset-read-disassembly.txt
+Next: identify actual prototype controller/daughter circuitry and presence/reset/
+power-detection path before a targeted correction. Do not repeat the failing get
+or spoof 230 W flags. Same brick ISR4321/AP success remains valid; no resistor retest.
+
+C8235-A SOFTWARE OVERRIDE INVESTIGATION / EARLIER HANDOFF — 2026-11-06, 20:23–20:49 EST
 C8235-06: owner reports all3 prototypes show66W with the same230W brick and
 requests diagnostic-firmware/software override research. B/C report is owner-only;
 no new B/C console captures. A identity freshly confirmed FGL2835L42B/R0FOC28292GUQ,
