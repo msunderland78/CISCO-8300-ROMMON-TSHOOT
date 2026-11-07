@@ -40,5 +40,10 @@
       "accessed": "2026-11-06",
       "finding": "Production C8235-G2 PoE hardware includes a daughter card supplied with initial PoE orders. Owner reports no daughter card on this prototype; whether equivalent circuitry is integrated/populated is unresolved."
     }
-  ]
+  ],
+  "C8235_cold_boot_followup": {
+    "recorded_at": "2026-11-06T20:05:25.425046-05:00",
+    "evidence": "rj45-cold-boot.json",
+    "result": "Transfer and fresh physical-state confirmation complete; passive RJ45 cold boot succeeds with diagnostic ROMMON and IOS26.02.1. Same PoE detection failure after module ready: 66W/0W, Internal PoE is not present, enabled port4 auto/off/no device. Owner reports AP dark. Both console aliases released; earlier pending transfer/access state is historical. Raw status flags still unavailable."
+  }
 }

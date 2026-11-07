@@ -150,5 +150,10 @@
     "finding": "Same external brick now owner-demonstrated powering AP on ISR4321/NIM-ES2-8-P. This supersedes later standalone brick-fault suspicion and refocuses C8235 diagnosis on compatibility/controller/presence/power path. The existing static 66W-template/presence findings are not changed by this external comparison.",
     "read_only_route": "Rechecked existing exact-hash dash_fpga_iocomp.ko: strings include poe_status and dev_attr_poe_status; existing disassembly show_poe_status at0x71e8 reads region+0x32120 through iocomp_reg_read. Runtime sysfs device path and access remain unestablished. No register/sysfs read or write on a router this turn.",
     "precondition": "Owner must finish moving the only PoE supply back and confirm C8235 identity/assembly/USB/console state before any new live access."
+  },
+  "rj45_cold_boot_followup": {
+    "recorded_at": "2026-11-06T20:05:25.425046-05:00",
+    "evidence": "rj45-cold-boot.json",
+    "result": "Transfer and fresh physical-state confirmation complete; passive RJ45 cold boot succeeds with diagnostic ROMMON and IOS26.02.1. Same PoE detection failure after module ready: 66W/0W, Internal PoE is not present, enabled port4 auto/off/no device. Owner reports AP dark. Both console aliases released; earlier pending transfer/access state is historical. Raw status flags still unavailable."
   }
 }

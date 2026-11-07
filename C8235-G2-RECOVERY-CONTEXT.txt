@@ -10,7 +10,32 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A PSU DIAGNOSIS CORRECTED / CURRENT HANDOFF — 2026-11-06, EST
+C8235-A RJ45 COLD BOOT / CURRENT HANDOFF — 2026-11-06, 19:58–20:05 EST
+C8235-06: owner moved the same ISR-tested PoE brick to assembled A/FGL2835L42B,
+battery installed/no programmer or resistor wires, AP on physical port4. Native
+USB replaced by RJ45 USB-serial; owner confirmed exclusive console and router off.
+Fresh /dev/cu.usbserial-AL00F7EQ,115200/8N1/no flow, capture armed19:58:11.
+Owner power-on captured with ZERO TX through IOS welcome: expected diagnostic
+ROMMON SDK112312-SoC1-SB-v12.1.22, PowerOn, A UUID, packages.conf, saved input
+checks/hook complete, IOS26.02.1. No boot-menu selection or firmware change.
+Fresh identity matches R0 FOC28292GUQ. 0/0 initially booting then ok; subsequent
+PoE checks still66W main/0W PoE, PWR-CC2-66WAC and Internal PoE is not present.
+Enabled port4 remains auto/off/no-device/0W/no negotiation, counters0, down/notconnect.
+Owner reports AP stays dark. Main12V12012mV,14W,26/25/52C; standby12V_DG_ST0
+Critical_Low persists. Router May2025 clock is wrong; timestamps here use Mac EST.
+I/O-component FPGA driver loads; missing DT region-name messages persist.
+Accepted show platform hardware slot R0 fpga returns no data. Module-device help
+exposes no explicit PoE device; no UART debug or system shell entered. Raw PoE
+status flags remain unread. Chasfs filtered query completed after a delay.
+Cold boot reproduces detection failure; diagnostic firmware cause is UNPROVEN.
+ISR success remains stronger than standalone load zeros: do not call brick failed.
+Next: establish actual prototype PoE circuitry/presence and compatible supply path;
+no verified software-only fix or grounds for profile/register/firmware writes.
+Pagination restored24, capture closed and both aliases free; router/AP left powered.
+Raw logs local ignored; sanitized copies and exact hashes linked in
+c8235-recovery/poe-diagnosis-20261106/rj45-cold-boot.json.
+
+C8235-A PSU DIAGNOSIS CORRECTED / EARLIER HANDOFF — 2026-11-06, EST
 C8235-06: owner tested the SAME brick on an ISR4321; it supplies PoE and powers
 the AP. Owner confirms the module is NIM-ES2-8-P. This successful system test
 supersedes the prior brick/output-cable-fault working diagnosis. Standalone

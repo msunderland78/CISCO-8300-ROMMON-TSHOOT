@@ -1689,6 +1689,16 @@
       "bytes": 71399,
       "path": "router-console-logs/20261106-172249-C8235-A-PoE-USB-readonly.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 21864,
+      "path": "router-console-logs/20261106-195811-C8235-A-PoE-RJ45-cold-zero-TX.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 34433,
+      "path": "router-console-logs/20261106-200132-C8235-A-PoE-RJ45-readonly.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1723,9 +1733,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 248870,
+      "bytes": 250754,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "7a966057398f9e98bb40646578a11efc354bf78f09bc184b9a22320d2433c14d"
+      "sha256": "f39c50f3db3c48e739a8ed8b0cb75e9d6ff34f35bee07bba9b2ff17a52f0a6f7"
     },
     {
       "bytes": 106687,
@@ -2248,9 +2258,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 513550,
+      "bytes": 515114,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "6bed6435f70fefb0526ac29a447d71765253a46bd296d4bae27c318086daae07"
+      "sha256": "02269b992ab389df162ecea5c7980300dc7467d1b0c1c1af94e7ec9569643467"
     },
     {
       "bytes": 6850655,
@@ -2608,14 +2618,14 @@
       "sha256": "e67372b5d1a056c391b8b3789f2d31bb90489e394f3363d7ac012388d6c4fa42"
     },
     {
-      "bytes": 13270,
+      "bytes": 13805,
       "path": "c8235-recovery/poe-diagnosis-20261106/detection-analysis.json",
-      "sha256": "58dd2b7d491a4eb77310cf1200b781bdebe6bc8e583dbc31cf4111e689d23aab"
+      "sha256": "51f482a07a2e121ac019da224028427c2647c958c7e73aeb4315f7afdfa421ab"
     },
     {
-      "bytes": 4218,
+      "bytes": 4754,
       "path": "c8235-recovery/poe-diagnosis-20261106/isr4321-comparison.json",
-      "sha256": "2f959c148e8eb6de29e4595143d9965bd8c785d5599a561b1ae92b2a54b505f7"
+      "sha256": "877a86f5a641ea37c26c38b047505466b4b9fa8d6594bbaccd3958d6aebca0a1"
     },
     {
       "bytes": 20844,
@@ -2626,6 +2636,11 @@
       "bytes": 8009,
       "path": "c8235-recovery/poe-diagnosis-20261106/results.json",
       "sha256": "cd0471e79bb7121b3b2ee9ac31c9d9e7309d38fd35f10b29ab1cd61190b386de"
+    },
+    {
+      "bytes": 7341,
+      "path": "c8235-recovery/poe-diagnosis-20261106/rj45-cold-boot.json",
+      "sha256": "89dfdaec8c903e5a8618f8b0c86e3e868c7a31408f724c1e86e172a498c07905"
     },
     {
       "bytes": 3768,
@@ -5108,6 +5123,16 @@
       "sha256": "a965cf63d9900226c887f2af432621cea8b70f0b75bdc3bd8ad8f94157bd5c46"
     },
     {
+      "bytes": 21864,
+      "path": "sanitized-evidence/router-console-logs/20261106-195811-C8235-A-PoE-RJ45-cold-zero-TX.log",
+      "sha256": "6b6fea52ed7e2bafee64f8639aad852bfd993ae70654fa6a2a525307e41058c4"
+    },
+    {
+      "bytes": 34433,
+      "path": "sanitized-evidence/router-console-logs/20261106-200132-C8235-A-PoE-RJ45-readonly.log",
+      "sha256": "92c9b82160c6db74d113258ab77da7c9b04b572c51ed4e8dbf94a8c2b84dedc9"
+    },
+    {
       "bytes": 17692,
       "path": "scripts/c8235_a_development_candidate.py",
       "sha256": "22c28ebf03cdf60e6453a69f74356449bed0b38c07d501af61ad70480b629a8b"
@@ -5552,12 +5577,14 @@
     "sanitized-evidence/router-console-logs/20261106-171536-C8235-A-PoE-USB-readonly.log",
     "sanitized-evidence/router-console-logs/20261106-171757-C8235-A-PoE-USB-readonly.log",
     "sanitized-evidence/router-console-logs/20261106-172231-C8235-A-PoE-USB-readonly.log",
-    "sanitized-evidence/router-console-logs/20261106-172249-C8235-A-PoE-USB-readonly.log"
+    "sanitized-evidence/router-console-logs/20261106-172249-C8235-A-PoE-USB-readonly.log",
+    "sanitized-evidence/router-console-logs/20261106-195811-C8235-A-PoE-RJ45-cold-zero-TX.log",
+    "sanitized-evidence/router-console-logs/20261106-200132-C8235-A-PoE-RJ45-readonly.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 338,
-    "included_bytes_without_manifest": 1127047235,
-    "included_files_without_manifest": 722
+    "excluded_local_files": 340,
+    "included_bytes_without_manifest": 1127115392,
+    "included_files_without_manifest": 725
   }
 }

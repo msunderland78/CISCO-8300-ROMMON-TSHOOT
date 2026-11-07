@@ -1,0 +1,105 @@
+{
+  "task_id": "C8235-06",
+  "recorded_at": "2026-11-06T20:05:25.425046-05:00",
+  "timezone": "America/New_York",
+  "identity": {
+    "tracking": "C8235-A",
+    "chassis": "FGL2835L42B",
+    "board_R0": "FOC28292GUQ",
+    "native_PID": "C8230X-8M2X",
+    "source": "Owner confirmation, boot processor-board serial and fresh show inventory/show diag all eeprom."
+  },
+  "owner_confirmed_setup": {
+    "before_capture": "Router off; assembled, battery installed, programmer/resistor wiring removed; no competing terminal. Owner explicitly confirmed all conditions.",
+    "connection_change": "Native USB replaced by USB-to-RJ45 serial console.",
+    "supply": "Same single Flextronics FA230LM1-00 / 341-0703-01 that owner reports powering AP through ISR4321/NIM-ES2-8-P.",
+    "powered_device": "Cisco 9130 AP, same known-working cable, connected to physical port 4 before power-on.",
+    "owner_boot_observation": "Router on; AP stays dark."
+  },
+  "console": {
+    "port": "/dev/cu.usbserial-AL00F7EQ",
+    "baud": 115200,
+    "framing": "8N1",
+    "flow_control": "none",
+    "ownership": "Fresh device enumeration; both cu/tty aliases free before opening; passive helper TIOCEXCL and post-open self-owner check. Read-only helper reopened only after passive capture closed. Both aliases verified free after final close.",
+    "passive_ready": "2026-11-06T19:58:11.966764-05:00",
+    "passive_closed": "2026-11-06T20:01:32.590831-05:00",
+    "passive_tx_bytes": 0,
+    "welcome_seen_before_close": true,
+    "first_IOS_TX": "2026-11-06T20:01:36.321184-05:00",
+    "closed_and_free_by": "2026-11-06T20:05:25.425046-05:00"
+  },
+  "boot_observed": {
+    "reset_cause": "PowerOn",
+    "Marvell_EBF": "11.23.12 / firmware 2024-07-17 01:44:08",
+    "ROMMON": "SDK112312-SoC1-SB-v12.1.22 DEVELOPMENT SOFTWARE",
+    "UUID": "13 FF FF 78 86 52 04 83 8A BF FF 48",
+    "boot": "Automatic packages.conf; C8235_INTERNAL_INPUT_HASHES_PASS and C8235_BOUND16_HOOK_COMPLETE; IOS 26.02.1 autonomous welcome reached without console TX.",
+    "initialization": "8M-2xSFP+ initially booting; subsequent online event and show platform report 0/0 ok, R0/F0 ok active. PoE check repeated after 0/0 ready.",
+    "retained_warnings": "Existing manual-ROMMON-upgrade warning, TPM self-test error, incorrect router clock and 12V_DG_ST low remain. They are not proof of a PoE cause or a reason to replace the diagnostic firmware speculatively.",
+    "clock": "Router logs show May 29 2025; use host November 6 2026 EST capture timestamps for this work."
+  },
+  "fresh_PoE_observations": {
+    "PSU_identity": "PWR-CC2-66WAC / V02 / blank serial",
+    "main_budget_W": 66,
+    "PoE_budget_W": 0,
+    "presence": "Internal PoE is not present",
+    "show_power_inline": "Empty global output before and after diagnostic help.",
+    "port4_config": "Enabled switchport; no shutdown line in show running-config interface TwoGigabitEthernet 0/0/4.",
+    "port4_state": "down/down (notconnect), auto/off, no device detected, 0.0 W; no negotiation; absent/over-current/short-current/invalid-signature/power-denied counters all 0.",
+    "main_12V_mV": 12012,
+    "standby_12V_DG_ST_mV": 0,
+    "standby_state": "Critical_Low",
+    "temperature_C": {
+      "inlet": 26,
+      "outlet": 25,
+      "CPU": 52
+    },
+    "reported_system_power_W": 14
+  },
+  "read_only_diagnostic_routes": {
+    "dmesg": "I/O component probe success and Dash FPGA I/O component driver initialized; missing iocomp-reg-region-names messages persist. No cause established.",
+    "FPGA_CLI": "show platform hardware slot R0 fpga is accepted but returns no data. Raw register+0x32120 and six status flags remain unobserved.",
+    "module_devices": "help lists Internal_If, Transceiver, qos, counter, rxq-statistics and debug (UART CLI); no explicit PoE device shown. UART debug not entered.",
+    "chasfs_filter": "show platform software chasfs R0 | include poe|PoE|power|psu completed after several seconds; only powered_shut_support entries returned, no raw PoE flags. No USB-style stall/reconnect or Ctrl-C was needed.",
+    "cman": "IPC/register/inventory/chasfs-init status TRUE. Chasfs events error count 2 reported; significance unresolved.",
+    "shell": "Only show platform software shell help inspected; no system shell entered or authentication/security change."
+  },
+  "inference": "A cold boot with this owner-demonstrated ISR PoE supply attached from power-on reproduces the C8235 detection failure. It is not merely an empty global CLI before initialization: controller presence and budget remain unavailable after the module is ready. This narrows the problem to C8235 circuitry/power/detection or supply compatibility; it does not distinguish absent/failed circuitry, incompatible startup/connection, or firmware/FPGA interpretation.",
+  "limits": [
+    "No measured PoE rail voltage inside the powered C8235.",
+    "No raw hardware status flags or verified external enable/handshake mechanism.",
+    "No full capacity or cross-platform compatibility proof for the brick.",
+    "Diagnostic firmware causal role unproven; successful boot does not qualify every peripheral.",
+    "Historical PHOTOS2/IMG_1293.jpeg reviewed again, bound to A by photo-inspection.json; no component-function assignment or physical absence proof from this overview."
+  ],
+  "changes": "Read-only commands plus session pagination 0 then restored to 24. No persistent configuration/save, firmware/EEPROM/register/security write, BREAK, boot-menu selection or agent-triggered reboot. User performed the requested cold power-on.",
+  "helpers": [
+    {
+      "local_path": "tmp/c8235_a_poe_passive.py",
+      "sha256": "6418d09239df515c309e87b943f7341d00c59dcb210d507453a349e718f70398",
+      "purpose": "AI-assisted Python standard-library explicit-main RX-only recorder, never sends serial bytes/BREAK. Local ignored session helper."
+    },
+    {
+      "local_path": "tmp/c8235_poe_rj45_readonly.py",
+      "sha256": "e3e4f52d0eb6719d6986bf95f0fb6a009da6cde6d42b6afcb20d7c1bc75ac2e6",
+      "purpose": "Existing read-only helper adapted to freshly enumerated RJ45 path; explicit main and sanitized display. Local ignored session helper."
+    }
+  ],
+  "evidence": [
+    {
+      "raw_local": "router-console-logs/20261106-195811-C8235-A-PoE-RJ45-cold-zero-TX.log",
+      "public_sanitized": "sanitized-evidence/router-console-logs/20261106-195811-C8235-A-PoE-RJ45-cold-zero-TX.log",
+      "bytes": 21864,
+      "sha256": "6b6fea52ed7e2bafee64f8639aad852bfd993ae70654fa6a2a525307e41058c4"
+    },
+    {
+      "raw_local": "router-console-logs/20261106-200132-C8235-A-PoE-RJ45-readonly.log",
+      "public_sanitized": "sanitized-evidence/router-console-logs/20261106-200132-C8235-A-PoE-RJ45-readonly.log",
+      "bytes": 34433,
+      "sha256": "92c9b82160c6db74d113258ab77da7c9b04b572c51ed4e8dbf94a8c2b84dedc9"
+    }
+  ],
+  "passive_events_local": ".git/recovery-private/c8235-poe-20261106/20261106-195811-C8235-A-PoE-RJ45-cold-zero-TX.events.jsonl",
+  "next": "Router left powered with AP on port 4, console released. Identify actual PoE circuitry/population and the documented compatible supply path for this prototype; seek a verified read-only raw-status route. Existing overview photo is insufficient. No further blind load, jumper/return bond, profile override, firmware update or live-board probing selected."
+}
