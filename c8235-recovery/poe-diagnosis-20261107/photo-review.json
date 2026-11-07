@@ -1,0 +1,185 @@
+{
+  "task_id": "C8235-06",
+  "recorded_at": "2026-11-07T12:26:19-05:00",
+  "timezone": "America/New_York",
+  "scope": "Offline review of existing photographs and exact extracted firmware after owner asks to continue without disassembly. No console/programmer access, power operation, measurement, probe, firmware/configuration change or new router test.",
+  "identity": {
+    "tracking": "C8235-A",
+    "chassis_serial": "FGL2835L42B",
+    "board_serial": "FOC28292GUQ",
+    "binding": "Owner confirmed PHOTOS2 belongs to Router A on November 1; label readable in IMG_1296/1299/1301 and others. Native R0 identity independently corroborated in later boot records. This review does not newly query the router.",
+    "board_label": "74-133408-02 02; U58L372T47 LF 05S5 P2B"
+  },
+  "current_hardware_state": "Last observed November 7 at 12:13:55 EST: A powered, assembled, battery installed, same 230 W brick/AP on port 4/RJ45 connected, all test/programmer wiring removed, console released. No hardware interaction during this review. Historical bare-board/battery-removed photos are not the current state.",
+  "photo_attribution": [
+    {
+      "paths": "PHOTOS2/IMG_1292.jpeg through IMG_1303.jpeg",
+      "identity": "A / FOC28292GUQ",
+      "review": "All 12 originals visually reviewed; overview/connector edge and component-side closeups. No underside view in this set."
+    },
+    {
+      "paths": "PHOTOS3/IMG_1304-1310, IMG_1312/1313/1315/1316.jpeg",
+      "identity": "Classic C8300-A, not C8235-A",
+      "review": "Existing C8300 photo index plus current visual inspection of IMG_1304/1305/1306. IMG_1310 is the indexed C8300-1N1S-4T2X front-panel view.",
+      "reference": "Photos/C8300/README.md"
+    },
+    {
+      "paths": "PHOTOS3/IMG_1319-1323.jpeg",
+      "identity": "External supply/plug and resistor-test evidence",
+      "review": "Remain relevant to this PoE investigation; do not describe all PHOTOS3 as unrelated. PSU label evidence remains supply-label.json from November 6."
+    },
+    {
+      "paths": "board-photos/IMG_1237.jpeg, IMG_1239.jpeg, IMG_1242.jpeg",
+      "identity": "Historical Arata board FOC28292GX9, not A board FOC28292GUQ",
+      "review": "Visually reviewed for comparison only. Do not use this underside view to establish A component population or electrical state. Historical attribution correction retained."
+    }
+  ],
+  "photo_observations": [
+    {
+      "status": "observed",
+      "evidence": [
+        "PHOTOS2/IMG_1292.jpeg",
+        "PHOTOS2/IMG_1293.jpeg",
+        "PHOTOS2/IMG_1297.jpeg",
+        "PHOTOS2/IMG_1299.jpeg"
+      ],
+      "finding": "White connector J3300 beside/behind the RJ45 bank is fitted and empty; no daughterboard is attached to it in these photographs. J3300 designator is readable in IMG_1297 and IMG_1299.",
+      "limit": "Connector purpose, pinout, and whether it is the production PoE daughter-card connector are not established by position or appearance. These are historical photographs."
+    },
+    {
+      "status": "observed",
+      "evidence": [
+        "PHOTOS2/IMG_1296.jpeg",
+        "PHOTOS2/IMG_1299.jpeg",
+        "PHOTOS2/IMG_1301.jpeg"
+      ],
+      "finding": "Board label FOC28292GUQ binds the detailed component-side views to the established A photo set."
+    },
+    {
+      "status": "unresolved",
+      "finding": "No physical PSE-controller part number is confidently identified from the reviewed A photos. Thermal interface material covers some component markings, and this set lacks the underside. Photo review does not prove absence of integrated/equivalent PoE circuitry."
+    }
+  ],
+  "firmware_review": {
+    "source_package": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+    "package_sha256_prior_verified": "0c5d0d190bb173062afa9e499df4a7507c84fd8d6cad1bea8ec52e177fd0919d",
+    "library_member": "usr/binos/lib64/libcpa_sb_data_arata.so",
+    "library_sha256": "699fc1ea9dd368533d39d85e3a0f63d2bbbc00d7db8669d329280f8277acec06",
+    "observed": [
+      {
+        "virtual_address": "0x3c4d",
+        "file_offset": "0x3c4d",
+        "value": "PoE Daughter Card"
+      },
+      {
+        "virtual_address": "0x3b49",
+        "file_offset": "0x3b49",
+        "value": "Poe Daughter Module"
+      }
+    ],
+    "trace": "cpa_sb_arata_platform_init copies the PoE Daughter Card label at 0x114c-0x11a0 and the Poe Daughter Module label at 0x1728-0x175c into platform descriptors. These are Arata-specific modeled objects, not merely a generic package filename.",
+    "evidence": "c8235-recovery/poe-diagnosis-20261107/arata-poe-descriptors.txt",
+    "additional_exact_extraction": [
+      {
+        "member": "lua/cyan/arata.lua",
+        "path": "tmp/c8235-photo-review-20261107/arata.lua",
+        "bytes": 12032,
+        "sha256": "c62f7c8df8bc53c774a89c0f1f7d1b2bd618f2770f0d82af5b23e4926794cd9b"
+      },
+      {
+        "member": "usr/binos/lib64/libiomd_ngmod_anatomy.so",
+        "path": "tmp/c8235-photo-review-20261107/libiomd_ngmod_anatomy.so",
+        "bytes": 1181728,
+        "sha256": "e2ec9c06e20758f8e993222e0046315c911fe837ca2c8f4c11d112b7db22fde3"
+      }
+    ],
+    "additional_observation": "arata.lua lines 33-36 define one internal and one external PoE slot and POE_EXT_EEPROM=false. Generic ngswitch routines invoke dev_legolas_poe_create; an Arata-specific controller selection/part number was not established by this review.",
+    "limits": "No library or Lua was loaded/executed. Firmware inclusion and descriptors do not prove hardware population, device communication, initialization, or a valid J3300 mapping. Prior Si3470A package hash match remains file-integrity evidence only."
+  },
+  "references": [
+    {
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/hardware-installation-guide/secure-8200-series-hig/overview.html",
+      "section": "Power specifications for C8235-G2",
+      "reviewed_on": "2026-11-07",
+      "finding": "Cisco documents a PoE daughter card supplied when the PoE PSU is selected at initial order, not field-upgradeable. Production description does not prove prototype population or J3300 function."
+    },
+    {
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/hardware-installation-guide/secure-8200-series-hig/m_install_and_upgrade_internal_modules_and_field_replaceable_units.html",
+      "section": "Battery access, Figures 23 and 25",
+      "reviewed_on": "2026-11-07",
+      "finding": "Downloaded and inspected Cisco illustrations 527261.jpg/527264.jpg; these do not identify J3300 or a PSE controller. Cached unmodified in ignored tmp/c8235-photo-review-20261107. No disassembly instructions executed."
+    }
+  ],
+  "assessment": "Existing photos support continued identification without opening the router. An absent optional PoE board is a supported hypothesis from empty J3300, owner report, Arata descriptors and production documentation, but physical absence of all required circuitry and the cause of zero status flags remain unverified. No software-only repair has been established.",
+  "next": "Continue offline correlation of the exact Arata built-in PoE driver/presence path and reference hardware. A targeted controller read requires a verified controller/protocol/address first; no blind bus scan, forced presence/power flag, repeat crashing native get or disassembly selected. Same brick ISR4321/AP success remains valid; no resistor retest.",
+  "original_photos": [
+    {
+      "path": "PHOTOS2/IMG_1292.jpeg",
+      "bytes": 12635511,
+      "sha256": "241c36fcecdcd4faf5a02955cb82912c878e5e60487c72786fc41f4599f40cf8"
+    },
+    {
+      "path": "PHOTOS2/IMG_1293.jpeg",
+      "bytes": 11732973,
+      "sha256": "473741341072df8364813c9a328fb06278a4e155e9b5231c2456cb958dc0bcb4"
+    },
+    {
+      "path": "PHOTOS2/IMG_1294.jpeg",
+      "bytes": 9614857,
+      "sha256": "f9ee2bf96fbafdfff48faaffa8ff6f66b14e891c3f2c171f51bac42497cd138e"
+    },
+    {
+      "path": "PHOTOS2/IMG_1295.jpeg",
+      "bytes": 12152817,
+      "sha256": "31aeb83581756a980544de022d9055303598af4a08c474f27fff736a525d83b1"
+    },
+    {
+      "path": "PHOTOS2/IMG_1296.jpeg",
+      "bytes": 12458833,
+      "sha256": "62c2c20f2cd5954496e1b613ff8e2a0e8e3bba96159de72bc15966fb87acf026"
+    },
+    {
+      "path": "PHOTOS2/IMG_1297.jpeg",
+      "bytes": 12080645,
+      "sha256": "2be5b665635ddf98bcb99e180b4bb510ef3266bbc324830708f7e0bd47e28821"
+    },
+    {
+      "path": "PHOTOS2/IMG_1298.jpeg",
+      "bytes": 11842218,
+      "sha256": "5ef85d13d16ce768b58fa6242916b058339aa3922278e3609858f6e3da69dd0f"
+    },
+    {
+      "path": "PHOTOS2/IMG_1299.jpeg",
+      "bytes": 11665794,
+      "sha256": "1666ef653380a60ff2e2768e4c1f1a5d2ab8bcc2917672db19afdd2cbc125970"
+    },
+    {
+      "path": "PHOTOS2/IMG_1300.jpeg",
+      "bytes": 12532645,
+      "sha256": "ccea6d0870db1dce3379f734222e0a429e9762da752b6500cdfdc358244ca895"
+    },
+    {
+      "path": "PHOTOS2/IMG_1301.jpeg",
+      "bytes": 12141486,
+      "sha256": "1209625e9947488340e57df0f82d7640a274fdb4cc157dfd07e075d2aa2e44cf"
+    },
+    {
+      "path": "PHOTOS2/IMG_1302.jpeg",
+      "bytes": 9993048,
+      "sha256": "10321d0cad212444e9ce5f2552cd943be46b5d9020b8e8a1bb4b46007927eb40"
+    },
+    {
+      "path": "PHOTOS2/IMG_1303.jpeg",
+      "bytes": 11570085,
+      "sha256": "a8a8661be62588f6bfbcd05c62b6b6c05145c68e43e3b548c792c2ec552e8b8e"
+    }
+  ],
+  "validation": {
+    "all_12_original_photo_hashes_match_existing_inventory": true,
+    "arata_library_hash_matches_existing_extraction": true,
+    "original_photo_bytes_changed": false,
+    "generative_image_processing": false,
+    "new_photos_requested": false,
+    "router_accessed": false
+  }
+}

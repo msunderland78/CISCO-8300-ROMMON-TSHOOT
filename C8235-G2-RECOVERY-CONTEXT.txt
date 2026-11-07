@@ -10,7 +10,34 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A ROMMON / PoE DIAGNOSTIC FAULT / CURRENT HANDOFF — 2026-11-07, 11:56–12:13 EST
+C8235-A EXISTING-PHOTO REVIEW / CURRENT HANDOFF — 2026-11-07, 12:27 EST
+C8235-06: owner asks to continue without disassembly. Offline photo/firmware review
+only; no console, probe, power operation or new router test. Leave A assembled.
+Correct A images are PHOTOS2/IMG_1292 through IMG_1303, board FOC28292GUQ;
+all12 original hashes match the November1 inventory. PHOTOS3 interior images
+are classic C8300-A; its later PSU/plug photos remain relevant. Historical
+board-photos/IMG_1237 underside belongs to the FOC28292GX9 set, not verified A.
+
+OBSERVED: A's IMG_1297/1299 show fitted but empty connector J3300 behind the
+RJ45 bank; no daughterboard attached there. Purpose/pinout are UNRESOLVED.
+The A set contains component-side/edge views, no underside. No physical PSE
+part number confidently identified; covered/hidden circuitry remains possible.
+Exact26.02.01 libcpa_sb_data_arata.so platform initializer copies the labels
+PoE Daughter Card and Poe Daughter Module into descriptors. Cisco's production
+guide also documents an optional factory-fitted PoE daughter card. This supports
+the missing-board hypothesis but does NOT establish J3300's role, absence of
+equivalent prototype circuitry, controller communication or a software repair.
+Si3470A package inclusion alone remains insufficient physical identification.
+
+Next: continue offline Arata driver/presence-path and reference-hardware correlation;
+identify an exact controller/protocol/address before a targeted read. No disassembly,
+blind bus scan, forced presence/power flags or repeat crashing get selected.
+Last physical/console state remains the12:13:55 handoff below, not the bare-board
+state in historical photographs. Same brick ISR4321/AP success remains valid.
+Evidence: c8235-recovery/poe-diagnosis-20261107/photo-review.json
+Static descriptors: c8235-recovery/poe-diagnosis-20261107/arata-poe-descriptors.txt
+
+C8235-A ROMMON / PoE DIAGNOSTIC FAULT / LAST HARDWARE SESSION — 2026-11-07, 11:56–12:13 EST
 C8235-06: fresh owner confirmation A / FGL2835L42B / R0 FOC28292GUQ, assembled,
 battery installed, same 230 W brick/AP on port 4/RJ45 attached, no test/programmer wires,
 exclusive console. Router initially off; owner powers on after capture/trigger armed.

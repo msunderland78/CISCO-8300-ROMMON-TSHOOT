@@ -1778,9 +1778,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 257354,
+      "bytes": 259245,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "18ffc5edc29051b42f9de31df31d979e876b9bdbbaf539a7681baceeef1fc38d"
+      "sha256": "6b15a7066a764da3f3c397f9b4ed2078372d5a2fa1bac8c7f85d9e344e070775"
     },
     {
       "bytes": 106687,
@@ -2103,9 +2103,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 29257,
+      "bytes": 29425,
       "path": "README.md",
-      "sha256": "df6699004c49af8cc544244e7dc3200c39d933a64f9e14fa0786a11dbbe4ba67"
+      "sha256": "52a1925c2fc0a8955f32e2baf928560d3b7743e1128a6c0d3e4154c388fdb389"
     },
     {
       "bytes": 3934,
@@ -2303,9 +2303,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 522958,
+      "bytes": 524916,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "80bd8dc0d605b89387084f6e5f3027f5015e765a5190c97fb135feeaea9d96ca"
+      "sha256": "1981a84f9342f11a30ad70720153ef7bd16dbc3bc1e4bd4f97b44c3cd40bdebb"
     },
     {
       "bytes": 6850655,
@@ -2703,9 +2703,19 @@
       "sha256": "86372913d24f46d474578b9ced05ab1205389b2f8f8bcb7415e14a7395f0eb39"
     },
     {
+      "bytes": 3598,
+      "path": "c8235-recovery/poe-diagnosis-20261107/arata-poe-descriptors.txt",
+      "sha256": "40e8627143ff2269d1e097bebe2bacb9d9e50f70e3214f79417edd39c3f02069"
+    },
+    {
       "bytes": 2772,
       "path": "c8235-recovery/poe-diagnosis-20261107/crash-disassembly.txt",
       "sha256": "bf648957a78157ffebfd7d4dbbc4e974daf691894ff0d64f0fd3f50b69dd5c4c"
+    },
+    {
+      "bytes": 9702,
+      "path": "c8235-recovery/poe-diagnosis-20261107/photo-review.json",
+      "sha256": "3076f4e93c64aa2b9b77989fe93afe0148313dd755060cc384a50698df94fcf3"
     },
     {
       "bytes": 7824,
@@ -5738,7 +5748,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 349,
-    "included_bytes_without_manifest": 1127478234,
-    "included_files_without_manifest": 745
+    "included_bytes_without_manifest": 1127495551,
+    "included_files_without_manifest": 747
   }
 }

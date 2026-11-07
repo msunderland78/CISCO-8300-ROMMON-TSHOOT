@@ -1,0 +1,78 @@
+C8235-06 / 2026-11-07 / America/New_York
+Offline extracted Cisco code, not executed and not an authored hardware utility.
+Source: usr/binos/lib64/libcpa_sb_data_arata.so from 26.02.01 mono package
+SHA-256: 699fc1ea9dd368533d39d85e3a0f63d2bbbc00d7db8669d329280f8277acec06
+Method: Apple LLVM objdump; ELF64 PT_LOAD translation of string addresses.
+These descriptors model an optional PoE daughter card; they do not prove physical population, controller part number, or connector pinout.
+
+{"virtual_address": "0x3c4d", "file_offset": "0x3c4d", "value": "PoE Daughter Card"}
+{"virtual_address": "0x3b49", "file_offset": "0x3b49", "value": "Poe Daughter Module"}
+
+$ /Library/Developer/CommandLineTools/usr/bin/llvm-objdump -dr --start-address=0x114c --stop-address=0x11b4 tmp/c8235-poe-analysis-20261107/libcpa_sb_data_arata.so
+
+tmp/c8235-poe-analysis-20261107/libcpa_sb_data_arata.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000000e94 <cpa_sb_arata_platform_init>:
+    114c: d000000a     	adrp	x10, 0x3000
+    1150: fd014a62     	str	d2, [x19, #0x290]
+    1154: 9131354a     	add	x10, x10, #0xc4d
+    1158: fd404562     	ldr	d2, [x11, #0x88]
+    115c: d000000b     	adrp	x11, 0x3000
+    1160: fd017261     	str	d1, [x19, #0x2e0]
+    1164: fd018260     	str	d0, [x19, #0x300]
+    1168: ad400540     	ldp	q0, q1, [x10]
+    116c: fd016262     	str	d2, [x19, #0x2c0]
+    1170: b9000389     	str	w9, [x28]
+    1174: 3c816320     	stur	q0, [x25, #0x16]
+    1178: fd405162     	ldr	d2, [x11, #0xa0]
+    117c: d000000b     	adrp	x11, 0x3000
+    1180: 3c826321     	stur	q1, [x25, #0x26]
+    1184: fd017a62     	str	d2, [x19, #0x2f0]
+    1188: fd405961     	ldr	d1, [x11, #0xb0]
+    118c: ad410940     	ldp	q0, q2, [x10, #0x20]
+    1190: d000000a     	adrp	x10, 0x3000
+    1194: fd21ae61     	str	d1, [x19, #0x4358]
+    1198: 3c836320     	stur	q0, [x25, #0x36]
+    119c: b940126b     	ldr	w11, [x19, #0x10]
+    11a0: 3c846322     	stur	q2, [x25, #0x46]
+    11a4: fd405d40     	ldr	d0, [x10, #0xb8]
+    11a8: 9240316a     	and	x10, x11, #0x1fff
+    11ac: fd21b660     	str	d0, [x19, #0x4368]
+    11b0: b9001809     	str	w9, [x0, #0x18]
+
+
+$ /Library/Developer/CommandLineTools/usr/bin/llvm-objdump -dr --start-address=0x1728 --stop-address=0x178c tmp/c8235-poe-analysis-20261107/libcpa_sb_data_arata.so
+
+tmp/c8235-poe-analysis-20261107/libcpa_sb_data_arata.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000000e94 <cpa_sb_arata_platform_init>:
+    1728: d0000009     	adrp	x9, 0x3000
+    172c: 52a07208     	mov	w8, #0x3900000          // =59768832
+    1730: 912d2529     	add	x9, x9, #0xb49
+    1734: 39015ad8     	strb	w24, [x22, #0x56]
+    1738: f901ca97     	str	x23, [x20, #0x390]
+    173c: f9000016     	str	x22, [x0]
+    1740: ad400520     	ldp	q0, q1, [x9]
+    1744: b90012c8     	str	w8, [x22, #0x10]
+    1748: 3c8162c0     	stur	q0, [x22, #0x16]
+    174c: ad410d22     	ldp	q2, q3, [x9, #0x20]
+    1750: 52800289     	mov	w9, #0x14               // =20
+    1754: 3c8262c1     	stur	q1, [x22, #0x26]
+    1758: 3c8362c2     	stur	q2, [x22, #0x36]
+    175c: 3c8462c3     	stur	q3, [x22, #0x46]
+    1760: b9000808     	str	w8, [x0, #0x8]
+    1764: 91003b68     	add	x8, x27, #0xe
+    1768: f90002e0     	str	x0, [x23]
+    176c: b900fa89     	str	w9, [x20, #0xf8]
+    1770: f00000e0     	adrp	x0, 0x20000
+    1774: f9406001     	ldr	x1, [x0, #0xc0]
+    1778: 91030000     	add	x0, x0, #0xc0
+    177c: d63f0020     	blr	x1
+    1780: 8b000349     	add	x9, x26, x0
+    1784: f00000e0     	adrp	x0, 0x20000
+    1788: f9402801     	ldr	x1, [x0, #0x50]
+
