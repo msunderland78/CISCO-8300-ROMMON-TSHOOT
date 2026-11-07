@@ -1,11 +1,11 @@
 {
   "task_id": "C8235-06",
   "recorded_at": "2026-11-06T18:20:31.622649-05:00",
-  "status": "Owner built the separate PoE load bank and reports X-Y resistance 3093 ohms, close to nominal 3133 ohms. A brief dual-load test has now been requested, retaining 149.8 ohms on B/F and placing 3093 ohms on D/A with separate returns. Powered results for this stage are pending.",
+  "status": "Owner reports both loads attached: X-Y on the 3093-ohm PoE bank is 0 VDC, while F-B on the 149.8-ohm 12 V bank is 12.15 VDC. No PoE output has been demonstrated unloaded, with the 12 V load alone, or with these two light loads. Stop repeated load trials; prioritize verified-compatible known-good supply comparison or qualified bench verification of this brick/cable.",
   "request": "Owner asks how to perform a loaded test or known-good comparison after A-D zero volts and supply-label identification.",
   "target": "Detached Flextronics FA230LM1-00 / 341-0703-01 external brick, not router PCB. Pin correspondence from supply-label.json.",
   "known_equipment": "Fluke 111, Jesverty source supply, owner-confirmed 1/2 W resistor assortment and assembled 149.8-ohm breadboard. Owner reports two stripped wires and no mating connector. Historical probe tips/hooks are not established as suitable for this connector.",
-  "question_pending": "After AC-off/residual-voltage checks and secure separate wiring, report both DC voltages with both loads attached: new bank black X=D/red Y=A, then original bank black F/red B. Unplug AC after about 15-30 seconds and before any wiring change.",
+  "question_pending": null,
   "qualification_before_connection": [
     "Verify actual resistor values, 1/2 W ratings, network resistance and secure separated mounting. Current design calculations keep each part below about 0.17 W at the stated voltages; ordinary single resistors are not substituted for the earlier 10 W loads.",
     "Establish a secure insulated test connection, with no stray strands able to bridge contacts and leads restrained against withdrawal. A correctly mating connector/breakout is preferred. Do not assume a computer PSU cable has the same pinout. Owner reports correcting the photographed connection; do not imply this was independently re-photographed or pull-tested.",
@@ -26,7 +26,7 @@
       "use": "Use COM/V for voltage; current-input measurements across an output would short the circuit."
     }
   ],
-  "updated_at": "2026-11-06T19:32:07.896130-05:00",
+  "updated_at": "2026-11-06T19:36:31.790516-05:00",
   "owner_inventory": {
     "rating_watts_each": 0.5,
     "values_ohms": [
@@ -95,7 +95,7 @@
       "total_current_amps": 0.082,
       "total_heat_watts": 1.0086000000000002,
       "each_heat_watts": 0.16810000000000003,
-      "status": "Owner-confirmed complete bank/wire resistance 149.8 ohms; B/F voltage 12.15 VDC constant. A/D remains -0.002 VDC while this 12 V load is attached.",
+      "status": "Owner reports 12.15 VDC across 149.8 ohms on B/F both before and during the dual-load stage.",
       "observed_connection": [
         "B/P5 (+12 V)",
         "F/P3 (12 V GROUND)"
@@ -117,7 +117,7 @@
       "total_current_amps": 0.017074468085106383,
       "total_heat_watts": 0.9134840425531915,
       "each_heat_watts": 0.15224734042553192,
-      "status": "Owner reports assembled X-Y resistance 3093 ohms. Brief dual-load voltage test now requested; no result yet.",
+      "status": "Owner reports 0 VDC X-Y with this 3093-ohm bank on D/A while the separate 12 V bank remains at 12.15 V.",
       "measured_ohms": 3093,
       "planned_endpoint_mapping": {
         "X": "D/P1, PoE return (+)",
@@ -126,10 +126,9 @@
     }
   ],
   "current_step": [
-    "Owner-reported 3093-ohm X-Y reading completes the requested isolated bank-resistance check.",
-    "Perform the requested brief dual-load voltage check only after the stated AC-off, residual-voltage and secure separate-wiring conditions.",
-    "Record both output voltages and stability, then unplug AC. Never substitute the 150-ohm bank for the PoE load or join the separate returns.",
-    "Interpret only the tested light-load behavior; manufacturer minimum-load requirements and full output capacity remain unverified."
+    "Unplug AC after the dual-load reading; verify output voltage has fallen near zero before removing test leads. No further repeated load measurement selected.",
+    "Preserve these results and identify a verified-compatible known-good PoE supply comparison or qualified bench verification of FA230LM1-00 and its output cable.",
+    "Do not infer a verified repair, exact internal failed component or healthy router PoE subsystem from these external-supply observations."
   ],
   "bank_measurements": [
     {
@@ -242,6 +241,35 @@
       "poe_stability_reported": null,
       "interpretation": "Effectively zero relative to the nominal -53.5 V output. The approximately 81.1 mA load on the 12 V rail did not bring up the PoE output. This narrows the observation to the external brick/output cable/contact path under these conditions; it is not a router configuration measurement.",
       "limits": "Owner report, without meter photo or separately confirmed duration/settling/final AC removal. PoE-specific loading has not been tested; no verified minimum-load specification or full-load result is available. Do not classify the supply as conclusively failed or infer a router-only repair from this result."
+    },
+    {
+      "recorded_at": "2026-11-06T19:36:31.790516-05:00",
+      "source": "Owner reports: I am still getting 0 vdc x to y ... but 12.15 vdc f to b.",
+      "target": "Same Flextronics FA230LM1-00 / 341-0703-01 external brick; response to the requested router-disconnected dual-load test.",
+      "stage": "Both independent resistor banks attached",
+      "12v_load": {
+        "ohms": 149.8,
+        "contacts": [
+          "B/P5",
+          "F/P3"
+        ],
+        "volts_dc_reported": 12.15,
+        "requested_probes": "black F/red B"
+      },
+      "poe_load": {
+        "ohms": 3093,
+        "endpoint_mapping": {
+          "X": "D/P1",
+          "Y": "A/P4"
+        },
+        "volts_dc_reported": 0.0,
+        "requested_probes": "black X=D/red Y=A"
+      },
+      "meter": "Fluke 111; requested DC volts with COM/V-ohm leads, measurement at bank connection points.",
+      "requested_duration_seconds": "15-30",
+      "stability_reported": "Owner says still 0 for X-Y; stability/duration not separately quantified in this reply. Earlier 12.15 V reading was explicitly constant.",
+      "interpretation": "The added 3093-ohm load did not produce a measurable PoE output while the 12 V load still had 12.15 V. The stated 17.3 mA/0.925 W PoE-bank calculation is prospective at 53.5 V, not current or power delivered during this zero-volt test.",
+      "state_limit": "Owner report without an independent meter/connection capture; requested separate-bank wiring, router disconnection and final AC unplug were not independently observed."
     }
   ],
   "requested_dual_load_test": {
@@ -251,6 +279,24 @@
     "poe_load": "Connect separate 3093-ohm bank X to D and Y to A.",
     "meter": "Fluke 111 DC volts, black COM/red V-ohm; no resistance or current-mode measurement across energized outputs.",
     "sequence": "Apply AC; read new bank black X/red Y (nominal -53.5 V if active), then original bank black F/red B at breadboard connection points. Record stability; unplug AC after about 15-30 seconds, before any wiring change.",
-    "status": "Requested; no dual-load result received."
+    "status": "Owner-reported result received: PoE X-Y 0 VDC; 12 V F-B 12.15 VDC. No further repetition selected."
+  },
+  "diagnostic_conclusion": {
+    "observed": "Unloaded A/D about zero; with 149.8-ohm 12 V load, A/D -0.002 V and B/F 12.15 V; with both 149.8-ohm B/F and 3093-ohm D/A loads, PoE-bank X/Y 0 V and 12 V F/B 12.15 V.",
+    "working_diagnosis": "External brick PoE output circuitry or its output cable/contact path is the leading suspect. Do not treat this adapter as a known-good PoE source for further router diagnosis.",
+    "not_established": "Exact failed component, proper behavior at the manufacturer-specified minimum/full load, current brick compatibility with this prototype, and router PoE-controller/hardware health. These light loads do not conclusively exclude undocumented minimum-load or control behavior.",
+    "decision": "Stop repeated or arbitrarily heavier resistor tests. Unplug AC; remove test wiring only after output voltage has fallen near zero. Preserve the sealed supply and the independent resistor banks.",
+    "next": "Compare with a verified-working supply confirmed compatible with this exact router/connector/pinout, or have this brick and its cable checked on a qualified bench using applicable specifications. Revisit router PoE detection only after a working external PoE rail is established.",
+    "router_scope": "No new router access or configuration/firmware/security change; router operational PoE remains unresolved."
+  },
+  "reference_followup": {
+    "recorded_at": "2026-11-06T19:36:31.790516-05:00",
+    "queries": [
+      "\"FA230LM1-00\" \"minimum\"",
+      "\"341-0703-01\" \"enable\"",
+      "site.cisco.com \"C8235\" \"PWR-CC1-230WAC\""
+    ],
+    "result": "No verified exact-model minimum-load or enable specification obtained. Cisco production-router power table lists PWR-CC1-230WAC for C8235-G2, with 12 V/9 A and -54 V/2.45 A. This is a production reference, not confirmation that the current FA230LM1-00 is equivalent or that a replacement is compatible with this prototype.",
+    "primary_url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/hardware-installation-guide/secure-8200-series-hig/preinstall.html"
   }
 }

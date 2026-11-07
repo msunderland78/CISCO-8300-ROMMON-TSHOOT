@@ -10,7 +10,25 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A SECOND LOAD BANK / CURRENT HANDOFF — 2026-11-06, EST
+C8235-A DUAL-LOAD PSU RESULT / CURRENT HANDOFF — 2026-11-06, EST
+C8235-06: owner reports X-Y=0 VDC across the 3093-ohm PoE bank (X=D, Y=A),
+while F-B=12.15 VDC across the separate 149.8-ohm 12 V bank. Thus neither
+unloaded operation, a 12 V-only light load, nor these two simultaneous light
+loads has demonstrated the brick's labeled PoE voltage. Brick PoE circuitry
+or output cable/contact path is the leading suspect; this is not a verified
+known-good PoE source. Exact-model minimum-load/control behavior, the precise
+failed component, prototype compatibility and router PoE hardware health remain
+unresolved. The prospective 17.3 mA/0.925 W PoE-bank calculation applies only
+if 53.5 V is present; it was not delivered during the zero-volt test.
+Owner instructed to unplug AC and verify outputs near zero before removing
+leads. Stop repeated or arbitrarily heavier load trials. Next useful step is
+a verified-compatible known-good supply comparison or qualified bench check
+of this sealed brick and cable. No further router access or software changes.
+Cisco production C8235-G2 lists PWR-CC1-230WAC; this does not verify equivalence
+to FA230LM1-00 or compatibility with this prototype. Evidence and limits:
+c8235-recovery/poe-diagnosis-20261106/load-test-plan.json.
+
+C8235-A SECOND LOAD BANK / EARLIER CHECKPOINT — 2026-11-06, EST
 C8235-06: owner built the separate six-4.7k bank and reports X-Y=3093 ohms,
 about 1.29% below nominal 3133 ohms. At 53.5 V this would draw 17.3 mA /
 0.925 W total, about 0.154 W average per resistor with the specified layout.
