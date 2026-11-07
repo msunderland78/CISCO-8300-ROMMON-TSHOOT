@@ -10,7 +10,40 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A PoE INPUT-VOLTAGE REVIEW / CURRENT HANDOFF — 2026-11-07, 13:40 EST
+C8235-A NATIVE PoE CONTROLLER PATH / CURRENT HANDOFF — 2026-11-07, 13:55 EST
+C8235-06: owner requests further software/ROMMON work with A assembled. Offline
+analysis found the built-in switch driver libmirabilesw.so and exact Arata P2
+8M-2xSFP+.yml model: PALPATINE2, CPU I2C controller 2, addresses 0x20/0x21.
+The CPU callback formats /dev/i2c-%d and uses SMBus byte-data reads. This is an
+expected software topology; live adapter routing and physical population remain
+unverified. Register 0x1b is the native identity read; 0x45 selects a Si3470A
+version branch reading 0x41/0x43/0x76. No qualified supply-voltage register yet.
+
+Corrected the initial in-progress generic-callback inference: Arata enum 0x79
+selects m14er GPIO callback 0xa4610, which requires status bytes 4 AND 1, not the
+named generic callback's bytes 4 AND 5. The earlier PSU override leaves byte 4
+real/zero, sufficient to block this path. Hash-pinned offline Unicorn emulation
+passes 67 cases (enum mapping, all 64 boolean flag combinations and API failure).
+These are mocked hardware checks, not live controller validation.
+
+Native startup after this gate can enable PoE power, release reset and perform
+controller firmware-download/update writes. Persistence of those writes is not
+established. Do not simply force the remaining flags and invoke full startup.
+A registered internal poe read CLI exists, but outer IOS route/live registration
+are unqualified; never substitute the known-crashing generic PoE-get command.
+
+Next: after pending current-state/console reply, capture fresh A identity and
+live library/YAML hashes, inspect the I2C adapter's sysfs/device-tree mapping,
+then a bounded ID read at the exact configured addresses if routing/ownership
+checks pass. Native i2cget is included; no -f, scan, enable/reset or firmware
+update selected. Read versions only after a matching identity. No reply/read,
+console access, power operation or router change occurred in this review.
+Original restored state at 13:25:44 remains the last hardware observation.
+Evidence: c8235-recovery/poe-diagnosis-20261107/native-controller-investigation.json
+Disassembly: c8235-recovery/poe-diagnosis-20261107/native-controller-disassembly.txt
+Validator: experimental-recovery/c8235-a-poe-controller-20261107/validate_native_dispatch.py
+
+C8235-A PoE INPUT-VOLTAGE REVIEW / EARLIER HANDOFF — 2026-11-07, 13:40 EST
 C8235-06: offline follow-up to owner's question; no console access, power operation,
 override reapplication or new router test. Actual53–54 V arrival at A is unresolved.
 With override active at13:21:06, show environment all reported main12 V=12004 mV

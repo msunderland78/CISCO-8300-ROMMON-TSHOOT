@@ -1,0 +1,125 @@
+{
+  "task": "C8235-06",
+  "recorded_at": "2026-11-07T13:55:53.562681-05:00",
+  "timezone": "America/New_York",
+  "status": "Offline native-controller path qualified in part; live bus inventory and controller reads planned, not performed",
+  "target": {
+    "tracking_label": "C8235-A",
+    "chassis": "FGL2835L42B",
+    "board": "FOC28292GUQ"
+  },
+  "owner_scope": "Continue using assembled router through software/ROMMON; no disassembly requested.",
+  "hardware_access_this_review": false,
+  "current_state": "No new physical-state reply received in this review. Last verified hardware observation remains 2026-11-07 13:25:44 EST: original A4/package boot restored, modules ready, 66 W main/0 W PoE, powered/assembled and console released. No override is left active by the earlier test.",
+  "source_package": {
+    "path": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+    "sha256": "0c5d0d190bb173062afa9e499df4a7507c84fd8d6cad1bea8ec52e177fd0919d",
+    "squashfs_offset": 4096,
+    "extraction": "unsquashfs -cat -o 4096 <source-package> <exact-source-path>; original bytes unchanged"
+  },
+  "extracted_sources": [
+    {
+      "source": "usr/binos/lib64/libmirabilesw.so",
+      "bytes": 2043752,
+      "sha256": "376ed0b8c45832cc0ae7f6e62e3a0d471e75dc9741a7a3359ab2421e69ceca74"
+    },
+    {
+      "source": "usr/binos/lib64/libsyshw.so",
+      "bytes": 406640,
+      "sha256": "ccc214bbaa55e63766811ff3aede4d0dd6c37950efc7ecb74906a18f40a57d8f"
+    },
+    {
+      "source": "usr/binos/lib64/libngio.so",
+      "bytes": 475560,
+      "sha256": "030604fdf533c514a7306b8e0cad6698f3f432c50cb9944dc8b31bc4f5042d01"
+    },
+    {
+      "source": "usr/binos/lib64/libcmlib_ngio.so",
+      "bytes": 69576,
+      "sha256": "4c2d8e2099c3c7d9a1608ea75456eeb85bbedfeabbf04ba07dc1cf923dd99d88"
+    },
+    {
+      "source": "usr/sbin/i2cget",
+      "bytes": 67560,
+      "sha256": "29d121e3be9a904bc5fc8ea4e1b785a768618e71abe49f5cb1eb909bb563edd5"
+    },
+    {
+      "source": "lua/cyan/arata.lua",
+      "bytes": 12032,
+      "sha256": "c62f7c8df8bc53c774a89c0f1f7d1b2bd618f2770f0d82af5b23e4926794cd9b"
+    },
+    {
+      "source": "usr/binos/lib64/8M-2xSFP+.yml",
+      "bytes": 9667,
+      "sha256": "980bffac4c9872d6f860057c08e9a571968c77362fd0d23f89e86b1a53bb9b66"
+    }
+  ],
+  "native_module_model": {
+    "source": "8M-2xSFP+.yml",
+    "header": "Arata P2, July 2024",
+    "platform": "14er",
+    "pse_model": "PALPATINE2",
+    "pse_chip_id": 0,
+    "i2c_mode": "from-cpu",
+    "i2c_controller": 2,
+    "controller_addresses": [
+      "0x20",
+      "0x21"
+    ],
+    "port_mapping": "TW4/TW5 -> controller0; TW6/TW7 -> controller1",
+    "limits": "This identifies the expected software topology. It does not establish physical controller population or live prototype bus routing."
+  },
+  "dispatch": {
+    "chassis_enum": "Hash-pinned libcmlib_ngio.so cmlib_ngio_platform_get_chassis_type maps mocked ARATA to 0x79 (121); ARATA_E comparison maps to 0x85 (133). No live chassis property was fetched in this review.",
+    "selection": "mirabile_init_fp_poe at 0xa4954 selects m14er_poe_mode_from_fpga_gpio_vft and m14er_poe_mode_from_cpu_i2c_vft for ARATA enum121.",
+    "presence_callback": "m14er GPIO table entry at 0x1f5478 relocates to anonymous 0xa4610. For ARATA it returns0 only when successful real status bytes4 AND1 are nonzero; otherwise -2, or -1 on status API failure.",
+    "correction": "Initial in-progress interpretation selected named flex_dash_fpga_poe_dc_present at0x482e0, which checks bytes4 AND5. Following the actual Arata vtable selection corrects this to bytes4 AND1. Do not force byte5 based on the generic callback.",
+    "prior_override": "The successful earlier override set only bytes0/1. Byte4 stayed real and zero, which is sufficient to keep this Arata presence gate closed. Runtime use of this newly analyzed library still needs fresh hash/map confirmation."
+  },
+  "native_read_path": {
+    "register_read_helper": "0x87b20 dispatches controller index to its configured I2C address and PSE bus.",
+    "cpu_read_callback": "m14er_poe_mode_from_cpu_i2c_vft at0x1f5458 relocates to0xa42a4. It formats /dev/i2c-%d from bus argument, opens O_RDWR, sets address with ioctl0x0706 (I2C_SLAVE_FORCE), calls i2c_smbus_read_byte_data, closes and propagates errors as -1.",
+    "proposed_reader_difference": "Use native i2cget without -f; refuse a kernel-owned address rather than reproducing the driver force ioctl. No bus scan or data-register write.",
+    "identity_register": "Native init reads byte register0x1b. Value0x45 selects the Si3470A version/firmware branch; this alone is not proof of a functioning PoE rail.",
+    "version_registers": [
+      "0x41",
+      "0x43",
+      "0x76"
+    ],
+    "voltage": "No validated Arata bulk PoE-input voltage register or conversion established. The ID/version read does not measure 53\u201354 V."
+  },
+  "startup_side_effects": {
+    "sequence": "After presence success, native init invokes enable, reset release, 50ms wait and operating-state checks at registers0x10/0x15, then conditionally invokes initialization and registers its internal poe CLI.",
+    "arata_enable": "Callback0xa47b0 calls dash_fpga_poe_power_ctrl(1) for ARATA121; this is an actual hardware-control path.",
+    "reset": "Native callback flex_dash_fpga_poe_reset at0x4845c uses dash_fpga_pse_reset_status / dash_fpga_pse_reset; not invoked in this review.",
+    "firmware": "Initialization at0x88618 reads chip identity, then versions. For0x45, it opens /firmware/Si3470A_FW_2_0_19.bin, compares the header and conditionally calls updater0x8909c. Other branches can call the same updater. The updater issues register writes and transfers firmware bytes. RAM-vs-nonvolatile persistence is not established.",
+    "decision": "Do not equate full startup/presence spoof with a read-only diagnostic. Identify a responding controller before selecting any enable/reset or firmware-changing experiment; full native init is not selected now."
+  },
+  "internal_cli": {
+    "registration": "nim_l2ether_cli_register(\"poe\", \"poe\", callback0x88010) occurs only after the presence/enable path. The read branch at0x882f8\u20130x8836c calls the register helper.",
+    "syntax": "poe <ifnum> r <reg>, decimal ifnum / hexadecimal reg",
+    "limits": "Outer IOS transport and live registration are not established. Do not paste this as an IOS EXEC command or substitute the known-crashing test platform hardware poe get 0 global."
+  },
+  "planned_live_sequence": [
+    "Obtain current owner physical-state/console confirmation, rediscover the serial device, verify both aliases free, and capture fresh A identity/readiness. No duplicate recovery permission is needed.",
+    "Confirm live libmirabilesw.so / libcmlib_ngio.so / 8M-2xSFP+.yml / i2cget hashes and native consumer mapping. Resolve /sys/class/i2c-adapter/i2c-2 name/device/of_node and device-tree alias mapping without I2C transactions.",
+    "Use an existing qualified Linux maintenance shell if required. ROMMON is a route to a temporary maintenance boot, not an established dedicated PoE diagnostic. Preserve original A4/BOOT and package bytes.",
+    "Only after runtime bus/target confirmation and no address ownership conflict, make a single SMBus byte-data read of0x1b at each configured address. Candidate command: /usr/sbin/i2cget -y 2 0x20 0x1b b; then0x21. No -f, broad scans, reset, power enable or automatic initialization.",
+    "If identity matches the native0x45 path, read0x41/0x43/0x76 at the responding address and compare with the bundled version. Any mismatch/no ACK stops automatic progression; no firmware update follows.",
+    "A response supports controller communication and can justify investigation of detection/initialization and a documented voltage channel. No response leaves power/reset/routing/population unresolved; it does not prove absent hardware.",
+    "If maintenance boot was needed, restore/read back original boot settings and verify normal modules/power/port baseline before closing the console."
+  ],
+  "offline_validation": {
+    "report": "offline-dispatch-validation.json",
+    "passed_cases": 67,
+    "script": "../../experimental-recovery/c8235-a-poe-controller-20261107/validate_native_dispatch.py",
+    "command": "tmp/c8235-psu-emulation-venv/bin/python experimental-recovery/c8235-a-poe-controller-20261107/validate_native_dispatch.py --library-directory tmp/c8235-poe-software-next-20261107 --report tmp/c8235-poe-software-next-20261107/offline-dispatch-validation.json",
+    "scope": "Two chassis-enum cases and64 boolean status combinations plus API-error case. Real ARM64 instructions emulated with mocked property/status/log calls. No firmware, voltage or live router validation."
+  },
+  "retained_local": "Extracted shared libraries/i2cget/arata.lua remain in ignored tmp with exact hashes. Publish bounded disassembly, unmodified module YAML, structured report and inert offline validator.",
+  "related_results": [
+    "psu-presence-test.json",
+    "input-voltage-review.json",
+    "results.json"
+  ]
+}

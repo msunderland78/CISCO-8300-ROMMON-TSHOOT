@@ -1783,9 +1783,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 264902,
+      "bytes": 267203,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "e78bc0e924eff1bfc5ca26488f16693edf96db61e2c0674634e44cfd28afa8eb"
+      "sha256": "4f45d7a61deb8387bdc0d44954387ea4dd79c8d4bd6709e99e64500bac72b684"
     },
     {
       "bytes": 106687,
@@ -2308,9 +2308,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 534101,
+      "bytes": 537717,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "583deab685abf2fb4fdc8e5fde583afd0c166722e652c60f7b88f4ff966d87c3"
+      "sha256": "7e2239fe44ddcda540b5b7855442bc444a7204d183e4eef22ee0d40171f1a950"
     },
     {
       "bytes": 6850655,
@@ -2708,6 +2708,11 @@
       "sha256": "86372913d24f46d474578b9ced05ab1205389b2f8f8bcb7415e14a7395f0eb39"
     },
     {
+      "bytes": 9667,
+      "path": "c8235-recovery/poe-diagnosis-20261107/8M-2xSFP+.yml",
+      "sha256": "980bffac4c9872d6f860057c08e9a571968c77362fd0d23f89e86b1a53bb9b66"
+    },
+    {
       "bytes": 3598,
       "path": "c8235-recovery/poe-diagnosis-20261107/arata-poe-descriptors.txt",
       "sha256": "40e8627143ff2269d1e097bebe2bacb9d9e50f70e3214f79417edd39c3f02069"
@@ -2721,6 +2726,21 @@
       "bytes": 8067,
       "path": "c8235-recovery/poe-diagnosis-20261107/input-voltage-review.json",
       "sha256": "4019238ef96eb978e22e230663279e0f3f0a10b1ae7e4b81582d2fb5b6424520"
+    },
+    {
+      "bytes": 93620,
+      "path": "c8235-recovery/poe-diagnosis-20261107/native-controller-disassembly.txt",
+      "sha256": "05aa0ac7000ccb6528200ca08e280c1e640d8cde491bdabb1aae57fc36cb569e"
+    },
+    {
+      "bytes": 9088,
+      "path": "c8235-recovery/poe-diagnosis-20261107/native-controller-investigation.json",
+      "sha256": "56e8299e19e1aee01537406b75c4e4c47450beb5fcc6ee0f313b4717a33c8d24"
+    },
+    {
+      "bytes": 758,
+      "path": "c8235-recovery/poe-diagnosis-20261107/offline-dispatch-validation.json",
+      "sha256": "662ce5db1fc11b174d95179ea1817ba72ceacf07d8cf20431e08b3f49ec5cd90"
     },
     {
       "bytes": 1799,
@@ -3506,6 +3526,11 @@
       "bytes": 3223,
       "path": "experimental-recovery/c8235-a-bootflash-20261104/observe-one-autoboot.py",
       "sha256": "7b02de45e75a6b3189da665794ad32185c36f92bf463cfcfc7fe87b4fbde6e29"
+    },
+    {
+      "bytes": 5741,
+      "path": "experimental-recovery/c8235-a-poe-controller-20261107/validate_native_dispatch.py",
+      "sha256": "7ff1dc0bad25b2def7baa33f283d97404de1fb9a843cb1b5430fe0276a8768a3"
     },
     {
       "bytes": 1446,
@@ -5899,7 +5924,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 350,
-    "included_bytes_without_manifest": 1128016299,
-    "included_files_without_manifest": 776
+    "included_bytes_without_manifest": 1128141090,
+    "included_files_without_manifest": 781
   }
 }

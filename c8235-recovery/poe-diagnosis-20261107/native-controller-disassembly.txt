@@ -1,0 +1,2374 @@
+Static vendor-code excerpts; not commands to execute.
+Source: usr/binos/lib64/libmirabilesw.so from mono26.02.01.
+SHA256: 376ed0b8c45832cc0ae7f6e62e3a0d471e75dc9741a7a3359ab2421e69ceca74
+Addresses are ELF virtual addresses; anonymous routines retain preceding symbol labels in objdump.
+
+[Arata callback dispatch and CPU I2C reads: 0xa42a4–0xa4a8c, end exclusive]
+
+tmp/c8235-poe-software-next-20261107/libmirabilesw.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+00000000000a3d84 <flex_mdio_xsmi_from_cpu_write_short>:
+   a42a4:      	sub	sp, sp, #0x90
+   a42a8:      	stp	x29, x30, [sp, #0x50]
+   a42ac:      	stp	x24, x23, [sp, #0x60]
+   a42b0:      	stp	x22, x21, [sp, #0x70]
+   a42b4:      	stp	x20, x19, [sp, #0x80]
+   a42b8:      	add	x29, sp, #0x50
+   a42bc:      	adrp	x8, 0x1ef000
+   a42c0:      	adrp	x9, 0x297000
+   a42c4:      	ldr	x8, [x8, #0x6c8]
+   a42c8:      	ldr	x8, [x8]
+   a42cc:      	stur	x8, [x29, #-0x8]
+   a42d0:      	ldr	x8, [x9, #0x120]
+   a42d4:      	add	x8, x8, #0x1
+   a42d8:      	str	x8, [x9, #0x120]
+   a42dc:      	cbz	x3, 0xa4358 <flex_mdio_xsmi_from_cpu_write_short+0x5d4>
+   a42e0:      	mov	w22, w2
+   a42e4:      	and	w21, w0, #0xff
+   a42e8:      	adrp	x2, 0xac000
+   a42ec:      	mov	x19, x3
+   a42f0:      	mov	w20, w1
+   a42f4:      	add	x2, x2, #0xfb6
+   a42f8:      	add	x0, sp, #0x14
+   a42fc:      	mov	w1, #0x32               // =50
+   a4300:      	mov	w3, w21
+   a4304:      	bl	0x240f0 <snprintf@plt>
+   a4308:      	add	x0, sp, #0x14
+   a430c:      	mov	w1, #0x2                // =2
+   a4310:      	bl	0x222c0 <open@plt>
+   a4314:      	tbnz	w0, #0x1f, 0xa437c <flex_mdio_xsmi_from_cpu_write_short+0x5f8>
+   a4318:      	and	w20, w20, #0xffff
+   a431c:      	mov	w1, #0x706              // =1798
+   a4320:      	mov	w2, w20
+   a4324:      	mov	w23, w0
+   a4328:      	bl	0x23310 <ioctl@plt>
+   a432c:      	tbnz	w0, #0x1f, 0xa43a4 <flex_mdio_xsmi_from_cpu_write_short+0x620>
+   a4330:      	mov	w0, w23
+   a4334:      	mov	w1, w22
+   a4338:      	bl	0x240c0 <i2c_smbus_read_byte_data@plt>
+   a433c:      	mov	w24, w0
+   a4340:      	mov	w0, w23
+   a4344:      	bl	0x24b30 <close@plt>
+   a4348:      	tbnz	w24, #0x1f, 0xa43e8 <flex_mdio_xsmi_from_cpu_write_short+0x664>
+   a434c:      	mov	w0, wzr
+   a4350:      	strb	w24, [x19]
+   a4354:      	b	0xa4424 <flex_mdio_xsmi_from_cpu_write_short+0x6a0>
+   a4358:      	adrp	x8, 0x1ef000
+   a435c:      	adrp	x0, 0x1ef000
+   a4360:      	mov	w1, #0xa                // =10
+   a4364:      	mov	w3, #0x3000000          // =50331648
+   a4368:      	ldr	x8, [x8, #0x8d8]
+   a436c:      	ldrh	w2, [x8]
+   a4370:      	ldr	x0, [x0, #0x7a8]
+   a4374:      	bl	0x22a50 <__BTf_0@plt>
+   a4378:      	b	0xa4420 <flex_mdio_xsmi_from_cpu_write_short+0x69c>
+   a437c:      	adrp	x8, 0x1ef000
+   a4380:      	adrp	x0, 0x1ef000
+   a4384:      	add	x4, sp, #0x14
+   a4388:      	mov	w1, #0xc                // =12
+   a438c:      	mov	w3, #0x3000000          // =50331648
+   a4390:      	ldr	x8, [x8, #0x8d8]
+   a4394:      	ldrh	w2, [x8]
+   a4398:      	ldr	x0, [x0, #0x7a8]
+   a439c:      	bl	0x21fe0 <__BTf_1@plt>
+   a43a0:      	b	0xa4420 <flex_mdio_xsmi_from_cpu_write_short+0x69c>
+   a43a4:      	adrp	x8, 0x1ef000
+   a43a8:      	ldr	x8, [x8, #0x8d8]
+   a43ac:      	ldrh	w19, [x8]
+   a43b0:      	bl	0x24610 <__errno_location@plt>
+   a43b4:      	ldr	w0, [x0]
+   a43b8:      	bl	0x22f20 <strerror@plt>
+   a43bc:      	mov	x4, x0
+   a43c0:      	adrp	x0, 0x1ef000
+   a43c4:      	mov	w1, #0x1c               // =28
+   a43c8:      	mov	w2, w19
+   a43cc:      	mov	w3, #0x3000000          // =50331648
+   a43d0:      	mov	w5, w20
+   a43d4:      	ldr	x0, [x0, #0x7a8]
+   a43d8:      	bl	0x21640 <__BTf_14@plt>
+   a43dc:      	mov	w0, w23
+   a43e0:      	bl	0x24b30 <close@plt>
+   a43e4:      	b	0xa4420 <flex_mdio_xsmi_from_cpu_write_short+0x69c>
+   a43e8:      	adrp	x8, 0x1ef000
+   a43ec:      	adrp	x0, 0x1ef000
+   a43f0:      	and	w9, w22, #0xff
+   a43f4:      	mov	w1, #0xd                // =13
+   a43f8:      	mov	w3, #0x3000000          // =50331648
+   a43fc:      	mov	w4, w24
+   a4400:      	ldr	x8, [x8, #0x8d8]
+   a4404:      	mov	w5, w21
+   a4408:      	mov	w6, w21
+   a440c:      	mov	w7, w20
+   a4410:      	ldrh	w2, [x8]
+   a4414:      	ldr	x0, [x0, #0x7a8]
+   a4418:      	str	w9, [sp]
+   a441c:      	bl	0x403b4 <pcl_sisf_rule_init+0xe8>
+   a4420:      	mov	w0, #-0x1               // =-1
+   a4424:      	adrp	x8, 0x1ef000
+   a4428:      	ldr	x8, [x8, #0x6c8]
+   a442c:      	ldur	x9, [x29, #-0x8]
+   a4430:      	ldr	x8, [x8]
+   a4434:      	cmp	x8, x9
+   a4438:      	b.ne	0xa4454 <flex_mdio_xsmi_from_cpu_write_short+0x6d0>
+   a443c:      	ldp	x20, x19, [sp, #0x80]
+   a4440:      	ldp	x22, x21, [sp, #0x70]
+   a4444:      	ldp	x24, x23, [sp, #0x60]
+   a4448:      	ldp	x29, x30, [sp, #0x50]
+   a444c:      	add	sp, sp, #0x90
+   a4450:      	ret
+   a4454:      	bl	0x21f60 <__stack_chk_fail@plt>
+   a4458:      	sub	sp, sp, #0x90
+   a445c:      	stp	x29, x30, [sp, #0x50]
+   a4460:      	stp	x24, x23, [sp, #0x60]
+   a4464:      	stp	x22, x21, [sp, #0x70]
+   a4468:      	stp	x20, x19, [sp, #0x80]
+   a446c:      	add	x29, sp, #0x50
+   a4470:      	adrp	x8, 0x1ef000
+   a4474:      	adrp	x9, 0x297000
+   a4478:      	ldr	x8, [x8, #0x6c8]
+   a447c:      	ldr	x8, [x8]
+   a4480:      	stur	x8, [x29, #-0x8]
+   a4484:      	ldr	x8, [x9, #0x128]
+   a4488:      	add	x8, x8, #0x1
+   a448c:      	str	x8, [x9, #0x128]
+   a4490:      	cbz	x3, 0xa4540 <flex_mdio_xsmi_from_cpu_write_short+0x7bc>
+   a4494:      	mov	w23, w2
+   a4498:      	and	w21, w0, #0xff
+   a449c:      	adrp	x2, 0xac000
+   a44a0:      	mov	x22, x3
+   a44a4:      	mov	w20, w1
+   a44a8:      	add	x2, x2, #0xfb6
+   a44ac:      	add	x0, sp, #0x14
+   a44b0:      	mov	w1, #0x32               // =50
+   a44b4:      	mov	w3, w21
+   a44b8:      	bl	0x240f0 <snprintf@plt>
+   a44bc:      	add	x0, sp, #0x14
+   a44c0:      	mov	w1, #0x2                // =2
+   a44c4:      	bl	0x222c0 <open@plt>
+   a44c8:      	tbnz	w0, #0x1f, 0xa4568 <flex_mdio_xsmi_from_cpu_write_short+0x7e4>
+   a44cc:      	and	w20, w20, #0xffff
+   a44d0:      	mov	w1, #0x706              // =1798
+   a44d4:      	mov	w2, w20
+   a44d8:      	mov	w19, w0
+   a44dc:      	bl	0x23310 <ioctl@plt>
+   a44e0:      	tbnz	w0, #0x1f, 0xa4594 <flex_mdio_xsmi_from_cpu_write_short+0x810>
+   a44e4:      	ldrb	w2, [x22]
+   a44e8:      	mov	w0, w19
+   a44ec:      	mov	w1, w23
+   a44f0:      	bl	0x253e0 <i2c_smbus_write_byte_data@plt>
+   a44f4:      	mov	w24, w0
+   a44f8:      	tbz	w0, #0x1f, 0xa45d0 <flex_mdio_xsmi_from_cpu_write_short+0x84c>
+   a44fc:      	adrp	x8, 0x1ef000
+   a4500:      	adrp	x0, 0x1ef000
+   a4504:      	and	w10, w23, #0xff
+   a4508:      	mov	w1, #0x11               // =17
+   a450c:      	mov	w3, #0x3000000          // =50331648
+   a4510:      	mov	w4, w24
+   a4514:      	ldr	x8, [x8, #0x8d8]
+   a4518:      	mov	w5, w21
+   a451c:      	ldrb	w9, [x22]
+   a4520:      	mov	w6, w21
+   a4524:      	mov	w7, w20
+   a4528:      	ldrh	w2, [x8]
+   a452c:      	ldr	x0, [x0, #0x7a8]
+   a4530:      	str	w9, [sp, #0x8]
+   a4534:      	str	w10, [sp]
+   a4538:      	bl	0x21bc0 <__BTf_444444@plt>
+   a453c:      	b	0xa45d0 <flex_mdio_xsmi_from_cpu_write_short+0x84c>
+   a4540:      	adrp	x8, 0x1ef000
+   a4544:      	adrp	x0, 0x1ef000
+   a4548:      	mov	w1, #0xe                // =14
+   a454c:      	mov	w3, #0x3000000          // =50331648
+   a4550:      	ldr	x8, [x8, #0x8d8]
+   a4554:      	ldrh	w2, [x8]
+   a4558:      	ldr	x0, [x0, #0x7a8]
+   a455c:      	bl	0x22a50 <__BTf_0@plt>
+   a4560:      	mov	w0, #-0x1               // =-1
+   a4564:      	b	0xa45dc <flex_mdio_xsmi_from_cpu_write_short+0x858>
+   a4568:      	adrp	x8, 0x1ef000
+   a456c:      	adrp	x0, 0x1ef000
+   a4570:      	add	x4, sp, #0x14
+   a4574:      	mov	w1, #0x10               // =16
+   a4578:      	mov	w3, #0x3000000          // =50331648
+   a457c:      	ldr	x8, [x8, #0x8d8]
+   a4580:      	ldrh	w2, [x8]
+   a4584:      	ldr	x0, [x0, #0x7a8]
+   a4588:      	bl	0x21fe0 <__BTf_1@plt>
+   a458c:      	mov	w0, #-0x1               // =-1
+   a4590:      	b	0xa45dc <flex_mdio_xsmi_from_cpu_write_short+0x858>
+   a4594:      	adrp	x8, 0x1ef000
+   a4598:      	ldr	x8, [x8, #0x8d8]
+   a459c:      	ldrh	w21, [x8]
+   a45a0:      	bl	0x24610 <__errno_location@plt>
+   a45a4:      	ldr	w0, [x0]
+   a45a8:      	bl	0x22f20 <strerror@plt>
+   a45ac:      	mov	x4, x0
+   a45b0:      	adrp	x0, 0x1ef000
+   a45b4:      	mov	w1, #0x1c               // =28
+   a45b8:      	mov	w2, w21
+   a45bc:      	mov	w3, #0x3000000          // =50331648
+   a45c0:      	mov	w5, w20
+   a45c4:      	ldr	x0, [x0, #0x7a8]
+   a45c8:      	bl	0x21640 <__BTf_14@plt>
+   a45cc:      	mov	w24, #-0x1              // =-1
+   a45d0:      	mov	w0, w19
+   a45d4:      	bl	0x24b30 <close@plt>
+   a45d8:      	asr	w0, w24, #31
+   a45dc:      	adrp	x8, 0x1ef000
+   a45e0:      	ldr	x8, [x8, #0x6c8]
+   a45e4:      	ldur	x9, [x29, #-0x8]
+   a45e8:      	ldr	x8, [x8]
+   a45ec:      	cmp	x8, x9
+   a45f0:      	b.ne	0xa460c <flex_mdio_xsmi_from_cpu_write_short+0x888>
+   a45f4:      	ldp	x20, x19, [sp, #0x80]
+   a45f8:      	ldp	x22, x21, [sp, #0x70]
+   a45fc:      	ldp	x24, x23, [sp, #0x60]
+   a4600:      	ldp	x29, x30, [sp, #0x50]
+   a4604:      	add	sp, sp, #0x90
+   a4608:      	ret
+   a460c:      	bl	0x21f60 <__stack_chk_fail@plt>
+   a4610:      	sub	sp, sp, #0x50
+   a4614:      	stp	x29, x30, [sp, #0x20]
+   a4618:      	str	x21, [sp, #0x30]
+   a461c:      	stp	x20, x19, [sp, #0x40]
+   a4620:      	add	x29, sp, #0x20
+   a4624:      	adrp	x8, 0x1ef000
+   a4628:      	adrp	x9, 0x297000
+   a462c:      	add	x0, sp, #0x10
+   a4630:      	ldr	x8, [x8, #0x6c8]
+   a4634:      	ldr	x8, [x8]
+   a4638:      	stur	x8, [x29, #-0x8]
+   a463c:      	ldr	x8, [x9, #0x130]
+   a4640:      	add	x8, x8, #0x1
+   a4644:      	str	x8, [x9, #0x130]
+   a4648:      	bl	0x22d20 <dash_fpga_get_poe_psu_status@plt>
+   a464c:      	cbz	w0, 0xa467c <flex_mdio_xsmi_from_cpu_write_short+0x8f8>
+   a4650:      	adrp	x8, 0x1ef000
+   a4654:      	mov	w4, w0
+   a4658:      	adrp	x0, 0x1ef000
+   a465c:      	mov	w1, #0x12               // =18
+   a4660:      	mov	w3, #0x3000000          // =50331648
+   a4664:      	ldr	x8, [x8, #0x8d8]
+   a4668:      	ldrh	w2, [x8]
+   a466c:      	ldr	x0, [x0, #0x7a8]
+   a4670:      	bl	0x24fc0 <__BTf_4@plt>
+   a4674:      	mov	w19, #-0x1              // =-1
+   a4678:      	b	0xa4768 <flex_mdio_xsmi_from_cpu_write_short+0x9e4>
+   a467c:      	bl	0x22560 <cmlib_ngio_platform_get_chassis_type@plt>
+   a4680:      	mov	w4, w0
+   a4684:      	sub	w8, w0, #0x5f
+   a4688:      	cmp	w8, #0x37
+   a468c:      	b.hi	0xa4798 <flex_mdio_xsmi_from_cpu_write_short+0xa14>
+   a4690:      	mov	x10, #0x4080000         // =67633152
+   a4694:      	mov	w9, #0x1                // =1
+   a4698:      	movk	x10, #0x40, lsl #32
+   a469c:      	lsl	x9, x9, x8
+   a46a0:      	movk	x10, #0x80, lsl #48
+   a46a4:      	tst	x9, x10
+   a46a8:      	b.eq	0xa46b8 <flex_mdio_xsmi_from_cpu_write_short+0x934>
+   a46ac:      	ldrb	w8, [sp, #0x14]
+   a46b0:      	ldrb	w9, [sp, #0x11]
+   a46b4:      	b	0xa46e4 <flex_mdio_xsmi_from_cpu_write_short+0x960>
+   a46b8:      	cbz	x8, 0xa46dc <flex_mdio_xsmi_from_cpu_write_short+0x958>
+   a46bc:      	cmp	x8, #0x1
+   a46c0:      	b.ne	0xa4798 <flex_mdio_xsmi_from_cpu_write_short+0xa14>
+   a46c4:      	ldrb	w8, [sp, #0x11]
+   a46c8:      	ldrb	w9, [sp, #0x13]
+   a46cc:      	orr	w8, w8, w9
+   a46d0:      	cmp	w8, #0x0
+   a46d4:      	cset	w8, eq
+   a46d8:      	b	0xa46f8 <flex_mdio_xsmi_from_cpu_write_short+0x974>
+   a46dc:      	ldrb	w8, [sp, #0x14]
+   a46e0:      	ldrb	w9, [sp, #0x13]
+   a46e4:      	cmp	w8, #0x0
+   a46e8:      	cset	w8, eq
+   a46ec:      	cmp	w9, #0x0
+   a46f0:      	cset	w9, eq
+   a46f4:      	orr	w8, w8, w9
+   a46f8:      	adrp	x21, 0x1ef000
+   a46fc:      	adrp	x20, 0x1ef000
+   a4700:      	adrp	x9, 0xaa000
+   a4704:      	adrp	x10, 0xaa000
+   a4708:      	add	x9, x9, #0xfb0
+   a470c:      	add	x10, x10, #0xfb5
+   a4710:      	ldr	x21, [x21, #0x8d8]
+   a4714:      	cmp	w8, #0x0
+   a4718:      	csel	x4, x10, x9, ne
+   a471c:      	mov	w1, #0x14               // =20
+   a4720:      	mov	w3, #0x5000000          // =83886080
+   a4724:      	mov	w8, #-0x2               // =-2
+   a4728:      	ldrh	w2, [x21]
+   a472c:      	csel	w19, w8, wzr, ne
+   a4730:      	ldr	x20, [x20, #0x7a8]
+   a4734:      	mov	x0, x20
+   a4738:      	bl	0x21fe0 <__BTf_1@plt>
+   a473c:      	ldrb	w4, [sp, #0x10]
+   a4740:      	mov	x0, x20
+   a4744:      	ldrb	w5, [sp, #0x11]
+   a4748:      	mov	w1, #0x15               // =21
+   a474c:      	ldrb	w6, [sp, #0x12]
+   a4750:      	mov	w3, #0x7000000          // =117440512
+   a4754:      	ldrb	w7, [sp, #0x13]
+   a4758:      	ldrb	w8, [sp, #0x14]
+   a475c:      	ldrh	w2, [x21]
+   a4760:      	str	w8, [sp]
+   a4764:      	bl	0x403b4 <pcl_sisf_rule_init+0xe8>
+   a4768:      	adrp	x8, 0x1ef000
+   a476c:      	ldr	x8, [x8, #0x6c8]
+   a4770:      	ldur	x9, [x29, #-0x8]
+   a4774:      	ldr	x8, [x8]
+   a4778:      	cmp	x8, x9
+   a477c:      	b.ne	0xa47ac <flex_mdio_xsmi_from_cpu_write_short+0xa28>
+   a4780:      	mov	w0, w19
+   a4784:      	ldp	x20, x19, [sp, #0x40]
+   a4788:      	ldp	x29, x30, [sp, #0x20]
+   a478c:      	ldr	x21, [sp, #0x30]
+   a4790:      	add	sp, sp, #0x50
+   a4794:      	ret
+   a4798:      	adrp	x8, 0x1ef000
+   a479c:      	adrp	x0, 0x1ef000
+   a47a0:      	mov	w1, #0x13               // =19
+   a47a4:      	mov	w3, #0x5000000          // =83886080
+   a47a8:      	b	0xa4664 <flex_mdio_xsmi_from_cpu_write_short+0x8e0>
+   a47ac:      	bl	0x21f60 <__stack_chk_fail@plt>
+   a47b0:      	stp	x29, x30, [sp, #-0x10]!
+   a47b4:      	mov	x29, sp
+   a47b8:      	adrp	x8, 0x297000
+   a47bc:      	ldr	x9, [x8, #0x138]
+   a47c0:      	add	x9, x9, #0x1
+   a47c4:      	str	x9, [x8, #0x138]
+   a47c8:      	bl	0x22560 <cmlib_ngio_platform_get_chassis_type@plt>
+   a47cc:      	sub	w8, w0, #0x5f
+   a47d0:      	cmp	w8, #0x1a
+   a47d4:      	b.hi	0xa47f8 <flex_mdio_xsmi_from_cpu_write_short+0xa74>
+   a47d8:      	mov	w9, #0x1                // =1
+   a47dc:      	lsl	w8, w9, w8
+   a47e0:      	mov	w9, #0x1                // =1
+   a47e4:      	movk	w9, #0x408, lsl #16
+   a47e8:      	tst	w8, w9
+   a47ec:      	b.eq	0xa47f8 <flex_mdio_xsmi_from_cpu_write_short+0xa74>
+   a47f0:      	mov	w0, #0x1                // =1
+   a47f4:      	bl	0x21ac0 <dash_fpga_poe_power_ctrl@plt>
+   a47f8:      	adrp	x8, 0x1ef000
+   a47fc:      	adrp	x0, 0x1ef000
+   a4800:      	mov	w1, #0x16               // =22
+   a4804:      	mov	w3, #0x5000000          // =83886080
+   a4808:      	ldr	x8, [x8, #0x8d8]
+   a480c:      	ldrh	w2, [x8]
+   a4810:      	ldr	x0, [x0, #0x7a8]
+   a4814:      	bl	0x22a50 <__BTf_0@plt>
+   a4818:      	mov	w0, wzr
+   a481c:      	ldp	x29, x30, [sp], #0x10
+   a4820:      	ret
+   a4824:      	stp	x29, x30, [sp, #-0x20]!
+   a4828:      	str	x19, [sp, #0x10]
+   a482c:      	mov	x29, sp
+   a4830:      	adrp	x8, 0x297000
+   a4834:      	mov	w0, w1
+   a4838:      	mov	w19, w1
+   a483c:      	ldr	x9, [x8, #0x140]
+   a4840:      	add	x9, x9, #0x1
+   a4844:      	str	x9, [x8, #0x140]
+   a4848:      	bl	0x23c60 <dash_fpga_poe_oss_ctrl@plt>
+   a484c:      	adrp	x8, 0x1ef000
+   a4850:      	adrp	x0, 0x1ef000
+   a4854:      	adrp	x9, 0xab000
+   a4858:      	adrp	x10, 0xac000
+   a485c:      	add	x9, x9, #0x929
+   a4860:      	add	x10, x10, #0xc81
+   a4864:      	ldr	x8, [x8, #0x8d8]
+   a4868:      	cmp	w19, #0x0
+   a486c:      	csel	x4, x10, x9, eq
+   a4870:      	mov	w1, #0x17               // =23
+   a4874:      	mov	w3, #0x5000000          // =83886080
+   a4878:      	ldrh	w2, [x8]
+   a487c:      	ldr	x0, [x0, #0x7a8]
+   a4880:      	bl	0x21fe0 <__BTf_1@plt>
+   a4884:      	mov	w0, wzr
+   a4888:      	ldr	x19, [sp, #0x10]
+   a488c:      	ldp	x29, x30, [sp], #0x20
+   a4890:      	ret
+   a4894:      	stp	x29, x30, [sp, #-0x30]!
+   a4898:      	str	x21, [sp, #0x10]
+   a489c:      	stp	x20, x19, [sp, #0x20]
+   a48a0:      	mov	x29, sp
+   a48a4:      	adrp	x8, 0x297000
+   a48a8:      	and	w20, w0, #0xff
+   a48ac:      	mov	w0, w20
+   a48b0:      	mov	w19, w1
+   a48b4:      	ldr	x9, [x8, #0x148]
+   a48b8:      	add	x9, x9, #0x1
+   a48bc:      	str	x9, [x8, #0x148]
+   a48c0:      	bl	0x23dd0 <flex_intf_get_from_ifnum@plt>
+   a48c4:      	cbz	x0, 0xa491c <flex_mdio_xsmi_from_cpu_write_short+0xb98>
+   a48c8:      	ldr	w8, [x0, #0x18]
+   a48cc:      	mov	x21, x0
+   a48d0:      	cmp	w8, #0x3
+   a48d4:      	ccmp	w8, #0x8, #0x4, ne
+   a48d8:      	b.ne	0xa491c <flex_mdio_xsmi_from_cpu_write_short+0xb98>
+   a48dc:      	mov	x0, x21
+   a48e0:      	mov	w1, w19
+   a48e4:      	bl	0x21770 <flex_intf_poe_led_cfg@plt>
+   a48e8:      	cbz	w0, 0xa4944 <flex_mdio_xsmi_from_cpu_write_short+0xbc0>
+   a48ec:      	adrp	x8, 0x1ef000
+   a48f0:      	adrp	x0, 0x1ef000
+   a48f4:      	mov	w1, #0x19               // =25
+   a48f8:      	mov	w3, #0x3000000          // =50331648
+   a48fc:      	mov	w5, w19
+   a4900:      	ldr	x8, [x8, #0x8d8]
+   a4904:      	ldr	x4, [x21, #0x10]
+   a4908:      	ldrh	w2, [x8]
+   a490c:      	ldr	x0, [x0, #0x7a8]
+   a4910:      	bl	0x21640 <__BTf_14@plt>
+   a4914:      	mov	w0, wzr
+   a4918:      	b	0xa4944 <flex_mdio_xsmi_from_cpu_write_short+0xbc0>
+   a491c:      	adrp	x8, 0x1ef000
+   a4920:      	adrp	x0, 0x1ef000
+   a4924:      	mov	w1, #0x18               // =24
+   a4928:      	mov	w3, #0x3000000          // =50331648
+   a492c:      	mov	w4, w20
+   a4930:      	ldr	x8, [x8, #0x8d8]
+   a4934:      	ldrh	w2, [x8]
+   a4938:      	ldr	x0, [x0, #0x7a8]
+   a493c:      	bl	0x24fc0 <__BTf_4@plt>
+   a4940:      	mov	w0, #-0x1               // =-1
+   a4944:      	ldp	x20, x19, [sp, #0x20]
+   a4948:      	ldr	x21, [sp, #0x10]
+   a494c:      	ldp	x29, x30, [sp], #0x30
+   a4950:      	ret
+
+00000000000a4954 <mirabile_init_fp_poe>:
+   a4954:      	stp	x29, x30, [sp, #-0x30]!
+   a4958:      	str	x21, [sp, #0x10]
+   a495c:      	stp	x20, x19, [sp, #0x20]
+   a4960:      	mov	x29, sp
+   a4964:      	adrp	x8, 0x297000
+   a4968:      	ldr	x9, [x8, #0x150]
+   a496c:      	add	x9, x9, #0x1
+   a4970:      	str	x9, [x8, #0x150]
+   a4974:      	bl	0x22560 <cmlib_ngio_platform_get_chassis_type@plt>
+   a4978:      	sub	w8, w0, #0x5f
+   a497c:      	cmp	w8, #0x37
+   a4980:      	b.hi	0xa4a44 <mirabile_init_fp_poe+0xf0>
+   a4984:      	mov	x10, #0x4080000         // =67633152
+   a4988:      	mov	w9, #0x1                // =1
+   a498c:      	movk	x10, #0x40, lsl #32
+   a4990:      	lsl	x9, x9, x8
+   a4994:      	movk	x10, #0x80, lsl #48
+   a4998:      	tst	x9, x10
+   a499c:      	b.eq	0xa49ec <mirabile_init_fp_poe+0x98>
+   a49a0:      	adrp	x8, 0x1ef000
+   a49a4:      	adrp	x9, 0x1ef000
+   a49a8:      	ldr	x8, [x8, #0xea8]
+   a49ac:      	ldr	x9, [x9, #0x6a0]
+   a49b0:      	str	x9, [x8, #0x278]
+   a49b4:      	bl	0x24b90 <nim_l2ether_plat_get_network_port_num@plt>
+   a49b8:      	cmp	w0, #0x1
+   a49bc:      	b.lt	0xa4a44 <mirabile_init_fp_poe+0xf0>
+   a49c0:      	adrp	x21, 0x1ef000
+   a49c4:      	mov	w19, w0
+   a49c8:      	mov	w20, wzr
+   a49cc:      	ldr	x21, [x21, #0xd80]
+   a49d0:      	mov	w0, w20
+   a49d4:      	bl	0x247b0 <flex_intf_get_network_from_ifnum@plt>
+   a49d8:      	add	w20, w20, #0x1
+   a49dc:      	str	x21, [x0, #0x360]
+   a49e0:      	cmp	w19, w20
+   a49e4:      	b.ne	0xa49d0 <mirabile_init_fp_poe+0x7c>
+   a49e8:      	b	0xa4a44 <mirabile_init_fp_poe+0xf0>
+   a49ec:      	mov	w9, #0x1                // =1
+   a49f0:      	lsl	x8, x9, x8
+   a49f4:      	tst	x8, #0x3
+   a49f8:      	b.eq	0xa4a44 <mirabile_init_fp_poe+0xf0>
+   a49fc:      	adrp	x8, 0x1ef000
+   a4a00:      	adrp	x9, 0x1ef000
+   a4a04:      	ldr	x8, [x8, #0xea8]
+   a4a08:      	ldr	x9, [x9, #0x6a0]
+   a4a0c:      	str	x9, [x8, #0x278]
+   a4a10:      	bl	0x24b90 <nim_l2ether_plat_get_network_port_num@plt>
+   a4a14:      	cmp	w0, #0x1
+   a4a18:      	b.lt	0xa4a44 <mirabile_init_fp_poe+0xf0>
+   a4a1c:      	adrp	x21, 0x1ef000
+   a4a20:      	mov	w19, w0
+   a4a24:      	mov	w20, wzr
+   a4a28:      	ldr	x21, [x21, #0x530]
+   a4a2c:      	mov	w0, w20
+   a4a30:      	bl	0x247b0 <flex_intf_get_network_from_ifnum@plt>
+   a4a34:      	add	w20, w20, #0x1
+   a4a38:      	str	x21, [x0, #0x360]
+   a4a3c:      	cmp	w19, w20
+   a4a40:      	b.ne	0xa4a2c <mirabile_init_fp_poe+0xd8>
+   a4a44:      	bl	0x26090 <dash_fpga_initialize@plt>
+   a4a48:      	cbz	w0, 0xa4a7c <mirabile_init_fp_poe+0x128>
+   a4a4c:      	adrp	x8, 0x1ef000
+   a4a50:      	mov	w4, w0
+   a4a54:      	adrp	x0, 0x1ef000
+   a4a58:      	mov	w1, #0x1a               // =26
+   a4a5c:      	ldr	x8, [x8, #0x8d8]
+   a4a60:      	ldr	x0, [x0, #0x7a8]
+   a4a64:      	ldrh	w2, [x8]
+   a4a68:      	mov	w3, #0x3000000          // =50331648
+   a4a6c:      	ldp	x20, x19, [sp, #0x20]
+   a4a70:      	ldr	x21, [sp, #0x10]
+   a4a74:      	ldp	x29, x30, [sp], #0x30
+   a4a78:      	b	0x24fc0 <__BTf_4@plt>
+   a4a7c:      	ldp	x20, x19, [sp, #0x20]
+   a4a80:      	ldr	x21, [sp, #0x10]
+   a4a84:      	ldp	x29, x30, [sp], #0x30
+   a4a88:      	ret
+
+[Generic callback, not the selected Arata callback: 0x482e0–0x4845c, end exclusive]
+
+tmp/c8235-poe-software-next-20261107/libmirabilesw.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+00000000000482e0 <flex_dash_fpga_poe_dc_present>:
+   482e0:      	sub	sp, sp, #0x50
+   482e4:      	stp	x29, x30, [sp, #0x20]
+   482e8:      	str	x21, [sp, #0x30]
+   482ec:      	stp	x20, x19, [sp, #0x40]
+   482f0:      	add	x29, sp, #0x20
+   482f4:      	adrp	x8, 0x1ef000
+   482f8:      	adrp	x9, 0x295000
+   482fc:      	add	x0, sp, #0x10
+   48300:      	ldr	x8, [x8, #0x6c8]
+   48304:      	ldr	x8, [x8]
+   48308:      	stur	x8, [x29, #-0x8]
+   4830c:      	ldr	x8, [x9, #0xaf0]
+   48310:      	add	x8, x8, #0x1
+   48314:      	str	x8, [x9, #0xaf0]
+   48318:      	bl	0x22d20 <dash_fpga_get_poe_psu_status@plt>
+   4831c:      	cbz	w0, 0x4834c <flex_dash_fpga_poe_dc_present+0x6c>
+   48320:      	adrp	x8, 0x1ef000
+   48324:      	mov	w4, w0
+   48328:      	adrp	x0, 0x1ef000
+   4832c:      	mov	w1, #0x9                // =9
+   48330:      	mov	w3, #0x3000000          // =50331648
+   48334:      	ldr	x8, [x8, #0x798]
+   48338:      	ldrh	w2, [x8]
+   4833c:      	ldr	x0, [x0, #0x970]
+   48340:      	bl	0x24fc0 <__BTf_4@plt>
+   48344:      	mov	w19, #-0x1              // =-1
+   48348:      	b	0x483dc <flex_dash_fpga_poe_dc_present+0xfc>
+   4834c:      	adrp	x21, 0x1ef000
+   48350:      	ldrb	w8, [sp, #0x14]
+   48354:      	ldrb	w9, [sp, #0x15]
+   48358:      	adrp	x20, 0x1ef000
+   4835c:      	adrp	x10, 0xaa000
+   48360:      	adrp	x11, 0xaa000
+   48364:      	ldr	x21, [x21, #0x798]
+   48368:      	cmp	w8, #0x0
+   4836c:      	cset	w8, ne
+   48370:      	cmp	w9, #0x0
+   48374:      	cset	w9, ne
+   48378:      	add	x10, x10, #0xfb5
+   4837c:      	ldrh	w2, [x21]
+   48380:      	add	x11, x11, #0xfb0
+   48384:      	ldr	x20, [x20, #0x970]
+   48388:      	tst	w8, w9
+   4838c:      	csel	x4, x11, x10, ne
+   48390:      	mov	w1, #0xa                // =10
+   48394:      	mov	w3, #0x7000000          // =117440512
+   48398:      	mov	w8, #-0x2               // =-2
+   4839c:      	mov	x0, x20
+   483a0:      	csel	w19, wzr, w8, ne
+   483a4:      	bl	0x21fe0 <__BTf_1@plt>
+   483a8:      	ldrb	w4, [sp, #0x10]
+   483ac:      	mov	x0, x20
+   483b0:      	ldrb	w5, [sp, #0x11]
+   483b4:      	mov	w1, #0xb                // =11
+   483b8:      	ldrb	w6, [sp, #0x12]
+   483bc:      	mov	w3, #0x7000000          // =117440512
+   483c0:      	ldrb	w7, [sp, #0x13]
+   483c4:      	ldrb	w8, [sp, #0x14]
+   483c8:      	ldrb	w9, [sp, #0x15]
+   483cc:      	ldrh	w2, [x21]
+   483d0:      	str	w8, [sp]
+   483d4:      	str	w9, [sp, #0x8]
+   483d8:      	bl	0x21bc0 <__BTf_444444@plt>
+   483dc:      	adrp	x8, 0x1ef000
+   483e0:      	ldr	x8, [x8, #0x6c8]
+   483e4:      	ldur	x9, [x29, #-0x8]
+   483e8:      	ldr	x8, [x8]
+   483ec:      	cmp	x8, x9
+   483f0:      	b.ne	0x4840c <flex_dash_fpga_poe_dc_present+0x12c>
+   483f4:      	mov	w0, w19
+   483f8:      	ldp	x20, x19, [sp, #0x40]
+   483fc:      	ldp	x29, x30, [sp, #0x20]
+   48400:      	ldr	x21, [sp, #0x30]
+   48404:      	add	sp, sp, #0x50
+   48408:      	ret
+   4840c:      	bl	0x21f60 <__stack_chk_fail@plt>
+
+0000000000048410 <flex_dash_fpga_poe_dc_enable>:
+   48410:      	stp	x29, x30, [sp, #-0x10]!
+   48414:      	mov	x29, sp
+   48418:      	adrp	x8, 0x295000
+   4841c:      	mov	w0, #0x1                // =1
+   48420:      	ldr	x9, [x8, #0xaf8]
+   48424:      	add	x9, x9, #0x1
+   48428:      	str	x9, [x8, #0xaf8]
+   4842c:      	bl	0x21ac0 <dash_fpga_poe_power_ctrl@plt>
+   48430:      	adrp	x8, 0x1ef000
+   48434:      	adrp	x0, 0x1ef000
+   48438:      	mov	w1, #0xc                // =12
+   4843c:      	mov	w3, #0x5000000          // =83886080
+   48440:      	ldr	x8, [x8, #0x798]
+   48444:      	ldrh	w2, [x8]
+   48448:      	ldr	x0, [x0, #0x970]
+   4844c:      	bl	0x22a50 <__BTf_0@plt>
+   48450:      	mov	w0, wzr
+   48454:      	ldp	x29, x30, [sp], #0x10
+   48458:      	ret
+
+[Native presence gate: 0x872e8–0x873a0, end exclusive]
+
+tmp/c8235-poe-software-next-20261107/libmirabilesw.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000086e3c <flex_poe_init>:
+   872e8:      	adrp	x8, 0x287000 <mac_flt_dbg+0x8380c>
+   872ec:      	ldr	w8, [x8, #0xd38]
+   872f0:      	cmp	w8, #0x0
+   872f4:      	b.le	0x87380 <flex_poe_init+0x544>
+   872f8:      	adrp	x21, 0x1ef000
+   872fc:      	ldr	x21, [x21, #0xea8]
+   87300:      	ldr	x8, [x21, #0x278]
+   87304:      	cbz	x8, 0x87370 <flex_poe_init+0x534>
+   87308:      	ldr	x9, [x8]
+   8730c:      	cbz	x9, 0x87370 <flex_poe_init+0x534>
+   87310:      	ldr	x10, [x8, #0x8]
+   87314:      	cbz	x10, 0x87370 <flex_poe_init+0x534>
+   87318:      	adrp	x10, 0x287000 <mac_flt_dbg+0x8380c>
+   8731c:      	adrp	x11, 0x87000 <flex_poe_init+0x1c4>
+   87320:      	adrp	x12, 0x87000 <flex_poe_init+0x1c4>
+   87324:      	add	x10, x10, #0xd40
+   87328:      	add	x11, x11, #0xb20
+   8732c:      	add	x12, x12, #0xd04
+   87330:      	ldr	x8, [x8, #0x20]
+   87334:      	stp	x11, x12, [x10]
+   87338:      	adrp	x11, 0x87000 <flex_poe_init+0x1c4>
+   8733c:      	adrp	x12, 0x86000 <flex_pm_task_clean+0x11f4>
+   87340:      	add	x11, x11, #0xe48
+   87344:      	add	x12, x12, #0xddc
+   87348:      	stp	x11, x12, [x10, #0x10]
+   8734c:      	adrp	x11, 0x87000 <flex_poe_init+0x1c4>
+   87350:      	add	x11, x11, #0xea8
+   87354:      	stp	x8, x11, [x10, #0x20]
+   87358:      	blr	x9
+   8735c:      	cbz	w0, 0x879b4 <flex_poe_init+0xb78>
+   87360:      	adrp	x0, 0x1ef000
+   87364:      	ldrh	w2, [x28]
+   87368:      	mov	w1, #0x4                // =4
+   8736c:      	b	0x8738c <flex_poe_init+0x550>
+   87370:      	adrp	x0, 0x1ef000
+   87374:      	ldrh	w2, [x28]
+   87378:      	mov	w1, #0x3                // =3
+   8737c:      	b	0x874a8 <flex_poe_init+0x66c>
+   87380:      	adrp	x0, 0x1ef000
+   87384:      	ldrh	w2, [x28]
+   87388:      	mov	w1, #0x2                // =2
+   8738c:      	ldr	x0, [x0, #0x6d8]
+   87390:      	mov	w3, #0x5000000          // =83886080
+   87394:      	bl	0x22a50 <__BTf_0@plt>
+   87398:      	mov	w0, wzr
+   8739c:      	b	0x874b8 <flex_poe_init+0x67c>
+
+[Enable/reset/init/CLI-registration sequence: 0x879b4–0x87b20, end exclusive]
+
+tmp/c8235-poe-software-next-20261107/libmirabilesw.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000086e3c <flex_poe_init>:
+   879b4:      	ldr	x8, [x21, #0x278]
+   879b8:      	ldr	x8, [x8, #0x8]
+   879bc:      	blr	x8
+   879c0:      	cbz	w0, 0x879f0 <flex_poe_init+0xbb4>
+   879c4:      	adrp	x0, 0x1ef000
+   879c8:      	ldrh	w2, [x28]
+   879cc:      	mov	w1, #0x5                // =5
+   879d0:      	b	0x874a8 <flex_poe_init+0x66c>
+   879d4:      	adrp	x0, 0x1ef000
+   879d8:      	ldrh	w2, [x28]
+   879dc:      	mov	w1, #0x23               // =35
+   879e0:      	mov	w3, #0x3000000          // =50331648
+   879e4:      	mov	w4, w27
+   879e8:      	ldr	x0, [x0, #0x6d8]
+   879ec:      	b	0x87498 <flex_poe_init+0x65c>
+   879f0:      	ldr	w8, [x25, #0xd34]
+   879f4:      	cmp	w8, #0x1
+   879f8:      	b.lt	0x87a4c <flex_poe_init+0xc10>
+   879fc:      	adrp	x20, 0x1ef000
+   87a00:      	mov	w19, wzr
+   87a04:      	ldr	x20, [x20, #0x6d8]
+   87a08:      	b	0x87a28 <flex_poe_init+0xbec>
+   87a0c:      	mov	w0, w19
+   87a10:      	mov	w1, wzr
+   87a14:      	blr	x8
+   87a18:      	ldr	w8, [x25, #0xd34]
+   87a1c:      	add	w19, w19, #0x1
+   87a20:      	cmp	w19, w8
+   87a24:      	b.ge	0x87a4c <flex_poe_init+0xc10>
+   87a28:      	ldr	x8, [x21, #0x278]
+   87a2c:      	ldr	x8, [x8, #0x10]
+   87a30:      	cbnz	x8, 0x87a0c <flex_poe_init+0xbd0>
+   87a34:      	ldrh	w2, [x28]
+   87a38:      	mov	x0, x20
+   87a3c:      	mov	w1, #0x30               // =48
+   87a40:      	mov	w3, #0x3000000          // =50331648
+   87a44:      	bl	0x22a50 <__BTf_0@plt>
+   87a48:      	b	0x87a18 <flex_poe_init+0xbdc>
+   87a4c:      	mov	w0, #0xc350             // =50000
+   87a50:      	bl	0x243d0 <usleep@plt>
+   87a54:      	bl	0x87ee8 <flex_poe_init+0x10ac>
+   87a58:      	cbnz	w0, 0x87ab8 <flex_poe_init+0xc7c>
+   87a5c:      	adrp	x0, 0x1ef000
+   87a60:      	ldrh	w2, [x28]
+   87a64:      	mov	w1, #0x6                // =6
+   87a68:      	mov	w3, #0x5000000          // =83886080
+   87a6c:      	ldr	x0, [x0, #0x6d8]
+   87a70:      	bl	0x22a50 <__BTf_0@plt>
+   87a74:      	ldr	w8, [x25, #0xd34]
+   87a78:      	cmp	w8, #0x1
+   87a7c:      	b.lt	0x87ab8 <flex_poe_init+0xc7c>
+   87a80:      	adrp	x19, 0x88000 <flex_poe_init+0x11c4>
+   87a84:      	adrp	x20, 0xb2000
+   87a88:      	mov	w21, wzr
+   87a8c:      	add	x19, x19, #0x618
+   87a90:      	add	x20, x20, #0x51b
+   87a94:      	and	w1, w21, #0xff
+   87a98:      	mov	x0, x19
+   87a9c:      	mov	x2, xzr
+   87aa0:      	mov	x3, x20
+   87aa4:      	bl	0x22b50 <sw_wdog_disable_block@plt>
+   87aa8:      	ldr	w8, [x25, #0xd34]
+   87aac:      	add	w21, w21, #0x1
+   87ab0:      	cmp	w21, w8
+   87ab4:      	b.lt	0x87a94 <flex_poe_init+0xc58>
+   87ab8:      	adrp	x0, 0xb2000
+   87abc:      	adrp	x2, 0x88000 <flex_poe_init+0x11c4>
+   87ac0:      	add	x0, x0, #0x2fe
+   87ac4:      	add	x2, x2, #0x10
+   87ac8:      	mov	x1, x0
+   87acc:      	bl	0x25910 <nim_l2ether_cli_register@plt>
+   87ad0:      	adrp	x8, 0x1ef000
+   87ad4:      	mov	w9, #0x1                // =1
+   87ad8:      	mov	w0, wzr
+   87adc:      	ldr	x8, [x8, #0xaf0]
+   87ae0:      	str	w9, [x8]
+   87ae4:      	b	0x874b8 <flex_poe_init+0x67c>
+   87ae8:      	adrp	x0, 0x1ef000
+   87aec:      	mov	w1, #0x21               // =33
+   87af0:      	mov	w3, #0x3000000          // =50331648
+   87af4:      	ldr	x0, [x0, #0x6d8]
+   87af8:      	bl	0x22a50 <__BTf_0@plt>
+   87afc:      	b	0x8749c <flex_poe_init+0x660>
+   87b00:      	adrp	x0, 0x1ef000
+   87b04:      	ldrh	w2, [x28]
+   87b08:      	mov	w1, #0x26               // =38
+   87b0c:      	mov	w3, #0x3000000          // =50331648
+   87b10:      	mov	w4, w25
+   87b14:      	ldr	x0, [x0, #0x6d8]
+   87b18:      	b	0x87498 <flex_poe_init+0x65c>
+   87b1c:      	bl	0x21f60 <__stack_chk_fail@plt>
+
+[Register read helper and operating-state check: 0x87b20–0x88010, end exclusive]
+
+tmp/c8235-poe-software-next-20261107/libmirabilesw.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000086e3c <flex_poe_init>:
+   87b20:      	stp	x29, x30, [sp, #-0x30]!
+   87b24:      	str	x21, [sp, #0x10]
+   87b28:      	stp	x20, x19, [sp, #0x20]
+   87b2c:      	mov	x29, sp
+   87b30:      	adrp	x8, 0x296000
+   87b34:      	adrp	x9, 0x287000 <mac_flt_dbg+0x8380c>
+   87b38:      	and	w20, w0, #0xff
+   87b3c:      	ldr	x10, [x8, #0x9f8]
+   87b40:      	ldr	w9, [x9, #0xd38]
+   87b44:      	add	x10, x10, #0x1
+   87b48:      	cmp	w9, w20
+   87b4c:      	str	x10, [x8, #0x9f8]
+   87b50:      	b.le	0x87bd8 <flex_poe_init+0xd9c>
+   87b54:      	adrp	x8, 0x1ef000
+   87b58:      	and	x9, x0, #0xff
+   87b5c:      	mov	w10, #0x38              // =56
+   87b60:      	mov	w12, #0x2c              // =44
+   87b64:      	mov	x19, x2
+   87b68:      	mov	w21, w1
+   87b6c:      	ldr	x8, [x8, #0xa88]
+   87b70:      	mov	w2, w21
+   87b74:      	mov	x3, x19
+   87b78:      	madd	x8, x9, x10, x8
+   87b7c:      	adrp	x9, 0x1ef000
+   87b80:      	ldr	x9, [x9, #0xd48]
+   87b84:      	ldrsw	x11, [x8]
+   87b88:      	ldr	x10, [x8, #0x8]
+   87b8c:      	ldr	w1, [x8, #0x2c]
+   87b90:      	madd	x9, x11, x12, x9
+   87b94:      	ldr	x10, [x10, #0x360]
+   87b98:      	ldr	x10, [x10]
+   87b9c:      	ldr	w0, [x9, #0x8]
+   87ba0:      	blr	x10
+   87ba4:      	cbz	w0, 0x87c04 <flex_poe_init+0xdc8>
+   87ba8:      	adrp	x8, 0x1ef000
+   87bac:      	adrp	x0, 0x1ef000
+   87bb0:      	and	w5, w21, #0xff
+   87bb4:      	mov	w1, #0x29               // =41
+   87bb8:      	mov	w3, #0x3000000          // =50331648
+   87bbc:      	mov	w4, w20
+   87bc0:      	ldr	x8, [x8, #0x8d8]
+   87bc4:      	ldrh	w2, [x8]
+   87bc8:      	ldr	x0, [x0, #0x6d8]
+   87bcc:      	bl	0x219d0 <__BTf_44@plt>
+   87bd0:      	mov	w0, #-0x1               // =-1
+   87bd4:      	b	0x87cf4 <flex_poe_init+0xeb8>
+   87bd8:      	adrp	x8, 0x1ef000
+   87bdc:      	adrp	x0, 0x1ef000
+   87be0:      	mov	w1, #0x28               // =40
+   87be4:      	mov	w3, #0x3000000          // =50331648
+   87be8:      	mov	w4, w20
+   87bec:      	ldr	x8, [x8, #0x8d8]
+   87bf0:      	ldrh	w2, [x8]
+   87bf4:      	ldr	x0, [x0, #0x6d8]
+   87bf8:      	bl	0x24fc0 <__BTf_4@plt>
+   87bfc:      	mov	w0, #-0x1               // =-1
+   87c00:      	b	0x87cf4 <flex_poe_init+0xeb8>
+   87c04:      	ands	w4, w21, #0xff
+   87c08:      	b.eq	0x87c6c <flex_poe_init+0xe30>
+   87c0c:      	and	w8, w21, #0xf0
+   87c10:      	cmp	w8, #0x30
+   87c14:      	b.ne	0x87ccc <flex_poe_init+0xe90>
+   87c18:      	adrp	x8, 0x288000 <poe_init_done+0x2d0>
+   87c1c:      	mov	w10, #0x78d5            // =30933
+   87c20:      	movk	w10, #0x26e9, lsl #16
+   87c24:      	mov	w11, #0x24d8            // =9432
+   87c28:      	movk	w11, #0x106, lsl #16
+   87c2c:      	ldr	w9, [x8, #0x8]
+   87c30:      	add	w9, w9, #0x1
+   87c34:      	madd	w10, w9, w10, w11
+   87c38:      	mov	w11, #0x8936            // =35126
+   87c3c:      	movk	w11, #0x41, lsl #16
+   87c40:      	str	w9, [x8, #0x8]
+   87c44:      	ror	w10, w10, #0x3
+   87c48:      	cmp	w10, w11
+   87c4c:      	b.hi	0x87cf0 <flex_poe_init+0xeb4>
+   87c50:      	adrp	x8, 0x1ef000
+   87c54:      	adrp	x0, 0x1ef000
+   87c58:      	mov	w1, #0x2b               // =43
+   87c5c:      	mov	w3, #0x5000000          // =83886080
+   87c60:      	ldr	x8, [x8, #0x8d8]
+   87c64:      	ldrb	w5, [x19]
+   87c68:      	b	0x87ce4 <flex_poe_init+0xea8>
+   87c6c:      	ldrb	w5, [x19]
+   87c70:      	orr	w8, w5, #0x80
+   87c74:      	cmp	w8, #0x80
+   87c78:      	b.ne	0x87cd0 <flex_poe_init+0xe94>
+   87c7c:      	adrp	x8, 0x288000 <poe_init_done+0x2d0>
+   87c80:      	mov	w10, #0xc963            // =51555
+   87c84:      	movk	w10, #0x962f, lsl #16
+   87c88:      	mov	w11, #0xe818            // =59416
+   87c8c:      	movk	w11, #0x1b4, lsl #16
+   87c90:      	ldr	w9, [x8, #0x4]
+   87c94:      	add	w9, w9, #0x1
+   87c98:      	madd	w10, w9, w10, w11
+   87c9c:      	mov	w11, #0x740c            // =29708
+   87ca0:      	movk	w11, #0xda, lsl #16
+   87ca4:      	str	w9, [x8, #0x4]
+   87ca8:      	ror	w10, w10, #0x2
+   87cac:      	cmp	w10, w11
+   87cb0:      	b.hi	0x87cf0 <flex_poe_init+0xeb4>
+   87cb4:      	adrp	x8, 0x1ef000
+   87cb8:      	adrp	x0, 0x1ef000
+   87cbc:      	mov	w1, #0x2a               // =42
+   87cc0:      	mov	w3, #0x5000000          // =83886080
+   87cc4:      	mov	w4, wzr
+   87cc8:      	b	0x87ce0 <flex_poe_init+0xea4>
+   87ccc:      	ldrb	w5, [x19]
+   87cd0:      	adrp	x8, 0x1ef000
+   87cd4:      	adrp	x0, 0x1ef000
+   87cd8:      	mov	w1, #0x2c               // =44
+   87cdc:      	mov	w3, #0x7000000          // =117440512
+   87ce0:      	ldr	x8, [x8, #0x8d8]
+   87ce4:      	ldrh	w2, [x8]
+   87ce8:      	ldr	x0, [x0, #0x6d8]
+   87cec:      	bl	0x219d0 <__BTf_44@plt>
+   87cf0:      	mov	w0, wzr
+   87cf4:      	ldp	x20, x19, [sp, #0x20]
+   87cf8:      	ldr	x21, [sp, #0x10]
+   87cfc:      	ldp	x29, x30, [sp], #0x30
+   87d00:      	ret
+   87d04:      	sub	sp, sp, #0x30
+   87d08:      	stp	x29, x30, [sp, #0x10]
+   87d0c:      	stp	x20, x19, [sp, #0x20]
+   87d10:      	add	x29, sp, #0x10
+   87d14:      	adrp	x8, 0x1ef000
+   87d18:      	adrp	x9, 0x296000
+   87d1c:      	and	w19, w0, #0xff
+   87d20:      	ldr	x8, [x8, #0x6c8]
+   87d24:      	ldr	x8, [x8]
+   87d28:      	str	x8, [sp, #0x8]
+   87d2c:      	adrp	x8, 0x287000 <mac_flt_dbg+0x8380c>
+   87d30:      	ldr	x10, [x9, #0xa00]
+   87d34:      	strb	w2, [sp, #0x4]
+   87d38:      	ldr	w8, [x8, #0xd38]
+   87d3c:      	add	x10, x10, #0x1
+   87d40:      	cmp	w8, w19
+   87d44:      	str	x10, [x9, #0xa00]
+   87d48:      	b.le	0x87dd0 <flex_poe_init+0xf94>
+   87d4c:      	adrp	x8, 0x1ef000
+   87d50:      	and	x9, x0, #0xff
+   87d54:      	mov	w10, #0x38              // =56
+   87d58:      	mov	w12, #0x2c              // =44
+   87d5c:      	mov	w20, w1
+   87d60:      	add	x3, sp, #0x4
+   87d64:      	ldr	x8, [x8, #0xa88]
+   87d68:      	mov	w2, w20
+   87d6c:      	madd	x8, x9, x10, x8
+   87d70:      	adrp	x9, 0x1ef000
+   87d74:      	ldr	x9, [x9, #0xd48]
+   87d78:      	ldrsw	x11, [x8]
+   87d7c:      	ldr	x10, [x8, #0x8]
+   87d80:      	ldr	w1, [x8, #0x2c]
+   87d84:      	madd	x9, x11, x12, x9
+   87d88:      	ldr	x10, [x10, #0x360]
+   87d8c:      	ldr	x10, [x10, #0x8]
+   87d90:      	ldr	w0, [x9, #0x8]
+   87d94:      	blr	x10
+   87d98:      	adrp	x8, 0x1ef000
+   87d9c:      	ldr	x8, [x8, #0x8d8]
+   87da0:      	ldrh	w2, [x8]
+   87da4:      	cbz	w0, 0x87dfc <flex_poe_init+0xfc0>
+   87da8:      	adrp	x0, 0x1ef000
+   87dac:      	ldrb	w5, [sp, #0x4]
+   87db0:      	and	w6, w20, #0xff
+   87db4:      	mov	w1, #0x2e               // =46
+   87db8:      	mov	w3, #0x3000000          // =50331648
+   87dbc:      	mov	w4, w19
+   87dc0:      	ldr	x0, [x0, #0x6d8]
+   87dc4:      	bl	0x242d0 <__BTf_444@plt>
+   87dc8:      	mov	w0, #-0x1               // =-1
+   87dcc:      	b	0x87e1c <flex_poe_init+0xfe0>
+   87dd0:      	adrp	x8, 0x1ef000
+   87dd4:      	adrp	x0, 0x1ef000
+   87dd8:      	mov	w1, #0x2d               // =45
+   87ddc:      	mov	w3, #0x3000000          // =50331648
+   87de0:      	mov	w4, w19
+   87de4:      	ldr	x8, [x8, #0x8d8]
+   87de8:      	ldrh	w2, [x8]
+   87dec:      	ldr	x0, [x0, #0x6d8]
+   87df0:      	bl	0x24fc0 <__BTf_4@plt>
+   87df4:      	mov	w0, #-0x1               // =-1
+   87df8:      	b	0x87e1c <flex_poe_init+0xfe0>
+   87dfc:      	adrp	x0, 0x1ef000
+   87e00:      	and	w4, w20, #0xff
+   87e04:      	ldrb	w5, [sp, #0x4]
+   87e08:      	mov	w1, #0x2f               // =47
+   87e0c:      	mov	w3, #0x7000000          // =117440512
+   87e10:      	ldr	x0, [x0, #0x6d8]
+   87e14:      	bl	0x219d0 <__BTf_44@plt>
+   87e18:      	mov	w0, wzr
+   87e1c:      	adrp	x8, 0x1ef000
+   87e20:      	ldr	x8, [x8, #0x6c8]
+   87e24:      	ldr	x9, [sp, #0x8]
+   87e28:      	ldr	x8, [x8]
+   87e2c:      	cmp	x8, x9
+   87e30:      	b.ne	0x87e44 <flex_poe_init+0x1008>
+   87e34:      	ldp	x20, x19, [sp, #0x20]
+   87e38:      	ldp	x29, x30, [sp, #0x10]
+   87e3c:      	add	sp, sp, #0x30
+   87e40:      	ret
+   87e44:      	bl	0x21f60 <__stack_chk_fail@plt>
+   87e48:      	stp	x29, x30, [sp, #-0x10]!
+   87e4c:      	mov	x29, sp
+   87e50:      	adrp	x9, 0x1ef000
+   87e54:      	adrp	x8, 0x296000
+   87e58:      	ldr	x9, [x9, #0xea8]
+   87e5c:      	ldr	x10, [x8, #0xa08]
+   87e60:      	ldr	x9, [x9, #0x278]
+   87e64:      	add	x10, x10, #0x1
+   87e68:      	ldr	x2, [x9, #0x10]
+   87e6c:      	str	x10, [x8, #0xa08]
+   87e70:      	cbz	x2, 0x87e7c <flex_poe_init+0x1040>
+   87e74:      	ldp	x29, x30, [sp], #0x10
+   87e78:      	br	x2
+   87e7c:      	adrp	x8, 0x1ef000
+   87e80:      	adrp	x0, 0x1ef000
+   87e84:      	mov	w1, #0x30               // =48
+   87e88:      	mov	w3, #0x3000000          // =50331648
+   87e8c:      	ldr	x8, [x8, #0x8d8]
+   87e90:      	ldrh	w2, [x8]
+   87e94:      	ldr	x0, [x0, #0x6d8]
+   87e98:      	bl	0x22a50 <__BTf_0@plt>
+   87e9c:      	mov	w0, #-0x1               // =-1
+   87ea0:      	ldp	x29, x30, [sp], #0x10
+   87ea4:      	ret
+   87ea8:      	stp	x29, x30, [sp, #-0x10]!
+   87eac:      	mov	x29, sp
+   87eb0:      	adrp	x8, 0x296000
+   87eb4:      	and	x1, x0, #0xff
+   87eb8:      	adrp	x0, 0x88000 <flex_poe_init+0x11c4>
+   87ebc:      	adrp	x3, 0xb2000
+   87ec0:      	add	x0, x0, #0x618
+   87ec4:      	add	x3, x3, #0x51b
+   87ec8:      	ldr	x9, [x8, #0xa10]
+   87ecc:      	mov	x2, xzr
+   87ed0:      	add	x9, x9, #0x1
+   87ed4:      	str	x9, [x8, #0xa10]
+   87ed8:      	bl	0x22b50 <sw_wdog_disable_block@plt>
+   87edc:      	mov	w0, wzr
+   87ee0:      	ldp	x29, x30, [sp], #0x10
+   87ee4:      	ret
+   87ee8:      	sub	sp, sp, #0x30
+   87eec:      	stp	x29, x30, [sp, #0x10]
+   87ef0:      	stp	x20, x19, [sp, #0x20]
+   87ef4:      	add	x29, sp, #0x10
+   87ef8:      	adrp	x8, 0x1ef000
+   87efc:      	adrp	x9, 0x296000
+   87f00:      	adrp	x20, 0x287000 <mac_flt_dbg+0x8380c>
+   87f04:      	ldr	x8, [x8, #0x6c8]
+   87f08:      	ldr	x8, [x8]
+   87f0c:      	str	x8, [sp, #0x8]
+   87f10:      	ldr	x8, [x9, #0xa18]
+   87f14:      	strb	wzr, [sp, #0x4]
+   87f18:      	ldr	w10, [x20, #0xd38]
+   87f1c:      	strb	wzr, [sp]
+   87f20:      	add	x8, x8, #0x1
+   87f24:      	cmp	w10, #0x1
+   87f28:      	str	x8, [x9, #0xa18]
+   87f2c:      	b.lt	0x87f70 <flex_poe_init+0x1134>
+   87f30:      	mov	w19, wzr
+   87f34:      	add	x2, sp, #0x4
+   87f38:      	mov	w0, w19
+   87f3c:      	mov	w1, #0x10               // =16
+   87f40:      	bl	0x87b20 <flex_poe_init+0xce4>
+   87f44:      	ldrb	w8, [sp, #0x4]
+   87f48:      	lsr	w5, w8, #4
+   87f4c:      	cmp	w8, #0x10
+   87f50:      	strb	w5, [sp, #0x4]
+   87f54:      	b.hs	0x87f80 <flex_poe_init+0x1144>
+   87f58:      	ldr	w8, [x20, #0xd38]
+   87f5c:      	add	w19, w19, #0x1
+   87f60:      	cmp	w19, w8
+   87f64:      	b.lt	0x87f34 <flex_poe_init+0x10f8>
+   87f68:      	mov	w7, wzr
+   87f6c:      	b	0x87fa0 <flex_poe_init+0x1164>
+   87f70:      	mov	w7, wzr
+   87f74:      	mov	w5, wzr
+   87f78:      	mov	w19, wzr
+   87f7c:      	b	0x87fa0 <flex_poe_init+0x1164>
+   87f80:      	mov	x2, sp
+   87f84:      	mov	w0, w19
+   87f88:      	mov	w1, #0x15               // =21
+   87f8c:      	bl	0x87b20 <flex_poe_init+0xce4>
+   87f90:      	ldrb	w8, [sp]
+   87f94:      	ldrb	w5, [sp, #0x4]
+   87f98:      	lsr	w7, w8, #4
+   87f9c:      	strb	w7, [sp]
+   87fa0:      	adrp	x8, 0x1ef000
+   87fa4:      	adrp	x0, 0x1ef000
+   87fa8:      	mov	w1, #0x31               // =49
+   87fac:      	mov	w3, #0x5000000          // =83886080
+   87fb0:      	mov	w4, w19
+   87fb4:      	mov	w6, w19
+   87fb8:      	ldr	x8, [x8, #0x8d8]
+   87fbc:      	ldrh	w2, [x8]
+   87fc0:      	ldr	x0, [x0, #0x6d8]
+   87fc4:      	bl	0x250b0 <__BTf_4444@plt>
+   87fc8:      	adrp	x10, 0x1ef000
+   87fcc:      	ldrb	w8, [sp, #0x4]
+   87fd0:      	ldrb	w9, [sp]
+   87fd4:      	ldr	x10, [x10, #0x6c8]
+   87fd8:      	cmp	w8, #0x0
+   87fdc:      	ldr	x11, [sp, #0x8]
+   87fe0:      	cset	w8, ne
+   87fe4:      	cmp	w9, #0xf
+   87fe8:      	ldr	x10, [x10]
+   87fec:      	cset	w9, ne
+   87ff0:      	cmp	x10, x11
+   87ff4:      	b.ne	0x8800c <flex_poe_init+0x11d0>
+   87ff8:      	and	w0, w8, w9
+   87ffc:      	ldp	x20, x19, [sp, #0x20]
+   88000:      	ldp	x29, x30, [sp, #0x10]
+   88004:      	add	sp, sp, #0x30
+   88008:      	ret
+   8800c:      	bl	0x21f60 <__stack_chk_fail@plt>
+
+[Registered PoE CLI: 0x88010–0x885c0, end exclusive]
+
+tmp/c8235-poe-software-next-20261107/libmirabilesw.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000086e3c <flex_poe_init>:
+   88010:      	sub	sp, sp, #0x50
+   88014:      	stp	x29, x30, [sp, #0x10]
+   88018:      	stp	x24, x23, [sp, #0x20]
+   8801c:      	stp	x22, x21, [sp, #0x30]
+   88020:      	stp	x20, x19, [sp, #0x40]
+   88024:      	add	x29, sp, #0x10
+   88028:      	adrp	x8, 0x1ef000
+   8802c:      	adrp	x9, 0x296000
+   88030:      	mov	x21, x3
+   88034:      	mov	w20, w1
+   88038:      	mov	x19, x0
+   8803c:      	mov	w10, #-0x1              // =-1
+   88040:      	ldr	x8, [x8, #0x6c8]
+   88044:      	cmp	w2, #0x1
+   88048:      	ldr	x8, [x8]
+   8804c:      	str	x8, [sp, #0x8]
+   88050:      	ldr	x8, [x9, #0xa20]
+   88054:      	str	w10, [sp]
+   88058:      	add	x8, x8, #0x1
+   8805c:      	str	x8, [x9, #0xa20]
+   88060:      	b.le	0x88434 <flex_poe_init+0x15f8>
+   88064:      	adrp	x0, 0xb2000
+   88068:      	mov	w22, w2
+   8806c:      	ldr	x2, [x21, #0x8]
+   88070:      	add	x0, x0, #0x56b
+   88074:      	mov	x3, sp
+   88078:      	mov	w1, #0xa                // =10
+   8807c:      	bl	0x22270 <strcmp_s@plt>
+   88080:      	ldr	w8, [sp]
+   88084:      	orr	w8, w0, w8
+   88088:      	cbnz	w8, 0x880d8 <flex_poe_init+0x129c>
+   8808c:      	cmp	w22, #0x3
+   88090:      	b.ls	0x88434 <flex_poe_init+0x15f8>
+   88094:      	ldr	x0, [x21, #0x18]
+   88098:      	mov	x1, xzr
+   8809c:      	mov	w2, #0xa                // =10
+   880a0:      	bl	0x24480 <__isoc23_strtoul@plt>
+   880a4:      	sxtw	x1, w0
+   880a8:      	adrp	x0, 0x89000 <flex_ngio_poe_init+0xa40>
+   880ac:      	adrp	x3, 0xb2000
+   880b0:      	ldr	x2, [x21, #0x10]
+   880b4:      	add	x0, x0, #0x674
+   880b8:      	add	x3, x3, #0x51b
+   880bc:      	bl	0x22b50 <sw_wdog_disable_block@plt>
+   880c0:      	mov	w1, w20
+   880c4:      	cmp	w0, #0x1
+   880c8:      	b.ne	0x882a4 <flex_poe_init+0x1468>
+   880cc:      	adrp	x2, 0xb2000
+   880d0:      	add	x2, x2, #0x576
+   880d4:      	b	0x882ac <flex_poe_init+0x1470>
+   880d8:      	ldr	x0, [x21, #0x8]
+   880dc:      	mov	x1, xzr
+   880e0:      	mov	w2, #0xa                // =10
+   880e4:      	bl	0x24480 <__isoc23_strtoul@plt>
+   880e8:      	mov	x23, x0
+   880ec:      	and	w24, w23, #0xff
+   880f0:      	mov	w0, w24
+   880f4:      	bl	0x23dd0 <flex_intf_get_from_ifnum@plt>
+   880f8:      	cbz	x0, 0x88288 <flex_poe_init+0x144c>
+   880fc:      	adrp	x9, 0x1ef000
+   88100:      	ldr	x9, [x9, #0xa88]
+   88104:      	ldrh	w8, [x0]
+   88108:      	ldr	w10, [x9, #0x28]
+   8810c:      	cmp	w10, #0x1
+   88110:      	b.lt	0x88134 <flex_poe_init+0x12f8>
+   88114:      	add	x11, x9, #0x8
+   88118:      	ldr	x12, [x11]
+   8811c:      	ldrh	w12, [x12]
+   88120:      	cmp	w12, w8
+   88124:      	b.eq	0x882b8 <flex_poe_init+0x147c>
+   88128:      	subs	x10, x10, #0x1
+   8812c:      	add	x11, x11, #0x8
+   88130:      	b.ne	0x88118 <flex_poe_init+0x12dc>
+   88134:      	ldr	w10, [x9, #0x60]
+   88138:      	cmp	w10, #0x1
+   8813c:      	b.lt	0x88160 <flex_poe_init+0x1324>
+   88140:      	add	x11, x9, #0x40
+   88144:      	ldr	x12, [x11]
+   88148:      	ldrh	w12, [x12]
+   8814c:      	cmp	w12, w8
+   88150:      	b.eq	0x882c0 <flex_poe_init+0x1484>
+   88154:      	subs	x10, x10, #0x1
+   88158:      	add	x11, x11, #0x8
+   8815c:      	b.ne	0x88144 <flex_poe_init+0x1308>
+   88160:      	ldr	w10, [x9, #0x98]
+   88164:      	cmp	w10, #0x1
+   88168:      	b.lt	0x8818c <flex_poe_init+0x1350>
+   8816c:      	add	x11, x9, #0x78
+   88170:      	ldr	x12, [x11]
+   88174:      	ldrh	w12, [x12]
+   88178:      	cmp	w12, w8
+   8817c:      	b.eq	0x882c8 <flex_poe_init+0x148c>
+   88180:      	subs	x10, x10, #0x1
+   88184:      	add	x11, x11, #0x8
+   88188:      	b.ne	0x88170 <flex_poe_init+0x1334>
+   8818c:      	ldr	w10, [x9, #0xd0]
+   88190:      	cmp	w10, #0x1
+   88194:      	b.lt	0x881b8 <flex_poe_init+0x137c>
+   88198:      	add	x11, x9, #0xb0
+   8819c:      	ldr	x12, [x11]
+   881a0:      	ldrh	w12, [x12]
+   881a4:      	cmp	w12, w8
+   881a8:      	b.eq	0x882d0 <flex_poe_init+0x1494>
+   881ac:      	subs	x10, x10, #0x1
+   881b0:      	add	x11, x11, #0x8
+   881b4:      	b.ne	0x8819c <flex_poe_init+0x1360>
+   881b8:      	ldr	w10, [x9, #0x108]
+   881bc:      	cmp	w10, #0x1
+   881c0:      	b.lt	0x881e4 <flex_poe_init+0x13a8>
+   881c4:      	add	x11, x9, #0xe8
+   881c8:      	ldr	x12, [x11]
+   881cc:      	ldrh	w12, [x12]
+   881d0:      	cmp	w12, w8
+   881d4:      	b.eq	0x882d8 <flex_poe_init+0x149c>
+   881d8:      	subs	x10, x10, #0x1
+   881dc:      	add	x11, x11, #0x8
+   881e0:      	b.ne	0x881c8 <flex_poe_init+0x138c>
+   881e4:      	ldr	w10, [x9, #0x140]
+   881e8:      	cmp	w10, #0x1
+   881ec:      	b.lt	0x88210 <flex_poe_init+0x13d4>
+   881f0:      	add	x11, x9, #0x120
+   881f4:      	ldr	x12, [x11]
+   881f8:      	ldrh	w12, [x12]
+   881fc:      	cmp	w12, w8
+   88200:      	b.eq	0x882e0 <flex_poe_init+0x14a4>
+   88204:      	subs	x10, x10, #0x1
+   88208:      	add	x11, x11, #0x8
+   8820c:      	b.ne	0x881f4 <flex_poe_init+0x13b8>
+   88210:      	ldr	w10, [x9, #0x178]
+   88214:      	cmp	w10, #0x1
+   88218:      	b.lt	0x8823c <flex_poe_init+0x1400>
+   8821c:      	add	x11, x9, #0x158
+   88220:      	ldr	x12, [x11]
+   88224:      	ldrh	w12, [x12]
+   88228:      	cmp	w12, w8
+   8822c:      	b.eq	0x882e8 <flex_poe_init+0x14ac>
+   88230:      	subs	x10, x10, #0x1
+   88234:      	add	x11, x11, #0x8
+   88238:      	b.ne	0x88220 <flex_poe_init+0x13e4>
+   8823c:      	ldr	w10, [x9, #0x1b0]
+   88240:      	cmp	w10, #0x1
+   88244:      	b.lt	0x88268 <flex_poe_init+0x142c>
+   88248:      	add	x9, x9, #0x190
+   8824c:      	ldr	x11, [x9]
+   88250:      	ldrh	w11, [x11]
+   88254:      	cmp	w11, w8
+   88258:      	b.eq	0x882f0 <flex_poe_init+0x14b4>
+   8825c:      	subs	x10, x10, #0x1
+   88260:      	add	x9, x9, #0x8
+   88264:      	b.ne	0x8824c <flex_poe_init+0x1410>
+   88268:      	adrp	x2, 0xb2000
+   8826c:      	mov	w1, w20
+   88270:      	and	w3, w23, #0xff
+   88274:      	ldr	x4, [x0, #0x10]
+   88278:      	add	x2, x2, #0x5be
+   8827c:      	mov	x0, x19
+   88280:      	bl	0x240f0 <snprintf@plt>
+   88284:      	b	0x88468 <flex_poe_init+0x162c>
+   88288:      	adrp	x2, 0xad000
+   8828c:      	mov	w1, w20
+   88290:      	add	x2, x2, #0x974
+   88294:      	mov	x0, x19
+   88298:      	mov	w3, w24
+   8829c:      	bl	0x240f0 <snprintf@plt>
+   882a0:      	b	0x88468 <flex_poe_init+0x162c>
+   882a4:      	adrp	x2, 0xb2000
+   882a8:      	add	x2, x2, #0x59d
+   882ac:      	mov	x0, x19
+   882b0:      	bl	0x240f0 <snprintf@plt>
+   882b4:      	b	0x88468 <flex_poe_init+0x162c>
+   882b8:      	mov	w23, wzr
+   882bc:      	b	0x882f4 <flex_poe_init+0x14b8>
+   882c0:      	mov	w23, #0x1               // =1
+   882c4:      	b	0x882f4 <flex_poe_init+0x14b8>
+   882c8:      	mov	w23, #0x2               // =2
+   882cc:      	b	0x882f4 <flex_poe_init+0x14b8>
+   882d0:      	mov	w23, #0x3               // =3
+   882d4:      	b	0x882f4 <flex_poe_init+0x14b8>
+   882d8:      	mov	w23, #0x4               // =4
+   882dc:      	b	0x882f4 <flex_poe_init+0x14b8>
+   882e0:      	mov	w23, #0x5               // =5
+   882e4:      	b	0x882f4 <flex_poe_init+0x14b8>
+   882e8:      	mov	w23, #0x6               // =6
+   882ec:      	b	0x882f4 <flex_poe_init+0x14b8>
+   882f0:      	mov	w23, #0x7               // =7
+   882f4:      	ldr	x24, [x21, #0x10]
+   882f8:      	adrp	x0, 0xae000
+   882fc:      	add	x0, x0, #0x5ce
+   88300:      	mov	x3, sp
+   88304:      	mov	w1, #0x1                // =1
+   88308:      	mov	x2, x24
+   8830c:      	bl	0x22270 <strcmp_s@plt>
+   88310:      	ldr	w8, [sp]
+   88314:      	orr	w8, w0, w8
+   88318:      	cbnz	w8, 0x88370 <flex_poe_init+0x1534>
+   8831c:      	cmp	w22, #0x3
+   88320:      	b.le	0x88434 <flex_poe_init+0x15f8>
+   88324:      	ldr	x0, [x21, #0x18]
+   88328:      	mov	x1, xzr
+   8832c:      	mov	w2, #0x10               // =16
+   88330:      	bl	0x24480 <__isoc23_strtoul@plt>
+   88334:      	mov	x21, x0
+   88338:      	add	x2, sp, #0x4
+   8833c:      	mov	w0, w23
+   88340:      	mov	w1, w21
+   88344:      	bl	0x87b20 <flex_poe_init+0xce4>
+   88348:      	mov	w1, w20
+   8834c:      	and	w4, w21, #0xff
+   88350:      	cbz	w0, 0x884a8 <flex_poe_init+0x166c>
+   88354:      	adrp	x2, 0xb2000
+   88358:      	mov	x0, x19
+   8835c:      	add	x2, x2, #0x5de
+   88360:      	mov	w3, w23
+   88364:      	mov	w5, #-0x1               // =-1
+   88368:      	bl	0x240f0 <snprintf@plt>
+   8836c:      	b	0x88468 <flex_poe_init+0x162c>
+   88370:      	adrp	x0, 0xb5000
+   88374:      	mov	x3, sp
+   88378:      	add	x0, x0, #0x9e
+   8837c:      	mov	w1, #0x1                // =1
+   88380:      	mov	x2, x24
+   88384:      	bl	0x22270 <strcmp_s@plt>
+   88388:      	ldr	w8, [sp]
+   8838c:      	orr	w8, w0, w8
+   88390:      	cbnz	w8, 0x88408 <flex_poe_init+0x15cc>
+   88394:      	cmp	w22, #0x4
+   88398:      	b.le	0x88434 <flex_poe_init+0x15f8>
+   8839c:      	ldr	x0, [x21, #0x18]
+   883a0:      	mov	x1, xzr
+   883a4:      	mov	w2, #0x10               // =16
+   883a8:      	bl	0x24480 <__isoc23_strtoul@plt>
+   883ac:      	mov	x22, x0
+   883b0:      	ldr	x0, [x21, #0x20]
+   883b4:      	mov	x1, xzr
+   883b8:      	mov	w2, #0x10               // =16
+   883bc:      	bl	0x24480 <__isoc23_strtoul@plt>
+   883c0:      	mov	x21, x0
+   883c4:      	mov	w0, w23
+   883c8:      	mov	w1, w22
+   883cc:      	mov	w2, w21
+   883d0:      	strb	w21, [sp, #0x4]
+   883d4:      	bl	0x87d04 <flex_poe_init+0xec8>
+   883d8:      	mov	w1, w20
+   883dc:      	and	w4, w21, #0xff
+   883e0:      	and	w5, w22, #0xff
+   883e4:      	cbz	w0, 0x88504 <flex_poe_init+0x16c8>
+   883e8:      	adrp	x2, 0xb2000
+   883ec:      	mov	x0, x19
+   883f0:      	add	x2, x2, #0x623
+   883f4:      	mov	w3, w4
+   883f8:      	mov	w4, w23
+   883fc:      	mov	w6, #-0x1               // =-1
+   88400:      	bl	0x240f0 <snprintf@plt>
+   88404:      	b	0x88468 <flex_poe_init+0x162c>
+   88408:      	adrp	x0, 0xb4000
+   8840c:      	mov	x3, sp
+   88410:      	add	x0, x0, #0x7ba
+   88414:      	mov	w1, #0x3                // =3
+   88418:      	mov	x2, x24
+   8841c:      	bl	0x22270 <strcmp_s@plt>
+   88420:      	ldr	w8, [sp]
+   88424:      	orr	w8, w0, w8
+   88428:      	cbnz	w8, 0x88498 <flex_poe_init+0x165c>
+   8842c:      	cmp	w22, #0x4
+   88430:      	b.gt	0x884b8 <flex_poe_init+0x167c>
+   88434:      	adrp	x2, 0xab000
+   88438:      	mov	w1, w20
+   8843c:      	add	x2, x2, #0xb8c
+   88440:      	mov	x0, x19
+   88444:      	bl	0x240f0 <snprintf@plt>
+   88448:      	mov	w22, w0
+   8844c:      	adrp	x2, 0xb2000
+   88450:      	add	x0, x19, w0, uxtw
+   88454:      	sub	w1, w20, w22
+   88458:      	ldr	x3, [x21]
+   8845c:      	add	x2, x2, #0x6db
+   88460:      	bl	0x240f0 <snprintf@plt>
+   88464:      	add	w0, w0, w22
+   88468:      	adrp	x8, 0x1ef000
+   8846c:      	ldr	x8, [x8, #0x6c8]
+   88470:      	ldr	x9, [sp, #0x8]
+   88474:      	ldr	x8, [x8]
+   88478:      	cmp	x8, x9
+   8847c:      	b.ne	0x885bc <flex_poe_init+0x1780>
+   88480:      	ldp	x20, x19, [sp, #0x40]
+   88484:      	ldp	x22, x21, [sp, #0x30]
+   88488:      	ldp	x24, x23, [sp, #0x20]
+   8848c:      	ldp	x29, x30, [sp, #0x10]
+   88490:      	add	sp, sp, #0x50
+   88494:      	ret
+   88498:      	adrp	x2, 0xb2000
+   8849c:      	mov	w1, w20
+   884a0:      	add	x2, x2, #0x6c3
+   884a4:      	b	0x88440 <flex_poe_init+0x1604>
+   884a8:      	ldrb	w5, [sp, #0x4]
+   884ac:      	adrp	x2, 0xb2000
+   884b0:      	add	x2, x2, #0x609
+   884b4:      	b	0x8850c <flex_poe_init+0x16d0>
+   884b8:      	ldr	x0, [x21, #0x20]
+   884bc:      	mov	x1, xzr
+   884c0:      	mov	w2, #0x10               // =16
+   884c4:      	bl	0x24480 <__isoc23_strtoul@plt>
+   884c8:      	mov	x22, x0
+   884cc:      	adrp	x0, 0xb2000
+   884d0:      	ldr	x2, [x21, #0x18]
+   884d4:      	add	x0, x0, #0x678
+   884d8:      	mov	x3, sp
+   884dc:      	mov	w1, #0x3                // =3
+   884e0:      	bl	0x22270 <strcmp_s@plt>
+   884e4:      	ldr	w8, [sp]
+   884e8:      	orr	w8, w0, w8
+   884ec:      	cbnz	w8, 0x8851c <flex_poe_init+0x16e0>
+   884f0:      	tst	x22, #0xff
+   884f4:      	mov	w0, wzr
+   884f8:      	cset	w1, ne
+   884fc:      	bl	0x87e48 <flex_poe_init+0x100c>
+   88500:      	b	0x88550 <flex_poe_init+0x1714>
+   88504:      	adrp	x2, 0xb2000
+   88508:      	add	x2, x2, #0x657
+   8850c:      	mov	x0, x19
+   88510:      	mov	w3, w23
+   88514:      	bl	0x240f0 <snprintf@plt>
+   88518:      	b	0x88468 <flex_poe_init+0x162c>
+   8851c:      	adrp	x0, 0xb2000
+   88520:      	ldr	x2, [x21, #0x18]
+   88524:      	add	x0, x0, #0x67c
+   88528:      	mov	x3, sp
+   8852c:      	mov	w1, #0x3                // =3
+   88530:      	bl	0x22270 <strcmp_s@plt>
+   88534:      	ldr	w8, [sp]
+   88538:      	orr	w8, w0, w8
+   8853c:      	cbnz	w8, 0x885a0 <flex_poe_init+0x1764>
+   88540:      	tst	x22, #0xff
+   88544:      	mov	w0, wzr
+   88548:      	cset	w1, ne
+   8854c:      	bl	0x86ddc <flex_poe_terminate+0xc4>
+   88550:      	adrp	x8, 0xa9000 <mirabile_led_init+0xf78>
+   88554:      	adrp	x9, 0xb0000
+   88558:      	add	x8, x8, #0xaf6
+   8855c:      	add	x9, x9, #0xf5b
+   88560:      	tst	x22, #0xff
+   88564:      	mov	w5, w0
+   88568:      	mov	w1, w20
+   8856c:      	csel	x3, x9, x8, eq
+   88570:      	ldr	x4, [x21, #0x18]
+   88574:      	cbz	w0, 0x8858c <flex_poe_init+0x1750>
+   88578:      	adrp	x2, 0xb2000
+   8857c:      	mov	x0, x19
+   88580:      	add	x2, x2, #0x695
+   88584:      	bl	0x240f0 <snprintf@plt>
+   88588:      	b	0x88468 <flex_poe_init+0x162c>
+   8858c:      	adrp	x2, 0xb2000
+   88590:      	mov	x0, x19
+   88594:      	add	x2, x2, #0x6b3
+   88598:      	bl	0x240f0 <snprintf@plt>
+   8859c:      	b	0x88468 <flex_poe_init+0x162c>
+   885a0:      	adrp	x2, 0xb2000
+   885a4:      	mov	w1, w20
+   885a8:      	ldr	x3, [x21, #0x18]
+   885ac:      	add	x2, x2, #0x680
+   885b0:      	mov	x0, x19
+   885b4:      	bl	0x240f0 <snprintf@plt>
+   885b8:      	b	0x88448 <flex_poe_init+0x160c>
+   885bc:      	bl	0x21f60 <__stack_chk_fail@plt>
+
+[Native initialization and conditional firmware update: 0x88618–0x8909c, end exclusive]
+
+tmp/c8235-poe-software-next-20261107/libmirabilesw.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+00000000000885c0 <flex_ngio_poe_init>:
+   88618:      	sub	sp, sp, #0xa0
+   8861c:      	stp	x29, x30, [sp, #0x40]
+   88620:      	stp	x28, x27, [sp, #0x50]
+   88624:      	stp	x26, x25, [sp, #0x60]
+   88628:      	stp	x24, x23, [sp, #0x70]
+   8862c:      	stp	x22, x21, [sp, #0x80]
+   88630:      	stp	x20, x19, [sp, #0x90]
+   88634:      	add	x29, sp, #0x40
+   88638:      	adrp	x8, 0x1ef000
+   8863c:      	adrp	x23, 0x1ef000
+   88640:      	and	x19, x1, #0xff
+   88644:      	mov	w9, #0x2c               // =44
+   88648:      	adrp	x10, 0x296000
+   8864c:      	adrp	x24, 0x287000 <mac_flt_dbg+0x8380c>
+   88650:      	ldr	x8, [x8, #0x6c8]
+   88654:      	adrp	x27, 0x1ef000
+   88658:      	ldr	x23, [x23, #0xd48]
+   8865c:      	adrp	x25, 0x1ef000
+   88660:      	mov	x22, x1
+   88664:      	ldr	x8, [x8]
+   88668:      	madd	x28, x19, x9, x23
+   8866c:      	stur	x8, [x29, #-0x8]
+   88670:      	ldr	x8, [x10, #0xa30]
+   88674:      	ldr	w20, [x28, #0x24]!
+   88678:      	ldr	x27, [x27, #0x8d8]
+   8867c:      	ldr	w9, [x24, #0xd38]
+   88680:      	add	x8, x8, #0x1
+   88684:      	sxtw	x21, w20
+   88688:      	ldr	x25, [x25, #0xa88]
+   8868c:      	cmp	w20, w9
+   88690:      	str	x8, [x10, #0xa30]
+   88694:      	b.ge	0x88714 <flex_ngio_poe_init+0x154>
+   88698:      	mov	w8, #0x2c               // =44
+   8869c:      	str	x19, [sp, #0x18]
+   886a0:      	mov	w0, w20
+   886a4:      	mov	w1, #0x1b               // =27
+   886a8:      	madd	x19, x19, x8, x23
+   886ac:      	add	x2, x19, #0x4
+   886b0:      	bl	0x87b20 <flex_poe_init+0xce4>
+   886b4:      	adrp	x0, 0x1ef000
+   886b8:      	and	w26, w22, #0xff
+   886bc:      	ldrb	w6, [x19, #0x4]
+   886c0:      	mov	w1, #0x35               // =53
+   886c4:      	ldrh	w2, [x27]
+   886c8:      	mov	w3, #0x5000000          // =83886080
+   886cc:      	ldr	x0, [x0, #0x6d8]
+   886d0:      	mov	w4, w26
+   886d4:      	mov	w5, w21
+   886d8:      	bl	0x242d0 <__BTf_444@plt>
+   886dc:      	ldrb	w8, [x19, #0x4]
+   886e0:      	cmp	w8, #0x45
+   886e4:      	b.eq	0x88738 <flex_ngio_poe_init+0x178>
+   886e8:      	cmp	w8, #0x55
+   886ec:      	b.ne	0x88790 <flex_ngio_poe_init+0x1d0>
+   886f0:      	adrp	x19, 0x1ef000
+   886f4:      	ldr	x19, [x19, #0xea8]
+   886f8:      	ldr	x8, [x19, #0x278]
+   886fc:      	ldr	x8, [x8, #0x10]
+   88700:      	cbz	x8, 0x887d4 <flex_ngio_poe_init+0x214>
+   88704:      	mov	w0, w22
+   88708:      	mov	w1, wzr
+   8870c:      	blr	x8
+   88710:      	b	0x887ec <flex_ngio_poe_init+0x22c>
+   88714:      	adrp	x0, 0x1ef000
+   88718:      	ldrh	w2, [x27]
+   8871c:      	mov	w1, #0x34               // =52
+   88720:      	mov	w3, #0x3000000          // =50331648
+   88724:      	mov	w4, w21
+   88728:      	ldr	x0, [x0, #0x6d8]
+   8872c:      	bl	0x24fc0 <__BTf_4@plt>
+   88730:      	and	w26, w22, #0xff
+   88734:      	b	0x88bcc <flex_ngio_poe_init+0x60c>
+   88738:      	sub	x2, x29, #0x14
+   8873c:      	mov	w0, w20
+   88740:      	mov	w1, #0x41               // =65
+   88744:      	bl	0x87b20 <flex_poe_init+0xce4>
+   88748:      	cbnz	w0, 0x88774 <flex_ngio_poe_init+0x1b4>
+   8874c:      	sub	x2, x29, #0x18
+   88750:      	mov	w0, w21
+   88754:      	mov	w1, #0x43               // =67
+   88758:      	bl	0x87b20 <flex_poe_init+0xce4>
+   8875c:      	cbnz	w0, 0x88774 <flex_ngio_poe_init+0x1b4>
+   88760:      	sub	x2, x29, #0x1c
+   88764:      	mov	w0, w21
+   88768:      	mov	w1, #0x76               // =118
+   8876c:      	bl	0x87b20 <flex_poe_init+0xce4>
+   88770:      	cbz	w0, 0x88f30 <flex_ngio_poe_init+0x970>
+   88774:      	adrp	x0, 0x1ef000
+   88778:      	ldrh	w2, [x27]
+   8877c:      	mov	w1, #0x40               // =64
+   88780:      	mov	w3, #0x3000000          // =50331648
+   88784:      	ldr	x0, [x0, #0x6d8]
+   88788:      	bl	0x22a50 <__BTf_0@plt>
+   8878c:      	b	0x88bc8 <flex_ngio_poe_init+0x608>
+   88790:      	mov	w8, #0x38               // =56
+   88794:      	mov	w9, #0x2c               // =44
+   88798:      	adrp	x0, 0x1ef000
+   8879c:      	ldrh	w2, [x27]
+   887a0:      	mul	x8, x21, x8
+   887a4:      	mov	w1, #0x38               // =56
+   887a8:      	mov	w3, #0x3000000          // =50331648
+   887ac:      	ldrsw	x8, [x25, x8]
+   887b0:      	madd	x8, x8, x9, x23
+   887b4:      	ldrb	w4, [x8, #0x4]
+   887b8:      	ldr	x0, [x0, #0x6d8]
+   887bc:      	bl	0x24fc0 <__BTf_4@plt>
+   887c0:      	adrp	x1, 0xb2000
+   887c4:      	mov	w0, w20
+   887c8:      	add	x1, x1, #0x532
+   887cc:      	bl	0x8909c <flex_ngio_poe_init+0xadc>
+   887d0:      	b	0x88bc8 <flex_ngio_poe_init+0x608>
+   887d4:      	adrp	x0, 0x1ef000
+   887d8:      	ldrh	w2, [x27]
+   887dc:      	mov	w1, #0x30               // =48
+   887e0:      	mov	w3, #0x3000000          // =50331648
+   887e4:      	ldr	x0, [x0, #0x6d8]
+   887e8:      	bl	0x22a50 <__BTf_0@plt>
+   887ec:      	adrp	x0, 0x1ef000
+   887f0:      	ldrh	w2, [x27]
+   887f4:      	mov	w1, #0x36               // =54
+   887f8:      	mov	w3, #0x5000000          // =83886080
+   887fc:      	ldr	x0, [x0, #0x6d8]
+   88800:      	bl	0x22a50 <__BTf_0@plt>
+   88804:      	mov	w0, #0x1f4              // =500
+   88808:      	bl	0x243d0 <usleep@plt>
+   8880c:      	ldr	x8, [x19, #0x278]
+   88810:      	str	w26, [sp, #0x8]
+   88814:      	ldr	x8, [x8, #0x18]
+   88818:      	cbz	x8, 0x8882c <flex_ngio_poe_init+0x26c>
+   8881c:      	mov	w0, w22
+   88820:      	mov	w1, wzr
+   88824:      	blr	x8
+   88828:      	b	0x88844 <flex_ngio_poe_init+0x284>
+   8882c:      	adrp	x0, 0x1ef000
+   88830:      	ldrh	w2, [x27]
+   88834:      	mov	w1, wzr
+   88838:      	mov	w3, #0x3000000          // =50331648
+   8883c:      	ldr	x0, [x0, #0x6d8]
+   88840:      	bl	0x22a50 <__BTf_0@plt>
+   88844:      	adrp	x0, 0x1ef000
+   88848:      	ldrh	w2, [x27]
+   8884c:      	mov	w1, #0x37               // =55
+   88850:      	mov	w3, #0x5000000          // =83886080
+   88854:      	ldr	x0, [x0, #0x6d8]
+   88858:      	bl	0x22a50 <__BTf_0@plt>
+   8885c:      	and	x22, x20, #0xff
+   88860:      	mov	w8, #0x38               // =56
+   88864:      	mov	x19, x25
+   88868:      	adrp	x0, 0x1ef000
+   8886c:      	madd	x25, x22, x8, x25
+   88870:      	ldrh	w2, [x27]
+   88874:      	ldr	x26, [x25, #0x8]!
+   88878:      	ldr	x0, [x0, #0x6d8]
+   8887c:      	cbz	x26, 0x88bac <flex_ngio_poe_init+0x5ec>
+   88880:      	mov	w1, #0x3c               // =60
+   88884:      	mov	w3, #0x5000000          // =83886080
+   88888:      	bl	0x22a50 <__BTf_0@plt>
+   8888c:      	mov	w8, #0x38               // =56
+   88890:      	mov	w9, #0x2c               // =44
+   88894:      	mov	w0, w21
+   88898:      	mov	w1, #0x60               // =96
+   8889c:      	madd	x8, x22, x8, x19
+   888a0:      	mov	w2, #0x1                // =1
+   888a4:      	str	x8, [sp, #0x10]
+   888a8:      	ldrsw	x8, [x8]
+   888ac:      	madd	x8, x8, x9, x23
+   888b0:      	ldr	w23, [x8, #0x10]
+   888b4:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   888b8:      	mov	w0, w21
+   888bc:      	mov	w1, #0x62               // =98
+   888c0:      	mov	w2, wzr
+   888c4:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   888c8:      	mov	w8, #0x80               // =128
+   888cc:      	mov	w0, w21
+   888d0:      	mov	w1, #0x63               // =99
+   888d4:      	mov	w2, #0x80               // =128
+   888d8:      	sturb	w8, [x29, #-0x10]
+   888dc:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   888e0:      	mov	w0, w21
+   888e4:      	mov	w1, #0x60               // =96
+   888e8:      	mov	w2, #0xc4               // =196
+   888ec:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   888f0:      	and	w8, w23, #0xff
+   888f4:      	adrp	x27, 0x1ef000
+   888f8:      	mov	x19, xzr
+   888fc:      	str	w8, [sp, #0xc]
+   88900:      	ldr	x27, [x27, #0x5d0]
+   88904:      	b	0x88924 <flex_ngio_poe_init+0x364>
+   88908:      	ldrb	w2, [x3]
+   8890c:      	mov	w0, w21
+   88910:      	mov	w1, #0x61               // =97
+   88914:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   88918:      	add	x19, x19, #0x1
+   8891c:      	cmp	x19, #0x800
+   88920:      	b.eq	0x889dc <flex_ngio_poe_init+0x41c>
+   88924:      	sdiv	w8, w19, w23
+   88928:      	msub	w8, w8, w23, w19
+   8892c:      	cbnz	w8, 0x88918 <flex_ngio_poe_init+0x358>
+   88930:      	ldr	x8, [x26, #0x360]
+   88934:      	add	x3, x27, x19
+   88938:      	ldr	x8, [x8, #0x10]
+   8893c:      	cbz	x8, 0x88908 <flex_ngio_poe_init+0x348>
+   88940:      	ldr	w8, [x24, #0xd38]
+   88944:      	cmp	w8, w22
+   88948:      	b.le	0x889b4 <flex_ngio_poe_init+0x3f4>
+   8894c:      	ldr	x8, [sp, #0x10]
+   88950:      	adrp	x10, 0x1ef000
+   88954:      	ldr	x9, [x25]
+   88958:      	mov	w11, #0x2c              // =44
+   8895c:      	mov	w2, #0x61               // =97
+   88960:      	mov	w4, w23
+   88964:      	ldrsw	x8, [x8]
+   88968:      	ldr	x9, [x9, #0x360]
+   8896c:      	ldr	x10, [x10, #0xd48]
+   88970:      	ldr	x9, [x9, #0x10]
+   88974:      	madd	x8, x8, x11, x10
+   88978:      	ldp	w0, w1, [x8, #0x8]
+   8897c:      	blr	x9
+   88980:      	cbz	w0, 0x88918 <flex_ngio_poe_init+0x358>
+   88984:      	adrp	x8, 0x1ef000
+   88988:      	adrp	x0, 0x1ef000
+   8898c:      	mov	w1, #0x54               // =84
+   88990:      	mov	w3, #0x3000000          // =50331648
+   88994:      	mov	w4, w22
+   88998:      	mov	w6, #0x61               // =97
+   8899c:      	ldr	x8, [x8, #0x8d8]
+   889a0:      	ldrh	w2, [x8]
+   889a4:      	ldr	x0, [x0, #0x6d8]
+   889a8:      	ldr	w5, [sp, #0xc]
+   889ac:      	bl	0x242d0 <__BTf_444@plt>
+   889b0:      	b	0x88918 <flex_ngio_poe_init+0x358>
+   889b4:      	adrp	x8, 0x1ef000
+   889b8:      	adrp	x0, 0x1ef000
+   889bc:      	mov	w1, #0x53               // =83
+   889c0:      	mov	w3, #0x3000000          // =50331648
+   889c4:      	mov	w4, w22
+   889c8:      	ldr	x8, [x8, #0x8d8]
+   889cc:      	ldrh	w2, [x8]
+   889d0:      	ldr	x0, [x0, #0x6d8]
+   889d4:      	bl	0x24fc0 <__BTf_4@plt>
+   889d8:      	b	0x88918 <flex_ngio_poe_init+0x358>
+   889dc:      	adrp	x8, 0x1ef000
+   889e0:      	adrp	x0, 0x1ef000
+   889e4:      	mov	w1, #0x3d               // =61
+   889e8:      	mov	w3, #0x5000000          // =83886080
+   889ec:      	ldr	x8, [x8, #0x8d8]
+   889f0:      	ldrh	w2, [x8]
+   889f4:      	ldr	x0, [x0, #0x6d8]
+   889f8:      	bl	0x22a50 <__BTf_0@plt>
+   889fc:      	mov	w0, w20
+   88a00:      	mov	w1, #0x60               // =96
+   88a04:      	mov	w2, #0xc5               // =197
+   88a08:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   88a0c:      	mov	w0, w20
+   88a10:      	mov	w1, #0x62               // =98
+   88a14:      	mov	w2, wzr
+   88a18:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   88a1c:      	mov	w8, #0x80               // =128
+   88a20:      	mov	w0, w20
+   88a24:      	mov	w1, #0x63               // =99
+   88a28:      	mov	w2, #0x80               // =128
+   88a2c:      	sturb	w8, [x29, #-0x10]
+   88a30:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   88a34:      	mov	w0, w20
+   88a38:      	mov	w1, #0x60               // =96
+   88a3c:      	mov	w2, #0xc0               // =192
+   88a40:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   88a44:      	adrp	x27, 0x1ef000
+   88a48:      	mov	x19, xzr
+   88a4c:      	ldr	x27, [x27, #0xc60]
+   88a50:      	b	0x88a70 <flex_ngio_poe_init+0x4b0>
+   88a54:      	ldrb	w2, [x3]
+   88a58:      	mov	w0, w20
+   88a5c:      	mov	w1, #0x61               // =97
+   88a60:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   88a64:      	add	x19, x19, #0x1
+   88a68:      	cmp	x19, #0x4, lsl #12      // =0x4000
+   88a6c:      	b.eq	0x88b28 <flex_ngio_poe_init+0x568>
+   88a70:      	sdiv	w8, w19, w23
+   88a74:      	msub	w8, w8, w23, w19
+   88a78:      	cbnz	w8, 0x88a64 <flex_ngio_poe_init+0x4a4>
+   88a7c:      	ldr	x8, [x26, #0x360]
+   88a80:      	add	x3, x27, x19
+   88a84:      	ldr	x8, [x8, #0x10]
+   88a88:      	cbz	x8, 0x88a54 <flex_ngio_poe_init+0x494>
+   88a8c:      	ldr	w8, [x24, #0xd38]
+   88a90:      	cmp	w8, w22
+   88a94:      	b.le	0x88b00 <flex_ngio_poe_init+0x540>
+   88a98:      	ldr	x8, [sp, #0x10]
+   88a9c:      	adrp	x10, 0x1ef000
+   88aa0:      	ldr	x9, [x25]
+   88aa4:      	mov	w11, #0x2c              // =44
+   88aa8:      	mov	w2, #0x61               // =97
+   88aac:      	mov	w4, w23
+   88ab0:      	ldrsw	x8, [x8]
+   88ab4:      	ldr	x9, [x9, #0x360]
+   88ab8:      	ldr	x10, [x10, #0xd48]
+   88abc:      	ldr	x9, [x9, #0x10]
+   88ac0:      	madd	x8, x8, x11, x10
+   88ac4:      	ldp	w0, w1, [x8, #0x8]
+   88ac8:      	blr	x9
+   88acc:      	cbz	w0, 0x88a64 <flex_ngio_poe_init+0x4a4>
+   88ad0:      	adrp	x8, 0x1ef000
+   88ad4:      	adrp	x0, 0x1ef000
+   88ad8:      	mov	w1, #0x54               // =84
+   88adc:      	mov	w3, #0x3000000          // =50331648
+   88ae0:      	mov	w4, w22
+   88ae4:      	mov	w6, #0x61               // =97
+   88ae8:      	ldr	x8, [x8, #0x8d8]
+   88aec:      	ldrh	w2, [x8]
+   88af0:      	ldr	x0, [x0, #0x6d8]
+   88af4:      	ldr	w5, [sp, #0xc]
+   88af8:      	bl	0x242d0 <__BTf_444@plt>
+   88afc:      	b	0x88a64 <flex_ngio_poe_init+0x4a4>
+   88b00:      	adrp	x8, 0x1ef000
+   88b04:      	adrp	x0, 0x1ef000
+   88b08:      	mov	w1, #0x53               // =83
+   88b0c:      	mov	w3, #0x3000000          // =50331648
+   88b10:      	mov	w4, w22
+   88b14:      	ldr	x8, [x8, #0x8d8]
+   88b18:      	ldrh	w2, [x8]
+   88b1c:      	ldr	x0, [x0, #0x6d8]
+   88b20:      	bl	0x24fc0 <__BTf_4@plt>
+   88b24:      	b	0x88a64 <flex_ngio_poe_init+0x4a4>
+   88b28:      	adrp	x27, 0x1ef000
+   88b2c:      	adrp	x20, 0x1ef000
+   88b30:      	mov	w1, #0x3e               // =62
+   88b34:      	mov	w3, #0x5000000          // =83886080
+   88b38:      	ldr	x27, [x27, #0x8d8]
+   88b3c:      	ldrh	w2, [x27]
+   88b40:      	ldr	x20, [x20, #0x6d8]
+   88b44:      	mov	x0, x20
+   88b48:      	bl	0x22a50 <__BTf_0@plt>
+   88b4c:      	mov	w8, #0x18               // =24
+   88b50:      	mov	w0, w21
+   88b54:      	mov	w1, #0x60               // =96
+   88b58:      	mov	w2, #0x18               // =24
+   88b5c:      	sturb	w8, [x29, #-0x10]
+   88b60:      	bl	0x8955c <flex_ngio_poe_init+0xf9c>
+   88b64:      	mov	w0, #0x2710             // =10000
+   88b68:      	bl	0x243d0 <usleep@plt>
+   88b6c:      	sub	x2, x29, #0x10
+   88b70:      	mov	w0, w21
+   88b74:      	mov	w1, #0x41               // =65
+   88b78:      	bl	0x87b20 <flex_poe_init+0xce4>
+   88b7c:      	ldurb	w4, [x29, #-0x10]
+   88b80:      	mov	x0, x20
+   88b84:      	ldrh	w2, [x27]
+   88b88:      	mov	w1, #0x3f               // =63
+   88b8c:      	mov	w3, #0x5000000          // =83886080
+   88b90:      	bl	0x24fc0 <__BTf_4@plt>
+   88b94:      	adrp	x25, 0x1ef000
+   88b98:      	adrp	x23, 0x1ef000
+   88b9c:      	ldr	x25, [x25, #0xa88]
+   88ba0:      	ldr	w26, [sp, #0x8]
+   88ba4:      	ldr	x23, [x23, #0xd48]
+   88ba8:      	b	0x88bc8 <flex_ngio_poe_init+0x608>
+   88bac:      	mov	w1, #0x3b               // =59
+   88bb0:      	mov	w3, #0x3000000          // =50331648
+   88bb4:      	mov	w4, w22
+   88bb8:      	mov	w5, wzr
+   88bbc:      	bl	0x219d0 <__BTf_44@plt>
+   88bc0:      	ldr	w26, [sp, #0x8]
+   88bc4:      	mov	x25, x19
+   88bc8:      	ldr	x19, [sp, #0x18]
+   88bcc:      	adrp	x22, 0x287000 <mac_flt_dbg+0x8380c>
+   88bd0:      	ldr	w20, [x28]
+   88bd4:      	add	x22, x22, #0xd70
+   88bd8:      	tbnz	w20, #0x1f, 0x88cc8 <flex_ngio_poe_init+0x708>
+   88bdc:      	mov	w8, #0x50               // =80
+   88be0:      	madd	x8, x20, x8, x22
+   88be4:      	ldrb	w8, [x8, #0x28]
+   88be8:      	cbz	w8, 0x88c00 <flex_ngio_poe_init+0x640>
+   88bec:      	cmp	w8, #0x1
+   88bf0:      	b.ne	0x88c08 <flex_ngio_poe_init+0x648>
+   88bf4:      	mov	x9, xzr
+   88bf8:      	mov	w21, wzr
+   88bfc:      	b	0x88cfc <flex_ngio_poe_init+0x73c>
+   88c00:      	mov	w21, wzr
+   88c04:      	b	0x88c94 <flex_ngio_poe_init+0x6d4>
+   88c08:      	mov	w12, #0x50              // =80
+   88c0c:      	and	x9, x8, #0xfe
+   88c10:      	mov	w10, wzr
+   88c14:      	mov	w11, wzr
+   88c18:      	madd	x13, x20, x12, x22
+   88c1c:      	mov	w12, #0x8               // =8
+   88c20:      	mov	w14, #-0x80             // =-128
+   88c24:      	mov	x15, x9
+   88c28:      	add	x13, x13, #0x40
+   88c2c:      	b	0x88c64 <flex_ngio_poe_init+0x6a4>
+   88c30:      	cmp	w17, #0x1
+   88c34:      	add	x13, x13, #0x18
+   88c38:      	csel	w17, w14, w12, hi
+   88c3c:      	cmp	w0, #0x1
+   88c40:      	csel	w0, w14, w12, hi
+   88c44:      	cmp	w16, #0x1
+   88c48:      	csel	w16, w17, wzr, eq
+   88c4c:      	cmp	w18, #0x1
+   88c50:      	csel	w17, w0, wzr, eq
+   88c54:      	orr	w10, w10, w16
+   88c58:      	orr	w11, w11, w17
+   88c5c:      	subs	x15, x15, #0x2
+   88c60:      	b.eq	0x88c88 <flex_ngio_poe_init+0x6c8>
+   88c64:      	ldur	w16, [x13, #-0x10]
+   88c68:      	cmp	w16, #0x1
+   88c6c:      	b.ne	0x88c74 <flex_ngio_poe_init+0x6b4>
+   88c70:      	ldurb	w17, [x13, #-0xc]
+   88c74:      	ldur	w18, [x13, #-0x4]
+   88c78:      	cmp	w18, #0x1
+   88c7c:      	b.ne	0x88c30 <flex_ngio_poe_init+0x670>
+   88c80:      	ldrb	w0, [x13]
+   88c84:      	b	0x88c30 <flex_ngio_poe_init+0x670>
+   88c88:      	orr	w21, w11, w10
+   88c8c:      	cmp	x9, x8
+   88c90:      	b.ne	0x88cfc <flex_ngio_poe_init+0x73c>
+   88c94:      	adrp	x0, 0x1ef000
+   88c98:      	and	w6, w21, #0xff
+   88c9c:      	ldrh	w2, [x27]
+   88ca0:      	mov	w1, #0x39               // =57
+   88ca4:      	mov	w3, #0x5000000          // =83886080
+   88ca8:      	mov	w4, w26
+   88cac:      	ldr	x0, [x0, #0x6d8]
+   88cb0:      	mov	w5, w20
+   88cb4:      	bl	0x242d0 <__BTf_444@plt>
+   88cb8:      	mov	w0, w20
+   88cbc:      	mov	w1, #0x29               // =41
+   88cc0:      	mov	w2, w21
+   88cc4:      	bl	0x87d04 <flex_poe_init+0xec8>
+   88cc8:      	mov	w8, #0x2c               // =44
+   88ccc:      	madd	x23, x19, x8, x23
+   88cd0:      	ldr	w20, [x23, #0x28]!
+   88cd4:      	tbnz	w20, #0x1f, 0x88e18 <flex_ngio_poe_init+0x858>
+   88cd8:      	mov	w8, #0x50               // =80
+   88cdc:      	madd	x8, x20, x8, x22
+   88ce0:      	ldrb	w8, [x8, #0x28]
+   88ce4:      	cbz	w8, 0x88d50 <flex_ngio_poe_init+0x790>
+   88ce8:      	cmp	w8, #0x1
+   88cec:      	b.ne	0x88d58 <flex_ngio_poe_init+0x798>
+   88cf0:      	mov	x9, xzr
+   88cf4:      	mov	w21, wzr
+   88cf8:      	b	0x88edc <flex_ngio_poe_init+0x91c>
+   88cfc:      	mov	w10, #0xc               // =12
+   88d00:      	mov	w11, #0x50              // =80
+   88d04:      	sub	x8, x8, x9
+   88d08:      	mul	x10, x9, x10
+   88d0c:      	madd	x10, x20, x11, x10
+   88d10:      	mov	w11, #-0x80             // =-128
+   88d14:      	add	x10, x10, x22
+   88d18:      	add	x9, x10, #0x34
+   88d1c:      	mov	w10, #0x8               // =8
+   88d20:      	b	0x88d30 <flex_ngio_poe_init+0x770>
+   88d24:      	add	x9, x9, #0xc
+   88d28:      	subs	x8, x8, #0x1
+   88d2c:      	b.eq	0x88c94 <flex_ngio_poe_init+0x6d4>
+   88d30:      	ldur	w12, [x9, #-0x4]
+   88d34:      	cmp	w12, #0x1
+   88d38:      	b.ne	0x88d24 <flex_ngio_poe_init+0x764>
+   88d3c:      	ldrb	w12, [x9]
+   88d40:      	cmp	w12, #0x1
+   88d44:      	csel	w12, w11, w10, hi
+   88d48:      	orr	w21, w12, w21
+   88d4c:      	b	0x88d24 <flex_ngio_poe_init+0x764>
+   88d50:      	mov	w21, wzr
+   88d54:      	b	0x88de4 <flex_ngio_poe_init+0x824>
+   88d58:      	mov	w12, #0x50              // =80
+   88d5c:      	and	x9, x8, #0xfe
+   88d60:      	mov	w10, wzr
+   88d64:      	mov	w11, wzr
+   88d68:      	madd	x13, x20, x12, x22
+   88d6c:      	mov	w12, #0x8               // =8
+   88d70:      	mov	w14, #-0x80             // =-128
+   88d74:      	mov	x15, x9
+   88d78:      	add	x13, x13, #0x40
+   88d7c:      	b	0x88db4 <flex_ngio_poe_init+0x7f4>
+   88d80:      	cmp	w17, #0x1
+   88d84:      	add	x13, x13, #0x18
+   88d88:      	csel	w17, w14, w12, hi
+   88d8c:      	cmp	w0, #0x1
+   88d90:      	csel	w0, w14, w12, hi
+   88d94:      	cmp	w16, #0x1
+   88d98:      	csel	w16, w17, wzr, eq
+   88d9c:      	cmp	w18, #0x1
+   88da0:      	csel	w17, w0, wzr, eq
+   88da4:      	orr	w10, w10, w16
+   88da8:      	orr	w11, w11, w17
+   88dac:      	subs	x15, x15, #0x2
+   88db0:      	b.eq	0x88dd8 <flex_ngio_poe_init+0x818>
+   88db4:      	ldur	w16, [x13, #-0x10]
+   88db8:      	cmp	w16, #0x1
+   88dbc:      	b.ne	0x88dc4 <flex_ngio_poe_init+0x804>
+   88dc0:      	ldurb	w17, [x13, #-0xc]
+   88dc4:      	ldur	w18, [x13, #-0x4]
+   88dc8:      	cmp	w18, #0x1
+   88dcc:      	b.ne	0x88d80 <flex_ngio_poe_init+0x7c0>
+   88dd0:      	ldrb	w0, [x13]
+   88dd4:      	b	0x88d80 <flex_ngio_poe_init+0x7c0>
+   88dd8:      	orr	w21, w11, w10
+   88ddc:      	cmp	x9, x8
+   88de0:      	b.ne	0x88edc <flex_ngio_poe_init+0x91c>
+   88de4:      	adrp	x0, 0x1ef000
+   88de8:      	and	w6, w21, #0xff
+   88dec:      	ldrh	w2, [x27]
+   88df0:      	mov	w1, #0x39               // =57
+   88df4:      	mov	w3, #0x5000000          // =83886080
+   88df8:      	mov	w4, w26
+   88dfc:      	ldr	x0, [x0, #0x6d8]
+   88e00:      	mov	w5, w20
+   88e04:      	bl	0x242d0 <__BTf_444@plt>
+   88e08:      	mov	w0, w20
+   88e0c:      	mov	w1, #0x29               // =41
+   88e10:      	mov	w2, w21
+   88e14:      	bl	0x87d04 <flex_poe_init+0xec8>
+   88e18:      	ldr	w20, [x28]
+   88e1c:      	tbnz	w20, #0x1f, 0x88e5c <flex_ngio_poe_init+0x89c>
+   88e20:      	mov	w8, #0x38               // =56
+   88e24:      	adrp	x0, 0x1ef000
+   88e28:      	ldrh	w2, [x27]
+   88e2c:      	mov	w1, #0x3a               // =58
+   88e30:      	madd	x19, x20, x8, x25
+   88e34:      	mov	w3, #0x5000000          // =83886080
+   88e38:      	mov	w4, w26
+   88e3c:      	mov	w5, w20
+   88e40:      	ldr	w6, [x19, #0x30]
+   88e44:      	ldr	x0, [x0, #0x6d8]
+   88e48:      	bl	0x242d0 <__BTf_444@plt>
+   88e4c:      	ldr	w2, [x19, #0x30]
+   88e50:      	mov	w0, w20
+   88e54:      	mov	w1, #0x26               // =38
+   88e58:      	bl	0x87d04 <flex_poe_init+0xec8>
+   88e5c:      	ldr	w20, [x23]
+   88e60:      	tbnz	w20, #0x1f, 0x88ea0 <flex_ngio_poe_init+0x8e0>
+   88e64:      	mov	w8, #0x38               // =56
+   88e68:      	adrp	x0, 0x1ef000
+   88e6c:      	ldrh	w2, [x27]
+   88e70:      	mov	w1, #0x3a               // =58
+   88e74:      	madd	x19, x20, x8, x25
+   88e78:      	mov	w3, #0x5000000          // =83886080
+   88e7c:      	mov	w4, w26
+   88e80:      	mov	w5, w20
+   88e84:      	ldr	w6, [x19, #0x30]
+   88e88:      	ldr	x0, [x0, #0x6d8]
+   88e8c:      	bl	0x242d0 <__BTf_444@plt>
+   88e90:      	ldr	w2, [x19, #0x30]
+   88e94:      	mov	w0, w20
+   88e98:      	mov	w1, #0x26               // =38
+   88e9c:      	bl	0x87d04 <flex_poe_init+0xec8>
+   88ea0:      	adrp	x8, 0x1ef000
+   88ea4:      	ldr	x8, [x8, #0x6c8]
+   88ea8:      	ldur	x9, [x29, #-0x8]
+   88eac:      	ldr	x8, [x8]
+   88eb0:      	cmp	x8, x9
+   88eb4:      	b.ne	0x89098 <flex_ngio_poe_init+0xad8>
+   88eb8:      	mov	w0, wzr
+   88ebc:      	ldp	x20, x19, [sp, #0x90]
+   88ec0:      	ldp	x22, x21, [sp, #0x80]
+   88ec4:      	ldp	x24, x23, [sp, #0x70]
+   88ec8:      	ldp	x26, x25, [sp, #0x60]
+   88ecc:      	ldp	x28, x27, [sp, #0x50]
+   88ed0:      	ldp	x29, x30, [sp, #0x40]
+   88ed4:      	add	sp, sp, #0xa0
+   88ed8:      	ret
+   88edc:      	mov	w10, #0xc               // =12
+   88ee0:      	mov	w11, #0x50              // =80
+   88ee4:      	sub	x8, x8, x9
+   88ee8:      	mul	x10, x9, x10
+   88eec:      	madd	x10, x20, x11, x10
+   88ef0:      	mov	w11, #-0x80             // =-128
+   88ef4:      	add	x10, x10, x22
+   88ef8:      	add	x9, x10, #0x34
+   88efc:      	mov	w10, #0x8               // =8
+   88f00:      	b	0x88f10 <flex_ngio_poe_init+0x950>
+   88f04:      	add	x9, x9, #0xc
+   88f08:      	subs	x8, x8, #0x1
+   88f0c:      	b.eq	0x88de4 <flex_ngio_poe_init+0x824>
+   88f10:      	ldur	w12, [x9, #-0x4]
+   88f14:      	cmp	w12, #0x1
+   88f18:      	b.ne	0x88f04 <flex_ngio_poe_init+0x944>
+   88f1c:      	ldrb	w12, [x9]
+   88f20:      	cmp	w12, #0x1
+   88f24:      	csel	w12, w11, w10, hi
+   88f28:      	orr	w21, w12, w21
+   88f2c:      	b	0x88f04 <flex_ngio_poe_init+0x944>
+   88f30:      	adrp	x0, 0x1ef000
+   88f34:      	adrp	x4, 0xb2000
+   88f38:      	ldurb	w5, [x29, #-0x14]
+   88f3c:      	add	x4, x4, #0x552
+   88f40:      	ldurb	w6, [x29, #-0x18]
+   88f44:      	mov	w1, #0x41               // =65
+   88f48:      	ldurb	w7, [x29, #-0x1c]
+   88f4c:      	mov	w3, #0x5000000          // =83886080
+   88f50:      	ldrh	w2, [x27]
+   88f54:      	ldr	x0, [x0, #0x6d8]
+   88f58:      	bl	0x21870 <__BTf_1444@plt>
+   88f5c:      	adrp	x0, 0xb2000
+   88f60:      	adrp	x1, 0xae000
+   88f64:      	add	x0, x0, #0x532
+   88f68:      	add	x1, x1, #0x5ce
+   88f6c:      	bl	0x24aa0 <fopen@plt>
+   88f70:      	ldr	x19, [sp, #0x18]
+   88f74:      	cbz	x0, 0x89044 <flex_ngio_poe_init+0xa84>
+   88f78:      	mov	x21, x0
+   88f7c:      	sub	x0, x29, #0x10
+   88f80:      	mov	w1, #0x1                // =1
+   88f84:      	mov	w2, #0x5                // =5
+   88f88:      	mov	x3, x21
+   88f8c:      	bl	0x21660 <fread@plt>
+   88f90:      	cmp	x0, #0x5
+   88f94:      	b.ne	0x89058 <flex_ngio_poe_init+0xa98>
+   88f98:      	mov	x0, x21
+   88f9c:      	bl	0x22550 <fclose@plt>
+   88fa0:      	ldurb	w22, [x29, #-0xf]
+   88fa4:      	mov	x19, x23
+   88fa8:      	ldurb	w23, [x29, #-0xe]
+   88fac:      	adrp	x0, 0x1ef000
+   88fb0:      	ldurb	w21, [x29, #-0xd]
+   88fb4:      	adrp	x4, 0xb2000
+   88fb8:      	ldrh	w2, [x27]
+   88fbc:      	add	x4, x4, #0x55a
+   88fc0:      	ldr	x0, [x0, #0x6d8]
+   88fc4:      	mov	w1, #0x44               // =68
+   88fc8:      	mov	w3, #0x5000000          // =83886080
+   88fcc:      	mov	w5, w22
+   88fd0:      	mov	w6, w23
+   88fd4:      	mov	w7, w21
+   88fd8:      	bl	0x21870 <__BTf_1444@plt>
+   88fdc:      	ldurb	w8, [x29, #-0x18]
+   88fe0:      	cmp	w8, w23
+   88fe4:      	mov	x23, x19
+   88fe8:      	ldr	x19, [sp, #0x18]
+   88fec:      	b.ne	0x8907c <flex_ngio_poe_init+0xabc>
+   88ff0:      	ldurb	w8, [x29, #-0x14]
+   88ff4:      	cmp	w8, w22
+   88ff8:      	b.hi	0x8907c <flex_ngio_poe_init+0xabc>
+   88ffc:      	b.ne	0x8900c <flex_ngio_poe_init+0xa4c>
+   89000:      	ldurb	w8, [x29, #-0x1c]
+   89004:      	cmp	w8, w21
+   89008:      	b.hs	0x8907c <flex_ngio_poe_init+0xabc>
+   8900c:      	ldurb	w8, [x29, #-0xc]
+   89010:      	cmp	w8, #0x1
+   89014:      	b.ne	0x8907c <flex_ngio_poe_init+0xabc>
+   89018:      	adrp	x0, 0x1ef000
+   8901c:      	ldrh	w2, [x27]
+   89020:      	mov	w1, #0x46               // =70
+   89024:      	mov	w3, #0x5000000          // =83886080
+   89028:      	ldr	x0, [x0, #0x6d8]
+   8902c:      	bl	0x22a50 <__BTf_0@plt>
+   89030:      	adrp	x1, 0xb2000
+   89034:      	mov	w0, w20
+   89038:      	add	x1, x1, #0x532
+   8903c:      	bl	0x8909c <flex_ngio_poe_init+0xadc>
+   89040:      	b	0x88bcc <flex_ngio_poe_init+0x60c>
+   89044:      	adrp	x0, 0x1ef000
+   89048:      	ldrh	w2, [x27]
+   8904c:      	mov	w1, #0x42               // =66
+   89050:      	mov	w3, #0x3000000          // =50331648
+   89054:      	b	0x8908c <flex_ngio_poe_init+0xacc>
+   89058:      	adrp	x0, 0x1ef000
+   8905c:      	ldrh	w2, [x27]
+   89060:      	mov	w1, #0x43               // =67
+   89064:      	mov	w3, #0x3000000          // =50331648
+   89068:      	ldr	x0, [x0, #0x6d8]
+   8906c:      	bl	0x22a50 <__BTf_0@plt>
+   89070:      	mov	x0, x21
+   89074:      	bl	0x22550 <fclose@plt>
+   89078:      	b	0x88bcc <flex_ngio_poe_init+0x60c>
+   8907c:      	adrp	x0, 0x1ef000
+   89080:      	ldrh	w2, [x27]
+   89084:      	mov	w1, #0x45               // =69
+   89088:      	mov	w3, #0x5000000          // =83886080
+   8908c:      	ldr	x0, [x0, #0x6d8]
+   89090:      	bl	0x22a50 <__BTf_0@plt>
+   89094:      	b	0x88bcc <flex_ngio_poe_init+0x60c>
+   89098:      	bl	0x21f60 <__stack_chk_fail@plt>
+
+[Firmware writer beginning: 0x8909c–0x89238, end exclusive]
+
+tmp/c8235-poe-software-next-20261107/libmirabilesw.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+00000000000885c0 <flex_ngio_poe_init>:
+   8909c:      	sub	sp, sp, #0x110
+   890a0:      	stp	x29, x30, [sp, #0xb0]
+   890a4:      	stp	x28, x27, [sp, #0xc0]
+   890a8:      	stp	x26, x25, [sp, #0xd0]
+   890ac:      	stp	x24, x23, [sp, #0xe0]
+   890b0:      	stp	x22, x21, [sp, #0xf0]
+   890b4:      	stp	x20, x19, [sp, #0x100]
+   890b8:      	add	x29, sp, #0xb0
+   890bc:      	adrp	x8, 0x1ef000
+   890c0:      	adrp	x9, 0x296000
+   890c4:      	adrp	x26, 0x1ef000
+   890c8:      	and	w4, w0, #0xff
+   890cc:      	ldr	x8, [x8, #0x6c8]
+   890d0:      	ldr	x8, [x8]
+   890d4:      	stur	x8, [x29, #-0x10]
+   890d8:      	adrp	x8, 0x287000 <mac_flt_dbg+0x8380c>
+   890dc:      	ldr	x10, [x9, #0xa38]
+   890e0:      	ldr	w8, [x8, #0xd38]
+   890e4:      	add	x10, x10, #0x1
+   890e8:      	ldr	x26, [x26, #0x8d8]
+   890ec:      	cmp	w8, w4
+   890f0:      	str	x10, [x9, #0xa38]
+   890f4:      	b.le	0x891d0 <flex_ngio_poe_init+0xc10>
+   890f8:      	adrp	x8, 0x1ef000
+   890fc:      	mov	w19, w0
+   89100:      	and	x9, x19, #0xff
+   89104:      	mov	w10, #0x38              // =56
+   89108:      	adrp	x11, 0x1ef000
+   8910c:      	mov	x20, x1
+   89110:      	ldr	x8, [x8, #0xa88]
+   89114:      	mov	w22, #0x80              // =128
+   89118:      	madd	x23, x9, x10, x8
+   8911c:      	mov	w9, #0x2c               // =44
+   89120:      	ldr	x8, [x23, #0x8]
+   89124:      	ldrsw	x10, [x23]
+   89128:      	ldr	x11, [x11, #0xd48]
+   8912c:      	ldr	x8, [x8, #0x360]
+   89130:      	madd	x9, x10, x9, x11
+   89134:      	ldr	x28, [x8, #0x10]
+   89138:      	cbz	x28, 0x89150 <flex_ngio_poe_init+0xb90>
+   8913c:      	mov	w12, #0x2c              // =44
+   89140:      	madd	x10, x10, x12, x11
+   89144:      	ldr	w10, [x10, #0x10]
+   89148:      	cmp	w10, #0x80
+   8914c:      	csel	w22, w10, w22, lo
+   89150:      	adrp	x0, 0x1ef000
+   89154:      	ldr	w21, [x9, #0x8]
+   89158:      	ldr	x27, [x8, #0x8]
+   8915c:      	mov	w1, #0x48               // =72
+   89160:      	ldrh	w2, [x26]
+   89164:      	mov	w3, #0x5000000          // =83886080
+   89168:      	ldr	x0, [x0, #0x6d8]
+   8916c:      	mov	x4, x20
+   89170:      	mov	w5, w22
+   89174:      	bl	0x21640 <__BTf_14@plt>
+   89178:      	adrp	x1, 0xae000
+   8917c:      	mov	x0, x20
+   89180:      	add	x1, x1, #0x5ce
+   89184:      	bl	0x24aa0 <fopen@plt>
+   89188:      	cbz	x0, 0x891ec <flex_ngio_poe_init+0xc2c>
+   8918c:      	mov	x20, x0
+   89190:      	add	x0, sp, #0x18
+   89194:      	mov	w1, #0x1                // =1
+   89198:      	mov	w2, #0x5                // =5
+   8919c:      	mov	x3, x20
+   891a0:      	bl	0x21660 <fread@plt>
+   891a4:      	cmp	x0, #0x5
+   891a8:      	b.ne	0x89208 <flex_ngio_poe_init+0xc48>
+   891ac:      	adrp	x24, 0x1ef000
+   891b0:      	ldr	x24, [x24, #0xea8]
+   891b4:      	ldr	x8, [x24, #0x278]
+   891b8:      	ldr	x8, [x8, #0x10]
+   891bc:      	cbz	x8, 0x89224 <flex_ngio_poe_init+0xc64>
+   891c0:      	ldr	w0, [x23]
+   891c4:      	mov	w1, #0x1                // =1
+   891c8:      	blr	x8
+   891cc:      	b	0x8923c <flex_ngio_poe_init+0xc7c>
+   891d0:      	adrp	x0, 0x1ef000
+   891d4:      	ldrh	w2, [x26]
+   891d8:      	mov	w1, #0x47               // =71
+   891dc:      	mov	w3, #0x3000000          // =50331648
+   891e0:      	ldr	x0, [x0, #0x6d8]
+   891e4:      	bl	0x24fc0 <__BTf_4@plt>
+   891e8:      	b	0x89374 <flex_ngio_poe_init+0xdb4>
+   891ec:      	adrp	x0, 0x1ef000
+   891f0:      	ldrh	w2, [x26]
+   891f4:      	mov	w1, #0x49               // =73
+   891f8:      	mov	w3, #0x3000000          // =50331648
+   891fc:      	ldr	x0, [x0, #0x6d8]
+   89200:      	bl	0x22a50 <__BTf_0@plt>
+   89204:      	b	0x8935c <flex_ngio_poe_init+0xd9c>
+   89208:      	adrp	x0, 0x1ef000
+   8920c:      	ldrh	w2, [x26]
+   89210:      	mov	w1, #0x4a               // =74
+   89214:      	ldr	x0, [x0, #0x6d8]
+   89218:      	mov	w3, #0x3000000          // =50331648
+   8921c:      	bl	0x22a50 <__BTf_0@plt>
+   89220:      	b	0x89354 <flex_ngio_poe_init+0xd94>
+   89224:      	adrp	x0, 0x1ef000
+   89228:      	ldrh	w2, [x26]
+   8922c:      	mov	w1, #0x30               // =48
+   89230:      	mov	w3, #0x3000000          // =50331648
+   89234:      	ldr	x0, [x0, #0x6d8]
+
+[Firmware writer transfer/completion: 0x893cc–0x8955c, end exclusive]
+
+tmp/c8235-poe-software-next-20261107/libmirabilesw.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+00000000000885c0 <flex_ngio_poe_init>:
+   893cc:      	b	0x89400 <flex_ngio_poe_init+0xe40>
+   893d0:      	add	x3, sp, #0x20
+   893d4:      	mov	w0, w21
+   893d8:      	mov	w1, #0x7f               // =127
+   893dc:      	mov	w2, #0x61               // =97
+   893e0:      	mov	w4, w24
+   893e4:      	blr	x28
+   893e8:      	add	x0, sp, #0x20
+   893ec:      	mov	w1, #0x1                // =1
+   893f0:      	ldr	x2, [sp]
+   893f4:      	mov	x3, x20
+   893f8:      	add	w23, w24, w23
+   893fc:      	bl	0x21660 <fread@plt>
+   89400:      	mov	x24, x0
+   89404:      	cbz	w24, 0x89444 <flex_ngio_poe_init+0xe84>
+   89408:      	cbnz	x28, 0x893d0 <flex_ngio_poe_init+0xe10>
+   8940c:      	cmp	w24, #0x1
+   89410:      	b.lt	0x893e8 <flex_ngio_poe_init+0xe28>
+   89414:      	mov	w22, w24
+   89418:      	add	x25, sp, #0x20
+   8941c:      	mov	w0, w21
+   89420:      	mov	w1, #0x7f               // =127
+   89424:      	mov	w2, #0x61               // =97
+   89428:      	mov	x3, x25
+   8942c:      	blr	x27
+   89430:      	cbnz	w0, 0x89354 <flex_ngio_poe_init+0xd94>
+   89434:      	add	x25, x25, #0x1
+   89438:      	subs	x22, x22, #0x1
+   8943c:      	b.ne	0x8941c <flex_ngio_poe_init+0xe5c>
+   89440:      	b	0x893e8 <flex_ngio_poe_init+0xe28>
+   89444:      	adrp	x0, 0x1ef000
+   89448:      	ldrh	w2, [x26]
+   8944c:      	mov	w1, #0x4b               // =75
+   89450:      	mov	w3, #0x5000000          // =83886080
+   89454:      	mov	w4, w23
+   89458:      	ldr	x0, [x0, #0x6d8]
+   8945c:      	bl	0x24fc0 <__BTf_4@plt>
+   89460:      	mov	w8, #0x8                // =8
+   89464:      	add	x3, sp, #0x14
+   89468:      	mov	w0, w21
+   8946c:      	mov	w1, #0x7f               // =127
+   89470:      	mov	w2, #0x60               // =96
+   89474:      	strb	w8, [sp, #0x14]
+   89478:      	blr	x27
+   8947c:      	cbnz	w0, 0x89354 <flex_ngio_poe_init+0xd94>
+   89480:      	mov	w0, #0x7530             // =30000
+   89484:      	bl	0x243d0 <usleep@plt>
+   89488:      	add	x2, sp, #0x10
+   8948c:      	mov	w0, w19
+   89490:      	mov	w1, #0x41               // =65
+   89494:      	bl	0x87b20 <flex_poe_init+0xce4>
+   89498:      	cbnz	w0, 0x894c4 <flex_ngio_poe_init+0xf04>
+   8949c:      	add	x2, sp, #0xc
+   894a0:      	mov	w0, w19
+   894a4:      	mov	w1, #0x43               // =67
+   894a8:      	bl	0x87b20 <flex_poe_init+0xce4>
+   894ac:      	cbnz	w0, 0x894c4 <flex_ngio_poe_init+0xf04>
+   894b0:      	add	x2, sp, #0x8
+   894b4:      	mov	w0, w19
+   894b8:      	mov	w1, #0x76               // =118
+   894bc:      	bl	0x87b20 <flex_poe_init+0xce4>
+   894c0:      	cbz	w0, 0x894d4 <flex_ngio_poe_init+0xf14>
+   894c4:      	adrp	x0, 0x1ef000
+   894c8:      	ldrh	w2, [x26]
+   894cc:      	mov	w1, #0x4c               // =76
+   894d0:      	b	0x89214 <flex_ngio_poe_init+0xc54>
+   894d4:      	mov	x0, x20
+   894d8:      	bl	0x22550 <fclose@plt>
+   894dc:      	adrp	x0, 0x1ef000
+   894e0:      	adrp	x4, 0xb2000
+   894e4:      	ldrb	w5, [sp, #0x10]
+   894e8:      	add	x4, x4, #0x562
+   894ec:      	ldrb	w6, [sp, #0xc]
+   894f0:      	mov	w1, #0x4d               // =77
+   894f4:      	ldrb	w7, [sp, #0x8]
+   894f8:      	mov	w3, #0x5000000          // =83886080
+   894fc:      	ldrh	w2, [x26]
+   89500:      	ldr	x0, [x0, #0x6d8]
+   89504:      	bl	0x21870 <__BTf_1444@plt>
+   89508:      	ldrb	w8, [sp, #0x19]
+   8950c:      	ldrb	w9, [sp, #0x10]
+   89510:      	cmp	w8, w9
+   89514:      	b.ne	0x89548 <flex_ngio_poe_init+0xf88>
+   89518:      	ldrb	w8, [sp, #0x1b]
+   8951c:      	ldrb	w9, [sp, #0x8]
+   89520:      	cmp	w8, w9
+   89524:      	b.ne	0x89548 <flex_ngio_poe_init+0xf88>
+   89528:      	adrp	x0, 0x1ef000
+   8952c:      	ldrh	w2, [x26]
+   89530:      	mov	w1, #0x4e               // =78
+   89534:      	mov	w3, #0x3000000          // =50331648
+   89538:      	ldr	x0, [x0, #0x6d8]
+   8953c:      	bl	0x22a50 <__BTf_0@plt>
+   89540:      	mov	w0, #0x1                // =1
+   89544:      	b	0x89378 <flex_ngio_poe_init+0xdb8>
+   89548:      	adrp	x0, 0x1ef000
+   8954c:      	ldrh	w2, [x26]
+   89550:      	mov	w1, #0x4f               // =79
+   89554:      	b	0x89368 <flex_ngio_poe_init+0xda8>
+   89558:      	bl	0x21f60 <__stack_chk_fail@plt>

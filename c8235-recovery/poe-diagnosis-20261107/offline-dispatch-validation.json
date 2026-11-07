@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-11-07T13:54:59.471457-05:00",
+  "scope": "Offline emulation only; all hardware/property/log calls mocked",
+  "unicorn_version": "2.1.4",
+  "source_sha256": {
+    "libcmlib_ngio.so": "4c2d8e2099c3c7d9a1608ea75456eeb85bbedfeabbf04ba07dc1cf923dd99d88",
+    "libmirabilesw.so": "376ed0b8c45832cc0ae7f6e62e3a0d471e75dc9741a7a3359ab2421e69ceca74"
+  },
+  "chassis_enum_results": {
+    "ARATA": 121,
+    "ARATA_E": 133
+  },
+  "arata_presence_callback": "libmirabilesw.so+0xa4610",
+  "arata_presence_predicate": "status[4] != 0 AND status[1] != 0",
+  "status_read_error_result": -1,
+  "false_presence_result": -2,
+  "passed_cases": 67,
+  "limits": "No live runtime dispatch, physical presence, rail voltage, reset or firmware write tested"
+}

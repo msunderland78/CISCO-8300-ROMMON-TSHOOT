@@ -1,0 +1,426 @@
+# -----------------------------------------------------------------------------
+# 8M-2xSFP+.yml Arata P2
+#
+# July 2024
+# Adapted from flex/cessna
+#
+# Copyright (c) 2024-2026 by Cisco Systems, Inc.
+# All rights reserved.
+# -----------------------------------------------------------------------------
+config:
+  config-model:
+    name: Arata
+    pid: 8M-2xSFP+
+    form-factor: fixed
+    intf-create-type: static
+    model: Marvell-CPSS
+    mode: FlexL2L3
+    platform: 14er
+  config-objects:
+    - asic
+    - ports
+    - snmp
+    - mac-filter
+    - macsec
+  asic:
+    model: 98DXC254
+    dev-id: 0xa046
+    dev-num: 0
+    phy-smi: from-switch
+    ref-clock: EXT-125-DIFF
+    pse-chips:
+      -
+        pse-chip-id: 0
+        hw-model: PALPATINE2
+        i2c-mode: from-cpu
+        i2c-ctrl: 2
+        gpio-mode: from-fpga
+        power-pin: 0x03212c
+        reset-pin: 0x4
+        oss-pin: 0x03212c
+        oss-mode: soft
+    poe-ctrlrs:
+      -
+        name: POE-CTRLR-0
+        ctrlr-id: 0
+        pse-chip-id: 0
+        i2c-addr: 0x20
+        port-remapping: 0xE1
+      -
+        name: POE-CTRLR-1
+        ctrlr-id: 1
+        pse-chip-id: 0
+        i2c-addr: 0x21
+        port-remapping: 0xE4
+  ports:
+    -
+      name: TW0
+      if-type: network
+      if-num: 0
+      hw-port: 44
+      media: rj45
+      speed: 2500
+      if-mode: FlexL2
+      if-mode-def: FlexL2
+      serdes: usxgmii
+      phy:
+        hw-model: 88E2540
+        phy-index: 1
+        smi-ctrl: 0
+        smi-addr: 4
+        act-led: 2
+        mdi-swap-pair: TRUE
+      led:
+        combine_act_and_link: no
+    -
+      name: TW1
+      if-type: network
+      if-num: 1
+      hw-port: 45
+      media: rj45
+      speed: 2500
+      if-mode: FlexL2
+      if-mode-def: FlexL2
+      serdes: usxgmii
+      phy:
+        hw-model: 88E2540
+        phy-index: 1
+        smi-ctrl: 0
+        smi-addr: 5
+        act-led: 2
+        mdi-swap-pair: TRUE
+      led:
+        combine_act_and_link: no
+    -
+      name: TW2
+      if-type: network
+      if-num: 2
+      hw-port: 46
+      media: rj45
+      speed: 2500
+      if-mode: FlexL2
+      if-mode-def: FlexL2
+      serdes: usxgmii
+      phy:
+        hw-model: 88E2540
+        phy-index: 1
+        smi-ctrl: 0
+        smi-addr: 6
+        act-led: 2
+        mdi-swap-pair: TRUE
+      led:
+        combine_act_and_link: no
+    -
+      name: TW3
+      if-type: network
+      if-num: 3
+      hw-port: 47
+      media: rj45
+      speed: 2500
+      if-mode: FlexL2
+      if-mode-def: FlexL2
+      serdes: usxgmii
+      phy:
+        hw-model: 88E2540
+        phy-index: 1
+        smi-ctrl: 0
+        smi-addr: 7
+        act-led: 2
+        mdi-swap-pair: TRUE
+      led:
+        combine_act_and_link: no
+    -
+      name: TW4
+      if-type: network
+      if-num: 4
+      hw-port: 24
+      media: rj45
+      speed: 2500
+      if-mode: FlexL2/L3
+      if-mode-def: FlexL2
+      serdes: usxgmii
+      port-mapping:
+        group: 0
+        vlan: 2355
+        lp_cos: 0
+        hp_cos: 4
+        lp_txq: 0
+        hp_txq: 4
+      mac-filter:
+        reserved-intf-mac-entries: 32
+        max-intf-mac-entries: 500
+      phy:
+        hw-model: 88E2540
+        phy-index: 0
+        smi-ctrl: 0
+        smi-addr: 0
+        act-led: 2
+        mdi-swap-pair: TRUE
+      led:
+        combine_act_and_link: no
+      poe:
+        standard: poe+
+        perpetual: yes
+        poe-ctrlr: 0
+        signal-pair: 0
+    -
+      name: TW5
+      if-type: network
+      if-num: 5
+      hw-port: 25
+      media: rj45
+      speed: 2500
+      if-mode: FlexL2/L3
+      if-mode-def: FlexL2
+      serdes: usxgmii
+      port-mapping:
+        group: 0
+        vlan: 2356
+        lp_cos: 1
+        hp_cos: 5
+        lp_txq: 1
+        hp_txq: 5
+      mac-filter:
+        reserved-intf-mac-entries: 32
+        max-intf-mac-entries: 500
+      phy:
+        hw-model: 88E2540
+        phy-index: 0
+        smi-ctrl: 0
+        smi-addr: 1
+        act-led: 2
+        mdi-swap-pair: TRUE
+      led:
+        combine_act_and_link: no
+      poe:
+        standard: poe+
+        perpetual: yes
+        poe-ctrlr: 0
+        signal-pair: 1
+    -
+      name: TW6
+      if-type: network
+      if-num: 6
+      hw-port: 26
+      media: rj45
+      speed: 2500
+      if-mode: FlexL3
+      if-mode-def: FlexL3
+      serdes: usxgmii
+      port-mapping:
+        group: 0
+        vlan: 2357
+        lp_cos: 2
+        hp_cos: 6
+        lp_txq: 2
+        hp_txq: 6
+      mac-filter:
+        reserved-intf-mac-entries: 32
+        max-intf-mac-entries: 500
+      phy:
+        hw-model: 88E2540
+        phy-index: 0
+        smi-ctrl: 0
+        smi-addr: 2
+        act-led: 2
+        mdi-swap-pair: TRUE
+      led:
+        combine_act_and_link: no
+      poe:
+        standard: upoe+
+        perpetual: yes
+        poe-ctrlr: 1
+        signal-pair: 0
+        spare-pair: 1
+    -
+      name: TW7
+      if-type: network
+      if-num: 7
+      hw-port: 27
+      media: rj45
+      speed: 2500
+      if-mode: FlexL3
+      if-mode-def: FlexL3
+      serdes: usxgmii
+      port-mapping:
+        group: 0
+        vlan: 2358
+        lp_cos: 3
+        hp_cos: 7
+        lp_txq: 3
+        hp_txq: 7
+      mac-filter:
+        reserved-intf-mac-entries: 32
+        max-intf-mac-entries: 500
+      phy:
+        hw-model: 88E2540
+        phy-index: 0
+        smi-ctrl: 0
+        smi-addr: 3
+        act-led: 2
+        mdi-swap-pair: FALSE
+      led:
+        combine_act_and_link: no
+      poe:
+        standard: upoe+
+        perpetual: yes
+        poe-ctrlr: 1
+        signal-pair: 2
+        spare-pair: 3
+    -
+      name: TenGE0
+      if-type: network
+      if-num: 8
+      hw-port: 50
+      media: sfp+
+      speed: 10000
+      if-mode: FlexL3
+      if-mode-def: FlexL3
+      serdes: 10gkr
+      re-tune: TRUE
+      serdes-tx-tuning: 2
+      port-mapping:
+        group: 1
+        vlan: 2359
+        lp_cos: 0
+        hp_cos: 4
+        lp_txq: 0
+        hp_txq: 4
+      mac-filter:
+        reserved-intf-mac-entries: 32
+        max-intf-mac-entries: 500
+      optics:
+        xcvr-c2w:
+          mode: from-switch
+          xfer-size: 8
+          dev-ctrlr: 2
+        xcvr-gpio:
+          mode: from-switch
+          access: gpio-mpp
+          gpio-mpp:
+            tx-en-pin: 5
+            rx-los-pin: 7
+            present-pin: 6
+            tx-fault-pin: 4
+    -
+      name: TenGE1
+      if-type: network
+      if-num: 9
+      hw-port: 51
+      media: sfp+
+      speed: 10000
+      if-mode: FlexL3
+      if-mode-def: FlexL3
+      serdes: 10gkr
+      re-tune: TRUE
+      serdes-tx-tuning: 2
+      port-mapping:
+        group: 2
+        vlan: 2360
+        lp_cos: 0
+        hp_cos: 4
+        lp_txq: 0
+        hp_txq: 4
+      mac-filter:
+        reserved-intf-mac-entries: 32
+        max-intf-mac-entries: 500
+      optics:
+        xcvr-c2w:
+          mode: from-switch
+          xfer-size: 8
+          dev-ctrlr: 0
+        xcvr-gpio:
+          mode: from-switch
+          access: gpio-mpp
+          gpio-mpp:
+            tx-en-pin: 1
+            rx-los-pin: 3
+            present-pin: 2
+            tx-fault-pin: 0
+    -
+      name: BP0
+      if-type: l3uplink
+      if-num: 10
+      hw-port: 0
+      speed: 10000
+      serdes: 10gkr
+      serdes-tx-tuning: 1
+      port-mapping:
+        group: 0
+    -
+      name: BP1
+      if-type: l3uplink
+      if-num: 11
+      hw-port: 48
+      speed: 10000
+      serdes: 10gkr
+      serdes-tx-tuning: 1
+      port-mapping:
+        group: 1
+        vlan-termination: switch
+    -
+      name: BP2
+      if-type: l3uplink
+      if-num: 12
+      hw-port: 49
+      speed: 10000
+      serdes: 10gkr
+      serdes-tx-tuning: 1
+      port-mapping:
+        group: 2
+        vlan-termination: switch
+    -
+      name: FFP
+      if-type: l2uplink
+      if-num: 13
+      hw-port: 8
+      speed: 10000
+      serdes: 10gkr
+      serdes-tx-tuning: 1
+  snmp:
+    module-oid: "1 3 6 1 4 1 9 12 3 1 9 96 194"
+    port-oid: "1 3 6 1 4 1 9 12 3 1 10 304"
+  mac-filter:
+    per-port: TRUE
+    total-mac-entries: 1500
+  macsec:
+    tcam-priority: FALSE
+  qos:
+    buff_desc:
+      shared_pool_buff_limit: 24576
+      shared_pool_desc_limit: 24576
+      network_port_buff_limit: 1024 # Network per tx queue limit. Switch --> line
+      network_port_desc_limit: 1024
+      network_port_mc_buff_limit: 256 # Included in network_port_buff_limit
+      uplink_port_buff_limit: 1280 # Uplink per tx queue limit. Switch --> SoC
+      uplink_port_desc_limit: 1280
+      uplink_port_mc_buff_limit: 640 # Included in uplink_port_buff_limit
+      internal_port_buff_limit: 1792 #Used by FFP/loopback per tx queue limit.
+      internal_port_desc_limit: 1792
+      internal_port_mc_buff_limit: 512 # Included in internal_port_buff_limit
+      network_port_rx_buffer_limit : 1024 # network FC XOFF/XON threshold is based on this para
+                                          # it should be equal or less than uplink_port_buff_limit
+                                          # without this para definition, the network FC XOFF/ON will
+                                          # be based on uplink_port_desc_limit
+    flow_ctrl:
+      network_port_xoff_thres: 512 # xoff sent if uplink tx queue is congested
+      network_port_xon_thres: 128
+      internal_port_xoff_thres: 768
+      internal_port_xon_thres: 192
+      uplink_queue_xoff_thres: 768
+      uplink_queue_xon_thres: 128
+      uplink_port_xoff_thres: 768
+      uplink_port_xon_thres: 128
+  acl:
+    racl-entries: 256
+    racl-dacl-shared-entries: 128
+    dacl-entries: 1536
+    total-acl-entries: 2048
+  plim:
+    cos_dscp_ind_mode: FALSE
+    exp_map: FALSE
+    rx_pause_keep_on: TRUE
+  dying_gasp:
+    support: TRUE
+    dev-pcie-addr: 0004:01:00.0
+    rc-pcie-addr: 0004:00:00.0
