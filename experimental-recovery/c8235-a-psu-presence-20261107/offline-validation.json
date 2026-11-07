@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-11-07T12:38:22.797607-05:00",
+  "unicorn_version": "2.1.4",
+  "cases_passed": 290,
+  "source_sha256": "ea570d093bdcbfb34edc534e1e4615e0ad7d32b01e78d0554b02952d65bcf791",
+  "candidate_sha256": "8f9da1b458718001a537fabcbcd4def6267a83ece5fdc9967cd30fab33399ff0",
+  "checks": [
+    "64 boolean and 32 arbitrary status vectors, each with three ioctl results",
+    "null argument and unopened fd",
+    "exact ioctl request and buffer pointer",
+    "caller-saved register clobber across ioctl",
+    "callee-saved registers and stack",
+    "adjacent output-buffer canaries",
+    "original function counter",
+    "only response bytes 0/1 forced after successful read; bytes 2-5 retained",
+    "failed read output/return retained",
+    "source hash mismatch rejected",
+    "all library bytes outside the function unchanged"
+  ],
+  "limits": "Offline emulation with mocked ioctl and trace calls; no router access, electrical test, hardware compatibility, or functional PoE result."
+}

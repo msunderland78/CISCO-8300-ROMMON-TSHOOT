@@ -1,0 +1,26 @@
+{
+  "scope": "Offline mocked append fragment only; no native startup script, serial port, package mount or hardware executed",
+  "cases": [
+    {
+      "native_status": 0,
+      "hook_status": 0,
+      "result_status": 0,
+      "hook_called": true,
+      "passed": true
+    },
+    {
+      "native_status": 0,
+      "hook_status": 53,
+      "result_status": 0,
+      "hook_called": true,
+      "passed": true
+    },
+    {
+      "native_status": 7,
+      "hook_status": 0,
+      "result_status": 7,
+      "hook_called": false,
+      "passed": true
+    }
+  ]
+}

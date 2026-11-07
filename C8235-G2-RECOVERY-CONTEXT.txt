@@ -10,7 +10,60 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A EXISTING-PHOTO REVIEW / CURRENT HANDOFF — 2026-11-07, 12:27 EST
+C8235-A PSU-PRESENCE EXPERIMENT / CURRENT HANDOFF — 2026-11-07, 12:35–13:25 EST
+C8235-06: owner explicitly requests a software-only PSU-presence test and confirms
+unchanged A/FGL2835L42B/FOC28292GUQ, assembled and powered, battery installed,
+same 230 W brick/AP on physical port 4, no programmer/test wires, RJ45 console free.
+No disassembly. Exclusive /dev/cu.usbserial-AL00F7EQ, 115200/8N1/no flow; temporary
+pre-init shells used a verified 9600-to-115200 transition. Mac EST times govern.
+
+VERIFIED LIVE: native IOS26.02.1 changed from PWR-CC2-66WAC/66 W main to
+PWR-CC1-230WAC/110 W main. P0 and POE0 listed OK. PoE remained 0 W,
+Internal PoE is not present, and enabled port 4 stayed auto/off/no-device/0 W,
+no negotiation and all fault/denial counters zero. Supply recognition alone is
+insufficient. Actual controller population/communication and zero flags' cause
+remain unresolved; this is not a functional PoE repair or electrical measurement.
+
+Separate RAM library candidate changes only the 192-byte status wrapper:
+real successful ioctl response bytes 0/1 forced to 1; bytes 2–5, especially
+controller/daughter-presence byte 4, kept real. No hardware-register write by
+the replacement. Original library SHA256 ea570d093bdcbfb34edc534e1e4615e0ad7d32b01e78d0554b02952d65bcf791;
+candidate 8f9da1b458718001a537fabcbcd4def6267a83ece5fdc9967cd30fab33399ff0.
+290 offline differential cases pass; mocked hardware only. Root-only deployment
+was ineffective: cmand loaded a distinct mono-package view. Successful V5 binds
+the candidate after native package setup under /sysroot, before root handoff.
+Verified candidate hash plus native cmand7311 map (RAM00:02/inode1034) establishes
+deployment. Early raw status/control/revision remain 0/0/82020109.
+
+PRESERVED FAILURES: rejected initial ROMMON assignment syntax led to an ordinary
+boot. V1 late installer refused before patching, but its exit stopped native
+launch_net; process aborts and automatic reload followed. Native90,782 KB system
+report remains on router. V2/V3 root-only overlays left66W; V3 observer produced
+STARTED only. V4 package target was unavailable at networking-hook time and safely
+refused. V5 post-package placement succeeded. Later observer drafts are unexecuted.
+This supersedes the earlier no-override-selected recommendation for this owner-
+authorized bounded test; the earlier observations and failed attempts remain valid.
+
+RESTORED: reset13:21:29; fresh A UUID and exact saved original A4/BOOT readback
+13:22:48. Normal packages.conf boot passes original input hashes, launch_net32ce11...
+and VF hookca13a2..., then HOOK_COMPLETE. At13:25 native cmand6353 maps original
+package fc:00/inode19684. IOS26.02.1, confreg0x3922,66W main/0W PoE,0/0/R0/F0 ready,
+port4 unchanged; sampled boot log has no process-failure matches. Existing standby
+12V0/Critical_Low persists. No sync, saved-config, package/firmware/EEPROM, TPM/fuse
+change; native boot/crash logging writes are not excluded by that scope.
+Pagination24 acknowledged; console closed13:25:44, both aliases free. A left
+powered/assembled with the same confirmed brick/AP4/cabling; no override active.
+
+Next: identify the real byte-4/controller-presence source and qualified controller
+interface through static Arata analysis/reference hardware while leaving A assembled.
+Do not repeat the known crashing native PoE-get command or infer J3300's role.
+Result: c8235-recovery/poe-diagnosis-20261107/psu-presence-test.json
+Reproducible experiment: experimental-recovery/c8235-a-psu-presence-20261107/README.md
+Public excerpt: sanitized-evidence/router-console-logs/20261107-123536-C8235-A-PSU-presence-console.log
+Complete original capture and decoded native startup script remain private; the
+published excerpt explicitly omits the encoded vendor-script body.
+
+C8235-A EXISTING-PHOTO REVIEW / EARLIER HANDOFF — 2026-11-07, 12:27 EST
 C8235-06: owner asks to continue without disassembly. Offline photo/firmware review
 only; no console, probe, power operation or new router test. Leave A assembled.
 Correct A images are PHOTOS2/IMG_1292 through IMG_1303, board FOC28292GUQ;
@@ -37,7 +90,7 @@ state in historical photographs. Same brick ISR4321/AP success remains valid.
 Evidence: c8235-recovery/poe-diagnosis-20261107/photo-review.json
 Static descriptors: c8235-recovery/poe-diagnosis-20261107/arata-poe-descriptors.txt
 
-C8235-A ROMMON / PoE DIAGNOSTIC FAULT / LAST HARDWARE SESSION — 2026-11-07, 11:56–12:13 EST
+C8235-A ROMMON / PoE DIAGNOSTIC FAULT / EARLIER HARDWARE SESSION — 2026-11-07, 11:56–12:13 EST
 C8235-06: fresh owner confirmation A / FGL2835L42B / R0 FOC28292GUQ, assembled,
 battery installed, same 230 W brick/AP on port 4/RJ45 attached, no test/programmer wires,
 exclusive console. Router initially off; owner powers on after capture/trigger armed.

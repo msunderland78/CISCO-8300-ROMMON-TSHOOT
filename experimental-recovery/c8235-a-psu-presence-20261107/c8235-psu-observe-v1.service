@@ -1,0 +1,16 @@
+[Unit]
+Description=Temporary C8235-A read-only PSU library observer
+DefaultDependencies=no
+Conflicts=shutdown.target
+Before=shutdown.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /c8235-psu-observe.sh --live --confirmed-chassis FGL2835L42B
+RuntimeMaxSec=180
+StandardInput=null
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=sysinit.target

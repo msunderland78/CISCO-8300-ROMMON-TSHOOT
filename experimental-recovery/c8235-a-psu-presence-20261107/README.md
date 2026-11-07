@@ -1,0 +1,43 @@
+# C8235-A temporary PSU-presence experiment
+
+C8235-06, November 7, 2026, America/New_York. This is an experiment for the freshly confirmed **FGL2835L42B / FOC28292GUQ** chassis on the exact IOS XE 26.02.01 library. It is not a restore image, production fix, or authorization to apply it to another router.
+
+The owner requested a software-only test of making IOS believe a PoE supply is present, while keeping the router assembled. The separate candidate replaces 192 bytes inside `dash_fpga_get_poe_psu_status`. It performs the real status ioctl and, only when it succeeds, sets output bytes 0 and 1 to one. Bytes 2–5, including controller/daughter-presence byte 4, retain the real result. Error return values, the function counter, stack and calling convention are preserved. The replacement omits the wrapper's original error trace calls. It does not write a hardware status/control register.
+
+**Live result, 13:20–13:21 EST:** native IOS changes from **PWR-CC2-66WAC / 66 W main** to **PWR-CC1-230WAC / 110 W main**, with P0 and POE0 listed as OK. PoE remains **0 W**, `Internal PoE is not present` remains, and enabled port 4 reports auto/off/no detected device/0 W with zero fault and denial counters. This establishes a successful temporary supply-presence override, not working PoE. Actual controller population, communication and the cause of the real zero presence flags remain unresolved.
+
+Deployment was verified independently: the startup package view had the exact candidate hash, and native `cmand` PID 7311 mapped the library from RAM device `00:02`, inode 1034, after the root handoff. The map's `(deleted)` annotation reflects the removed initial-root pathname; the bind and mapping still hold that RAM file. In the earlier ineffective placement, native `cmand` instead mapped the original package file from `fc:00`, inode 19684. The Arata platform-data library remained package-backed in both cases.
+
+The complete original and candidate hashes, patch boundaries and limitations are in [candidate.json](candidate.json). Original firmware/package bytes are never edited. The full candidate remains under the ignored local `tmp/c8235-psu-presence-20261107/candidate/` directory; the reproducible builder and small encoded patch are retained here.
+
+`prepare.py` uses Python 3's standard library and requires explicit source/output arguments. `validate.py` uses Unicorn 2.1.4 for differential emulation of the exact original and replacement functions. [The report](offline-validation.json) records 290 passing cases covering real-byte preservation, errors, ABI registers, canaries, ioctl arguments, and source-hash rejection. [Independent LLVM disassembly](patched-disassembly.txt) was reviewed. These are mocked hardware tests, not PoE delivery validation.
+
+Example offline commands from the repository root, after extracting the exact source library into the local path shown:
+
+```sh
+python3 experimental-recovery/c8235-a-psu-presence-20261107/prepare.py --source tmp/c8235-psu-presence-20261107/libdash_fpga_api.so --output-directory tmp/c8235-psu-presence-20261107/new-candidate
+tmp/c8235-psu-emulation-venv/bin/python experimental-recovery/c8235-a-psu-presence-20261107/validate.py --source tmp/c8235-psu-presence-20261107/libdash_fpga_api.so --report tmp/c8235-psu-presence-20261107/new-validation.json
+```
+
+The AI-assisted Python builder/validator have no hardware effects on import. The standalone installers, audit and observer scripts require explicit live/chassis arguments before hardware access. `install-ram.sh` additionally requires the verified pre-init shell, a RAM filesystem, exact source/patch/candidate hashes, and no existing library consumer. It preserves a separate original, constructs a separate candidate, and bind-mounts that RAM file. `audit-ram.sh` checks the installed candidate and reads real FPGA status/control/revision. The existing independently verified A4/AFIX1 VF correction remains necessary and unchanged on bootflash. The `bound16-hook-*` files and `post-mount.fragment` are **startup fragments with effects when sourced/executed in their intended router context**, not inert standalone tools; do not run them as host tests. Each combined VF hook preserves the original hook prefix and adds the clearly identified experiment calls. The native scripts and extracted vendor library remain separately identified source evidence, not authored code.
+
+The successful V5 placement appends [a small fragment](post-mount.fragment) to the **initial RAM root's** exact `/mount_packages.sh`, after preserving its original bytes. This runs after native package creation but before the root handoff and before cmand/iomd/iosd exist. [The package installer](install-package-view.sh) follows the native `/sysroot` branch, checks the actual package-view source hash, copies its permissions and SELinux context to the RAM candidate, then bind-mounts that candidate over the selected view. It changes neither the package bytes nor the security policy. The initial 17,848-byte script is distinct from the later 3,399-byte mono-package script; the latter was rejected by the live hash guard and never modified. [Exact script hashes](post-mount-candidate.json) and [three mocked exit-status checks](post-mount-validation.json) establish the append boundary and preservation of the native status. Those mocks do not execute vendor startup code.
+
+The attempts are preserved separately in [preflight.json](preflight.json):
+
+| Attempt | Observed result |
+| --- | --- |
+| Parameter syntax slip | Assignment syntax was rejected; one ordinary A4 boot occurred before retrying with the verified quoted `set` syntax. No override was installed. |
+| V1: late root installer | Refused before copying/patching because a consumer already mapped the library. Its `exit 1` also stopped native `launch_net`; widespread process aborts and an automatic reload followed. This was an implementation failure, not a response to spoofed PSU status. The native system report remains on the router. |
+| V2: pre-init root installer | Candidate and startup audit passed, but IOS stayed at 66 W/0 W. The audited path was not the runtime consumer's package view. |
+| V3: root installer plus observer | Observer printed STARTED without delayed snapshots; cause unresolved. Native memory-map CLI established that cmand loaded the original package-backed library. |
+| V4: package overlay at networking hook | Refused because its target was unavailable at that stage. Nonfatal failure handling let native startup finish normally. |
+| V5: qualified post-package hook | Selected the `/sysroot` package view, verified the RAM overlay, and native cmand loaded it. IOS enumerated the 230 W supply; PoE stayed absent/0 W. No matching process-failure messages appeared in the sampled boot log. |
+
+The `*-v1.sh` and `*-v1.service` files preserve executed earlier versions. The revised `observe-processes.sh`, `observe-launch.sh` and `c8235-psu-observe.service` are **unexecuted drafts**; native process maps made them unnecessary. `bound16-hook-with-package-view.sh` belongs to the unsuccessful V4 placement. The successful V5 boot uses `bound16-hook-with-psu-audit.sh` for the existing VF fix plus read-only audit, with the package overlay separately placed after native package setup.
+
+Rollback is a reset followed by verification of the saved original A4 `USER_BOOT_PARAM` and `BOOT`, then the ordinary `packages.conf` boot. No ROMMON `sync`, saved configuration change, package modification, EEPROM edit, TPM operation or fuse change is part of this experiment. Native crash reports can be generated by failed boots and remain on the router. Successful display changes would not prove electrical power, physical controller population, controller communication or safe production operation.
+
+**Restoration verified, 13:25 EST:** the exact saved original boot settings returned after reset, A4 input/VF-hook checks passed, and cmand PID 6353 again mapped the original package library (`fc:00`, inode 19684). IOS returned to 66 W main/0 W PoE, with 0/0/R0/F0 ready and port 4 unchanged. Pagination 24 was restored; the supervisor closed at 13:25:44 and both serial aliases were free. A remains powered and assembled. No PoE override is left active.
+
+The primary [live result and restoration record](../../c8235-recovery/poe-diagnosis-20261107/psu-presence-test.json) distinguishes software enumeration from electrical power and functional PoE. The complete original console capture stays private; its published excerpt explicitly omits the encoded vendor-script transfer and otherwise passes through the repository sanitizer.

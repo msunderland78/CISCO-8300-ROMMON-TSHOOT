@@ -1,0 +1,16 @@
+{
+  "target": "C8235-A / FGL2835L42B / IOS XE 26.02.01",
+  "status": "offline candidate; not a verified fix or restore artifact",
+  "source_sha256": "ea570d093bdcbfb34edc534e1e4615e0ad7d32b01e78d0554b02952d65bcf791",
+  "candidate_sha256": "8f9da1b458718001a537fabcbcd4def6267a83ece5fdc9967cd30fab33399ff0",
+  "patch_sha256": "3d70331915eae857494ce4beb99bcdb522b2445015d32df9c9886ec08c39b472",
+  "source_bytes": 138528,
+  "modified_function": "dash_fpga_get_poe_psu_status",
+  "file_offset_equals_va_start": "0xbcc4",
+  "end_exclusive": "0xbd84",
+  "patch_bytes": 192,
+  "effect": "After successful original status ioctl, set response bytes 0 and 1 to 1; retain bytes 2-5 and return status. Null argument returns -1; unopened fd returns 19. Hardware status/control registers are not written by this function.",
+  "preserved": "Original ELF outside this function; ioctl request 0x80066651; six-byte real read; function counter; callee-saved registers and stack; controller/daughter-presence byte 4.",
+  "difference_beyond_response": "The replacement omits the original wrapper's error trace calls. Error return values and ioctl output bytes are retained. This is an experiment, not production-quality error logging.",
+  "rollback": "One unsynced boot only; reboot to the saved unmodified A4/AFIX1/packages.conf setup removes RAM overlay."
+}

@@ -1,0 +1,356 @@
+{
+  "task": "C8235-06",
+  "recorded_at": "2026-11-07T12:42:24.414380-05:00",
+  "timezone": "America/New_York",
+  "status": "Complete bounded test: native 230 W supply enumeration achieved, functional PoE not achieved; original startup restored and console released",
+  "target": {
+    "tracking_label": "C8235-A",
+    "chassis": "FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "rommon_uuid": "13 FF FF 78 86 52 04 83 8A BF FF 48"
+  },
+  "authorization": "Owner requests making IOS-XE think a PoE supply is present and observing response; explicitly confirms assembled A, battery, same 230 W brick/AP port4, no programmer/test wires, console free. This supersedes earlier no-override-selected handoff for this bounded test.",
+  "scope": "Bounded unsynced maintenance boots to qualify deployment; separate hash-verified RAM library copy only. Successful real status ioctl retained; only response bytes 0/1 become 1. Controller byte 4 is not overridden. Native downstream response is the experiment.",
+  "baseline": {
+    "ios": "26.02.1 packages.conf Autonomous",
+    "inventory": "PWR-CC2-66WAC",
+    "power_main_watts": 66,
+    "power_poe_watts": 0,
+    "internal_poe": "not present",
+    "port4": "auto/off/no-device/0 W",
+    "standby_12v_mv": 0,
+    "rommon_effective_status_32120": "0x0",
+    "rommon_effective_control_3212c": "0x0"
+  },
+  "offline_validation": "290 differential emulator cases passed; mocked hardware, not functional PoE validation. Independent LLVM disassembly reviewed.",
+  "rollback": "Reload, verify original saved A4 USER_BOOT_PARAM and BOOT, boot packages.conf; verify original input/RAM hook hashes, native readiness and power baseline. No ROMMON sync, saved config change or package modification.",
+  "intermediate_failure": "12:40:40 assignment-form temporary ROMMON parameter rejected; readback remains original A4. 12:40:45 boot started with original setup before rejection was acted upon. No PSU patch installed; allow normal startup and retry with previously verified quoted set syntax.",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 8622,
+      "sha256": "e700492c97ab941b9465abe863c35c40f4a4d75d5498bfc38368882a301aa59a"
+    },
+    {
+      "path": "audit-ram.sh",
+      "bytes": 943,
+      "sha256": "535d1fbdea9055ad7c5380f220f1a9d54c779cf4ec38b856974e30f9ba715828"
+    },
+    {
+      "path": "bound16-hook-with-package-view.sh",
+      "bytes": 1441,
+      "sha256": "4b45f05b0c20484316ef9b5bbcd601f577acdd489cabdb4bac933995c7d07a6e"
+    },
+    {
+      "path": "bound16-hook-with-psu-audit-v1.sh",
+      "bytes": 1384,
+      "sha256": "b9155585a7540c24d973bd4e3bace07d5c2ac1fa152d3a8eff27de20ddb39bcb"
+    },
+    {
+      "path": "bound16-hook-with-psu-audit.sh",
+      "bytes": 1279,
+      "sha256": "76f856b27b6f5da673d5621964d2b1f669e2976eed99ff1d0f993cce338fe5a6"
+    },
+    {
+      "path": "c8235-psu-observe-v1.service",
+      "bytes": 355,
+      "sha256": "b5227eb9741a5c15a6e67aa5471966b05596f237887ab57f88961761b0c40e8e"
+    },
+    {
+      "path": "c8235-psu-observe.service",
+      "bytes": 382,
+      "sha256": "da5464dc835d61e5812e9775e542afa51f7e61cd6408e88d656e487a0be6dbe8"
+    },
+    {
+      "path": "candidate.json",
+      "bytes": 1339,
+      "sha256": "409ac8eaa458706898a331c2de8d41ff3d593397b02b37cfc50eb10bde13b328"
+    },
+    {
+      "path": "function-patch.base32",
+      "bytes": 317,
+      "sha256": "792c8cd51cb2680f8c44053dddb1c72ae46f97d66bdd71c969e4997f9cfdf12d"
+    },
+    {
+      "path": "install-package-view-v1.sh",
+      "bytes": 1760,
+      "sha256": "27e425f3614a93daaecfe8d14c932d2f59a69e28a6af09274be356f0a2b11b21"
+    },
+    {
+      "path": "install-package-view.sh",
+      "bytes": 2355,
+      "sha256": "7df2b73314dbd53c9f9137432c91587d47847173e34f8a7a6a1fd4d2fa5bf21f"
+    },
+    {
+      "path": "install-ram-v1.sh",
+      "bytes": 2876,
+      "sha256": "e444766a5e77146be7ffbe8fac3b97fe9b640f521b8a83fdb2eeb7b0f3f99fe2"
+    },
+    {
+      "path": "install-ram.sh",
+      "bytes": 3051,
+      "sha256": "0ffc0fd6a24b5b7db34c0e701f7df88371e0a6ac19ed407d585f3435f2393713"
+    },
+    {
+      "path": "observe-launch.sh",
+      "bytes": 382,
+      "sha256": "460914fc53ddba90e96953f8fcb4d339cad4c296c4f0d4b30ca027368a945ccc"
+    },
+    {
+      "path": "observe-processes-v1.sh",
+      "bytes": 2176,
+      "sha256": "063dd49d5172fb127678c6c50b70e7f8aaf88c02db03d54beddd4d304b3d77a0"
+    },
+    {
+      "path": "observe-processes.sh",
+      "bytes": 2308,
+      "sha256": "c1d0c4bd2520be98a3fb8b4da717ae094b87c54b176263ff3169c717ab502948"
+    },
+    {
+      "path": "offline-validation.json",
+      "bytes": 998,
+      "sha256": "9b1193d659c118b218e708f86ff4b8ae121fb6850503a03a360cc76b4f1afc87"
+    },
+    {
+      "path": "patched-disassembly.txt",
+      "bytes": 2218,
+      "sha256": "e8211b895350b88d9cea44a7274613a409c816a34e60feaf701a8f1ce7bb6086"
+    },
+    {
+      "path": "post-mount-candidate.json",
+      "bytes": 1409,
+      "sha256": "048ff22e501064539be0243d2dae64d6e83dee6c18819f587a45e7067b3c3e78"
+    },
+    {
+      "path": "post-mount-validation.json",
+      "bytes": 558,
+      "sha256": "5c188ddef7fe3887d9c62899721d9b31b3c317c3e26a360a382b79967529ea51"
+    },
+    {
+      "path": "post-mount.fragment",
+      "bytes": 445,
+      "sha256": "3c4033a460ccabf26c8bbd0b38a1ee946839a62e56115a45f21e6952b53958dc"
+    },
+    {
+      "path": "prepare.py",
+      "bytes": 5989,
+      "sha256": "f6e9a1bec2bc41799b60e1ef9df63118bf4cf223a581af8396386a59f2a51416"
+    },
+    {
+      "path": "validate.py",
+      "bytes": 7660,
+      "sha256": "941708145ec652af37a518218fe7e467a36566f9948b79111e81c5892c15b329"
+    }
+  ],
+  "qualified_installation": "V2 first installs before /init in the verified initial RAM root. V5 additionally binds the exact candidate onto the native package view after mount_packages and before root handoff, because consumer maps proved the root-only placement ineffective. Both late audit and post-mount experiment failure preserve native startup.",
+  "fresh_maintenance": "12:45:09 EST: rootfs at / reports tmpfs; bootflash /dev/mmcblk0p1 at /u ext4 ro,norecovery. Contrary to the earlier capture narrative saying /usr/binos/lib64 was absent, this maintenance boot has the exact138528-byte libdash source at its expected path with matching SHA256. Prior cause/stage difference is not established. /init is a systemd binary; observed direct library strings are systemd-core/shared255 and libc.",
+  "live_preinit": {
+    "kernel": "6.6.95 board=arata",
+    "pid1": "/bin/sh -c with maintenance child then exec /init verified",
+    "root": "rootfs; stat reports tmpfs",
+    "source_sha256": "ea570d093bdcbfb34edc534e1e4615e0ad7d32b01e78d0554b02952d65bcf791",
+    "full_image_sha256": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456",
+    "afix1_sha256": "fd1eb73602bbb3b5f37c857e1261d709f9781e90dbcbbe41b633786b570f396a",
+    "vf_preparation": "Original launch_net and hook hashes pass; --prepare-only returned READY",
+    "transfer": "Installer, audit, base32 payload hashes match host; bash -n passes",
+    "combined_ram_hook_sha256": "b9155585a7540c24d973bd4e3bace07d5c2ac1fa152d3a8eff27de20ddb39bcb",
+    "bootflash": "RO/noload while checking; unmounted and /proc/mounts verified before exit",
+    "persistent_changes": "None requested; no ROMMON sync, saved-config command, package write or firmware write"
+  },
+  "v1_result": {
+    "status": "refused before patch/copy/bind mount",
+    "marker": "C8235_PSU_ORIGINAL_LIBRARY_ALREADY_MAPPED",
+    "mechanism": "Library already mapped by an earlier process; process identity was not captured. Hook returned exit1 from launch_net.",
+    "subsequent_failure": "Native psd/vman/repm/plogd/lman and IOSD aborts (rc134/SIGABRT) followed. Early exit from native startup is the leading explanation; no PSU spoof ran. The critical psd failure caused a supervised reset, recorded below.",
+    "correction": "Move installation before exec /init, where no consumers exist. The late hook only audits and logs failure while allowing remaining native startup to continue. Verify installer directly in maintenance before continuing.",
+    "recovery": "Critical psd failure triggers native reload. System report RP_0-system-report_20250529-184935-Universal.tar.gz,90782 KB, retained on router. Fresh A ROMMON UUID stopped at12:49:48; original saved BOOT and USER_BOOT_PARAM verified12:49:55. Quoted unsynced maintenance parameter re-entered and verified; packages.conf boot12:50:07."
+  },
+  "v2_live": {
+    "installer_time": "2026-11-07T12:51:09-05:00",
+    "installer": "COMPLETE;192bytes applied to separate RAM candidate; source/candidate hashes exact; real /usr/binos/lib64 path bind mount verified",
+    "original_sha256": "ea570d093bdcbfb34edc534e1e4615e0ad7d32b01e78d0554b02952d65bcf791",
+    "candidate_sha256": "8f9da1b458718001a537fabcbcd4def6267a83ece5fdc9967cd30fab33399ff0",
+    "combined_ram_hook_sha256": "76f856b27b6f5da673d5621964d2b1f669e2976eed99ff1d0f993cce338fe5a6",
+    "native_init_continuation": "2026-11-07T12:51:27.958056-05:00",
+    "bootflash": "unmounted and /proc/mounts verified before continuation",
+    "startup_audit": {
+      "status": "COMPLETE",
+      "uptime_seconds": 85.15,
+      "candidate_hash": "matched",
+      "original_copy_hash": "matched",
+      "bind_mount": "rootfs on /usr/binos/lib64/libdash_fpga_api.so",
+      "raw_poe_status": "00000000",
+      "raw_poe_ctrl": "00000000",
+      "raw_fpga_revision": "82020109"
+    },
+    "IOS_result": {
+      "first_native_query": "2026-11-07T12:52:44.885186-05:00",
+      "inventory": "PWR-CC2-66WAC",
+      "power": "66W main /0W PoE",
+      "internal_poe": "not present",
+      "readiness": "12:53:56 query:0/0ok,R0/F0active,P0ok",
+      "port4": "auto/off/no-device/0W/no negotiation/counters0",
+      "environment": "33/32/52C;12V11996mV,19W;existing standby12V0 Critical_Low",
+      "filtered_log": "No PROCFAIL/PROCHOLDDOWN/RELOAD_SYSTEM/POE/ILPOWER matches in current boot",
+      "limit": "Global startup library and raw-register audit passed, but actual cmand mapped library/return status not yet verified. This does not demonstrate that IOS received spoofed flags.",
+      "end": "Reload confirmed12:55:33; A UUID stopped12:56:52; saved original BOOT/USER_BOOT_PARAM returned before next unsynced maintenance boot."
+    }
+  },
+  "v3_live": {
+    "variant": "Same v2 patch plus temporary independent systemd observer in RAM, hashes verified; enabled under sysinit.target.wants. No saved package/config changes.",
+    "installer_time": "2026-11-07T12:58:47-05:00",
+    "init_continuation": "2026-11-07T12:59:05-05:00",
+    "startup_audit": "COMPLETE,uptime105.25s;globalcandidatehash8f9d...99ff0,originalcopyea57...bcf791;rawstatus/control0,revision82020109",
+    "observer": "STARTED only; no delayed snapshot/completion markers. Cause not established. A revised launcher/IgnoreOnIsolate version was prepared but not executed because native memory-maps CLI supplied the needed evidence.",
+    "IOS": "13:01:16,0/0ok,R0/F0active,P0ok;66W/0W. Port4off/no-device/0W at13:03:51.",
+    "native_process_id": 6891,
+    "unsupported_queries": [
+      "pid-lsof6891:Command Not Supported",
+      "process environment R0 name cmand:Invalid input; filtered request only, no environment values returned"
+    ],
+    "decisive_command": "show platform software process memory R0 process-id 6891 maps | include libdash|libcpa_sb_data_arata",
+    "decisive_time": "2026-11-07T13:03:00.293564-05:00",
+    "native_library_mapping": {
+      "path": "/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/binos/lib64/libdash_fpga_api.so",
+      "rx_start": "ffff7f690000",
+      "rx_end": "ffff7f6a4000",
+      "file_offset": "00000000",
+      "device": "fc:00",
+      "inode": 19684
+    },
+    "inference": "Native cmand maps the package-backed library, not the rootfs RAM candidate bind mounted over the startup /usr/binos path. Prior global hash audit did not prove consumer deployment.",
+    "next": "At this checkpoint the next step was to overlay the actual package view before cmand starts; V4 and V5 below retain the unsuccessful and successful placements."
+  },
+  "v4_plan": {
+    "scope": "Keep exact v2 candidate and early-root overlay; additionally bind the same separate RAM candidate onto the exact mono package-view libdash file before cmand/iomd/iosd exist. The underlying package bytes are not changed.",
+    "source_path": "/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/binos/lib64/libdash_fpga_api.so",
+    "installer_sha256": "27e425f3614a93daaecfe8d14c932d2f59a69e28a6af09274be356f0a2b11b21",
+    "hook_sha256": "4b45f05b0c20484316ef9b5bbcd601f577acdd489cabdb4bac933995c7d07a6e",
+    "guards": "Fresh AUUID/savedsettings;kernel/board;exact actualpackageview original hash;exact RAMcandidatehash;RAM filesystem;no cmand/iomd/iosd at execution. Late failure logs and allows original native startup to continue.",
+    "observer": "No delayed observer service in v4. Native memory maps now provide direct consumer evidence.",
+    "rollback": "Original saved A4 environment and unmodified packages.conf; final verification required."
+  },
+  "v4_live": {
+    "root_candidate_installed": "2026-11-07T13:07:29-05:00,hash8f9d...99ff0 verified",
+    "hook_hash": "4b45f05b0c20484316ef9b5bbcd601f577acdd489cabdb4bac933995c7d07a6e",
+    "init_continuation": "2026-11-07T13:07:38-05:00",
+    "package_overlay": "Refused at line18:expected package-view path absent or not regular/non-symlink in the hook namespace. No package-view bind performed; normal native startup continued.",
+    "global_audit": "COMPLETE,uptime96.75s,rootcandidatehashretained,rawstatus/control0,revision82020109",
+    "limit": "Path unavailable at networking hook does not distinguish later mount timing from a different root/mount namespace. Inspect native startup sequencing before choosing later deployment."
+  },
+  "v5_plan": {
+    "entry": "Fresh A UUID/savedoriginalenvironment;temporaryunsyncedmaintenanceboot13:12:08",
+    "qualified_native_script": {
+      "native_source": "/mount_packages.sh in initial RAM root",
+      "original_sha256": "763e60b5f1f75570df3ddac7619e052544dfc051e2096167da5a412c169f6b26",
+      "original_bytes": 17848,
+      "candidate_sha256": "d2a3c07ef2d9366b5a7148d3f4b4d21dd18c634516b2a84c1df2a88172359f8c",
+      "candidate_bytes": 18293,
+      "fragment_sha256": "3c4033a460ccabf26c8bbd0b38a1ee946839a62e56115a45f21e6952b53958dc",
+      "scope": "Append authored nonfatal package-view test after native package setup. Preserve original script bytes/prefix and final native exit status. RAM only.",
+      "live_service_sha256": "208f065d76353782eb0841385d23e04fe1e97899905c45db0344b604c2fa8823",
+      "ordering": "Verified initial mount_packages.service is after launch_net and before basic.target/initrd-parse-etc. Initial mount script calls pkg_to_tree, handles /sysroot, then returns. Append runs before the native root handoff.",
+      "rejected_preparation": "Mono package has a distinct later 3399-byte mount_packages.sh,hash ef9a4ac097d33885da9b45b803f96fecd4bd73fd0aecc32c81121ee3873e285e. Fresh live initial file is17848bytes with different hash; the first proposed mono-based append was never applied.",
+      "library_destination": "Follow exact native /sysroot existence branch; require exact actual source library hash. Bind the separately verified RAM file onto that view. Kernel bind holds the file; native process maps after handoff must verify survival."
+    },
+    "actual_script_transfer": "Read-only BusyBox base32 transfer from current initial RAM root;17848bytes/hash763e60...6b26 verified. Raw transfer private; decodedoriginal retained under ignored tmp/native-startup.",
+    "native_meta": "Current root is tmpfs;/mount_packages.sh regular17848bytes;native mount service SHA208f065...a8823 differs from later mono service. chcon and selinuxenabled available.",
+    "ram_install_time": "2026-11-07T13:17:21-05:00",
+    "post_mount_append_time": "2026-11-07T13:17:23-05:00",
+    "final_RAM_hashes": "Candidate8f9d...99ff0;originalmount763e...6b26;modifiedmountd2a3...59f8c;VF+audit hook76f8...fe5a6. All exactmatches and bash-n pass.",
+    "library_scope": "Same192-byte wrapper;choose /sysroot prefix only when native script creates it;copy source permissions/SELinux context onto separateRAMcandidate without policychange;bind on exactpackageview, nevereditpackagebytes.",
+    "init_continuation": "2026-11-07T13:17:52.134104-05:00",
+    "bootflash": "RO,noloadforchecks;unmounted and mounts verified beforecontinuation",
+    "append_validation": "Three mockedcases preserve native status0/7 and skiphookonoriginalfailure; no vendorstartup/hardware executed locally."
+  },
+  "v5_live": {
+    "init_continuation": "2026-11-07T13:17:52.134104-05:00",
+    "package_overlay": "COMPLETE; selected /sysroot/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/binos/lib64/libdash_fpga_api.so; original squashfs-backed source hash ea570d093bdcbfb34edc534e1e4615e0ad7d32b01e78d0554b02952d65bcf791, replaced view hash 8f9da1b458718001a537fabcbcd4def6267a83ece5fdc9967cd30fab33399ff0, RAM rootfs bind verified before handoff",
+    "early_raw_registers": {
+      "poe_status": "00000000",
+      "poe_ctrl": "00000000",
+      "revision": "82020109",
+      "audit_uptime_seconds": 348.28
+    },
+    "first_IOS_query": "2026-11-07T13:20:54.796509-05:00",
+    "inventory": "PWR-CC1-230WAC V02",
+    "main_power_available_watts": 110,
+    "poe_power_available_watts": 0,
+    "platform": "0/0 ok, R0/F0 ok active, P0 and POE0 PWR-CC1-230WAC ok",
+    "consumer_verification_time": "2026-11-07T13:21:06.961424-05:00",
+    "consumer": {
+      "name": "cmand",
+      "pid": 7311,
+      "mapped_path": "/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/binos/lib64/libdash_fpga_api.so (deleted)",
+      "device": "00:02",
+      "inode": 1034,
+      "rx_start": "ffff95c70000",
+      "rx_end": "ffff95c84000",
+      "rx_file_offset": "00000000",
+      "comparison": "Arata data library remains package-backed fc:00; prior V3 original libdash was fc:00 inode 19684. The deleted RAM file remains held by the verified bind and process mapping after native root handoff."
+    },
+    "internal_poe": "not present",
+    "port4": "auto/off/no detected device/0.0 W/no negotiation; absent, over-current, short, invalid-signature and denied counters all 0",
+    "environment": {
+      "inlet_celsius": 34,
+      "outlet_celsius": 33,
+      "cpu_celsius": 52,
+      "main_12v_mv": 12004,
+      "chassis_power_watts": 17,
+      "standby_12v_mv": 0,
+      "standby_state": "Critical_Low, pre-existing"
+    },
+    "filtered_log": "No PROCFAIL, PROCHOLDDOWN, RELOAD_SYSTEM, POE or ILPOWER matches in current boot at 13:21:06 query",
+    "repeat": "13:21:19: main 110 W / PoE 0 W; cmand PID 7311 and both IOMD PIDs 23608/23866 unchanged",
+    "interpretation": "Forcing only successful PSU status response bytes 0/1 is sufficient to change native supply enumeration and chassis budget. It is insufficient to establish internal PoE presence, allocate PoE power or detect the attached AP. No electrical measurement or actual controller identification was obtained.",
+    "rollback_requested": "2026-11-07T13:21:19.875514-05:00",
+    "rollback_confirmed": "2026-11-07T13:21:29.563315-05:00",
+    "rollback_status": "Verified complete at 13:25:37; original package-backed cmand library, 66 W/0 W, ready modules, original config register; console released 13:25:44.",
+    "rollback_rommon": {
+      "uuid_time": "2026-11-07T13:22:34.221088-05:00",
+      "identity": "13 FF FF 78 86 52 04 83 8A BF FF 48",
+      "saved_env_readback_time": "2026-11-07T13:22:48.894353-05:00",
+      "result": "Exact saved original A4 USER_BOOT_PARAM and BOOT returned after reset; no sync or env rewrite needed."
+    }
+  },
+  "final_restoration": {
+    "status": "Verified complete",
+    "saved_environment_returned": {
+      "uuid_time": "2026-11-07T13:22:34.221088-05:00",
+      "identity": "13 FF FF 78 86 52 04 83 8A BF FF 48",
+      "saved_env_readback_time": "2026-11-07T13:22:48.894353-05:00",
+      "result": "Exact saved original A4 USER_BOOT_PARAM and BOOT returned after reset; no sync or env rewrite needed."
+    },
+    "normal_boot_command": "boot bootflash:packages.conf",
+    "normal_boot_command_time": "2026-11-07T13:22:54.658267-05:00",
+    "startup_guards": "C8235_INTERNAL_INPUT_HASHES_PASS; original VF-patched launch_net SHA256 32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857 and hook SHA256 ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4; C8235_BOUND16_HOOK_COMPLETE",
+    "native_queries": {
+      "initial_inventory_power": "2026-11-07T13:25:06.633164-05:00",
+      "original_consumer_map": "2026-11-07T13:25:26.166538-05:00",
+      "final_ready_platform_port_and_log": "2026-11-07T13:25:37.193003-05:00"
+    },
+    "consumer": {
+      "name": "cmand",
+      "pid": 6353,
+      "path": "/tmp/sw/mount/c8kg2be-mono-universalk9.26.02.01.SPA.pkg/usr/binos/lib64/libdash_fpga_api.so",
+      "device": "fc:00",
+      "inode": 19684,
+      "rx_start": "ffff8b4d0000",
+      "rx_end": "ffff8b4e4000",
+      "result": "Original package-backed library restored; no deleted RAM candidate mapping"
+    },
+    "identity": "FGL2835L42B / FOC28292GUQ",
+    "ios": "26.02.1, bootflash:packages.conf, confreg 0x3922",
+    "power": "PWR-CC2-66WAC V02, main 66 W, PoE 0 W, Internal PoE is not present",
+    "readiness": "0/0 ok, R0/F0 ok active, P0 ok; initial booting observation retained before final ready query",
+    "port4": "auto/off/no-device/0.0 W/no negotiation; fault and denial counters 0 after module readiness",
+    "environment": "34/33/52 Celsius, main 12 V 12024 mV, chassis 15 W; pre-existing standby 12V_DG_ST 0 mV/Critical_Low",
+    "filtered_log": "No PROCFAIL/PROCHOLDDOWN/RELOAD_SYSTEM/POE/ILPOWER matches at final query",
+    "pagination": "terminal length 24 acknowledged at privileged prompt",
+    "console_closed_at": "2026-11-07T13:25:44.698572-05:00",
+    "ownership_verification": "lsof /dev/cu.usbserial-AL00F7EQ /dev/tty.usbserial-AL00F7EQ returned no owners (exit 1) after supervisor close",
+    "final_physical_state": "Left powered and assembled with battery, same brick/AP port 4/RJ45 cable as owner confirmed; no physical changes requested"
+  },
+  "primary_result": "c8235-recovery/poe-diagnosis-20261107/psu-presence-test.json",
+  "last_updated_at": "2026-11-07T13:27:37.662437-05:00"
+}

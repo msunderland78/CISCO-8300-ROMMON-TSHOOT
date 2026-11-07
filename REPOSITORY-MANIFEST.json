@@ -1744,6 +1744,11 @@
       "bytes": 50527,
       "path": "router-console-logs/20261107-120703-C8235-A-PoE-normal-restoration.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 397654,
+      "path": "router-console-logs/20261107-123536-C8235-A-PSU-presence-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1778,9 +1783,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 259245,
+      "bytes": 263047,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "6b15a7066a764da3f3c397f9b4ed2078372d5a2fa1bac8c7f85d9e344e070775"
+      "sha256": "dd81d31bdb4ca4000bb4a1b318e23b7d63920bf50f1193c98dc010ef7913f6c4"
     },
     {
       "bytes": 106687,
@@ -2103,9 +2108,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 29425,
+      "bytes": 29828,
       "path": "README.md",
-      "sha256": "52a1925c2fc0a8955f32e2baf928560d3b7743e1128a6c0d3e4154c388fdb389"
+      "sha256": "9760169b9ee1547a9ad3b29ac0c557fc3d3c3aa5f91f5b9b6845be0f9094782c"
     },
     {
       "bytes": 3934,
@@ -2303,9 +2308,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 524916,
+      "bytes": 531648,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "1981a84f9342f11a30ad70720153ef7bd16dbc3bc1e4bd4f97b44c3cd40bdebb"
+      "sha256": "68fc68e08ed66e9257348f2b3da3787aef2f3783f5a58b41b4b961da1fd79e41"
     },
     {
       "bytes": 6850655,
@@ -2716,6 +2721,11 @@
       "bytes": 9702,
       "path": "c8235-recovery/poe-diagnosis-20261107/photo-review.json",
       "sha256": "3076f4e93c64aa2b9b77989fe93afe0148313dd755060cc384a50698df94fcf3"
+    },
+    {
+      "bytes": 20194,
+      "path": "c8235-recovery/poe-diagnosis-20261107/psu-presence-test.json",
+      "sha256": "45c11096c4a09deec4caacabef7bee7dbe238eaa932e613e3792d21b0d548095"
     },
     {
       "bytes": 7824,
@@ -3511,6 +3521,126 @@
       "bytes": 5732,
       "path": "experimental-recovery/c8235-a-poe-observer-20261106/preflight.json",
       "sha256": "deda1dd62b9e19194cd827ab8f0a919498492c1ec22bc8c6ba8cdb50f21117cf"
+    },
+    {
+      "bytes": 8622,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/README.md",
+      "sha256": "e700492c97ab941b9465abe863c35c40f4a4d75d5498bfc38368882a301aa59a"
+    },
+    {
+      "bytes": 943,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/audit-ram.sh",
+      "sha256": "535d1fbdea9055ad7c5380f220f1a9d54c779cf4ec38b856974e30f9ba715828"
+    },
+    {
+      "bytes": 1441,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/bound16-hook-with-package-view.sh",
+      "sha256": "4b45f05b0c20484316ef9b5bbcd601f577acdd489cabdb4bac933995c7d07a6e"
+    },
+    {
+      "bytes": 1384,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/bound16-hook-with-psu-audit-v1.sh",
+      "sha256": "b9155585a7540c24d973bd4e3bace07d5c2ac1fa152d3a8eff27de20ddb39bcb"
+    },
+    {
+      "bytes": 1279,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/bound16-hook-with-psu-audit.sh",
+      "sha256": "76f856b27b6f5da673d5621964d2b1f669e2976eed99ff1d0f993cce338fe5a6"
+    },
+    {
+      "bytes": 355,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/c8235-psu-observe-v1.service",
+      "sha256": "b5227eb9741a5c15a6e67aa5471966b05596f237887ab57f88961761b0c40e8e"
+    },
+    {
+      "bytes": 382,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/c8235-psu-observe.service",
+      "sha256": "da5464dc835d61e5812e9775e542afa51f7e61cd6408e88d656e487a0be6dbe8"
+    },
+    {
+      "bytes": 1339,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/candidate.json",
+      "sha256": "409ac8eaa458706898a331c2de8d41ff3d593397b02b37cfc50eb10bde13b328"
+    },
+    {
+      "bytes": 317,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/function-patch.base32",
+      "sha256": "792c8cd51cb2680f8c44053dddb1c72ae46f97d66bdd71c969e4997f9cfdf12d"
+    },
+    {
+      "bytes": 1760,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/install-package-view-v1.sh",
+      "sha256": "27e425f3614a93daaecfe8d14c932d2f59a69e28a6af09274be356f0a2b11b21"
+    },
+    {
+      "bytes": 2355,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/install-package-view.sh",
+      "sha256": "7df2b73314dbd53c9f9137432c91587d47847173e34f8a7a6a1fd4d2fa5bf21f"
+    },
+    {
+      "bytes": 2876,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/install-ram-v1.sh",
+      "sha256": "e444766a5e77146be7ffbe8fac3b97fe9b640f521b8a83fdb2eeb7b0f3f99fe2"
+    },
+    {
+      "bytes": 3051,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/install-ram.sh",
+      "sha256": "0ffc0fd6a24b5b7db34c0e701f7df88371e0a6ac19ed407d585f3435f2393713"
+    },
+    {
+      "bytes": 382,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/observe-launch.sh",
+      "sha256": "460914fc53ddba90e96953f8fcb4d339cad4c296c4f0d4b30ca027368a945ccc"
+    },
+    {
+      "bytes": 2176,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/observe-processes-v1.sh",
+      "sha256": "063dd49d5172fb127678c6c50b70e7f8aaf88c02db03d54beddd4d304b3d77a0"
+    },
+    {
+      "bytes": 2308,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/observe-processes.sh",
+      "sha256": "c1d0c4bd2520be98a3fb8b4da717ae094b87c54b176263ff3169c717ab502948"
+    },
+    {
+      "bytes": 998,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/offline-validation.json",
+      "sha256": "9b1193d659c118b218e708f86ff4b8ae121fb6850503a03a360cc76b4f1afc87"
+    },
+    {
+      "bytes": 2218,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/patched-disassembly.txt",
+      "sha256": "e8211b895350b88d9cea44a7274613a409c816a34e60feaf701a8f1ce7bb6086"
+    },
+    {
+      "bytes": 1409,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/post-mount-candidate.json",
+      "sha256": "048ff22e501064539be0243d2dae64d6e83dee6c18819f587a45e7067b3c3e78"
+    },
+    {
+      "bytes": 558,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/post-mount-validation.json",
+      "sha256": "5c188ddef7fe3887d9c62899721d9b31b3c317c3e26a360a382b79967529ea51"
+    },
+    {
+      "bytes": 445,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/post-mount.fragment",
+      "sha256": "3c4033a460ccabf26c8bbd0b38a1ee946839a62e56115a45f21e6952b53958dc"
+    },
+    {
+      "bytes": 22442,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/preflight.json",
+      "sha256": "5c4072d278c085a54b1eed62729eb5f6252b3921beb3cee0b57cae670d605b05"
+    },
+    {
+      "bytes": 5989,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/prepare.py",
+      "sha256": "f6e9a1bec2bc41799b60e1ef9df63118bf4cf223a581af8396386a59f2a51416"
+    },
+    {
+      "bytes": 7660,
+      "path": "experimental-recovery/c8235-a-psu-presence-20261107/validate.py",
+      "sha256": "941708145ec652af37a518218fe7e467a36566f9948b79111e81c5892c15b329"
     },
     {
       "bytes": 6039,
@@ -5288,6 +5418,11 @@
       "sha256": "0a45845754b7c4e434a18e5e7dc295e94cf5fad7c5ff3d1ce3a4a4be53d7fe3c"
     },
     {
+      "bytes": 397664,
+      "path": "sanitized-evidence/router-console-logs/20261107-123536-C8235-A-PSU-presence-console.log",
+      "sha256": "223bec6b7cc5634a1627c64d1df5097bd491f5e6324647a3eb8641b17209959c"
+    },
+    {
       "bytes": 17692,
       "path": "scripts/c8235_a_development_candidate.py",
       "sha256": "22c28ebf03cdf60e6453a69f74356449bed0b38c07d501af61ad70480b629a8b"
@@ -5743,12 +5878,13 @@
     "sanitized-evidence/router-console-logs/20261106-204146-C8235-A-PoE-observer-and-normal-restoration.log",
     "sanitized-evidence/router-console-logs/20261107-115618-console.log",
     "sanitized-evidence/router-console-logs/20261107-120250-C8235-A-PoE-recovery-excerpt.log",
-    "sanitized-evidence/router-console-logs/20261107-120703-C8235-A-PoE-normal-restoration.log"
+    "sanitized-evidence/router-console-logs/20261107-120703-C8235-A-PoE-normal-restoration.log",
+    "sanitized-evidence/router-console-logs/20261107-123536-C8235-A-PSU-presence-console.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 349,
-    "included_bytes_without_manifest": 1127495551,
-    "included_files_without_manifest": 747
+    "excluded_local_files": 350,
+    "included_bytes_without_manifest": 1127997035,
+    "included_files_without_manifest": 773
   }
 }

@@ -1,0 +1,55 @@
+Offline candidate disassembly; not executed on router at generation time.
+
+tmp/c8235-psu-presence-20261107/candidate/libdash_fpga_api.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+000000000000bcc4 <dash_fpga_get_poe_psu_status>:
+    bcc4: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+    bcc8: a9014ff4     	stp	x20, x19, [sp, #0x10]
+    bccc: 910003fd     	mov	x29, sp
+    bcd0: b0000128     	adrp	x8, 0x30000
+    bcd4: f945ad09     	ldr	x9, [x8, #0xb58]
+    bcd8: 91000529     	add	x9, x9, #0x1
+    bcdc: f905ad09     	str	x9, [x8, #0xb58]
+    bce0: aa0003f3     	mov	x19, x0
+    bce4: b40001d3     	cbz	x19, 0xbd1c <dash_fpga_get_poe_psu_status+0x58>
+    bce8: 90000128     	adrp	x8, 0x2f000
+    bcec: f947b108     	ldr	x8, [x8, #0xf60]
+    bcf0: b9400100     	ldr	w0, [x8]
+    bcf4: 3100041f     	cmn	w0, #0x1
+    bcf8: 54000160     	b.eq	0xbd24 <dash_fpga_get_poe_psu_status+0x60>
+    bcfc: 528cca21     	mov	w1, #0x6651             // =26193
+    bd00: 72b000c1     	movk	w1, #0x8006, lsl #16
+    bd04: aa1303e2     	mov	x2, x19
+    bd08: 97ffe356     	bl	0x4a60 <ioctl@plt>
+    bd0c: 350000e0     	cbnz	w0, 0xbd28 <dash_fpga_get_poe_psu_status+0x64>
+    bd10: 52802028     	mov	w8, #0x101              // =257
+    bd14: 79000268     	strh	w8, [x19]
+    bd18: 14000004     	b	0xbd28 <dash_fpga_get_poe_psu_status+0x64>
+    bd1c: 12800000     	mov	w0, #-0x1               // =-1
+    bd20: 14000002     	b	0xbd28 <dash_fpga_get_poe_psu_status+0x64>
+    bd24: 52800260     	mov	w0, #0x13               // =19
+    bd28: a9414ff4     	ldp	x20, x19, [sp, #0x10]
+    bd2c: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+    bd30: d65f03c0     	ret
+    bd34: d503201f     	nop
+    bd38: d503201f     	nop
+    bd3c: d503201f     	nop
+    bd40: d503201f     	nop
+    bd44: d503201f     	nop
+    bd48: d503201f     	nop
+    bd4c: d503201f     	nop
+    bd50: d503201f     	nop
+    bd54: d503201f     	nop
+    bd58: d503201f     	nop
+    bd5c: d503201f     	nop
+    bd60: d503201f     	nop
+    bd64: d503201f     	nop
+    bd68: d503201f     	nop
+    bd6c: d503201f     	nop
+    bd70: d503201f     	nop
+    bd74: d503201f     	nop
+    bd78: d503201f     	nop
+    bd7c: d503201f     	nop
+    bd80: d503201f     	nop

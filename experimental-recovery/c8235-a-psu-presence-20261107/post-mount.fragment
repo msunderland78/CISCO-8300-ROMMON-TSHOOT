@@ -1,0 +1,11 @@
+
+# C8235-A/FGL2835L42B temporary RAM experiment: preserve native exit status.
+c8235_native_mount_status=$?
+if [[ $c8235_native_mount_status == 0 ]]; then
+    if ! /bin/bash /c8235-psu-package.sh --live --confirmed-chassis FGL2835L42B; then
+        echo C8235_PSU_PACKAGE_OVERLAY_FAILED_NORMAL_STARTUP_CONTINUES > /dev/ttyAMA0
+    fi
+else
+    echo C8235_PSU_PACKAGE_SKIPPED_NATIVE_MOUNT_FAILED > /dev/ttyAMA0
+fi
+exit "$c8235_native_mount_status"

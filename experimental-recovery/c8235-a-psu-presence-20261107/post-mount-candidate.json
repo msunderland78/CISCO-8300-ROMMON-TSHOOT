@@ -1,0 +1,13 @@
+{
+  "native_source": "/mount_packages.sh in initial RAM root",
+  "original_sha256": "763e60b5f1f75570df3ddac7619e052544dfc051e2096167da5a412c169f6b26",
+  "original_bytes": 17848,
+  "candidate_sha256": "d2a3c07ef2d9366b5a7148d3f4b4d21dd18c634516b2a84c1df2a88172359f8c",
+  "candidate_bytes": 18293,
+  "fragment_sha256": "3c4033a460ccabf26c8bbd0b38a1ee946839a62e56115a45f21e6952b53958dc",
+  "scope": "Append authored nonfatal package-view test after native package setup. Preserve original script bytes/prefix and final native exit status. RAM only.",
+  "live_service_sha256": "208f065d76353782eb0841385d23e04fe1e97899905c45db0344b604c2fa8823",
+  "ordering": "Verified initial mount_packages.service is after launch_net and before basic.target/initrd-parse-etc. Initial mount script calls pkg_to_tree, handles /sysroot, then returns. Append runs before the native root handoff.",
+  "rejected_preparation": "Mono package has a distinct later 3399-byte mount_packages.sh,hash ef9a4ac097d33885da9b45b803f96fecd4bd73fd0aecc32c81121ee3873e285e. Fresh live initial file is17848bytes with different hash; the first proposed mono-based append was never applied.",
+  "library_destination": "Follow exact native /sysroot existence branch; require exact actual source library hash. Bind the separately verified RAM file onto that view. Kernel bind holds the file; native process maps after handoff must verify survival."
+}
