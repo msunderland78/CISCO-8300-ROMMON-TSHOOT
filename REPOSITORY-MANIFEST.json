@@ -1699,6 +1699,36 @@
       "bytes": 34433,
       "path": "router-console-logs/20261106-200132-C8235-A-PoE-RJ45-readonly.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 239,
+      "path": "router-console-logs/20261106-202312-C8235-A-PoE-RJ45-cold-zero-TX.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 0,
+      "path": "router-console-logs/20261106-202524-C8235-A-PoE-override-investigation.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 26613,
+      "path": "router-console-logs/20261106-202542-C8235-A-PoE-override-investigation.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 28059,
+      "path": "router-console-logs/20261106-202930-C8235-A-PoE-software-investigation.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 37711,
+      "path": "router-console-logs/20261106-203619-C8235-A-PoE-software-investigation.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 57938,
+      "path": "router-console-logs/20261106-204146-C8235-A-PoE-observer-and-normal-restoration.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1733,9 +1763,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 250754,
+      "bytes": 253648,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "f39c50f3db3c48e739a8ed8b0cb75e9d6ff34f35bee07bba9b2ff17a52f0a6f7"
+      "sha256": "80eecac03197cff580fa315214e0fe4f272694453e153381bc58c13e559cdc86"
     },
     {
       "bytes": 106687,
@@ -2258,9 +2288,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 515114,
+      "bytes": 518290,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "02269b992ab389df162ecea5c7980300dc7467d1b0c1c1af94e7ec9569643467"
+      "sha256": "1af9a894953c3781f398e282d5e7ee57d851fa6359a9cd5ac208772680d7569a"
     },
     {
       "bytes": 6850655,
@@ -2618,9 +2648,9 @@
       "sha256": "e67372b5d1a056c391b8b3789f2d31bb90489e394f3363d7ac012388d6c4fa42"
     },
     {
-      "bytes": 13805,
+      "bytes": 14727,
       "path": "c8235-recovery/poe-diagnosis-20261106/detection-analysis.json",
-      "sha256": "51f482a07a2e121ac019da224028427c2647c958c7e73aeb4315f7afdfa421ab"
+      "sha256": "a53d2a2bc604ca1ad2b1446a3c9b9214d706fe1581c85f898696b3be076e31e8"
     },
     {
       "bytes": 4754,
@@ -2633,6 +2663,11 @@
       "sha256": "5d4bb046fed4a176a1ca7ab4426e545c18d995150f3580239fd0523d75bf513c"
     },
     {
+      "bytes": 9764,
+      "path": "c8235-recovery/poe-diagnosis-20261106/read-path-disassembly.txt",
+      "sha256": "6e484a957b4a46ebb3675f1c5a48e53256ba76c6e094270a887b46f26feef32c"
+    },
+    {
       "bytes": 8009,
       "path": "c8235-recovery/poe-diagnosis-20261106/results.json",
       "sha256": "cd0471e79bb7121b3b2ee9ac31c9d9e7309d38fd35f10b29ab1cd61190b386de"
@@ -2641,6 +2676,11 @@
       "bytes": 7341,
       "path": "c8235-recovery/poe-diagnosis-20261106/rj45-cold-boot.json",
       "sha256": "89dfdaec8c903e5a8618f8b0c86e3e868c7a31408f724c1e86e172a498c07905"
+    },
+    {
+      "bytes": 15753,
+      "path": "c8235-recovery/poe-diagnosis-20261106/software-override-investigation.json",
+      "sha256": "cebbdffcb90a6bbcc22bb3135c5a068665615eaa1884ead9c3b724b8aa7c71f9"
     },
     {
       "bytes": 3768,
@@ -3401,6 +3441,36 @@
       "bytes": 3223,
       "path": "experimental-recovery/c8235-a-bootflash-20261104/observe-one-autoboot.py",
       "sha256": "7b02de45e75a6b3189da665794ad32185c36f92bf463cfcfc7fe87b4fbde6e29"
+    },
+    {
+      "bytes": 1446,
+      "path": "experimental-recovery/c8235-a-poe-observer-20261106/EXPERIMENT.txt",
+      "sha256": "d250e8506b37bb3e867fef5ee75d67ee27fb90f3cef96b4a91489759f311bb7b"
+    },
+    {
+      "bytes": 1179,
+      "path": "experimental-recovery/c8235-a-poe-observer-20261106/bound16-hook-with-observer-v1.sh",
+      "sha256": "5f4e2dff4308a3d75dde1ad55e902d26ad796c37a87a8cee494609a6ea2953e1"
+    },
+    {
+      "bytes": 1302,
+      "path": "experimental-recovery/c8235-a-poe-observer-20261106/bound16-hook-with-observer.sh",
+      "sha256": "91c93f2dcc42428f4b9173917d96cad9974695f5e8d7264ef3f66350879e889e"
+    },
+    {
+      "bytes": 1950,
+      "path": "experimental-recovery/c8235-a-poe-observer-20261106/observe-poe-v1.sh",
+      "sha256": "1c1a8c38bf5040e3371bee96ce8e9de981e3cbb68d496de9138c6bff5b129ba2"
+    },
+    {
+      "bytes": 2276,
+      "path": "experimental-recovery/c8235-a-poe-observer-20261106/observe-poe.sh",
+      "sha256": "aa518aa67456fcbfa1fd784a664e7a296fcf344cf12aa45887a5af0af774d6be"
+    },
+    {
+      "bytes": 5732,
+      "path": "experimental-recovery/c8235-a-poe-observer-20261106/preflight.json",
+      "sha256": "deda1dd62b9e19194cd827ab8f0a919498492c1ec22bc8c6ba8cdb50f21117cf"
     },
     {
       "bytes": 6039,
@@ -5133,6 +5203,36 @@
       "sha256": "92c9b82160c6db74d113258ab77da7c9b04b572c51ed4e8dbf94a8c2b84dedc9"
     },
     {
+      "bytes": 239,
+      "path": "sanitized-evidence/router-console-logs/20261106-202312-C8235-A-PoE-RJ45-cold-zero-TX.log",
+      "sha256": "acef15b0aaccdc30ae76338beced671351ceb70ba50b8789177928117927da4c"
+    },
+    {
+      "bytes": 0,
+      "path": "sanitized-evidence/router-console-logs/20261106-202524-C8235-A-PoE-override-investigation.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 26613,
+      "path": "sanitized-evidence/router-console-logs/20261106-202542-C8235-A-PoE-override-investigation.log",
+      "sha256": "7d4581e7c26db397b432987e18d4c253cbb91d2bfb5988acdde15f7450e7a24d"
+    },
+    {
+      "bytes": 28061,
+      "path": "sanitized-evidence/router-console-logs/20261106-202930-C8235-A-PoE-software-investigation.log",
+      "sha256": "9feaf2bf3ce7b17a12bb175162377891f6d3d1486d947c5427e0a82e87941cfd"
+    },
+    {
+      "bytes": 37713,
+      "path": "sanitized-evidence/router-console-logs/20261106-203619-C8235-A-PoE-software-investigation.log",
+      "sha256": "27208b5197cfdd98fc178d49128e5696b1961e7812011b70341793d0b5229629"
+    },
+    {
+      "bytes": 57938,
+      "path": "sanitized-evidence/router-console-logs/20261106-204146-C8235-A-PoE-observer-and-normal-restoration.log",
+      "sha256": "2cdba84fb6c9c40928c380da5f006915cb5411fec0dd2a019a9cf1e85e5948f3"
+    },
+    {
       "bytes": 17692,
       "path": "scripts/c8235_a_development_candidate.py",
       "sha256": "22c28ebf03cdf60e6453a69f74356449bed0b38c07d501af61ad70480b629a8b"
@@ -5579,12 +5679,18 @@
     "sanitized-evidence/router-console-logs/20261106-172231-C8235-A-PoE-USB-readonly.log",
     "sanitized-evidence/router-console-logs/20261106-172249-C8235-A-PoE-USB-readonly.log",
     "sanitized-evidence/router-console-logs/20261106-195811-C8235-A-PoE-RJ45-cold-zero-TX.log",
-    "sanitized-evidence/router-console-logs/20261106-200132-C8235-A-PoE-RJ45-readonly.log"
+    "sanitized-evidence/router-console-logs/20261106-200132-C8235-A-PoE-RJ45-readonly.log",
+    "sanitized-evidence/router-console-logs/20261106-202312-C8235-A-PoE-RJ45-cold-zero-TX.log",
+    "sanitized-evidence/router-console-logs/20261106-202524-C8235-A-PoE-override-investigation.log",
+    "sanitized-evidence/router-console-logs/20261106-202542-C8235-A-PoE-override-investigation.log",
+    "sanitized-evidence/router-console-logs/20261106-202930-C8235-A-PoE-software-investigation.log",
+    "sanitized-evidence/router-console-logs/20261106-203619-C8235-A-PoE-software-investigation.log",
+    "sanitized-evidence/router-console-logs/20261106-204146-C8235-A-PoE-observer-and-normal-restoration.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 340,
-    "included_bytes_without_manifest": 1127115392,
-    "included_files_without_manifest": 725
+    "excluded_local_files": 346,
+    "included_bytes_without_manifest": 1127312350,
+    "included_files_without_manifest": 739
   }
 }

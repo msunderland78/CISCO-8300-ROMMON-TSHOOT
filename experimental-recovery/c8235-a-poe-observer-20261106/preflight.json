@@ -1,0 +1,80 @@
+{
+  "status": "completed_v2_synchronous_read_only_snapshot_original_startup_restored",
+  "target": "C8235-A/FGL2835L42B only",
+  "mode": "Unsynced temporary ROMMON maintenance parameter; existing A correction prepared in RAM; append observer launch to RAM hook only; restore original saved USER_BOOT_PARAM after observation. No PoE-control or firmware-image writes.",
+  "original_hook_sha256": "ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4",
+  "recorded_at": "2026-11-06T20:30:54.054492-05:00",
+  "timezone": "America/New_York",
+  "preflight_live": {
+    "chassis": "FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "framing": "115200 8N1 no flow",
+    "boot": "bootflash:packages.conf,12;bootflash:c8kg2be-universalk9.26.02.01.SPA.bin,12;",
+    "confreg": "0x3922",
+    "image_sha512_verified": "a35896cf8e95870dd01cb9a8793401eb55d48363ef754d007937d271ef0a1c52115fe09ca53a4794d51286119a126bd28cc9d9a289b2659462191fbb497bcb02",
+    "reload": "IOS reload confirmed, no save prompt; supervisor will stop ROMMON autoboot on fresh UUID."
+  },
+  "live_entry": {
+    "rommon_revision_read": "fpgaread 84 -> 0x24073021",
+    "rommon_board_id": "fpgaread 80 -> 0x07000019",
+    "rommon_poe_status": "fpgaread 32120 -> 0xBADACCE5",
+    "rommon_poe_control": "fpgaread 3212c -> 0xBADACCE5",
+    "rommon_interpretation": "Apparent invalid-access marker, not decoded as PoE flags; ROMMON offset/address semantics beyond revision require corroboration.",
+    "temporary_parameter_synced": false,
+    "maintenance_entry": "Known rdinit maintenance shell; 9600 then stty/host115200; kernel6.6.95, board=arata, PID1 continuation verified.",
+    "bootflash_mount": "/dev/mmcblk0p1 at /u read-only,noload; unmounted before exit to /init",
+    "image_sha256": "0842a7210a2a0933f0a823bbe71c5ba2109f276ee49635a59ba0a26f17f0f456",
+    "AFIX1_sha256": "fd1eb73602bbb3b5f37c857e1261d709f9781e90dbcbbe41b633786b570f396a",
+    "RAM_launch_net_sha256": "32ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857",
+    "observer_and_modified_RAM_hook_hashes": "Both match files inventory; bash -n passes on router",
+    "init_continuation_time": "2026-11-06T20:36:42-05:00",
+    "startup_marker": "C8235_BOUND16_HOOK_COMPLETE observed",
+    "intermediate_failure": "First transfer helper refused historical UUID still in its response buffer and closed before transfer/TX. Reopened same exclusive port at existing maintenance shell; echo handshake passed, transfer and remote hashes verified. No router reset caused by failure."
+  },
+  "v1_files": [
+    {
+      "path": "observe-poe-v1.sh",
+      "bytes": 1950,
+      "sha256": "1c1a8c38bf5040e3371bee96ce8e9de981e3cbb68d496de9138c6bff5b129ba2"
+    },
+    {
+      "path": "bound16-hook-with-observer-v1.sh",
+      "bytes": 1179,
+      "sha256": "5f4e2dff4308a3d75dde1ad55e902d26ad796c37a87a8cee494609a6ea2953e1"
+    }
+  ],
+  "v1_result": "No actual observer identity, snapshot or completion markers. IOS boot and 66W/0W readback succeeded. Chasfs visibility/startup timing in hook namespace is unproven; this is a diagnostic-observer failure, not evidence of absent PoE attributes. Reload requested to retry observer with explicit confirmed-A launch and unconditional start/failure markers.",
+  "files": [
+    {
+      "path": "observe-poe.sh",
+      "bytes": 2276,
+      "sha256": "aa518aa67456fcbfa1fd784a664e7a296fcf344cf12aa45887a5af0af774d6be"
+    },
+    {
+      "path": "bound16-hook-with-observer.sh",
+      "bytes": 1302,
+      "sha256": "91c93f2dcc42428f4b9173917d96cad9974695f5e8d7264ef3f66350879e889e"
+    }
+  ],
+  "v2_guard": "Explicit --live --confirmed-chassis FGL2835L42B, fresh host-verified A UUID/console identity, kernel6.6.95/boardarata guards. Chasfs absence is reported, not used as global-namespace sysfs gate.",
+  "v2_execution": "One synchronous no-delay read snapshot from hook, then HUP-ignoring background samples. This distinguishes launch failure from later namespace/cleanup loss.",
+  "v2_result": {
+    "startup": "STARTED and PLATFORM_PASS; synchronous snapshot completed at uptime67.63s",
+    "readback": "poe_status00000000,poe_ctrl00000000,fpga_revision82020109,cat returns0; exact driver file hashes match local objects",
+    "chasfs": "Not visible in observer namespace; do not call this a failed chassis identity. Fresh ROMMON and IOS confirmed A separately.",
+    "background": "STARTED/PLATFORM_PASS but no delayed samples. Cause unresolved; no post-IOS raw-register sample claimed.",
+    "IOS": "Welcome and online0/0; power66W/0W, port4 auto/off/no-device.",
+    "restoration": {
+      "saved_environment": "Original A4 USER_BOOT_PARAM and BOOT exactly match pretest after reset; no ROMMON sync issued",
+      "boot": "Explicit boot bootflash:packages.conf20:46:19; original input hashes/RAM hook ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4 and HOOK_COMPLETE observed",
+      "native_identity": "ChassisFGL2835L42B/R0FOC28292GUQ",
+      "IOS": "26.02.1 from bootflash:packages.conf, Autonomous, confreg0x3922",
+      "readiness": "20:48:56 module0/0 ok, R0/F0 ok active, P0 ok",
+      "power": "20:49:06 main66W/PoE0W; show power inline empty",
+      "console": "terminal length24 acknowledged; closed20:49:09; lsof both aliases returned1/no owners",
+      "physical_handoff": "A powered/assembled/battery installed, same brick and AP4 attached; no physical changes during console work",
+      "limits": "No traffic/extended stability/PoE success claimed. Standby12V_DG_ST0 persists. Background observer produced no delayed samples. All temporary observer modifications were in RAM and disappeared on reset."
+    }
+  },
+  "result_record": "../../c8235-recovery/poe-diagnosis-20261106/software-override-investigation.json"
+}

@@ -10,7 +10,44 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A RJ45 COLD BOOT / CURRENT HANDOFF — 2026-11-06, 19:58–20:05 EST
+C8235-A SOFTWARE OVERRIDE INVESTIGATION / CURRENT HANDOFF — 2026-11-06, 20:23–20:49 EST
+C8235-06: owner reports all3 prototypes show66W with the same230W brick and
+requests diagnostic-firmware/software override research. B/C report is owner-only;
+no new B/C console captures. A identity freshly confirmed FGL2835L42B/R0FOC28292GUQ,
+assembled/battery installed/no programmer or resistor wires, brick/AP4/RJ45 attached.
+Initial capture was silent until owner moved the cable; early boot is missing.
+Native IOS shell requires consent-token; no authentication/config change made.
+Existing diagnostic ROMMON rdinit maintenance entry used without sync. Full IOS
+image hash and existing AFIX1/RAM correction verified. Only RAM hook/observer added.
+First observer produced no data; v2 synchronous read at uptime67.63s succeeds:
+/sys/devices/platform/dash_fpga/poe_status=00000000,poe_ctrl=00000000,
+fpga_revision=82020109; each cat exits0. Exact on-router driver file hashes match
+analyzed26.2.1. Chasfs not visible in this startup namespace; no delayed background
+snapshots obtained. Do not claim settled-IOS raw-register sampling.
+ROMMON fpgaread adds0x100000 to supplied offset, verified in exact original code.
+Normal84 reads24073021; normal32120/3212c readBADACCE5 (not valid PoE flags).
+Compensated read argumentsfff00084/fff32120/fff3212c reach effective84/32120/3212c
+and match Linux82020109/0/0. Both80 and100080 readboardID07000019.
+Thus revision difference is two address windows, not proof of an IOS read bug.
+Static read-error masking exists, but no corresponding live error observed.
+26.01.01 and17.15.06 offline drivers retain the same lowPoE offset; no downgrade
+or whole-region+0x100000 correction qualified. Forcing a230W template alone cannot
+satisfy independent PSU/controller-presence checks. No PoE control/register/firmware
+write, EEPROM edit or functional override applied. Missing circuitry vs FPGA map/
+initialization vs physical detection/supply compatibility remain unresolved.
+Normal saved A4 USER_BOOT_PARAM/BOOT returned automatically on reset and matched
+pretest values exactly. Normal packages.conf boot passes original input/RAM-hook
+hashes and HOOK_COMPLETE; native IOS26.02.1/Autonomous/confreg0x3922 verified.
+At20:48:56 all modules ready;20:49 power still66W/0W, inline summary empty.
+Pagination24 acknowledged; console closed20:49:09, both aliases free. A remains
+powered/assembled with same brick/AP4. No traffic or extended stability test.
+Evidence: c8235-recovery/poe-diagnosis-20261106/software-override-investigation.json
+Observer and failed versions: experimental-recovery/c8235-a-poe-observer-20261106/
+Next: establish intended prototype PoE-controller/power-path and FPGA register map
+before a targeted RAM-only correction. Same brick's ISR4321 success still withdraws
+the earlier standalone brick-failure inference. No more resistor tests selected.
+
+C8235-A RJ45 COLD BOOT / EARLIER HANDOFF — 2026-11-06, 19:58–20:05 EST
 C8235-06: owner moved the same ISR-tested PoE brick to assembled A/FGL2835L42B,
 battery installed/no programmer or resistor wires, AP on physical port4. Native
 USB replaced by RJ45 USB-serial; owner confirmed exclusive console and router off.

@@ -1,0 +1,243 @@
+{
+  "task_id": "C8235-06",
+  "date": "2026-11-06",
+  "timezone": "America/New_York",
+  "status": "Completed diagnostic investigation and normal-startup restoration; functional PoE unresolved; no override applied",
+  "target": "C8235-A/FGL2835L42B/FOC28292GUQ",
+  "owner_fleet_report": "Owner reports all three C8235-G2 prototypes have PoE markings and select 66W with the same 230W brick. B/C results are owner-reported; no live B/C console access or separate captures in this session. User requests software/diagnostic-firmware override investigation.",
+  "sources": [
+    {
+      "file": "libcpa_core_sb_mirabile_common.so",
+      "bytes": 411728,
+      "sha256": "03263fe468511da7234a9ef5a454ff1be3843059ae7577e770f2835eab1a42d6"
+    },
+    {
+      "file": "libcpa_core_sb_psu_mirabile.so",
+      "bytes": 69256,
+      "sha256": "dc0402cd42dffdfb60f19dd1d10c7442b0489a8dcf870329228f2dcc1dfeac13"
+    },
+    {
+      "file": "libdash_fpga_api.so",
+      "bytes": 138528,
+      "sha256": "ea570d093bdcbfb34edc534e1e4615e0ad7d32b01e78d0554b02952d65bcf791"
+    },
+    {
+      "file": "dash_fpga_iocomp.ko",
+      "bytes": 416615,
+      "sha256": "58e3d7455d6af65acff6bf7dc863056b48e20efd1ee6c49d8ed658f094a89ca7"
+    },
+    {
+      "file": "iocomp.ko",
+      "bytes": 26607,
+      "sha256": "a0b69b89ccde58a3a542350cd0e3d633c0efa9f514c482565b4bc7a08486e323"
+    },
+    {
+      "file": "iocomp_jinghu.ko",
+      "bytes": 12567,
+      "sha256": "3d689b5a233f28382bfbcdd50cc239033e6bd95eed175f37dfcf7effc478af6c"
+    },
+    {
+      "file": "diagnostic-uefi-lzma-aa00.bin",
+      "bytes": 6808848,
+      "sha256": "e4303b624960b8e8dfdc7b5afeb1baa99c6df197981a96440d87af706817d62d"
+    },
+    {
+      "file": "diagnostic-rommon-cli.efi",
+      "bytes": 458752,
+      "sha256": "a6b69a2f885475f204d90af8ff687132a7211eff66f9ca8fe7443a029116554a"
+    }
+  ],
+  "static_findings": [
+    "Existing source-package Arata PSU template selection: status byte0 OR byte1 selects 230W if nonzero; both zero selects 66W. This is software-derived identity, not a direct brick model read.",
+    "Independent internal-PoE presence requires byte4 AND(byte1 OR byte3) for Arata; primary PoE PSU presence also tests byte0 AND byte1. Changing only a displayed template does not satisfy these paths.",
+    "dash_fpga_iocomp.ko status ioctl0x80066651 extracts bits0,2,4,6,8,9 of region+0x32120. Read-only sysfs poe_status reads same offset; poe_ctrl reads+0x3212c; fpga_revision reads+0x84.",
+    "iocomp_reg_read clears its output after exhausted register-map read retries and returns an error. dash status ioctl logs a read error but then processes the initialized/zero result and returns status bytes. Thus read failure can be indistinguishable from all-zero flags to its user-space caller. Static failure mode proven; not yet observed as live cause.",
+    "Exact restored development UEFI payload decompressed with Python lzma: payload slice0x601000:0x881000, LZMA-alone at payload+0xaa00; decompressed PE at+0x5fc3c8. CiscoRommonCliCmdsFpgaRead function0xcc50 parses offset hex, calls0x18394; that wrapper ADDS0x100000 before the I/O protocol read at0x14d00. Therefore ROMMON read results cannot be equated to Linux region+offset until region translation is corroborated. No firmware bytes changed."
+  ],
+  "rommon_reads": [
+    {
+      "command": "fpgaread 84",
+      "value": "0x24073021"
+    },
+    {
+      "command": "fpgaread 32120",
+      "value": "0xBADACCE5"
+    },
+    {
+      "command": "fpgaread 3212c",
+      "value": "0xBADACCE5"
+    },
+    {
+      "command": "fpgaread 80",
+      "value": "0x07000019"
+    }
+  ],
+  "rommon_limit": "Initial ordinary-offset PoE reads targeted the0x100000-added window and returned BADACCE5. Same-address compensated reads later match Linux0/0; BADACCE5 was never interpreted as valid flags or evidence of missing hardware.",
+  "pre_ios_cli": "Fresh inventory matches A; show power still66W/0W. System shell requires consent-token and was not opened through IOS; no consent/authentication/config alteration. Existing diagnostic ROMMON maintenance entry used instead. Filtered dmesg found optee error-22, no PoE/iocomp register-read error in snapshot.",
+  "observer_record": "../../experimental-recovery/c8235-a-poe-observer-20261106/preflight.json",
+  "override_assessment": "The66W name is software-selected, so changing its template could change inventory. Functional PoE also checks independent PSU presence and controller/daughter presence. No evidence supports forcing those flags or power-control bits as a working repair. A whole-region+0x100000 adjustment is not justified: the corresponding PoE addresses return BADACCE5. No functional override qualified or applied.",
+  "next": "Establish intended prototype PoE-controller/power-path and FPGA register map before a targeted RAM-only correction. No compatible map, functional override or missing-hardware proof is established; no more external resistor tests selected.",
+  "host_utility": {
+    "path": "tmp/c8235_a_poe_supervisor.py",
+    "sha256": "1e1fc617a923a1c5e466ca63c5d2e600e158f15301b9fd4714c65cfa355b3a6a",
+    "retained_local": true,
+    "purpose": "AI-assisted explicit-main supervised serial capture/control and bounded observer transfer. Reviewed imports; no serial side effect on import. Exclusive1152008N1/no flow, A UUID reset guard, metadata-only stdout. Not run as a routine test.",
+    "dependencies": "Python3 standard library and existing Console/OneAutobootConsole classes; lsof",
+    "validation": "Actual bounded console exchanges/capture, remote observer and hook SHA256, local/remote bash-n. First transfer refusal retained as evidence."
+  },
+  "references": [
+    {
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/hardware-installation-guide/secure-8200-series-hig/overview.html",
+      "accessed": "2026-11-06",
+      "finding": "Production C8235 PoE daughter card included only with PoE PSU selected at initial order. Does not prove prototype population."
+    }
+  ],
+  "additional_driver_sources": [
+    {
+      "package": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+      "member": "usr/lib/modules/6.6.95/extra/dash_fpga/core/iocomp/dash_fpga_spi_iocomp.ko",
+      "bytes": 30055,
+      "sha256": "4ea666155f5488f881709db79e4b953c6976ae2f0efe10c78c18a9ccbd6f34b6",
+      "local_file": "tmp/c8235-poe-analysis-20261106/26.02.01-dash_fpga_spi_iocomp.ko"
+    },
+    {
+      "package": "c8kg2be-26.01.01-inspection/c8kg2be-mono-universalk9.26.01.01.SPA.pkg",
+      "member": "usr/lib/modules/5.15.72/extra/dash_fpga/core/iocomp/dash_fpga_iocomp.ko",
+      "bytes": 406686,
+      "sha256": "1c67c73eea7dddca093ceded135e068ff55168ae546f93032d04a1ef94dbbe3d",
+      "local_file": "tmp/c8235-poe-analysis-20261106/26.01.01-dash_fpga_iocomp.ko"
+    },
+    {
+      "package": "c8kg2be-17.15.06-inspection/c8kg2be-mono-universalk9.17.15.06.SPA.pkg",
+      "member": "usr/lib/modules/5.4.290/extra/dash_fpga/core/iocomp/dash_fpga_iocomp.ko",
+      "bytes": 400094,
+      "sha256": "815e2fa02050f7478ef2b18c6e59dfc2b1d3d5d7e6655b357a9c1241ecec40dd",
+      "local_file": "tmp/c8235-poe-analysis-20261106/17.15.06-dash_fpga_iocomp.ko"
+    }
+  ],
+  "older_driver_comparison": "Offline only.26.01.01/kernel5.15.72 has the same PoE+0x32120/revision+0x84 and missing-region fallback0x8000000000000000.17.15.06/kernel5.4.290 has the same low PoE offset, with earlier32-bit I/O-component encoding0x80032120. No alternate working register map or compatible downgrade fix established; neither image booted.",
+  "linux_snapshot": {
+    "stage": "Early startup from synchronous existing VF hook, uptime67.63s; before settled IOS/module startup",
+    "path": "/sys/devices/platform/dash_fpga",
+    "poe_status": "00000000",
+    "poe_ctrl": "00000000",
+    "fpga_revision": "82020109",
+    "cat_exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "files_hashed_on_router": [
+      "58e3d7455d6af65acff6bf7dc863056b48e20efd1ee6c49d8ed658f094a89ca7",
+      "a0b69b89ccde58a3a542350cd0e3d633c0efa9f514c482565b4bc7a08486e323"
+    ],
+    "chasfs": "Not visible in observer namespace at capture; A identity independently verified by fresh ROMMON UUID and native IOS inventory.",
+    "dmesg": "I/O-component probe success; two missing region-name DT warnings. No iocomp_reg_read failure in captured filtered snapshot. Sysfs success alone cannot rule out driver-masked errors.",
+    "interpretation": "PoE detection bits all zero at sampled stage. Subsequent ROMMON same-address reads reproduce Linux revision/status/control, explaining the earlier revision discrepancy as distinct address windows. Register-map/initialization correctness and actual controller population remain unresolved.",
+    "background_limit": "STARTED/PLATFORM_PASS printed, no delayed samples before the restoration reload. No post-IOS raw register sample is claimed; child lifetime/namespace cause unresolved."
+  },
+  "device_tree": {
+    "node": "/sys/firmware/devicetree/base/soc@0/spi@805000000000/fpga@0",
+    "compatible": "cisco,fpga",
+    "reg_bytes": "00 00 00 00",
+    "properties": [
+      "interrupts",
+      "spi-max-frequency",
+      "interrupt-parent",
+      "compatible",
+      "status",
+      "interrupt-names",
+      "reg",
+      "name"
+    ],
+    "iocomp_region_properties": "No matching iocomp properties found by bounded subtree inventory."
+  },
+  "development_firmware_source": {
+    "path": ".git/recovery-private/c8235-a-20261104-development-candidate/C8235-A-FGL2835L42B-U2900-B-development-code-A-preserved-EXPERIMENTAL.bin",
+    "sha256": "65e2ef5aa3814302fcf29e8344a720943a3f008c6bb9e4b9d59848ef928adf07",
+    "uefi_payload_sha256": "047475bb37219c9bfa73d068941df8ec88a140ae029b3f404dd984f0b946ee4d",
+    "basis": "Exact previously restored A candidate; current native version/UUID match. No new physical SPI dump this session."
+  },
+  "post_observer_ios": "0/0 online; show power66W/0W. Tw0/0/4 auto/off/no-device; source/device/actual0W, negotiationNone, fault/denial counters0.",
+  "rommon_same_address_reads": [
+    {
+      "command": "fpgaread fff00084",
+      "effective_u32_address": "0x84",
+      "value": "0x82020109"
+    },
+    {
+      "command": "fpgaread fff32120",
+      "effective_u32_address": "0x32120",
+      "value": "0x00000000"
+    },
+    {
+      "command": "fpgaread fff3212c",
+      "effective_u32_address": "0x3212c",
+      "value": "0x00000000"
+    },
+    {
+      "command": "fpgaread fff00080",
+      "effective_u32_address": "0x80",
+      "value": "0x07000019"
+    }
+  ],
+  "address_comparison": "The exact disassembled ROMMON wrapper performs32-bit offset+0x100000. Deliberately compensating that addition by u32 arithmetic reads the same known revision/status/control offsets as the Linux fallback. Matching revision82020109 and status/control0 corroborate the address comparison. Native+0x100000 window returns revision24073021 and BADACCE5 at translated PoE offsets. Different address windows, not proof that IOS corrupts a valid230W detection. BoardID07000019 matches at both0x80 and0x100080.",
+  "assessment": "Verified zero PoE status/control in early Linux and matching raw addresses in diagnostic ROMMON. This excludes an IOS inventory-formatting-only explanation at those observations. It does not establish why flags are zero, whether these prototypes expose the intended PoE register block, missing hardware, compatible supply detection, or an FPGA/ROMMON initialization defect. Older driver offsets do not supply a qualified alternate map.",
+  "console_captures": [
+    {
+      "raw_local": "router-console-logs/20261106-202930-C8235-A-PoE-software-investigation.log",
+      "public_sanitized": "sanitized-evidence/router-console-logs/20261106-202930-C8235-A-PoE-software-investigation.log",
+      "bytes": 28059,
+      "sha256": "115b1e5c7f29524d753caf9379a6676a31dc7ec8e472a25ed32e5674a1a0e406"
+    },
+    {
+      "raw_local": "router-console-logs/20261106-203619-C8235-A-PoE-software-investigation.log",
+      "public_sanitized": "sanitized-evidence/router-console-logs/20261106-203619-C8235-A-PoE-software-investigation.log",
+      "bytes": 37711,
+      "sha256": "3d3c42200f05931adf49d881198121b5b769da44611e0a8e893340db0955d721"
+    },
+    {
+      "raw_local": "router-console-logs/20261106-202312-C8235-A-PoE-RJ45-cold-zero-TX.log",
+      "public_sanitized": "sanitized-evidence/router-console-logs/20261106-202312-C8235-A-PoE-RJ45-cold-zero-TX.log",
+      "bytes": 239,
+      "sha256": "acef15b0aaccdc30ae76338beced671351ceb70ba50b8789177928117927da4c"
+    },
+    {
+      "raw_local": "router-console-logs/20261106-202524-C8235-A-PoE-override-investigation.log",
+      "public_sanitized": "sanitized-evidence/router-console-logs/20261106-202524-C8235-A-PoE-override-investigation.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "raw_local": "router-console-logs/20261106-202542-C8235-A-PoE-override-investigation.log",
+      "public_sanitized": "sanitized-evidence/router-console-logs/20261106-202542-C8235-A-PoE-override-investigation.log",
+      "bytes": 26613,
+      "sha256": "7d4581e7c26db397b432987e18d4c253cbb91d2bfb5988acdde15f7450e7a24d"
+    },
+    {
+      "raw_local": "router-console-logs/20261106-204146-C8235-A-PoE-observer-and-normal-restoration.log",
+      "public_sanitized": "sanitized-evidence/router-console-logs/20261106-204146-C8235-A-PoE-observer-and-normal-restoration.log",
+      "bytes": 57938,
+      "sha256": "2cdba84fb6c9c40928c380da5f006915cb5411fec0dd2a019a9cf1e85e5948f3"
+    }
+  ],
+  "initial_capture_limit": "First passive capture239bytes contains late boot text only: cable moved after power-on, so early boot missing. Follow-on log includes a long NUL run. Neither is a complete cold-boot proof. Earlier19:58 full passive cold capture is separate.",
+  "recorded_at": "2026-11-06T20:49:09-05:00",
+  "restoration": {
+    "saved_environment": "Original A4 USER_BOOT_PARAM and BOOT exactly match pretest after reset; no ROMMON sync issued",
+    "boot": "Explicit boot bootflash:packages.conf20:46:19; original input hashes/RAM hook ca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4 and HOOK_COMPLETE observed",
+    "native_identity": "ChassisFGL2835L42B/R0FOC28292GUQ",
+    "IOS": "26.02.1 from bootflash:packages.conf, Autonomous, confreg0x3922",
+    "readiness": "20:48:56 module0/0 ok, R0/F0 ok active, P0 ok",
+    "power": "20:49:06 main66W/PoE0W; show power inline empty",
+    "console": "terminal length24 acknowledged; closed20:49:09; lsof both aliases returned1/no owners",
+    "physical_handoff": "A powered/assembled/battery installed, same brick and AP4 attached; no physical changes during console work",
+    "limits": "No traffic/extended stability/PoE success claimed. Standby12V_DG_ST0 persists. Background observer produced no delayed samples. All temporary observer modifications were in RAM and disappeared on reset."
+  },
+  "validation": {
+    "shell": "Local bash-n for both observer/hook versions; remote bash-n and SHA256 for executed versions; inert default checked",
+    "evidence": "JSON parsing and git diff--check pass; source objects and original restored-development candidate hashes verified",
+    "publication": "prepare generated253 sanitized files and740 selected files including manifest; raw captures remain ignored/private. Observer/capture SHA256 and new relative evidence links verified; git diff--check passes. Guarded sync audits the staged publication, then commits/pushes; final remote/CI verification reported at handoff.",
+    "no_new_unit_tests": "No publication/sync behavior changed; meaningful runtime readbacks and syntax/hash checks validate this bounded observer."
+  }
+}

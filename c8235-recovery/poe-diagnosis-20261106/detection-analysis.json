@@ -85,7 +85,7 @@
     "bytes": 850,
     "sha256": "ad26c62f960e5a4027d8059e3c7339c02a17ddc2decb99dad37c3e83874ee730"
   },
-  "next": "Confirm whether this prototype has the necessary PoE controller/power path. If it lacks that hardware, configuration cannot supply it. If hardware is present, diagnose supply-detect/card-presence signals and firmware mapping. No template spoofing or speculative update.",
+  "next": "Owner now explicitly requests software/diagnostic-firmware override investigation after reporting66W on all3 prototypes. See software-override-investigation.json for fresh A-only raw readback, address-space comparison and limitations. Earlier no-template-spoofing scope is historical; no functional override has been qualified.",
   "reopen_check": {
     "raw_local": "router-console-logs/20261106-171757-C8235-A-PoE-USB-readonly.log",
     "public_sanitized": "sanitized-evidence/router-console-logs/20261106-171757-C8235-A-PoE-USB-readonly.log",
@@ -155,5 +155,11 @@
     "recorded_at": "2026-11-06T20:05:25.425046-05:00",
     "evidence": "rj45-cold-boot.json",
     "result": "Transfer and fresh physical-state confirmation complete; passive RJ45 cold boot succeeds with diagnostic ROMMON and IOS26.02.1. Same PoE detection failure after module ready: 66W/0W, Internal PoE is not present, enabled port4 auto/off/no device. Owner reports AP dark. Both console aliases released; earlier pending transfer/access state is historical. Raw status flags still unavailable."
+  },
+  "next_before_software_override_request": "Confirm whether this prototype has the necessary PoE controller/power path. If it lacks that hardware, configuration cannot supply it. If hardware is present, diagnose supply-detect/card-presence signals and firmware mapping. No template spoofing or speculative update.",
+  "software_override_followup": {
+    "evidence": "software-override-investigation.json",
+    "observer": "../../experimental-recovery/c8235-a-poe-observer-20261106/preflight.json",
+    "current_finding": "Early Linux status/control0 and revision82020109 match compensated same-address ROMMON reads. NativeCPLD24073021 is a different address window; discrepancy alone is not a driver bug. Driver file hashes match26.2.1. Normal A4/install startup restored/all modules ready,66W/0W unchanged; no functional override or missing-hardware proof."
   }
 }

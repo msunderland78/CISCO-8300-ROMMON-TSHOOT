@@ -1,0 +1,200 @@
+Derived static Cisco vendor-code evidence, not commands to execute.
+Exact object hashes and interpretation: software-override-investigation.json.
+
+Source disassembly: diagnostic-rommon-cli-disassembly.txt
+    cc50: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+    cc54: 910003fd     	mov	x29, sp
+    cc58: f9000bf3     	str	x19, [sp, #0x10]
+    cc5c: f90017ff     	str	xzr, [sp, #0x28]
+    cc60: f100081f     	cmp	x0, #0x2
+    cc64: 540000e0     	b.eq	0xcc80 <.text+0xbc80>
+    cc68: d0000180     	adrp	x0, 0x3e000 <.text+0x3d000>
+    cc6c: 911a7000     	add	x0, x0, #0x69c
+    cc70: 94002794     	bl	0x16ac0 <.text+0x15ac0>
+    cc74: f9400bf3     	ldr	x19, [sp, #0x10]
+    cc78: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+    cc7c: d65f03c0     	ret
+    cc80: aa0103e3     	mov	x3, x1
+    cc84: 9100a3e2     	add	x2, sp, #0x28
+    cc88: d2800201     	mov	x1, #0x10               // =16
+    cc8c: f9400460     	ldr	x0, [x3, #0x8]
+    cc90: 97fff596     	bl	0xa2e8 <.text+0x92e8>
+    cc94: f94017f3     	ldr	x19, [sp, #0x28]
+    cc98: 2a1303e0     	mov	w0, w19
+    cc9c: 94002dbe     	bl	0x18394 <.text+0x17394>
+    cca0: aa1303e3     	mov	x3, x19
+    cca4: 2a0003e4     	mov	w4, w0
+    cca8: 528004a2     	mov	w2, #0x25               // =37
+    ccac: 900001c1     	adrp	x1, 0x44000 <.text+0x43000>
+    ccb0: d0000180     	adrp	x0, 0x3e000 <.text+0x3d000>
+    ccb4: 9107d421     	add	x1, x1, #0x1f5
+    ccb8: 911bd800     	add	x0, x0, #0x6f6
+    ccbc: 94002781     	bl	0x16ac0 <.text+0x15ac0>
+    ccc0: 17ffffed     	b	0xcc74 <.text+0xbc74>
+   14d00: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+   14d04: 2a0003e1     	mov	w1, w0
+   14d08: d0000220     	adrp	x0, 0x5a000
+   14d0c: 910003fd     	mov	x29, sp
+   14d10: f9408000     	ldr	x0, [x0, #0x100]
+   14d14: b9001fff     	str	wzr, [sp, #0x1c]
+   14d18: b40000e0     	cbz	x0, 0x14d34 <.text+0x13d34>
+   14d1c: f9400003     	ldr	x3, [x0]
+   14d20: 910073e2     	add	x2, sp, #0x1c
+   14d24: d63f0060     	blr	x3
+   14d28: b9401fe0     	ldr	w0, [sp, #0x1c]
+   14d2c: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+   14d30: d65f03c0     	ret
+   14d34: 52800000     	mov	w0, #0x0                // =0
+   14d38: 17fffffd     	b	0x14d2c <.text+0x13d2c>
+   18394: 11440000     	add	w0, w0, #0x100, lsl #12 // =0x100000
+   18398: 17fff25a     	b	0x14d00 <.text+0x13d00>
+Source disassembly: fpga-iocomp-disassembly.txt
+    71e8: d503201f     	nop
+    71ec: d503201f     	nop
+    71f0: d503233f     	paciasp
+    71f4: d100c3ff     	sub	sp, sp, #0x30
+    71f8: d5384101     	mrs	x1, SP_EL0
+    71fc: a9017bfd     	stp	x29, x30, [sp, #0x10]
+    7200: 910043fd     	add	x29, sp, #0x10
+    7204: a90253f3     	stp	x19, x20, [sp, #0x20]
+    7208: aa0203f3     	mov	x19, x2
+    720c: f9403c00     	ldr	x0, [x0, #0x78]
+    7210: f9429423     	ldr	x3, [x1, #0x528]
+    7214: f90007e3     	str	x3, [sp, #0x8]
+    7218: d2800003     	mov	x3, #0x0                // =0
+    721c: b4000080     	cbz	x0, 0x722c <show_poe_status+0x44>
+    7220: b9400001     	ldr	w1, [x0]
+    7224: 7100043f     	cmp	w1, #0x1
+    7228: 54000260     	b.eq	0x7274 <show_poe_status+0x8c>
+    722c: 90000001     	adrp	x1, 0x7000 <show_poe_intr_enable+0x78>
+		000000000000722c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x490
+    7230: 91000021     	add	x1, x1, #0x0
+		0000000000007230:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x490
+    7234: d28002a0     	mov	x0, #0x15               // =21
+    7238: a9400c22     	ldp	x2, x3, [x1]
+    723c: a9000e62     	stp	x2, x3, [x19]
+    7240: f840e021     	ldur	x1, [x1, #0xe]
+    7244: f800e261     	stur	x1, [x19, #0xe]
+    7248: d5384101     	mrs	x1, SP_EL0
+    724c: f94007e3     	ldr	x3, [sp, #0x8]
+    7250: f9429422     	ldr	x2, [x1, #0x528]
+    7254: eb020063     	subs	x3, x3, x2
+    7258: d2800002     	mov	x2, #0x0                // =0
+    725c: 54000581     	b.ne	0x730c <show_poe_status+0x124>
+    7260: a9417bfd     	ldp	x29, x30, [sp, #0x10]
+    7264: a94253f3     	ldp	x19, x20, [sp, #0x20]
+    7268: 9100c3ff     	add	sp, sp, #0x30
+    726c: d50323bf     	autiasp
+    7270: d65f03c0     	ret
+    7274: f9400414     	ldr	x20, [x0, #0x8]
+    7278: 910013e1     	add	x1, sp, #0x4
+    727c: b90007ff     	str	wzr, [sp, #0x4]
+    7280: 9140ca94     	add	x20, x20, #0x32, lsl #12 // =0x32000
+    7284: 91048294     	add	x20, x20, #0x120
+    7288: aa1403e0     	mov	x0, x20
+    728c: 94000000     	bl	0x728c <show_poe_status+0xa4>
+		000000000000728c:  R_AARCH64_CALL26	iocomp_reg_read
+    7290: 35000180     	cbnz	w0, 0x72c0 <show_poe_status+0xd8>
+    7294: 90000000     	adrp	x0, 0x7000 <show_poe_intr_enable+0x78>
+		0000000000007294:  R_AARCH64_ADR_PREL_PG_HI21	.data
+    7298: b9400000     	ldr	w0, [x0]
+		0000000000007298:  R_AARCH64_LDST32_ABS_LO12_NC	.data
+    729c: 37200260     	tbnz	w0, #0x4, 0x72e8 <show_poe_status+0x100>
+    72a0: b94007e3     	ldr	w3, [sp, #0x4]
+    72a4: aa1303e0     	mov	x0, x19
+    72a8: 90000002     	adrp	x2, 0x7000 <show_poe_intr_enable+0x78>
+		00000000000072a8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x4b8
+    72ac: d2820001     	mov	x1, #0x1000             // =4096
+    72b0: 91000042     	add	x2, x2, #0x0
+		00000000000072b0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x4b8
+    72b4: 94000000     	bl	0x72b4 <show_poe_status+0xcc>
+		00000000000072b4:  R_AARCH64_CALL26	snprintf
+    72b8: d2800120     	mov	x0, #0x9                // =9
+    72bc: 17ffffe3     	b	0x7248 <show_poe_status+0x60>
+   1c9b8: 910023f8     	add	x24, sp, #0x8
+   1c9bc: b9000bff     	str	wzr, [sp, #0x8]
+   1c9c0: 910002b3     	add	x19, x21, #0x0
+		000000000001c9c0:  R_AARCH64_ADD_ABS_LO12_NC	.data
+   1c9c4: 9140ca94     	add	x20, x20, #0x32, lsl #12 // =0x32000
+   1c9c8: 91002260     	add	x0, x19, #0x8
+   1c9cc: 91048294     	add	x20, x20, #0x120
+   1c9d0: 79000b1f     	strh	wzr, [x24, #0x4]
+   1c9d4: 94000000     	bl	0x1c9d4 <dash_ioctl.isra.0+0x544>
+		000000000001c9d4:  R_AARCH64_CALL26	mutex_lock
+   1c9d8: 910013e1     	add	x1, sp, #0x4
+   1c9dc: aa1403e0     	mov	x0, x20
+   1c9e0: b90007ff     	str	wzr, [sp, #0x4]
+   1c9e4: 94000000     	bl	0x1c9e4 <dash_ioctl.isra.0+0x554>
+		000000000001c9e4:  R_AARCH64_CALL26	iocomp_reg_read
+   1c9e8: 350085a0     	cbnz	w0, 0x1da9c <dash_ioctl.isra.0+0x160c>
+   1c9ec: b94002a0     	ldr	w0, [x21]
+		000000000001c9ec:  R_AARCH64_LDST32_ABS_LO12_NC	.data
+   1c9f0: 3720a0e0     	tbnz	w0, #0x4, 0x1de0c <dash_ioctl.isra.0+0x197c>
+   1c9f4: b94007f4     	ldr	w20, [sp, #0x4]
+   1c9f8: 91002260     	add	x0, x19, #0x8
+   1c9fc: 94000000     	bl	0x1c9fc <dash_ioctl.isra.0+0x56c>
+		000000000001c9fc:  R_AARCH64_CALL26	mutex_unlock
+   1ca00: 52800000     	mov	w0, #0x0                // =0
+   1ca04: 53027e84     	lsr	w4, w20, #2
+   1ca08: 33001e80     	bfxil	w0, w20, #0, #8
+   1ca0c: 53047e81     	lsr	w1, w20, #4
+   1ca10: 53067e82     	lsr	w2, w20, #6
+   1ca14: 33181c80     	bfi	w0, w4, #8, #8
+   1ca18: d3482283     	ubfx	x3, x20, #8, #1
+   1ca1c: d3492694     	ubfx	x20, x20, #9, #1
+   1ca20: 390033e3     	strb	w3, [sp, #0xc]
+   1ca24: 33101c20     	bfi	w0, w1, #16, #8
+   1ca28: 390037f4     	strb	w20, [sp, #0xd]
+   1ca2c: d5384101     	mrs	x1, SP_EL0
+   1ca30: 33081c40     	bfi	w0, w2, #24, #8
+   1ca34: 1200c000     	and	w0, w0, #0x1010101
+   1ca38: b9000be0     	str	w0, [sp, #0x8]
+   1ca3c: b9402c20     	ldr	w0, [x1, #0x2c]
+   1ca40: 36a88260     	tbz	w0, #0x15, 0x1da8c <dash_ioctl.isra.0+0x15fc>
+   1ca44: 9340dec0     	sbfx	x0, x22, #0, #56
+   1ca48: 8a160000     	and	x0, x0, x22
+   1ca4c: 928000a1     	mov	x1, #-0x6               // =-6
+   1ca50: f2e00001     	movk	x1, #0x0, lsl #48
+   1ca54: eb01001f     	cmp	x0, x1
+   1ca58: 54ffebc8     	b.hi	0x1c7d0 <dash_ioctl.isra.0+0x340>
+   1ca5c: 9248fac0     	and	x0, x22, #0xff7fffffffffffff
+   1ca60: d28000c2     	mov	x2, #0x6                // =6
+   1ca64: aa1803e1     	mov	x1, x24
+   1ca68: 94000000     	bl	0x1ca68 <dash_ioctl.isra.0+0x5d8>
+		000000000001ca68:  R_AARCH64_CALL26	__arch_copy_to_user
+   1ca6c: b4ffef20     	cbz	x0, 0x1c850 <dash_ioctl.isra.0+0x3c0>
+   1ca70: 17ffff58     	b	0x1c7d0 <dash_ioctl.isra.0+0x340>
+   1ca74: 910023f8     	add	x24, sp, #0x8
+   1da9c: b94007e3     	ldr	w3, [sp, #0x4]
+   1daa0: 90000001     	adrp	x1, 0x1d000 <dash_ioctl.isra.0+0xb70>
+		000000000001daa0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x1310
+   1daa4: 91000021     	add	x1, x1, #0x0
+		000000000001daa4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x1310
+   1daa8: 2a0003e4     	mov	w4, w0
+   1daac: aa1403e2     	mov	x2, x20
+   1dab0: 9136a021     	add	x1, x1, #0xda8
+   1dab4: 90000000     	adrp	x0, 0x1d000 <dash_ioctl.isra.0+0xb70>
+		000000000001dab4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x38
+   1dab8: 91000000     	add	x0, x0, #0x0
+		000000000001dab8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x38
+   1dabc: 94000000     	bl	0x1dabc <dash_ioctl.isra.0+0x162c>
+		000000000001dabc:  R_AARCH64_CALL26	_printk
+   1dac0: 17fffbcd     	b	0x1c9f4 <dash_ioctl.isra.0+0x564>
+   1dac4: b94007e3     	ldr	w3, [sp, #0x4]
+   1dac8: 90000001     	adrp	x1, 0x1d000 <dash_ioctl.isra.0+0xb70>
+		000000000001dac8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata+0x1310
+   1dacc: 91000021     	add	x1, x1, #0x0
+		000000000001dacc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata+0x1310
+Source disassembly: iocomp-read-disassembly.txt
+     7d4: b90002ff     	str	wzr, [x23]
+     7d8: aa1603e2     	mov	x2, x22
+     7dc: 2a1303e3     	mov	w3, w19
+     7e0: 90000000     	adrp	x0, 0x0 <.text>
+		00000000000007e0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.str1.8+0x1e0
+     7e4: b9415321     	ldr	w1, [x25, #0x150]
+     7e8: 91000000     	add	x0, x0, #0x0
+		00000000000007e8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.str1.8+0x1e0
+     7ec: 94000000     	bl	0x7ec <iocomp_reg_read+0xf4>
+		00000000000007ec:  R_AARCH64_CALL26	_printk
+     7f0: 94000000     	bl	0x7f0 <iocomp_reg_read+0xf8>
+		00000000000007f0:  R_AARCH64_CALL26	dump_stack

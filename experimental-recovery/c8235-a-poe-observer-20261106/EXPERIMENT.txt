@@ -1,0 +1,22 @@
+C8235-A/FGL2835L42B PoE read-only observer, November6 2026 EST
+
+AI-assisted original Bash observation code, not a PoE fix or restore image.
+See preflight.json and ../../c8235-recovery/poe-diagnosis-20261106/software-override-investigation.json.
+
+observe-poe.sh has an inert default. Live mode requires explicit confirmed-A
+argument, fresh physical/ROMMON identity and the established A recovery workflow.
+The hook artifacts are derived from the existing independently verified A VF
+correction; only observer launch lines are appended in RAM. They are not standalone
+hardware tools and must not replace A4/C8235AFIX1 or an installed package.
+Original files/images were not modified. No PoE sysfs/control-register writes.
+
+V1 waited for chasfs before any output and produced no actual snapshot. Preserve
+its source and hook as an unsuccessful attempt. V2 produced one synchronous early
+Linux snapshot and verified the driver file hashes; its background process printed
+start/platform-pass but no delayed snapshot. Chasfs was not visible at the observed
+stage. Background lifetime cause unresolved. No post-IOS raw sampling claimed.
+
+Validation: local/remote bash -n; inert default; exact transferred observer and
+RAM-hook SHA256 readback; existing image/AFIX1/launch_net guard hashes; actual serial
+capture. No broad hardware script was imported/executed as a test. Original A4
+startup restored separately and verified in the investigation result.
