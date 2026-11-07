@@ -1,0 +1,44 @@
+{
+  "task_id": "C8235-06",
+  "recorded_at": "2026-11-06T19:52:23.661812-05:00",
+  "timezone": "America/New_York",
+  "scope": "Owner-performed comparison on an ISR4321; distinct from C8235-A/FGL2835L42B. No new fleet identity assigned to the comparison router.",
+  "owner_reports": [
+    "I just tested it in a 4321 router, that has the exact same plug ... it give poe and it powers on the AP.",
+    "In response to the module/topology question: yes, that exact module (NIM-ES2-8-P).",
+    "Owner has only one PoE power supply and will need to shut down the ISR4321 to move it back."
+  ],
+  "supply": "The same owner-identified Flextronics FA230LM1-00 / 341-0703-01 under investigation.",
+  "observed_by_owner": "ISR4321 with NIM-ES2-8-P powers the AP using this brick. The exact physical module port, ISR serial, measured rail voltage and negotiated AP wattage were not supplied. No console access or capture by the agent.",
+  "correction": {
+    "superseded": "Previous working diagnosis that the brick PoE circuitry or output cable was the leading fault suspect.",
+    "reason": "Successful operation in an actual ISR4321/NIM/AP system is stronger evidence of PoE capability in that setup than zero output during the limited standalone resistor tests.",
+    "current": "The brick is demonstrated by owner report to provide PoE in the ISR4321 setup. Do not recommend replacement as defective based on the standalone tests.",
+    "preserved": "Unloaded near-zero A/D, 12.15 V B/F with A/D -0.002 V under the 12 V load, and 0 V PoE-bank X/Y with both loads are retained as condition-specific measurements.",
+    "limits": "Successful ISR operation does not prove full-rated capacity, unconditional 53.5 V output, C8235/prototype compatibility, a dedicated enable pin, a handshake, or a specific minimum-load requirement."
+  },
+  "remaining_hypotheses": "Different load/startup behavior, return/reference arrangement, connector engagement, supply compatibility, and C8235 PoE-controller/presence/power-path behavior remain to be distinguished. These are possibilities, not verified mechanisms. No speculative jumpers or return bonds.",
+  "router_focus": "Existing C8235 IOS Internal PoE is not present and the status-selected 66 W template remain material. Determine whether its PoE circuitry is populated, detected and compatible before changing configuration or firmware.",
+  "next": {
+    "owner_setup": "Owner will power down ISR4321. Instructions: unplug brick AC before moving DC plug; move to assembled C8235-A with battery installed and all resistor/programmer wiring removed; AP on enabled physical port 4; Mac USB connected; boot router.",
+    "state": "Transfer/boot and exclusive console ownership are not yet confirmed. Do not open either serial port on historical identity alone.",
+    "planned_readonly": "After fresh physical/console confirmation, verify live chassis identity, power and PoE presence; investigate the established read-only driver status route if accessible. No firmware/configuration write or forced PSU profile."
+  },
+  "references": [
+    {
+      "url": "https://www.cisco.com/c/en/us/products/collateral/routers/4000-series-integrated-services-routers-isr/data_sheet_c78-612808.html",
+      "accessed": "2026-11-06",
+      "finding": "Cisco documents NIM-ES2-8-P support and PWR-4320-POE-AC= for ISR4321. This does not independently map the physical FA230LM1-00 label to an orderable PID."
+    },
+    {
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/hardware-installation-guide/secure-8200-series-hig/preinstall.html",
+      "accessed": "2026-11-06",
+      "finding": "Production C8235-G2 lists PWR-CC1-230WAC; a shared connector shape does not establish interchangeability with the ISR supply."
+    },
+    {
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/hardware-installation-guide/secure-8200-series-hig/overview.html",
+      "accessed": "2026-11-06",
+      "finding": "Production C8235-G2 PoE hardware includes a daughter card supplied with initial PoE orders. Owner reports no daughter card on this prototype; whether equivalent circuitry is integrated/populated is unresolved."
+    }
+  ]
+}

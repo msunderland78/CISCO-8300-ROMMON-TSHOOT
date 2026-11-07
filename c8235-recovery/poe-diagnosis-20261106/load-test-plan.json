@@ -1,11 +1,11 @@
 {
   "task_id": "C8235-06",
   "recorded_at": "2026-11-06T18:20:31.622649-05:00",
-  "status": "Owner reports both loads attached: X-Y on the 3093-ohm PoE bank is 0 VDC, while F-B on the 149.8-ohm 12 V bank is 12.15 VDC. No PoE output has been demonstrated unloaded, with the 12 V load alone, or with these two light loads. Stop repeated load trials; prioritize verified-compatible known-good supply comparison or qualified bench verification of this brick/cable.",
+  "status": "CORRECTED: owner reports the same brick successfully powers the AP through an ISR4321 NIM-ES2-8-P. Withdraw the brick-fault working diagnosis. Standalone zero readings are preserved as limited-condition observations; C8235 compatibility and PoE hardware/detection remain unresolved.",
   "request": "Owner asks how to perform a loaded test or known-good comparison after A-D zero volts and supply-label identification.",
   "target": "Detached Flextronics FA230LM1-00 / 341-0703-01 external brick, not router PCB. Pin correspondence from supply-label.json.",
   "known_equipment": "Fluke 111, Jesverty source supply, owner-confirmed 1/2 W resistor assortment and assembled 149.8-ohm breadboard. Owner reports two stripped wires and no mating connector. Historical probe tips/hooks are not established as suitable for this connector.",
-  "question_pending": null,
+  "question_pending": "Await owner completion of the single-supply transfer back to assembled C8235-A, its boot/USB state and exclusive console ownership before fresh read-only diagnosis.",
   "qualification_before_connection": [
     "Verify actual resistor values, 1/2 W ratings, network resistance and secure separated mounting. Current design calculations keep each part below about 0.17 W at the stated voltages; ordinary single resistors are not substituted for the earlier 10 W loads.",
     "Establish a secure insulated test connection, with no stray strands able to bridge contacts and leads restrained against withdrawal. A correctly mating connector/breakout is preferred. Do not assume a computer PSU cable has the same pinout. Owner reports correcting the photographed connection; do not imply this was independently re-photographed or pull-tested.",
@@ -13,7 +13,7 @@
     "Keep the 12 V return and PoE return separate. No connection to the Jesverty output, PC/programmer or router. Fluke remains COM/V in DC-voltage mode, not an across-output current measurement."
   ],
   "limits": "These adapted loads are lighter than the original proposal: 12 V bank about 82 mA/1.01 W at 12.3 V; later PoE bank about 17.1 mA/0.91 W at 53.5 V. Calculated individual dissipation is about 0.168 W and 0.152 W respectively. They are preliminary light-load checks, not manufacturer minimum-load or full-power acceptance tests. Stable outputs would demonstrate operation at those loads only; zero output still does not exclude an undocumented higher minimum-load requirement. Do not connect the 150-ohm bank to 53.5 V, and do not tie the output returns together. No source-supply backfeed, energized rewiring, improvised short or new router-board access.",
-  "alternative": "Known-good supported supply comparison, or a service bench with suitable isolated/floating DC-load connections and verified connector mapping. Exact replacement compatibility must be established separately.",
+  "alternative": "Supply replacement as defective is not supported by the current ISR4321 success. Compatibility comparison remains a possible later step after reviewing C8235 PoE hardware/detection.",
   "references": [
     {
       "url": "https://www.vishay.com/docs/28730/ac_ac-at_ac-ni.pdf",
@@ -26,7 +26,7 @@
       "use": "Use COM/V for voltage; current-input measurements across an output would short the circuit."
     }
   ],
-  "updated_at": "2026-11-06T19:36:31.790516-05:00",
+  "updated_at": "2026-11-06T19:52:23.661812-05:00",
   "owner_inventory": {
     "rating_watts_each": 0.5,
     "values_ohms": [
@@ -126,9 +126,9 @@
     }
   ],
   "current_step": [
-    "Unplug AC after the dual-load reading; verify output voltage has fallen near zero before removing test leads. No further repeated load measurement selected.",
-    "Preserve these results and identify a verified-compatible known-good PoE supply comparison or qualified bench verification of FA230LM1-00 and its output cable.",
-    "Do not infer a verified repair, exact internal failed component or healthy router PoE subsystem from these external-supply observations."
+    "Owner is preparing to move the single PoE brick from the powered ISR4321 back to C8235-A; transfer/boot not yet confirmed.",
+    "Reconfirm live identity and exclusive console before any connection; then inspect C8235 power/PoE status read-only.",
+    "Retain standalone readings and the superseded diagnosis as history, with the ISR4321 success as the current correction. No further resistor loads or speculative pin/return links."
   ],
   "bank_measurements": [
     {
@@ -282,12 +282,11 @@
     "status": "Owner-reported result received: PoE X-Y 0 VDC; 12 V F-B 12.15 VDC. No further repetition selected."
   },
   "diagnostic_conclusion": {
-    "observed": "Unloaded A/D about zero; with 149.8-ohm 12 V load, A/D -0.002 V and B/F 12.15 V; with both 149.8-ohm B/F and 3093-ohm D/A loads, PoE-bank X/Y 0 V and 12 V F/B 12.15 V.",
-    "working_diagnosis": "External brick PoE output circuitry or its output cable/contact path is the leading suspect. Do not treat this adapter as a known-good PoE source for further router diagnosis.",
-    "not_established": "Exact failed component, proper behavior at the manufacturer-specified minimum/full load, current brick compatibility with this prototype, and router PoE-controller/hardware health. These light loads do not conclusively exclude undocumented minimum-load or control behavior.",
-    "decision": "Stop repeated or arbitrarily heavier resistor tests. Unplug AC; remove test wiring only after output voltage has fallen near zero. Preserve the sealed supply and the independent resistor banks.",
-    "next": "Compare with a verified-working supply confirmed compatible with this exact router/connector/pinout, or have this brick and its cable checked on a qualified bench using applicable specifications. Revisit router PoE detection only after a working external PoE rail is established.",
-    "router_scope": "No new router access or configuration/firmware/security change; router operational PoE remains unresolved."
+    "current_evidence": "Same brick works for owner-reported ISR4321/NIM-ES2-8-P/AP PoE operation.",
+    "correction": "Previous brick/output-path-fault inference is superseded; the standalone resistor tests were not a sufficient qualification test for this supply.",
+    "unresolved": "Mechanism behind different standalone versus installed behavior, exact C8235/prototype supply compatibility, and C8235 PoE circuitry/presence/detection. Do not infer a dedicated enable/ID pin or a jumper from this result.",
+    "next": "Fresh read-only C8235 diagnosis after owner moves the only PoE supply back and confirms physical/USB/console state. Preserve all prior test readings.",
+    "evidence": "isr4321-comparison.json"
   },
   "reference_followup": {
     "recorded_at": "2026-11-06T19:36:31.790516-05:00",
@@ -298,5 +297,20 @@
     ],
     "result": "No verified exact-model minimum-load or enable specification obtained. Cisco production-router power table lists PWR-CC1-230WAC for C8235-G2, with 12 V/9 A and -54 V/2.45 A. This is a production reference, not confirmation that the current FA230LM1-00 is equivalent or that a replacement is compatible with this prototype.",
     "primary_url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/hardware-installation-guide/secure-8200-series-hig/preinstall.html"
-  }
+  },
+  "prior_diagnostic_conclusions": [
+    {
+      "recorded_at": "2026-11-06T19:36:31.790516-05:00",
+      "conclusion": {
+        "observed": "Unloaded A/D about zero; with 149.8-ohm 12 V load, A/D -0.002 V and B/F 12.15 V; with both 149.8-ohm B/F and 3093-ohm D/A loads, PoE-bank X/Y 0 V and 12 V F/B 12.15 V.",
+        "working_diagnosis": "External brick PoE output circuitry or its output cable/contact path is the leading suspect. Do not treat this adapter as a known-good PoE source for further router diagnosis.",
+        "not_established": "Exact failed component, proper behavior at the manufacturer-specified minimum/full load, current brick compatibility with this prototype, and router PoE-controller/hardware health. These light loads do not conclusively exclude undocumented minimum-load or control behavior.",
+        "decision": "Stop repeated or arbitrarily heavier resistor tests. Unplug AC; remove test wiring only after output voltage has fallen near zero. Preserve the sealed supply and the independent resistor banks.",
+        "next": "Compare with a verified-working supply confirmed compatible with this exact router/connector/pinout, or have this brick and its cable checked on a qualified bench using applicable specifications. Revisit router PoE detection only after a working external PoE rail is established.",
+        "router_scope": "No new router access or configuration/firmware/security change; router operational PoE remains unresolved."
+      },
+      "superseded_at": "2026-11-06T19:52:23.661812-05:00",
+      "superseded_by": "isr4321-comparison.json: same brick powers AP through ISR4321 NIM-ES2-8-P."
+    }
+  ]
 }

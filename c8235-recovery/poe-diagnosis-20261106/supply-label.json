@@ -51,5 +51,11 @@
     "inference": "PoE output circuit or cable/contact fault is a stronger suspect. Separate enable-pin speculation is unsupported by the complete labeled connector assignment. The label does not prove no-load/minimum-load behavior, so a definitive defective-supply diagnosis still requires applicable specifications or a proper loaded/known-good comparison.",
     "limits": "This label does not establish electrical isolation, capacity under load, live router-side voltage, or compatibility with C8235-G2/prototype. Not a confirmed PWR-CC1-230WAC."
   },
-  "next": "Obtain the already-requested post-cycle E-B steady-voltage recheck. No further A-D cycling or random pin probing needed. If 12 V remains normal, prioritize qualified supply/cable verification or a known-good supported supply comparison; do not force a PSU profile or jumper output pins."
+  "next": "Use the successful ISR4321 test to refocus on C8235 compatibility and PoE hardware/detection; no replacement-as-defective recommendation or speculative jumper.",
+  "followup_correction": {
+    "recorded_at": "2026-11-06T19:52:23.661812-05:00",
+    "evidence": "isr4321-comparison.json",
+    "finding": "Owner reports this brick powers the AP through ISR4321/NIM-ES2-8-P. Earlier fault suspicion in the label-time interpretation is superseded. Label assignments remain as transcribed; exact startup/control/return behavior and C8235 compatibility remain unresolved. No dedicated enable/ID pin identified by the label does not prove the absence of all device-dependent startup behavior."
+  },
+  "prior_next": "Obtain the already-requested post-cycle E-B steady-voltage recheck. No further A-D cycling or random pin probing needed. If 12 V remains normal, prioritize qualified supply/cable verification or a known-good supported supply comparison; do not force a PSU profile or jumper output pins."
 }

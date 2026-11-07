@@ -10,7 +10,29 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A DUAL-LOAD PSU RESULT / CURRENT HANDOFF — 2026-11-06, EST
+C8235-A PSU DIAGNOSIS CORRECTED / CURRENT HANDOFF — 2026-11-06, EST
+C8235-06: owner tested the SAME brick on an ISR4321; it supplies PoE and powers
+the AP. Owner confirms the module is NIM-ES2-8-P. This successful system test
+supersedes the prior brick/output-cable-fault working diagnosis. Standalone
+zero readings remain valid observations under their limited test conditions;
+they did not qualify this supply as failed. Do not replace it as defective on
+that basis. No live 53.5 V meter reading, full-capacity test or C8235 compatibility
+proof follows from the AP startup report. No dedicated enable pin or handshake
+has been established. Load/startup, reference/return arrangement, contact fit,
+compatibility and C8235 controller/presence behavior remain possible factors;
+no speculative jumper or return bond is justified.
+C8235 previously reported Internal PoE is not present and selected a 66 W
+status-driven template. Focus returns to its actual PoE circuitry/detection
+and supply compatibility. Production daughter-card documentation does not prove
+the physical layout or population of this prototype.
+Owner has ONE PoE brick and must power down ISR4321 to transfer it. Instructions
+provided: remove AC before moving DC plug; assembled A/battery installed/all
+resistor and programmer wires removed; AP on port4, Mac USB, boot. Transfer,
+boot and exclusive console state still pending; no new serial access performed.
+Evidence and primary references: c8235-recovery/poe-diagnosis-20261106/isr4321-comparison.json.
+Earlier measurements and explicitly superseded diagnosis remain in load-test-plan.json.
+
+C8235-A DUAL-LOAD PSU RESULT / SUPERSEDED INTERPRETATION — 2026-11-06, EST
 C8235-06: owner reports X-Y=0 VDC across the 3093-ohm PoE bank (X=D, Y=A),
 while F-B=12.15 VDC across the separate 149.8-ohm 12 V bank. Thus neither
 unloaded operation, a 12 V-only light load, nor these two simultaneous light
