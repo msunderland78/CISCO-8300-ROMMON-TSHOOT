@@ -1,0 +1,130 @@
+Offline disassembly of extracted vendor library; not executed.
+The two functions access a TDL object field at +0x48 through u_int64_get;
+these accessors alone establish neither a hardware ADC nor supply-input voltage.
+
+
+tmp/c8235-poe-voltage-20261107/libpoe_health_status.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+0000000000051628 <port_health_port_voltage_get>:
+   51628:      	stp	x29, x30, [sp, #-0x30]!
+   5162c:      	stp	x22, x21, [sp, #0x10]
+   51630:      	stp	x20, x19, [sp, #0x20]
+   51634:      	mov	x29, sp
+   51638:      	adrp	x8, 0xa3000
+   5163c:      	ldr	x9, [x8, #0xf18]
+   51640:      	add	x9, x9, #0x1
+   51644:      	str	x9, [x8, #0xf18]
+   51648:      	ldr	w8, [x3]
+   5164c:      	cbz	w8, 0x51668 <port_health_port_voltage_get+0x40>
+   51650:      	mov	x21, xzr
+   51654:      	mov	x0, x21
+   51658:      	ldp	x20, x19, [sp, #0x20]
+   5165c:      	ldp	x22, x21, [sp, #0x10]
+   51660:      	ldp	x29, x30, [sp], #0x30
+   51664:      	ret
+   51668:      	mov	x21, x3
+   5166c:      	mov	x19, x2
+   51670:      	mov	w20, w1
+   51674:      	mov	x22, x0
+   51678:      	bl	0x16d20 <tdl_clear_last_error@plt>
+   5167c:      	mov	x0, x19
+   51680:      	mov	w1, #0x1                // =1
+   51684:      	mov	w2, wzr
+   51688:      	bl	0x17b30 <tdl_get_instance_variant@plt>
+   5168c:      	tbnz	w0, #0x7, 0x516dc <port_health_port_voltage_get+0xb4>
+   51690:      	add	x2, x19, #0x48
+   51694:      	mov	x0, x22
+   51698:      	mov	w1, w20
+   5169c:      	mov	x3, x21
+   516a0:      	bl	0x174a0 <u_int64_get@plt>
+   516a4:      	ldr	w8, [x22, #0x644]
+   516a8:      	mov	x21, x0
+   516ac:      	cbz	w8, 0x51654 <port_health_port_voltage_get+0x2c>
+   516b0:      	mov	x0, x22
+   516b4:      	mov	w1, w20
+   516b8:      	mov	x2, x21
+   516bc:      	mov	x3, x19
+   516c0:      	mov	w4, #0x1                // =1
+   516c4:      	bl	0x16840 <tdldb_record_containment2@plt>
+   516c8:      	mov	x0, x21
+   516cc:      	ldp	x20, x19, [sp, #0x20]
+   516d0:      	ldp	x22, x21, [sp, #0x10]
+   516d4:      	ldp	x29, x30, [sp], #0x30
+   516d8:      	ret
+   516dc:      	mov	x0, x22
+   516e0:      	mov	w1, #0x2b               // =43
+   516e4:      	mov	x2, x21
+   516e8:      	bl	0x16d60 <tdl_store_epoch_err@plt>
+   516ec:      	mov	x21, xzr
+   516f0:      	mov	x0, x21
+   516f4:      	ldp	x20, x19, [sp, #0x20]
+   516f8:      	ldp	x22, x21, [sp, #0x10]
+   516fc:      	ldp	x29, x30, [sp], #0x30
+   51700:      	ret
+
+0000000000051704 <port_health_port_voltage_get_value>:
+   51704:      	stp	x29, x30, [sp, #-0x40]!
+   51708:      	str	x23, [sp, #0x10]
+   5170c:      	stp	x22, x21, [sp, #0x20]
+   51710:      	stp	x20, x19, [sp, #0x30]
+   51714:      	mov	x29, sp
+   51718:      	adrp	x8, 0xa3000
+   5171c:      	ldr	x9, [x8, #0xf20]
+   51720:      	add	x9, x9, #0x1
+   51724:      	str	x9, [x8, #0xf20]
+   51728:      	ldr	w8, [x3]
+   5172c:      	cbz	w8, 0x51748 <port_health_port_voltage_get_value+0x44>
+   51730:      	mov	x0, xzr
+   51734:      	ldp	x20, x19, [sp, #0x30]
+   51738:      	ldp	x22, x21, [sp, #0x20]
+   5173c:      	ldr	x23, [sp, #0x10]
+   51740:      	ldp	x29, x30, [sp], #0x40
+   51744:      	ret
+   51748:      	mov	x19, x3
+   5174c:      	mov	x22, x2
+   51750:      	mov	w20, w1
+   51754:      	mov	x21, x0
+   51758:      	bl	0x16d20 <tdl_clear_last_error@plt>
+   5175c:      	mov	x0, x22
+   51760:      	mov	w1, #0x1                // =1
+   51764:      	mov	w2, wzr
+   51768:      	bl	0x17b30 <tdl_get_instance_variant@plt>
+   5176c:      	tbnz	w0, #0x7, 0x517d8 <port_health_port_voltage_get_value+0xd4>
+   51770:      	add	x8, x22, #0x48
+   51774:      	cmp	x22, #0x0
+   51778:      	csel	x2, xzr, x8, eq
+   5177c:      	mov	x0, x21
+   51780:      	mov	w1, w20
+   51784:      	mov	x3, x19
+   51788:      	bl	0x174a0 <u_int64_get@plt>
+   5178c:      	cbz	x0, 0x51730 <port_health_port_voltage_get_value+0x2c>
+   51790:      	mov	x23, x0
+   51794:      	ldr	w8, [x21, #0x644]
+   51798:      	cbz	w8, 0x517b4 <port_health_port_voltage_get_value+0xb0>
+   5179c:      	mov	x0, x21
+   517a0:      	mov	w1, w20
+   517a4:      	mov	x2, x23
+   517a8:      	mov	x3, x22
+   517ac:      	mov	w4, #0x1                // =1
+   517b0:      	bl	0x16840 <tdldb_record_containment2@plt>
+   517b4:      	mov	x0, x21
+   517b8:      	mov	w1, w20
+   517bc:      	mov	x2, x23
+   517c0:      	mov	x3, x19
+   517c4:      	ldp	x20, x19, [sp, #0x30]
+   517c8:      	ldp	x22, x21, [sp, #0x20]
+   517cc:      	ldr	x23, [sp, #0x10]
+   517d0:      	ldp	x29, x30, [sp], #0x40
+   517d4:      	b	0x170a0 <u_int64_get_value@plt>
+   517d8:      	mov	x0, x21
+   517dc:      	mov	w1, #0x2b               // =43
+   517e0:      	mov	x2, x19
+   517e4:      	bl	0x16d60 <tdl_store_epoch_err@plt>
+   517e8:      	mov	x0, xzr
+   517ec:      	ldp	x20, x19, [sp, #0x30]
+   517f0:      	ldp	x22, x21, [sp, #0x20]
+   517f4:      	ldr	x23, [sp, #0x10]
+   517f8:      	ldp	x29, x30, [sp], #0x40
+   517fc:      	ret

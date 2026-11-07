@@ -10,7 +10,33 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A PSU-PRESENCE EXPERIMENT / CURRENT HANDOFF — 2026-11-07, 12:35–13:25 EST
+C8235-A PoE INPUT-VOLTAGE REVIEW / CURRENT HANDOFF — 2026-11-07, 13:40 EST
+C8235-06: offline follow-up to owner's question; no console access, power operation,
+override reapplication or new router test. Actual53–54 V arrival at A is unresolved.
+With override active at13:21:06, show environment all reported main12 V=12004 mV
+but no53–54 V sensor. The0 mV12V_DG_ST entry is labeled12 V standby, not a PoE
+voltage reading. Forced PSU flags,230 W identity and0 W PoE budget prove no rail
+voltage. Same brick's ISR4321/AP success establishes capability in that setup only.
+
+Static review found generic CPA voltage callbacks and a port_voltage field in
+libpoe_health_status.so. The latter's get/get_value access TDL object+0x48 via
+u_int64_get, not a direct hardware read. Producer/units/bulk-input meaning are
+unqualified. No verified software supply-input voltage method found; this bounded
+review does not establish that no such method exists.
+
+Next: identify a validated input ADC or qualify a correctly matched/rated/insulated
+external six-contact pass-through breakout for a connected-load measurement while
+leaving the router assembled. No fixture qualified yet. Preserve the labeled PoE
+return separately from12 V/chassis reference; no loose live back-probes or return
+bonds. A voltmeter does not require the override. Voltage at an external fixture
+would not by itself prove continuity through the chassis socket or internal fuses.
+Last hardware observation remains13:25:44 below: original boot/library restored,
+router powered/assembled, modules ready, console released. Fresh state/ownership
+check required before a new hardware action; no new blanket approval requirement.
+Review: c8235-recovery/poe-diagnosis-20261107/input-voltage-review.json
+Prior sensor table: c8235-recovery/poe-diagnosis-20261107/override-voltage-sensors-excerpt.txt
+
+C8235-A PSU-PRESENCE EXPERIMENT / EARLIER HANDOFF — 2026-11-07, 12:35–13:25 EST
 C8235-06: owner explicitly requests a software-only PSU-presence test and confirms
 unchanged A/FGL2835L42B/FOC28292GUQ, assembled and powered, battery installed,
 same 230 W brick/AP on physical port 4, no programmer/test wires, RJ45 console free.

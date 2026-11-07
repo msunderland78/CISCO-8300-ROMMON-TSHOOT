@@ -1783,9 +1783,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 263047,
+      "bytes": 264902,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "dd81d31bdb4ca4000bb4a1b318e23b7d63920bf50f1193c98dc010ef7913f6c4"
+      "sha256": "e78bc0e924eff1bfc5ca26488f16693edf96db61e2c0674634e44cfd28afa8eb"
     },
     {
       "bytes": 106687,
@@ -2108,9 +2108,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 29828,
+      "bytes": 29996,
       "path": "README.md",
-      "sha256": "9760169b9ee1547a9ad3b29ac0c557fc3d3c3aa5f91f5b9b6845be0f9094782c"
+      "sha256": "487ef6f4e45dfe2727fa6467d0b4ac98e21efb3c9b416f45b979334266dbaa22"
     },
     {
       "bytes": 3934,
@@ -2308,9 +2308,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 531648,
+      "bytes": 534101,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "68fc68e08ed66e9257348f2b3da3787aef2f3783f5a58b41b4b961da1fd79e41"
+      "sha256": "583deab685abf2fb4fdc8e5fde583afd0c166722e652c60f7b88f4ff966d87c3"
     },
     {
       "bytes": 6850655,
@@ -2718,9 +2718,24 @@
       "sha256": "bf648957a78157ffebfd7d4dbbc4e974daf691894ff0d64f0fd3f50b69dd5c4c"
     },
     {
+      "bytes": 8067,
+      "path": "c8235-recovery/poe-diagnosis-20261107/input-voltage-review.json",
+      "sha256": "4019238ef96eb978e22e230663279e0f3f0a10b1ae7e4b81582d2fb5b6424520"
+    },
+    {
+      "bytes": 1799,
+      "path": "c8235-recovery/poe-diagnosis-20261107/override-voltage-sensors-excerpt.txt",
+      "sha256": "3faee600acb9cbcf79bc0e1afe663051db745016cfdf191b11db99db7ba5ff6a"
+    },
+    {
       "bytes": 9702,
       "path": "c8235-recovery/poe-diagnosis-20261107/photo-review.json",
       "sha256": "3076f4e93c64aa2b9b77989fe93afe0148313dd755060cc384a50698df94fcf3"
+    },
+    {
+      "bytes": 4922,
+      "path": "c8235-recovery/poe-diagnosis-20261107/port-voltage-get-disassembly.txt",
+      "sha256": "c5a1e4a6b63892157f81b799a1ea57740818ac160fa73582c9f89be72ddbe68c"
     },
     {
       "bytes": 20194,
@@ -5884,7 +5899,7 @@
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
     "excluded_local_files": 350,
-    "included_bytes_without_manifest": 1127997035,
-    "included_files_without_manifest": 773
+    "included_bytes_without_manifest": 1128016299,
+    "included_files_without_manifest": 776
   }
 }

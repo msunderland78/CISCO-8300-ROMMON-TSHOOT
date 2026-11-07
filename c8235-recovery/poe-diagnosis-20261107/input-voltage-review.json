@@ -1,0 +1,91 @@
+{
+  "task_id": "C8235-06",
+  "recorded_at": "2026-11-07T13:40:54.382692-05:00",
+  "timezone": "America/New_York (EST)",
+  "scope": "Offline review of existing override capture, exact-source firmware objects and vendor documentation. No serial connection, override reapplication, power operation, electrical measurement or new router test.",
+  "target": {
+    "chassis": "C8235-A / FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "supply": "Owner-identified Flextronics FA230LM1-00 / 341-0703-01"
+  },
+  "question": "Could the 53–54 V PoE rail be absent on this router despite successful ISR4321 PoE, and can it be measured with the PSU-presence override?",
+  "answer": "Yes, the rail may be absent in the C8235 setup. Neither its presence nor absence has been established by a router-connected voltage measurement. The prior override changed status responses and software budgets, not measured voltage. No validated software route to numerical bulk PoE-input voltage was found in this bounded review.",
+  "existing_override_observation": {
+    "time": "2026-11-07T13:21:06.961424-05:00",
+    "command": "show environment all",
+    "override": "Active; supply enumerated PWR-CC1-230WAC, native cmand7311 mapped verified RAM libdash candidate",
+    "main_12v_mv": 12004,
+    "standby_12v_mv": 0,
+    "standby_label": "V: 12V_DG_ST, Critical_Low; this labeled 12 V standby value is not a 53.5 V measurement",
+    "poe_53_54v_sensor": "No such named sensor appears in the complete returned table",
+    "meaning": "This proves only the listed telemetry was returned. The 12.004 V reading is not the PoE rail; 0 W PoE is a software budget and does not prove 0 V on the supply.",
+    "excerpt": "c8235-recovery/poe-diagnosis-20261107/override-voltage-sensors-excerpt.txt",
+    "capture": "sanitized-evidence/router-console-logs/20261107-123536-C8235-A-PSU-presence-console.log",
+    "capture_sha256": "223bec6b7cc5634a1627c64d1df5097bd491f5e6324647a3eb8641b17209959c"
+  },
+  "static_review": {
+    "known_status_path": "dash_fpga_get_poe_psu_status ioctl0x80066651 returns six flags extracted from FPGA status bits0,2,4,6,8,9. The wrapper is not an ADC or millivolt reading; overridden PSU flags cannot be treated as voltage evidence.",
+    "limited_string_and_symbol_review": "Existing exact-source libdash/FPGA, common/PSU CPA, PoE/NGIO/IOMD and hwlib objects were inspected for voltage-related interfaces. Generic CPA voltage callback names and hwlib voltage identifiers do not establish a populated sensor or a qualified Arata 53.5 V channel.",
+    "new_local_extractions": [
+      {
+        "source": "usr/binos/lib64/libpoe_health_status.so",
+        "path": "tmp/c8235-poe-voltage-20261107/libpoe_health_status.so",
+        "bytes": 605120,
+        "sha256": "e4eebfdc55a81eacc1a953d1be8d5b90cabd4d13542811f7862d12362b3e56e1",
+        "voltage_strings": [
+          "port_health_port_voltage_get",
+          "port_health_port_voltage_get_value",
+          "port_health_port_voltage_state_flag_get",
+          "port_health_port_voltage_set",
+          "port_health_port_voltage_set_value",
+          "port_health_port_voltage_state_flag_set",
+          "%s/port_voltage"
+        ]
+      },
+      {
+        "source": "usr/binos/lib64/libpoe_ios_oper.so",
+        "path": "tmp/c8235-poe-voltage-20261107/libpoe_ios_oper.so",
+        "bytes": 1608792,
+        "sha256": "29bdb7550fec9974b14c2bc42011e81ac19cfdae9b6a851fb06ec6988888194b",
+        "voltage_strings": []
+      }
+    ],
+    "port_voltage_field": "libpoe_health_status.so exposes port_health_port_voltage_get and _get_value. Disassembly at0x51628/0x51704 accesses a TDL object field at+0x48 via u_int64_get/tdl_get_instance_variant, not a direct hardware read. Its hardware producer, units, validity and correspondence to bulk supply input are unqualified; a per-port field cannot substitute for verified input telemetry.",
+    "disassembly": "c8235-recovery/poe-diagnosis-20261107/port-voltage-get-disassembly.txt",
+    "limit": "A bounded symbol/string/accessor review does not prove that no other voltage-reading mechanism exists. No guessed callback, raw bus scan, sensor override or known-crashing diagnostic get was executed."
+  },
+  "comparison_evidence": {
+    "ISR4321": "Owner reports same brick powers AP through NIM-ES2-8-P. No simultaneous meter reading at its DC input was supplied. This demonstrates PoE capability in that setup, not unconditional 53.5 V or C8235 compatibility.",
+    "bench": "Previously recorded near-zero/zero PoE-pair readings under unloaded and resistor-load conditions remain valid condition-specific observations.",
+    "unresolved": "Load/startup behavior, connector engagement, return/reference arrangement, compatibility and router/controller/power path remain alternatives; no enable pin, handshake or minimum-load mechanism established."
+  },
+  "next_measurement": {
+    "preferred_evidence": "Measure the labeled PoE pair while the brick is actually connected to the assembled router, or identify a validated bulk-input ADC channel with known units and validity.",
+    "closed_chassis_method": "A fully matched insulated six-contact pass-through breakout/extension with accessible protected measurement points can provide external access. This is a proposed fixture, not a qualified part or performed test.",
+    "fixture_prerequisites": "Verify mating/keying, contact numbering end-to-end, conductor/contact/insulation ratings for both labeled outputs, and no shorts while disconnected. Existing label gives P4(-53.5V) and P1(return+); do not assume connector viewing orientation, 12 V ground or chassis ground is interchangeable with PoE return.",
+    "measurement_boundary": "With a qualified fixture, measure differential DC voltage across the labeled PoE pair using voltage inputs; connect fixture/probes with source power removed, then observe connected operation. Do not push loose wires or probe tips alongside the seated plug, short contacts, bond returns, or open the PSU. Specific connection steps await fixture qualification and fresh physical-state check.",
+    "override_relation": "The voltmeter does not need the software override. Once a reliable connected measurement exists, original and overridden software states can be compared if useful; no reason to force controller presence just to manufacture a reading.",
+    "inference_limits": "A near-nominal reading at the external router-side fixture establishes voltage there, not continuity through the chassis socket or internal fuses. Near-zero at that point establishes missing voltage under that condition, not by itself a defective brick."
+  },
+  "references": [
+    {
+      "url": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8200-series/software-config-guide/secure-8200-series-scg/isr9000swcfg-xe-16-12-book_chapter_01100.html",
+      "accessed": "2026-11-07",
+      "finding": "Cisco lists show environment/all for environmental telemetry. Generic examples do not establish a 53–54 V sensor on this prototype; rely on its actual captured table."
+    },
+    {
+      "url": "https://www.fluke.com/en-sg/learn/blog/digital-multimeters/how-to-measure-dc-voltage-with-a-digital-multimeter",
+      "accessed": "2026-11-07",
+      "finding": "DC voltage mode and COM/V input connections; opposite lead polarity reverses the sign. This general guidance does not qualify a Cisco connector or breakout."
+    },
+    {
+      "path": "c8235-recovery/poe-diagnosis-20261106/supply-label.json",
+      "finding": "Exact original label photo/pin assignments and their limits; no separate enable/ID contact identified."
+    },
+    {
+      "path": "c8235-recovery/poe-diagnosis-20261106/isr4321-comparison.json",
+      "finding": "Preserved ISR success and prior bench results; none establish router-connected PoE voltage on A."
+    }
+  ],
+  "last_hardware_state": "13:25:44 prior handoff: original A4 boot and original package library restored, modules ready, 66 W/0 W, router powered/assembled, console released. No fresh physical-state claim or hardware access in this review."
+}
