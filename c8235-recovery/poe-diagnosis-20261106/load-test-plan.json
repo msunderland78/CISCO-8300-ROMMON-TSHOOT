@@ -1,11 +1,11 @@
 {
   "task_id": "C8235-06",
   "recorded_at": "2026-11-06T18:20:31.622649-05:00",
-  "status": "Owner confirms earlier 149.8-ohm reading included the complete bank and two free blue connection wires. First powered B/F 12 V load test returns 12.15 VDC, explicitly constant. A/D voltage with that 12 V load retained is requested and pending.",
+  "status": "Owner reports 12.15 VDC across the 149.8-ohm B/F load while A/D measures -0.002 VDC. The PoE output remains effectively zero with the 12 V rail lightly loaded. Separate six-4.7-kohm bank assembly and isolated resistance check requested; no PoE load connected or dual-load result received.",
   "request": "Owner asks how to perform a loaded test or known-good comparison after A-D zero volts and supply-label identification.",
   "target": "Detached Flextronics FA230LM1-00 / 341-0703-01 external brick, not router PCB. Pin correspondence from supply-label.json.",
   "known_equipment": "Fluke 111, Jesverty source supply, owner-confirmed 1/2 W resistor assortment and assembled 149.8-ohm breadboard. Owner reports two stripped wires and no mating connector. Historical probe tips/hooks are not established as suitable for this connector.",
-  "question_pending": "With the 149.8-ohm bank retained on B/F, measure separate A/D in DC volts (black D, red A), report settled reading/stability, then unplug AC. Do not move the 150-ohm bank to A/D.",
+  "question_pending": "With AC unplugged, assemble a separate bank using six 4.7 kohm, 1/2 W resistors as three parallel branches of two in series. Keep it disconnected from brick, existing bank and all other sources; report resistance across free ends, approximately 3.13 kohms expected.",
   "qualification_before_connection": [
     "Verify actual resistor values, 1/2 W ratings, network resistance and secure separated mounting. Current design calculations keep each part below about 0.17 W at the stated voltages; ordinary single resistors are not substituted for the earlier 10 W loads.",
     "Establish a secure insulated test connection, with no stray strands able to bridge contacts and leads restrained against withdrawal. A correctly mating connector/breakout is preferred. Do not assume a computer PSU cable has the same pinout. Owner reports correcting the photographed connection; do not imply this was independently re-photographed or pull-tested.",
@@ -26,7 +26,7 @@
       "use": "Use COM/V for voltage; current-input measurements across an output would short the circuit."
     }
   ],
-  "updated_at": "2026-11-06T19:08:09.441723-05:00",
+  "updated_at": "2026-11-06T19:15:46.835688-05:00",
   "owner_inventory": {
     "rating_watts_each": 0.5,
     "values_ohms": [
@@ -95,7 +95,7 @@
       "total_current_amps": 0.082,
       "total_heat_watts": 1.0086000000000002,
       "each_heat_watts": 0.16810000000000003,
-      "status": "Owner-confirmed complete bank/wire resistance 149.8 ohms. Owner reports B/F loaded voltage 12.15 VDC, constant. Connection correction remains owner-reported; A/D voltage under this 12 V load pending.",
+      "status": "Owner-confirmed complete bank/wire resistance 149.8 ohms; B/F voltage 12.15 VDC constant. A/D remains -0.002 VDC while this 12 V load is attached.",
       "observed_connection": [
         "B/P5 (+12 V)",
         "F/P3 (12 V GROUND)"
@@ -117,14 +117,14 @@
       "total_current_amps": 0.017074468085106383,
       "total_heat_watts": 0.9134840425531915,
       "each_heat_watts": 0.15224734042553192,
-      "status": "Candidate for later stage only; reserve six 4.7 kohm parts. No PoE hookup instructed."
+      "status": "Separate unpowered assembly and resistance measurement now requested. Three parallel chains of two 4.7 kohm parts; expect about 3.13 kohms. No connection to the brick or other bank instructed at this stage."
     }
   ],
   "current_step": [
-    "The confirmed 149.8-ohm free-lead measurement completes the requested pre-power check; no repeat needed.",
-    "First 12 V-only load voltage is owner-reported 12.15 VDC constant.",
-    "Keep the bank on B/F and router disconnected. Measure separate A/D with Fluke DC volts, black D/red A, while the 12 V bank remains connected; expected approximately -53.5 V if active. Read after about 10-15 seconds, then unplug AC.",
-    "Do not join the returns or move the 150-ohm bank onto A/D. A separate high-resistance PoE load has not been assembled or tested."
+    "Unplug AC after the A/D reading; keep router disconnected. The 150-ohm bank remains for the 12 V rail only.",
+    "Build the separate six-4.7-kohm bank, three parallel branches of two series resistors. Keep it electrically separate from the existing bank and every power source.",
+    "Measure resistance across the new bank free ends in ohms mode, with no brick connection. Expect approximately 3133 ohms. No result received.",
+    "A later qualified dual-load voltage test would retain the 149.8-ohm bank on B/F and use only the higher-resistance bank on A/D, with separate returns and no energized rewiring. That hookup has not been instructed or performed."
   ],
   "bank_measurements": [
     {
@@ -200,6 +200,28 @@
       "calculated_load_watts": 0.9854639519359145,
       "interpretation": "12 V output supplies this approximately 81.1 mA / 0.985 W load at a constant reported voltage. This does not establish full output capacity, PoE output operation or router compatibility.",
       "state_limit": "Owner response to instructions keeping router detached and unplugging AC afterward; elapsed time, meter display and final AC removal were not independently captured."
+    },
+    {
+      "recorded_at": "2026-11-06T19:15:46.835688-05:00",
+      "source": "Owner reports: with 12.15 vdc across load ... I get -.002 vdc from D to A.",
+      "target": "Same detached Flextronics FA230LM1-00 / 341-0703-01 external brick in the requested router-disconnected test.",
+      "stage": "12 V load retained; separate PoE output voltage measured without a PoE load",
+      "load_pair": [
+        "B/P5 (+12 V)",
+        "F/P3 (12 V return)"
+      ],
+      "load_ohms": 149.8,
+      "loaded_12v_volts_dc_reported": 12.15,
+      "measured_pair": [
+        "D/P1 (PoE return)",
+        "A/P4 (-53.5 V)"
+      ],
+      "requested_meter_setup": "Fluke 111 DC volts, black D/red A; requested reading after 10-15 seconds, followed by AC unplug.",
+      "poe_volts_dc_reported": -0.002,
+      "poe_millivolts_dc": -2.0,
+      "poe_stability_reported": null,
+      "interpretation": "Effectively zero relative to the nominal -53.5 V output. The approximately 81.1 mA load on the 12 V rail did not bring up the PoE output. This narrows the observation to the external brick/output cable/contact path under these conditions; it is not a router configuration measurement.",
+      "limits": "Owner report, without meter photo or separately confirmed duration/settling/final AC removal. PoE-specific loading has not been tested; no verified minimum-load specification or full-load result is available. Do not classify the supply as conclusively failed or infer a router-only repair from this result."
     }
   ]
 }

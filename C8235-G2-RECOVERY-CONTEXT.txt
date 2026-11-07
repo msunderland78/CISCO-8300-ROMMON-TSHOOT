@@ -10,7 +10,24 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A FIRST LOADED PSU READING / CURRENT HANDOFF — 2026-11-06, EST
+C8235-A PoE OUTPUT WITH 12 V LOAD / CURRENT HANDOFF — 2026-11-06, EST
+C8235-06: owner reports 12.15 VDC across the 149.8-ohm B/F load and -0.002 VDC
+from D to A (requested black D/red A, Fluke DC volts). This is -2 mV,
+effectively zero compared with nominal -53.5 V. The roughly 81.1 mA 12 V load
+did not bring up the PoE output. This is an external-brick/output-path result,
+not a router configuration test. PoE-output/cable/contact fault remains a
+leading possibility; PoE-specific loading and vendor minimum-load behavior
+remain untested/unverified, so definitive supply failure is not established.
+Owner instructed to unplug AC. Next: assemble the reserved separate six-4.7k
+bank as three parallel chains of two series 1/2 W resistors. With this bank
+isolated from the brick, the 150-ohm bank and every other source, measure its
+free ends; expect about 3.13 kohms. Reading pending. No PoE hookup yet.
+At 53.5 V the proposed bank would draw 17.1 mA / 0.913 W total, about 0.152 W
+per resistor. Never put the 150-ohm bank on A/D or join the separate returns.
+Full owner readings, precise conditions, calculations and limits:
+c8235-recovery/poe-diagnosis-20261106/load-test-plan.json.
+
+C8235-A FIRST LOADED PSU READING / EARLIER CHECKPOINT — 2026-11-06, EST
 C8235-06: owner clarifies 149.8 ohms was measured across the two free blue
 connection wires, including bank and wiring; no repeat needed. First powered
 12 V-only check returns 12.15 VDC, explicitly constant, with bank on B/F.
