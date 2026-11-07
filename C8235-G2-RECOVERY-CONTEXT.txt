@@ -10,7 +10,52 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A NATIVE PoE CONTROLLER PATH / CURRENT HANDOFF — 2026-11-07, 13:55 EST
+C8235-A BOUNDED CONTROLLER READ / CURRENT HANDOFF — 2026-11-07, 13:58–14:10 EST
+C8235-06: owner confirms unchanged powered/assembled A/FGL2835L42B, battery,
+same230W brick/AP4, no test/programmer wiring and console free. Fresh identity
+FOC28292GUQ and ready baseline verified with exclusive RJ45 at115200/8N1.
+IOS shell requires a consent token; used the established unsynced ROMMON
+maintenance boot. No new permission beyond the authorized recovery was needed.
+
+VERIFIED LIVE: native ngiolite loads the analyzed built-in switch driver. Read-only
+mounts and busybox hashes verify exact libmirabilesw/libcmlib/module YAML/i2cget
+and libi2c. CPU bus2 is Cavium ThunderX at0000:01:18.2; sysfs of_node matches
+DT alias i2c2, with no registered2-* clients. Exactly one unforced SMBus byte
+read of register0x1b at0x20 (14:03:50) and0x21 (14:03:57) both return
+Error: Read failed / exit2. No ID/version or53–54V reading obtained.
+
+These reads were before native PoE enable/reset-release initialization. Failure
+does not distinguish absent, unpowered, held-reset, failed or differently routed
+prototype hardware; no specific NACK/errno was exposed. No scan, forced address,
+controller data-register write, PoE-specific enable/reset or firmware update.
+Whole-router reload/reset occurred. Original bootflash/package mounted ro/noload
+and read-only squashfs respectively, then unmounted and verified before reset.
+
+Native startup trace matching fresh ngiolite23544/thread24083 confirms PALPATINE2,
+bus2,0x20/0x21, then m14er POE present = False / poe dc is not present. Its later
+INIT: POE init completed is an early-return result, not successful hardware init.
+Wrong May2025 router clock makes decoded last-boot output include historical PIDs;
+current PID was selected explicitly. Older26.1.1 PoE YAML section is byte-identical;
+no alternate bus found. Exact17.15.6 filename absent, without a support conclusion.
+
+RESTORED: saved A4/BOOT match exactly14:06:03, normal packages.conf boot passes
+original input/VF hook hashes and HOOK_COMPLETE. At14:09 all0/0/R0/F0 ready,
+IOS26.02.1/confreg0x3922, original package-backed libraries in cmand6424 and
+ngiolite23544,66W main/0W PoE, internalPoE absent, port4 auto/off/no-device/0W.
+Filtered process-failure log empty. Pagination24 acknowledged; console released
+14:10:09, both aliases free; A left powered/assembled, no override active.
+No saved-config/ROMMON sync, firmware/EEPROM/TPM/fuse change. Native logs can
+write storage. Original complete capture stays local; sanitized copy published.
+
+Next software lead: isolate and qualify power-enable/reset handling and rollback
+without allowing automatic PSE firmware-update writes. Not yet a qualified or
+executed experiment. Actual supply-input voltage remains unresolved; no verified
+software-only fix or controller population conclusion. Fresh physical-state and
+console check required before a later hardware session.
+Result: c8235-recovery/poe-diagnosis-20261107/controller-read-test.json
+Capture: sanitized-evidence/router-console-logs/20261107-135844-C8235-A-controller-read-console.log
+
+C8235-A NATIVE PoE CONTROLLER PATH / EARLIER OFFLINE HANDOFF — 2026-11-07, 13:55 EST
 C8235-06: owner requests further software/ROMMON work with A assembled. Offline
 analysis found the built-in switch driver libmirabilesw.so and exact Arata P2
 8M-2xSFP+.yml model: PALPATINE2, CPU I2C controller 2, addresses 0x20/0x21.

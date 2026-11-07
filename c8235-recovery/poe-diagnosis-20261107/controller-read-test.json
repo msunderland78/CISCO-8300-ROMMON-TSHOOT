@@ -1,0 +1,170 @@
+{
+  "task": "C8235-06",
+  "recorded_at": "2026-11-07T14:06:51.941946-05:00",
+  "timezone": "America/New_York",
+  "status": "Bounded live controller-ID test complete; both reads failed; normal original boot restored, modules ready and console released",
+  "target": {
+    "tracking_label": "C8235-A",
+    "chassis": "FGL2835L42B",
+    "board": "FOC28292GUQ",
+    "rommon_uuid": "13 FF FF 78 86 52 04 83 8A BF FF 48"
+  },
+  "owner_confirmation": "Yes\u2014unchanged, console free: powered/assembled A, battery installed, same230W brick/AP port4, no programmer/test wires. Reply received before console opened13:58:44 EST.",
+  "console": {
+    "port": "/dev/cu.usbserial-AL00F7EQ",
+    "paired_alias": "/dev/tty.usbserial-AL00F7EQ",
+    "ownership": "Both aliases free (lsof rc1), then exclusive TIOCEXCL ownership",
+    "settings": "115200/8N1/no flow; temporary pre-init9600 detected, router stty115200 and host115200 then verified",
+    "private_directory": ".git/recovery-private/c8235-poe-20261106/supervised-20261107-135844",
+    "supervisor": "tmp/c8235_a_poe_supervisor.py",
+    "supervisor_sha256": "1e1fc617a923a1c5e466ca63c5d2e600e158f15301b9fd4714c65cfa355b3a6a"
+  },
+  "baseline": {
+    "time": "2026-11-07T13:58:48-05:00",
+    "identity": "FGL2835L42B/FOC28292GUQ",
+    "modules": "0/0/R0/F0 ready",
+    "main_w": 66,
+    "poe_w": 0,
+    "internal_poe": "not present",
+    "supply": "PWR-CC2-66WAC",
+    "native_consumer": "ngiolite23443 maps package-backed libmirabilesw.so fc:00/inode20503, libcmlib_ngio.so inode19371 and original libdash_fpga_api.so inode19684. cmand6353 maps original libdash as well."
+  },
+  "maintenance": {
+    "ios_shell_attempt": "13:59:17 request platform software system shell R0 returned Please secure authentication via request consent-token; no consent token requested or config change made.",
+    "reload_confirmed": "2026-11-07T14:00:05-05:00",
+    "rommon_identity_match": "2026-11-07T14:01:10-05:00",
+    "saved_boot_verified": "2026-11-07T14:01:23-05:00",
+    "temporary_param": "rdinit=/bin/sh -c mount${IFS}-tdevtmpfs${IFS}none${IFS}/dev;sh</dev/ttyAMA0&>/dev/ttyAMA0;exec${IFS}/init",
+    "temporary_param_readback": "Exact match; unsynced",
+    "maintenance_boot": "2026-11-07T14:01:42-05:00",
+    "shell_verified": "2026-11-07T14:02:19-05:00",
+    "root": "tmpfs/rootfs, maintenance before exec /init and native PoE initialization",
+    "mounts": "proc and sysfs mounted read-only in RAM. /dev/mmcblk0p1 mounted /u ext4 ro,norecovery. Mono package mounted /poe-mono squashfs read-only through loop0 offset4096.",
+    "setup_failures_preserved": "Bare sha256sum unavailable; initial /sys unmounted and mono library/i2cget absent from initial RAM root. Used existing busybox sha256sum, mounted proc/sysfs read-only and exact installed mono package read-only. These are environment/setup findings, not controller faults."
+  },
+  "live_hashes": {
+    "/usr/binos/lib64/libdash_fpga_api.so": "ea570d093bdcbfb34edc534e1e4615e0ad7d32b01e78d0554b02952d65bcf791",
+    "/poe-mono/usr/binos/lib64/libmirabilesw.so": "376ed0b8c45832cc0ae7f6e62e3a0d471e75dc9741a7a3359ab2421e69ceca74",
+    "/poe-mono/usr/binos/lib64/libcmlib_ngio.so": "4c2d8e2099c3c7d9a1608ea75456eeb85bbedfeabbf04ba07dc1cf923dd99d88",
+    "/poe-mono/usr/binos/lib64/8M-2xSFP+.yml": "980bffac4c9872d6f860057c08e9a571968c77362fd0d23f89e86b1a53bb9b66",
+    "/poe-mono/usr/sbin/i2cget": "29d121e3be9a904bc5fc8ea4e1b785a768618e71abe49f5cb1eb909bb563edd5",
+    "/poe-mono/usr/lib64/libi2c.so.0": "288bc313e2cc2c28ad1f6b385878874fccca05452a18e7914a7788ec945536b0"
+  },
+  "bus_qualification": {
+    "device": "/dev/i2c-2, major89 minor2",
+    "adapter_name": "Cavium ThunderX i2c adapter at 0000:01:18.2",
+    "adapter_device": "/sys/devices/platform/0.soc/878000000000.pci/pci0000:00/0000:00:01.0/0000:01:18.2",
+    "of_node": "/soc@0/pci@878000000000/mrml-bridge0@1,0/i2c@24,2",
+    "device_tree_alias_i2c2": "/soc@0/pci@878000000000/mrml-bridge0@1,0/i2c@24,2",
+    "registered_clients": "No /sys/bus/i2c/devices/2-* entries",
+    "software_map": "Exact Arata P2 YAML CPU controller2, addresses0x20/0x21; live module/library hashes match the analyzed source",
+    "limit": "Logical adapter and native software map are verified; electrical continuity or prototype population is not."
+  },
+  "read_utility": "Unmodified native i2cget4.3, LD_LIBRARY_PATH=/poe-mono/usr/lib64; libi2c hash matches same source package.",
+  "transactions": [
+    {
+      "time": "2026-11-07T14:03:50.006658-05:00",
+      "command": "LD_LIBRARY_PATH=/poe-mono/usr/lib64 /poe-mono/usr/sbin/i2cget -y 2 0x20 0x1b b",
+      "operation": "one SMBus read-byte-data transaction at register0x1b",
+      "result": "Error: Read failed",
+      "exit_code": 2,
+      "returned_id": null
+    },
+    {
+      "time": "2026-11-07T14:03:57.000113-05:00",
+      "command": "LD_LIBRARY_PATH=/poe-mono/usr/lib64 /poe-mono/usr/sbin/i2cget -y 2 0x21 0x1b b",
+      "operation": "one SMBus read-byte-data transaction at register0x1b",
+      "result": "Error: Read failed",
+      "exit_code": 2,
+      "returned_id": null
+    }
+  ],
+  "transaction_scope": "Exactly one attempted ID read at each address. No -f, scan, version reads, PoE enable/reset command, controller data-register write or firmware updater invocation. SMBus byte-data reads include the ordinary register-address phase. Whole-router reload/reset did occur.",
+  "interpretation": "Neither expected controller address returned an ID in this early maintenance state without native PoE power-enable/reset-release initialization. This does not distinguish unpowered/held-reset hardware, absent circuitry, failed circuitry or a prototype routing mismatch. The utility reports no errno; a specific NACK diagnosis is not established. No53\u201354V measurement or functional PoE result.",
+  "kernel_tail": "45-line dmesg tail after reads has no new I2C-specific diagnostic; not a whole-log or bus-health proof.",
+  "restoration": {
+    "mono_and_bootflash_unmounted": "2026-11-07T14:05:06-05:00; /proc/mounts contains neither /u nor /poe-mono",
+    "maintenance_reset": "2026-11-07T14:05:12-05:00 via busybox reboot -f after unmount verification",
+    "matching_rommon": "2026-11-07T14:05:54-05:00",
+    "saved_BOOT_and_USER_BOOT_PARAM": "Exact baseline restored/read back14:06:03; no ROMMON sync",
+    "normal_boot_started": "2026-11-07T14:06:09-05:00",
+    "normal_IOS_verified": true,
+    "original_input_hashes_and_hook": "Normal boot logs INPUT_HASHES_PASS, bootstrap READY and HOOK_COMPLETE; launch_net SHA25632ce11a07bde1fd610b1951a4c143217daec1d3458440bbcbd1fc3ca2c39f857 and hookca13a2513a367cb9451fcc554432fd520aa8c42d0d59d61b5cd386e7f2efffa4 match original.",
+    "image": "26.02.1 from bootflash:packages.conf",
+    "configuration_register": "0x3922",
+    "settled_query": "2026-11-07T14:09:11-05:00",
+    "modules": "0/0/R0/F0 ready",
+    "power": "PWR-CC2-66WAC, main66 W, PoE0 W, Internal PoE not present",
+    "port4": "auto/off/no-device/0 W, no negotiation, fault/denial counters0",
+    "sampled_process_failure_logs": "No matches for PROCFAIL|PROCHOLDDOWN|RELOAD_SYSTEM in final show logging filter.",
+    "native_original_maps": "14:09:43 query: current ngiolite23544 maps original package fc:00/inode20503 libmirabilesw and inode19684 libdash; cmand6424 maps original package libdash inode19684.",
+    "pagination": "terminal length24 acknowledged14:10:02",
+    "console_closed": "2026-11-07T14:10:09.007924-05:00",
+    "console_ownership_after_close": "Both current aliases free, lsof rc1 with no stdout",
+    "left_state": "Powered/assembled, same confirmed battery/brick/AP4/cabling; no experiment override active.",
+    "scope": "No ROMMON sync, saved-config command, package/flash/EEPROM/TPM/fuse change or PoE-specific reset/enable command. Normal native boot and diagnostic logging can write persistent logs."
+  },
+  "related_analysis": "native-controller-investigation.json",
+  "updated_at": "2026-11-07T14:10:49.375586-05:00",
+  "native_startup_trace": {
+    "command": "show logging process ngiolite internal start last boot | include poe|PoE|POE|PALPATINE|Si3470",
+    "collection_time": "2026-11-07T14:08:53-05:00",
+    "current_process": "ngiolite23544, thread24083; fresh process list14:09:11 and maps14:09:43",
+    "clock_limit": "Router clock is May29,2025 and resets across boots; start-last-boot output includes historical processes. Selected matching-current-PID23544 records explicitly rather than treating all decoded records as fresh. Mac EST timestamps date this test.",
+    "observations": [
+      "2025/05/29 18:50:22.751703109 {ngiolite_0-0}{255}: [nim-l2eth] [23544:24083]: (note): INIT: POE init start.",
+      "2025/05/29 18:50:22.751736274 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: total pse-chip 1",
+      "2025/05/29 18:50:22.751747234 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: PSE-CHIP 0: hw-model PALPATINE2 type 1",
+      "2025/05/29 18:50:22.751749810 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: pse 0 i2c-xfer-size not specified",
+      "2025/05/29 18:50:22.751756389 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: pse 0 i2c-base-addr not specified",
+      "2025/05/29 18:50:22.751756895 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: chip_id 0: i2c-xfer-size 32, i2c-ctrl 2, i2c-base-addr 0x0, power_pin 205100, reset_pin 4, oss_pin 205100, oss_mode 1",
+      "2025/05/29 18:50:22.751758320 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: total poe-ctrlr 2",
+      "2025/05/29 18:50:22.751762373 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: ctrlr 0-0: i2c-addr 0x20, port_remapping 0xe1",
+      "2025/05/29 18:50:22.751766198 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: ctrlr 0-1: i2c-addr 0x21, port_remapping 0xe4",
+      "2025/05/29 18:50:22.751766587 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: chip_id 0: change i2c-base-addr to 0x20",
+      "2025/05/29 18:50:22.751768412 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: Please make sure hook gpio access NOT from-switch before",
+      "2025/05/29 18:50:22.751776366 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: total intf 4",
+      "2025/05/29 18:50:22.751778114 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: hook i2c access NOT from-switch",
+      "2025/05/29 18:50:22.751780058 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: intf 0 (local): ifindex 4, mode 2P, signal-pair 0",
+      "2025/05/29 18:50:22.751783158 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: hook i2c access NOT from-switch",
+      "2025/05/29 18:50:22.751784998 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: intf 1 (local): ifindex 5, mode 2P, signal-pair 1",
+      "2025/05/29 18:50:22.751788331 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: ctrlr 0-0: pse-type 1, ieee_rev 1, cap 0x2, max-power 30000, num-intfs 2",
+      "2025/05/29 18:50:22.751789676 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: hook i2c access NOT from-switch",
+      "2025/05/29 18:50:22.751791692 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: intf 0 (local): ifindex 6, mode 4P, signal-pair 0, spare-pair 1",
+      "2025/05/29 18:50:22.751794625 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: hook i2c access NOT from-switch",
+      "2025/05/29 18:50:22.751796777 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: intf 1 (local): ifindex 7, mode 4P, signal-pair 2, spare-pair 3",
+      "2025/05/29 18:50:22.751799989 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: ctrlr 0-1: pse-type 1, ieee_rev 1, cap 0x2, max-power 90000, num-intfs 2",
+      "2025/05/29 18:50:22.751882735 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): m14er POE present = False",
+      "2025/05/29 18:50:22.751895882 {ngiolite_0-0}{255}: [ngiolite] [23544:24083]: (note): POE: poe dc is not present",
+      "2025/05/29 18:50:22.751896297 {ngiolite_0-0}{255}: [nim-l2eth] [23544:24083]: (note): INIT: POE init completed."
+    ],
+    "interpretation": "Runtime logs corroborate PALPATINE2, I2C bus2, addresses0x20/0x21 and the m14er presence rejection. INIT: POE init completed follows the early absent return; it does not mean the controller answered or powered a port. Per-port succeeded-to-set messages are not proof of controller hardware writes or PoE delivery.",
+    "help_failures": "show platform software trace message is unavailable; help exposes context/counter/level. The supported decoded-log route is show logging process ... internal start last boot. No trace level/config change made."
+  },
+  "older_profile_comparison": {
+    "scope": "Offline only; no downgrade/image boot",
+    "sources": [
+      {
+        "version": "26.01.01",
+        "package": "c8kg2be-26.01.01-inspection/c8kg2be-mono-universalk9.26.01.01.SPA.pkg",
+        "source": "usr/binos/lib64/8M-2xSFP+.yml",
+        "bytes": 9475,
+        "sha256": "ed911c5b2fa00e957b91169433899881eff5b987130db5085ef8072c5c7921d0"
+      }
+    ],
+    "result": "26.01.01 PoE model/controller section is byte-identical to26.02.01: same PALPATINE2, CPU bus2 and0x20/0x21, power/reset/OSS mappings. No alternate bus found by this comparison.",
+    "section_sha256": "5f1a1dfd2e070ef0f81f7713eb115c52a7e782f2f3679d4634889f80de9faed1",
+    "17.15.06": "Exact usr/binos/lib64/8M-2xSFP+.yml absent from this archive; not evidence that all possible Arata support is absent."
+  },
+  "evidence": {
+    "local_raw_capture": "router-console-logs/20261107-135844-C8235-A-controller-read-console.log",
+    "raw_bytes": 106745,
+    "raw_sha256": "c1701cbdee97b1977392c8368d5c3cae53f44a7d88415f6aa88308f80ed338dd",
+    "local_events": ".git/recovery-private/c8235-poe-20261106/supervised-20261107-135844/events.jsonl",
+    "events_sha256": "092f03359fadc53af465267c5fcd54cb668a64e2d13759f17478a89cab9d1a2b",
+    "public_capture": "../../sanitized-evidence/router-console-logs/20261107-135844-C8235-A-controller-read-console.log",
+    "source_provenance": "native-controller-investigation.json",
+    "publication": "Original capture remains private/ignored. Only repository-tool-generated sanitized counterpart is published."
+  },
+  "next_step": "Further software work should isolate and qualify the Arata power-enable/reset path, including failure handling and restoration, without permitting the automatic PSE firmware updater. This test did not qualify or execute that experiment. A verified bulk-input voltage channel or electrical measurement remains necessary to settle actual53\u201354V delivery; failure of these pre-init ID reads does not establish absent hardware."
+}

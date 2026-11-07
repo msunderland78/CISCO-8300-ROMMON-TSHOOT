@@ -1749,6 +1749,11 @@
       "bytes": 397654,
       "path": "router-console-logs/20261107-123536-C8235-A-PSU-presence-console.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 106745,
+      "path": "router-console-logs/20261107-135844-C8235-A-controller-read-console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
     }
   ],
   "included": [
@@ -1783,9 +1788,9 @@
       "sha256": "73f5ad7f6966fccfbc6213d88e3f568473e3486c13af7bf4a2387829c440a21e"
     },
     {
-      "bytes": 267203,
+      "bytes": 270299,
       "path": "C8235-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "4f45d7a61deb8387bdc0d44954387ea4dd79c8d4bd6709e99e64500bac72b684"
+      "sha256": "37c61e9e8815b187c946d672b5c5d0aed7a3277d3183fe24644d8a421c580152"
     },
     {
       "bytes": 106687,
@@ -2308,9 +2313,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 537717,
+      "bytes": 541912,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "7e2239fe44ddcda540b5b7855442bc444a7204d183e4eef22ee0d40171f1a950"
+      "sha256": "93856941fdc28c7e3ac8131a64e9e1c41a17d239a9cc61b16618df8588cf0fca"
     },
     {
       "bytes": 6850655,
@@ -2718,6 +2723,11 @@
       "sha256": "40e8627143ff2269d1e097bebe2bacb9d9e50f70e3214f79417edd39c3f02069"
     },
     {
+      "bytes": 14679,
+      "path": "c8235-recovery/poe-diagnosis-20261107/controller-read-test.json",
+      "sha256": "ea4b4648e4e72f2e92f8fb27d232f300b740ceebaa1fbeded68494e450cfc4f0"
+    },
+    {
       "bytes": 2772,
       "path": "c8235-recovery/poe-diagnosis-20261107/crash-disassembly.txt",
       "sha256": "bf648957a78157ffebfd7d4dbbc4e974daf691894ff0d64f0fd3f50b69dd5c4c"
@@ -2733,9 +2743,9 @@
       "sha256": "05aa0ac7000ccb6528200ca08e280c1e640d8cde491bdabb1aae57fc36cb569e"
     },
     {
-      "bytes": 9088,
+      "bytes": 9338,
       "path": "c8235-recovery/poe-diagnosis-20261107/native-controller-investigation.json",
-      "sha256": "56e8299e19e1aee01537406b75c4e4c47450beb5fcc6ee0f313b4717a33c8d24"
+      "sha256": "d7e75b6d910d36b6111477659b2f2518e73c361c9be6b44a24d81ad835127bff"
     },
     {
       "bytes": 758,
@@ -5463,6 +5473,11 @@
       "sha256": "223bec6b7cc5634a1627c64d1df5097bd491f5e6324647a3eb8641b17209959c"
     },
     {
+      "bytes": 106747,
+      "path": "sanitized-evidence/router-console-logs/20261107-135844-C8235-A-controller-read-console.log",
+      "sha256": "b1eec28bb8465cc3d8483c87f53b674bdd3e79186ba6a4860657ca41478479c5"
+    },
+    {
       "bytes": 17692,
       "path": "scripts/c8235_a_development_candidate.py",
       "sha256": "22c28ebf03cdf60e6453a69f74356449bed0b38c07d501af61ad70480b629a8b"
@@ -5919,12 +5934,13 @@
     "sanitized-evidence/router-console-logs/20261107-115618-console.log",
     "sanitized-evidence/router-console-logs/20261107-120250-C8235-A-PoE-recovery-excerpt.log",
     "sanitized-evidence/router-console-logs/20261107-120703-C8235-A-PoE-normal-restoration.log",
-    "sanitized-evidence/router-console-logs/20261107-123536-C8235-A-PSU-presence-console.log"
+    "sanitized-evidence/router-console-logs/20261107-123536-C8235-A-PSU-presence-console.log",
+    "sanitized-evidence/router-console-logs/20261107-135844-C8235-A-controller-read-console.log"
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 350,
-    "included_bytes_without_manifest": 1128141090,
-    "included_files_without_manifest": 781
+    "excluded_local_files": 351,
+    "included_bytes_without_manifest": 1128270057,
+    "included_files_without_manifest": 783
   }
 }
