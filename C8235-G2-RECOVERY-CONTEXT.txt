@@ -15,16 +15,22 @@ C8235-06: owner has only 1/2 W resistors, 6 to 8 each of 100/120/150/220/330/
 470/560/680/1000/2000/2200/4700 ohms. Prior separate 10 W parts unavailable.
 Selected first stage: six 100 ohm parts as two parallel branches, each with
 three in series; equivalent 150 ohms. At 12.3 V: total 82 mA/1.01 W and each
-resistor about 0.168 W. This bank is ONLY for B-E/12 V, never the PoE pair.
-Owner now reports building the described breadboard and measuring 149.8 ohms
-end-to-end, consistent with the nominal 150 ohm bank. Lead baseline and an
-assembly photo were not supplied; this is an owner-reported resistance check,
-not independent verification of every connection. Owner subsequently reports
-no mating connector: two stripped wires fit the plug sockets by friction.
-Existing IMG_1319 shows only the bare plug, not this wiring. Insulation, wire
-construction, retention and refreshed AC/DC isolation remain unverified.
-Keep the bank unpowered; next evidence is an unpowered close-up of the actual
-connector/wires and breadboard. No powered load test has been reported.
+resistor about 0.168 W. This bank is ONLY for 12 V (B-E planned, B-F photographed), never the PoE pair.
+Owner reports the built bank measures 149.8 ohms end-to-end. New originals
+PHOTOS3/IMG_1322.jpeg and IMG_1323.jpeg show six resistor bodies and a latch-right
+plug with wires in lower-left F/P3 and middle-right B/P5: a valid 12 V pair.
+This supersedes the planned B-E pair for the pictured hookup; F is also a
+labeled 12 V ground. Some breadboard endpoints and the complete blue-wire path
+are obscured, so photo inspection alone does not verify the full circuit.
+Exposed/splayed stranded copper is visible, especially at F. Owner subsequently
+states it is fixed and near only plastic; this is an owner-reported correction,
+not a new photo or independent retention test. No additional photo requested.
+Next pre-power check: AC unplugged, disconnect both blue load wires from the
+brick and all other sources, then measure across their free ends (about 150
+ohms expected) to include the bank AND connecting wires. Do not measure ohms
+through the brick. Return the Fluke to DC volts afterward. Reading pending;
+no powered load test reported. Later voltage test will use this B-F 12 V pair
+and separately measure A-D without moving the load or joining the returns.
 Later PoE candidate: six 4.7 kohm parts, three parallel branches of two in
 series; about 3.13 kohm, 17.1 mA/0.91 W total and 0.152 W each at 53.5 V.
 Reserve these parts; no PoE-stage hookup yet. These are preliminary light

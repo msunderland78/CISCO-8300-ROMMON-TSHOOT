@@ -1,14 +1,14 @@
 {
   "task_id": "C8235-06",
   "recorded_at": "2026-11-06T18:20:31.622649-05:00",
-  "status": "Owner reports the assembled bank measures 149.8 ohms. Owner has no mating connector and proposes two stripped wires that fit the sockets by friction. Actual insulation, contact retention and present AC/DC isolation are unverified; no powered load-test result.",
+  "status": "New photos inspected; wires appear on B/F, a valid 12 V pair. Visible exposed/splayed stranded copper was identified, then owner stated it is fixed and near only plastic. Next requested check is about 150 ohms across the two free load leads with both disconnected from the AC-unplugged brick. No powered load-test reading received.",
   "request": "Owner asks how to perform a loaded test or known-good comparison after A-D zero volts and supply-label identification.",
   "target": "Detached Flextronics FA230LM1-00 / 341-0703-01 external brick, not router PCB. Pin correspondence from supply-label.json.",
   "known_equipment": "Fluke 111, Jesverty source supply, owner-confirmed 1/2 W resistor assortment and assembled 149.8-ohm breadboard. Owner reports two stripped wires and no mating connector. Historical probe tips/hooks are not established as suitable for this connector.",
-  "question_pending": "Current AC-unplugged/router-disconnected state and an unpowered close-up of the actual proposed wire-to-plug connection and breadboard. Solid/stranded construction, exposed metal and retention remain unknown.",
+  "question_pending": "Resistance across the two free blue load-wire ends, completely disconnected from the brick and other sources; expected about 150 ohms. This includes the breadboard and connecting wires, beyond the earlier 149.8-ohm bank-only report.",
   "qualification_before_connection": [
     "Verify actual resistor values, 1/2 W ratings, network resistance and secure separated mounting. Current design calculations keep each part below about 0.17 W at the stated voltages; ordinary single resistors are not substituted for the earlier 10 W loads.",
-    "Identify a properly mating six-position connector/breakout with secure insulated terminations; do not assume a computer PSU cable has the same pinout. Verify each conductor assignment unpowered before use.",
+    "Establish a secure insulated test connection, with no stray strands able to bridge contacts and leads restrained against withdrawal. A correctly mating connector/breakout is preferred. Do not assume a computer PSU cable has the same pinout. Owner reports correcting the photographed connection; do not imply this was independently re-photographed or pull-tested.",
     "Reconfirm brick AC disconnected and DC plug detached from router, check for residual voltage before resistance/continuity checks, and record meter lead baseline for connection mapping.",
     "Keep the 12 V return and PoE return separate. No connection to the Jesverty output, PC/programmer or router. Fluke remains COM/V in DC-voltage mode, not an across-output current measurement."
   ],
@@ -26,7 +26,7 @@
       "use": "Use COM/V for voltage; current-input measurements across an output would short the circuit."
     }
   ],
-  "updated_at": "2026-11-06T18:58:29.298418-05:00",
+  "updated_at": "2026-11-06T19:05:25.012996-05:00",
   "owner_inventory": {
     "rating_watts_each": 0.5,
     "values_ohms": [
@@ -95,7 +95,11 @@
       "total_current_amps": 0.082,
       "total_heat_watts": 1.0086000000000002,
       "each_heat_watts": 0.16810000000000003,
-      "status": "Owner-reported 149.8 ohms matches nominal resistance. Bare-wire friction-fit connection proposed; insulation/retention and current brick isolation unverified. No powered test."
+      "status": "Earlier 149.8-ohm bank reading matches nominal. Photos show six resistor bodies and a B/F connection; some jumper endpoints are obscured. Owner reports correcting exposed copper. Free-lead resistance check pending; no powered result.",
+      "observed_connection": [
+        "B/P5 (+12 V)",
+        "F/P3 (12 V GROUND)"
+      ]
     },
     {
       "rail": "PoE",
@@ -117,9 +121,10 @@
     }
   ],
   "current_step": [
-    "Keep the completed 149.8-ohm bank unpowered and the brick disconnected from AC and router.",
-    "Inspect an unpowered close-up of the actual stripped-wire connection and breadboard; determine wire construction, insulation and retention. Existing connector photograph does not show this assembly.",
-    "Establish a secure insulated connection before giving the powered B-E/12 V load-test steps. Do not use the 150-ohm bank on A-D/PoE."
+    "Keep AC unplugged. Disconnect both blue load wires from the brick and isolate the bank from every other power source.",
+    "Measure resistance across the two free blue wire ends, including the complete bank and wiring. Expected about 150 ohms; previous 149.8-ohm reading was reported at the bank ends. Do not measure resistance through the power brick.",
+    "Return Fluke 111 to DC volts, black COM/red V-ohm, before reconnecting anything. Only the B/F 12 V connection is intended for this bank.",
+    "After the free-lead check and secure insulated hookup, the planned brief powered stage will measure loaded B/F voltage and separate A/D voltage without moving the load. No powered result received."
   ],
   "bank_measurements": [
     {
@@ -145,5 +150,30 @@
     "assessment": "Friction fit alone does not establish a retained, insulated test connection. Loose wires could withdraw, expose metal or bridge neighboring contacts; do not energize this unverified arrangement.",
     "next_evidence": "With AC unplugged and DC disconnected from router, obtain a close-up of the actual connector/wires and breadboard before selecting a suitable connection method.",
     "powered_load_test_reported": false
+  },
+  "photo_review": {
+    "recorded_at": "2026-11-06T19:05:25.012996-05:00",
+    "photos": [
+      {
+        "path": "PHOTOS3/IMG_1322.jpeg",
+        "bytes": 11525436,
+        "sha256": "6d4504f000812f1bf3c08466b924eefbee1e853585afd22913943280c046f383"
+      },
+      {
+        "path": "PHOTOS3/IMG_1323.jpeg",
+        "bytes": 7629633,
+        "sha256": "e6561da4d10874459aae72d34c9acf8cf12474df53be43938341616f426d46f5"
+      }
+    ],
+    "method": "Viewed both original photos at default and original resolution; no image alteration.",
+    "observations": [
+      "IMG_1322 shows six blue axial resistors and jumper wiring on a breadboard. Several jumper endpoints are obscured; the photo alone does not prove every connection.",
+      "IMG_1323 shows a latch-right plug. Two turquoise insulated wires occupy the lower-left and middle-right cavities. Stranded copper is visible, especially splayed outside the lower-left cavity. No short between contacts is visible.",
+      "The plug is detached from the router in the photos. AC connection and the entire path from blue wires to breadboard are outside the photographed area."
+    ],
+    "pin_inference": "Rotating the established latch-up A/B/C over D/E/F map clockwise gives D/A, E/B, F/C rows in the latch-right view. Thus lower-left is F/P3 and middle-right is B/P5. The photographed B/F pair is valid for the 12 V load; F, like E, is labeled GROUND. This is not the A/D PoE pair.",
+    "initial_assessment": "Correct 12 V contact grouping, but exposed/splayed copper and no independently established retention prompted an unpowered correction before energization.",
+    "superseding_owner_report": "Owner subsequently states: it is fixed, it is not near anything but plastic. Treat as an owner-reported correction, not a new photograph or independent retention test.",
+    "scope": "No router access, electrical measurement by the agent, powered load test or confirmed PoE repair."
   }
 }
