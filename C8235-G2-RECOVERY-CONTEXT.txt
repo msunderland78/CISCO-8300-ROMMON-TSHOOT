@@ -10,7 +10,19 @@ Detailed reports, photos, original firmware, extracted files and raw console
 logs remain in the folders indexed below. This is a technical summary, not a
 verbatim copy of every chat message or every unsuccessful web search.
 
-C8235-A BOUNDED CONTROLLER READ / CURRENT HANDOFF — 2026-11-07, 13:58–14:10 EST
+END-OF-DAY HANDOFF — 2026-11-07, 14:21 EST
+Owner is stopping work for today. C8235-06 remains unresolved; all completed
+tests, failed attempts, restoration checks and evidence are recorded below.
+Last verified hardware state is the 14:10 handoff: A/FGL2835L42B powered and
+assembled, normal IOS, all modules ready, original libraries/boot settings,
+no active override and console free. No new hardware access or power-off was
+performed or reported during this documentation check. Raw captures remain
+local/ignored; generated sanitized copies and analysis are published.
+Resume with offline qualification of isolated PoE power-enable/reset handling
+and rollback, excluding automatic controller firmware updating. Before any live
+test, reconfirm chassis, power/cables/battery/assembly and console ownership.
+
+C8235-A BOUNDED CONTROLLER READ / LATEST HARDWARE HANDOFF — 2026-11-07, 13:58–14:10 EST
 C8235-06: owner confirms unchanged powered/assembled A/FGL2835L42B, battery,
 same230W brick/AP4, no test/programmer wiring and console free. Fresh identity
 FOC28292GUQ and ready baseline verified with exclusive RJ45 at115200/8N1.
