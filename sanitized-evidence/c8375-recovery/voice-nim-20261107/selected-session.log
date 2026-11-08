@@ -1,0 +1,840 @@
+DERIVED SELECTION, 2026-11-07 America/New_York. Original private SSH captures preserved.
+CR bytes removed for readability; complete selected command blocks unless marked FILTERED.
+Router boot-era timestamps can be incorrect; host COMMAND timestamps date this session.
+
+
+SOURCE 20261107-184731-ssh.raw
+
+[COMMAND 2026-11-07T18:47:33.679870-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 11 minutes
+Uptime for this control processor is 13 minutes
+System returned to ROM by Image Install 
+System image file is "bootflash:packages.conf"
+Last reload reason: Image Install 
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+60062720K bytes of USB flash at usb0:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:47:46.607034-05:00] show inventory
+show inventory
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO: Please use "show license UDI" to get serial number for licensing.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NAME: "Chassis", DESCR: "Cisco C8375-E-G2 Chassis"
+PID: C8375-E-G2        , VID: V01  , SN: FDO2742M0FK
+
+NAME: "Fan Tray", DESCR: "Cisco C8300 1RU Fan Assembly"
+PID: C8300-FAN-1R      , VID: V02  , SN:            
+
+NAME: "module 0", DESCR: "Cisco C8375-E-G2 Built-In NIM controller"
+PID: C8375-E-G2        , VID:      , SN:            
+
+NAME: "NIM subslot 0/0", DESCR: "4M-2xSFP+"
+PID: 4M-2xSFP+         , VID: V01  , SN:            
+
+NAME: "subslot 0/0 transceiver 4", DESCR: "SFP+ 10GBASE-SR"
+PID: SFP-10G-SR          , VID: V03  , SN: AVD24159TDX     
+
+NAME: "module 1", DESCR: "Cisco C8375-E-G2 Built-In SM controller"
+PID: C8375-E-G2        , VID:      , SN:            
+
+NAME: "module R0", DESCR: "Cisco C8375-E-G2 Route Processor"
+PID: C8375-E-G2        , VID: V01  , SN: FDO27380KFQ
+
+NAME: "module F0", DESCR: "Cisco C8375-E-G2 Forwarding Processor"
+PID: C8375-E-G2        , VID:      , SN:            
+
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:47:47.090836-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:12:45      
+ 0/0      4M-2xSFP+           ok                    00:11:47      
+ 0/1      NIM-2FXS/4FXOP      unsupported           never         (physical)
+1         C8375-E-G2          ok                    00:12:45      
+R0        C8375-E-G2          ok, active            00:12:45      
+F0        C8375-E-G2          ok, active            00:12:45      
+P0        Unknown             empty                 never         
+P1        Unknown             incompatible          00:12:03      
+P2        C8300-FAN-1R        ok                    00:12:03      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:47:52.072051-05:00] show voice port summary
+show voice port summary
+                                           IN       OUT
+PORT            CH   SIG-TYPE   ADMIN OPER STATUS   STATUS   EC
+=============== == ============ ===== ==== ======== ======== ==
+ 
+PWR FAILOVER PORT        PSTN FAILOVER PORT
+=================        ==================
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:47:54.019622-05:00] show install summary
+show install summary
+[ R0 ] Installed Package(s) Information:
+State (St): I - Inactive, U - Activated & Uncommitted,
+            C - Activated & Committed, D - Deactivated & Uncommitted
+--------------------------------------------------------------------------------
+Type  St   Filename/Version
+--------------------------------------------------------------------------------
+IMG   C    26.01.02.0.3639
+
+--------------------------------------------------------------------------------
+Auto abort timer: inactive
+--------------------------------------------------------------------------------
+
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:47:55.062471-05:00] show diag subslot 0/1 eeprom
+show diag subslot 0/1 eeprom
+SPA EEPROM data for subslot 0/1:
+
+	Product Identifier (PID) : NIM-2FXS/4FXOP
+	Version Identifier (VID) : V01 
+	PCB Serial Number        : FOC23152BE1
+	Hardware Revision        : 1.0
+	CLEI Code                : IP9IAZUCAA
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:48:06.569103-05:00] show voice dsp group
+show voice dsp group
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:48:07.060347-05:00] show voice dsp capabilities
+show voice dsp capabilities
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:48:10.141279-05:00] show call active voice brief
+show call active voice brief
+<ID>: <CallID> <start>ms.<index> (<start>) +<connect> pid:<peer_id> <dir> <addr> <state> 
+  dur hh:mm:ss tx:<packets>/<bytes> rx:<packets>/<bytes> dscp:<packets violation> media:<packets violation> audio tos:<audio tos value> video tos:<video tos value>
+ IP <ip>:<udp> rtt:<time>ms pl:<play>/<gap>ms lost:<lost>/<early>/<late>
+  delay:<last>/<min>/<max>ms <codec> <textrelay> <transcoded
+  
+ media inactive detected:<y/n> media cntrl rcvd:<y/n> timestamp:<time>
+  
+ long duration call detected:<y/n> long duration call duration :<sec> timestamp:<time>
+ LostPacketRate:<%> OutOfOrderRate:<%>
+ LocalUUID:<%> RemoteUUID:<%>
+ VRF:<%>
+  MODEMPASS <method> buf:<fills>/<drains> loss <overall%> <multipkt>/<corrected>
+   last <buf event time>s dur:<Min>/<Max>s
+ FR <protocol> [int dlci cid] vad:<y/n> dtmf:<y/n> seq:<y/n>
+  <codec> (payload size)
+ ATM <protocol> [int vpi/vci cid] vad:<y/n> dtmf:<y/n> seq:<y/n>
+  <codec> (payload size)
+ Tele <int> (callID) [channel_id] tx:<tot>/<v>/<fax>ms <codec> noise:<l> acom:<l> i/o:<l>/<l> dBm
+  MODEMRELAY info:<rcvd>/<sent>/<resent> xid:<rcvd>/<sent> total:<rcvd>/<sent>/<drops>
+         speeds(bps): local <rx>/<tx> remote <rx>/<tx>
+ Proxy <ip>:<audio udp>,<video udp>,<tcp0>,<tcp1>,<tcp2>,<tcp3> endpt: <type>/<manf>
+ bw: <req>/<act> codec: <audio>/<video>
+  tx: <audio pkts>/<audio bytes>,<video pkts>/<video bytes>,<t120 pkts>/<t120 bytes>
+ rx: <audio pkts>/<audio bytes>,<video pkts>/<video bytes>,<t120 pkts>/<t120 bytes>
+ 
+
+
+Telephony call-legs: 0
+SIP call-legs: 0
+H323 call-legs: 0
+Call agent controlled call-legs: 0
+SCCP call-legs: 0
+STCAPP call-legs: 0
+Multicast call-legs: 0
+Total call-legs: 0
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:48:35.132468-05:00] configure terminal
+                      configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+
+[COMMAND 2026-11-07T18:48:35.622863-05:00] voice-card ?
+voice-card ?
+  <0-8>  Voice interface slot #
+
+CAT8375-G2(config)#voice-card 
+
+[COMMAND 2026-11-07T18:48:36.114524-05:00] vdsp ?
+           vdsp ?
+% Unrecognized command
+CAT8375-G2(config)#vdsp 
+
+[COMMAND 2026-11-07T18:48:36.590235-05:00] controller ?
+     controller ?
+% Unrecognized command
+CAT8375-G2(config)#controller 
+
+[COMMAND 2026-11-07T18:48:37.063114-05:00] end
+           end
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:48:51.392726-05:00] show platform software iomd 0/1 oir
+show platform software iomd 0/1 oir
+IOMD (Input Output Module Driver) Status
+
+  PSM
+
+    PSM state: idle
+    HA state: idle
+    Start bringup: Yes
+    Wait start timeout: 0
+    Hardware OK timeout: 420000
+    Initialization timeout: 360000
+    Remove hold timeout: 5000
+    Remove timeout: 120000
+    Flags: 0X00000001
+
+  SPA
+
+    Inserted spa type: unknown
+    Active spa type: not present
+    Plugin spa type: null_spa
+    Power: Off
+    Present: Yes
+    Reloads: 0
+    Ok: No
+
+  Bay
+
+    Bay name: Subslot 1
+    Flags: 0X02000000
+
+  Plugin
+
+    Flags: 0X00010000
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:48:53.901652-05:00] configure terminal
+                     configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+
+[COMMAND 2026-11-07T18:48:54.400058-05:00] voice-card 0
+voice-card 0
+% Incomplete command.
+
+CAT8375-G2(config)#
+
+[COMMAND 2026-11-07T18:48:55.422091-05:00] end
+end
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:49:13.050699-05:00] configure terminal
+                           configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+
+[COMMAND 2026-11-07T18:49:13.551403-05:00] voice-card 0 ?
+voice-card 0 ?
+% Unrecognized command
+CAT8375-G2(config)#voice-card 0 
+
+[COMMAND 2026-11-07T18:49:14.040685-05:00] controller TDM 0/1 ?
+             controller TDM 0/1 ?
+% Unrecognized command
+CAT8375-G2(config)#controller TDM 0/1 
+
+[COMMAND 2026-11-07T18:49:14.538390-05:00] end
+                   end
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:49:55.657137-05:00] set platform software trace iomd 0/1 oir debug
+                                     set platform software trace iomd 0/1 oir debug
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:49:56.207912-05:00] set platform software trace iomd 0/1 iomd debug
+set platform software trace iomd 0/1 iomd debug
+                                                 ^
+% Invalid input detected at '^' marker.
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:49:56.771346-05:00] hw-module subslot 0/1 stop force
+hw-module subslot 0/1 stop force
+%Command cannot be executed. Card in subslot 0/1 is already stopped (operational status = out of service)
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:49:57.332668-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:14:56      
+ 0/0      4M-2xSFP+           ok                    00:13:57      
+ 0/1      NIM-2FXS/4FXOP      unsupported           never         (physical)
+1         C8375-E-G2          ok                    00:14:56      
+R0        C8375-E-G2          ok, active            00:14:56      
+F0        C8375-E-G2          ok, active            00:14:56      
+P0        Unknown             empty                 never         
+P1        Unknown             incompatible          00:14:13      
+P2        C8300-FAN-1R        ok                    00:14:13      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:50:17.731201-05:00] hw-module subslot 0/1 start
+hw-module subslot 0/1 start
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:50:49.811328-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:15:48      
+ 0/0      4M-2xSFP+           ok                    00:14:49      
+ 0/1      NIM-2FXS/4FXOP      unsupported           00:00:30      (physical)
+1         C8375-E-G2          ok                    00:15:48      
+R0        C8375-E-G2          ok, active            00:15:48      
+F0        C8375-E-G2          ok, active            00:15:48      
+P0        Unknown             empty                 never         
+P1        Unknown             incompatible          00:15:05      
+P2        C8300-FAN-1R        ok                    00:15:05      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:50:50.708149-05:00] show platform software iomd 0/1 oir
+show platform software iomd 0/1 oir
+IOMD (Input Output Module Driver) Status
+
+  PSM
+
+    PSM state: idle
+    HA state: idle
+    Start bringup: Yes
+    Wait start timeout: 0
+    Hardware OK timeout: 420000
+    Initialization timeout: 360000
+    Remove hold timeout: 5000
+    Remove timeout: 120000
+    Flags: 0X00000001
+
+  SPA
+
+    Inserted spa type: unknown
+    Active spa type: not present
+    Plugin spa type: null_spa
+    Power: Off
+    Present: Yes
+    Reloads: 0
+    Ok: No
+
+  Bay
+
+    Bay name: Subslot 1
+    Flags: 0X02000000
+
+  Plugin
+
+    Flags: 0X00010000
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:50:52.507536-05:00] set platform software trace iomd 0/1 oir notice
+set platform software trace iomd 0/1 oir notice
+CAT8375-G2#
+
+
+FILTERED: current NIM restart and current-PID VDSP rejection lines.
+
+[COMMAND 2026-11-07T18:51:01.082398-05:00] show logging process iomd internal start last 180
+
+2026/11/07 18:50:17.747909448 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD_SPA: SPA Enable IOS IPC: IOS-RP
+2026/11/07 18:50:17.747910941 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1 slot=0, bay=1, event=1
+2026/11/07 18:50:17.747912769 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queueing PSM event
+2026/11/07 18:50:17.747925073 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queue OIR Event
+2026/11/07 18:50:17.747926248 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Posting event to PSM
+2026/11/07 18:50:17.747926844 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: PSM Event 1
+2026/11/07 18:50:17.747927744 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm push event. Event id: 1, Event name: sm_soft_insert_event
+2026/11/07 18:50:17.747928552 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopab. Event id: 1
+2026/11/07 18:50:17.747930067 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:17.747942518 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm process event stk. Event id: 1; Event name: sm_soft_insert_event; flags: 1
+2026/11/07 18:50:17.747943993 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Soft insert action
+2026/11/07 18:50:17.748203550 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA_PRESENT response message slot/subslot (0/1)  from CMCC
+2026/11/07 18:50:17.748208365 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm push event. Event id: 0, Event name: sm_inserted_event
+2026/11/07 18:50:17.748209014 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopab. Event id: 0
+2026/11/07 18:50:17.748213216 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1: null_spa(plugin null), PSM Event:soft_insert  New state:idle  
+2026/11/07 18:50:17.748213624 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:17.748213925 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm process event stk. Event id: 0; Event name: sm_inserted_event; flags: 0
+2026/11/07 18:50:17.748214573 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Inserted action
+2026/11/07 18:50:17.748215099 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_EEPROM: Reading SPA EEPROM contents from addr = 0x0, length = 512
+2026/11/07 18:50:17.748215745 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_EEPROM: Reading SPA EEPROM contents from addr = 0x0, length = 512
+2026/11/07 18:50:17.748216838 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_BAY: (Subslot 1): determined spa_type=0x0beb 
+2026/11/07 18:50:17.748221292 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Invoke SPA OIR Hook
+2026/11/07 18:50:17.748222112 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: PSM hook 0
+2026/11/07 18:50:17.748223214 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Notify CMCC of SPA attributes
+2026/11/07 18:50:17.748291571 {iomd_0-1}{255}: [oir] [2753]: (info): In plugin analyze module_type=3051 slot=0 subslot=1
+2026/11/07 18:50:17.748322807 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_EEPROM: Reading SPA EEPROM contents from addr = 0x0, length = 512
+2026/11/07 18:50:17.748323478 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_EEPROM: Reading SPA EEPROM contents from addr = 0x0, length = 512
+2026/11/07 18:50:17.748323776 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_EEPROM: Reading SPA EEPROM contents from addr = 0x0, length = 512
+2026/11/07 18:50:17.748324186 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_EEPROM: Reading SPA EEPROM contents from addr = 0x0, length = 512
+2026/11/07 18:50:17.748324570 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_EEPROM: Reading SPA EEPROM contents from addr = 0x0, length = 512
+2026/11/07 18:50:17.748325938 {iomd_0-1}{255}: [oir] [2753]: (info): In board analyze:module_type=3051 slot=0 subslot=1 board_num=0 handle 0xaaaafd60c548
+2026/11/07 18:50:17.748346372 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Invoke SPA OIR Hook
+2026/11/07 18:50:17.748346997 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: PSM hook 2
+2026/11/07 18:50:17.748348441 {iomd_0-1}{255}: [oir] [2753]: (info): PSM send INSERTED to TSM
+2026/11/07 18:50:17.748348678 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Send inserted to TSM
+2026/11/07 18:50:17.748349845 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Sending event to TSM 0
+2026/11/07 18:50:17.748351263 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: send event to tsm cid: 0, flags: 0x2000000
+2026/11/07 18:50:17.748399612 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA Clear IOS IPC: IOS-RP
+2026/11/07 18:50:17.748403557 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1: NIM-2FXS/4FXOP, PSM Event:inserted  New state:wait_start  
+2026/11/07 18:50:17.748403897 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:17.748404358 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Active HA sync data
+2026/11/07 18:50:17.748404871 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopabcdefghi(Subslot 1) 0 1 state 1, flags 0x0
+2026/11/07 18:50:17.748417573 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: ha_sync_info changed
+2026/11/07 18:50:17.748469417 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_EEPROM: Reading SPA EEPROM contents from addr = 0x0, length = 512
+2026/11/07 18:50:17.751260562 {iomd_0-1}{255}: [btrace] [2753]: (note): module init: (tdl_ngio), huffman code len=39, code: 0xc9.b7.cf.47.70.00.00.00.00.00.00.00.00.00.00.00
+2026/11/07 18:50:17.751567396 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD_SPA: SPA Enable IOS IPC: IOS-RP
+2026/11/07 18:50:17.751568305 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1 slot=0, bay=1, event=2
+2026/11/07 18:50:17.751569238 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queueing PSM event
+2026/11/07 18:50:17.751581068 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queue OIR Event
+2026/11/07 18:50:17.751581687 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Posting event to PSM
+2026/11/07 18:50:17.751582096 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: PSM Event 2
+2026/11/07 18:50:17.751583515 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm push event. Event id: 2, Event name: sm_ok_to_start_event
+2026/11/07 18:50:17.751583945 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopab. Event id: 2
+2026/11/07 18:50:17.751584705 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:17.751585101 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm process event stk. Event id: 2; Event name: sm_ok_to_start_event; flags: 0
+2026/11/07 18:50:17.751586729 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Enter wait for hardware ok action
+2026/11/07 18:50:17.751587626 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Ok to start action
+2026/11/07 18:50:17.751588374 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD_SPA: Subslot 1 Enabling SPA power
+2026/11/07 18:50:17.845910859 {iomd_0-1}{255}: [oir] [2753]: (info): BSM config_done is: 0
+2026/11/07 18:50:17.845912223 {iomd_0-1}{255}: [oir] [2753]: (info): BSM Platform Common Connection is Initialized
+2026/11/07 18:50:17.846050784 {iomd_0-1}{255}: [iomd] [2753]: (ERR): >>> Failed to open [/tmp/rp/chasfs/pf/oper-mode]]
+2026/11/07 18:50:17.846051413 {iomd_0-1}{255}: [iomd] [2753]: (ERR): IOMD Check >>> failed to read pf oper mode chasfs entry
+2026/11/07 18:50:17.846070999 {iomd_0-1}{255}: [oir] [2753]: (debug): SPA_FAILURE debug not set
+2026/11/07 18:50:17.846071714 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queueing PSM event
+2026/11/07 18:50:17.846699991 {iomd_0-1}{255}: [errmsg] [2753]: (ERR): %IOMD-3-UNSUPPORTED_MODULE: C0/1: iomd: The module NIM-2FXS/4FXOP in slot 0 bay 1 is not supported on this platform
+2026/11/07 18:50:19.182501700 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: PWR_ENABLE response message slot/subslot (0/1) from CMCC
+2026/11/07 18:50:19.182506973 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_BAY: pwr enable = 1. resp = 1
+2026/11/07 18:50:19.182513217 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1 Checking for PWR_OK
+2026/11/07 18:50:19.182642199 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA PWR_OK response message received
+2026/11/07 18:50:19.182644670 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA PWR OK cmd_status=0
+2026/11/07 18:50:19.182647945 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: spa pwr ok resp 1
+2026/11/07 18:50:19.182648694 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1 Checking for SPA_OK
+2026/11/07 18:50:19.183282684 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA_OK response message slot/subslot (0/1) from CMCC
+2026/11/07 18:50:19.183297210 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA OK cmd_status=1
+2026/11/07 18:50:19.183299886 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_BAY: spa ok resp 0
+2026/11/07 18:50:19.183307559 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1: NIM-2FXS/4FXOP, PSM Event:ok_to_start  New state:wait_hw_ok  
+2026/11/07 18:50:19.183308854 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:19.183309922 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Active HA sync data
+2026/11/07 18:50:19.183310558 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopabcdefghi(Subslot 1) 0 1 state 1, flags 0x0
+2026/11/07 18:50:19.183311211 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: ha_sync_info changed
+2026/11/07 18:50:19.183324859 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queue OIR Event
+2026/11/07 18:50:19.183325236 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Posting event to PSM
+2026/11/07 18:50:19.183325614 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: PSM Event 5
+2026/11/07 18:50:19.183326347 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm push event. Event id: 12, Event name: sm_failed_event
+2026/11/07 18:50:19.183326814 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopab. Event id: 12
+2026/11/07 18:50:19.183327359 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:19.183327744 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm process event stk. Event id: 12; Event name: sm_failed_event; flags: 0
+2026/11/07 18:50:19.183330155 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Enter failed action
+2026/11/07 18:50:19.183330501 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: failed action
+2026/11/07 18:50:19.183331040 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Send failed to TSM
+2026/11/07 18:50:19.183331593 {iomd_0-1}{255}: [oir] [2753]: (debug): SPA_FAILURE debug not set
+2026/11/07 18:50:19.183332079 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Sending event to TSM 0
+2026/11/07 18:50:19.183335190 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: send event to tsm cid: 0, flags: 0x2000000
+2026/11/07 18:50:19.183433661 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA Clear IOS IPC: IOS-RP
+2026/11/07 18:50:19.183437212 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1: NIM-2FXS/4FXOP, PSM Event:failed  New state:failed  
+2026/11/07 18:50:19.183437568 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:19.183437907 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Active HA sync data
+2026/11/07 18:50:19.183438301 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopabcdefghi(Subslot 1) 0 1 state 1, flags 0x0
+2026/11/07 18:50:19.183438636 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: ha_sync_info changed
+2026/11/07 18:50:19.189415586 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD_SPA: SPA Enable IOS IPC: IOS-RP
+2026/11/07 18:50:19.189416687 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1 slot=0, bay=1, event=9
+2026/11/07 18:50:19.189418072 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queueing PSM event
+2026/11/07 18:50:19.189433311 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queue OIR Event
+2026/11/07 18:50:19.189433984 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Posting event to PSM
+2026/11/07 18:50:19.189434387 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: PSM Event 9
+2026/11/07 18:50:19.189435093 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm push event. Event id: 8, Event name: sm_start_remove_event
+2026/11/07 18:50:19.189448487 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopab. Event id: 8
+2026/11/07 18:50:19.189449310 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:19.189449774 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm process event stk. Event id: 8; Event name: sm_start_remove_event; flags: 0
+2026/11/07 18:50:19.189453351 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1: NIM-2FXS/4FXOP, PSM Event:start_remove  New state:failed  
+2026/11/07 18:50:19.189453690 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:19.189454076 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Active HA sync data
+2026/11/07 18:50:19.189454476 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopabcdefghi(Subslot 1) 0 1 state 1, flags 0x0
+2026/11/07 18:50:19.189454779 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: ha_sync_info changed
+2026/11/07 18:50:19.189768749 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD_SPA: SPA Enable IOS IPC: IOS-RP
+2026/11/07 18:50:19.189769899 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1 slot=0, bay=1, event=8
+2026/11/07 18:50:19.189770908 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queueing PSM event
+2026/11/07 18:50:19.189780270 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queue OIR Event
+2026/11/07 18:50:19.189780858 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Posting event to PSM
+2026/11/07 18:50:19.189781334 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: PSM Event 8
+2026/11/07 18:50:19.189781980 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm push event. Event id: 15, Event name: sm_soft_remove_event
+2026/11/07 18:50:19.189782433 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopab. Event id: 15
+2026/11/07 18:50:19.189783155 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:19.189783638 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm process event stk. Event id: 15; Event name: sm_soft_remove_event; flags: 0
+2026/11/07 18:50:19.189785117 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Enter wait start remove action
+2026/11/07 18:50:19.189786903 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Soft remove action
+2026/11/07 18:50:19.190680219 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA_PRESENT response message slot/subslot (0/1)  from CMCC
+2026/11/07 18:50:19.190685444 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD_SPA: Subslot 1 Disabling SPA power
+2026/11/07 18:50:19.223068865 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: PWR_ENABLE response message slot/subslot (0/1) from CMCC
+2026/11/07 18:50:19.223073048 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_BAY: pwr enable = 0. resp = 1
+2026/11/07 18:50:19.223075441 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Sending empty event to TSM
+2026/11/07 18:50:19.223233245 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA_PRESENT response message slot/subslot (0/1)  from CMCC
+2026/11/07 18:50:19.223237537 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_EEPROM: Reading SPA EEPROM contents from addr = 0x0, length = 512
+2026/11/07 18:50:19.223238576 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_EEPROM: Reading SPA EEPROM contents from addr = 0x0, length = 512
+2026/11/07 18:50:19.223239754 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_BAY: (Subslot 1): determined spa_type=0x0beb 
+2026/11/07 18:50:19.223240810 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Sending event to TSM 1
+2026/11/07 18:50:19.223242965 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: send event to tsm cid: 0, flags: 0x2000000
+2026/11/07 18:50:19.223293016 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA Clear IOS IPC: IOS-RP
+2026/11/07 18:50:19.223310321 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1: NIM-2FXS/4FXOP, PSM Event:soft_remove  New state:wait_start_rm  
+2026/11/07 18:50:19.223311099 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:19.223311605 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Active HA sync data
+2026/11/07 18:50:19.223312177 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopabcdefghi(Subslot 1) 0 1 state 1, flags 0x1
+2026/11/07 18:50:19.223312640 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: ha_sync_info changed
+2026/11/07 18:50:19.223579936 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD_SPA: SPA Enable IOS IPC: IOS-RP
+2026/11/07 18:50:19.223581038 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1 slot=0, bay=1, event=9
+2026/11/07 18:50:19.223581900 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queueing PSM event
+2026/11/07 18:50:19.223595817 {iomd_0-1}{255}: [oir] [2753]: (info): SPA_INFRA: Queue OIR Event
+2026/11/07 18:50:19.223596466 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Posting event to PSM
+2026/11/07 18:50:19.223596866 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: PSM Event 9
+2026/11/07 18:50:19.223597532 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm push event. Event id: 8, Event name: sm_start_remove_event
+2026/11/07 18:50:19.223597956 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopab. Event id: 8
+2026/11/07 18:50:19.223598796 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:19.223599225 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm process event stk. Event id: 8; Event name: sm_start_remove_event; flags: 1
+2026/11/07 18:50:19.223600477 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Enter remove action
+2026/11/07 18:50:19.223601529 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Start remove action
+2026/11/07 18:50:19.223601939 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Remove plugin
+2026/11/07 18:50:19.223602487 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Invoke OIR Removal
+2026/11/07 18:50:19.223661758 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Invoke SPA OIR Hook
+2026/11/07 18:50:19.223663555 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: PSM hook 13
+2026/11/07 18:50:19.223664263 {iomd_0-1}{255}: [oir] [2753]: (note): In module common remove module_type=3051 slot=0 subslot=1
+2026/11/07 18:50:19.223664756 {iomd_0-1}{255}: [oir] [2753]: (note): Remove plugin func calling stop
+2026/11/07 18:50:19.223666270 {iomd_0-1}{255}: [oir] [2753]: (info): Setting reload reason for 0xaaaafd60c2a8 to NGIO_RELOAD_REASON_INTERNAL
+2026/11/07 18:50:19.223666699 {iomd_0-1}{255}: [oir] [2753]: (note): In plugin_common_stop module_type=3051 slot=0 subslot=1
+2026/11/07 18:50:19.223667600 {iomd_0-1}{255}: [iomd] [2753]: (ERR): get_port_info: bad input handle 0xaaaafd60c548 port 0
+2026/11/07 18:50:19.223668056 {iomd_0-1}{255}: [oir] [2753]: (note): Internal stop done
+2026/11/07 18:50:19.223668403 {iomd_0-1}{255}: [oir] [2753]: (info): Setting reload reason for 0xaaaafd60c2a8 to NGIO_RELOAD_REASON_UNKNOWN
+2026/11/07 18:50:19.223668937 {iomd_0-1}{255}: [oir] [2753]: (note): remove setting: 0xaaaafd60c2a8 to: 0
+2026/11/07 18:50:19.223669506 {iomd_0-1}{255}: [iomd] [2753]: (ERR): mod-attrib-get-int: null handle: attrib: 33
+2026/11/07 18:50:19.223670069 {iomd_0-1}{255}: [iomd] [2753]: (ERR): get_port_info: bad input handle 0xaaaafd60c548 port 0
+2026/11/07 18:50:19.223670897 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Invoke SPA OIR Hook
+2026/11/07 18:50:19.223671896 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: PSM hook 14
+2026/11/07 18:50:19.223684799 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm push event. Event id: 10, Event name: sm_remove_complete_event
+2026/11/07 18:50:19.223685128 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopab. Event id: 10
+2026/11/07 18:50:19.223687834 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1: NIM-2FXS/4FXOP, PSM Event:start_remove  New state:remove  
+2026/11/07 18:50:19.223688162 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:19.223688469 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm process event stk. Event id: 10; Event name: sm_remove_complete_event; flags: 1
+2026/11/07 18:50:19.223688931 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Exit remove action
+2026/11/07 18:50:19.223689449 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Remove active plugin
+2026/11/07 18:50:19.223689865 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Put plugin into remQ
+2026/11/07 18:50:19.223690356 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Invoke SPA OIR Hook
+2026/11/07 18:50:19.223691446 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: PSM hook 16
+2026/11/07 18:50:19.223692997 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1 Sending SPA state (1) change notification to CMCC
+2026/11/07 18:50:19.223726884 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Enter remove hold action
+2026/11/07 18:50:19.223729204 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Do nothing action
+2026/11/07 18:50:19.223730929 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1: null_spa(plugin null), PSM Event:remove_complete  New state:remove_
+2026/11/07 18:50:19.223731275 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:19.223731696 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Active HA sync data
+2026/11/07 18:50:19.223732087 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopabcdefghi(Subslot 1) 0 1 state 1, flags 0x1
+2026/11/07 18:50:19.223732396 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: ha_sync_info changed
+2026/11/07 18:50:19.223798811 {iomd_0-1}{255}: [stdout] [2748]: (note): *** Direct use of fprintf is unsupported, use btrace ***
+2026/11/07 18:50:24.221403187 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Posting event to PSM
+2026/11/07 18:50:24.221404726 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: PSM Event 6
+2026/11/07 18:50:24.221406290 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm push event. Event id: 13, Event name: sm_timeout_event
+2026/11/07 18:50:24.221407231 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopab. Event id: 13
+2026/11/07 18:50:24.221408258 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:24.221408855 {iomd_0-1}{255}: [oir] [2753]: (note): IOMD PSM: psm process event stk. Event id: 13; Event name: sm_timeout_event; flags: 1
+2026/11/07 18:50:24.221410931 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Enter idle action
+2026/11/07 18:50:24.221411514 {iomd_0-1}{255}: [oir] [2753]: (note): PSM: Remove hold timeout action
+2026/11/07 18:50:24.221416940 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1: null_spa(plugin null), PSM Event:timeout  New state:idle  
+2026/11/07 18:50:24.221417256 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Pop event
+2026/11/07 18:50:24.221417929 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: Active HA sync data
+2026/11/07 18:50:24.221418536 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: abcdefghijklmnopabcdefghi(Subslot 1) 0 1 state 0, flags 0x1
+2026/11/07 18:50:24.221418971 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: ha_sync_info changed
+2026/11/07 18:50:50.730560515 {iomd_0-1}{255}: [tdllib] [2753]: (note): tdl domain state update from epoch, domain timestamp: -1 (), epoch create timestamp: 234016 (2026-11-07 18:38:13)
+2026/11/07 18:50:50.730618389 {iomd_0-1}{255}: [oir] [2753]: (info): PSM: PSM show platform software <process> psm
+2026/11/07 18:50:50.730974435 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA_PRESENT response message slot/subslot (0/1)  from CMCC
+2026/11/07 18:50:50.730979972 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1 Checking for SPA_OK
+2026/11/07 18:50:50.731099253 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA_OK response message slot/subslot (0/1) from CMCC
+2026/11/07 18:50:50.731101124 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA OK cmd_status=1
+2026/11/07 18:50:50.731103184 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA_BAY: spa ok resp 0
+2026/11/07 18:50:50.731103659 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: Subslot 1 Checking for PWR_OK
+2026/11/07 18:50:50.731204462 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA PWR_OK response message received
+2026/11/07 18:50:50.731206649 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: SPA PWR OK cmd_status=1
+2026/11/07 18:50:50.731209721 {iomd_0-1}{255}: [oir] [2753]: (info): IOMD_SPA: spa pwr ok resp 0
+2026/11/07 18:50:50.731212243 {iomd_0-1}{255}: [oir] [2753]: (ERR): db plugin status, failed to get module plugin
+2026/11/07 18:50:52.545784281 {iomd_0-1}{255}: [tdllib] [2753]: (note): tdl domain state update from epoch, domain timestamp: -1 (), epoch create timestamp: 234016 (2026-11-07 18:38:13)
+
+
+FILTERED: all /tmp/chassis/local/rp/chasfs/pf/ entries from complete listing.
+
+[COMMAND 2026-11-07T18:51:37.162430-05:00] show platform software chasfs R0
+
+  /tmp/chassis/local/rp/chasfs/pf/oirtime : [1794094458000]
+  /tmp/chassis/local/rp/chasfs/pf/redun-mode : [none]
+  /tmp/chassis/local/rp/chasfs/pf/pfu-init-done : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/pf/2/oirtime : [1794094544000]
+  /tmp/chassis/local/rp/chasfs/pf/2/fan-tray-temp : [0]
+  /tmp/chassis/local/rp/chasfs/pf/2/pressure : [0]
+  /tmp/chassis/local/rp/chasfs/pf/2/throttle : [0]
+  /tmp/chassis/local/rp/chasfs/pf/2/fan-air-dir : [pse]
+  /tmp/chassis/local/rp/chasfs/pf/2/fpga_ver : [Fantray; 0; 0; 0]
+  /tmp/chassis/local/rp/chasfs/pf/2/type : [fantray]
+  /tmp/chassis/local/rp/chasfs/pf/2/fan/2/speed-rpm : [10380]
+  /tmp/chassis/local/rp/chasfs/pf/2/fan/2/state : [ok]
+  /tmp/chassis/local/rp/chasfs/pf/2/fan/1/speed-rpm : [10440]
+  /tmp/chassis/local/rp/chasfs/pf/2/fan/1/state : [ok]
+  /tmp/chassis/local/rp/chasfs/pf/2/fan/0/speed-rpm : [10200]
+  /tmp/chassis/local/rp/chasfs/pf/2/fan/0/state : [ok]
+  /tmp/chassis/local/rp/chasfs/pf/2/fan/state : [ok]
+  /tmp/chassis/local/rp/chasfs/pf/2/ps-vout-mv : [0]
+  /tmp/chassis/local/rp/chasfs/pf/2/ps-iout-ma : [0]
+  /tmp/chassis/local/rp/chasfs/pf/2/pwr-req : [12000]
+  /tmp/chassis/local/rp/chasfs/pf/2/ps-capacity : [0]
+  /tmp/chassis/local/rp/chasfs/pf/2/state : [ok]
+  /tmp/chassis/local/rp/chasfs/pf/1/oirtime : [1794094544000]
+  /tmp/chassis/local/rp/chasfs/pf/1/fan/state : [ok]
+  /tmp/chassis/local/rp/chasfs/pf/1/ps-vout-mv : [0]
+  /tmp/chassis/local/rp/chasfs/pf/1/ps-iout-ma : [0]
+  /tmp/chassis/local/rp/chasfs/pf/1/pwr-req : [0]
+  /tmp/chassis/local/rp/chasfs/pf/1/ps-capacity : [0]
+  /tmp/chassis/local/rp/chasfs/pf/1/state : [incompatible]
+  /tmp/chassis/local/rp/chasfs/pf/redun-pwr : [0]
+  /tmp/chassis/local/rp/chasfs/pf/audit : [disabled]
+
+
+SOURCE 20261107-185155-ssh.raw
+
+[COMMAND 2026-11-07T18:51:57.649259-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 16 minutes
+Uptime for this control processor is 17 minutes
+System returned to ROM by Image Install 
+System image file is "bootflash:packages.conf"
+Last reload reason: Image Install 
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+60062720K bytes of USB flash at usb0:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:52:18.158964-05:00] configure terminal
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+
+[COMMAND 2026-11-07T18:52:19.809929-05:00] end
+                  end
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:52:34.526550-05:00] request platform software system shell R0
+request platform software system shell R0
+% Please secure authentication via request consent-token
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:53:22.876799-05:00] show platform software trace level iomd 0/1 | include oir|iomd
+show platform software trace level iomd 0/1 | include oir|iomd
+iomd                            Notice           
+oir                             Notice           
+tdl_cm_oir                      Notice           
+tdl_iomd_ui                     Notice           
+tdl_ios_spa_oir                 Notice           
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:54:03.846418-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:19:02      
+ 0/0      4M-2xSFP+           ok                    00:18:03      
+ 0/1      NIM-2FXS/4FXOP      unsupported           00:03:44      (physical)
+1         C8375-E-G2          ok                    00:19:02      
+R0        C8375-E-G2          ok, active            00:19:02      
+F0        C8375-E-G2          ok, active            00:19:02      
+P0        Unknown             empty                 never         
+P1        Unknown             incompatible          00:18:19      
+P2        C8300-FAN-1R        ok                    00:18:19      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:54:04.854494-05:00] show voice port summary
+show voice port summary
+                                           IN       OUT
+PORT            CH   SIG-TYPE   ADMIN OPER STATUS   STATUS   EC
+=============== == ============ ===== ==== ======== ======== ==
+ 
+PWR FAILOVER PORT        PSTN FAILOVER PORT
+=================        ==================
+
+CAT8375-G2#
+
+[COMMAND 2026-11-07T18:54:05.890094-05:00] show version | include uptime|operating mode|Processor board|Version
+show version | include uptime|operating mode|Processor board|Version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+CAT8375-G2 uptime is 18 minutes
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+CAT8375-G2#

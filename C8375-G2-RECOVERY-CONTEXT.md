@@ -1,11 +1,25 @@
-# C8375-G2 recovery context — current handoff November 2, 2026
+# C8375-G2 recovery context — current handoff November 7, 2026
 
 This is the consolidated handoff for the device identifying as **C8375-E-G2**, chassis **FDO2742M0FK**. Read this file before acting on older notes. It retains the working IOS state from October 23, the subsequent ROMMON experiments and failure to boot, and the later external-acquisition research.
 
 Workspace: `/Users/games/Documents/SOFTWARE`  
-Original recovery session: **2026-10-23**; latest handoff: **2026-11-02**, America/New_York. Router timestamps such as May 29, 2025, and 1970/1979 file dates were incorrect clock values; they are not the actual dates of this work.
+Original recovery session: **2026-10-23**; latest handoff: **2026-11-07**, America/New_York. Router timestamps such as January 8/May 29, 2025, and 1970/1979 file dates were incorrect clock values; they are not the actual dates of this work.
 
 ## 1. Current state — start here
+
+### November 7, 18:55 EST — supported voice NIM still blocked (C8375-06)
+
+Fresh observations supersede the older 17.15.6, absent-NIM and shared-PSU current-state labels below; earlier observations remain historical.
+
+- **Identity/access:** C8375-A/C8375-E-G2/V01/FDO2742M0FK, R0 FDO27380KFQ, hostname CAT8375-G2, SSH192.168.4.62. Current credentials are restricted in `.git/recovery-private/c8375-voice-20261107/connection.json`; the older environment file has a historical endpoint. Owner confirms assembled/normal power/no programmer or concurrent changes. Battery and serial-cable state not separately restated; no physical or serial operation performed.
+- **Current software:** committed IOS26.1.2, IMG C26.01.02.0.3639, Autonomous, bootflash:packages.conf/confreg0x1822. Original developmentROMMON SDK112308/SoC2v9.2.1 and CPLD2408272B retained. The owner reports this new card also failed on26.2.1; no live26.2.1 retest here.
+- **New card:** NIM-2FXS/4FXOP/V01/FOC23152BE1 in0/1, distinct from October31 non-P card. Published26.1 Routing(CLI) support is confirmed, but live state remains unsupported/poweroff/no voice ports or active calls. Telephone-line attachments were not specifically confirmed.
+- **Immediate blocker:** fresh start trace cannot open `/tmp/rp/chasfs/pf/oper-mode`, then rejects the NIM; current-PIDVDSP records show the same error. Chasfs lacks that property. Offline26.2.1 iomd/cmand analysis identifies a power/NEBS-mode check, not Autonomous/SD-WAN mode. Running26.1.2 binaries were not hash matched; why the producer omits the property remains unresolved.
+- **Power:** owner confirms samePWR-CC1-250WAC remains installed, nowP1Unknown/incompatible/P0empty; ordered400W supply is still in mail. Datasheet55W is typical default-PSU/no-module consumption. Incompatibility is a strong diagnostic lead, not measured overload or a guaranteed400W cure. Development firmware/platform initialization remains relevant.
+- **Actions/restoration:** suggestedvoice-card/TDM sequence is not accepted as written. Stop request rejected as already stopped; acceptedstart20.960s later reproduces failure, not a successful30s power-cycle. Both configs unchanged; temporaryOIRDebug restored/read backNotice. No reboot, saved-config/firmware write, CPU change or check bypass. AgentSSH closed about18:55; owneradminVTY untouched, base0/0/R0/F0ok, router lefton.
+- **Next:** after supported400W arrives, fresh physical/access confirmation and AC-disconnected replacement; hold software/config constant, compare PSU recognition/pf/oper-mode/NIMports. If still missing, diagnose platform/firmware producer. Voicecall testing remains unperformed; fanC8375-05 and U1acquisition remain separate. No production-ROMMON write selected.
+
+[Detailed evidence and sources](c8375-recovery/voice-nim-20261107/README.md), [hashes/results](c8375-recovery/voice-nim-20261107/results.json), [sanitized selection](sanitized-evidence/c8375-recovery/voice-nim-20261107/selected-session.log). Full raw captures/configurations/extracted objects remain private. Known-value/pattern scans do not prove every unknown secret absent.
 
 **November 2, 18:42 EST shared-PSU correction:** during C8300 work, owner confirms the installed PWR-CC1-250WAC is the **same physical supply** previously used here (historical serial LIT2852A9TJ), and no separate supply is available. It is now reported installed in **C8300-A / FDO25150HVC**, off/unplugged. Therefore the October 31 C8375 **on / PSU in P1** observation below is historical and must not be treated as the present state. Current C8375 power/cabling/PSU-bay state was not freshly reported; reconfirm before access. No C8375 hardware or software operation occurred during this update. [Owner report and limits](c8300-recovery/psu-comparison-20261102/results.json).
 

@@ -1,0 +1,130 @@
+{
+  "task": "C8375-06",
+  "date": "2026-11-07",
+  "timezone": "America/New_York",
+  "live_capture_window": "18:47:31\u201318:54:07 EST; agent SSH closed about 18:55 EST",
+  "status": "unsupported, power off, no voice ports; no functional repair established",
+  "identity": {
+    "tracking_id": "C8375-A",
+    "pid": "C8375-E-G2",
+    "vid": "V01",
+    "chassis_serial": "FDO2742M0FK",
+    "rp_serial": "FDO27380KFQ",
+    "ssh_endpoint": "192.168.4.62:22",
+    "hostname": "CAT8375-G2"
+  },
+  "owner_confirmation": {
+    "assembled_normally_powered_no_programmer_or_concurrent_changes": "confirm",
+    "phone_line_connections": "not specifically answered; IOS showed zero voice ports and zero active call legs",
+    "power_supply": "same PWR-CC1-250WAC still installed; 400 W replacement in mail, arrival not specified",
+    "battery_and_serial_cable": "not separately restated; no physical or serial operation performed"
+  },
+  "software": {
+    "ios": "26.01.02 / 26.01.2 fc1",
+    "committed_image": "26.01.02.0.3639",
+    "boot": "bootflash:packages.conf",
+    "mode": "Autonomous",
+    "config_register": "0x1822",
+    "rommon": "SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...",
+    "cpld": "2408272B",
+    "memory_gb": 8,
+    "cpu_count": 16,
+    "owner_report": "26.2.1 also rejected this new NIM; no live 26.2.1 retest during this session"
+  },
+  "nim": {
+    "slot": "0/1",
+    "pid": "NIM-2FXS/4FXOP",
+    "vid": "V01",
+    "serial": "FOC23152BE1",
+    "hardware_revision": "1.0",
+    "clei": "IP9IAZUCAA",
+    "module_type": 3051,
+    "state": "unsupported",
+    "power": "Off",
+    "ports": 0,
+    "distinct_from_old_non_p_card": "FOC2145106C"
+  },
+  "observed": [
+    "Fresh start at 18:50:17 reproduces missing /tmp/rp/chasfs/pf/oper-mode followed by UNSUPPORTED_MODULE.",
+    "Current-PID VDSP-CC boot trace has the same error; its displayed Jan 8 2025 clock is incorrect.",
+    "Complete chasfs R0 listing has no pf/oper-mode; P1 Unknown/incompatible, ps-capacity 0, P0 empty.",
+    "voice-card 0 returns Incomplete command; controller TDM 0/1 help unrecognized; global vdsp help unrecognized.",
+    "No proposed nested dspfarm, vdsp service-pool or mode voice command was sent in an incorrect CLI context."
+  ],
+  "module_start_test": {
+    "stop_time": "18:49:56.771 EST",
+    "stop_result": "already stopped/out of service; rejected",
+    "start_time": "18:50:17.731 EST",
+    "elapsed_seconds": 20.959855,
+    "interpretation": "Not a completed 30-second stop/power-cycle. NIM was already power-off for more than ten minutes; fresh start accepted, then rejected by support check and offlined.",
+    "final_check": "18:54 EST: unsupported, no ports; base 0/0/R0/F0 remain ok"
+  },
+  "restoration": {
+    "configs": {
+      "show running-config": {
+        "unchanged": true,
+        "comparison": "version through end, excluding show command headers"
+      },
+      "show startup-config": {
+        "unchanged": true,
+        "comparison": "version through end, excluding show command headers"
+      }
+    },
+    "trace": "oir temporarily Debug, restored Notice; oir and iomd independently read back Notice",
+    "router_reboot": false,
+    "firmware_or_saved_config_write": false,
+    "shell": "request refused pending secure consent-token; no shell or bypass obtained",
+    "access": "Both agent SSH helpers ended; owner admin VTY left untouched; no serial port opened"
+  },
+  "intermediate_failures": [
+    "Historical endpoint helper timed out before a prompt and before any show command; finally block terminated its child. Replaced with current user-supplied endpoint.",
+    "First current helper ended after malformed JSON input; own SSH terminated and reconnected. Private original capture preserved."
+  ],
+  "offline": {
+    "source_package": "c8kg2be-26.02.01-extracted/packages/c8kg2be-mono-universalk9.26.02.01.SPA.pkg",
+    "bytes": 962338816,
+    "sha256": "0c5d0d190bb173062afa9e499df4a7507c84fd8d6cad1bea8ec52e177fd0919d",
+    "objects": {
+      "iomd": {
+        "bytes": 755080,
+        "sha256": "a94398ecce9c49038605faee835ad65b392c2ae4b6f78262c16b10a2bc3691e5"
+      },
+      "cmand": {
+        "bytes": 1965208,
+        "sha256": "c38bb2d3f422bc2eb65fbdcc78ea48f36095e1ec3cffee28b628cc121888ddd0"
+      }
+    },
+    "extraction": "unsquashfs package offset 4096; exact vendor bytes extracted privately, xcrun llvm-objdump disassembly; no execution/patching",
+    "runtime_match": false,
+    "anchors": [
+      "iomd PID string 0x7f4bc; Crestone comparison 0x3c800, call to power-mode checker 0x3c8b8.",
+      "iomd checker 0x3e274 calls reader 0x3e5a4; open/read failure returns false, then rejection branch at 0x3c8c4.",
+      "iomd filename 0x8f2c8 is /tmp/rp/chasfs/pf/oper-mode; checked power-mode string 0x7fb01 is nebs_500.",
+      "cmand 0xbeb14 calls cia_pwr_oper_mode_get; 0xbec08 calls cman_util_chasfs_set_pf_property with oper-mode string 0x16178f. Modes include normal/nebs/dc."
+    ],
+    "limit": "Corroborates a power/NEBS mode check, not Autonomous/SD-WAN mode. Exact 26.1.2 objects were not acquired. Does not establish why the producer failed to publish the property on this boot."
+  },
+  "inference": "Missing power-mode publication is the immediate support-check blocker. Incompatible PSU is a strong lead; development firmware/platform initialization remain alternatives. No measured overload and no proof that 400 W replacement will repair it.",
+  "next_test": [
+    "After supported PWR-CC1-400WAC arrives, freshly confirm assembly, physical target, supply identity and access ownership; replace sole PSU with AC disconnected per Cisco guide.",
+    "Hold IOS/config/firmware constant and compare PSU recognized state, pf/oper-mode, NIM state, IOMD trace and voice port enumeration.",
+    "If missing status persists, use collected evidence for platform/firmware diagnosis; no speculative production-ROMMON write or support/power-check bypass.",
+    "Only after NIM initializes, configure and test FXS/FXO functions against the actual connected equipment."
+  ],
+  "private_capture_hashes": {
+    "20261107-184731-ssh.raw": {
+      "bytes": 9959139,
+      "sha256": "b0362e49ca1348e0151a2ec18b791cb85af95d9447723a47287a030859d18590"
+    },
+    "20261107-185155-ssh.raw": {
+      "bytes": 12651836,
+      "sha256": "8abdf954862241a74d1fd4c118cdd021e0dc6695c7e915b3161332ad9461b1a7"
+    }
+  },
+  "evidence": [
+    "README.md",
+    "offline-disassembly.txt",
+    "../../sanitized-evidence/c8375-recovery/voice-nim-20261107/selected-session.log"
+  ],
+  "provenance": "AI-assisted analysis and temporary explicit SSH helper (Python standard library plus installed sshpass). No maintained publication-tool changes or new automated tests. Full configurations, raw captures, credentials and extracted objects remain restricted under .git/recovery-private/. Pattern checks cannot prove every unknown secret is absent."
+}

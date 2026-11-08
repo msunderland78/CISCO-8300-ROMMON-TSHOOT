@@ -766,6 +766,11 @@
       "reason": "intermediate failed-write dump contains detected credential material; exact original retained locally"
     },
     {
+      "bytes": 48248,
+      "path": "c8375-recovery/voice-nim-20261107/selected-session.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 892178432,
       "path": "c8kg2be-17.15.06-inspection/c8kg2be-mono-universalk9.17.15.06.SPA.pkg",
       "reason": "full IOS-XE image or large mono package"
@@ -1798,14 +1803,14 @@
       "sha256": "a620ae4c1c77cf0394d4a133419d3196d84b95294653508ece4838a2f7689598"
     },
     {
-      "bytes": 39055,
+      "bytes": 40753,
       "path": "C8375-E-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "3de6672403f87dde2fb9162fcf29e8900da9c110741c2413052bf6606183ed30"
+      "sha256": "9e7737a136c5d849cd13713f2e16ab2bbdeb2a5e7a747cbb3bfec0920203b3e7"
     },
     {
-      "bytes": 199614,
+      "bytes": 202742,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "0bd33178a95539c975b5db433c63013c4814cf12031589dde04e45ff5b91c870"
+      "sha256": "624fa09dc2ad556e201958970fa53894eaaa9807cddf3e7bc76456e01ac07c32"
     },
     {
       "bytes": 12635511,
@@ -2313,9 +2318,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 542923,
+      "bytes": 546829,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "63cdd08c9417024950338cd508262d7b39cd3b46e16c5e9aec16aadfd3d4bc5d"
+      "sha256": "518ac2c6b0460e7c247f040708fc4bfdca23c79da5a9ebab9d796708656af25d"
     },
     {
       "bytes": 6850655,
@@ -3371,6 +3376,21 @@
       "bytes": 1376,
       "path": "c8375-recovery/usb-staging-notes.txt",
       "sha256": "527c0de754506405d66b9c5f5d943867cf8cfd9563989206100525ce85494bf0"
+    },
+    {
+      "bytes": 8813,
+      "path": "c8375-recovery/voice-nim-20261107/README.md",
+      "sha256": "231535a9431ff5fe411415247f5f5a752ad41187d417dc8174657fa4373ecdf5"
+    },
+    {
+      "bytes": 18380,
+      "path": "c8375-recovery/voice-nim-20261107/offline-disassembly.txt",
+      "sha256": "36155500b6edbe0fcd1014043606f757512be9f59df0d36074e3667b179f1955"
+    },
+    {
+      "bytes": 6867,
+      "path": "c8375-recovery/voice-nim-20261107/results.json",
+      "sha256": "4e72362f6d58fd6cb58fd6fef7ac12dcf7a2d914281c0fafa421fd3b6c6122f4"
     },
     {
       "bytes": 3764837,
@@ -4928,6 +4948,11 @@
       "sha256": "d50e3b5a6350c1df20d879e635b6cccfccf89b00290a39118e1809a46ffa9bf3"
     },
     {
+      "bytes": 48248,
+      "path": "sanitized-evidence/c8375-recovery/voice-nim-20261107/selected-session.log",
+      "sha256": "1fab2db916af419acd0ce76581497d349443f1f23b006c6ad0d7de3189a98029"
+    },
+    {
       "bytes": 80260,
       "path": "sanitized-evidence/router-console-logs/20261022-185728-console.log",
       "sha256": "a720121674446e21aa2162ddb9906f41357b746afadf4eca61d30f9083ed47df"
@@ -5826,6 +5851,7 @@
     "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-short-harness-partial-read2.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-short-harness-retry1-id-success.log",
     "sanitized-evidence/c8375-recovery/programmer-logs/20261027-U2-usb-reconnect-no-id.log",
+    "sanitized-evidence/c8375-recovery/voice-nim-20261107/selected-session.log",
     "sanitized-evidence/router-console-logs/20261022-185728-console.log",
     "sanitized-evidence/router-console-logs/20261022-191128-console.log",
     "sanitized-evidence/router-console-logs/20261022-191815-console.log",
@@ -5939,8 +5965,8 @@
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 351,
-    "included_bytes_without_manifest": 1128271886,
-    "included_files_without_manifest": 783
+    "excluded_local_files": 352,
+    "included_bytes_without_manifest": 1128362926,
+    "included_files_without_manifest": 787
   }
 }

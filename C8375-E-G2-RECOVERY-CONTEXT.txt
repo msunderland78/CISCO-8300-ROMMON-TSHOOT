@@ -1,7 +1,30 @@
 C8375-E-G2 / CRESTONE RECOVERY CONTEXT
-Current handoff updated 2026-11-02, America/New_York; historical October23 summary retained
+Current handoff updated 2026-11-07, America/New_York; historical October23 summary retained
 Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
+
+NOVEMBER 7, 18:55 EST -- C8375-06 P-SUFFIX NIM DIAGNOSIS
+Fresh C8375-A/FDO2742M0FK, CAT8375-G2 at192.168.4.62. Owner confirms normal
+assembled/powered state, no programmer/concurrent changes. No serial access.
+IOS26.1.2 committed IMG C26.01.02.0.3639/Autonomous/packages.conf/confreg0x1822;
+original developmentROMMON/CPLD retained. This supersedes historical17.15.6.
+NewNIM-2FXS/4FXOP/V01/FOC23152BE1 in0/1 is the supportedP-suffix model,
+different from October31non-P card. Stillunsupported/poweroff/noports/calls.
+Freshstart fails opening /tmp/rp/chasfs/pf/oper-mode immediately before rejection;
+current-PIDVDSP has sameerror. Offline26.2.1 confirms power/NEBS-mode check,
+notroutingmode; exactrunning26.1.2 objects notmatched. Rootproducerfault unknown.
+Same250WPSU confirmedP1/incompatible/P0empty; ordered400W stillinmail.55W is
+typicaldefaultPSU/no-module consumption, notcompatibilityproof. PSUstronglead,
+notprovenoverload/cure; prototypefirmware remainspossible contributor.
+Suggestedvoice-card/TDM sequence notaccepted aswritten. Stoprejectedalreadyoff;
+start20.960s laterreproducedfailure, notcompleted30s power-cycle. Bothconfigs
+unchanged, traceNotice restored/readback, nofirmware/configsave/reboot/override.
+AgentSSHclosedabout18:55, owneradminVTYuntouched, base0/0/R0/F0ok, routerON.
+Currentcredentialsprivate: .git/recovery-private/c8375-voice-20261107/connection.json
+Oldenvendpoint historical. Nextsupported400W comparison with freshphysical/access
+confirmation, ACdisconnectedreplacement; keepIOS/configconstant. ComparePSUmode,
+NIMports/traces. FXS/FXOcalltestpending; fanC8375-05/U1workremainseparate.
+Evidence: c8375-recovery/voice-nim-20261107/README.md and results.json
 
 NOVEMBER 2 SHARED-PSU CORRECTION: Owner confirms the same PWR-CC1-250WAC
 (previously recorded LIT2852A9TJ) is now installed in C8300-A/FDO25150HVC,
