@@ -7,6 +7,14 @@ Original recovery session: **2026-10-23**; latest handoff: **2026-11-11**, Ameri
 
 ## 1. Current state — start here
 
+### November 11, 16:49 EST — NIM presence comparison completed; card restored (C8375-05/06)
+
+Same C8375-A/FDO2742M0FK, recognized P1 400 W supply, IOS 26.1.2 and voice NIM FOC23152BE1. Owner authorizes stop and performs removal/blank fitting/reinsertion. **Stopping the NIM leaves 9,480–9,660 RPM with Power Off / Present Yes; physical removal settles at 5,220–5,460 RPM; reinsertion returns 9,420–9,660 RPM.** Interpreted controller table changes 1→2→1, temperature level stays 0, overrides stay 0. This strongly associates the faster policy with physical NIM presence, superseding the earlier untested hypothesis. First removed-state transitional high sample and CLI cache delay are preserved.
+
+NIM restored automatically, DSP UP/66.1.0, all six ports initialized and no DSP errors. CPU returns to 34°C, all sensor states Normal; base modules/P1/fan tray OK. Both configs unchanged, no chassis reboot or fan-policy write. NTP is now synchronized/CTRL. A second Marvell CGX port 0:2 command 11 timeout occurs during reinsertion at 16:45:13.548; no further event through the final query. Retain it for owner-led functional testing rather than continuing the earlier startup-only characterization. Agent SSH closed; post-close inventory retains only owner SecureCRT.
+
+Owner accepts a slower profile for low-traffic home-lab use. Current fan test help offers fault injection only; no speed setting found. Historical read-only attributes and generic PWM wrappers still do not establish an actual override transaction. Next research: match the current controller implementation and establish profile selection, rollback and temperature response for a reversible trial. No override applied; actual voice/performance tests remain owner-deferred. [Comparison, restoration and limits](c8375-recovery/fan-nim-comparison-20261111/README.md), [results](c8375-recovery/fan-nim-comparison-20261111/results.json).
+
 ### November 11, 16:32 EST — 400 W supply and voice initialization verified (C8375-05/06)
 
 This supersedes the November7 unsupported-NIM/awaiting-PSU state; earlier results remain historical. Owner confirms assembled/powered C8375-A/FDO2742M0FK, fitted cover and no programmer. Fresh separate SSH at192.168.4.62 identifies **P1 PWR-CC1-400WAC/V01/LIT2727C7NE ok**, 400W/Normal and `pf/oper-mode=normal`. Same **NIM-2FXS/4FXOP/FOC23152BE1 ok**, DSP DM8147 UP/66.1.0, six ports available and no DSP errors. Committed26.1.2/packages.conf/confreg0x1822 and originalROMMON/CPLD retained.

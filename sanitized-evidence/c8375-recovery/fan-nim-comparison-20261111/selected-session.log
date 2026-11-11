@@ -1,0 +1,2271 @@
+DERIVED SELECTION; host timestamps America/New_York. Carriage returns removed.
+Configuration bodies and raw controller dumps omitted; originals retained privately.
+
+[COMMAND 2026-11-11T16:39:47.653035-05:00] terminal length 0
+terminal length 0
+CAT8375-G2#
+[COMMAND 2026-11-11T16:39:48.093299-05:00] terminal width 200
+terminal width 200
+CAT8375-G2#
+[COMMAND 2026-11-11T16:39:48.569845-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 24 minutes
+Uptime for this control processor is 25 minutes
+System returned to ROM by PowerOn
+System restarted at 16:15:13 EST Wed Nov 11 2026
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+4 Voice FXO interfaces
+2 Voice FXS interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:39:52.880114-05:00] show inventory
+show inventory
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO: Please use "show license UDI" to get serial number for licensing.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NAME: "Chassis", DESCR: "Cisco C8375-E-G2 Chassis"
+PID: C8375-E-G2        , VID: V01  , SN: FDO2742M0FK
+
+NAME: "Power Supply Module 1", DESCR: "400W AC power supply for Cisco C8300 1RU"
+PID: PWR-CC1-400WAC    , VID: V01  , SN: LIT2727C7NE
+
+NAME: "Fan Tray", DESCR: "Cisco C8300 1RU Fan Assembly"
+PID: C8300-FAN-1R      , VID: V02  , SN:            
+
+NAME: "module 0", DESCR: "Cisco C8375-E-G2 Built-In NIM controller"
+PID: C8375-E-G2        , VID:      , SN:            
+
+NAME: "NIM subslot 0/1", DESCR: "NIM-2FXS/4FXOP Voice Analog Module"
+PID: NIM-2FXS/4FXOP    , VID: V01  , SN: FOC23152BE1
+
+NAME: "NIM subslot 0/0", DESCR: "4M-2xSFP+"
+PID: 4M-2xSFP+         , VID: V01  , SN:            
+
+NAME: "subslot 0/0 transceiver 4", DESCR: "SFP+ 10GBASE-SR"
+PID: SFP-10G-SR          , VID: V03  , SN: AVD24159TDX     
+
+NAME: "module 1", DESCR: "Cisco C8375-E-G2 Built-In SM controller"
+PID: C8375-E-G2        , VID:      , SN:            
+
+NAME: "module R0", DESCR: "Cisco C8375-E-G2 Route Processor"
+PID: C8375-E-G2        , VID: V01  , SN: FDO27380KFQ
+
+NAME: "module F0", DESCR: "Cisco C8375-E-G2 Forwarding Processor"
+PID: C8375-E-G2        , VID:      , SN:            
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:39:53.347129-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:25:19      
+ 0/0      4M-2xSFP+           ok                    00:24:19      
+ 0/1      NIM-2FXS/4FXOP      ok                    00:22:44      
+1         C8375-E-G2          ok                    00:25:19      
+R0        C8375-E-G2          ok, active            00:25:19      
+F0        C8375-E-G2          ok, active            00:25:19      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:24:36      
+P2        C8300-FAN-1R        ok                    00:24:35      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:39:53.815761-05:00] show call active voice brief
+show call active voice brief
+<ID>: <CallID> <start>ms.<index> (<start>) +<connect> pid:<peer_id> <dir> <addr> <state> 
+  dur hh:mm:ss tx:<packets>/<bytes> rx:<packets>/<bytes> dscp:<packets violation> media:<packets violation> audio tos:<audio tos value> video tos:<video tos value>
+ IP <ip>:<udp> rtt:<time>ms pl:<play>/<gap>ms lost:<lost>/<early>/<late>
+  delay:<last>/<min>/<max>ms <codec> <textrelay> <transcoded
+  
+ media inactive detected:<y/n> media cntrl rcvd:<y/n> timestamp:<time>
+  
+ long duration call detected:<y/n> long duration call duration :<sec> timestamp:<time>
+ LostPacketRate:<%> OutOfOrderRate:<%>
+ LocalUUID:<%> RemoteUUID:<%>
+ VRF:<%>
+  MODEMPASS <method> buf:<fills>/<drains> loss <overall%> <multipkt>/<corrected>
+   last <buf event time>s dur:<Min>/<Max>s
+ FR <protocol> [int dlci cid] vad:<y/n> dtmf:<y/n> seq:<y/n>
+  <codec> (payload size)
+ ATM <protocol> [int vpi/vci cid] vad:<y/n> dtmf:<y/n> seq:<y/n>
+  <codec> (payload size)
+ Tele <int> (callID) [channel_id] tx:<tot>/<v>/<fax>ms <codec> noise:<l> acom:<l> i/o:<l>/<l> dBm
+  MODEMRELAY info:<rcvd>/<sent>/<resent> xid:<rcvd>/<sent> total:<rcvd>/<sent>/<drops>
+         speeds(bps): local <rx>/<tx> remote <rx>/<tx>
+ Proxy <ip>:<audio udp>,<video udp>,<tcp0>,<tcp1>,<tcp2>,<tcp3> endpt: <type>/<manf>
+ bw: <req>/<act> codec: <audio>/<video>
+  tx: <audio pkts>/<audio bytes>,<video pkts>/<video bytes>,<t120 pkts>/<t120 bytes>
+ rx: <audio pkts>/<audio bytes>,<video pkts>/<video bytes>,<t120 pkts>/<t120 bytes>
+ 
+
+
+Telephony call-legs: 0
+SIP call-legs: 0
+H323 call-legs: 0
+Call agent controlled call-legs: 0
+SCCP call-legs: 0
+STCAPP call-legs: 0
+Multicast call-legs: 0
+Total call-legs: 0
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:39:54.300324-05:00] show voice port summary
+show voice port summary
+                                           IN       OUT
+PORT            CH   SIG-TYPE   ADMIN OPER STATUS   STATUS   EC
+=============== == ============ ===== ==== ======== ======== ==
+0/1/0           --  fxs-ls      up    dorm on-hook  idle     y 
+0/1/1           --  fxs-ls      up    dorm on-hook  idle     y 
+0/1/2           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/3           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/4           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/5           --  fxo-ls      up    dorm idle     on-hook  y 
+ 
+PWR FAILOVER PORT        PSTN FAILOVER PORT
+=================        ==================
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:39:54.763857-05:00] show voice dsp group all
+show voice dsp group all
+DSP groups on slot 0/1 slot id 1
+dsp 1:
+  State: UP, firmware: 66.1.0
+  Max signal/voice channel: 8/8
+  Max credits: 120, Voice credits: 120, Video credits: 0
+  num_of_sig_chnls_allocated: 6
+  Transcoding channels allocated: 0
+  Group: FLEX_GROUP_VOICE, complexity: FLEX
+    Shared credits: 120, reserved credits: 0
+    Signaling channels allocated: 6
+    Voice channels allocated: 0
+    Credits used (rounded-up): 0
+  Slot: 0/1
+  Device idx: 0
+  Dsp Type: DM8147 
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:39:56.295018-05:00] hw-module subslot 0/1 stop ?
+hw-module subslot 0/1 stop ?
+  force  Proceed without prompting for confirmation
+  <cr>   <cr>
+
+CAT8375-G2#hw-module subslot 0/1 stop 
+[COMMAND 2026-11-11T16:39:56.790038-05:00] show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11972 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2500 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          796 mV
+ V: 0.8V_SYS             R0              Normal          851 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          36 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6080 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:40:19.909587-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11961 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1797 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          791 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          35 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3300 mA
+ P: In power             P1              Normal          48 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6144 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:40:30.878346-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11961 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1797 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          791 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          35 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3300 mA
+ P: In power             P1              Normal          48 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6144 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:40:38.619519-05:00] hw-module subslot 0/1 stop force
+hw-module subslot 0/1 stop force
+CAT8375-G2#
+[COMMAND 2026-11-11T16:40:39.094596-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:26:04      
+ 0/0      4M-2xSFP+           ok                    00:25:05      
+ 0/1      NIM-2FXS/4FXOP      stopped               00:00:00      
+1         C8375-E-G2          ok                    00:26:04      
+R0        C8375-E-G2          ok, active            00:26:04      
+F0        C8375-E-G2          ok, active            00:26:04      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:25:22      
+P2        C8300-FAN-1R        ok                    00:25:21      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:40:39.583858-05:00] show platform hardware subslot 0/1 module status
+show platform hardware subslot 0/1 module status
+                                                     ^
+% Invalid input detected at '^' marker.
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:40:40.066771-05:00] show voice dsp group all
+show voice dsp group all
+                                ^
+% Invalid input detected at '^' marker.
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:40:40.553707-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11969 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3340 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2500 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1207 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          790 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          37 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3300 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:40:54.465640-05:00] show platform software chasfs R0 | include cc/0/1/
+show platform software chasfs R0 | include cc/0/1/
+  /tmp/chassis/local/rp/chasfs/env/cc/0/1/sensor/2/data : [6]
+  /tmp/chassis/local/rp/chasfs/env/cc/0/1/sensor/2/state : [ok]
+# 3: [cc] as [mono-universalk9] from [/tmp/sw/cc/0/1/cc/mount/.pkginfo] 
+# 4: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/1/cc_spa/mount/.pkginfo] 
+# 3: [cc] as [mono-universalk9] from [/tmp/sw/cc/0/1/cc/mount/.pkginfo] 
+# 4: [cc_spa] as [mono-universalk9] from [/tmp/sw/cc/0/1/cc_spa/mount/.pkginfo] 
+  /tmp/chassis/local/rp/chasfs/cc/0/1/shutdown : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/fru_state : [not-ok]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/fpd_version : [ <empty file> ]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/db_count : [0]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/flow_ctrl : [0]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/assoc_scheme : [1]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/port_count : [0]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/powered_shut_support : [no]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/state : [online-rspios]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/oirtime : [163328]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/pwr-req : [0]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/type : [BEB]
+CAT8375-G2#
+[COMMAND 2026-11-11T16:41:19.509230-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11969 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          790 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          31 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          11900 mV
+ I: PEM In               P1              Normal          398 mA
+ I: PEM Out              P1              Normal          2900 mA
+ P: In power             P1              Normal          42 Watts
+ P: Out power            P1              Normal          33 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:41:40.457951-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          833 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          32 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120001 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          382 mA
+ I: PEM Out              P1              Normal          2800 mA
+ P: In power             P1              Normal          41 Watts
+ P: Out power            P1              Normal          32 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:41:41.405031-05:00] show platform software iomd 0/1 oir
+show platform software iomd 0/1 oir
+IOMD (Input Output Module Driver) Status
+
+  PSM
+
+    PSM state: idle
+    HA state: idle
+    Start bringup: Yes
+    Wait start timeout: 0
+    Hardware OK timeout: 420000
+    Initialization timeout: 360000
+    Remove hold timeout: 5000
+    Remove timeout: 120000
+    Flags: 0X00000001
+
+  SPA
+
+    Inserted spa type: unknown
+    Active spa type: not present
+    Plugin spa type: null_spa
+    Power: Off
+    Present: Yes
+    Reloads: 2
+    Ok: No
+
+  Bay
+
+    Bay name: Subslot 1
+    Flags: 0X02000000
+
+  Plugin
+
+    Flags: 0X00010000
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:41:41.909758-05:00] show hw-module subslot 0/1 oir
+show hw-module subslot 0/1 oir
+Module                  Model                Operational Status
+----------------------- -------------------- ------------------------
+subslot 0/1             NIM-2FXS/4FXOP       stopped
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:41:42.391425-05:00] show platform software subslot 0/1 module status
+show platform software subslot 0/1 module status
+% Error: Module unavailable
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:42:02.909398-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          31 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          382 mA
+ I: PEM Out              P1              Normal          2700 mA
+ P: In power             P1              Normal          41 Watts
+ P: Out power            P1              Normal          33 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:42:21.949493-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11969 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          849 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          30 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          382 mA
+ I: PEM Out              P1              Normal          2700 mA
+ P: In power             P1              Normal          41 Watts
+ P: Out power            P1              Normal          33 Watts
+ RPM: fan0               P1              Normal          6080 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9600 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:42:22.902459-05:00] show platform software iomd 0/1 oir
+show platform software iomd 0/1 oir
+IOMD (Input Output Module Driver) Status
+
+  PSM
+
+    PSM state: idle
+    HA state: idle
+    Start bringup: Yes
+    Wait start timeout: 0
+    Hardware OK timeout: 420000
+    Initialization timeout: 360000
+    Remove hold timeout: 5000
+    Remove timeout: 120000
+    Flags: 0X00000001
+
+  SPA
+
+    Inserted spa type: unknown
+    Active spa type: not present
+    Plugin spa type: null_spa
+    Power: Off
+    Present: Yes
+    Reloads: 2
+    Ok: No
+
+  Bay
+
+    Bay name: Subslot 1
+    Flags: 0X02000000
+
+  Plugin
+
+    Flags: 0X00010000
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:43:11.361119-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:28:37      
+ 0/0      4M-2xSFP+           ok                    00:27:37      
+1         C8375-E-G2          ok                    00:28:37      
+R0        C8375-E-G2          ok, active            00:28:37      
+F0        C8375-E-G2          ok, active            00:28:37      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:27:54      
+P2        C8300-FAN-1R        ok                    00:27:53      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:43:11.839529-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11961 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3314 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          790 mV
+ V: 0.8V_SYS             R0              Normal          851 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          31 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          11900 mV
+ I: PEM In               P1              Normal          382 mA
+ I: PEM Out              P1              Normal          2800 mA
+ P: In power             P1              Normal          41 Watts
+ P: Out power            P1              Normal          32 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9480 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:43:38.068021-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11969 mV
+ V: 5V                   R0              Normal          4993 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2500 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          29 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          382 mA
+ I: PEM Out              P1              Normal          2700 mA
+ P: In power             P1              Normal          41 Watts
+ P: Out power            P1              Normal          33 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:43:39.013197-05:00] show platform software iomd 0/1 oir
+show platform software iomd 0/1 oir
+A SPA card is not available at 0/1
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:43:39.511147-05:00] show platform software chasfs R0 | include pf/oper-mode
+show platform software chasfs R0 | include pf/oper-mode
+  /tmp/chassis/local/rp/chasfs/pf/oper-mode : [normal]
+CAT8375-G2#
+[COMMAND 2026-11-11T16:43:59.363858-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          35 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1207 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          29 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          11900 mV
+ I: PEM In               P1              Normal          367 mA
+ I: PEM Out              P1              Normal          2600 mA
+ P: In power             P1              Normal          40 Watts
+ P: Out power            P1              Normal          32 Watts
+ RPM: fan0               P1              Normal          4672 RPM
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5280 RPM
+ RPM: fan2               P2              Normal          5220 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:44:15.319933-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          36 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          791 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          30 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          11900 mV
+ I: PEM In               P1              Normal          367 mA
+ I: PEM Out              P1              Normal          2600 mA
+ P: In power             P1              Normal          40 Watts
+ P: Out power            P1              Normal          30 Watts
+ RPM: fan0               P1              Normal          4672 RPM
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5280 RPM
+ RPM: fan2               P2              Normal          5220 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:44:16.279706-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          36 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          791 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          30 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          11900 mV
+ I: PEM In               P1              Normal          367 mA
+ I: PEM Out              P1              Normal          2600 mA
+ P: In power             P1              Normal          40 Watts
+ P: Out power            P1              Normal          30 Watts
+ RPM: fan0               P1              Normal          4672 RPM
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5400 RPM
+ RPM: fan1               P2              Normal          5280 RPM
+ RPM: fan2               P2              Normal          5220 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:44:16.789029-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:29:42      
+ 0/0      4M-2xSFP+           ok                    00:28:43      
+1         C8375-E-G2          ok                    00:29:42      
+R0        C8375-E-G2          ok, active            00:29:42      
+F0        C8375-E-G2          ok, active            00:29:42      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:28:59      
+P2        C8300-FAN-1R        ok                    00:28:58      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:44:44.607983-05:00] show ntp status
+show ntp status
+Clock is synchronized, stratum 3, reference is 192.168.3.10   
+nominal freq is 250.0000 Hz, actual freq is 249.9994 Hz, precision is 2**10
+ntp uptime is 176100 (1/100 of seconds), resolution is 4016
+reference time is EE9F5FB9.856042F8 (16:42:17.521 EST Wed Nov 11 2026)
+clock offset is 2.0642 msec, root delay is 13.82 msec
+root dispersion is 37.02 msec, peer dispersion is 4.07 msec
+loopfilter state is 'CTRL' (Normal Controlled Loop), drift is 0.000002116 s/s
+system poll interval is 64, last update was 147 sec ago.
+CAT8375-G2#
+[COMMAND 2026-11-11T16:44:45.091287-05:00] show power
+show power
+Main PSU :
+    Power Operating Mode : Normal
+    Configured Mode : Redundant
+    Current runtime state same : No
+    Total power available : 400 Watts
+POE Module :
+    Configured Mode : Redundant
+    Current runtime state same : No
+    Total power available : 0 Watts
+CAT8375-G2#
+[COMMAND 2026-11-11T16:45:00.587174-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:30:26      
+ 0/0      4M-2xSFP+           ok                    00:29:27      
+1         C8375-E-G2          ok                    00:30:26      
+R0        C8375-E-G2          ok, active            00:30:26      
+F0        C8375-E-G2          ok, active            00:30:26      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:29:43      
+P2        C8300-FAN-1R        ok                    00:29:42      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:45:01.069119-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11969 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2500 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          29 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          367 mA
+ I: PEM Out              P1              Normal          2600 mA
+ P: In power             P1              Normal          40 Watts
+ P: Out power            P1              Normal          30 Watts
+ RPM: fan0               P1              Normal          4672 RPM
+ P: Power                P2              Normal          1 Watts
+ RPM: fan0               P2              Normal          5460 RPM
+ RPM: fan1               P2              Normal          5280 RPM
+ RPM: fan2               P2              Normal          5220 RPM
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:45:39.838057-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:31:05      
+ 0/0      4M-2xSFP+           ok                    00:30:06      
+ 0/1      NIM-2FXS/4FXOP      ok                    00:00:26      
+1         C8375-E-G2          ok                    00:31:05      
+R0        C8375-E-G2          ok, active            00:31:05      
+F0        C8375-E-G2          ok, active            00:31:05      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:30:22      
+P2        C8300-FAN-1R        ok                    00:30:21      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:45:40.321634-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          26 Celsius
+ Temp: Outlet 2          R0              Normal          29 Celsius
+ Temp: CPU               R0              Normal          37 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11969 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          36 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          11900 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3300 mA
+ P: In power             P1              Normal          48 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6144 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9480 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:45:41.302483-05:00] show platform software iomd 0/1 oir
+show platform software iomd 0/1 oir
+IOMD (Input Output Module Driver) Status
+
+  PSM
+
+    PSM state: ready
+    HA state: ready
+    Start bringup: Yes
+    Wait start timeout: 0
+    Hardware OK timeout: 420000
+    Initialization timeout: 360000
+    Remove hold timeout: 5000
+    Remove timeout: 120000
+    Flags: 0000000000
+
+  SPA
+
+    Inserted spa type: unknown
+    Active spa type: unknown
+    Plugin spa type: NIM-2FXS/4FXOP
+    Power: On
+    Present: Yes
+    Reloads: 0
+    Ok: Yes
+
+  Bay
+
+    Bay name: Subslot 1
+    Flags: 0000000000
+
+  Plugin
+
+    Flags: 0000000000
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:45:41.805075-05:00] show voice dsp group all
+show voice dsp group all
+DSP groups on slot 0/1 slot id 1
+dsp 1:
+  State: UP, firmware: 66.1.0
+  Max signal/voice channel: 8/8
+  Max credits: 120, Voice credits: 120, Video credits: 0
+  num_of_sig_chnls_allocated: 6
+  Transcoding channels allocated: 0
+  Group: FLEX_GROUP_VOICE, complexity: FLEX
+    Shared credits: 120, reserved credits: 0
+    Signaling channels allocated: 6
+    Voice channels allocated: 0
+    Credits used (rounded-up): 0
+  Slot: 0/1
+  Device idx: 0
+  Dsp Type: DM8147 
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:45:42.299425-05:00] show voice port summary
+show voice port summary
+                                           IN       OUT
+PORT            CH   SIG-TYPE   ADMIN OPER STATUS   STATUS   EC
+=============== == ============ ===== ==== ======== ======== ==
+0/1/0           --  fxs-ls      up    dorm on-hook  idle     y 
+0/1/1           --  fxs-ls      up    dorm on-hook  idle     y 
+0/1/2           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/3           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/4           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/5           --  fxo-ls      up    dorm idle     on-hook  y 
+ 
+PWR FAILOVER PORT        PSTN FAILOVER PORT
+=================        ==================
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:45:42.811811-05:00] show voice dsp error
+show voice dsp error
+No DSP errors logged
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:45:43.293046-05:00] show logging | include SPA_OIR|DSPRM|UNSUPPORTED_MODULE|Marvell
+show logging | include SPA_OIR|DSPRM|UNSUPPORTED_MODULE|Marvell
+*Jan  8 2025 13:24:16.557 EST: %SPA_OIR-6-OFFLINECARD: SPA (4M-2xSFP+) offline in subslot 0/0
+*Jan  8 2025 13:24:16.560 EST: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*Jan  8 2025 13:24:29.835 EST: %SPA_OIR-6-ONLINECARD: SPA (VDSP-CC) online in subslot 0/4
+*Jan  8 2025 13:24:50.761 EST: %SPA_OIR-6-ONLINECARD: SPA (4M-2xSFP+) online in subslot 0/0
+*Nov 11 2026 16:16:43.212 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+*Nov 11 2026 16:17:03.580 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+*Nov 11 2026 16:17:36.044 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:40.896 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+Nov 11 2026 16:40:38.650 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+Nov 11 2026 16:45:13.548 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+Nov 11 2026 16:45:33.991 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+Nov 11 2026 16:45:38.782 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:06.717027-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          26 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11961 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          796 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          37 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6080 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9480 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:07.666846-05:00] show inventory
+show inventory
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO: Please use "show license UDI" to get serial number for licensing.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NAME: "Chassis", DESCR: "Cisco C8375-E-G2 Chassis"
+PID: C8375-E-G2        , VID: V01  , SN: FDO2742M0FK
+
+NAME: "Power Supply Module 1", DESCR: "400W AC power supply for Cisco C8300 1RU"
+PID: PWR-CC1-400WAC    , VID: V01  , SN: LIT2727C7NE
+
+NAME: "Fan Tray", DESCR: "Cisco C8300 1RU Fan Assembly"
+PID: C8300-FAN-1R      , VID: V02  , SN:            
+
+NAME: "module 0", DESCR: "Cisco C8375-E-G2 Built-In NIM controller"
+PID: C8375-E-G2        , VID:      , SN:            
+
+NAME: "NIM subslot 0/1", DESCR: "NIM-2FXS/4FXOP Voice Analog Module"
+PID: NIM-2FXS/4FXOP    , VID: V01  , SN: FOC23152BE1
+
+NAME: "NIM subslot 0/0", DESCR: "4M-2xSFP+"
+PID: 4M-2xSFP+         , VID: V01  , SN:            
+
+NAME: "subslot 0/0 transceiver 4", DESCR: "SFP+ 10GBASE-SR"
+PID: SFP-10G-SR          , VID: V03  , SN: AVD24159TDX     
+
+NAME: "module 1", DESCR: "Cisco C8375-E-G2 Built-In SM controller"
+PID: C8375-E-G2        , VID:      , SN:            
+
+NAME: "module R0", DESCR: "Cisco C8375-E-G2 Route Processor"
+PID: C8375-E-G2        , VID: V01  , SN: FDO27380KFQ
+
+NAME: "module F0", DESCR: "Cisco C8375-E-G2 Forwarding Processor"
+PID: C8375-E-G2        , VID:      , SN:            
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:08.159695-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          26 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11961 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3310 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          796 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          37 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6080 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9480 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:08.661784-05:00] show platform software status control-processor brief
+show platform software status control-processor brief
+Load Average
+ Slot  Status  1-Min  5-Min 15-Min
+  RP0 Healthy   5.08   4.93   4.34
+
+Memory (kB)
+ Slot  Status    Total     Used (Pct)     Free (Pct) Committed (Pct)
+  RP0 Healthy  7904332  4703804 (60%)  3200528 (40%)   3661732 (46%)
+
+CPU Utilization
+ Slot  CPU   User System   Nice   Idle    IRQ   SIRQ IOwait
+  RP0    0   1.30   2.30   3.90  92.00   0.40   0.10   0.00
+         1  12.70  11.80   0.00  73.10   2.40   0.00   0.00
+         2  14.90  12.40   0.00  70.40   2.30   0.00   0.00
+         3  12.71  12.01   0.00  72.97   2.30   0.00   0.00
+         4  13.41  13.51   0.00  70.67   2.40   0.00   0.00
+         5  13.00  11.20   0.00  73.40   2.40   0.00   0.00
+         6  13.38  13.28   0.00  70.92   2.39   0.00   0.00
+         7  14.60  11.60   0.00  71.50   2.30   0.00   0.00
+         8  15.10  12.20   0.00  70.30   2.40   0.00   0.00
+         9  15.20  13.30   0.00  69.00   2.50   0.00   0.00
+        10  15.61  13.31   0.00  68.76   2.30   0.00   0.00
+        11  16.20  11.60   0.00  69.80   2.40   0.00   0.00
+        12  64.93   5.39   0.00  27.77   1.89   0.00   0.00
+        13  13.11  14.41   0.00  70.07   2.40   0.00   0.00
+        14  18.01  12.41   0.00  67.56   2.00   0.00   0.00
+        15   4.20  12.50   0.00  80.50   2.80   0.00   0.00
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:09.163820-05:00] show interfaces GigabitEthernet0
+show interfaces GigabitEthernet0
+GigabitEthernet0 is up, line protocol is up 
+  Hardware is RP management port, address is e80a.b995.782f (bia e80a.b995.782f)
+  Internet address is 192.168.4.62/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:00, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     6339 packets input, 593388 bytes, 0 no buffer
+     Received 65 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     6810 packets output, 1145096 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:09.647935-05:00] show ntp status
+show ntp status
+Clock is synchronized, stratum 3, reference is 192.168.3.10   
+nominal freq is 250.0000 Hz, actual freq is 249.9994 Hz, precision is 2**10
+ntp uptime is 190600 (1/100 of seconds), resolution is 4016
+reference time is EE9F5FB9.856042F8 (16:42:17.521 EST Wed Nov 11 2026)
+clock offset is 2.0642 msec, root delay is 13.82 msec
+root dispersion is 39.19 msec, peer dispersion is 4.88 msec
+loopfilter state is 'CTRL' (Normal Controlled Loop), drift is 0.000002116 s/s
+system poll interval is 64, last update was 292 sec ago.
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:10.142643-05:00] show version | include uptime|returned|Last reload|Version|System image|register
+show version | include uptime|returned|Last reload|Version|System image|register
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+CAT8375-G2 uptime is 31 minutes
+System returned to ROM by PowerOn
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+Configuration register is 0x1822
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:11.737240-05:00] show logging
+show logging
+Syslog logging: enabled (0 messages dropped, 3 messages rate-limited, 0 flushes, 0 overruns, xml disabled, filtering disabled)
+
+No Active Message Discriminator.
+
+
+
+No Inactive Message Discriminator.
+
+
+    Console logging: level debugging, 201 messages logged, xml disabled,
+                     filtering disabled
+    Monitor logging: level debugging, 90 messages logged, xml disabled,
+                     filtering disabled
+        Logging to: vty866(90)
+    Buffer logging:  level debugging, 201 messages logged, xml disabled,
+                    filtering disabled
+    Exception Logging: size (4096 bytes)
+    Count and timestamp logging messages: disabled
+    Persistent logging: disabled
+
+No active filter modules.
+
+    Trap logging: level informational, 193 message lines logged
+        Logging Source-Interface:       VRF Name:
+    TLS Profiles: 
+
+Log Buffer (102400 bytes):
+
+*Jan  8 18:24:06.509: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*Jan  8 18:24:06.509: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module Integrity Test
+*Jan  8 18:24:06.513: %CRYPTO-5-SELF_TEST_END: Crypto Integrity self-test completed successfully
+       All tests passed.
+*Jan  8 18:24:06.697: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*Jan  8 18:24:07.739: %PLATFORM_PM-6-NGSW_MODE: pre-configure switching mode to doppler next-gen on this platform
+*Jan  8 18:24:07.763: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled ESG-NGSW-ACL:[subsys-init] Init ESG-ACL subsystem starting
+
+*Jan  8 18:24:10.779: ESG-NGSW-ACL:[subsys-init] Init ESG-ACL subsystem ended
+
+*Jan  8 18:24:10.779: 
+*Jan  8 18:24:10.949: NGIOLite module 4M-2xSFP+ success read extended attr from conf file len: 1063
+
+*Jan  8 18:24:11.634: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*Jan  8 18:24:12.445: %TLSCLIENT-5-TLSCLIENT_IOS: TLS Client is IOS based
+*Jan  8 18:24:12.479: %SSH-4-SSH_COMPLIANCE_SSH_RSA_DISABLED: Please note that ssh-rsa algorithm stands disabled from IOS-XE release 17.16.1 onwards and will not be part of the preferred publickey or hostkey algorithms by default. Users may choose to configure them explicitly if required
+*Jan  8 18:24:12.488: %SPANTREE-5-EXTENDED_SYSID: Extended SysId enabled for type vlan
+*Jan  8 18:24:12.514: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*Jan  8 18:24:12.544: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_ENFORCED: Cisco PSB security compliance is being enforced
+*Jan  8 18:24:12.567: %CUBE-3-LICENSING:  SIP trunking (CUBE) licensing is now based on dynamic sessions counting, static license capacity configuration through 'mode border-element license capacity' would be ignored.
+*Jan  8 18:24:12.568: %SIP-5-LICENSING: CUBE license reporting period has been set to the minimum value of 8 hours.
+*Jan  8 18:24:12.592: %VOICE_HA-7-STATUS: CUBE HA-supported platform detected.
+*Jan  8 18:24:13.398: %IOSXE_RP_ALARM-2-PEM: ASSERT CRITICAL Power Supply Bay 0 Power Supply/FAN Module Missing 
+*Jan  8 18:24:13.403: %CRYPTO_SL_TP_LEVELS-6-PLATFORM_BASED_LIC: Platform Based License Support, throughput is un-throttled
+*Jan  8 18:24:13.437: %LINK-3-UPDOWN: Interface EOBC0, changed state to up
+*Jan  8 18:24:13.447: %LINK-3-UPDOWN: Interface Lsmpi0, changed state to up
+*Jan  8 18:24:13.448: %LINEPROTO-5-UPDOWN: Line protocol on Interface LI-Null0, changed state to up
+*Jan  8 18:24:13.449: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+*Jan  8 18:24:13.449: %LINK-3-UPDOWN: Interface LIIN0, changed state to up
+*Jan  8 18:24:13.449: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to down
+*Jan  8 18:24:13.451: %IOSXE_RP_ALARM-6-INFO: ASSERT CRITICAL GigabitEthernet0 Physical Port Link Down 
+*Jan  8 18:24:13.521: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*Jan  8 18:24:13.747: %IOSXE_MGMTVRF-6-CREATE_SUCCESS_INFO: Management vrf Mgmt-intf created with ID 1, ipv4 table-id 0x1, ipv6 table-id 0x1E000001
+*Jan  8 18:24:13.862: %PNP-6-PNP_DISCOVERY_STARTED: PnP Discovery started
+*Jan  8 18:24:09.761: %CMRP-3-PFU_MISSING: R0/0: cmand: The platform does not detect a power supply in slot 0
+*Jan  8 18:24:09.883: %CMRP_PFU-6-FANASSY_INSERTED: R0/0: cmand: Fan Assembly is inserted.
+*Jan  8 18:24:14.180: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*Jan  8 18:24:14.600: %LINEPROTO-5-UPDOWN: Line protocol on Interface EOBC0, changed state to up
+*Jan  8 18:24:14.600: %LINEPROTO-5-UPDOWN: Line protocol on Interface Lsmpi0, changed state to up
+*Jan  8 18:24:14.601: %LINEPROTO-5-UPDOWN: Line protocol on Interface LIIN0, changed state to up
+*Jan  8 18:24:14.601: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to down
+*Jan  8 18:24:14.680: %ONEP_BASE-6-SS_ENABLED: ONEP: Service set Base was enabled by Default
+*Jan  8 18:24:14.899: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Jan  8 18:24:16.075: %SYS-7-NVRAM_INIT_WAIT_TIME: Waited 0 seconds for NVRAM to be available
+*Jan  8 18:24:16.287: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named TP-self-signed-1897751160 has been generated or imported by crypto config
+*Jan  8 18:24:16.291: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: SSH - Command: crypto key generate rsa modulus 2048 label TP-self-signed-1897751160  - Reason: An SSH hostkey has been provisioned on the device with insufficient key length - Remediation: Please provision an SSH RSA hostkey with minimum modulus size of 3072 bits for enhanced security - Submode: exec - Parent CLI: Not Applicable
+*Jan  8 18:24:16.293: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CAT8375-G2.sunderdesign.top has been generated or imported by crypto config
+*Jan  8 18:24:16.296: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named SLA-KeyPair has been generated or imported by crypto config
+*Jan  8 18:24:16.298: %SYS-6-PRIVCFG_DECRYPT_SUCCESS: Successfully apply the private config file
+*Jan  8 18:24:16.331: %SYS-4-SYSTEM_SECURITY_MODE_CHANGE: System Security Mode Changed from SECURE to INSECURE
+*Jan  8 2025 13:24:16.339 EST: %SYS-6-CLOCKUPDATE: System clock has been updated from 18:24:16 UTC Wed Jan 8 2025 to 13:24:16 EST Wed Jan 8 2025, configured from console by vty0.
+*Jan  8 2025 13:24:16.340 EST: %SYS-6-CLOCKUPDATE: System clock has been updated from 13:24:16 EST Wed Jan 8 2025 to 13:24:16 EST Wed Jan 8 2025, configured from console by vty0.
+*Jan  8 2025 13:24:16.349 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: TP-self-signed-1897751160 created successfully
+*Jan  8 2025 13:24:16.350 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created successfully
+*Jan  8 2025 13:24:16.358 EST: yang-infra: self-signed cert inserted(TP-self-signed-1897751160)
+*Jan  8 2025 13:24:16.372 EST: %AAA-4-USERNAME_CONFIGURATION: user with username: matt configured
+*Jan  8 2025 13:24:16.372 EST: %AAA-6-USER_PRIVILEGE_UPDATE: username: matt privilege updated with priv-15
+*Jan  8 2025 13:24:16.373 EST: %AAA-4-USERNAME_CONFIGURATION: user with username: admin configured
+*Jan  8 2025 13:24:16.373 EST: %AAA-6-USER_PRIVILEGE_UPDATE: username: admin privilege updated with priv-15
+*Jan  8 2025 13:24:16.519 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: RCMD - Command: ip rcmd domain-lookup - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.521 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: IP - Command: ip forward-protocol udp tftp - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.522 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: TELNET - Command: ip telnet comport enable - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.524 EST: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp blocksize 512 - The configuration is inconsistent with secure network operation and is not recommended
+*Jan  8 2025 13:24:16.525 EST: %SYS-4-INSECURE_WARNING: Module: FTP - Command: ip ftp passive  - The configuration is inconsistent with secure network operation and is not recommended
+*Jan  8 2025 13:24:16.539 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp allow mode control - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.546 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp server vrf Mgmt-intf 192.168.3.10 - Reason: NTP configuration lacks authentication, allowing potential time manipulation attacks - Remediation: Configure a valid auth key and make it trusted using the command - ntp trusted-key - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.547 EST: %SYS-5-CONFIG_I: Configured from memory by console
+*Jan  8 2025 13:24:16.554 EST: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/0, interfaces disabled
+*Jan  8 2025 13:24:16.554 EST: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/4, interfaces disabled
+*Jan  8 2025 13:24:16.557 EST: %SPA_OIR-6-OFFLINECARD: SPA (4M-2xSFP+) offline in subslot 0/0
+*Jan  8 2025 13:24:16.560 EST: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*Jan  8 2025 13:24:16.597 EST: %IOSXE_OIR-6-INSCARD: Card (fp) inserted in slot F0
+*Jan  8 2025 13:24:16.598 EST: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 0
+*Jan  8 2025 13:24:16.598 EST: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 1
+*Jan  8 2025 13:24:16.616 EST: %IOSXE_RP_PAE_NOT-4-PAE_STARTUP_DELAY: Product Analytics will start in 7 days, configure "no product-analytics" to disable
+*Jan  8 2025 13:24:16.617 EST: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*Jan  8 2025 13:24:16.622 EST: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*Jan  8 2025 13:24:16.640 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: RCMD - Command: ip rcmd domain-lookup - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.640 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp allow mode control - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.655 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: IP - Command: ip forward-protocol udp tftp - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.655 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: TELNET - Command: ip telnet comport enable - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:17.385 EST: %IOSXE_OIR-6-ONLINECARD: Card (fp) online in slot F0
+*Jan  8 2025 13:24:17.548 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Jan  8 2025 13:24:21.284 EST: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 0
+*Jan  8 2025 13:24:21.296 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*Jan  8 2025 13:24:21.296 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*Jan  8 2025 13:24:21.309 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/4
+*Jan  8 2025 13:24:22.233 EST: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 1
+*Jan  8 2025 13:24:22.711 EST: Tamper: wait on boolean for tamper event to fetch
+*Jan  8 2025 13:24:22.711 EST: %SYS-5-RESTART: System restarted --
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+*Jan  8 2025 13:24:22.780 EST: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to up
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_BEST_UDI_UPDATE: Best UDI [PID:C8375-E-G2,VID:V01,SN:FDO2742M0FK] identified via (entity-mibs)
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_CDP_UPDATE: Device UDI [PID:C8375-E-G2,VID:V01,SN:FDO2742M0FK] identified for CDP
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Startup Config Present)
+*Jan  8 2025 13:24:23.779 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to up
+*Jan  8 2025 13:24:24.275 EST: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 3 times and closed 0 times during power down. There is no last known/marked event.
+*Jan  8 2025 13:24:24.275 EST: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 1 times and closed 2 times during power up. There is no last known/marked event.
+*Jan  8 2025 13:24:26.618 EST: %SYS-5-CONFIG_P: Configured programmatically by process EPM CREATE DEFAULT CWA URL ACL from console as console
+*Jan  8 2025 13:24:29.835 EST: %SPA_OIR-6-ONLINECARD: SPA (VDSP-CC) online in subslot 0/4
+*Jan  8 2025 13:24:32.524 EST: %LINK-3-UPDOWN: Interface Service-Engine0/4/0, changed state to up
+*Jan  8 2025 13:24:32.789 EST: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Jan  8 2025 13:24:32.789 EST: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*Jan  8 2025 13:24:32.891 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI created successfully
+*Jan  8 2025 13:24:32.893 EST: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CISCO_IDEVID_SUDI has been generated or imported by pki-sudi
+*Jan  8 2025 13:24:32.901 EST: yang-infra: Configured netconf trustpoint (CISCO_IDEVID_SUDI) created
+*Jan  8 2025 13:24:32.901 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI0 created successfully
+*Jan  8 2025 13:24:32.903 EST: %PKI-2-NON_AUTHORITATIVE_CLOCK: PKI functions can not be initialized until an authoritative time source, like NTP, can be obtained.
+*Jan  8 2025 13:24:33.524 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/4/0, changed state to up
+*Jan  8 2025 13:24:35.984 EST: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Jan  8 2025 13:24:35.984 EST: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*Jan  8 2025 13:24:49.215 EST: NGIOLite module 4M-2xSFP+ success read extended attr from conf file len: 1063
+
+*Jan  8 2025 13:24:49.539 EST: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/4
+*Jan  8 2025 13:24:50.761 EST: %SPA_OIR-6-ONLINECARD: SPA (4M-2xSFP+) online in subslot 0/0
+*Jan  8 2025 13:24:51.896 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 0) using crypto cipher 'aes256-ctr', hmac 'hmac-sha2-512-etm@openssh.com' Succeeded
+*Jan  8 2025 13:24:51.921 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: admin] [Source: 192.168.5.104] [localport: 22] at 13:24:51 EST Wed Jan 8 2025
+*Jan  8 2025 13:24:51.921 EST: %SSH-5-SSH2_USERAUTH: User 'admin' authentication for SSH2 Session from 192.168.5.104 (tty = 0) using crypto cipher 'aes256-ctr', hmac 'hmac-sha2-512-etm@openssh.com' Succeeded
+*Jan  8 2025 13:25:18.461 EST: %SMART_LIC-6-REPORTING_REQUIRED: A Usage report acknowledgement will be required in 758 days.
+*Jan  8 2025 13:25:19.461 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Nov 11 2026 16:16:31.731 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card F0 took 69 secs to boot
+*Nov 11 2026 16:16:31.732 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 0 took 64 secs to boot
+*Nov 11 2026 16:16:31.732 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 1 took 64 secs to boot
+*Nov 11 2026 16:16:36.686 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/1
+*Nov 11 2026 16:16:43.212 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+*Nov 11 2026 16:17:03.065 EST: new extended attributes received from iomd(slot 0 bay 1 board 0)
+*Nov 11 2026 16:17:03.580 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %IOSXE_OIR-6-SOFT_RELOADSPA: SPA(NIM-2FXS/4FXOP) reloaded on subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+*Nov 11 2026 16:17:08.642 EST: %VOICE_HA-7-STATUS: Create VOICE HA INFRA processes now....
+*Nov 11 2026 16:17:09.656 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoipNull0, changed state to up
+*Nov 11 2026 16:17:26.425 EST: %SMART_LIC-6-USAGE_NO_ACK: A Usage report acknowledgement has not been received in the last 0 days.
+*Nov 11 2026 16:17:26.426 EST: %SIP-5-LICENSING: smart license report is not acknowledged.
+*Nov 11 2026 16:17:36.044 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:39.037 EST: %LINK-3-UPDOWN: Interface Service-Engine0/1/0, changed state to up
+*Nov 11 2026 16:17:40.036 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/1/0, changed state to up
+*Nov 11 2026 16:17:40.896 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+*Nov 11 2026 16:17:40.909 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/0, changed state to up
+*Nov 11 2026 16:17:41.044 EST: ***********************************************************
+Detailed call stats collection has been turned on
+Use "media disable-detailed-stats" under "voice service voip"to turn it off
+***********************************************************
+
+*Nov 11 2026 16:17:42.304 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/0, changed state to ready
+*Nov 11 2026 16:17:42.304 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/1, changed state to up
+*Nov 11 2026 16:17:42.305 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/2, changed state to up
+*Nov 11 2026 16:17:42.306 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/3, changed state to up
+*Nov 11 2026 16:17:43.832 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/1, changed state to ready
+*Nov 11 2026 16:17:43.832 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/2, changed state to ready
+*Nov 11 2026 16:17:43.833 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/3, changed state to ready
+*Nov 11 2026 16:17:43.834 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/4, changed state to up
+*Nov 11 2026 16:17:43.835 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/5, changed state to up
+*Nov 11 2026 16:17:43.976 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/4, changed state to ready
+*Nov 11 2026 16:17:43.977 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/5, changed state to ready
+*Nov 11 2026 16:19:30.409 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:19:32.073 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:19:33.596 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:20:16.175 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Nov 11 2026 16:20:16.176 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:24:43.050 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:24:44.084 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:24:44.084 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:26:54.005 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:26:55.037 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:26:55.038 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:28:08.214 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:08.354 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:28:08 EST Wed Nov 11 2026
+*Nov 11 2026 16:28:08.354 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:10.182 EST: %SYS-6-LOGOUT: User matt has exited tty session 867(192.168.5.104)
+*Nov 11 2026 16:28:10.182 EST: %SSH-5-SSH2_CLOSE: SSH2 Session from 192.168.5.104 (tty = 1) for user 'matt' using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' closed
+*Nov 11 2026 16:28:13.314 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:13.457 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:28:13 EST Wed Nov 11 2026
+*Nov 11 2026 16:28:13.457 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:31:23.290 EST: %SYS-6-LOGOUT: User matt has exited tty session 867(192.168.5.104)
+*Nov 11 2026 16:31:23.290 EST: %SSH-5-SSH2_CLOSE: SSH2 Session from 192.168.5.104 (tty = 1) for user '' using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' closed
+*Nov 11 2026 16:31:42.716 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:31:42.859 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:31:42 EST Wed Nov 11 2026
+*Nov 11 2026 16:31:42.859 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:31:56.566 EST: %SYS-6-LOGOUT: User matt has exited tty session 867(192.168.5.104)
+*Nov 11 2026 16:31:56.566 EST: %SSH-5-SSH2_CLOSE: SSH2 Session from 192.168.5.104 (tty = 1) for user 'matt' using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' closed
+Nov 11 2026 16:32:13.521 EST: %PKI-6-AUTHORITATIVE_CLOCK: The system clock has been set.
+Nov 11 2026 16:39:47.067 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+Nov 11 2026 16:39:47.207 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:39:47 EST Wed Nov 11 2026
+Nov 11 2026 16:39:47.207 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+Nov 11 2026 16:40:38.650 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+Nov 11 2026 16:40:38.650 EST: %IOSXE_OIR-6-SOFT_STOPSPA: SPA(NIM-2FXS/4FXOP) stopped in subslot 0/1, interfaces disabled
+Nov 11 2026 16:43:07.022 EST: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/1, interfaces disabled
+Nov 11 2026 16:45:06.791 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/1
+Nov 11 2026 16:45:13.548 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+Nov 11 2026 16:45:33.991 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+Nov 11 2026 16:45:35.975 EST: %LINK-3-UPDOWN: Interface Service-Engine0/1/0, changed state to up
+Nov 11 2026 16:45:36.976 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/1/0, changed state to up
+Nov 11 2026 16:45:38.782 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+Nov 11 2026 16:45:38.794 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/0, changed state to up
+Nov 11 2026 16:45:40.185 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/0, changed state to ready
+Nov 11 2026 16:45:40.186 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/1, changed state to up
+Nov 11 2026 16:45:40.187 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/2, changed state to up
+Nov 11 2026 16:45:40.188 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/3, changed state to up
+Nov 11 2026 16:45:41.717 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/1, changed state to ready
+Nov 11 2026 16:45:41.717 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/2, changed state to ready
+Nov 11 2026 16:45:41.718 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/3, changed state to ready
+Nov 11 2026 16:45:41.718 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/4, changed state to up
+Nov 11 2026 16:45:41.720 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/5, changed state to up
+Nov 11 2026 16:45:41.865 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/4, changed state to ready
+Nov 11 2026 16:45:41.866 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/5, changed state to ready
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:12.239138-05:00] show users
+show users
+    Line       User       Host(s)              Idle       Location
+ 866 vty 0     admin      idle                 00:24:30 192.168.5.104
+*867 vty 1     matt       idle                 00:00:04 192.168.5.104
+
+  Interface    User               Mode         Idle     Peer Address
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:30.091187-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11961 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          792 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          35 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3300 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9420 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:31.072427-05:00] show logging | include Marvell|DSPRM|SPA_OIR
+show logging | include Marvell|DSPRM|SPA_OIR
+*Jan  8 2025 13:24:16.557 EST: %SPA_OIR-6-OFFLINECARD: SPA (4M-2xSFP+) offline in subslot 0/0
+*Jan  8 2025 13:24:16.560 EST: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*Jan  8 2025 13:24:29.835 EST: %SPA_OIR-6-ONLINECARD: SPA (VDSP-CC) online in subslot 0/4
+*Jan  8 2025 13:24:50.761 EST: %SPA_OIR-6-ONLINECARD: SPA (4M-2xSFP+) online in subslot 0/0
+*Nov 11 2026 16:16:43.212 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+*Nov 11 2026 16:17:03.580 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+*Nov 11 2026 16:17:36.044 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:40.896 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+Nov 11 2026 16:40:38.650 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+Nov 11 2026 16:45:13.548 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+Nov 11 2026 16:45:33.991 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+Nov 11 2026 16:45:38.782 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:31.581989-05:00] show facility-alarm status
+show facility-alarm status
+System Totals  Critical: 1  Major: 0  Minor: 0
+
+Source                     Time                   Severity      Description [Index]
+------                     ------                 --------      -------------------
+
+Power Supply Bay 0         Jan 08 2025 13:24:13   CRITICAL      Power Supply/FAN Module Missing [0]
+
+POE Bay 0                  Jan 08 2025 13:24:13   INFO          Power Over Ethernet Module Missing [0]
+
+POE Bay 1                  Jan 08 2025 13:24:13   INFO          Power Over Ethernet Module Missing [0]
+
+TwoGigabitEthernet0/0/0    Jan 08 2025 13:24:51   INFO          Physical Port Administrative State Down [2]
+
+TwoGigabitEthernet0/0/1    Jan 08 2025 13:24:51   INFO          Physical Port Administrative State Down [2]
+
+TwoGigabitEthernet0/0/2    Jan 08 2025 13:24:51   INFO          Physical Port Administrative State Down [2]
+
+TwoGigabitEthernet0/0/3    Jan 08 2025 13:24:51   INFO          Physical Port Administrative State Down [2]
+
+TenGigabitEthernet0/0/4    Jan 08 2025 13:24:51   INFO          Physical Port Administrative State Down [2]
+
+xcvr container 0/0/5       Jan 08 2025 13:24:50   INFO          Transceiver Missing [0]
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:47:32.084560-05:00] show platform hardware slot P2 ?
+show platform hardware slot P2 ?
+  fan  Fan commands
+
+CAT8375-G2#show platform hardware slot P2 
+[COMMAND 2026-11-11T16:47:32.604892-05:00] show platform hardware slot R0 ?
+  alarms      Show alarm states
+  dram        CPU DRAM commands
+  eobc        Show EOBC
+  ezman       EZchip Manager
+  fpga        FPGA status
+  led         LED-related commands
+  pcie        PCIE-related commands
+  sensor      Sensor information
+  soft-error  Soft Error commands
+  xaui        XAUI details
+
+CAT8375-G2#show platform hardware slot R0 
+[COMMAND 2026-11-11T16:47:47.674780-05:00] show platform hardware slot P2 fan ?
+  eeprom  SmartFan EEPROM data 
+  status  Fan software status 
+
+CAT8375-G2#show platform hardware slot P2 fan 
+[COMMAND 2026-11-11T16:47:48.140206-05:00] test platform hardware ?
+  debug_ping  ping debug commands
+  eobc        EOBC related commands
+  fed         Forwarding Engine Driver
+  poe         poe internal register information
+  port        Port related test commands
+  qfp         Quantum Flow Processor
+  slot        Slot
+  subslot     Subslot
+
+CAT8375-G2#test platform hardware 
+[COMMAND 2026-11-11T16:47:48.626595-05:00] request platform hardware ?
+  filesystem        Request filesystem actions
+  tamper-detection  tamper-detection feature
+
+CAT8375-G2#request platform hardware 
+[COMMAND 2026-11-11T16:47:49.140042-05:00] show platform software ?
+  Access-tunnel          Access Tunnel information
+  VP                     Layer 2 Vlan Port Information
+  access-list            Access control list information
+  adjacency              Adjacency platform commands
+  appnav-controller      AppNav Controller information
+  appnav-controller      Service Controller platform commands
+  atm                    ATM
+  audit                  Show selinux audit
+  batch-manager          Batch manager
+  bfd                    BFD platform commands
+  bootcamp               bootcamp information
+  bound-uds              Show bound Unix-Domain-Sockets information
+  bridge-domain          Bridge domain information
+  bssid                  Wireless BSSID information
+  btrace-manager         Btrace Manager Information
+  capwap                 Wireless CAPWAP information
+  cce                    CCE platform commands
+  cck                    Consistency-Checker information
+  cef                    CEF platform commands
+  cgacl                  Wireless CGACL information
+  chasfs                 Show chassis filesystem information
+  cli-agent              CLI Agent information
+  cman                   Chassis manager client
+  common-classification  Common classification
+  conf-sw                Software Conference
+  configuration          Show configuration commands
+  consent-token          Show Consent token statistics
+  console-relay          Console relay client
+  cpu                    system CPU information
+  cr-runtime             CRDU/CRFT/CRPGC/CRDL runtime
+  crimson                Show Crimson data
+  cts                    CTS information
+  custom-port            Wireless custom port information
+  cxsc                   Show CXSC commands
+  dbal                   DB Access Layer
+  dc-monitor             Show Device Classifier info
+  debug                  Debug information
+  device-mode            Device Mode
+  diagnostic             Show diagnostic information
+  dialer-list            Dialer list information
+  dmesg                  kernel logs
+  dpidb                  Datapath Interface Descriptor Block information
+  dpss                   Show ONE-P Datapath Service Set Commands
+  dsp                    DSP information
+  dsprm                  Show DSPRM commands
+  dtls                   Wireless DTLS information
+  eoam                   EOAM information
+  epbr                   EPBR platform commands
+  erspan                 Encapsulated Remote Switch Port Analyzer
+  et-analytics           Show et-analytics commands
+  ether-channel          EtherChannel global information
+  ethernet               Ethernet platform commands
+  evpn                   EVPN information
+  evtmon                 Event monitor information
+  ezman                  Ezman
+  factory-reset          Show factory-reset
+  fed                    Forwarding Engine Driver
+  fhs                    FHS platform commands
+  filesystem             File system information
+  firewall               Firewall information
+  flexlinks              Flex Links information
+  flow                   FNF platform commands
+  flow-control           Flow control Ids
+  fmd                    Show flow-metadata commands
+  fmp                    Show MMA FMP commands
+  fpm                    FPM information
+  frame-relay            Frame Relay
+  fru-tbl                Fru Table Library
+  icmp                   ICMP platform commands
+  icmp6                  Show ICMP6 information
+  iid                    Datapath Interface Identifier information
+  infrastructure         Platform infrastructure
+  inspect                Inspect platform commands
+  install-manager        Install Manager
+  interface              Interface information
+  iomd                   IOMD Process
+  iox-service            Iox Service information
+  ip                     IPv4 information
+  ipc                    Show ipc information
+  iphc                   Show IP Header Compression information
+  ipsec                  IPSec platform show commands
+  ipv6                   IPv6 information
+  kernel                 show system information tcp
+  l2-acl                 platform l2-acl info
+  l2-vlan                Layer 2 VLAN information
+  l2fib                  Layer 2 FIB information
+  l2fib-iosd             Layer 2 FIB IOSd information
+  l2m                    l2m information
+  l2pt                   l2pt platform commands
+  l2vpn                  atom information
+  license                Show license information
+  lisp                   LISP common information
+  lisp-pd                LISP PD info
+  lisp-sfltr             LISP Source Filter
+  loadinfo               Loadbalance objects information
+  matm                   MAC address table management information
+  mdr                    Minimal Disruptive Restart
+  memory                 Show memory related information
+  meraki-service         Meraki Service information
+  mfr                    MFR information
+  mlist                  Multicast list information
+  mlppp                  MLPPP informantion
+  mma                    Show MMA commands
+  module                 PSD modules
+  monitor                platform monitor info
+  mount                  System mount information
+  mpls                   MPLS platform commands
+  multicast              MULTICAST platform commands
+  nat                    NAT platform commands
+  nat64                  Platform NAT64 information
+  nat66                  Platform NAT66 information
+  nbar                   NBAR platform commands
+  ndbman                 Netconf Database Manager information
+  netflow                NetFlow platform commands
+  nif-mgr                Network Interface Manager
+  node                   node information
+  nwpi                   Show Network Wide Path Insight Commands
+  object-manager         Object Manager information
+  os-interface           Show os-interface information
+  otv                    OTV information
+  pam                    PAM platform commands
+  pbr                    Policy based routing information
+  peer                   Show peer information
+  pfr                    PFR platform commands
+  pfrv3                  PfRv3 platform commands
+  pkt-reorder            Packet reordering info
+  plim                   PLIM QoS Commands
+  pm-port                PM Port information
+  port-channel           Port-channel information
+  portinfo               show selected type port information
+  process                Process information
+  process-manager        Process Manager information
+  ptpd                   Show PTP information
+  punt                   Show punt/inject information
+  punt-policer           Show punt policer setting and stats
+  push-counter           Push Counter OCE
+  qos                    QoS platform commands
+  quic                   QUIC information
+  radio                  Wireless radio information
+  replication            Replication Manager
+  rg                     Show redundancy group information
+  rif-mgr                RIF Manager information
+  route-map              Route-map platform commands
+  sbc                    Session Border Controller
+  sd-routing             SD-Routing
+  selinux                SELinux status
+  service-chain          Service-chain
+  service-directory      Service Directory
+  session-manager        Session Manager information
+  shell                  Shell infrastructure
+  sl-infra               sl-infra platform specific information
+  slot                   Slot information
+  spi4                   Mapping Ids of Spi4 to Marmot Buffers
+  srv6                   SRv6 information
+  sslvpn                 SSLVPN platform show commands
+  stack-mgr              Stack Manager information
+  status                 Show system status
+  steering-policy        Steering Policy information
+  subscriber             Subscriber (ESS) information
+  subslot                Show subslot information
+  swport                 Switch port information
+  swspan                 Switch SPAN information
+  tcpudpport             show system port information
+  tdl-database           TDL database
+  tech-support           Show system information for Tech-Support
+  thread                 Thread information
+  timestamp-engine       Timestamp engine platform show commands
+  trace                  Trace information
+  udf                    user defined fields information
+  udn                    User Defined (Private) Network information
+  umbrella               umbrella information
+  urpf                   Unicast reverse path forwarding information
+  utd                    Show UTD commands
+  vasi                   vasi interface information
+  vlans                  Vlan information
+  vrf                    Platform VRF information
+  vty                    Platform vty management
+  vxlan                  VXLAN information
+  wccp                   WCCP platform commands
+  wired-client           Wired client information
+  wireless-client        Wireless client information
+  wireshark              Wireshark information
+  wlan                   Wireless WLAN information
+  wlavc                  Wireless AVC information
+  yang-management        YANG management
+  zone                   Zone platform commands
+  |                      Output modifiers
+  <cr>                   <cr>
+
+CAT8375-G2#show platform software 
+[COMMAND 2026-11-11T16:48:06.117552-05:00] test platform hardware slot R0 ?
+  alarms     Set alarm states
+  dram       CPU DRAM commands
+  ezman      EZchip Manager
+  fan        Fan related test commands
+  gnss       GNSS device test commands
+  plim       PLIM test commands
+  usb        USB related test commands
+  zlspidev   SETS Addr modify
+  zlspidpll  DPLL frequency offset test commands
+
+CAT8375-G2#test platform hardware slot R0 
+[COMMAND 2026-11-11T16:48:06.622947-05:00] test platform hardware slot P2 ?
+  alarms     Set alarm states
+  dram       CPU DRAM commands
+  ezman      EZchip Manager
+  fan        Fan related test commands
+  gnss       GNSS device test commands
+  plim       PLIM test commands
+  usb        USB related test commands
+  zlspidev   SETS Addr modify
+  zlspidpll  DPLL frequency offset test commands
+
+CAT8375-G2#test platform hardware slot P2 
+[COMMAND 2026-11-11T16:48:07.139841-05:00] test platform software ?
+  appnav-controller   Test service-controller CLIs
+  audit               Audit log snapshot test
+  cef                 CEF platform commands
+  chassis             Chassis related test operations
+  chassis-manager     Test chassis manager operations
+  cidb                Test cidb CLIs
+  cloudm              Cloud Manager
+  config              Config options
+  crimson             Test Crimson DB functions
+  cxsc                Test cxsc
+  database            Database inspection and test facilities
+  dbal                DB Access Layer
+  debug               Test debug operations
+  dsprm               Test DSPRM commands
+  dta                 Test DTA
+  dvlan               dvlan platform commands
+  emd                 Test EMD operations
+  eoam                EOAM platform test commands for UT
+  feature-telemetry   feature telemetry specific information
+  fed                 Forwarding Engine Driver
+  fips                Request fips test actions
+  fmp                 Test MMA FMP
+  forwarding-manager  Test forwarding manager operations
+  gnxi                gNxI broker
+  infrastructure      Platform infrastructure
+  inject              L3 inject commands
+  iomd                IOMD Process
+  kernel              Kernel logging facities
+  lsmpi               test lsmpi driver
+  macsec              MACSecurity derisk driver
+  mma                 Test mma
+  mst                 MST platform test commands for UT
+  nif_mgr             NIF Manager 
+  opendns             Test Open DNS CLIs
+  operation           Test zbfw al CLIs
+  otv                 OTV platform test commands for UT
+  plim                PLIM QoS Commands
+  process             Process test operations
+  product-analytics   Product Analytics Engine Test
+  product-analytics   product analytics specific information
+  ptpd                Test PTP data
+  punt-keepalive      punt-keepalive msg commands
+  qos                 QOS platform commands
+  replication         Replication Manager 
+  rg                  RG platform commands
+  shell               Shell infrastructure
+  sslvpn              SSL VPN platform commands
+  subscriber          Subscriber (ESS) platform commands
+  tdl                 tdl commands
+  timestamp-engine    Platform Timestamp engine
+  timingd             Test Timing data
+  trace               Test trace operations
+  uidp                Unified Identity Policy test CLIs
+  wncloudm            Wireless Controller Cloud Manager
+
+CAT8375-G2#test platform software 
+[COMMAND 2026-11-11T16:48:07.627347-05:00] show platform software cman ?
+  statistics  Status and statistics
+
+CAT8375-G2#show platform software cman 
+[COMMAND 2026-11-11T16:48:12.441947-05:00] test platform hardware slot R0 fan ?
+  fault  Generate a fan fault
+
+CAT8375-G2#test platform hardware slot R0 fan 
+[COMMAND 2026-11-11T16:48:12.936975-05:00] test platform hardware slot P2 fan ?
+  fault  Generate a fan fault
+
+CAT8375-G2#test platform hardware slot P2 fan 
+[COMMAND 2026-11-11T16:48:28.855706-05:00] test platform software chassis-manager ?
+  fault  Action to take on FRU fault detection
+  slot   Slot
+
+CAT8375-G2#test platform software chassis-manager 
+[COMMAND 2026-11-11T16:48:29.361584-05:00] test platform software chassis ?
+  subslot  Location information for this command
+
+CAT8375-G2#test platform software chassis 
+[COMMAND 2026-11-11T16:48:29.868481-05:00] show platform hardware slot R0 fpga ?
+  |     Output modifiers
+  <cr>  <cr>
+
+CAT8375-G2#show platform hardware slot R0 fpga 
+[COMMAND 2026-11-11T16:48:34.935731-05:00] test platform software chassis-manager slot R0 ?
+  init    Initialize
+  remove  Remove
+
+CAT8375-G2#test platform software chassis-manager slot R0 
+[COMMAND 2026-11-11T16:48:45.285277-05:00] show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11969 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2500 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          799 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          35 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9420 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:48:46.225408-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:34:12      
+ 0/0      4M-2xSFP+           ok                    00:33:12      
+ 0/1      NIM-2FXS/4FXOP      ok                    00:03:32      
+1         C8375-E-G2          ok                    00:34:12      
+R0        C8375-E-G2          ok, active            00:34:12      
+F0        C8375-E-G2          ok, active            00:34:12      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:33:29      
+P2        C8300-FAN-1R        ok                    00:33:28      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:48:46.723200-05:00] show voice dsp error
+show voice dsp error
+No DSP errors logged
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:48:47.230959-05:00] show logging | include Marvell|DSPRM|SPA_OIR
+show logging | include Marvell|DSPRM|SPA_OIR
+*Jan  8 2025 13:24:16.557 EST: %SPA_OIR-6-OFFLINECARD: SPA (4M-2xSFP+) offline in subslot 0/0
+*Jan  8 2025 13:24:16.560 EST: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*Jan  8 2025 13:24:29.835 EST: %SPA_OIR-6-ONLINECARD: SPA (VDSP-CC) online in subslot 0/4
+*Jan  8 2025 13:24:50.761 EST: %SPA_OIR-6-ONLINECARD: SPA (4M-2xSFP+) online in subslot 0/0
+*Nov 11 2026 16:16:43.212 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+*Nov 11 2026 16:17:03.580 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+*Nov 11 2026 16:17:36.044 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:40.896 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+Nov 11 2026 16:40:38.650 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+Nov 11 2026 16:45:13.548 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+Nov 11 2026 16:45:33.991 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+Nov 11 2026 16:45:38.782 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+CAT8375-G2#
+[COMMAND 2026-11-11T16:48:47.731664-05:00] show version | include uptime|Last reload
+show version | include uptime|Last reload
+CAT8375-G2 uptime is 33 minutes
+Last reload reason: PowerOn
+CAT8375-G2#
+[COMMAND 2026-11-11T16:48:48.230023-05:00] show users
+show users
+    Line       User       Host(s)              Idle       Location
+ 866 vty 0     admin      idle                 00:26:06 192.168.5.104
+*867 vty 1     matt       idle                 00:00:08 192.168.5.104
+
+  Interface    User               Mode         Idle     Peer Address
+
+CAT8375-G2#

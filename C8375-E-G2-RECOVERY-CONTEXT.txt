@@ -1,5 +1,28 @@
 C8375-E-G2 / CRESTONE RECOVERY CONTEXT
 Current handoff updated 2026-11-11, America/New_York; historical October23 summary retained
+
+NOVEMBER 11, 16:49 EST -- NIM PRESENCE/FAN COMPARISON, CARD RESTORED
+Same C8375-A/FDO2742M0FK, P1 400 W PSU LIT2727C7NE and IOS 26.1.2.
+Owner authorizes stop and performs removal/blank fitting/reinsertion.
+Stopped but present/power off: 9480-9660 RPM; physically removed, settled:
+5220-5460 RPM; reinserted: 9420-9660 RPM. Interpreted table 1->2->1,
+temperature level 0, overrides 0. Preserve first transitional high removed
+sample and CLI cache lag. Physical presence strongly determines this policy.
+Same NIM FOC23152BE1 restored automatically; DSP UP/66.1.0, six ports,
+no DSP errors. CPU 34 C, all sensors Normal; both configs unchanged.
+NTP now synchronized/CTRL. Second CGX port 0:2 command 11 timeout during
+reinsertion at 16:45:13.548; no further event through final log query.
+Earlier startup-only/NTP-settling descriptions below are historical.
+No chassis reboot, firmware/fan-policy write or serial access; owned SSH
+closed and only owner SecureCRT remains connected. Router left powered.
+Owner accepts a slower profile for low-traffic home-lab use. Current fan
+test help offers fault only, no speed control. No fault injected or override
+applied. Next: match current controller implementation, profile transaction,
+rollback and retained temperature response for a reversible trial. Voice
+calls/performance remain owner-deferred; no extended fan qualification.
+Evidence: c8375-recovery/fan-nim-comparison-20261111/README.md and results.json.
+
+EARLIER NOVEMBER 11 HEALTH CHECK (superseded where noted above)
 Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
 

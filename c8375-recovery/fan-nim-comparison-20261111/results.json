@@ -1,0 +1,1108 @@
+{
+  "task_ids": [
+    "C8375-05",
+    "C8375-06"
+  ],
+  "date": "2026-11-11",
+  "timezone": "America/New_York",
+  "chassis": {
+    "id": "C8375-A",
+    "pid": "C8375-E-G2",
+    "serial": "FDO2742M0FK"
+  },
+  "psu": {
+    "pid": "PWR-CC1-400WAC",
+    "serial": "LIT2727C7NE",
+    "slot": "P1"
+  },
+  "nim": {
+    "pid": "NIM-2FXS/4FXOP",
+    "serial": "FOC23152BE1",
+    "slot": "0/1"
+  },
+  "authorization": "Owner permits temporary voice-module shutdown, offers physical removal and performs removal/blank fitting/reinsertion. Same-session physical confirmation retained; fresh SSH identity and zero active calls checked.",
+  "historical_owner_observation": "Owner recalls around 5000 RPM or less without the voice module. Today a matched-PSU module-absent comparison measures 5220-5460 RPM after settling.",
+  "endpoint": "SSH 192.168.4.62:22; separate VTY, owner SecureCRT retained; no serial access. Owner performs physical NIM work.",
+  "stop_timestamp": "2026-11-11T16:40:38.619519-05:00",
+  "first_absence_observed": "2026-11-11T16:43:11.361119-05:00",
+  "first_reinsertion_observed": "2026-11-11T16:45:39.838057-05:00",
+  "stop_request_to_first_absence_observation_seconds": 152.7416,
+  "manual_observations": [
+    {
+      "host_timestamp": "2026-11-11T16:42:48.886186-05:00",
+      "event": "requested_removal",
+      "details": "Owner offers to pull NIM. Agent confirms stopped/PowerOff/PresentYes; requests OIR removal, LED off, telephone cables disconnected and NIM blank if available; chassis remains powered. Removal not yet confirmed.",
+      "source": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/hardware_installation-guide/secure-8300-series-hig/oir-8300-series-secure-routers/online-insertion-and-removal-and-hot-swapping.html"
+    },
+    {
+      "host_timestamp": "2026-11-11T16:43:39.243615-05:00",
+      "event": "owner_confirms_removed",
+      "details": "Owner: nim is out, fans slowed down. Blank fitting was not answered."
+    },
+    {
+      "host_timestamp": "2026-11-11T16:44:21.482512-05:00",
+      "event": "owner_confirms_blank",
+      "details": "Owner confirms blank fitted over empty NIM slot during module-out test."
+    },
+    {
+      "host_timestamp": "2026-11-11T16:44:45.782410-05:00",
+      "event": "requested_reinsertion",
+      "details": "After module-out comparison with blank confirmed, requested refit of same NIM, captive screws secured, telephone cables disconnected during reseating. Await owner confirmation and live readiness checks."
+    },
+    {
+      "host_timestamp": "2026-11-11T16:45:41.016231-05:00",
+      "event": "owner_confirms_reinserted",
+      "details": "Owner reports same NIM is back in and fans ramped up within seconds."
+    },
+    {
+      "host_timestamp": "2026-11-11T16:48:36.117091-05:00",
+      "event": "owner_home_lab_preference",
+      "details": "Owner says router is for a home lab, is comfortable with a slower profile, and does not expect traffic near rated capacity. Lower-noise profile investigation includes undocumented options; no validated adjustment identified yet."
+    }
+  ],
+  "access_close": {
+    "host_timestamp": "2026-11-11T16:50:43.536238-05:00",
+    "command": "lsof -nP -iTCP@192.168.4.62:22",
+    "returncode": 0,
+    "output": "COMMAND     PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nSecureCRT 65904 games   21u  IPv4 0x749fdbada9950ff2      0t0  TCP 192.168.5.104:49790->192.168.4.62:22 (ESTABLISHED)\n",
+    "owned_ssh_session_exited": true,
+    "router_left": "Powered, same NIM reinserted and ready; no fan override"
+  },
+  "summaries": {
+    "baseline": {
+      "count": 3,
+      "first": "2026-11-11T16:39:57.218621-05:00",
+      "last": "2026-11-11T16:40:31.307600-05:00",
+      "raw_fan_rpm_min": 9540,
+      "raw_fan_rpm_max": 9600
+    },
+    "stopped_present": {
+      "count": 5,
+      "first": "2026-11-11T16:40:40.983680-05:00",
+      "last": "2026-11-11T16:42:22.378478-05:00",
+      "raw_fan_rpm_min": 9480,
+      "raw_fan_rpm_max": 9660
+    },
+    "removed": {
+      "count": 5,
+      "first": "2026-11-11T16:43:12.263595-05:00",
+      "last": "2026-11-11T16:45:01.502274-05:00",
+      "raw_fan_rpm_min": 5220,
+      "raw_fan_rpm_max": 9660
+    },
+    "reinserted": {
+      "count": 4,
+      "first": "2026-11-11T16:45:40.776718-05:00",
+      "last": "2026-11-11T16:48:45.714951-05:00",
+      "raw_fan_rpm_min": 9420,
+      "raw_fan_rpm_max": 9660
+    },
+    "removed_settled": {
+      "count": 4,
+      "first": "2026-11-11T16:43:38.491304-05:00",
+      "last": "2026-11-11T16:45:01.502274-05:00",
+      "raw_fan_rpm_min": 5220,
+      "raw_fan_rpm_max": 5460,
+      "selection": "Removed-phase samples with all three raw RPM readings below 6000; first high transitional sample retained separately."
+    }
+  },
+  "samples": [
+    {
+      "timestamp": "2026-11-11T16:39:57.218621-05:00",
+      "phase": "baseline",
+      "raw_fans_rpm": [
+        9600,
+        9540,
+        9540
+      ],
+      "cli_fans_rpm": [
+        9660,
+        9540,
+        9540
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:20.340887-05:00",
+      "phase": "baseline",
+      "raw_fans_rpm": [
+        9600,
+        9540,
+        9540
+      ],
+      "cli_fans_rpm": [
+        9600,
+        9540,
+        9540
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:31.307600-05:00",
+      "phase": "baseline",
+      "raw_fans_rpm": [
+        9600,
+        9540,
+        9540
+      ],
+      "cli_fans_rpm": [
+        9600,
+        9540,
+        9540
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:40.983680-05:00",
+      "phase": "stopped_present",
+      "raw_fans_rpm": [
+        9660,
+        9540,
+        9600
+      ],
+      "cli_fans_rpm": [
+        9600,
+        9540,
+        9540
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:19.940698-05:00",
+      "phase": "stopped_present",
+      "raw_fans_rpm": [
+        9600,
+        9480,
+        9540
+      ],
+      "cli_fans_rpm": [
+        9660,
+        9540,
+        9540
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:40.890551-05:00",
+      "phase": "stopped_present",
+      "raw_fans_rpm": [
+        9660,
+        9480,
+        9540
+      ],
+      "cli_fans_rpm": [
+        9600,
+        9540,
+        9540
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:42:03.342104-05:00",
+      "phase": "stopped_present",
+      "raw_fans_rpm": [
+        9660,
+        9540,
+        9600
+      ],
+      "cli_fans_rpm": [
+        9600,
+        9540,
+        9540
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:42:22.378478-05:00",
+      "phase": "stopped_present",
+      "raw_fans_rpm": [
+        9660,
+        9480,
+        9540
+      ],
+      "cli_fans_rpm": [
+        9600,
+        9540,
+        9600
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:12.263595-05:00",
+      "phase": "removed",
+      "raw_fans_rpm": [
+        9660,
+        9540,
+        9540
+      ],
+      "cli_fans_rpm": [
+        9660,
+        9480,
+        9540
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 2,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:38.491304-05:00",
+      "phase": "removed",
+      "raw_fans_rpm": [
+        5400,
+        5340,
+        5220
+      ],
+      "cli_fans_rpm": [
+        9660,
+        9540,
+        9540
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 2,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:59.795644-05:00",
+      "phase": "removed",
+      "raw_fans_rpm": [
+        5460,
+        5280,
+        5220
+      ],
+      "cli_fans_rpm": [
+        5400,
+        5280,
+        5220
+      ],
+      "cpu_celsius": [
+        35
+      ],
+      "n2h_table": 2,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:44:15.750137-05:00",
+      "phase": "removed",
+      "raw_fans_rpm": [
+        5460,
+        5340,
+        5220
+      ],
+      "cli_fans_rpm": [
+        5400,
+        5280,
+        5220
+      ],
+      "cpu_celsius": [
+        36
+      ],
+      "n2h_table": 2,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:01.502274-05:00",
+      "phase": "removed",
+      "raw_fans_rpm": [
+        5400,
+        5280,
+        5220
+      ],
+      "cli_fans_rpm": [
+        5460,
+        5280,
+        5220
+      ],
+      "cpu_celsius": [
+        37
+      ],
+      "n2h_table": 2,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:40.776718-05:00",
+      "phase": "reinserted",
+      "raw_fans_rpm": [
+        9600,
+        9540,
+        9480
+      ],
+      "cli_fans_rpm": [
+        9600,
+        9540,
+        9480
+      ],
+      "cpu_celsius": [
+        37
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:07.149567-05:00",
+      "phase": "reinserted",
+      "raw_fans_rpm": [
+        9660,
+        9540,
+        9480
+      ],
+      "cli_fans_rpm": [
+        9660,
+        9540,
+        9480
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:30.526884-05:00",
+      "phase": "reinserted",
+      "raw_fans_rpm": [
+        9600,
+        9540,
+        9420
+      ],
+      "cli_fans_rpm": [
+        9660,
+        9540,
+        9420
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:45.714951-05:00",
+      "phase": "reinserted",
+      "raw_fans_rpm": [
+        9660,
+        9540,
+        9420
+      ],
+      "cli_fans_rpm": [
+        9600,
+        9540,
+        9420
+      ],
+      "cpu_celsius": [
+        34
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0,
+      "identity_anchors": "passed"
+    }
+  ],
+  "configuration": {
+    "show running-config": {
+      "capture_count": 2,
+      "unchanged": true
+    },
+    "show startup-config": {
+      "capture_count": 2,
+      "unchanged": true
+    }
+  },
+  "controller_mapping_limit": "Historical vendor mapping reused with independent fan identity/byte-order anchors. Current 26.1.2 driver not hash-matched. Controller fields are observations, not a validated speed-control interface.",
+  "stop_response": "hw-module subslot 0/1 stop force\nCAT8375-G2#",
+  "explicit_start_responses": [],
+  "module_state_observations": [
+    {
+      "timestamp": "2026-11-11T16:39:53.347129-05:00",
+      "command": "show platform",
+      "output": "show platform\nChassis type: C8375-E-G2\n\nSlot      Type                State                 Insert time (ago) \n--------- ------------------- --------------------- ----------------- \n0         C8375-E-G2          ok                    00:25:19      \n 0/0      4M-2xSFP+           ok                    00:24:19      \n 0/1      NIM-2FXS/4FXOP      ok                    00:22:44      \n1         C8375-E-G2          ok                    00:25:19      \nR0        C8375-E-G2          ok, active            00:25:19      \nF0        C8375-E-G2          ok, active            00:25:19      \nP0        Unknown             empty                 never         \nP1        PWR-CC1-400WAC      ok                    00:24:36      \nP2        C8300-FAN-1R        ok                    00:24:35      \n\nSlot      CPLD Version        Firmware Version                        \n--------- ------------------- --------------------------------------- \n0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nR0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nF0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:39.094596-05:00",
+      "command": "show platform",
+      "output": "show platform\nChassis type: C8375-E-G2\n\nSlot      Type                State                 Insert time (ago) \n--------- ------------------- --------------------- ----------------- \n0         C8375-E-G2          ok                    00:26:04      \n 0/0      4M-2xSFP+           ok                    00:25:05      \n 0/1      NIM-2FXS/4FXOP      stopped               00:00:00      \n1         C8375-E-G2          ok                    00:26:04      \nR0        C8375-E-G2          ok, active            00:26:04      \nF0        C8375-E-G2          ok, active            00:26:04      \nP0        Unknown             empty                 never         \nP1        PWR-CC1-400WAC      ok                    00:25:22      \nP2        C8300-FAN-1R        ok                    00:25:21      \n\nSlot      CPLD Version        Firmware Version                        \n--------- ------------------- --------------------------------------- \n0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nR0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nF0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:41.405031-05:00",
+      "command": "show platform software iomd 0/1 oir",
+      "output": "show platform software iomd 0/1 oir\nIOMD (Input Output Module Driver) Status\n\n  PSM\n\n    PSM state: idle\n    HA state: idle\n    Start bringup: Yes\n    Wait start timeout: 0\n    Hardware OK timeout: 420000\n    Initialization timeout: 360000\n    Remove hold timeout: 5000\n    Remove timeout: 120000\n    Flags: 0X00000001\n\n  SPA\n\n    Inserted spa type: unknown\n    Active spa type: not present\n    Plugin spa type: null_spa\n    Power: Off\n    Present: Yes\n    Reloads: 2\n    Ok: No\n\n  Bay\n\n    Bay name: Subslot 1\n    Flags: 0X02000000\n\n  Plugin\n\n    Flags: 0X00010000\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:41.909758-05:00",
+      "command": "show hw-module subslot 0/1 oir",
+      "output": "show hw-module subslot 0/1 oir\nModule                  Model                Operational Status\n----------------------- -------------------- ------------------------\nsubslot 0/1             NIM-2FXS/4FXOP       stopped\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:42.391425-05:00",
+      "command": "show platform software subslot 0/1 module status",
+      "output": "show platform software subslot 0/1 module status\n% Error: Module unavailable\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:42:22.902459-05:00",
+      "command": "show platform software iomd 0/1 oir",
+      "output": "show platform software iomd 0/1 oir\nIOMD (Input Output Module Driver) Status\n\n  PSM\n\n    PSM state: idle\n    HA state: idle\n    Start bringup: Yes\n    Wait start timeout: 0\n    Hardware OK timeout: 420000\n    Initialization timeout: 360000\n    Remove hold timeout: 5000\n    Remove timeout: 120000\n    Flags: 0X00000001\n\n  SPA\n\n    Inserted spa type: unknown\n    Active spa type: not present\n    Plugin spa type: null_spa\n    Power: Off\n    Present: Yes\n    Reloads: 2\n    Ok: No\n\n  Bay\n\n    Bay name: Subslot 1\n    Flags: 0X02000000\n\n  Plugin\n\n    Flags: 0X00010000\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:11.361119-05:00",
+      "command": "show platform",
+      "output": "show platform\nChassis type: C8375-E-G2\n\nSlot      Type                State                 Insert time (ago) \n--------- ------------------- --------------------- ----------------- \n0         C8375-E-G2          ok                    00:28:37      \n 0/0      4M-2xSFP+           ok                    00:27:37      \n1         C8375-E-G2          ok                    00:28:37      \nR0        C8375-E-G2          ok, active            00:28:37      \nF0        C8375-E-G2          ok, active            00:28:37      \nP0        Unknown             empty                 never         \nP1        PWR-CC1-400WAC      ok                    00:27:54      \nP2        C8300-FAN-1R        ok                    00:27:53      \n\nSlot      CPLD Version        Firmware Version                        \n--------- ------------------- --------------------------------------- \n0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nR0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nF0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:39.013197-05:00",
+      "command": "show platform software iomd 0/1 oir",
+      "output": "show platform software iomd 0/1 oir\nA SPA card is not available at 0/1\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:44:16.789029-05:00",
+      "command": "show platform",
+      "output": "show platform\nChassis type: C8375-E-G2\n\nSlot      Type                State                 Insert time (ago) \n--------- ------------------- --------------------- ----------------- \n0         C8375-E-G2          ok                    00:29:42      \n 0/0      4M-2xSFP+           ok                    00:28:43      \n1         C8375-E-G2          ok                    00:29:42      \nR0        C8375-E-G2          ok, active            00:29:42      \nF0        C8375-E-G2          ok, active            00:29:42      \nP0        Unknown             empty                 never         \nP1        PWR-CC1-400WAC      ok                    00:28:59      \nP2        C8300-FAN-1R        ok                    00:28:58      \n\nSlot      CPLD Version        Firmware Version                        \n--------- ------------------- --------------------------------------- \n0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nR0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nF0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:00.587174-05:00",
+      "command": "show platform",
+      "output": "show platform\nChassis type: C8375-E-G2\n\nSlot      Type                State                 Insert time (ago) \n--------- ------------------- --------------------- ----------------- \n0         C8375-E-G2          ok                    00:30:26      \n 0/0      4M-2xSFP+           ok                    00:29:27      \n1         C8375-E-G2          ok                    00:30:26      \nR0        C8375-E-G2          ok, active            00:30:26      \nF0        C8375-E-G2          ok, active            00:30:26      \nP0        Unknown             empty                 never         \nP1        PWR-CC1-400WAC      ok                    00:29:43      \nP2        C8300-FAN-1R        ok                    00:29:42      \n\nSlot      CPLD Version        Firmware Version                        \n--------- ------------------- --------------------------------------- \n0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nR0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nF0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:39.838057-05:00",
+      "command": "show platform",
+      "output": "show platform\nChassis type: C8375-E-G2\n\nSlot      Type                State                 Insert time (ago) \n--------- ------------------- --------------------- ----------------- \n0         C8375-E-G2          ok                    00:31:05      \n 0/0      4M-2xSFP+           ok                    00:30:06      \n 0/1      NIM-2FXS/4FXOP      ok                    00:00:26      \n1         C8375-E-G2          ok                    00:31:05      \nR0        C8375-E-G2          ok, active            00:31:05      \nF0        C8375-E-G2          ok, active            00:31:05      \nP0        Unknown             empty                 never         \nP1        PWR-CC1-400WAC      ok                    00:30:22      \nP2        C8300-FAN-1R        ok                    00:30:21      \n\nSlot      CPLD Version        Firmware Version                        \n--------- ------------------- --------------------------------------- \n0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nR0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nF0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:41.302483-05:00",
+      "command": "show platform software iomd 0/1 oir",
+      "output": "show platform software iomd 0/1 oir\nIOMD (Input Output Module Driver) Status\n\n  PSM\n\n    PSM state: ready\n    HA state: ready\n    Start bringup: Yes\n    Wait start timeout: 0\n    Hardware OK timeout: 420000\n    Initialization timeout: 360000\n    Remove hold timeout: 5000\n    Remove timeout: 120000\n    Flags: 0000000000\n\n  SPA\n\n    Inserted spa type: unknown\n    Active spa type: unknown\n    Plugin spa type: NIM-2FXS/4FXOP\n    Power: On\n    Present: Yes\n    Reloads: 0\n    Ok: Yes\n\n  Bay\n\n    Bay name: Subslot 1\n    Flags: 0000000000\n\n  Plugin\n\n    Flags: 0000000000\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:46.225408-05:00",
+      "command": "show platform",
+      "output": "show platform\nChassis type: C8375-E-G2\n\nSlot      Type                State                 Insert time (ago) \n--------- ------------------- --------------------- ----------------- \n0         C8375-E-G2          ok                    00:34:12      \n 0/0      4M-2xSFP+           ok                    00:33:12      \n 0/1      NIM-2FXS/4FXOP      ok                    00:03:32      \n1         C8375-E-G2          ok                    00:34:12      \nR0        C8375-E-G2          ok, active            00:34:12      \nF0        C8375-E-G2          ok, active            00:34:12      \nP0        Unknown             empty                 never         \nP1        PWR-CC1-400WAC      ok                    00:33:29      \nP2        C8300-FAN-1R        ok                    00:33:28      \n\nSlot      CPLD Version        Firmware Version                        \n--------- ------------------- --------------------------------------- \n0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nR0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nF0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    }
+  ],
+  "restoration_observations": [
+    {
+      "timestamp": "2026-11-11T16:45:39.838057-05:00",
+      "command": "show platform",
+      "output": "show platform\nChassis type: C8375-E-G2\n\nSlot      Type                State                 Insert time (ago) \n--------- ------------------- --------------------- ----------------- \n0         C8375-E-G2          ok                    00:31:05      \n 0/0      4M-2xSFP+           ok                    00:30:06      \n 0/1      NIM-2FXS/4FXOP      ok                    00:00:26      \n1         C8375-E-G2          ok                    00:31:05      \nR0        C8375-E-G2          ok, active            00:31:05      \nF0        C8375-E-G2          ok, active            00:31:05      \nP0        Unknown             empty                 never         \nP1        PWR-CC1-400WAC      ok                    00:30:22      \nP2        C8300-FAN-1R        ok                    00:30:21      \n\nSlot      CPLD Version        Firmware Version                        \n--------- ------------------- --------------------------------------- \n0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nR0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nF0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:41.805075-05:00",
+      "command": "show voice dsp group all",
+      "output": "show voice dsp group all\nDSP groups on slot 0/1 slot id 1\ndsp 1:\n  State: UP, firmware: 66.1.0\n  Max signal/voice channel: 8/8\n  Max credits: 120, Voice credits: 120, Video credits: 0\n  num_of_sig_chnls_allocated: 6\n  Transcoding channels allocated: 0\n  Group: FLEX_GROUP_VOICE, complexity: FLEX\n    Shared credits: 120, reserved credits: 0\n    Signaling channels allocated: 6\n    Voice channels allocated: 0\n    Credits used (rounded-up): 0\n  Slot: 0/1\n  Device idx: 0\n  Dsp Type: DM8147 \n\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:42.299425-05:00",
+      "command": "show voice port summary",
+      "output": "show voice port summary\n                                           IN       OUT\nPORT            CH   SIG-TYPE   ADMIN OPER STATUS   STATUS   EC\n=============== == ============ ===== ==== ======== ======== ==\n0/1/0           --  fxs-ls      up    dorm on-hook  idle     y \n0/1/1           --  fxs-ls      up    dorm on-hook  idle     y \n0/1/2           --  fxo-ls      up    dorm idle     on-hook  y \n0/1/3           --  fxo-ls      up    dorm idle     on-hook  y \n0/1/4           --  fxo-ls      up    dorm idle     on-hook  y \n0/1/5           --  fxo-ls      up    dorm idle     on-hook  y \n \nPWR FAILOVER PORT        PSTN FAILOVER PORT\n=================        ==================\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:42.811811-05:00",
+      "command": "show voice dsp error",
+      "output": "show voice dsp error\nNo DSP errors logged\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:09.647935-05:00",
+      "command": "show ntp status",
+      "output": "show ntp status\nClock is synchronized, stratum 3, reference is 192.168.3.10   \nnominal freq is 250.0000 Hz, actual freq is 249.9994 Hz, precision is 2**10\nntp uptime is 190600 (1/100 of seconds), resolution is 4016\nreference time is EE9F5FB9.856042F8 (16:42:17.521 EST Wed Nov 11 2026)\nclock offset is 2.0642 msec, root delay is 13.82 msec\nroot dispersion is 39.19 msec, peer dispersion is 4.88 msec\nloopfilter state is 'CTRL' (Normal Controlled Loop), drift is 0.000002116 s/s\nsystem poll interval is 64, last update was 292 sec ago.\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:10.142643-05:00",
+      "command": "show version | include uptime|returned|Last reload|Version|System image|register",
+      "output": "show version | include uptime|returned|Last reload|Version|System image|register\nCisco IOS XE Software, Version 26.01.02\nCisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)\nlicensed under the GNU General Public License (\"GPL\") Version 2.0.  The\nsoftware code licensed under GPL Version 2.0 is free software that comes\nGPL code under the terms of GPL Version 2.0.  For more details, see the\nCAT8375-G2 uptime is 31 minutes\nSystem returned to ROM by PowerOn\nSystem image file is \"bootflash:packages.conf\"\nLast reload reason: PowerOn\nConfiguration register is 0x1822\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:46.225408-05:00",
+      "command": "show platform",
+      "output": "show platform\nChassis type: C8375-E-G2\n\nSlot      Type                State                 Insert time (ago) \n--------- ------------------- --------------------- ----------------- \n0         C8375-E-G2          ok                    00:34:12      \n 0/0      4M-2xSFP+           ok                    00:33:12      \n 0/1      NIM-2FXS/4FXOP      ok                    00:03:32      \n1         C8375-E-G2          ok                    00:34:12      \nR0        C8375-E-G2          ok, active            00:34:12      \nF0        C8375-E-G2          ok, active            00:34:12      \nP0        Unknown             empty                 never         \nP1        PWR-CC1-400WAC      ok                    00:33:29      \nP2        C8300-FAN-1R        ok                    00:33:28      \n\nSlot      CPLD Version        Firmware Version                        \n--------- ------------------- --------------------------------------- \n0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nR0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\nF0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:46.723200-05:00",
+      "command": "show voice dsp error",
+      "output": "show voice dsp error\nNo DSP errors logged\n\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:47.731664-05:00",
+      "command": "show version | include uptime|Last reload",
+      "output": "show version | include uptime|Last reload\nCAT8375-G2 uptime is 33 minutes\nLast reload reason: PowerOn\nCAT8375-G2#",
+      "source": "20261111-163946-ssh.raw"
+    }
+  ],
+  "outcome": {
+    "nim_restored": true,
+    "dsp": "UP, firmware 66.1.0, six signaling channels",
+    "voice_ports": "Two FXS and four FXO, admin up, dormant/on-hook; no DSP errors",
+    "fan_interpretation": "Physical NIM presence is associated with table 1 and faster idle RPM; software stop/power-off while present did not reduce speed. Removal changes to table 2; reinsertion returns table 1.",
+    "ntp": "Synchronized, stratum 3, CTRL, reference 192.168.3.10",
+    "marvell_timeout": "One additional cgx port 0:2 cmd 11 timeout at 16:45:13.548 during reinsertion, in addition to the startup event at 16:16:43.212. No further event through the final log query. No proven causal link or functional Ethernet qualification.",
+    "final_cpu_celsius": 34,
+    "router_reboot": false,
+    "explicit_start_needed": false
+  },
+  "quiet_profile_investigation": {
+    "owner_preference": "Home lab; accepts a slower profile, expected traffic far below rated capacity.",
+    "cli": "Current 26.1.2 P2 fan show help offers EEPROM/status; R0 and P2 fan test help offers only fault generation. Chassis-manager slot help offers init/remove. No speed or curve setting found in these branches; no fault injected.",
+    "offline": "Revisited 17.15.6 and 26.2.1 vendor driver/CPA evidence. Named fan-table/override diagnostic nodes are read-only; generic PWM setter wrappers do not identify a usable Crestone actuator. No current-runtime binary hash match or understood override handshake.",
+    "conclusion": "An undocumented adjustment remains possible, but no verified write method or retained temperature response established. No fan override applied.",
+    "next": "Obtain and match the running 26.1.2 controller access implementation, identify the exact profile/override transaction, rollback and thermal behavior before a bounded reversible trial.",
+    "reference": "https://www.cisco.com/c/en/us/td/docs/routers/secure-routers/sec-8300-series/software-config-guide/secure-8300-series-scg/isr9000swcfg-xe-16-12-book_chapter_01100.html"
+  },
+  "failed_cli": [
+    {
+      "timestamp": "2026-11-11T16:40:39.583858-05:00",
+      "command": "show platform hardware subslot 0/1 module status"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:40.066771-05:00",
+      "command": "show voice dsp group all"
+    }
+  ],
+  "commands": [
+    {
+      "timestamp": "2026-11-11T16:39:47.653035-05:00",
+      "command": "terminal length 0"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:48.093299-05:00",
+      "command": "terminal width 200"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:48.569845-05:00",
+      "command": "show version"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:52.880114-05:00",
+      "command": "show inventory"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:53.347129-05:00",
+      "command": "show platform"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:53.815761-05:00",
+      "command": "show call active voice brief"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:54.300324-05:00",
+      "command": "show voice port summary"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:54.763857-05:00",
+      "command": "show voice dsp group all"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:55.237695-05:00",
+      "command": "show running-config"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:55.795143-05:00",
+      "command": "show startup-config"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:56.295018-05:00",
+      "command": "hw-module subslot 0/1 stop ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:56.790038-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:39:57.218621-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:19.909587-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:20.340887-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:30.878346-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:31.307600-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:38.619519-05:00",
+      "command": "hw-module subslot 0/1 stop force"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:39.094596-05:00",
+      "command": "show platform"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:39.583858-05:00",
+      "command": "show platform hardware subslot 0/1 module status"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:40.066771-05:00",
+      "command": "show voice dsp group all"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:40.553707-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:40.983680-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:40:54.465640-05:00",
+      "command": "show platform software chasfs R0 | include cc/0/1/"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:19.509230-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:19.940698-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:40.457951-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:40.890551-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:41.405031-05:00",
+      "command": "show platform software iomd 0/1 oir"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:41.909758-05:00",
+      "command": "show hw-module subslot 0/1 oir"
+    },
+    {
+      "timestamp": "2026-11-11T16:41:42.391425-05:00",
+      "command": "show platform software subslot 0/1 module status"
+    },
+    {
+      "timestamp": "2026-11-11T16:42:02.909398-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:42:03.342104-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:42:21.949493-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:42:22.378478-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:42:22.902459-05:00",
+      "command": "show platform software iomd 0/1 oir"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:11.361119-05:00",
+      "command": "show platform"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:11.839529-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:12.263595-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:38.068021-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:38.491304-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:39.013197-05:00",
+      "command": "show platform software iomd 0/1 oir"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:39.511147-05:00",
+      "command": "show platform software chasfs R0 | include pf/oper-mode"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:59.363858-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:43:59.795644-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:44:15.319933-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:44:15.750137-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:44:16.279706-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:44:16.789029-05:00",
+      "command": "show platform"
+    },
+    {
+      "timestamp": "2026-11-11T16:44:44.607983-05:00",
+      "command": "show ntp status"
+    },
+    {
+      "timestamp": "2026-11-11T16:44:45.091287-05:00",
+      "command": "show power"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:00.587174-05:00",
+      "command": "show platform"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:01.069119-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:01.502274-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:39.838057-05:00",
+      "command": "show platform"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:40.321634-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:40.776718-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:41.302483-05:00",
+      "command": "show platform software iomd 0/1 oir"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:41.805075-05:00",
+      "command": "show voice dsp group all"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:42.299425-05:00",
+      "command": "show voice port summary"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:42.811811-05:00",
+      "command": "show voice dsp error"
+    },
+    {
+      "timestamp": "2026-11-11T16:45:43.293046-05:00",
+      "command": "show logging | include SPA_OIR|DSPRM|UNSUPPORTED_MODULE|Marvell"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:06.717027-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:07.149567-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:07.666846-05:00",
+      "command": "show inventory"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:08.159695-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:08.661784-05:00",
+      "command": "show platform software status control-processor brief"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:09.163820-05:00",
+      "command": "show interfaces GigabitEthernet0"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:09.647935-05:00",
+      "command": "show ntp status"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:10.142643-05:00",
+      "command": "show version | include uptime|returned|Last reload|Version|System image|register"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:10.661881-05:00",
+      "command": "show running-config"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:11.249857-05:00",
+      "command": "show startup-config"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:11.737240-05:00",
+      "command": "show logging"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:12.239138-05:00",
+      "command": "show users"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:30.091187-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:30.526884-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:31.072427-05:00",
+      "command": "show logging | include Marvell|DSPRM|SPA_OIR"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:31.581989-05:00",
+      "command": "show facility-alarm status"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:32.084560-05:00",
+      "command": "show platform hardware slot P2 ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:32.604892-05:00",
+      "command": "show platform hardware slot R0 ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:47.674780-05:00",
+      "command": "show platform hardware slot P2 fan ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:48.140206-05:00",
+      "command": "test platform hardware ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:48.626595-05:00",
+      "command": "request platform hardware ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:47:49.140042-05:00",
+      "command": "show platform software ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:06.117552-05:00",
+      "command": "test platform hardware slot R0 ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:06.622947-05:00",
+      "command": "test platform hardware slot P2 ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:07.139841-05:00",
+      "command": "test platform software ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:07.627347-05:00",
+      "command": "show platform software cman ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:12.441947-05:00",
+      "command": "test platform hardware slot R0 fan ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:12.936975-05:00",
+      "command": "test platform hardware slot P2 fan ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:28.855706-05:00",
+      "command": "test platform software chassis-manager ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:29.361584-05:00",
+      "command": "test platform software chassis ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:29.868481-05:00",
+      "command": "show platform hardware slot R0 fpga ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:34.935731-05:00",
+      "command": "test platform software chassis-manager slot R0 ?"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:45.285277-05:00",
+      "command": "show environment all"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:45.714951-05:00",
+      "command": "show platform hardware slot R0 fpga"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:46.225408-05:00",
+      "command": "show platform"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:46.723200-05:00",
+      "command": "show voice dsp error"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:47.230959-05:00",
+      "command": "show logging | include Marvell|DSPRM|SPA_OIR"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:47.731664-05:00",
+      "command": "show version | include uptime|Last reload"
+    },
+    {
+      "timestamp": "2026-11-11T16:48:48.230023-05:00",
+      "command": "show users"
+    }
+  ],
+  "sources": [
+    {
+      "private_name": "20261111-163946-ssh.raw",
+      "bytes": 354058,
+      "sha256": "f824296e047a831295fd585f7f63a7b5c0e1c3dc27cbcf0300ad64b22178f453"
+    }
+  ],
+  "helpers": [
+    {
+      "name": "session.py",
+      "sha256": "0c4c44cdd7f73616aea355abb261fbbff267c1b9dc1f2ccbd4f3e878d59ae4c2"
+    },
+    {
+      "name": "build_evidence.py",
+      "sha256": "48d92ad20cae2a882b1cd65ff116554968c207c48aaba20dc9be56e8c4b285a4"
+    }
+  ],
+  "limits": [
+    "Logical stop versus physical removal/reinsertion tested in one running chassis session. No module-absent cold boot or firmware policy modification tested.",
+    "No firmware, fan register/PWM, saved configuration or chassis power change; performance/calls deferred.",
+    "Known-value/pattern scans cannot prove absence of every unknown secret."
+  ]
+}
