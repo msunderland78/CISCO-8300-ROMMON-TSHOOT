@@ -1,0 +1,2655 @@
+DERIVED SELECTION: host timestamps America/New_York; carriage returns removed.
+Configuration bodies and raw controller dumps omitted; originals remain private.
+
+[COMMAND 2026-11-11T16:28:08.786180-05:00] terminal length 0
+terminal length 0
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:09.220430-05:00] terminal width 200
+terminal width 200
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:09.684138-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 12 minutes
+Uptime for this control processor is 14 minutes
+System returned to ROM by PowerOn
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+4 Voice FXO interfaces
+2 Voice FXS interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:13.896222-05:00] terminal length 0
+terminal length 0
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:14.340311-05:00] terminal width 200
+terminal width 200
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:14.783591-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 13 minutes
+Uptime for this control processor is 14 minutes
+System returned to ROM by PowerOn
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+4 Voice FXO interfaces
+2 Voice FXS interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:16.549245-05:00] show inventory
+show inventory
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO: Please use "show license UDI" to get serial number for licensing.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NAME: "Chassis", DESCR: "Cisco C8375-E-G2 Chassis"
+PID: C8375-E-G2        , VID: V01  , SN: FDO2742M0FK
+
+NAME: "Power Supply Module 1", DESCR: "400W AC power supply for Cisco C8300 1RU"
+PID: PWR-CC1-400WAC    , VID: V01  , SN: LIT2727C7NE
+
+NAME: "Fan Tray", DESCR: "Cisco C8300 1RU Fan Assembly"
+PID: C8300-FAN-1R      , VID: V02  , SN:            
+
+NAME: "module 0", DESCR: "Cisco C8375-E-G2 Built-In NIM controller"
+PID: C8375-E-G2        , VID:      , SN:            
+
+NAME: "NIM subslot 0/1", DESCR: "NIM-2FXS/4FXOP Voice Analog Module"
+PID: NIM-2FXS/4FXOP    , VID: V01  , SN: FOC23152BE1
+
+NAME: "NIM subslot 0/0", DESCR: "4M-2xSFP+"
+PID: 4M-2xSFP+         , VID: V01  , SN:            
+
+NAME: "subslot 0/0 transceiver 4", DESCR: "SFP+ 10GBASE-SR"
+PID: SFP-10G-SR          , VID: V03  , SN: AVD24159TDX     
+
+NAME: "module 1", DESCR: "Cisco C8375-E-G2 Built-In SM controller"
+PID: C8375-E-G2        , VID:      , SN:            
+
+NAME: "module R0", DESCR: "Cisco C8375-E-G2 Route Processor"
+PID: C8375-E-G2        , VID: V01  , SN: FDO27380KFQ
+
+NAME: "module F0", DESCR: "Cisco C8375-E-G2 Forwarding Processor"
+PID: C8375-E-G2        , VID:      , SN:            
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:17.000171-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:13:42      
+ 0/0      4M-2xSFP+           ok                    00:12:43      
+ 0/1      NIM-2FXS/4FXOP      ok                    00:11:08      
+1         C8375-E-G2          ok                    00:13:42      
+R0        C8375-E-G2          ok, active            00:13:42      
+F0        C8375-E-G2          ok, active            00:13:42      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:13:00      
+P2        C8300-FAN-1R        ok                    00:12:59      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:17.475596-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          23 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          24 Celsius
+ Temp: Outlet 2          R0              Normal          27 Celsius
+ Temp: CPU               R0              Normal          33 Celsius
+ Temp: Working           R0              Normal          23 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2501 mV
+ V: 1.8V                 R0              Normal          1799 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1207 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          831 mV
+ V: 0.8V_SW              R0              Normal          794 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          35 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          29 Celsius
+ Temp: Temp 3            P1              Normal          31 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9480 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:17.946672-05:00] show platform software chasfs R0 | include oper-mode|psu|power
+show platform software chasfs R0 | include oper-mode|psu|power
+  /tmp/chassis/local/rp/chasfs/pf/oper-mode : [normal]
+  /tmp/chassis/local/rp/chasfs/cc/0/1/powered_shut_support : [no]
+  /tmp/chassis/local/rp/chasfs/cc/0/4/powered_shut_support : [no]
+  /tmp/chassis/local/rp/chasfs/cc/0/0/powered_shut_support : [no]
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:27.855659-05:00] show voice port summary
+show voice port summary
+                                           IN       OUT
+PORT            CH   SIG-TYPE   ADMIN OPER STATUS   STATUS   EC
+=============== == ============ ===== ==== ======== ======== ==
+0/1/0           --  fxs-ls      up    dorm on-hook  idle     y 
+0/1/1           --  fxs-ls      up    dorm on-hook  idle     y 
+0/1/2           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/3           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/4           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/5           --  fxo-ls      up    dorm idle     on-hook  y 
+ 
+PWR FAILOVER PORT        PSTN FAILOVER PORT
+=================        ==================
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:28.316594-05:00] show voice dsp group all
+show voice dsp group all
+DSP groups on slot 0/1 slot id 1
+dsp 1:
+  State: UP, firmware: 66.1.0
+  Max signal/voice channel: 8/8
+  Max credits: 120, Voice credits: 120, Video credits: 0
+  num_of_sig_chnls_allocated: 6
+  Transcoding channels allocated: 0
+  Group: FLEX_GROUP_VOICE, complexity: FLEX
+    Shared credits: 120, reserved credits: 0
+    Signaling channels allocated: 6
+    Voice channels allocated: 0
+    Credits used (rounded-up): 0
+  Slot: 0/1
+  Device idx: 0
+  Dsp Type: DM8147 
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:28.796614-05:00] show voice call summary
+show voice call summary
+PORT           CODEC     VAD VTSP STATE            VPM STATE
+============== ========= === ===================== =====================
+0/1/0          -          -  -                     FXSLS_ONHOOK             
+0/1/1          -          -  -                     FXSLS_ONHOOK             
+0/1/2          -          -  -                     FXOLS_ONHOOK             
+0/1/3          -          -  -                     FXOLS_ONHOOK             
+0/1/4          -          -  -                     FXOLS_ONHOOK             
+0/1/5          -          -  -                     FXOLS_ONHOOK             
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:29.270416-05:00] show call active voice brief
+show call active voice brief
+<ID>: <CallID> <start>ms.<index> (<start>) +<connect> pid:<peer_id> <dir> <addr> <state> 
+  dur hh:mm:ss tx:<packets>/<bytes> rx:<packets>/<bytes> dscp:<packets violation> media:<packets violation> audio tos:<audio tos value> video tos:<video tos value>
+ IP <ip>:<udp> rtt:<time>ms pl:<play>/<gap>ms lost:<lost>/<early>/<late>
+  delay:<last>/<min>/<max>ms <codec> <textrelay> <transcoded
+  
+ media inactive detected:<y/n> media cntrl rcvd:<y/n> timestamp:<time>
+  
+ long duration call detected:<y/n> long duration call duration :<sec> timestamp:<time>
+ LostPacketRate:<%> OutOfOrderRate:<%>
+ LocalUUID:<%> RemoteUUID:<%>
+ VRF:<%>
+  MODEMPASS <method> buf:<fills>/<drains> loss <overall%> <multipkt>/<corrected>
+   last <buf event time>s dur:<Min>/<Max>s
+ FR <protocol> [int dlci cid] vad:<y/n> dtmf:<y/n> seq:<y/n>
+  <codec> (payload size)
+ ATM <protocol> [int vpi/vci cid] vad:<y/n> dtmf:<y/n> seq:<y/n>
+  <codec> (payload size)
+ Tele <int> (callID) [channel_id] tx:<tot>/<v>/<fax>ms <codec> noise:<l> acom:<l> i/o:<l>/<l> dBm
+  MODEMRELAY info:<rcvd>/<sent>/<resent> xid:<rcvd>/<sent> total:<rcvd>/<sent>/<drops>
+         speeds(bps): local <rx>/<tx> remote <rx>/<tx>
+ Proxy <ip>:<audio udp>,<video udp>,<tcp0>,<tcp1>,<tcp2>,<tcp3> endpt: <type>/<manf>
+ bw: <req>/<act> codec: <audio>/<video>
+  tx: <audio pkts>/<audio bytes>,<video pkts>/<video bytes>,<t120 pkts>/<t120 bytes>
+ rx: <audio pkts>/<audio bytes>,<video pkts>/<video bytes>,<t120 pkts>/<t120 bytes>
+ 
+
+
+Telephony call-legs: 0
+SIP call-legs: 0
+H323 call-legs: 0
+Call agent controlled call-legs: 0
+SCCP call-legs: 0
+STCAPP call-legs: 0
+Multicast call-legs: 0
+Total call-legs: 0
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:29.731658-05:00] show platform software status control-processor brief
+show platform software status control-processor brief
+Load Average
+ Slot  Status  1-Min  5-Min 15-Min
+  RP0 Healthy   4.93   4.47   2.83
+
+Memory (kB)
+ Slot  Status    Total     Used (Pct)     Free (Pct) Committed (Pct)
+  RP0 Healthy  7904332  4915412 (62%)  2988920 (38%)   3672044 (46%)
+
+CPU Utilization
+ Slot  CPU   User System   Nice   Idle    IRQ   SIRQ IOwait
+  RP0    0  25.22  23.62   2.10  47.74   0.60   0.50   0.20
+         1  15.21  14.01   0.00  68.36   2.40   0.00   0.00
+         2  11.60  11.00   0.00  75.00   2.40   0.00   0.00
+         3   9.10   9.50   0.00  79.00   2.40   0.00   0.00
+         4  11.71  10.91   0.00  74.97   2.40   0.00   0.00
+         5  13.31  10.31   0.00  73.87   2.40   0.10   0.00
+         6  14.30  12.80   0.00  70.50   2.40   0.00   0.00
+         7  13.41  11.21   0.00  72.97   2.40   0.00   0.00
+         8  12.01  12.31   0.00  73.27   2.40   0.00   0.00
+         9  14.80  13.20   0.00  69.60   2.40   0.00   0.00
+        10  17.90  14.50   0.00  65.10   2.50   0.00   0.00
+        11  19.30  15.70   0.00  62.60   2.40   0.00   0.00
+        12   3.80   6.10   0.00  88.20   1.90   0.00   0.00
+        13  11.40  13.80   0.00  72.40   2.40   0.00   0.00
+        14   6.50  11.91   0.00  79.47   2.10   0.00   0.00
+        15   4.00  12.91   0.00  80.38   2.70   0.00   0.00
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:30.223810-05:00] show processes cpu sorted 5sec | exclude 0.00%  0.00%  0.00%
+show processes cpu sorted 5sec | exclude 0.00%  0.00%  0.00%
+CPU utilization for five seconds: 0%/0%; one minute: 0%; five minutes: 0%
+ PID Runtime(ms)     Invoked      uSecs   5Sec   1Min   5Min TTY Process 
+ 811         189        1082        174  0.23%  0.23%  0.05% 867 SSH Process      
+ 120         151         788        191  0.23%  0.02%  0.00%   0 Environmental Mo 
+   9         163         108       1509  0.15%  0.02%  0.00%   0 Check heaps      
+  84         390        1876        207  0.07%  0.06%  0.01%   0 IOSD ipc task    
+ 134          56        1141         49  0.00%  0.02%  0.00%   0 IOSXE-RP Punt Se 
+ 156         374         984        380  0.00%  0.02%  0.01%   0 SAMsgThread      
+ 158         100          27       3703  0.00%  0.01%  0.00%   0 Per-minute Jobs  
+ 532          59          15       3933  0.00%  0.04%  0.00%   0 LOCAL AAA        
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:30.714819-05:00] show platform hardware qfp active datapath utilization
+show platform hardware qfp active datapath utilization
+  CPP 0: Subdev 0            5 secs        1 min        5 min       60 min
+Input:  Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            2            2            2            0
+                 (bps)          640         1056         1056          232
+           Total (pps)            2            2            2            0
+                 (bps)          640         1056         1056          232
+Output: Priority (pps)            0            0            0            0
+                 (bps)            0            0            0            0
+    Non-Priority (pps)            1            1            1            0
+                 (bps)         2864         8728         8728         1848
+           Total (pps)            1            1            1            0
+                 (bps)         2864         8728         8728         1848
+Processing: Load (pct)            0            0            0            0
+
+Crypto/IO
+        RX: Load (pct)            0            0            0            0
+        TX: Load (pct)            1            1            1           19
+            Idle (pct)           99           99           99           80
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:31.236667-05:00] show ip interface brief
+show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Tw0/0/0                unassigned      YES NVRAM  administratively down down    
+Tw0/0/1                unassigned      YES NVRAM  administratively down down    
+Tw0/0/2                unassigned      YES NVRAM  administratively down down    
+Tw0/0/3                unassigned      YES NVRAM  administratively down down    
+Te0/0/4                unassigned      YES NVRAM  administratively down down    
+Te0/0/5                unassigned      YES NVRAM  administratively down down    
+Service-Engine0/1/0    unassigned      YES unset  up                    up      
+Service-Engine0/4/0    unassigned      YES unset  up                    up      
+GigabitEthernet0       192.168.4.62    YES NVRAM  up                    up      
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:31.732361-05:00] show interfaces
+show interfaces
+TwoGigabitEthernet0/0/0 is administratively down, line protocol is down 
+  Hardware is 4M-2xSFP+, address is e80a.b995.77a0 (bia e80a.b995.77a0)
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+TwoGigabitEthernet0/0/1 is administratively down, line protocol is down 
+  Hardware is 4M-2xSFP+, address is e80a.b995.77a1 (bia e80a.b995.77a1)
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+TwoGigabitEthernet0/0/2 is administratively down, line protocol is down 
+  Hardware is 4M-2xSFP+, address is e80a.b995.77a2 (bia e80a.b995.77a2)
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+TwoGigabitEthernet0/0/3 is administratively down, line protocol is down 
+  Hardware is 4M-2xSFP+, address is e80a.b995.77a3 (bia e80a.b995.77a3)
+  MTU 1500 bytes, BW 2500000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 2500Mbps, link type is auto, media type is RJ45
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+TenGigabitEthernet0/0/4 is administratively down, line protocol is down 
+  Hardware is 4M-2xSFP+, address is e80a.b995.77a4 (bia e80a.b995.77a4)
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is force-up, media type is 10GBase-SR
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+TenGigabitEthernet0/0/5 is administratively down, line protocol is down 
+  Hardware is 4M-2xSFP+, address is e80a.b995.77a5 (bia e80a.b995.77a5)
+  MTU 1500 bytes, BW 10000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive not supported 
+  Full Duplex, 10000Mbps, link type is auto, media type is unknown media type
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+Service-Engine0/1/0 is up, line protocol is up 
+  Hardware is NIM-2FXS/4FXOP
+  MTU 9216 bytes, BW 750000 Kbit/sec, DLY 1000 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation DSP_SPA, loopback not set
+  Keepalive not supported 
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 output buffer failures, 0 output buffers swapped out
+Service-Engine0/4/0 is up, line protocol is up 
+  Hardware is VDSP-CC, address is e80a.b995.77a0 (bia e80a.b995.77a0)
+  MTU 9216 bytes, BW 750000 Kbit/sec, DLY 1000 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation DSP_SPA, loopback not set
+  Keepalive not supported 
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/375/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 input packets with dribble condition detected
+     0 packets output, 0 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier
+     0 output buffer failures, 0 output buffers swapped out
+GigabitEthernet0 is up, line protocol is up 
+  Hardware is RP management port, address is e80a.b995.782f (bia e80a.b995.782f)
+  Internet address is 192.168.4.62/24
+  MTU 1500 bytes, BW 1000000 Kbit/sec, DLY 10 usec, 
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  Full Duplex, 1000Mbps, link type is auto, media type is RJ45
+  output flow-control is unsupported, input flow-control is unsupported
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:00, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 2000 bits/sec, 2 packets/sec
+  5 minute output rate 2000 bits/sec, 2 packets/sec
+     1162 packets input, 252860 bytes, 0 no buffer
+     Received 25 broadcasts (0 IP multicasts)
+     0 runts, 0 giants, 0 throttles 
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 watchdog, 0 multicast, 0 pause input
+     1272 packets output, 209938 bytes, 0 underruns
+     Output 0 broadcasts (0 IP multicasts)
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier, 0 pause output
+     0 output buffer failures, 0 output buffers swapped out
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:32.188635-05:00] show install summary
+show install summary
+[ R0 ] Installed Package(s) Information:
+State (St): I - Inactive, U - Activated & Uncommitted,
+            C - Activated & Committed, D - Deactivated & Uncommitted
+--------------------------------------------------------------------------------
+Type  St   Filename/Version
+--------------------------------------------------------------------------------
+IMG   C    26.01.02.0.3639
+
+--------------------------------------------------------------------------------
+Auto abort timer: inactive
+--------------------------------------------------------------------------------
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:49.593217-05:00] show logging
+show logging
+Syslog logging: enabled (0 messages dropped, 3 messages rate-limited, 0 flushes, 0 overruns, xml disabled, filtering disabled)
+
+No Active Message Discriminator.
+
+
+
+No Inactive Message Discriminator.
+
+
+    Console logging: level debugging, 169 messages logged, xml disabled,
+                     filtering disabled
+    Monitor logging: level debugging, 58 messages logged, xml disabled,
+                     filtering disabled
+        Logging to: vty866(58)
+    Buffer logging:  level debugging, 169 messages logged, xml disabled,
+                    filtering disabled
+    Exception Logging: size (4096 bytes)
+    Count and timestamp logging messages: disabled
+    Persistent logging: disabled
+
+No active filter modules.
+
+    Trap logging: level informational, 161 message lines logged
+        Logging Source-Interface:       VRF Name:
+    TLS Profiles: 
+
+Log Buffer (102400 bytes):
+
+*Jan  8 18:24:06.509: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*Jan  8 18:24:06.509: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module Integrity Test
+*Jan  8 18:24:06.513: %CRYPTO-5-SELF_TEST_END: Crypto Integrity self-test completed successfully
+       All tests passed.
+*Jan  8 18:24:06.697: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*Jan  8 18:24:07.739: %PLATFORM_PM-6-NGSW_MODE: pre-configure switching mode to doppler next-gen on this platform
+*Jan  8 18:24:07.763: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled ESG-NGSW-ACL:[subsys-init] Init ESG-ACL subsystem starting
+
+*Jan  8 18:24:10.779: ESG-NGSW-ACL:[subsys-init] Init ESG-ACL subsystem ended
+
+*Jan  8 18:24:10.779: 
+*Jan  8 18:24:10.949: NGIOLite module 4M-2xSFP+ success read extended attr from conf file len: 1063
+
+*Jan  8 18:24:11.634: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*Jan  8 18:24:12.445: %TLSCLIENT-5-TLSCLIENT_IOS: TLS Client is IOS based
+*Jan  8 18:24:12.479: %SSH-4-SSH_COMPLIANCE_SSH_RSA_DISABLED: Please note that ssh-rsa algorithm stands disabled from IOS-XE release 17.16.1 onwards and will not be part of the preferred publickey or hostkey algorithms by default. Users may choose to configure them explicitly if required
+*Jan  8 18:24:12.488: %SPANTREE-5-EXTENDED_SYSID: Extended SysId enabled for type vlan
+*Jan  8 18:24:12.514: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*Jan  8 18:24:12.544: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_ENFORCED: Cisco PSB security compliance is being enforced
+*Jan  8 18:24:12.567: %CUBE-3-LICENSING:  SIP trunking (CUBE) licensing is now based on dynamic sessions counting, static license capacity configuration through 'mode border-element license capacity' would be ignored.
+*Jan  8 18:24:12.568: %SIP-5-LICENSING: CUBE license reporting period has been set to the minimum value of 8 hours.
+*Jan  8 18:24:12.592: %VOICE_HA-7-STATUS: CUBE HA-supported platform detected.
+*Jan  8 18:24:13.398: %IOSXE_RP_ALARM-2-PEM: ASSERT CRITICAL Power Supply Bay 0 Power Supply/FAN Module Missing 
+*Jan  8 18:24:13.403: %CRYPTO_SL_TP_LEVELS-6-PLATFORM_BASED_LIC: Platform Based License Support, throughput is un-throttled
+*Jan  8 18:24:13.437: %LINK-3-UPDOWN: Interface EOBC0, changed state to up
+*Jan  8 18:24:13.447: %LINK-3-UPDOWN: Interface Lsmpi0, changed state to up
+*Jan  8 18:24:13.448: %LINEPROTO-5-UPDOWN: Line protocol on Interface LI-Null0, changed state to up
+*Jan  8 18:24:13.449: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+*Jan  8 18:24:13.449: %LINK-3-UPDOWN: Interface LIIN0, changed state to up
+*Jan  8 18:24:13.449: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to down
+*Jan  8 18:24:13.451: %IOSXE_RP_ALARM-6-INFO: ASSERT CRITICAL GigabitEthernet0 Physical Port Link Down 
+*Jan  8 18:24:13.521: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*Jan  8 18:24:13.747: %IOSXE_MGMTVRF-6-CREATE_SUCCESS_INFO: Management vrf Mgmt-intf created with ID 1, ipv4 table-id 0x1, ipv6 table-id 0x1E000001
+*Jan  8 18:24:13.862: %PNP-6-PNP_DISCOVERY_STARTED: PnP Discovery started
+*Jan  8 18:24:09.761: %CMRP-3-PFU_MISSING: R0/0: cmand: The platform does not detect a power supply in slot 0
+*Jan  8 18:24:09.883: %CMRP_PFU-6-FANASSY_INSERTED: R0/0: cmand: Fan Assembly is inserted.
+*Jan  8 18:24:14.180: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*Jan  8 18:24:14.600: %LINEPROTO-5-UPDOWN: Line protocol on Interface EOBC0, changed state to up
+*Jan  8 18:24:14.600: %LINEPROTO-5-UPDOWN: Line protocol on Interface Lsmpi0, changed state to up
+*Jan  8 18:24:14.601: %LINEPROTO-5-UPDOWN: Line protocol on Interface LIIN0, changed state to up
+*Jan  8 18:24:14.601: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to down
+*Jan  8 18:24:14.680: %ONEP_BASE-6-SS_ENABLED: ONEP: Service set Base was enabled by Default
+*Jan  8 18:24:14.899: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Jan  8 18:24:16.075: %SYS-7-NVRAM_INIT_WAIT_TIME: Waited 0 seconds for NVRAM to be available
+*Jan  8 18:24:16.287: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named TP-self-signed-1897751160 has been generated or imported by crypto config
+*Jan  8 18:24:16.291: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: SSH - Command: crypto key generate rsa modulus 2048 label TP-self-signed-1897751160  - Reason: An SSH hostkey has been provisioned on the device with insufficient key length - Remediation: Please provision an SSH RSA hostkey with minimum modulus size of 3072 bits for enhanced security - Submode: exec - Parent CLI: Not Applicable
+*Jan  8 18:24:16.293: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CAT8375-G2.sunderdesign.top has been generated or imported by crypto config
+*Jan  8 18:24:16.296: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named SLA-KeyPair has been generated or imported by crypto config
+*Jan  8 18:24:16.298: %SYS-6-PRIVCFG_DECRYPT_SUCCESS: Successfully apply the private config file
+*Jan  8 18:24:16.331: %SYS-4-SYSTEM_SECURITY_MODE_CHANGE: System Security Mode Changed from SECURE to INSECURE
+*Jan  8 2025 13:24:16.339 EST: %SYS-6-CLOCKUPDATE: System clock has been updated from 18:24:16 UTC Wed Jan 8 2025 to 13:24:16 EST Wed Jan 8 2025, configured from console by vty0.
+*Jan  8 2025 13:24:16.340 EST: %SYS-6-CLOCKUPDATE: System clock has been updated from 13:24:16 EST Wed Jan 8 2025 to 13:24:16 EST Wed Jan 8 2025, configured from console by vty0.
+*Jan  8 2025 13:24:16.349 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: TP-self-signed-1897751160 created successfully
+*Jan  8 2025 13:24:16.350 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created successfully
+*Jan  8 2025 13:24:16.358 EST: yang-infra: self-signed cert inserted(TP-self-signed-1897751160)
+*Jan  8 2025 13:24:16.372 EST: %AAA-4-USERNAME_CONFIGURATION: user with username: matt configured
+*Jan  8 2025 13:24:16.372 EST: %AAA-6-USER_PRIVILEGE_UPDATE: username: matt privilege updated with priv-15
+*Jan  8 2025 13:24:16.373 EST: %AAA-4-USERNAME_CONFIGURATION: user with username: admin configured
+*Jan  8 2025 13:24:16.373 EST: %AAA-6-USER_PRIVILEGE_UPDATE: username: admin privilege updated with priv-15
+*Jan  8 2025 13:24:16.519 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: RCMD - Command: ip rcmd domain-lookup - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.521 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: IP - Command: ip forward-protocol udp tftp - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.522 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: TELNET - Command: ip telnet comport enable - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.524 EST: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp blocksize 512 - The configuration is inconsistent with secure network operation and is not recommended
+*Jan  8 2025 13:24:16.525 EST: %SYS-4-INSECURE_WARNING: Module: FTP - Command: ip ftp passive  - The configuration is inconsistent with secure network operation and is not recommended
+*Jan  8 2025 13:24:16.539 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp allow mode control - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.546 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp server vrf Mgmt-intf 192.168.3.10 - Reason: NTP configuration lacks authentication, allowing potential time manipulation attacks - Remediation: Configure a valid auth key and make it trusted using the command - ntp trusted-key - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.547 EST: %SYS-5-CONFIG_I: Configured from memory by console
+*Jan  8 2025 13:24:16.554 EST: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/0, interfaces disabled
+*Jan  8 2025 13:24:16.554 EST: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/4, interfaces disabled
+*Jan  8 2025 13:24:16.557 EST: %SPA_OIR-6-OFFLINECARD: SPA (4M-2xSFP+) offline in subslot 0/0
+*Jan  8 2025 13:24:16.560 EST: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*Jan  8 2025 13:24:16.597 EST: %IOSXE_OIR-6-INSCARD: Card (fp) inserted in slot F0
+*Jan  8 2025 13:24:16.598 EST: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 0
+*Jan  8 2025 13:24:16.598 EST: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 1
+*Jan  8 2025 13:24:16.616 EST: %IOSXE_RP_PAE_NOT-4-PAE_STARTUP_DELAY: Product Analytics will start in 7 days, configure "no product-analytics" to disable
+*Jan  8 2025 13:24:16.617 EST: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*Jan  8 2025 13:24:16.622 EST: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*Jan  8 2025 13:24:16.640 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: RCMD - Command: ip rcmd domain-lookup - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.640 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp allow mode control - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.655 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: IP - Command: ip forward-protocol udp tftp - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.655 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: TELNET - Command: ip telnet comport enable - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:17.385 EST: %IOSXE_OIR-6-ONLINECARD: Card (fp) online in slot F0
+*Jan  8 2025 13:24:17.548 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Jan  8 2025 13:24:21.284 EST: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 0
+*Jan  8 2025 13:24:21.296 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*Jan  8 2025 13:24:21.296 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*Jan  8 2025 13:24:21.309 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/4
+*Jan  8 2025 13:24:22.233 EST: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 1
+*Jan  8 2025 13:24:22.711 EST: Tamper: wait on boolean for tamper event to fetch
+*Jan  8 2025 13:24:22.711 EST: %SYS-5-RESTART: System restarted --
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+*Jan  8 2025 13:24:22.780 EST: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to up
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_BEST_UDI_UPDATE: Best UDI [PID:C8375-E-G2,VID:V01,SN:FDO2742M0FK] identified via (entity-mibs)
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_CDP_UPDATE: Device UDI [PID:C8375-E-G2,VID:V01,SN:FDO2742M0FK] identified for CDP
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Startup Config Present)
+*Jan  8 2025 13:24:23.779 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to up
+*Jan  8 2025 13:24:24.275 EST: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 3 times and closed 0 times during power down. There is no last known/marked event.
+*Jan  8 2025 13:24:24.275 EST: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 1 times and closed 2 times during power up. There is no last known/marked event.
+*Jan  8 2025 13:24:26.618 EST: %SYS-5-CONFIG_P: Configured programmatically by process EPM CREATE DEFAULT CWA URL ACL from console as console
+*Jan  8 2025 13:24:29.835 EST: %SPA_OIR-6-ONLINECARD: SPA (VDSP-CC) online in subslot 0/4
+*Jan  8 2025 13:24:32.524 EST: %LINK-3-UPDOWN: Interface Service-Engine0/4/0, changed state to up
+*Jan  8 2025 13:24:32.789 EST: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Jan  8 2025 13:24:32.789 EST: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*Jan  8 2025 13:24:32.891 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI created successfully
+*Jan  8 2025 13:24:32.893 EST: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CISCO_IDEVID_SUDI has been generated or imported by pki-sudi
+*Jan  8 2025 13:24:32.901 EST: yang-infra: Configured netconf trustpoint (CISCO_IDEVID_SUDI) created
+*Jan  8 2025 13:24:32.901 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI0 created successfully
+*Jan  8 2025 13:24:32.903 EST: %PKI-2-NON_AUTHORITATIVE_CLOCK: PKI functions can not be initialized until an authoritative time source, like NTP, can be obtained.
+*Jan  8 2025 13:24:33.524 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/4/0, changed state to up
+*Jan  8 2025 13:24:35.984 EST: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Jan  8 2025 13:24:35.984 EST: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*Jan  8 2025 13:24:49.215 EST: NGIOLite module 4M-2xSFP+ success read extended attr from conf file len: 1063
+
+*Jan  8 2025 13:24:49.539 EST: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/4
+*Jan  8 2025 13:24:50.761 EST: %SPA_OIR-6-ONLINECARD: SPA (4M-2xSFP+) online in subslot 0/0
+*Jan  8 2025 13:24:51.896 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 0) using crypto cipher 'aes256-ctr', hmac 'hmac-sha2-512-etm@openssh.com' Succeeded
+*Jan  8 2025 13:24:51.921 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: admin] [Source: 192.168.5.104] [localport: 22] at 13:24:51 EST Wed Jan 8 2025
+*Jan  8 2025 13:24:51.921 EST: %SSH-5-SSH2_USERAUTH: User 'admin' authentication for SSH2 Session from 192.168.5.104 (tty = 0) using crypto cipher 'aes256-ctr', hmac 'hmac-sha2-512-etm@openssh.com' Succeeded
+*Jan  8 2025 13:25:18.461 EST: %SMART_LIC-6-REPORTING_REQUIRED: A Usage report acknowledgement will be required in 758 days.
+*Jan  8 2025 13:25:19.461 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Nov 11 2026 16:16:31.731 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card F0 took 69 secs to boot
+*Nov 11 2026 16:16:31.732 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 0 took 64 secs to boot
+*Nov 11 2026 16:16:31.732 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 1 took 64 secs to boot
+*Nov 11 2026 16:16:36.686 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/1
+*Nov 11 2026 16:16:43.212 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+*Nov 11 2026 16:17:03.065 EST: new extended attributes received from iomd(slot 0 bay 1 board 0)
+*Nov 11 2026 16:17:03.580 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %IOSXE_OIR-6-SOFT_RELOADSPA: SPA(NIM-2FXS/4FXOP) reloaded on subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+*Nov 11 2026 16:17:08.642 EST: %VOICE_HA-7-STATUS: Create VOICE HA INFRA processes now....
+*Nov 11 2026 16:17:09.656 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoipNull0, changed state to up
+*Nov 11 2026 16:17:26.425 EST: %SMART_LIC-6-USAGE_NO_ACK: A Usage report acknowledgement has not been received in the last 0 days.
+*Nov 11 2026 16:17:26.426 EST: %SIP-5-LICENSING: smart license report is not acknowledged.
+*Nov 11 2026 16:17:36.044 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:39.037 EST: %LINK-3-UPDOWN: Interface Service-Engine0/1/0, changed state to up
+*Nov 11 2026 16:17:40.036 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/1/0, changed state to up
+*Nov 11 2026 16:17:40.896 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+*Nov 11 2026 16:17:40.909 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/0, changed state to up
+*Nov 11 2026 16:17:41.044 EST: ***********************************************************
+Detailed call stats collection has been turned on
+Use "media disable-detailed-stats" under "voice service voip"to turn it off
+***********************************************************
+
+*Nov 11 2026 16:17:42.304 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/0, changed state to ready
+*Nov 11 2026 16:17:42.304 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/1, changed state to up
+*Nov 11 2026 16:17:42.305 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/2, changed state to up
+*Nov 11 2026 16:17:42.306 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/3, changed state to up
+*Nov 11 2026 16:17:43.832 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/1, changed state to ready
+*Nov 11 2026 16:17:43.832 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/2, changed state to ready
+*Nov 11 2026 16:17:43.833 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/3, changed state to ready
+*Nov 11 2026 16:17:43.834 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/4, changed state to up
+*Nov 11 2026 16:17:43.835 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/5, changed state to up
+*Nov 11 2026 16:17:43.976 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/4, changed state to ready
+*Nov 11 2026 16:17:43.977 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/5, changed state to ready
+*Nov 11 2026 16:19:30.409 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:19:32.073 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:19:33.596 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:20:16.175 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Nov 11 2026 16:20:16.176 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:24:43.050 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:24:44.084 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:24:44.084 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:26:54.005 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:26:55.037 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:26:55.038 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:28:08.214 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:08.354 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:28:08 EST Wed Nov 11 2026
+*Nov 11 2026 16:28:08.354 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:10.182 EST: %SYS-6-LOGOUT: User matt has exited tty session 867(192.168.5.104)
+*Nov 11 2026 16:28:10.182 EST: %SSH-5-SSH2_CLOSE: SSH2 Session from 192.168.5.104 (tty = 1) for user 'matt' using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' closed
+*Nov 11 2026 16:28:13.314 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:13.457 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:28:13 EST Wed Nov 11 2026
+*Nov 11 2026 16:28:13.457 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:50.047938-05:00] show platform software core slot R0
+show platform software core slot R0
+                                    ^
+% Invalid input detected at '^' marker.
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:50.552629-05:00] dir bootflash:
+dir bootflash:
+Directory of bootflash:/
+
+34      -rw-         11381403   Nov 7 2026 18:53:10 -05:00  collated_log_20261107-185306
+522241  drwx             4096   Nov 7 2026 18:32:46 -05:00  .rollback_timer
+41      -rw-             8406   Nov 7 2026 18:32:21 -05:00  packages.conf
+33      -rw-             8406   Nov 7 2026 18:30:21 -05:00  c8kg2be-universalk9.26.01.02.SPA.conf
+1044672  -rw-         68479592   Nov 7 2026 18:30:14 -05:00  c8kg2be-rpboot.26.01.02.SPA.pkg
+1045839  drwx             4096   Nov 7 2026 18:30:12 -05:00  .images
+32      -rwx       1022725792   Nov 7 2026 18:29:25 -05:00  c8kg2be-universalk9.26.01.02.SPA.bin
+25      -rw-             8405   Nov 7 2026 17:51:30 -05:00  c8kg2be-universalk9.26.02.01.SPA.conf
+1044637  -rw-         74019996   Nov 7 2026 17:51:23 -05:00  c8kg2be-rpboot.26.02.01.SPA.pkg
+11      -rwx       1048008916   Nov 7 2026 17:50:32 -05:00  c8kg2be-universalk9.26.02.01.SPA.bin
+37      -rw-             7160   Nov 7 2026 16:23:33 -05:00  BACKUP-07NOV2026.txt
+40      -rw-             7710  Oct 31 2026 14:28:25 -04:00  c8kg2be-universalk9.17.15.06.SPA.conf
+1044490  -rw-         60003040  Oct 31 2026 14:28:18 -04:00  c8kg2be-rpboot.17.15.06.SPA.pkg
+130562  drwx             4096  Oct 31 2026 13:29:07 -04:00  memaudit_log
+1044779  -rw-        962338816  Sep 22 2026 16:17:42 -04:00  c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+1044774  -rw-            53248  Sep 22 2026 16:16:31 -04:00  c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg
+1044768  -rw-           139264  Sep 22 2026 16:16:31 -04:00  c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg
+1044773  -rw-         10444800  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_prince.26.02.01.SPA.pkg
+1044778  -rw-           204800  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg
+1044775  -rw-         13889536  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg
+1044772  -rw-          5677056  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg
+1044776  -rw-         14700544  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_sm_async.26.02.01.SPA.pkg
+1044769  -rw-         12017664  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg
+1044771  -rw-         11923456  Sep 22 2026 16:16:29 -04:00  c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg
+1044734  -rw-          6807552  Sep 22 2026 16:16:29 -04:00  c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg
+1044777  -rw-          2600960  Sep 22 2026 16:16:29 -04:00  c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg
+1044770  -rw-         13287424  Sep 22 2026 16:16:29 -04:00  c8kg2be-firmware_nim_async.26.02.01.SPA.pkg
+1044929  -rw-        943767552  Jul 31 2026 15:33:31 -04:00  c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+1044878  -rw-           139264  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+1044923  -rw-         13889536  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_sm_1t3e3.26.01.02.SPA.pkg
+1044928  -rw-           204800  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_sm_nim_adpt.26.01.02.SPA.pkg
+1044921  -rw-         10444800  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_prince.26.01.02.SPA.pkg
+1044919  -rw-          5677056  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_nim_xdsl.26.01.02.SPA.pkg
+1044922  -rw-            53248  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_pse_si3470a.26.01.02.SPA.pkg
+1044915  -rw-         13287424  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_nim_async.26.01.02.SPA.pkg
+1044874  -rw-          6807552  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_dsp_analogbri.26.01.02.SPA.pkg
+1044925  -rw-         14700544  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_sm_async.26.01.02.SPA.pkg
+1044880  -rw-         12017664  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_ngwic_t1e1.26.01.02.SPA.pkg
+1044916  -rw-         11923456  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_nim_shdsl.26.01.02.SPA.pkg
+1044926  -rw-          2600960  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_sm_dsp_sp2700.26.01.02.SPA.pkg
+1044506  -rw-        892178432  Jul 22 2026 01:01:34 -04:00  c8kg2be-mono-universalk9.17.15.06.SPA.pkg
+1044501  -rw-          5677056  Jul 22 2026 01:00:20 -04:00  c8kg2be-firmware_nim_xdsl.17.15.06.SPA.pkg
+1044505  -rw-           204800  Jul 22 2026 01:00:20 -04:00  c8kg2be-firmware_sm_nim_adpt.17.15.06.SPA.pkg
+1044495  -rw-         11956224  Jul 22 2026 01:00:20 -04:00  c8kg2be-firmware_ngwic_t1e1.17.15.06.SPA.pkg
+1044503  -rw-         13889536  Jul 22 2026 01:00:20 -04:00  c8kg2be-firmware_sm_1t3e3.17.15.06.SPA.pkg
+1044504  -rw-         14671872  Jul 22 2026 01:00:20 -04:00  c8kg2be-firmware_sm_async.17.15.06.SPA.pkg
+1044502  -rw-         10444800  Jul 22 2026 01:00:20 -04:00  c8kg2be-firmware_prince.17.15.06.SPA.pkg
+1044499  -rw-         11804672  Jul 22 2026 01:00:19 -04:00  c8kg2be-firmware_nim_shdsl.17.15.06.SPA.pkg
+1044497  -rw-         13254656  Jul 22 2026 01:00:19 -04:00  c8kg2be-firmware_nim_async.17.15.06.SPA.pkg
+35      -rw-         16580608  May 29 2025 15:12:07 -04:00  rommon-17.18-3r-soc2.bin
+1044521  drwx             4096  May 29 2025 14:51:54 -04:00  pd_info
+31      drwx             4096  May 29 2025 14:50:18 -04:00  .geo
+30      drwx             4096  May 29 2025 14:50:07 -04:00  virtual-instance
+652801  drwx             4096  May 29 2025 14:48:34 -04:00  sysboot
+20      -rw-               30   Jan 8 2025 13:24:34 -05:00  throughput_monitor_params
+14      -rw-           144588   Jan 8 2025 13:24:21 -05:00  memleak.tcl
+1044588  drwx             4096   Jan 8 2025 13:24:17 -05:00  license_evlog
+913921  drwx             4096   Jan 8 2025 13:24:10 -05:00  .prst_sync
+1044481  drwx           118784   Jan 8 2025 13:23:58 -05:00  tracelogs
+13      -rwx            16891   Jan 8 2025 13:23:29 -05:00  mode_event_log
+391681  drwx             4096   Jan 8 2025 13:23:22 -05:00  .installer
+12      -rw-              176  Sep 24 2024 15:40:06 -04:00  ct_persistent.txt
+522242  drwx             4096  Sep 19 2024 12:23:21 -04:00  .dbpersist
+1044590  drwx             4096  Sep 19 2024 11:45:28 -04:00  pnp-tech
+19      -rw-              333  Sep 19 2024 11:44:07 -04:00  .iox_dir_list
+652814  drwx             4096  Sep 19 2024 11:23:19 -04:00  guest-share
+913923  drwx             4096  Sep 19 2024 11:23:17 -04:00  onep
+652813  drwx             4096  Sep 19 2024 11:23:16 -04:00  pnp-info
+18      -rw-             1939  Sep 19 2024 11:23:09 -04:00  trustidrootx3_ca_062035.ca
+17      -rw-             1826  Sep 19 2024 11:23:09 -04:00  trustidrootx3_ca_092025.ca
+16      -rw-             1923  Sep 19 2024 11:23:09 -04:00  trustidrootx3_ca_092024.ca
+15      -rw-            20109  Sep 19 2024 11:23:09 -04:00  ios_core.p7b
+261121  drwx             4096  Sep 19 2024 11:22:06 -04:00  pcap
+130561  drwx             4096  Sep 19 2024 11:22:06 -04:00  SHARED-IOX
+26      -r--               72  Jun 30 2024 17:08:35 -04:00  debug.conf
+29      -rw-                0   Jun 1 2024 13:54:13 -04:00  iox-utdsnort.1.16.14_SV3.3.5.0_XEmain.aarch64.20250514_235205.tar
+28      -rw-                0  May 21 2024 12:40:59 -04:00  .uac_uplink_conf_data
+913925  drwx             4096  May 21 2024 06:39:36 -04:00  .ssh
+27      -rw-                0  May 19 2024 11:26:14 -04:00  fman_2.log
+24      -rw-           283469  May 19 2024 10:49:51 -04:00  fman_1.log
+23      -rw-         16580608   May 2 2024 06:48:44 -04:00  SDK112310-UEFI-SoC2-SB-v11.2.7_RSA4K.img
+21      -rw-          8214698  Apr 23 2024 08:25:53 -04:00  utf_4x_to_8t.log
+130563  drwx             4096  Mar 12 2024 11:11:04 -04:00  .product_analytics
+22      drwx             4096  Feb 27 2024 12:26:07 -05:00  lost+found
+783365  drwx             4096  Dec 31 1969 19:02:53 -05:00  core
+
+20584546304 bytes total (9816031232 bytes free)
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:51.986800-05:00] dir bootflash:core/
+dir bootflash:core/
+Directory of bootflash:core/
+
+783392  -rw-                1   Nov 7 2026 18:50:51 -05:00  .callhome
+783420  -rw-           409600  May 29 2025 14:52:00 -04:00  Router_RP_0_cpp_cp_svr_23990_20250529-185134-UTC.core.gz
+783419  -rw-             4096  May 29 2025 14:52:00 -04:00  Router_RP_0_cpp_cp_svr_23990_20250529-185134-UTC.core.gz.coregen.dbg
+783417  -rw-            74667  May 29 2025 14:51:34 -04:00  Router_RP_0_qfp-ucode-mirabile_21736_20250529-185048-UTC.core.gz.coregen.dbg
+783418  -rw-         16231871  May 29 2025 14:51:34 -04:00  Router_RP_0_qfp-ucode-mirabile_21736_20250529-185048-UTC.core.gz
+783366  drwx             4096  Sep 19 2024 11:23:03 -04:00  modules
+783414  -rw-           529263  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3025_20240525-120021-UTC.core.gz
+783416  -rw-           516195  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3026_20240525-120021-UTC.core.gz
+783413  -rw-           105786  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3025_20240525-120021-UTC.core.gz.coregen.dbg
+783415  -rw-           103310  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3026_20240525-120021-UTC.core.gz.coregen.dbg
+783412  -rw-           133308  May 25 2024 08:00:20 -04:00  Router_RP_0_ngiolite_24650_20240525-120020-UTC.core.gz.coregen.dbg
+783411  -rw-             7989  May 25 2024 08:00:19 -04:00  Router_RP_0-system-report_20240525-120015-UTC-info.txt
+783410  -rw-         34004393  May 25 2024 08:00:16 -04:00  Router_RP_0-system-report_20240525-120015-UTC.tar.gz
+783409  -rw-           516217  May 25 2024 07:38:01 -04:00  Router_RP_0_btman_rotate_immediate_3561_20240525-113801-UTC.core.gz
+783408  -rw-           103310  May 25 2024 07:38:01 -04:00  Router_RP_0_btman_rotate_immediate_3561_20240525-113801-UTC.core.gz.coregen.dbg
+783407  -rw-           529470  May 25 2024 07:38:00 -04:00  Router_RP_0_btman_rotate_immediate_3347_20240525-113800-UTC.core.gz
+783406  -rw-           105911  May 25 2024 07:38:00 -04:00  Router_RP_0_btman_rotate_immediate_3347_20240525-113800-UTC.core.gz.coregen.dbg
+783405  -rw-           133434  May 25 2024 07:37:59 -04:00  Router_RP_0_ngiolite_24783_20240525-113758-UTC.core.gz.coregen.dbg
+783404  -rw-            16525  May 25 2024 07:37:58 -04:00  Router_RP_0-system-report_20240525-113752-UTC-info.txt
+783403  -rw-         48579397  May 25 2024 07:37:54 -04:00  Router_RP_0-system-report_20240525-113752-UTC.tar.gz
+783402  -rw-           516271  May 21 2024 10:12:16 -04:00  Router_RP_0_btman_rotate_immediate_28841_20240521-141216-UTC.core.gz
+783401  -rw-           103595  May 21 2024 10:12:16 -04:00  Router_RP_0_btman_rotate_immediate_28841_20240521-141216-UTC.core.gz.coregen.dbg
+783400  -rw-           529651  May 21 2024 10:12:14 -04:00  Router_RP_0_btman_rotate_immediate_28286_20240521-141214-UTC.core.gz
+783399  -rw-           106327  May 21 2024 10:12:14 -04:00  Router_RP_0_btman_rotate_immediate_28286_20240521-141214-UTC.core.gz.coregen.dbg
+783398  -rw-            12312  May 21 2024 10:12:13 -04:00  Router_RP_0-system-report_20240521-141209-UTC-info.txt
+783397  -rw-         38671753  May 21 2024 10:12:09 -04:00  Router_RP_0-system-report_20240521-141209-UTC.tar.gz
+783396  -rw-           156947  May 20 2024 13:16:43 -04:00  Router_RP_0_pman_26176_20240520-171643-UTC.core.gz
+783395  -rw-            35321  May 20 2024 13:16:43 -04:00  Router_RP_0_pman_26176_20240520-171643-UTC.core.gz.coregen.dbg
+783364  -rw-           529603  May 20 2024 13:16:42 -04:00  Router_RP_0_btman_rotate_immediate_10457_20240520-171642-UTC.core.gz
+783363  -rw-           106325  May 20 2024 13:16:42 -04:00  Router_RP_0_btman_rotate_immediate_10457_20240520-171642-UTC.core.gz.coregen.dbg
+783361  -rw-            47672  May 20 2024 13:16:40 -04:00  Router_RP_0-system-report_20240520-171632-UTC-info.txt
+783362  -rw-         59047015  May 20 2024 13:16:35 -04:00  Router_RP_0-system-report_20240520-171632-UTC.tar.gz
+783424  -rw-       2325885324  Dec 31 1969 19:02:53 -05:00  kernel.rp_RP-MIRABILE_0_19700101000007.core.gz
+783422  -rw-       1749903459  Dec 31 1969 19:02:47 -05:00  kernel.rp_RP-MIRABILE_0_19700101000010.core.gz
+783421  -rw-           304544  Dec 31 1969 19:00:10 -05:00  kernel.rp_RP-MIRABILE_0_19700101000010.txt
+783423  -rw-           296360  Dec 31 1969 19:00:07 -05:00  kernel.rp_RP-MIRABILE_0_19700101000007.txt
+
+20584546304 bytes total (9816031232 bytes free)
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:52.654428-05:00] show platform hardware qfp active infrastructure exmem statistics
+show platform hardware qfp active infrastructure exmem statistics
+QFP exmem statistics
+
+Type: Name: DRAM, QFP: 0
+  Total: 1073741824
+  InUse: 250767360
+  Free: 822974464
+  Lowest free water mark: 822974464
+Type: Name: IRAM, QFP: 0
+  Total: 4194304
+  InUse: 422912
+  Free: 3771392
+  Lowest free water mark: 3771392
+Type: Name: SRAM, QFP: 0
+  Total: 0
+  InUse: 0
+  Free: 0
+  Lowest free water mark: 0
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:53.175359-05:00] show platform hardware qfp active statistics drop
+show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+Ipv6NoRoute                                     8                     448  
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:53.688253-05:00] show platform software process list R0 sort cpu
+show platform software process list R0 sort cpu
+                                                       ^
+% Invalid input detected at '^' marker.
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:54.171440-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          23 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          27 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          23 Celsius
+ V: 12V                  R0              Normal          11957 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1207 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          37 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          29 Celsius
+ Temp: Temp 3            P1              Normal          31 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          11900 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3300 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9480 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:54.638346-05:00] show diag subslot 0/1
+show diag subslot 0/1
+% Incomplete command.
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:55.133743-05:00] show voice dsp error
+show voice dsp error
+No DSP errors logged
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:55.628852-05:00] show ip route vrf Mgmt-intf
+show ip route vrf Mgmt-intf
+
+Routing Table: Mgmt-intf
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area 
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, m - OMP
+       n - NAT, Ni - NAT inside, No - NAT outside, Nd - NAT DIA
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       H - NHRP, G - NHRP registered, g - NHRP registration summary
+       o - ODR, P - periodic downloaded static route, l - LISP
+       a - application route
+       + - replicated route, % - next hop override, p - overrides from PfR
+       & - replicated local route overrides by connected
+
+Gateway of last resort is 192.168.4.1 to network 0.0.0.0
+
+S*    0.0.0.0/0 [1/0] via 192.168.4.1, GigabitEthernet0
+      192.168.4.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.4.0/24 is directly connected, GigabitEthernet0
+L        192.168.4.62/32 is directly connected, GigabitEthernet0
+CAT8375-G2#
+[COMMAND 2026-11-11T16:28:56.120185-05:00] show clock detail
+show clock detail
+*16:28:56.139 EST Wed Nov 11 2026
+Time source is NTP
+Summer time starts 02:00:00 EST Sun Mar 14 2027
+Summer time ends 02:00:00 EDT Sun Nov 7 2027
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:09.664149-05:00] show facility-alarm status
+show facility-alarm status
+System Totals  Critical: 1  Major: 0  Minor: 0
+
+Source                     Time                   Severity      Description [Index]
+------                     ------                 --------      -------------------
+
+Power Supply Bay 0         Jan 08 2025 13:24:13   CRITICAL      Power Supply/FAN Module Missing [0]
+
+POE Bay 0                  Jan 08 2025 13:24:13   INFO          Power Over Ethernet Module Missing [0]
+
+POE Bay 1                  Jan 08 2025 13:24:13   INFO          Power Over Ethernet Module Missing [0]
+
+TwoGigabitEthernet0/0/0    Jan 08 2025 13:24:51   INFO          Physical Port Administrative State Down [2]
+
+TwoGigabitEthernet0/0/1    Jan 08 2025 13:24:51   INFO          Physical Port Administrative State Down [2]
+
+TwoGigabitEthernet0/0/2    Jan 08 2025 13:24:51   INFO          Physical Port Administrative State Down [2]
+
+TwoGigabitEthernet0/0/3    Jan 08 2025 13:24:51   INFO          Physical Port Administrative State Down [2]
+
+TenGigabitEthernet0/0/4    Jan 08 2025 13:24:51   INFO          Physical Port Administrative State Down [2]
+
+xcvr container 0/0/5       Jan 08 2025 13:24:50   INFO          Transceiver Missing [0]
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:10.149674-05:00] show license summary
+show license summary
+Account Information:
+  Smart Account: Cisco System, TAC As of Nov 11 16:22:12 2026 EST
+  Virtual Account: matsunde
+
+License Usage:
+  License                 Entitlement Tag               Count Status
+  -----------------------------------------------------------------------------
+  advantage               (C8K_LARGE_ROUTING_A)             1 AUTHORIZED
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:10.609394-05:00] show ntp status
+show ntp status
+Clock is unsynchronized, stratum 3, reference is 192.168.3.10   
+nominal freq is 250.0000 Hz, actual freq is 250.0000 Hz, precision is 2**10
+ntp uptime is 82700 (1/100 of seconds), resolution is 4000
+reference time is EE9F5C95.851EB9C0 (16:28:53.520 EST Wed Nov 11 2026)
+clock offset is 1.7181 msec, root delay is 14.94 msec
+root dispersion is 36.22 msec, peer dispersion is 1.96 msec
+loopfilter state is 'FREQ' (Drift being measured), drift is 0.000000000 s/s
+system poll interval is 64, last update was 17 sec ago.
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:11.052968-05:00] show ntp associations
+show ntp associations
+
+  address         ref clock       st   when   poll reach  delay  offset   disp
+*~192.168.3.10    216.239.35.0     2     17     64   377  0.002   1.718  1.960
+ * sys.peer, # selected, + candidate, - outlyer, x falseticker, ~ configured
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:11.508528-05:00] ping vrf Mgmt-intf 192.168.4.1 repeat 20 timeout 1
+ping vrf Mgmt-intf 192.168.4.1 repeat 20 timeout 1
+Type escape sequence to abort.
+Sending 20, 100-byte ICMP Echos to 192.168.4.1, timeout is 1 seconds:
+!!!!!!!!!!!!!!!!!!!!
+Success rate is 100 percent (20/20), round-trip min/avg/max = 1/2/4 ms
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:12.977790-05:00] show platform hardware qfp active infrastructure bqs status
+                      show platform hardware qfp active infrastructure bqs status
+BQS-RM Status :
+=============================================
+Object Counts:
+  Recycle Object Count:               117
+  Recycle Schedule Count:              16
+  Recycle Queue Count:                 97
+  # of Active Queues:                 121
+  # of Active Schedules:               27
+  # of Active Roots:                   10
+  # of Active Min Profiles:             0
+  # of Active Max Profiles:             0
+  # of Active Exs Profiles:             0
+Configuration Status:
+  Pending Config Deferred:              False
+  Pending Config Deferred Cnt:              1
+  OOR defer processing                  False
+  RT Commits:
+    # of IFM Commits:                         0
+    # of QoS Commits:                         0
+    # of Total Commits:                       0
+    # of Deferrals:                           0
+  QoS Active Events:
+    # of Commit Events:                       0
+    # of Parent Events:                       0
+    # of Child Events:                        0
+    # of Flush Events:                        0
+    # of Delete Queue Events:                 0
+  QoS Pending Events:
+    # of Commit Events:                       0
+    # of Parent Events:                       0
+    # of Child Events:                        0
+    # of Flush Events:                        0
+    # of Delete Queue Events:                 0
+  IFM Active Events:
+    # of Commit Events:                       0
+    # of Parent Events:                       0
+    # of Child Events:                        0
+    # of Flush Events:                        0
+    # of Delete Queue Events:                 0
+  IFM Pending Events:
+    # of Commit Events:                       0
+    # of Parent Events:                       0
+    # of Child Events:                        0
+    # of Flush Events:                        0
+    # of Delete Queue Events:                 0
+  BRM Active Events:
+    # of Commit Events:                       0
+    # of Parent Events:                       0
+    # of Child Events:                        0
+    # of Flush Events:                        0
+    # of Delete Queue Events:                 0
+  BRM Pending Events:
+    # of Commit Events:                       0
+    # of Parent Events:                       0
+    # of Child Events:                        0
+    # of Flush Events:                        0
+    # of Delete Queue Events:                 0
+  Queue Move in Progress                False
+  # of Queue Moves:                         0
+  # of Queue Move Failures:                 0
+  # of Queue Move Timeouts:                 0
+  # of Queue Move Delays:                   0
+  Queue ID Pending Drain:         0
+Object Types:
+  # of Internal Queues :                   97
+  # of Default Queues:                     24
+  # of QOS Queue Objects:                   0
+  # of Internal Schedules:                 12
+  # of Default Schedules :                 25
+  # of QOS Schedule Objects :               0
+Configuration Events:
+  # of Create Queue Calls:                   0
+  # of Create Update Queue Calls:            0
+  # of Queue Delete Calls:                   0
+  # of Internal Queue Delete Calls:          0
+  # of Schedule Create Calls:                0
+  # of Schedule Delete calls:                0
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:13.485804-05:00] show environment all | include Temp:|RPM:|P: In power|P: Out power
+show environment all | include Temp:|RPM:|P: In power|P: Out power
+ Temp: Inlet 1           R0              Normal          23 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          27 Celsius
+ Temp: CPU               R0              Normal          33 Celsius
+ Temp: Working           R0              Normal          23 Celsius
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          29 Celsius
+ Temp: Temp 3            P1              Normal          31 Celsius
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          37 Watts
+ RPM: fan0               P1              Normal          6144 RPM
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9480 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:30.137027-05:00] show diag subslot 0/1 eeprom
+                                            show diag subslot 0/1 eeprom
+SPA EEPROM data for subslot 0/1:
+
+	Product Identifier (PID) : NIM-2FXS/4FXOP
+	Version Identifier (VID) : V01 
+	PCB Serial Number        : FOC23152BE1
+	Hardware Revision        : 1.0
+	CLEI Code                : IP9IAZUCAA
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:30.610383-05:00] show voice port 0/1/0
+show voice port 0/1/0
+
+Foreign Exchange Station 0/1/0 Slot is 0, Sub-unit is 1, Port is 0
+ Type of VoicePort is FXS  NIM-2FXS/4FXOP
+ Operation State is DORMANT
+ Administrative State is UP
+ No Interface Down Failure
+ Description is not set
+ Noise Regeneration is enabled
+ Non Linear Processing is enabled
+ Non Linear Mute is disabled
+ Non Linear Threshold is -21 dB
+ Music On Hold Threshold is Set to -38 dBm
+ In Gain is Set to 0 dB
+ Out Attenuation is Set to 3 dB
+ Echo Cancellation is enabled
+ Echo Cancellation NLP mute is disabled
+ Echo Cancellation NLP threshold is -21 dB
+ Echo Cancel Coverage is set to 128 ms
+ Echo Cancel worst case ERL is set to 6 dB
+ Playout-delay Mode is set to adaptive
+ Playout-delay Nominal is set to 60 ms
+ Playout-delay Maximum is set to 1000 ms
+ Playout-delay Minimum mode is set to default, value 40 ms 
+ Playout-delay Fax is set to 300 ms
+ Connection Mode is normal
+ Connection Number is not set
+ Initial Time Out is set to 15 s
+ Interdigit Time Out is set to 10 s
+ Call Disconnect Time Out is set to 60 s
+ Supervisory Disconnect Time Out is set to 750 ms
+ Ringing Time Out is set to 180 s
+ Wait Release Time Out is set to 30 s
+ Companding Type is u-law
+ Region Tone is set for US
+
+ Analog Info Follows:
+ Currently processing none
+ Maintenance Mode Set to None (not in mtc mode)
+ Number of signaling protocol errors are 0
+ Impedance is set to 600r Ohm
+ Station name None, Station number None
+ Translation profile (Incoming): 
+ Translation profile (Outgoing): 
+ lpcor (Incoming): 
+ lpcor (Outgoing): 
+
+ Voice card specific Info Follows:
+ Signal Type is loopStart
+ Ring Frequency is 25 Hz
+ Hook Status is On Hook
+ Ring Active Status is inactive
+ Ring Ground Status is inactive
+ Tip Ground Status is active
+ Digit Duration Timing is set to 100 ms
+ InterDigit Duration Timing is set to 100 ms
+ Hookflash-in Timing is set to max=1000 ms, min=150 ms
+ Hookflash-out Timing is set to 400 ms
+ No disconnect acknowledge
+ Ring Cadence is defined by CPTone Selection
+ Ring Cadence are [20 40] * 100 msec
+ Ringer Equivalence Number is set to 1
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:31.055845-05:00] show voice port 0/1/2
+show voice port 0/1/2
+
+Foreign Exchange Office 0/1/2 Slot is 0, Sub-unit is 1, Port is 2
+ Type of VoicePort is FXO  NIM-2FXS/4FXOP
+ Operation State is DORMANT
+ Administrative State is UP
+ No Interface Down Failure
+ Description is not set
+ Noise Regeneration is enabled
+ Non Linear Processing is enabled
+ Non Linear Mute is disabled
+ Non Linear Threshold is -21 dB
+ Music On Hold Threshold is Set to -38 dBm
+ In Gain is Set to 0 dB
+ Out Attenuation is Set to 3 dB
+ Echo Cancellation is enabled
+ Echo Cancellation NLP mute is disabled
+ Echo Cancellation NLP threshold is -21 dB
+ Echo Cancel Coverage is set to 128 ms
+ Echo Cancel worst case ERL is set to 6 dB
+ Playout-delay Mode is set to adaptive
+ Playout-delay Nominal is set to 60 ms
+ Playout-delay Maximum is set to 1000 ms
+ Playout-delay Minimum mode is set to default, value 40 ms 
+ Playout-delay Fax is set to 300 ms
+ Connection Mode is normal
+ Connection Number is not set
+ Initial Time Out is set to 15 s
+ Interdigit Time Out is set to 10 s
+ Call Disconnect Time Out is set to 60 s
+ Power Denial Disconnect Time Out is set to 1000 ms
+ Ringing Time Out is set to 180 s
+ Wait Release Time Out is set to 30 s
+ Companding Type is u-law
+ Region Tone is set for US
+
+ Analog Info Follows:
+ Currently processing none
+ Maintenance Mode Set to None (not in mtc mode)
+ Number of signaling protocol errors are 0
+ Impedance is set to 600r Ohm
+ Station name None, Station number None
+ Translation profile (Incoming): 
+ Translation profile (Outgoing): 
+ lpcor (Incoming): 
+ lpcor (Outgoing): 
+
+ Voice card specific Info Follows:
+ Signal Type is loopStart 
+ Battery-Reversal is enabled
+ Number Of Rings is set to 1
+ Supervisory Disconnect is signal
+ Answer Supervision is inactive
+ Hook Status is On Hook
+ Ring Detect Status is inactive
+ Ring Ground Status is inactive
+ Tip Ground Status is inactive
+ Dial Out Type is dtmf
+ Digit Duration Timing is set to 100 ms
+ InterDigit Duration Timing is set to 100 ms
+ Pulse Rate Timing is set to 10 pulses/second
+ InterDigit Pulse Duration Timing is set to 750 ms
+ Percent Break of Pulse is 60 percent
+ GuardOut timer is 2000 ms
+ Minimum ring duration timer is 125 ms
+ Hookflash-in Timing is set to 600 ms
+ Hookflash-out Timing is set to 400 ms
+ Supervisory Disconnect Timing (loopStart only) is set to 350 ms
+ OPX Ring Wait Timing is set to 6000 ms
+ Secondary dialtone is disabled
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:31.559563-05:00] show redundancy
+show redundancy
+Redundant System Information :
+------------------------------
+       Available system uptime = 14 minutes
+Switchovers system experienced = 0
+              Standby failures = 0
+        Last switchover reason = none
+
+                 Hardware Mode = Simplex
+    Configured Redundancy Mode = Non-redundant
+     Operating Redundancy Mode = Non-redundant
+              Maintenance Mode = Disabled
+                Communications = Down      Reason: Failure
+
+Current Processor Information :
+-------------------------------
+               Active Location = slot 6
+        Current Software state = ACTIVE
+       Uptime in current state = 14 minutes
+                 Image Version = Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+                          BOOT = bootflash:packages.conf,12;
+        Configuration register = 0x1822
+             Fast Switchover   = Enabled
+                Initial Garp   = Enabled
+
+Peer (slot: 7) information is not available because it is in 'DISABLED' state
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:32.523125-05:00] ping vrf Mgmt-intf 192.168.3.10 repeat 20 timeout 1
+                                                 ping vrf Mgmt-intf 192.168.3.10 repeat 20 timeout 1
+Type escape sequence to abort.
+Sending 20, 100-byte ICMP Echos to 192.168.3.10, timeout is 1 seconds:
+!!!!!!!!!!!!!!!!!!!!
+Success rate is 100 percent (20/20), round-trip min/avg/max = 1/1/4 ms
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:33.018828-05:00] show environment all | include Temp:|RPM:
+show environment all | include Temp:|RPM:
+ Temp: Inlet 1           R0              Normal          23 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          27 Celsius
+ Temp: CPU               R0              Normal          33 Celsius
+ Temp: Working           R0              Normal          23 Celsius
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          29 Celsius
+ Temp: Temp 3            P1              Normal          31 Celsius
+ RPM: fan0               P1              Normal          6144 RPM
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:53.752427-05:00] show platform software process list R0 summary
+show platform software process list R0 summary
+Total number of processes: 479
+  Running          : 2
+  Sleeping         : 237
+  Disk sleeping    : 0
+  Zombies          : 0
+  Stopped          : 0
+  Paging           : 0
+
+  Up time          : 962
+  Idle time        : 0
+  User time        : 185514
+  Kernel time      : 195445
+
+  Virtual memory   : 30522757120
+  Pages resident   : 868374
+  Major page faults: 92974
+  Minor page faults: 1766731
+
+  Architecture     : aarch64
+  Memory (kB)
+    Physical       : 7904332
+    Total          : 7904332
+    Used           : 4922732
+    Free           : 2981600
+    Active         : 261828
+    Inactive       : 3270948
+    Inact-dirty    : 0
+    Inact-clean    : 0
+    Dirty          : 0
+    AnonPages      : 1198324
+    Bounce         : 0
+    Cached         : 2327272
+    Commit Limit   : 3477028
+    Committed As   : 3674416
+    High Total     : 0
+    High Free      : 0
+    Low Total      : 7904332
+    Low Free       : 2981600
+    Mapped         : 838912
+    NFS Unstable   : 0
+    Page Tables    : 28356
+    Slab           : 527428
+    Writeback      : 0
+
+  Swap (kB)
+    Total          : 0
+    Used           : 0
+    Free           : 0
+    Cached         : 0
+
+  Buffers (kB)     : 7320
+
+  Load Average
+    1-Min          : 5.01
+    5-Min          : 4.61
+    15-Min         : 3.04
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:54.260041-05:00] show platform software process list R0 name cpp_cp_svr
+show platform software process list R0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 24738
+  Parent process id: 24731
+  Group id         : 24738
+  Status           : S
+  Session id       : 23720
+  User time        : 726
+  Kernel time      : 757
+  Priority         : 20
+  Virtual bytes    : 1958027264
+  Resident pages   : 87215
+  Resident limit   : 18446744073709551615
+  Minor page faults: 41907
+  Major page faults: 53110
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:54.769695-05:00] show platform software process list R0 name iomd
+show platform software process list R0 name iomd
+Name: iomd
+  Process id       : 917
+  Parent process id: 912
+  Group id         : 917
+  Status           : R
+  Session id       : 25314
+  User time        : 87
+  Kernel time      : 164
+  Priority         : 20
+  Virtual bytes    : 492167168
+  Resident pages   : 18079
+  Resident limit   : 18446744073709551615
+  Minor page faults: 19633
+  Major page faults: 33
+
+Name: iomd
+  Process id       : 27504
+  Parent process id: 27497
+  Group id         : 27504
+  Status           : R
+  Session id       : 25314
+  User time        : 96
+  Kernel time      : 190
+  Priority         : 20
+  Virtual bytes    : 492163072
+  Resident pages   : 18097
+  Resident limit   : 18446744073709551615
+  Minor page faults: 18395
+  Major page faults: 1286
+
+Name: iomd
+  Process id       : 28117
+  Parent process id: 28103
+  Group id         : 28117
+  Status           : R
+  Session id       : 25314
+  User time        : 89
+  Kernel time      : 182
+  Priority         : 20
+  Virtual bytes    : 492138496
+  Resident pages   : 17647
+  Resident limit   : 18446744073709551615
+  Minor page faults: 18020
+  Major page faults: 1215
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:55.289564-05:00] show platform hardware qfp active infrastructure ipc
+show platform hardware qfp active infrastructure ipc
+% Incomplete command.
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:55.762071-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          23 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          27 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          23 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          792 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          35 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          29 Celsius
+ Temp: Temp 3            P1              Normal          31 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9480 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:56.242955-05:00] show ntp status
+show ntp status
+Clock is unsynchronized, stratum 3, reference is 192.168.3.10   
+nominal freq is 250.0000 Hz, actual freq is 250.0000 Hz, precision is 2**10
+ntp uptime is 87200 (1/100 of seconds), resolution is 4000
+reference time is EE9F5C95.851EB9C0 (16:28:53.520 EST Wed Nov 11 2026)
+clock offset is 1.7181 msec, root delay is 14.94 msec
+root dispersion is 36.89 msec, peer dispersion is 1.96 msec
+loopfilter state is 'FREQ' (Drift being measured), drift is 0.000000000 s/s
+system poll interval is 64, last update was 63 sec ago.
+CAT8375-G2#
+[COMMAND 2026-11-11T16:29:56.724437-05:00] show logging | include Marvell|UNSUPPORTED_MODULE|DSPRM|FANFAIL|PEMFAIL|CRASH|CRITICAL|PLATFORM
+show logging | include Marvell|UNSUPPORTED_MODULE|DSPRM|FANFAIL|PEMFAIL|CRASH|CRITICAL|PLATFORM
+*Jan  8 18:24:07.739: %PLATFORM_PM-6-NGSW_MODE: pre-configure switching mode to doppler next-gen on this platform
+*Jan  8 18:24:13.398: %IOSXE_RP_ALARM-2-PEM: ASSERT CRITICAL Power Supply Bay 0 Power Supply/FAN Module Missing 
+*Jan  8 18:24:13.403: %CRYPTO_SL_TP_LEVELS-6-PLATFORM_BASED_LIC: Platform Based License Support, throughput is un-throttled
+*Jan  8 18:24:13.451: %IOSXE_RP_ALARM-6-INFO: ASSERT CRITICAL GigabitEthernet0 Physical Port Link Down 
+*Nov 11 2026 16:16:43.212 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+*Nov 11 2026 16:17:40.896 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:09.069316-05:00] show platform software status control-processor brief
+                                                     show platform software status control-processor brief
+Load Average
+ Slot  Status  1-Min  5-Min 15-Min
+  RP0 Healthy   4.94   4.61   3.05
+
+Memory (kB)
+ Slot  Status    Total     Used (Pct)     Free (Pct) Committed (Pct)
+  RP0 Healthy  7904332  4923300 (62%)  2981032 (38%)   3674736 (46%)
+
+CPU Utilization
+ Slot  CPU   User System   Nice   Idle    IRQ   SIRQ IOwait
+  RP0    0   1.10   2.50   3.90  92.00   0.40   0.10   0.00
+         1  15.68  13.68   0.00  68.23   2.39   0.00   0.00
+         2   7.81   8.01   0.00  81.86   2.30   0.00   0.00
+         3   9.50  10.10   0.00  78.10   2.30   0.00   0.00
+         4  12.40  11.60   0.00  73.60   2.40   0.00   0.00
+         5  12.21  11.41   0.00  73.97   2.40   0.00   0.00
+         6  14.48  13.48   0.00  69.63   2.39   0.00   0.00
+         7  12.90  12.80   0.00  72.00   2.30   0.00   0.00
+         8  12.40  10.90   0.00  74.30   2.40   0.00   0.00
+         9  14.01  12.61   0.00  70.97   2.40   0.00   0.00
+        10  17.60  13.70   0.00  66.30   2.40   0.00   0.00
+        11  19.70  16.30   0.00  61.60   2.40   0.00   0.00
+        12   3.70   6.30   0.00  88.10   1.90   0.00   0.00
+        13  16.18  15.98   0.00  65.43   2.39   0.00   0.00
+        14   7.20  11.10   0.00  79.70   2.00   0.00   0.00
+        15   3.50  13.00   0.00  80.70   2.80   0.00   0.00
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:09.584772-05:00] show voice dsp error
+show voice dsp error
+No DSP errors logged
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:40.672926-05:00] show platform hardware qfp active infrastructure ipc statistics
+show platform hardware qfp active infrastructure ipc statistics
+% Incomplete command.
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:41.739588-05:00] show power
+show power
+Main PSU :
+    Power Operating Mode : Normal
+    Configured Mode : Redundant
+    Current runtime state same : No
+    Total power available : 400 Watts
+POE Module :
+    Configured Mode : Redundant
+    Current runtime state same : No
+    Total power available : 0 Watts
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:42.224824-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:16:08      
+ 0/0      4M-2xSFP+           ok                    00:15:08      
+ 0/1      NIM-2FXS/4FXOP      ok                    00:13:33      
+1         C8375-E-G2          ok                    00:16:08      
+R0        C8375-E-G2          ok, active            00:16:08      
+F0        C8375-E-G2          ok, active            00:16:08      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:15:25      
+P2        C8300-FAN-1R        ok                    00:15:24      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:42.715111-05:00] show voice dsp group all
+show voice dsp group all
+DSP groups on slot 0/1 slot id 1
+dsp 1:
+  State: UP, firmware: 66.1.0
+  Max signal/voice channel: 8/8
+  Max credits: 120, Voice credits: 120, Video credits: 0
+  num_of_sig_chnls_allocated: 6
+  Transcoding channels allocated: 0
+  Group: FLEX_GROUP_VOICE, complexity: FLEX
+    Shared credits: 120, reserved credits: 0
+    Signaling channels allocated: 6
+    Voice channels allocated: 0
+    Credits used (rounded-up): 0
+  Slot: 0/1
+  Device idx: 0
+  Dsp Type: DM8147 
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:43.214055-05:00] show voice dsp error
+show voice dsp error
+No DSP errors logged
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:43.716773-05:00] show ntp status
+show ntp status
+Clock is unsynchronized, stratum 3, reference is 192.168.3.10   
+nominal freq is 250.0000 Hz, actual freq is 250.0000 Hz, precision is 2**10
+ntp uptime is 92000 (1/100 of seconds), resolution is 4000
+reference time is EE9F5CD9.856042F8 (16:30:01.521 EST Wed Nov 11 2026)
+clock offset is 1.5806 msec, root delay is 14.94 msec
+root dispersion is 37.23 msec, peer dispersion is 1.95 msec
+loopfilter state is 'FREQ' (Drift being measured), drift is 0.000000000 s/s
+system poll interval is 64, last update was 42 sec ago.
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:44.194908-05:00] show interfaces GigabitEthernet0 | include line protocol|input errors|output errors|drops|packets input|packets output
+show interfaces GigabitEthernet0 | include line protocol|input errors|output errors|drops|packets input|packets output
+GigabitEthernet0 is up, line protocol is up 
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+     3302 packets input, 388368 bytes, 0 no buffer
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     3374 packets output, 489542 bytes, 0 underruns
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:44.682281-05:00] show platform hardware qfp active statistics drop
+show platform hardware qfp active statistics drop
+Last clearing of QFP drops statistics : never
+
+-------------------------------------------------------------------------
+Global Drop Stats                         Packets                  Octets  
+-------------------------------------------------------------------------
+Ipv6NoRoute                                     8                     448  
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:46.323948-05:00] show logging
+show logging
+Syslog logging: enabled (0 messages dropped, 3 messages rate-limited, 0 flushes, 0 overruns, xml disabled, filtering disabled)
+
+No Active Message Discriminator.
+
+
+
+No Inactive Message Discriminator.
+
+
+    Console logging: level debugging, 169 messages logged, xml disabled,
+                     filtering disabled
+    Monitor logging: level debugging, 58 messages logged, xml disabled,
+                     filtering disabled
+        Logging to: vty866(58)
+    Buffer logging:  level debugging, 169 messages logged, xml disabled,
+                    filtering disabled
+    Exception Logging: size (4096 bytes)
+    Count and timestamp logging messages: disabled
+    Persistent logging: disabled
+
+No active filter modules.
+
+    Trap logging: level informational, 161 message lines logged
+        Logging Source-Interface:       VRF Name:
+    TLS Profiles: 
+
+Log Buffer (102400 bytes):
+
+*Jan  8 18:24:06.509: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*Jan  8 18:24:06.509: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module Integrity Test
+*Jan  8 18:24:06.513: %CRYPTO-5-SELF_TEST_END: Crypto Integrity self-test completed successfully
+       All tests passed.
+*Jan  8 18:24:06.697: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*Jan  8 18:24:07.739: %PLATFORM_PM-6-NGSW_MODE: pre-configure switching mode to doppler next-gen on this platform
+*Jan  8 18:24:07.763: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled ESG-NGSW-ACL:[subsys-init] Init ESG-ACL subsystem starting
+
+*Jan  8 18:24:10.779: ESG-NGSW-ACL:[subsys-init] Init ESG-ACL subsystem ended
+
+*Jan  8 18:24:10.779: 
+*Jan  8 18:24:10.949: NGIOLite module 4M-2xSFP+ success read extended attr from conf file len: 1063
+
+*Jan  8 18:24:11.634: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*Jan  8 18:24:12.445: %TLSCLIENT-5-TLSCLIENT_IOS: TLS Client is IOS based
+*Jan  8 18:24:12.479: %SSH-4-SSH_COMPLIANCE_SSH_RSA_DISABLED: Please note that ssh-rsa algorithm stands disabled from IOS-XE release 17.16.1 onwards and will not be part of the preferred publickey or hostkey algorithms by default. Users may choose to configure them explicitly if required
+*Jan  8 18:24:12.488: %SPANTREE-5-EXTENDED_SYSID: Extended SysId enabled for type vlan
+*Jan  8 18:24:12.514: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*Jan  8 18:24:12.544: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_ENFORCED: Cisco PSB security compliance is being enforced
+*Jan  8 18:24:12.567: %CUBE-3-LICENSING:  SIP trunking (CUBE) licensing is now based on dynamic sessions counting, static license capacity configuration through 'mode border-element license capacity' would be ignored.
+*Jan  8 18:24:12.568: %SIP-5-LICENSING: CUBE license reporting period has been set to the minimum value of 8 hours.
+*Jan  8 18:24:12.592: %VOICE_HA-7-STATUS: CUBE HA-supported platform detected.
+*Jan  8 18:24:13.398: %IOSXE_RP_ALARM-2-PEM: ASSERT CRITICAL Power Supply Bay 0 Power Supply/FAN Module Missing 
+*Jan  8 18:24:13.403: %CRYPTO_SL_TP_LEVELS-6-PLATFORM_BASED_LIC: Platform Based License Support, throughput is un-throttled
+*Jan  8 18:24:13.437: %LINK-3-UPDOWN: Interface EOBC0, changed state to up
+*Jan  8 18:24:13.447: %LINK-3-UPDOWN: Interface Lsmpi0, changed state to up
+*Jan  8 18:24:13.448: %LINEPROTO-5-UPDOWN: Line protocol on Interface LI-Null0, changed state to up
+*Jan  8 18:24:13.449: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+*Jan  8 18:24:13.449: %LINK-3-UPDOWN: Interface LIIN0, changed state to up
+*Jan  8 18:24:13.449: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to down
+*Jan  8 18:24:13.451: %IOSXE_RP_ALARM-6-INFO: ASSERT CRITICAL GigabitEthernet0 Physical Port Link Down 
+*Jan  8 18:24:13.521: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*Jan  8 18:24:13.747: %IOSXE_MGMTVRF-6-CREATE_SUCCESS_INFO: Management vrf Mgmt-intf created with ID 1, ipv4 table-id 0x1, ipv6 table-id 0x1E000001
+*Jan  8 18:24:13.862: %PNP-6-PNP_DISCOVERY_STARTED: PnP Discovery started
+*Jan  8 18:24:09.761: %CMRP-3-PFU_MISSING: R0/0: cmand: The platform does not detect a power supply in slot 0
+*Jan  8 18:24:09.883: %CMRP_PFU-6-FANASSY_INSERTED: R0/0: cmand: Fan Assembly is inserted.
+*Jan  8 18:24:14.180: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*Jan  8 18:24:14.600: %LINEPROTO-5-UPDOWN: Line protocol on Interface EOBC0, changed state to up
+*Jan  8 18:24:14.600: %LINEPROTO-5-UPDOWN: Line protocol on Interface Lsmpi0, changed state to up
+*Jan  8 18:24:14.601: %LINEPROTO-5-UPDOWN: Line protocol on Interface LIIN0, changed state to up
+*Jan  8 18:24:14.601: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to down
+*Jan  8 18:24:14.680: %ONEP_BASE-6-SS_ENABLED: ONEP: Service set Base was enabled by Default
+*Jan  8 18:24:14.899: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Jan  8 18:24:16.075: %SYS-7-NVRAM_INIT_WAIT_TIME: Waited 0 seconds for NVRAM to be available
+*Jan  8 18:24:16.287: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named TP-self-signed-1897751160 has been generated or imported by crypto config
+*Jan  8 18:24:16.291: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: SSH - Command: crypto key generate rsa modulus 2048 label TP-self-signed-1897751160  - Reason: An SSH hostkey has been provisioned on the device with insufficient key length - Remediation: Please provision an SSH RSA hostkey with minimum modulus size of 3072 bits for enhanced security - Submode: exec - Parent CLI: Not Applicable
+*Jan  8 18:24:16.293: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CAT8375-G2.sunderdesign.top has been generated or imported by crypto config
+*Jan  8 18:24:16.296: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named SLA-KeyPair has been generated or imported by crypto config
+*Jan  8 18:24:16.298: %SYS-6-PRIVCFG_DECRYPT_SUCCESS: Successfully apply the private config file
+*Jan  8 18:24:16.331: %SYS-4-SYSTEM_SECURITY_MODE_CHANGE: System Security Mode Changed from SECURE to INSECURE
+*Jan  8 2025 13:24:16.339 EST: %SYS-6-CLOCKUPDATE: System clock has been updated from 18:24:16 UTC Wed Jan 8 2025 to 13:24:16 EST Wed Jan 8 2025, configured from console by vty0.
+*Jan  8 2025 13:24:16.340 EST: %SYS-6-CLOCKUPDATE: System clock has been updated from 13:24:16 EST Wed Jan 8 2025 to 13:24:16 EST Wed Jan 8 2025, configured from console by vty0.
+*Jan  8 2025 13:24:16.349 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: TP-self-signed-1897751160 created successfully
+*Jan  8 2025 13:24:16.350 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created successfully
+*Jan  8 2025 13:24:16.358 EST: yang-infra: self-signed cert inserted(TP-self-signed-1897751160)
+*Jan  8 2025 13:24:16.372 EST: %AAA-4-USERNAME_CONFIGURATION: user with username: matt configured
+*Jan  8 2025 13:24:16.372 EST: %AAA-6-USER_PRIVILEGE_UPDATE: username: matt privilege updated with priv-15
+*Jan  8 2025 13:24:16.373 EST: %AAA-4-USERNAME_CONFIGURATION: user with username: admin configured
+*Jan  8 2025 13:24:16.373 EST: %AAA-6-USER_PRIVILEGE_UPDATE: username: admin privilege updated with priv-15
+*Jan  8 2025 13:24:16.519 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: RCMD - Command: ip rcmd domain-lookup - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.521 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: IP - Command: ip forward-protocol udp tftp - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.522 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: TELNET - Command: ip telnet comport enable - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.524 EST: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp blocksize 512 - The configuration is inconsistent with secure network operation and is not recommended
+*Jan  8 2025 13:24:16.525 EST: %SYS-4-INSECURE_WARNING: Module: FTP - Command: ip ftp passive  - The configuration is inconsistent with secure network operation and is not recommended
+*Jan  8 2025 13:24:16.539 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp allow mode control - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.546 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp server vrf Mgmt-intf 192.168.3.10 - Reason: NTP configuration lacks authentication, allowing potential time manipulation attacks - Remediation: Configure a valid auth key and make it trusted using the command - ntp trusted-key - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.547 EST: %SYS-5-CONFIG_I: Configured from memory by console
+*Jan  8 2025 13:24:16.554 EST: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/0, interfaces disabled
+*Jan  8 2025 13:24:16.554 EST: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/4, interfaces disabled
+*Jan  8 2025 13:24:16.557 EST: %SPA_OIR-6-OFFLINECARD: SPA (4M-2xSFP+) offline in subslot 0/0
+*Jan  8 2025 13:24:16.560 EST: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*Jan  8 2025 13:24:16.597 EST: %IOSXE_OIR-6-INSCARD: Card (fp) inserted in slot F0
+*Jan  8 2025 13:24:16.598 EST: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 0
+*Jan  8 2025 13:24:16.598 EST: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 1
+*Jan  8 2025 13:24:16.616 EST: %IOSXE_RP_PAE_NOT-4-PAE_STARTUP_DELAY: Product Analytics will start in 7 days, configure "no product-analytics" to disable
+*Jan  8 2025 13:24:16.617 EST: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*Jan  8 2025 13:24:16.622 EST: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*Jan  8 2025 13:24:16.640 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: RCMD - Command: ip rcmd domain-lookup - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.640 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp allow mode control - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.655 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: IP - Command: ip forward-protocol udp tftp - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.655 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: TELNET - Command: ip telnet comport enable - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:17.385 EST: %IOSXE_OIR-6-ONLINECARD: Card (fp) online in slot F0
+*Jan  8 2025 13:24:17.548 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Jan  8 2025 13:24:21.284 EST: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 0
+*Jan  8 2025 13:24:21.296 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*Jan  8 2025 13:24:21.296 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*Jan  8 2025 13:24:21.309 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/4
+*Jan  8 2025 13:24:22.233 EST: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 1
+*Jan  8 2025 13:24:22.711 EST: Tamper: wait on boolean for tamper event to fetch
+*Jan  8 2025 13:24:22.711 EST: %SYS-5-RESTART: System restarted --
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+*Jan  8 2025 13:24:22.780 EST: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to up
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_BEST_UDI_UPDATE: Best UDI [PID:C8375-E-G2,VID:V01,SN:FDO2742M0FK] identified via (entity-mibs)
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_CDP_UPDATE: Device UDI [PID:C8375-E-G2,VID:V01,SN:FDO2742M0FK] identified for CDP
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Startup Config Present)
+*Jan  8 2025 13:24:23.779 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to up
+*Jan  8 2025 13:24:24.275 EST: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 3 times and closed 0 times during power down. There is no last known/marked event.
+*Jan  8 2025 13:24:24.275 EST: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 1 times and closed 2 times during power up. There is no last known/marked event.
+*Jan  8 2025 13:24:26.618 EST: %SYS-5-CONFIG_P: Configured programmatically by process EPM CREATE DEFAULT CWA URL ACL from console as console
+*Jan  8 2025 13:24:29.835 EST: %SPA_OIR-6-ONLINECARD: SPA (VDSP-CC) online in subslot 0/4
+*Jan  8 2025 13:24:32.524 EST: %LINK-3-UPDOWN: Interface Service-Engine0/4/0, changed state to up
+*Jan  8 2025 13:24:32.789 EST: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Jan  8 2025 13:24:32.789 EST: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*Jan  8 2025 13:24:32.891 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI created successfully
+*Jan  8 2025 13:24:32.893 EST: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CISCO_IDEVID_SUDI has been generated or imported by pki-sudi
+*Jan  8 2025 13:24:32.901 EST: yang-infra: Configured netconf trustpoint (CISCO_IDEVID_SUDI) created
+*Jan  8 2025 13:24:32.901 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI0 created successfully
+*Jan  8 2025 13:24:32.903 EST: %PKI-2-NON_AUTHORITATIVE_CLOCK: PKI functions can not be initialized until an authoritative time source, like NTP, can be obtained.
+*Jan  8 2025 13:24:33.524 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/4/0, changed state to up
+*Jan  8 2025 13:24:35.984 EST: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Jan  8 2025 13:24:35.984 EST: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*Jan  8 2025 13:24:49.215 EST: NGIOLite module 4M-2xSFP+ success read extended attr from conf file len: 1063
+
+*Jan  8 2025 13:24:49.539 EST: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/4
+*Jan  8 2025 13:24:50.761 EST: %SPA_OIR-6-ONLINECARD: SPA (4M-2xSFP+) online in subslot 0/0
+*Jan  8 2025 13:24:51.896 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 0) using crypto cipher 'aes256-ctr', hmac 'hmac-sha2-512-etm@openssh.com' Succeeded
+*Jan  8 2025 13:24:51.921 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: admin] [Source: 192.168.5.104] [localport: 22] at 13:24:51 EST Wed Jan 8 2025
+*Jan  8 2025 13:24:51.921 EST: %SSH-5-SSH2_USERAUTH: User 'admin' authentication for SSH2 Session from 192.168.5.104 (tty = 0) using crypto cipher 'aes256-ctr', hmac 'hmac-sha2-512-etm@openssh.com' Succeeded
+*Jan  8 2025 13:25:18.461 EST: %SMART_LIC-6-REPORTING_REQUIRED: A Usage report acknowledgement will be required in 758 days.
+*Jan  8 2025 13:25:19.461 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Nov 11 2026 16:16:31.731 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card F0 took 69 secs to boot
+*Nov 11 2026 16:16:31.732 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 0 took 64 secs to boot
+*Nov 11 2026 16:16:31.732 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 1 took 64 secs to boot
+*Nov 11 2026 16:16:36.686 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/1
+*Nov 11 2026 16:16:43.212 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+*Nov 11 2026 16:17:03.065 EST: new extended attributes received from iomd(slot 0 bay 1 board 0)
+*Nov 11 2026 16:17:03.580 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %IOSXE_OIR-6-SOFT_RELOADSPA: SPA(NIM-2FXS/4FXOP) reloaded on subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+*Nov 11 2026 16:17:08.642 EST: %VOICE_HA-7-STATUS: Create VOICE HA INFRA processes now....
+*Nov 11 2026 16:17:09.656 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoipNull0, changed state to up
+*Nov 11 2026 16:17:26.425 EST: %SMART_LIC-6-USAGE_NO_ACK: A Usage report acknowledgement has not been received in the last 0 days.
+*Nov 11 2026 16:17:26.426 EST: %SIP-5-LICENSING: smart license report is not acknowledged.
+*Nov 11 2026 16:17:36.044 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:39.037 EST: %LINK-3-UPDOWN: Interface Service-Engine0/1/0, changed state to up
+*Nov 11 2026 16:17:40.036 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/1/0, changed state to up
+*Nov 11 2026 16:17:40.896 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+*Nov 11 2026 16:17:40.909 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/0, changed state to up
+*Nov 11 2026 16:17:41.044 EST: ***********************************************************
+Detailed call stats collection has been turned on
+Use "media disable-detailed-stats" under "voice service voip"to turn it off
+***********************************************************
+
+*Nov 11 2026 16:17:42.304 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/0, changed state to ready
+*Nov 11 2026 16:17:42.304 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/1, changed state to up
+*Nov 11 2026 16:17:42.305 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/2, changed state to up
+*Nov 11 2026 16:17:42.306 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/3, changed state to up
+*Nov 11 2026 16:17:43.832 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/1, changed state to ready
+*Nov 11 2026 16:17:43.832 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/2, changed state to ready
+*Nov 11 2026 16:17:43.833 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/3, changed state to ready
+*Nov 11 2026 16:17:43.834 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/4, changed state to up
+*Nov 11 2026 16:17:43.835 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/5, changed state to up
+*Nov 11 2026 16:17:43.976 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/4, changed state to ready
+*Nov 11 2026 16:17:43.977 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/5, changed state to ready
+*Nov 11 2026 16:19:30.409 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:19:32.073 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:19:33.596 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:20:16.175 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Nov 11 2026 16:20:16.176 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:24:43.050 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:24:44.084 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:24:44.084 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:26:54.005 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:26:55.037 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:26:55.038 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:28:08.214 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:08.354 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:28:08 EST Wed Nov 11 2026
+*Nov 11 2026 16:28:08.354 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:10.182 EST: %SYS-6-LOGOUT: User matt has exited tty session 867(192.168.5.104)
+*Nov 11 2026 16:28:10.182 EST: %SSH-5-SSH2_CLOSE: SSH2 Session from 192.168.5.104 (tty = 1) for user 'matt' using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' closed
+*Nov 11 2026 16:28:13.314 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:13.457 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:28:13 EST Wed Nov 11 2026
+*Nov 11 2026 16:28:13.457 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+CAT8375-G2#
+[COMMAND 2026-11-11T16:30:46.813903-05:00] show version | include uptime|reload|System image|register
+show version | include uptime|reload|System image|register
+CAT8375-G2 uptime is 15 minutes
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+Configuration register is 0x1822
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:43.314573-05:00] terminal length 0
+terminal length 0
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:43.777168-05:00] terminal width 200
+terminal width 200
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:44.240717-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 16 minutes
+Uptime for this control processor is 17 minutes
+System returned to ROM by PowerOn
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+4 Voice FXO interfaces
+2 Voice FXS interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:44.690865-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          23 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          27 Celsius
+ Temp: CPU               R0              Normal          33 Celsius
+ Temp: Working           R0              Normal          23 Celsius
+ V: 12V                  R0              Normal          11961 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2500 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1207 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          796 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          37 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          29 Celsius
+ Temp: Temp 3            P1              Normal          31 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6144 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9480 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:45.726350-05:00] show platform software status control-processor brief
+show platform software status control-processor brief
+Load Average
+ Slot  Status  1-Min  5-Min 15-Min
+  RP0 Healthy   4.43   4.55   3.18
+
+Memory (kB)
+ Slot  Status    Total     Used (Pct)     Free (Pct) Committed (Pct)
+  RP0 Healthy  7904332  4883312 (62%)  3021020 (38%)   3655252 (46%)
+
+CPU Utilization
+ Slot  CPU   User System   Nice   Idle    IRQ   SIRQ IOwait
+  RP0    0   2.30   2.50   3.80  90.89   0.40   0.00   0.10
+         1  15.80  13.20   0.00  68.60   2.40   0.00   0.00
+         2   8.10   8.90   0.00  80.60   2.40   0.00   0.00
+         3  10.10   9.30   0.00  78.20   2.40   0.00   0.00
+         4  14.90  13.00   0.00  69.70   2.40   0.00   0.00
+         5  11.68  11.48   0.00  74.42   2.39   0.00   0.00
+         6  14.30  13.00   0.00  70.30   2.40   0.00   0.00
+         7  11.71  13.51   0.00  72.37   2.40   0.00   0.00
+         8  11.30  11.50   0.00  74.80   2.40   0.00   0.00
+         9  13.20  12.60   0.00  71.70   2.40   0.10   0.00
+        10  16.81  13.91   0.00  66.86   2.40   0.00   0.00
+        11  19.40  17.10   0.00  61.10   2.40   0.00   0.00
+        12   3.80   7.40   0.00  86.90   1.90   0.00   0.00
+        13  13.90  15.00   0.00  68.70   2.40   0.00   0.00
+        14   7.21  10.22   0.00  80.56   2.00   0.00   0.00
+        15   4.00  13.30   0.00  80.00   2.70   0.00   0.00
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:46.218964-05:00] show platform software process list R0 name cpp_cp_svr
+show platform software process list R0 name cpp_cp_svr
+Name: cpp_cp_svr
+  Process id       : 24738
+  Parent process id: 24731
+  Group id         : 24738
+  Status           : S
+  Session id       : 23720
+  User time        : 733
+  Kernel time      : 761
+  Priority         : 20
+  Virtual bytes    : 1958027264
+  Resident pages   : 87215
+  Resident limit   : 18446744073709551615
+  Minor page faults: 41934
+  Major page faults: 53110
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:46.713725-05:00] show platform software process list R0 name iomd
+show platform software process list R0 name iomd
+Name: iomd
+  Process id       : 917
+  Parent process id: 912
+  Group id         : 917
+  Status           : S
+  Session id       : 25314
+  User time        : 97
+  Kernel time      : 186
+  Priority         : 20
+  Virtual bytes    : 492167168
+  Resident pages   : 18111
+  Resident limit   : 18446744073709551615
+  Minor page faults: 19640
+  Major page faults: 33
+
+Name: iomd
+  Process id       : 27504
+  Parent process id: 27497
+  Group id         : 27504
+  Status           : S
+  Session id       : 25314
+  User time        : 103
+  Kernel time      : 217
+  Priority         : 20
+  Virtual bytes    : 492163072
+  Resident pages   : 18097
+  Resident limit   : 18446744073709551615
+  Minor page faults: 18395
+  Major page faults: 1286
+
+Name: iomd
+  Process id       : 28117
+  Parent process id: 28103
+  Group id         : 28117
+  Status           : S
+  Session id       : 25314
+  User time        : 97
+  Kernel time      : 205
+  Priority         : 20
+  Virtual bytes    : 492138496
+  Resident pages   : 17647
+  Resident limit   : 18446744073709551615
+  Minor page faults: 18020
+  Major page faults: 1215
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:47.216623-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:17:13      
+ 0/0      4M-2xSFP+           ok                    00:16:13      
+ 0/1      NIM-2FXS/4FXOP      ok                    00:14:38      
+1         C8375-E-G2          ok                    00:17:13      
+R0        C8375-E-G2          ok, active            00:17:13      
+F0        C8375-E-G2          ok, active            00:17:13      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:16:30      
+P2        C8300-FAN-1R        ok                    00:16:29      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:47.701918-05:00] show voice port summary
+show voice port summary
+                                           IN       OUT
+PORT            CH   SIG-TYPE   ADMIN OPER STATUS   STATUS   EC
+=============== == ============ ===== ==== ======== ======== ==
+0/1/0           --  fxs-ls      up    dorm on-hook  idle     y 
+0/1/1           --  fxs-ls      up    dorm on-hook  idle     y 
+0/1/2           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/3           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/4           --  fxo-ls      up    dorm idle     on-hook  y 
+0/1/5           --  fxo-ls      up    dorm idle     on-hook  y 
+ 
+PWR FAILOVER PORT        PSTN FAILOVER PORT
+=================        ==================
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:48.188126-05:00] show voice dsp error
+show voice dsp error
+No DSP errors logged
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:48.663295-05:00] show ntp status
+show ntp status
+Clock is unsynchronized, stratum 3, reference is 192.168.3.10   
+nominal freq is 250.0000 Hz, actual freq is 250.0000 Hz, precision is 2**10
+ntp uptime is 98500 (1/100 of seconds), resolution is 4000
+reference time is EE9F5D1B.856042F8 (16:31:07.521 EST Wed Nov 11 2026)
+clock offset is 1.7403 msec, root delay is 15.93 msec
+root dispersion is 38.12 msec, peer dispersion is 1.94 msec
+loopfilter state is 'FREQ' (Drift being measured), drift is 0.000000000 s/s
+system poll interval is 64, last update was 41 sec ago.
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:50.193450-05:00] dir bootflash:core/
+dir bootflash:core/
+Directory of bootflash:core/
+
+783392  -rw-                1  Nov 11 2026 16:30:25 -05:00  .callhome
+783420  -rw-           409600  May 29 2025 14:52:00 -04:00  Router_RP_0_cpp_cp_svr_23990_20250529-185134-UTC.core.gz
+783419  -rw-             4096  May 29 2025 14:52:00 -04:00  Router_RP_0_cpp_cp_svr_23990_20250529-185134-UTC.core.gz.coregen.dbg
+783417  -rw-            74667  May 29 2025 14:51:34 -04:00  Router_RP_0_qfp-ucode-mirabile_21736_20250529-185048-UTC.core.gz.coregen.dbg
+783418  -rw-         16231871  May 29 2025 14:51:34 -04:00  Router_RP_0_qfp-ucode-mirabile_21736_20250529-185048-UTC.core.gz
+783366  drwx             4096  Sep 19 2024 11:23:03 -04:00  modules
+783414  -rw-           529263  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3025_20240525-120021-UTC.core.gz
+783416  -rw-           516195  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3026_20240525-120021-UTC.core.gz
+783413  -rw-           105786  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3025_20240525-120021-UTC.core.gz.coregen.dbg
+783415  -rw-           103310  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3026_20240525-120021-UTC.core.gz.coregen.dbg
+783412  -rw-           133308  May 25 2024 08:00:20 -04:00  Router_RP_0_ngiolite_24650_20240525-120020-UTC.core.gz.coregen.dbg
+783411  -rw-             7989  May 25 2024 08:00:19 -04:00  Router_RP_0-system-report_20240525-120015-UTC-info.txt
+783410  -rw-         34004393  May 25 2024 08:00:16 -04:00  Router_RP_0-system-report_20240525-120015-UTC.tar.gz
+783409  -rw-           516217  May 25 2024 07:38:01 -04:00  Router_RP_0_btman_rotate_immediate_3561_20240525-113801-UTC.core.gz
+783408  -rw-           103310  May 25 2024 07:38:01 -04:00  Router_RP_0_btman_rotate_immediate_3561_20240525-113801-UTC.core.gz.coregen.dbg
+783407  -rw-           529470  May 25 2024 07:38:00 -04:00  Router_RP_0_btman_rotate_immediate_3347_20240525-113800-UTC.core.gz
+783406  -rw-           105911  May 25 2024 07:38:00 -04:00  Router_RP_0_btman_rotate_immediate_3347_20240525-113800-UTC.core.gz.coregen.dbg
+783405  -rw-           133434  May 25 2024 07:37:59 -04:00  Router_RP_0_ngiolite_24783_20240525-113758-UTC.core.gz.coregen.dbg
+783404  -rw-            16525  May 25 2024 07:37:58 -04:00  Router_RP_0-system-report_20240525-113752-UTC-info.txt
+783403  -rw-         48579397  May 25 2024 07:37:54 -04:00  Router_RP_0-system-report_20240525-113752-UTC.tar.gz
+783402  -rw-           516271  May 21 2024 10:12:16 -04:00  Router_RP_0_btman_rotate_immediate_28841_20240521-141216-UTC.core.gz
+783401  -rw-           103595  May 21 2024 10:12:16 -04:00  Router_RP_0_btman_rotate_immediate_28841_20240521-141216-UTC.core.gz.coregen.dbg
+783400  -rw-           529651  May 21 2024 10:12:14 -04:00  Router_RP_0_btman_rotate_immediate_28286_20240521-141214-UTC.core.gz
+783399  -rw-           106327  May 21 2024 10:12:14 -04:00  Router_RP_0_btman_rotate_immediate_28286_20240521-141214-UTC.core.gz.coregen.dbg
+783398  -rw-            12312  May 21 2024 10:12:13 -04:00  Router_RP_0-system-report_20240521-141209-UTC-info.txt
+783397  -rw-         38671753  May 21 2024 10:12:09 -04:00  Router_RP_0-system-report_20240521-141209-UTC.tar.gz
+783396  -rw-           156947  May 20 2024 13:16:43 -04:00  Router_RP_0_pman_26176_20240520-171643-UTC.core.gz
+783395  -rw-            35321  May 20 2024 13:16:43 -04:00  Router_RP_0_pman_26176_20240520-171643-UTC.core.gz.coregen.dbg
+783364  -rw-           529603  May 20 2024 13:16:42 -04:00  Router_RP_0_btman_rotate_immediate_10457_20240520-171642-UTC.core.gz
+783363  -rw-           106325  May 20 2024 13:16:42 -04:00  Router_RP_0_btman_rotate_immediate_10457_20240520-171642-UTC.core.gz.coregen.dbg
+783361  -rw-            47672  May 20 2024 13:16:40 -04:00  Router_RP_0-system-report_20240520-171632-UTC-info.txt
+783362  -rw-         59047015  May 20 2024 13:16:35 -04:00  Router_RP_0-system-report_20240520-171632-UTC.tar.gz
+783424  -rw-       2325885324  Dec 31 1969 19:02:53 -05:00  kernel.rp_RP-MIRABILE_0_19700101000007.core.gz
+783422  -rw-       1749903459  Dec 31 1969 19:02:47 -05:00  kernel.rp_RP-MIRABILE_0_19700101000010.core.gz
+783421  -rw-           304544  Dec 31 1969 19:00:10 -05:00  kernel.rp_RP-MIRABILE_0_19700101000010.txt
+783423  -rw-           296360  Dec 31 1969 19:00:07 -05:00  kernel.rp_RP-MIRABILE_0_19700101000007.txt
+
+20584546304 bytes total (9814302720 bytes free)
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:51.075906-05:00] show logging
+show logging
+Syslog logging: enabled (0 messages dropped, 3 messages rate-limited, 0 flushes, 0 overruns, xml disabled, filtering disabled)
+
+No Active Message Discriminator.
+
+
+
+No Inactive Message Discriminator.
+
+
+    Console logging: level debugging, 174 messages logged, xml disabled,
+                     filtering disabled
+    Monitor logging: level debugging, 63 messages logged, xml disabled,
+                     filtering disabled
+        Logging to: vty866(63)
+    Buffer logging:  level debugging, 174 messages logged, xml disabled,
+                    filtering disabled
+    Exception Logging: size (4096 bytes)
+    Count and timestamp logging messages: disabled
+    Persistent logging: disabled
+
+No active filter modules.
+
+    Trap logging: level informational, 166 message lines logged
+        Logging Source-Interface:       VRF Name:
+    TLS Profiles: 
+
+Log Buffer (102400 bytes):
+
+*Jan  8 18:24:06.509: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*Jan  8 18:24:06.509: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module Integrity Test
+*Jan  8 18:24:06.513: %CRYPTO-5-SELF_TEST_END: Crypto Integrity self-test completed successfully
+       All tests passed.
+*Jan  8 18:24:06.697: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*Jan  8 18:24:07.739: %PLATFORM_PM-6-NGSW_MODE: pre-configure switching mode to doppler next-gen on this platform
+*Jan  8 18:24:07.763: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled ESG-NGSW-ACL:[subsys-init] Init ESG-ACL subsystem starting
+
+*Jan  8 18:24:10.779: ESG-NGSW-ACL:[subsys-init] Init ESG-ACL subsystem ended
+
+*Jan  8 18:24:10.779: 
+*Jan  8 18:24:10.949: NGIOLite module 4M-2xSFP+ success read extended attr from conf file len: 1063
+
+*Jan  8 18:24:11.634: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*Jan  8 18:24:12.445: %TLSCLIENT-5-TLSCLIENT_IOS: TLS Client is IOS based
+*Jan  8 18:24:12.479: %SSH-4-SSH_COMPLIANCE_SSH_RSA_DISABLED: Please note that ssh-rsa algorithm stands disabled from IOS-XE release 17.16.1 onwards and will not be part of the preferred publickey or hostkey algorithms by default. Users may choose to configure them explicitly if required
+*Jan  8 18:24:12.488: %SPANTREE-5-EXTENDED_SYSID: Extended SysId enabled for type vlan
+*Jan  8 18:24:12.514: %SMART_LIC-6-AGENT_ENABLED: Smart Agent for Licensing is enabled 
+*Jan  8 18:24:12.544: %CRYPTO_ENGINE-5-CSDL_COMPLIANCE_ENFORCED: Cisco PSB security compliance is being enforced
+*Jan  8 18:24:12.567: %CUBE-3-LICENSING:  SIP trunking (CUBE) licensing is now based on dynamic sessions counting, static license capacity configuration through 'mode border-element license capacity' would be ignored.
+*Jan  8 18:24:12.568: %SIP-5-LICENSING: CUBE license reporting period has been set to the minimum value of 8 hours.
+*Jan  8 18:24:12.592: %VOICE_HA-7-STATUS: CUBE HA-supported platform detected.
+*Jan  8 18:24:13.398: %IOSXE_RP_ALARM-2-PEM: ASSERT CRITICAL Power Supply Bay 0 Power Supply/FAN Module Missing 
+*Jan  8 18:24:13.403: %CRYPTO_SL_TP_LEVELS-6-PLATFORM_BASED_LIC: Platform Based License Support, throughput is un-throttled
+*Jan  8 18:24:13.437: %LINK-3-UPDOWN: Interface EOBC0, changed state to up
+*Jan  8 18:24:13.447: %LINK-3-UPDOWN: Interface Lsmpi0, changed state to up
+*Jan  8 18:24:13.448: %LINEPROTO-5-UPDOWN: Line protocol on Interface LI-Null0, changed state to up
+*Jan  8 18:24:13.449: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+*Jan  8 18:24:13.449: %LINK-3-UPDOWN: Interface LIIN0, changed state to up
+*Jan  8 18:24:13.449: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to down
+*Jan  8 18:24:13.451: %IOSXE_RP_ALARM-6-INFO: ASSERT CRITICAL GigabitEthernet0 Physical Port Link Down 
+*Jan  8 18:24:13.521: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*Jan  8 18:24:13.747: %IOSXE_MGMTVRF-6-CREATE_SUCCESS_INFO: Management vrf Mgmt-intf created with ID 1, ipv4 table-id 0x1, ipv6 table-id 0x1E000001
+*Jan  8 18:24:13.862: %PNP-6-PNP_DISCOVERY_STARTED: PnP Discovery started
+*Jan  8 18:24:09.761: %CMRP-3-PFU_MISSING: R0/0: cmand: The platform does not detect a power supply in slot 0
+*Jan  8 18:24:09.883: %CMRP_PFU-6-FANASSY_INSERTED: R0/0: cmand: Fan Assembly is inserted.
+*Jan  8 18:24:14.180: %SYS-5-CONFIG_P: Configured programmatically by process MGMT VRF Process from console as vty0
+*Jan  8 18:24:14.600: %LINEPROTO-5-UPDOWN: Line protocol on Interface EOBC0, changed state to up
+*Jan  8 18:24:14.600: %LINEPROTO-5-UPDOWN: Line protocol on Interface Lsmpi0, changed state to up
+*Jan  8 18:24:14.601: %LINEPROTO-5-UPDOWN: Line protocol on Interface LIIN0, changed state to up
+*Jan  8 18:24:14.601: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to down
+*Jan  8 18:24:14.680: %ONEP_BASE-6-SS_ENABLED: ONEP: Service set Base was enabled by Default
+*Jan  8 18:24:14.899: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Jan  8 18:24:16.075: %SYS-7-NVRAM_INIT_WAIT_TIME: Waited 0 seconds for NVRAM to be available
+*Jan  8 18:24:16.287: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named TP-self-signed-1897751160 has been generated or imported by crypto config
+*Jan  8 18:24:16.291: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: SSH - Command: crypto key generate rsa modulus 2048 label TP-self-signed-1897751160  - Reason: An SSH hostkey has been provisioned on the device with insufficient key length - Remediation: Please provision an SSH RSA hostkey with minimum modulus size of 3072 bits for enhanced security - Submode: exec - Parent CLI: Not Applicable
+*Jan  8 18:24:16.293: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CAT8375-G2.sunderdesign.top has been generated or imported by crypto config
+*Jan  8 18:24:16.296: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named SLA-KeyPair has been generated or imported by crypto config
+*Jan  8 18:24:16.298: %SYS-6-PRIVCFG_DECRYPT_SUCCESS: Successfully apply the private config file
+*Jan  8 18:24:16.331: %SYS-4-SYSTEM_SECURITY_MODE_CHANGE: System Security Mode Changed from SECURE to INSECURE
+*Jan  8 2025 13:24:16.339 EST: %SYS-6-CLOCKUPDATE: System clock has been updated from 18:24:16 UTC Wed Jan 8 2025 to 13:24:16 EST Wed Jan 8 2025, configured from console by vty0.
+*Jan  8 2025 13:24:16.340 EST: %SYS-6-CLOCKUPDATE: System clock has been updated from 13:24:16 EST Wed Jan 8 2025 to 13:24:16 EST Wed Jan 8 2025, configured from console by vty0.
+*Jan  8 2025 13:24:16.349 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: TP-self-signed-1897751160 created successfully
+*Jan  8 2025 13:24:16.350 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: SLA-TrustPoint created successfully
+*Jan  8 2025 13:24:16.358 EST: yang-infra: self-signed cert inserted(TP-self-signed-1897751160)
+*Jan  8 2025 13:24:16.372 EST: %AAA-4-USERNAME_CONFIGURATION: user with username: matt configured
+*Jan  8 2025 13:24:16.372 EST: %AAA-6-USER_PRIVILEGE_UPDATE: username: matt privilege updated with priv-15
+*Jan  8 2025 13:24:16.373 EST: %AAA-4-USERNAME_CONFIGURATION: user with username: admin configured
+*Jan  8 2025 13:24:16.373 EST: %AAA-6-USER_PRIVILEGE_UPDATE: username: admin privilege updated with priv-15
+*Jan  8 2025 13:24:16.519 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: RCMD - Command: ip rcmd domain-lookup - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.521 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: IP - Command: ip forward-protocol udp tftp - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.522 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: TELNET - Command: ip telnet comport enable - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.524 EST: %SYS-4-INSECURE_WARNING: Module: TFTP - Command: ip tftp blocksize 512 - The configuration is inconsistent with secure network operation and is not recommended
+*Jan  8 2025 13:24:16.525 EST: %SYS-4-INSECURE_WARNING: Module: FTP - Command: ip ftp passive  - The configuration is inconsistent with secure network operation and is not recommended
+*Jan  8 2025 13:24:16.539 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp allow mode control - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.546 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp server vrf Mgmt-intf 192.168.3.10 - Reason: NTP configuration lacks authentication, allowing potential time manipulation attacks - Remediation: Configure a valid auth key and make it trusted using the command - ntp trusted-key - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.547 EST: %SYS-5-CONFIG_I: Configured from memory by console
+*Jan  8 2025 13:24:16.554 EST: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/0, interfaces disabled
+*Jan  8 2025 13:24:16.554 EST: %IOSXE_OIR-6-REMSPA: SPA removed from subslot 0/4, interfaces disabled
+*Jan  8 2025 13:24:16.557 EST: %SPA_OIR-6-OFFLINECARD: SPA (4M-2xSFP+) offline in subslot 0/0
+*Jan  8 2025 13:24:16.560 EST: %SPA_OIR-6-OFFLINECARD: SPA (VDSP-CC) offline in subslot 0/4
+*Jan  8 2025 13:24:16.597 EST: %IOSXE_OIR-6-INSCARD: Card (fp) inserted in slot F0
+*Jan  8 2025 13:24:16.598 EST: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 0
+*Jan  8 2025 13:24:16.598 EST: %IOSXE_OIR-6-INSCARD: Card (cc) inserted in slot 1
+*Jan  8 2025 13:24:16.616 EST: %IOSXE_RP_PAE_NOT-4-PAE_STARTUP_DELAY: Product Analytics will start in 7 days, configure "no product-analytics" to disable
+*Jan  8 2025 13:24:16.617 EST: %CRYPTO-5-SELF_TEST_START: Crypto algorithms release (Rel5b), Entropy release (3.4.1)
+       begin Crypto Module self-tests
+*Jan  8 2025 13:24:16.622 EST: %CRYPTO-5-SELF_TEST_END: Crypto Algorithm self-test completed successfully
+       All tests passed.
+*Jan  8 2025 13:24:16.640 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: RCMD - Command: ip rcmd domain-lookup - Reason: No encryption is configured - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.640 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: NTP - Command: ntp allow mode control - Reason: NTP allow mode control renders device susceptible to DDoS attacks - Remediation: If control mode needs to be enabled, configure a higher rate-limit delay and monitor the flow - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.655 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: IP - Command: ip forward-protocol udp tftp - Reason: Legacy protocol poses data confidentiality and integrity risks due to lack of encryption and authentication - Remediation: This is a legacy feature, please consider disabling it - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:16.655 EST: %SYS-4-INSECURE_DYNAMIC_WARNING: Module: TELNET - Command: ip telnet comport enable - Reason: IP traffic is not encrypted - Remediation: Migrate to secure SSH-based remote access - Submode: configure - Parent CLI: Not Applicable
+*Jan  8 2025 13:24:17.385 EST: %IOSXE_OIR-6-ONLINECARD: Card (fp) online in slot F0
+*Jan  8 2025 13:24:17.548 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Jan  8 2025 13:24:21.284 EST: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 0
+*Jan  8 2025 13:24:21.296 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*Jan  8 2025 13:24:21.296 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/0
+*Jan  8 2025 13:24:21.309 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/4
+*Jan  8 2025 13:24:22.233 EST: %IOSXE_OIR-6-ONLINECARD: Card (cc) online in slot 1
+*Jan  8 2025 13:24:22.711 EST: Tamper: wait on boolean for tamper event to fetch
+*Jan  8 2025 13:24:22.711 EST: %SYS-5-RESTART: System restarted --
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+*Jan  8 2025 13:24:22.780 EST: %LINK-3-UPDOWN: Interface GigabitEthernet0, changed state to up
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_BEST_UDI_UPDATE: Best UDI [PID:C8375-E-G2,VID:V01,SN:FDO2742M0FK] identified via (entity-mibs)
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_CDP_UPDATE: Device UDI [PID:C8375-E-G2,VID:V01,SN:FDO2742M0FK] identified for CDP
+*Jan  8 2025 13:24:22.935 EST: %PNP-6-PNP_DISCOVERY_STOPPED: PnP Discovery stopped (Startup Config Present)
+*Jan  8 2025 13:24:23.779 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0, changed state to up
+*Jan  8 2025 13:24:24.275 EST: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 3 times and closed 0 times during power down. There is no last known/marked event.
+*Jan  8 2025 13:24:24.275 EST: %CMRP-4-TAMPER_DETECTION_NO_LAST_KNOWN_EVENT: R0/0: cmand: System cover was opened 1 times and closed 2 times during power up. There is no last known/marked event.
+*Jan  8 2025 13:24:26.618 EST: %SYS-5-CONFIG_P: Configured programmatically by process EPM CREATE DEFAULT CWA URL ACL from console as console
+*Jan  8 2025 13:24:29.835 EST: %SPA_OIR-6-ONLINECARD: SPA (VDSP-CC) online in subslot 0/4
+*Jan  8 2025 13:24:32.524 EST: %LINK-3-UPDOWN: Interface Service-Engine0/4/0, changed state to up
+*Jan  8 2025 13:24:32.789 EST: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Jan  8 2025 13:24:32.789 EST: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*Jan  8 2025 13:24:32.891 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI created successfully
+*Jan  8 2025 13:24:32.893 EST: %CRYPTO_ENGINE-5-KEY_ADDITION: A key named CISCO_IDEVID_SUDI has been generated or imported by pki-sudi
+*Jan  8 2025 13:24:32.901 EST: yang-infra: Configured netconf trustpoint (CISCO_IDEVID_SUDI) created
+*Jan  8 2025 13:24:32.901 EST: %PKI-6-TRUSTPOINT_CREATE: Trustpoint: CISCO_IDEVID_SUDI0 created successfully
+*Jan  8 2025 13:24:32.903 EST: %PKI-2-NON_AUTHORITATIVE_CLOCK: PKI functions can not be initialized until an authoritative time source, like NTP, can be obtained.
+*Jan  8 2025 13:24:33.524 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/4/0, changed state to up
+*Jan  8 2025 13:24:35.984 EST: %CRYPTO-6-ISAKMP_ON_OFF: ISAKMP is OFF
+*Jan  8 2025 13:24:35.984 EST: %CRYPTO-6-GDOI_ON_OFF: GDOI is OFF
+*Jan  8 2025 13:24:49.215 EST: NGIOLite module 4M-2xSFP+ success read extended attr from conf file len: 1063
+
+*Jan  8 2025 13:24:49.539 EST: %TRANSCEIVER-6-INSERTED: C0/0: iomd: transceiver module inserted in Te0/0/4
+*Jan  8 2025 13:24:50.761 EST: %SPA_OIR-6-ONLINECARD: SPA (4M-2xSFP+) online in subslot 0/0
+*Jan  8 2025 13:24:51.896 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 0) using crypto cipher 'aes256-ctr', hmac 'hmac-sha2-512-etm@openssh.com' Succeeded
+*Jan  8 2025 13:24:51.921 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: admin] [Source: 192.168.5.104] [localport: 22] at 13:24:51 EST Wed Jan 8 2025
+*Jan  8 2025 13:24:51.921 EST: %SSH-5-SSH2_USERAUTH: User 'admin' authentication for SSH2 Session from 192.168.5.104 (tty = 0) using crypto cipher 'aes256-ctr', hmac 'hmac-sha2-512-etm@openssh.com' Succeeded
+*Jan  8 2025 13:25:18.461 EST: %SMART_LIC-6-REPORTING_REQUIRED: A Usage report acknowledgement will be required in 758 days.
+*Jan  8 2025 13:25:19.461 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Nov 11 2026 16:16:31.731 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card F0 took 69 secs to boot
+*Nov 11 2026 16:16:31.732 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 0 took 64 secs to boot
+*Nov 11 2026 16:16:31.732 EST: %CMRP-5-CHASSIS_MONITOR_BOOT_TIME_PRINT: R0/0: cmand: Card 1 took 64 secs to boot
+*Nov 11 2026 16:16:36.686 EST: %IOSXE_OIR-6-INSSPA: SPA inserted in subslot 0/1
+*Nov 11 2026 16:16:43.212 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+*Nov 11 2026 16:17:03.065 EST: new extended attributes received from iomd(slot 0 bay 1 board 0)
+*Nov 11 2026 16:17:03.580 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %IOSXE_OIR-6-SOFT_RELOADSPA: SPA(NIM-2FXS/4FXOP) reloaded on subslot 0/1
+*Nov 11 2026 16:17:03.586 EST: %SPA_OIR-6-OFFLINECARD: SPA (NIM-2FXS/4FXOP) offline in subslot 0/1
+*Nov 11 2026 16:17:08.642 EST: %VOICE_HA-7-STATUS: Create VOICE HA INFRA processes now....
+*Nov 11 2026 16:17:09.656 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoipNull0, changed state to up
+*Nov 11 2026 16:17:26.425 EST: %SMART_LIC-6-USAGE_NO_ACK: A Usage report acknowledgement has not been received in the last 0 days.
+*Nov 11 2026 16:17:26.426 EST: %SIP-5-LICENSING: smart license report is not acknowledged.
+*Nov 11 2026 16:17:36.044 EST: %SPA_OIR-6-ONLINECARD: SPA (NIM-2FXS/4FXOP) online in subslot 0/1
+*Nov 11 2026 16:17:39.037 EST: %LINK-3-UPDOWN: Interface Service-Engine0/1/0, changed state to up
+*Nov 11 2026 16:17:40.036 EST: %LINEPROTO-5-UPDOWN: Line protocol on Interface Service-Engine0/1/0, changed state to up
+*Nov 11 2026 16:17:40.896 EST: %DSPRM-5-UP_DOWN: DSP 1 in subslot 0/1, changed state to up
+*Nov 11 2026 16:17:40.909 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/0, changed state to up
+*Nov 11 2026 16:17:41.044 EST: ***********************************************************
+Detailed call stats collection has been turned on
+Use "media disable-detailed-stats" under "voice service voip"to turn it off
+***********************************************************
+
+*Nov 11 2026 16:17:42.304 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/0, changed state to ready
+*Nov 11 2026 16:17:42.304 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/1, changed state to up
+*Nov 11 2026 16:17:42.305 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/2, changed state to up
+*Nov 11 2026 16:17:42.306 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/3, changed state to up
+*Nov 11 2026 16:17:43.832 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Station 0/1/1, changed state to ready
+*Nov 11 2026 16:17:43.832 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/2, changed state to ready
+*Nov 11 2026 16:17:43.833 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/3, changed state to ready
+*Nov 11 2026 16:17:43.834 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/4, changed state to up
+*Nov 11 2026 16:17:43.835 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/5, changed state to up
+*Nov 11 2026 16:17:43.976 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/4, changed state to ready
+*Nov 11 2026 16:17:43.977 EST: %LINK-3-UPDOWN: Interface Foreign Exchange Office 0/1/5, changed state to ready
+*Nov 11 2026 16:19:30.409 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:19:32.073 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:19:33.596 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:20:16.175 EST: %SMART_LIC-3-OUT_OF_COMPLIANCE: One or more entitlements are out of compliance
+*Nov 11 2026 16:20:16.176 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:24:43.050 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:24:44.084 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:24:44.084 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:26:54.005 EST: %SIP-5-LICENSING: License report acknowledged.
+*Nov 11 2026 16:26:55.037 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:26:55.038 EST: %SMART_LIC-5-IN_COMPLIANCE: All entitlements and licenses in use on this device are authorized
+*Nov 11 2026 16:28:08.214 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:08.354 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:28:08 EST Wed Nov 11 2026
+*Nov 11 2026 16:28:08.354 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:10.182 EST: %SYS-6-LOGOUT: User matt has exited tty session 867(192.168.5.104)
+*Nov 11 2026 16:28:10.182 EST: %SSH-5-SSH2_CLOSE: SSH2 Session from 192.168.5.104 (tty = 1) for user 'matt' using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' closed
+*Nov 11 2026 16:28:13.314 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:28:13.457 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:28:13 EST Wed Nov 11 2026
+*Nov 11 2026 16:28:13.457 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:31:23.290 EST: %SYS-6-LOGOUT: User matt has exited tty session 867(192.168.5.104)
+*Nov 11 2026 16:31:23.290 EST: %SSH-5-SSH2_CLOSE: SSH2 Session from 192.168.5.104 (tty = 1) for user '' using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' closed
+*Nov 11 2026 16:31:42.716 EST: %SSH-5-SSH2_SESSION: SSH2 Session request from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+*Nov 11 2026 16:31:42.859 EST: %SEC_LOGIN-5-LOGIN_SUCCESS: Login Success [user: matt] [Source: 192.168.5.104] [localport: 22] at 16:31:42 EST Wed Nov 11 2026
+*Nov 11 2026 16:31:42.859 EST: %SSH-5-SSH2_USERAUTH: User 'matt' authentication for SSH2 Session from 192.168.5.104 (tty = 1) using crypto cipher 'aes128-gcm@openssh.com', hmac 'hmac-sha2-256-etm@openssh.com' Succeeded
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:51.549074-05:00] show users
+show users
+    Line       User       Host(s)              Idle       Location
+ 866 vty 0     admin      idle                 00:09:09 192.168.5.104
+*867 vty 1     matt       idle                 00:00:04 192.168.5.104
+
+  Interface    User               Mode         Idle     Peer Address
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:31:56.030308-05:00] show version | include uptime|reload|System image|register
+show version | include uptime|reload|System image|register
+CAT8375-G2 uptime is 16 minutes
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+Configuration register is 0x1822
+CAT8375-G2#

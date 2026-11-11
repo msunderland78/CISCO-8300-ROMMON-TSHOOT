@@ -1,11 +1,19 @@
-# C8375-G2 recovery context — current handoff November 7, 2026
+# C8375-G2 recovery context — current handoff November 11, 2026
 
 This is the consolidated handoff for the device identifying as **C8375-E-G2**, chassis **FDO2742M0FK**. Read this file before acting on older notes. It retains the working IOS state from October 23, the subsequent ROMMON experiments and failure to boot, and the later external-acquisition research.
 
 Workspace: `/Users/games/Documents/SOFTWARE`  
-Original recovery session: **2026-10-23**; latest handoff: **2026-11-07**, America/New_York. Router timestamps such as January 8/May 29, 2025, and 1970/1979 file dates were incorrect clock values; they are not the actual dates of this work.
+Original recovery session: **2026-10-23**; latest handoff: **2026-11-11**, America/New_York. Router timestamps such as January 8/May 29, 2025, and 1970/1979 file dates were incorrect clock values; they are not the actual dates of this work.
 
 ## 1. Current state — start here
+
+### November 11, 16:32 EST — 400 W supply and voice initialization verified (C8375-05/06)
+
+This supersedes the November7 unsupported-NIM/awaiting-PSU state; earlier results remain historical. Owner confirms assembled/powered C8375-A/FDO2742M0FK, fitted cover and no programmer. Fresh separate SSH at192.168.4.62 identifies **P1 PWR-CC1-400WAC/V01/LIT2727C7NE ok**, 400W/Normal and `pf/oper-mode=normal`. Same **NIM-2FXS/4FXOP/FOC23152BE1 ok**, DSP DM8147 UP/66.1.0, six ports available and no DSP errors. Committed26.1.2/packages.conf/confreg0x1822 and originalROMMON/CPLD retained.
+
+Short host-dated227.244s snapshot span16:28:08–16:31:56: all sensor statesNormal, CPU33–34°C, fans9,480–9,660RPM, Healthy RP/62%RAM used, unchanged CPP/IOMD identities and no new core payload. Owner reports old cycling stopped, fast steady fans; voice-module cause is unproven. Both management ping tests20/20; all6data ports shutdown. EmptyP0 produces the only active critical alarm; NTP remains unsynchronized/FREQ with reachable peer; one startupCGX port0:2 cmd11timeout does not recur. These observations remain distinct from a fully qualified router.
+
+Both running/startup configs unchanged during today's check; cross-visit startup serialization differs. No reboot, config/save, firmware or fan-control write. Host-service interruption closed the main SSH; final bounded recheck exited normally, and16:32:30socket inventory shows only ownerSecureCRT. Router left powered/assembled; no serial access. Battery/telephone connections not separately specified. Owner explicitly reserves performance and voice functional tests for later; no45-minute fan watch. Next: owner-led calls/data-port tests, NTP recheck and retain startup timeout for that test. U1/production-firmware qualification remains separate. [Detailed evidence](c8375-recovery/health-20261111/README.md), [results](c8375-recovery/health-20261111/results.json), [sanitized capture](sanitized-evidence/c8375-recovery/health-20261111/selected-session.log).
 
 ### November 7, 18:55 EST — supported voice NIM still blocked (C8375-06)
 

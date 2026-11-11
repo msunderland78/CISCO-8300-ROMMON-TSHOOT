@@ -1,0 +1,2016 @@
+{
+  "task_ids": [
+    "C8375-05",
+    "C8375-06"
+  ],
+  "timezone": "America/New_York",
+  "date": "2026-11-11",
+  "first_command": "2026-11-11T16:28:08.786180-05:00",
+  "last_command": "2026-11-11T16:31:56.030308-05:00",
+  "sampled_command_span_seconds": 227.244128,
+  "chassis": {
+    "tracking_id": "C8375-A",
+    "pid": "C8375-E-G2",
+    "serial": "FDO2742M0FK",
+    "route_processor_serial": "FDO27380KFQ"
+  },
+  "access": {
+    "endpoint": "192.168.4.62:22",
+    "method": "Separate authenticated SSH VTY; no serial access",
+    "physical_confirmation": "Owner confirms target, new 400 W PSU installed, cover fitted and no programmer. Broad confirmation did not separately specify battery or telephone-line state.",
+    "owner_followup": "Owner reports no fan cycling, fast steady fans; defers all performance and voice-card functional testing to a later personal session.",
+    "interruption": "First stdin-EOF identity session exited normally. Main session ended on host server restart; process/socket inventory showed only owner SecureCRT. A bounded final SSH recheck exited normally."
+  },
+  "software": {
+    "ios": "26.01.02",
+    "image_state": "C 26.01.02.0.3639",
+    "mode": "Autonomous",
+    "boot": "bootflash:packages.conf",
+    "confreg": "0x1822",
+    "rommon": "SDK112308 / SoC2 v9.2.1 development",
+    "cpld": "2408272B",
+    "last_reload": "PowerOn"
+  },
+  "power": {
+    "pid": "PWR-CC1-400WAC",
+    "vid": "V01",
+    "serial": "LIT2727C7NE",
+    "slot": "P1",
+    "state": "ok",
+    "available_watts": 400,
+    "operating_mode": "normal",
+    "chasfs_oper_mode": "normal",
+    "empty_slot": "P0",
+    "active_critical_alarm": "Power Supply Bay 0: Power Supply/FAN Module Missing",
+    "redundancy": "Configured redundant, one installed supply, runtime not redundant"
+  },
+  "voice": {
+    "pid": "NIM-2FXS/4FXOP",
+    "vid": "V01",
+    "serial": "FOC23152BE1",
+    "slot": "0/1",
+    "state": "ok",
+    "dsp": "DM8147, UP, firmware 66.1.0",
+    "fxs_ports": 2,
+    "fxo_ports": 4,
+    "allocated_signaling_channels": 6,
+    "allocated_voice_channels": 0,
+    "dsp_errors": "No DSP errors logged",
+    "active_calls": 0,
+    "functional_call_test": "Not performed; deferred by owner"
+  },
+  "management": {
+    "interface": "GigabitEthernet0",
+    "link": "up/up, full duplex 1000 Mbps",
+    "input_errors": 0,
+    "crc_errors": 0,
+    "output_errors": 0,
+    "output_drops": 0,
+    "gateway_ping": "192.168.4.1: 20/20, 1/2/4 ms min/avg/max",
+    "routed_management_ping": "192.168.3.10: 20/20, 1/1/4 ms",
+    "data_ports": "All six administratively down; no forwarding or throughput test"
+  },
+  "configuration": {
+    "show running-config": {
+      "captures": 3,
+      "unchanged_during_check": true,
+      "identical_to_November7": false
+    },
+    "show startup-config": {
+      "captures": 3,
+      "unchanged_during_check": true,
+      "identical_to_November7": false
+    }
+  },
+  "configuration_comparison_limits": "Running differs from November 7 by generated voice-card, service-engine and voice-port sections. Startup serialization also changed between visits (version26.2 to26.1, explicit system mode insecure, proxy-arp/default lines and NTP mode-control). Exact cross-visit configuration identity is not claimed; no agent configuration/save/firmware/reboot commands today.",
+  "sensors": [
+    {
+      "timestamp": "2026-11-11T16:28:17.475596-05:00",
+      "sensors": [
+        {
+          "name": "Temp: Inlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Inlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 24,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 24,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 27,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: CPU",
+          "location": "R0",
+          "state": "Normal",
+          "value": 33,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Working",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "V: 12V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 11965,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 5V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 4991,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V_STBY",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3341,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3307,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V_USB",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3311,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 2.5V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 2501,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.8V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1799,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.2V_CPU",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1197,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.2V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1207,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.1V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1101,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.0V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 996,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.85V_DDR",
+          "location": "R0",
+          "state": "Normal",
+          "value": 831,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_SW",
+          "location": "R0",
+          "state": "Normal",
+          "value": 794,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_SYS",
+          "location": "R0",
+          "state": "Normal",
+          "value": 850,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_CORE",
+          "location": "R0",
+          "state": "Normal",
+          "value": 882,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_PHY",
+          "location": "R0",
+          "state": "Normal",
+          "value": 798,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.75V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 749,
+          "unit": "mV"
+        },
+        {
+          "name": "P: Power",
+          "location": "R0",
+          "state": "Normal",
+          "value": 35,
+          "unit": "Watts"
+        },
+        {
+          "name": "Temp: Temp 1",
+          "location": "P1",
+          "state": "Normal",
+          "value": 26,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 2",
+          "location": "P1",
+          "state": "Normal",
+          "value": 29,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 3",
+          "location": "P1",
+          "state": "Normal",
+          "value": 31,
+          "unit": "Celsius"
+        },
+        {
+          "name": "V: PEM In",
+          "location": "P1",
+          "state": "Normal",
+          "value": 120501,
+          "unit": "mV"
+        },
+        {
+          "name": "V: PEM Out",
+          "location": "P1",
+          "state": "Normal",
+          "value": 12000,
+          "unit": "mV"
+        },
+        {
+          "name": "I: PEM In",
+          "location": "P1",
+          "state": "Normal",
+          "value": 429,
+          "unit": "mA"
+        },
+        {
+          "name": "I: PEM Out",
+          "location": "P1",
+          "state": "Normal",
+          "value": 3200,
+          "unit": "mA"
+        },
+        {
+          "name": "P: In power",
+          "location": "P1",
+          "state": "Normal",
+          "value": 47,
+          "unit": "Watts"
+        },
+        {
+          "name": "P: Out power",
+          "location": "P1",
+          "state": "Normal",
+          "value": 38,
+          "unit": "Watts"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P1",
+          "state": "Normal",
+          "value": 6112,
+          "unit": "RPM"
+        },
+        {
+          "name": "P: Power",
+          "location": "P2",
+          "state": "Normal",
+          "value": 2,
+          "unit": "Watts"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9600,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan1",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9480,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan2",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9540,
+          "unit": "RPM"
+        },
+        {
+          "name": "P: pwr: Pwr",
+          "location": "0/1",
+          "state": "Normal",
+          "value": 6,
+          "unit": "Watts"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-11T16:28:54.171440-05:00",
+      "sensors": [
+        {
+          "name": "Temp: Inlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Inlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 24,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 25,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 27,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: CPU",
+          "location": "R0",
+          "state": "Normal",
+          "value": 34,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Working",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "V: 12V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 11957,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 5V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 4991,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V_STBY",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3341,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3308,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V_USB",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3311,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 2.5V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 2498,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.8V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1798,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.2V_CPU",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1198,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.2V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1207,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.1V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1101,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.0V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 996,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.85V_DDR",
+          "location": "R0",
+          "state": "Normal",
+          "value": 832,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_SW",
+          "location": "R0",
+          "state": "Normal",
+          "value": 793,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_SYS",
+          "location": "R0",
+          "state": "Normal",
+          "value": 850,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_CORE",
+          "location": "R0",
+          "state": "Normal",
+          "value": 881,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_PHY",
+          "location": "R0",
+          "state": "Normal",
+          "value": 798,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.75V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 749,
+          "unit": "mV"
+        },
+        {
+          "name": "P: Power",
+          "location": "R0",
+          "state": "Normal",
+          "value": 37,
+          "unit": "Watts"
+        },
+        {
+          "name": "Temp: Temp 1",
+          "location": "P1",
+          "state": "Normal",
+          "value": 26,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 2",
+          "location": "P1",
+          "state": "Normal",
+          "value": 29,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 3",
+          "location": "P1",
+          "state": "Normal",
+          "value": 31,
+          "unit": "Celsius"
+        },
+        {
+          "name": "V: PEM In",
+          "location": "P1",
+          "state": "Normal",
+          "value": 120501,
+          "unit": "mV"
+        },
+        {
+          "name": "V: PEM Out",
+          "location": "P1",
+          "state": "Normal",
+          "value": 11900,
+          "unit": "mV"
+        },
+        {
+          "name": "I: PEM In",
+          "location": "P1",
+          "state": "Normal",
+          "value": 429,
+          "unit": "mA"
+        },
+        {
+          "name": "I: PEM Out",
+          "location": "P1",
+          "state": "Normal",
+          "value": 3300,
+          "unit": "mA"
+        },
+        {
+          "name": "P: In power",
+          "location": "P1",
+          "state": "Normal",
+          "value": 47,
+          "unit": "Watts"
+        },
+        {
+          "name": "P: Out power",
+          "location": "P1",
+          "state": "Normal",
+          "value": 38,
+          "unit": "Watts"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P1",
+          "state": "Normal",
+          "value": 6112,
+          "unit": "RPM"
+        },
+        {
+          "name": "P: Power",
+          "location": "P2",
+          "state": "Normal",
+          "value": 2,
+          "unit": "Watts"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9660,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan1",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9480,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan2",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9540,
+          "unit": "RPM"
+        },
+        {
+          "name": "P: pwr: Pwr",
+          "location": "0/1",
+          "state": "Normal",
+          "value": 6,
+          "unit": "Watts"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-11T16:29:13.485804-05:00",
+      "sensors": [
+        {
+          "name": "Temp: Inlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Inlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 24,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 25,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 27,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: CPU",
+          "location": "R0",
+          "state": "Normal",
+          "value": 33,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Working",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 1",
+          "location": "P1",
+          "state": "Normal",
+          "value": 26,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 2",
+          "location": "P1",
+          "state": "Normal",
+          "value": 29,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 3",
+          "location": "P1",
+          "state": "Normal",
+          "value": 31,
+          "unit": "Celsius"
+        },
+        {
+          "name": "P: In power",
+          "location": "P1",
+          "state": "Normal",
+          "value": 47,
+          "unit": "Watts"
+        },
+        {
+          "name": "P: Out power",
+          "location": "P1",
+          "state": "Normal",
+          "value": 37,
+          "unit": "Watts"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P1",
+          "state": "Normal",
+          "value": 6144,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9660,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan1",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9480,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan2",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9540,
+          "unit": "RPM"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-11T16:29:33.018828-05:00",
+      "sensors": [
+        {
+          "name": "Temp: Inlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Inlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 24,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 25,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 27,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: CPU",
+          "location": "R0",
+          "state": "Normal",
+          "value": 33,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Working",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 1",
+          "location": "P1",
+          "state": "Normal",
+          "value": 26,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 2",
+          "location": "P1",
+          "state": "Normal",
+          "value": 29,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 3",
+          "location": "P1",
+          "state": "Normal",
+          "value": 31,
+          "unit": "Celsius"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P1",
+          "state": "Normal",
+          "value": 6144,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9600,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan1",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9540,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan2",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9540,
+          "unit": "RPM"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-11T16:29:55.762071-05:00",
+      "sensors": [
+        {
+          "name": "Temp: Inlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Inlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 24,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 25,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 27,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: CPU",
+          "location": "R0",
+          "state": "Normal",
+          "value": 34,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Working",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "V: 12V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 11965,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 5V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 4989,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V_STBY",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3343,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3308,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V_USB",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3311,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 2.5V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 2498,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.8V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1798,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.2V_CPU",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1197,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.2V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1208,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.1V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1100,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.0V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 996,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.85V_DDR",
+          "location": "R0",
+          "state": "Normal",
+          "value": 832,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_SW",
+          "location": "R0",
+          "state": "Normal",
+          "value": 792,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_SYS",
+          "location": "R0",
+          "state": "Normal",
+          "value": 850,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_CORE",
+          "location": "R0",
+          "state": "Normal",
+          "value": 883,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_PHY",
+          "location": "R0",
+          "state": "Normal",
+          "value": 798,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.75V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 749,
+          "unit": "mV"
+        },
+        {
+          "name": "P: Power",
+          "location": "R0",
+          "state": "Normal",
+          "value": 35,
+          "unit": "Watts"
+        },
+        {
+          "name": "Temp: Temp 1",
+          "location": "P1",
+          "state": "Normal",
+          "value": 26,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 2",
+          "location": "P1",
+          "state": "Normal",
+          "value": 29,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 3",
+          "location": "P1",
+          "state": "Normal",
+          "value": 31,
+          "unit": "Celsius"
+        },
+        {
+          "name": "V: PEM In",
+          "location": "P1",
+          "state": "Normal",
+          "value": 120501,
+          "unit": "mV"
+        },
+        {
+          "name": "V: PEM Out",
+          "location": "P1",
+          "state": "Normal",
+          "value": 12000,
+          "unit": "mV"
+        },
+        {
+          "name": "I: PEM In",
+          "location": "P1",
+          "state": "Normal",
+          "value": 429,
+          "unit": "mA"
+        },
+        {
+          "name": "I: PEM Out",
+          "location": "P1",
+          "state": "Normal",
+          "value": 3200,
+          "unit": "mA"
+        },
+        {
+          "name": "P: In power",
+          "location": "P1",
+          "state": "Normal",
+          "value": 47,
+          "unit": "Watts"
+        },
+        {
+          "name": "P: Out power",
+          "location": "P1",
+          "state": "Normal",
+          "value": 38,
+          "unit": "Watts"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P1",
+          "state": "Normal",
+          "value": 6112,
+          "unit": "RPM"
+        },
+        {
+          "name": "P: Power",
+          "location": "P2",
+          "state": "Normal",
+          "value": 2,
+          "unit": "Watts"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9660,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan1",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9480,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan2",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9540,
+          "unit": "RPM"
+        },
+        {
+          "name": "P: pwr: Pwr",
+          "location": "0/1",
+          "state": "Normal",
+          "value": 6,
+          "unit": "Watts"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-11T16:31:44.690865-05:00",
+      "sensors": [
+        {
+          "name": "Temp: Inlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Inlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 24,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 1",
+          "location": "R0",
+          "state": "Normal",
+          "value": 25,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Outlet 2",
+          "location": "R0",
+          "state": "Normal",
+          "value": 27,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: CPU",
+          "location": "R0",
+          "state": "Normal",
+          "value": 33,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Working",
+          "location": "R0",
+          "state": "Normal",
+          "value": 23,
+          "unit": "Celsius"
+        },
+        {
+          "name": "V: 12V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 11961,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 5V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 4991,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V_STBY",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3341,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3308,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 3.3V_USB",
+          "location": "R0",
+          "state": "Normal",
+          "value": 3311,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 2.5V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 2500,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.8V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1798,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.2V_CPU",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1198,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.2V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1207,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.1V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 1101,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 1.0V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 996,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.85V_DDR",
+          "location": "R0",
+          "state": "Normal",
+          "value": 832,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_SW",
+          "location": "R0",
+          "state": "Normal",
+          "value": 796,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_SYS",
+          "location": "R0",
+          "state": "Normal",
+          "value": 850,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_CORE",
+          "location": "R0",
+          "state": "Normal",
+          "value": 883,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.8V_PHY",
+          "location": "R0",
+          "state": "Normal",
+          "value": 798,
+          "unit": "mV"
+        },
+        {
+          "name": "V: 0.75V",
+          "location": "R0",
+          "state": "Normal",
+          "value": 749,
+          "unit": "mV"
+        },
+        {
+          "name": "P: Power",
+          "location": "R0",
+          "state": "Normal",
+          "value": 37,
+          "unit": "Watts"
+        },
+        {
+          "name": "Temp: Temp 1",
+          "location": "P1",
+          "state": "Normal",
+          "value": 26,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 2",
+          "location": "P1",
+          "state": "Normal",
+          "value": 29,
+          "unit": "Celsius"
+        },
+        {
+          "name": "Temp: Temp 3",
+          "location": "P1",
+          "state": "Normal",
+          "value": 31,
+          "unit": "Celsius"
+        },
+        {
+          "name": "V: PEM In",
+          "location": "P1",
+          "state": "Normal",
+          "value": 120501,
+          "unit": "mV"
+        },
+        {
+          "name": "V: PEM Out",
+          "location": "P1",
+          "state": "Normal",
+          "value": 12000,
+          "unit": "mV"
+        },
+        {
+          "name": "I: PEM In",
+          "location": "P1",
+          "state": "Normal",
+          "value": 429,
+          "unit": "mA"
+        },
+        {
+          "name": "I: PEM Out",
+          "location": "P1",
+          "state": "Normal",
+          "value": 3200,
+          "unit": "mA"
+        },
+        {
+          "name": "P: In power",
+          "location": "P1",
+          "state": "Normal",
+          "value": 47,
+          "unit": "Watts"
+        },
+        {
+          "name": "P: Out power",
+          "location": "P1",
+          "state": "Normal",
+          "value": 38,
+          "unit": "Watts"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P1",
+          "state": "Normal",
+          "value": 6144,
+          "unit": "RPM"
+        },
+        {
+          "name": "P: Power",
+          "location": "P2",
+          "state": "Normal",
+          "value": 2,
+          "unit": "Watts"
+        },
+        {
+          "name": "RPM: fan0",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9660,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan1",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9480,
+          "unit": "RPM"
+        },
+        {
+          "name": "RPM: fan2",
+          "location": "P2",
+          "state": "Normal",
+          "value": 9540,
+          "unit": "RPM"
+        },
+        {
+          "name": "P: pwr: Pwr",
+          "location": "0/1",
+          "state": "Normal",
+          "value": 6,
+          "unit": "Watts"
+        }
+      ]
+    }
+  ],
+  "controller_samples": [
+    {
+      "timestamp": "2026-11-11T16:30:07.997284-05:00",
+      "independent_identity_anchors": "passed",
+      "nios_version_u16": 63,
+      "fan_rpm": [
+        9660,
+        9540,
+        9600
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0
+    },
+    {
+      "timestamp": "2026-11-11T16:30:41.173581-05:00",
+      "independent_identity_anchors": "passed",
+      "nios_version_u16": 63,
+      "fan_rpm": [
+        9600,
+        9480,
+        9600
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0
+    },
+    {
+      "timestamp": "2026-11-11T16:31:45.161929-05:00",
+      "independent_identity_anchors": "passed",
+      "nios_version_u16": 63,
+      "fan_rpm": [
+        9660,
+        9540,
+        9540
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0
+    }
+  ],
+  "controller_interpretation": "Historical vendor field mapping reused with three independent fan identity anchors; current 26.1.2 driver was not hash-matched. Table1 observed versus historical table2; no isolated voice-module comparison and no cause or supported fan-speed adjustment established. NIOS63 is not an ENVMCU firmware identification.",
+  "ntp_final": "show ntp status\nClock is unsynchronized, stratum 3, reference is 192.168.3.10   \nnominal freq is 250.0000 Hz, actual freq is 250.0000 Hz, precision is 2**10\nntp uptime is 98500 (1/100 of seconds), resolution is 4000\nreference time is EE9F5D1B.856042F8 (16:31:07.521 EST Wed Nov 11 2026)\nclock offset is 1.7403 msec, root delay is 15.93 msec\nroot dispersion is 38.12 msec, peer dispersion is 1.94 msec\nloopfilter state is 'FREQ' (Drift being measured), drift is 0.000000000 s/s\nsystem poll interval is 64, last update was 41 sec ago.\nCAT8375-G2#",
+  "startup_cgx_timeout_counts": [
+    1,
+    1,
+    1
+  ],
+  "startup_cgx_timeout": "One recorded at router 2026-11-11 16:16:43.212 EST; no recurrence in sampled log snapshots. Data ports untested, cause unresolved.",
+  "core_directory_rows_unchanged": false,
+  "core_payload_rows_unchanged": true,
+  "core_directory_change": "Only the one-byte .callhome marker timestamp changed; no new or changed core payload entries. Free bootflash fell from 9816031232 to 9814302720 bytes.",
+  "core_limit": "Existing cores retained; incorrect early router timestamps mean filename dates alone do not establish age. Directory comparison checks only new entries/size/date changes during observation.",
+  "qfp_drop_snapshots": [
+    "show platform hardware qfp active statistics drop\nLast clearing of QFP drops statistics : never\n\n-------------------------------------------------------------------------\nGlobal Drop Stats                         Packets                  Octets  \n-------------------------------------------------------------------------\nIpv6NoRoute                                     8                     448  \n\nCAT8375-G2#",
+    "show platform hardware qfp active statistics drop\nLast clearing of QFP drops statistics : never\n\n-------------------------------------------------------------------------\nGlobal Drop Stats                         Packets                  Octets  \n-------------------------------------------------------------------------\nIpv6NoRoute                                     8                     448  \n\nCAT8375-G2#"
+  ],
+  "process_identity": {
+    "cpp_pid": 24738,
+    "cpp_session": 23720,
+    "iomd_pids": [
+      917,
+      27504,
+      28117
+    ],
+    "unchanged_across_checks": true
+  },
+  "health": {
+    "control_processor": "Healthy",
+    "memory_used_pct": 62,
+    "memory_free_pct": 38,
+    "qfp_processing_load_pct": 0,
+    "license": "advantage AUTHORIZED",
+    "config_changed_by_agent": false,
+    "firmware_changed_by_agent": false,
+    "reboot_by_agent": false
+  },
+  "failed_cli": [
+    {
+      "timestamp": "2026-11-11T16:28:50.047938-05:00",
+      "command": "show platform software core slot R0",
+      "failure": "invalid or incomplete CLI; no diagnostic result"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:53.688253-05:00",
+      "command": "show platform software process list R0 sort cpu",
+      "failure": "invalid or incomplete CLI; no diagnostic result"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:54.638346-05:00",
+      "command": "show diag subslot 0/1",
+      "failure": "invalid or incomplete CLI; no diagnostic result"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:55.289564-05:00",
+      "command": "show platform hardware qfp active infrastructure ipc",
+      "failure": "invalid or incomplete CLI; no diagnostic result"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:40.672926-05:00",
+      "command": "show platform hardware qfp active infrastructure ipc statistics",
+      "failure": "invalid or incomplete CLI; no diagnostic result"
+    }
+  ],
+  "limitations": [
+    "Short, lightly loaded health check, not a 45-minute fan qualification or extended stability test.",
+    "No voice calls or data-port performance testing; owner will perform later.",
+    "No physical voltage measurement, production-ROMMON qualification, TPM/provisioning change, or U1 acquisition.",
+    "Known-value and pattern scanning cannot prove absence of every unknown secret."
+  ],
+  "sources": [
+    {
+      "private_name": "20261111-162807-ssh.raw",
+      "bytes": 3121,
+      "sha256": "5f3aba7a7cdbbd6fc6bcb682ccee5e2f9913ecce251177e25762c315996b59ce"
+    },
+    {
+      "private_name": "20261111-162812-ssh.raw",
+      "bytes": 173794,
+      "sha256": "dfe6826b093b0f614092527009e81abcf0bf95be7c4c42613d28dc890ac433a0"
+    },
+    {
+      "private_name": "20261111-163142-ssh.raw",
+      "bytes": 64272,
+      "sha256": "97a9a7d3bffacb80878cbecbbfbbf46b0c44aa9adb080dc124170b8658d5e05e"
+    }
+  ],
+  "private_helpers": [
+    {
+      "name": "session.py",
+      "sha256": "d5378d28a6c6cdbf2613bdc9808bd3d7e75b7bb5980a32cd5247d510c20838d6"
+    },
+    {
+      "name": "build_evidence.py",
+      "sha256": "c1ac8b9397ead241f2d8884c891a56ecc55d668c5ba8d27727bb57f2fd1981aa"
+    }
+  ],
+  "commands": [
+    {
+      "timestamp": "2026-11-11T16:28:08.786180-05:00",
+      "command": "terminal length 0",
+      "source": "20261111-162807-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:09.220430-05:00",
+      "command": "terminal width 200",
+      "source": "20261111-162807-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:09.684138-05:00",
+      "command": "show version",
+      "source": "20261111-162807-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:13.896222-05:00",
+      "command": "terminal length 0",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:14.340311-05:00",
+      "command": "terminal width 200",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:14.783591-05:00",
+      "command": "show version",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:16.549245-05:00",
+      "command": "show inventory",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:17.000171-05:00",
+      "command": "show platform",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:17.475596-05:00",
+      "command": "show environment all",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:17.946672-05:00",
+      "command": "show platform software chasfs R0 | include oper-mode|psu|power",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:22.924875-05:00",
+      "command": "show running-config",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:23.539293-05:00",
+      "command": "show startup-config",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:27.855659-05:00",
+      "command": "show voice port summary",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:28.316594-05:00",
+      "command": "show voice dsp group all",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:28.796614-05:00",
+      "command": "show voice call summary",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:29.270416-05:00",
+      "command": "show call active voice brief",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:29.731658-05:00",
+      "command": "show platform software status control-processor brief",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:30.223810-05:00",
+      "command": "show processes cpu sorted 5sec | exclude 0.00%  0.00%  0.00%",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:30.714819-05:00",
+      "command": "show platform hardware qfp active datapath utilization",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:31.236667-05:00",
+      "command": "show ip interface brief",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:31.732361-05:00",
+      "command": "show interfaces",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:32.188635-05:00",
+      "command": "show install summary",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:49.593217-05:00",
+      "command": "show logging",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:50.047938-05:00",
+      "command": "show platform software core slot R0",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:50.552629-05:00",
+      "command": "dir bootflash:",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:51.986800-05:00",
+      "command": "dir bootflash:core/",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:52.654428-05:00",
+      "command": "show platform hardware qfp active infrastructure exmem statistics",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:53.175359-05:00",
+      "command": "show platform hardware qfp active statistics drop",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:53.688253-05:00",
+      "command": "show platform software process list R0 sort cpu",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:54.171440-05:00",
+      "command": "show environment all",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:54.638346-05:00",
+      "command": "show diag subslot 0/1",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:55.133743-05:00",
+      "command": "show voice dsp error",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:55.628852-05:00",
+      "command": "show ip route vrf Mgmt-intf",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:28:56.120185-05:00",
+      "command": "show clock detail",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:09.664149-05:00",
+      "command": "show facility-alarm status",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:10.149674-05:00",
+      "command": "show license summary",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:10.609394-05:00",
+      "command": "show ntp status",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:11.052968-05:00",
+      "command": "show ntp associations",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:11.508528-05:00",
+      "command": "ping vrf Mgmt-intf 192.168.4.1 repeat 20 timeout 1",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:12.008213-05:00",
+      "command": "show platform software process list R0 ?",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:12.505041-05:00",
+      "command": "show diag subslot 0/1 ?",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:12.977790-05:00",
+      "command": "show platform hardware qfp active infrastructure bqs status",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:13.485804-05:00",
+      "command": "show environment all | include Temp:|RPM:|P: In power|P: Out power",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:29.658370-05:00",
+      "command": "show platform software process list R0 sort ?",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:30.137027-05:00",
+      "command": "show diag subslot 0/1 eeprom",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:30.610383-05:00",
+      "command": "show voice port 0/1/0",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:31.055845-05:00",
+      "command": "show voice port 0/1/2",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:31.559563-05:00",
+      "command": "show redundancy",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:32.047452-05:00",
+      "command": "show platform hardware qfp active infrastructure ?",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:32.523125-05:00",
+      "command": "ping vrf Mgmt-intf 192.168.3.10 repeat 20 timeout 1",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:33.018828-05:00",
+      "command": "show environment all | include Temp:|RPM:",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:53.752427-05:00",
+      "command": "show platform software process list R0 summary",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:54.260041-05:00",
+      "command": "show platform software process list R0 name cpp_cp_svr",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:54.769695-05:00",
+      "command": "show platform software process list R0 name iomd",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:55.289564-05:00",
+      "command": "show platform hardware qfp active infrastructure ipc",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:55.762071-05:00",
+      "command": "show environment all",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:56.242955-05:00",
+      "command": "show ntp status",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:29:56.724437-05:00",
+      "command": "show logging | include Marvell|UNSUPPORTED_MODULE|DSPRM|FANFAIL|PEMFAIL|CRASH|CRITICAL|PLATFORM",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:07.997284-05:00",
+      "command": "show platform hardware slot R0 fpga",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:08.563818-05:00",
+      "command": "show platform hardware qfp active infrastructure ipc ?",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:09.069316-05:00",
+      "command": "show platform software status control-processor brief",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:09.584772-05:00",
+      "command": "show voice dsp error",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:40.672926-05:00",
+      "command": "show platform hardware qfp active infrastructure ipc statistics",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:41.173581-05:00",
+      "command": "show platform hardware slot R0 fpga",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:41.739588-05:00",
+      "command": "show power",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:42.224824-05:00",
+      "command": "show platform",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:42.715111-05:00",
+      "command": "show voice dsp group all",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:43.214055-05:00",
+      "command": "show voice dsp error",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:43.716773-05:00",
+      "command": "show ntp status",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:44.194908-05:00",
+      "command": "show interfaces GigabitEthernet0 | include line protocol|input errors|output errors|drops|packets input|packets output",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:44.682281-05:00",
+      "command": "show platform hardware qfp active statistics drop",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:45.204488-05:00",
+      "command": "show running-config",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:45.835111-05:00",
+      "command": "show startup-config",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:46.323948-05:00",
+      "command": "show logging",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:30:46.813903-05:00",
+      "command": "show version | include uptime|reload|System image|register",
+      "source": "20261111-162812-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:43.314573-05:00",
+      "command": "terminal length 0",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:43.777168-05:00",
+      "command": "terminal width 200",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:44.240717-05:00",
+      "command": "show version",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:44.690865-05:00",
+      "command": "show environment all",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:45.161929-05:00",
+      "command": "show platform hardware slot R0 fpga",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:45.726350-05:00",
+      "command": "show platform software status control-processor brief",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:46.218964-05:00",
+      "command": "show platform software process list R0 name cpp_cp_svr",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:46.713725-05:00",
+      "command": "show platform software process list R0 name iomd",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:47.216623-05:00",
+      "command": "show platform",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:47.701918-05:00",
+      "command": "show voice port summary",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:48.188126-05:00",
+      "command": "show voice dsp error",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:48.663295-05:00",
+      "command": "show ntp status",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:49.130169-05:00",
+      "command": "show running-config",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:49.723557-05:00",
+      "command": "show startup-config",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:50.193450-05:00",
+      "command": "dir bootflash:core/",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:51.075906-05:00",
+      "command": "show logging",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:51.549074-05:00",
+      "command": "show users",
+      "source": "20261111-163142-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:31:56.030308-05:00",
+      "command": "show version | include uptime|reload|System image|register",
+      "source": "20261111-163142-ssh.raw"
+    }
+  ]
+}

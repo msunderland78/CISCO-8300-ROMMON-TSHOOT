@@ -1,7 +1,26 @@
 C8375-E-G2 / CRESTONE RECOVERY CONTEXT
-Current handoff updated 2026-11-07, America/New_York; historical October23 summary retained
+Current handoff updated 2026-11-11, America/New_York; historical October23 summary retained
 Workspace /Users/games/Documents/SOFTWARE
 Separate from C8235-G2. Read this current summary before older chronology.
+
+NOVEMBER 11, 16:32 EST -- BASIC HEALTH / VOICE INITIALIZATION VERIFIED
+Supersedes prior awaiting400W/unsupportedNIM state. Owner confirms assembled,
+powered C8375-A/FDO2742M0FK, cover fitted/no programmer. Fresh separate SSH
+192.168.4.62: P1 PWR-CC1-400WAC/V01/LIT2727C7NE ok,400W/Normal; pf/oper-mode
+normal. SameNIM-2FXS/4FXOP/FOC23152BE1 ok,DM8147UP/66.1.0,2FXS+4FXO ports,
+noDSPerrors. Samecommitted26.1.2/packages.conf/0x1822 and originalROMMON/CPLD.
+Short227.244s command span16:28:08-16:31:56, with host interruption/reconnect:
+all sensorsNormal,CPU33-34C,fans9480-9660RPM,RPHealthy/RAM62%used. Owner says
+cycling stopped; fast steady fans, not proven specifically caused by voiceNIM.
+Bothmanagementping20/20; all6dataports shutdown. CPP/IOMDidentities unchanged;
+no new core payload. EmptyP0critical alarm; NTPunsynchronized/FREQ/reachable;
+one startupCGXport0:2cmd11timeout nonrecurring, datapath significance unresolved.
+Bothconfigs unchangedtoday; crossvisitstartupserialization differs. Noagent
+reboot/configsave/firmware/fanwrite/serial. FinalSSH exits;16:32:30 onlyowner
+SecureCRT socket remains. RouterON/assembled; battery/phonelines notseparately
+specified. Ownerdefers performance/voicefunctional tests; no45minfanwatch.
+Nextowner-led tests/NTPrecheck; U1 and productionfirmwarequalification separate.
+Evidence: c8375-recovery/health-20261111/README.md and results.json.
 
 NOVEMBER 7, 18:55 EST -- C8375-06 P-SUFFIX NIM DIAGNOSIS
 Fresh C8375-A/FDO2742M0FK, CAT8375-G2 at192.168.4.62. Owner confirms normal
