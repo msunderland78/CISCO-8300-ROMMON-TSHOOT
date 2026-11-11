@@ -7,6 +7,12 @@ Original recovery session: **2026-10-23**; latest handoff: **2026-11-11**, Ameri
 
 ## 1. Current state — start here
 
+### November 11, 18:10 EST — stopped for the day
+
+Owner is ending today's work. The complete investigation, failed attempts, exact probe bytes/hashes, restoration checks and remaining fan-command question are captured below and in the linked evidence. Raw captures and experimental helpers remain local under `.git/recovery-private/c8375-controller-protocol-20261111/`; sanitized evidence and handoffs are published. Last verified hardware state is the 17:58 checkpoint: normal IOS restored, NIM/DSP up, configurations unchanged, no retained override, router left powered and agent SSH/RJ45 sessions closed. **No new router access, test or shutdown occurred during this documentation-only closeout; a later owner power-off has not been reported.**
+
+Resume with offline identification of the environmental controller's fan command/acceptance handshake and rollback. Reconfirm chassis, present power/cable/assembly state and console ownership before any new live test. The owner accepts a reversible quieter profile for a low-traffic home lab; calls/performance tests remain owner-deferred. NIM removal already demonstrated the slower profile and need not be repeated merely to prove that effect. Direct curve/override-field edits did not work; this remains unresolved, not proven impossible.
+
 ### November 11, 17:59 EST — aligned access verified; two bounded writes ineffective (C8375-05)
 
 The aligned reader works against the identified FPGA, with RPM/temperature readings matching native NIOS sysfs. During an authorized temporary maintenance boot, an idle-curve byte was changed 42→34; a second probe also set the driver-labelled H2N override byte. Both had 20-second limits and independent restoration guards. The controller replaced the first change by two seconds and the second by one second, without changing N2H data or fan RPM. Both complete control blocks match pretest afterward. Maintenance table 0 ran at 12,240–12,300 RPM with CPU 28–29°C; this is distinct from normal IOS table 1. **These were actual temporary volatile writes, with no quieter result; the earlier 17:40 no-write statement remains historical.**

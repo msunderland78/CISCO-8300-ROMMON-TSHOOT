@@ -1,6 +1,17 @@
 C8375-E-G2 / CRESTONE RECOVERY CONTEXT
 Current handoff updated 2026-11-11, America/New_York; historical October23 summary retained
 
+NOVEMBER 11, 18:10 EST -- STOPPED FOR THE DAY
+Owner ended today's work. Full handoff is C8375-G2-RECOVERY-CONTEXT.md.
+Last verified state remains17:58: normal IOS/NIM restored, no retained override,
+configs unchanged, router left powered, agentSSH/RJ45 closed. This closeout
+is documentation-only; no new router access/test/shutdown or reported power-off.
+Raw logs/helpers stay in .git/recovery-private/c8375-controller-protocol-20261111/;
+sanitized evidence and current handoffs are published. Resume offline fan-command
+and acceptance/rollback research; reconfirm physical state and console ownership
+before live work. No need to repeat NIM removal proof. Quiet profile unresolved;
+owner accepts reversible home-lab adjustment and defers voice/performance tests.
+
 NOVEMBER 11, 17:59 EST -- ALIGNED READER VERIFIED; TWO PROBES DID NOT QUIET FANS
 Same C8375-A/FDO2742M0FK. Qualified aligned 32-bit PCI reads agree with native
 NIOS RPM/temperature readings. In temporary maintenance mode, tested one
