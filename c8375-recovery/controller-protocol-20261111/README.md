@@ -2,6 +2,8 @@
 
 **November 11, 2026, America/New_York · C8375-05 · 17:40 EST checkpoint**
 
+**Later checkpoint:** [aligned reads and two bounded write probes](../aligned-controller-tests-20261111/README.md) succeeded in accessing the controller but did not slow the fans. The no-write statements below describe this earlier 17:40 checkpoint.
+
 **No quieter setting has been applied. Normal IOS and the voice NIM are restored.** Further analysis found candidate fan curves in the saved controller data, and temporary maintenance access identified the live FPGA. Two diagnostic boots ended in unexpected resets; a mailbox display contains a concrete alignment defect. The next reader must use the aligned access pattern used by the native NIOS driver.
 
 ## Candidate curves

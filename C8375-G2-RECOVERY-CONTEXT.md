@@ -7,6 +7,12 @@ Original recovery session: **2026-10-23**; latest handoff: **2026-11-11**, Ameri
 
 ## 1. Current state — start here
 
+### November 11, 17:59 EST — aligned access verified; two bounded writes ineffective (C8375-05)
+
+The aligned reader works against the identified FPGA, with RPM/temperature readings matching native NIOS sysfs. During an authorized temporary maintenance boot, an idle-curve byte was changed 42→34; a second probe also set the driver-labelled H2N override byte. Both had 20-second limits and independent restoration guards. The controller replaced the first change by two seconds and the second by one second, without changing N2H data or fan RPM. Both complete control blocks match pretest afterward. Maintenance table 0 ran at 12,240–12,300 RPM with CPU 28–29°C; this is distinct from normal IOS table 1. **These were actual temporary volatile writes, with no quieter result; the earlier 17:40 no-write statement remains historical.**
+
+Normal saved 16-CPU/EDAC-blacklisted IOS 26.1.2 is restored, committed/packages.conf/confreg 0x1822. Final CPU 32°C, all displayed sensors Normal, fans 9660/9480/9600 RPM; NIM ok, DSP UP/66.1.0/six channels/no errors. Management, SSH and NTP recovered; both configuration bodies match the preceding checkpoint. No new core payload or filtered fault event observed. No firmware update, security change or configuration save was commanded. Agent SSH/RJ45 closed and endpoint inventories free. No further NIM removal needed. **Next: identify the controller's fan command/acceptance handshake; shared-field edits alone are now tested negative.** [Exact probes, preserved failures and restoration](c8375-recovery/aligned-controller-tests-20261111/README.md).
+
 ### November 11, 17:40 EST — candidate curves; maintenance reads and restoration (C8375-05)
 
 Eighteen saved frames expose identical 75-byte candidate fan-curve arrays in N2H/H2N blocks. Groups 1 and 2 differ only at the first value, **34 versus 26**; selector 1→2→1 follows NIM presence. Units, dimensions and application handshake remain unverified; no fan write.

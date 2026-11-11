@@ -461,6 +461,16 @@
       "reason": "local metadata, credential file, cache, or explicit .gitignore exclusion"
     },
     {
+      "bytes": 180564,
+      "path": "c8375-recovery/aligned-controller-tests-20261111/console.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
+      "bytes": 18105,
+      "path": "c8375-recovery/aligned-controller-tests-20261111/selected-session.log",
+      "reason": "original log/config retained locally; sanitized counterpart published"
+    },
+    {
       "bytes": 378868,
       "path": "c8375-recovery/console-logs/20261023-100652-console.log",
       "reason": "original log/config retained locally; sanitized counterpart published"
@@ -1838,14 +1848,14 @@
       "sha256": "a620ae4c1c77cf0394d4a133419d3196d84b95294653508ece4838a2f7689598"
     },
     {
-      "bytes": 46550,
+      "bytes": 47699,
       "path": "C8375-E-G2-RECOVERY-CONTEXT.txt",
-      "sha256": "2013fd9c7ca5a40158ca637e7a0abd32ec515c9762dc7699842c26b32ac5fc54"
+      "sha256": "be6436b051e18792d479ac34ccb3c6ad8456911bb4be9633b5c6b7306b8b9546"
     },
     {
-      "bytes": 210689,
+      "bytes": 212289,
       "path": "C8375-G2-RECOVERY-CONTEXT.md",
-      "sha256": "e953dac11c6b656c316b61adfe3e768de23e6267ad42f071aa145e380062637b"
+      "sha256": "a6f61ef42451b91fecf5d831ac1d3b7ba5bcbdece5949cd8df5b40bff8088783"
     },
     {
       "bytes": 12635511,
@@ -2153,9 +2163,9 @@
       "sha256": "4882312289a22ceb566fce0c60e8bb5877628a032d0e08fc2d220b10af78668b"
     },
     {
-      "bytes": 30268,
+      "bytes": 30323,
       "path": "README.md",
-      "sha256": "9732f4ee9466d2ffe819ac2ef8af8a94d5d4931d81de1d59a745ea9b37cb94fd"
+      "sha256": "9f9b943a88b742e72e7053cc028109c10cd682ced6d250a53822e161e877ccb9"
     },
     {
       "bytes": 3934,
@@ -2353,9 +2363,9 @@
       "sha256": "de0cfe6d8247094b9127b5cff44f48489d173d218979af00040c34a7c1de2c5b"
     },
     {
-      "bytes": 554092,
+      "bytes": 555394,
       "path": "ROUTER-RECOVERY-TEST-PLAN.md",
-      "sha256": "fb7ae38116298ce7fae65ca0c814d0affffec2c5c388ac91170cb9d1e5e7f2c0"
+      "sha256": "c4ffab0c886dfb45e883181b6bcd5c59855805b3209f07b887a33766477c64b4"
     },
     {
       "bytes": 6850655,
@@ -3183,6 +3193,16 @@
       "sha256": "dc93513098d3c7dd24fb35f8942f22429c841cf66eff1cb3eee422604ceca052"
     },
     {
+      "bytes": 5972,
+      "path": "c8375-recovery/aligned-controller-tests-20261111/README.md",
+      "sha256": "2d60c81c9cd74568fd16ac8db4e7cc76687ac07ec1bfff7faf3844fc5a283ca1"
+    },
+    {
+      "bytes": 64968,
+      "path": "c8375-recovery/aligned-controller-tests-20261111/results.json",
+      "sha256": "17884ffa53607b44a6dce583a53c2258e149fc7b493529b9e3e6c4cb6bdd97c8"
+    },
+    {
       "bytes": 172399,
       "path": "c8375-recovery/board-photos/IMG_1260-spi-pair-inspection.jpg",
       "sha256": "010c4b7a8f6bc5538049cf1e302a1ed7ab78b4b1f1d707e27257dda5d2215346"
@@ -3203,9 +3223,9 @@
       "sha256": "2d5f05440ac477e025eea037a409369d49414833e1b849dc1feae2b4721f96f4"
     },
     {
-      "bytes": 6551,
+      "bytes": 6802,
       "path": "c8375-recovery/controller-protocol-20261111/README.md",
-      "sha256": "179b6c845913021ad84fe3b7352a65ec8043f6d8ea58ac32a0179a74e44a41a2"
+      "sha256": "adb79b81c08ea667578b580c797ff248c52ba8f2c3fc8aa368d4ebd58c6c8060"
     },
     {
       "bytes": 13573,
@@ -4723,6 +4743,16 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "bytes": 180564,
+      "path": "sanitized-evidence/c8375-recovery/aligned-controller-tests-20261111/console.log",
+      "sha256": "ea7629a95b60a0c069f574684ac0aefcfedc0f5ad8eebbf6a7acd919439cb43d"
+    },
+    {
+      "bytes": 18105,
+      "path": "sanitized-evidence/c8375-recovery/aligned-controller-tests-20261111/selected-session.log",
+      "sha256": "4073f03718999ed6b2de8162779e70ffe164a6c4a55d9b8bd1f66be7f83de65d"
+    },
+    {
       "bytes": 378868,
       "path": "sanitized-evidence/c8375-recovery/console-logs/20261023-100652-console.log",
       "sha256": "04f8336fb4ea7722450e7b774352487c7a13308e04597d99617638786fd9f82e"
@@ -5902,6 +5932,8 @@
     "sanitized-evidence/c8300-recovery/console-20261102/post-reseat-through-173906-console.log",
     "sanitized-evidence/c8300-recovery/console-20261102/rj45-console.log",
     "sanitized-evidence/c8375-recovery/historical-17.15.6-boot-2026-10-22.log",
+    "sanitized-evidence/c8375-recovery/aligned-controller-tests-20261111/console.log",
+    "sanitized-evidence/c8375-recovery/aligned-controller-tests-20261111/selected-session.log",
     "sanitized-evidence/c8375-recovery/console-logs/20261023-100652-console.log",
     "sanitized-evidence/c8375-recovery/console-logs/20261023-100652-readable.txt",
     "sanitized-evidence/c8375-recovery/console-logs/20261023-102849-console.log",
@@ -6082,8 +6114,8 @@
   ],
   "scope": "Cisco 8200 and 8300 recovery research, including three C8235-G2, C8375-G2 and C8300-1N1S",
   "totals": {
-    "excluded_local_files": 359,
-    "included_bytes_without_manifest": 1129093109,
-    "included_files_without_manifest": 802
+    "excluded_local_files": 361,
+    "included_bytes_without_manifest": 1129367075,
+    "included_files_without_manifest": 806
   }
 }
