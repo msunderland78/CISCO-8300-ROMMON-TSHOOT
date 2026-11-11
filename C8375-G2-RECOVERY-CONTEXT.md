@@ -7,6 +7,16 @@ Original recovery session: **2026-10-23**; latest handoff: **2026-11-11**, Ameri
 
 ## 1. Current state — start here
 
+### November 11, 17:11 EST — exact 26.1.2 controller path investigated; quieter profile unresolved (C8375-05)
+
+The installed mono and MCU package copies independently match router SHA-512. Offline inspection of the exact 26.1.2 `nios_v2` driver confirms the selected fan field offsets and read-only diagnostic attributes, **but also reveals a caller-supplied outbound message ioctl**. This corrects applying October 31's selected 17.15.6 fixed type-6/zero-length handler to current software. A native MCU-updater caller sends ENV mode changes, not an identified fan command. The current MCU package contains only SEQ_MCU_STYX, no Crestone ENVMCU profile/image. The legacy `nios_set_fan_level` name resolves to an unsuitable register mapping on Crestone; generic wrappers and raw DASH mapping do not establish a usable actuator.
+
+Internal CLI help exposes fault/sensor simulation, not a verified speed setting; system shell requests consent-token authorization. Temporary SCP/internal mode removed, five running and five startup configuration bodies match, no save/reboot/firmware/fan-policy change. Three agent SSH sessions closed; owner SecureCRT retained. Final CPU 34°C/all sensors Normal, fans 9660/9540/9480 RPM, NIM DSP UP/66.1.0/six signaling channels/no errors. Only the two previously recorded CGX timeouts remain in the filtered log. No calls/performance/extended thermal test.
+
+Raw FPGA display emits `returned bad count` kernel warnings: two 4096-byte sysfs callbacks yield an 8190-byte concatenation, consistent with one omitted byte per block. All decoded fan fields and independent identity anchors precede the first boundary; current driver accessors confirm their positions. Do not treat later concatenated bytes as contiguous 8 KiB. Raw polling stopped; this diagnostic artifact is not proven fan-control failure.
+
+**Still not shown impossible, and not solved:** establish the environmental-controller fan message or shared-memory handshake, acknowledgement, rollback and retained thermal escalation. Owner accepts an undocumented reversible lower home-lab profile. No further NIM removal needed to prove its presence effect. [Exact software, command evidence, failures and next requirement](c8375-recovery/fan-profile-research-20261111/README.md), [results and hashes](c8375-recovery/fan-profile-research-20261111/results.json).
+
 ### November 11, 16:49 EST — NIM presence comparison completed; card restored (C8375-05/06)
 
 Same C8375-A/FDO2742M0FK, recognized P1 400 W supply, IOS 26.1.2 and voice NIM FOC23152BE1. Owner authorizes stop and performs removal/blank fitting/reinsertion. **Stopping the NIM leaves 9,480–9,660 RPM with Power Off / Present Yes; physical removal settles at 5,220–5,460 RPM; reinsertion returns 9,420–9,660 RPM.** Interpreted controller table changes 1→2→1, temperature level stays 0, overrides stay 0. This strongly associates the faster policy with physical NIM presence, superseding the earlier untested hypothesis. First removed-state transitional high sample and CLI cache delay are preserved.

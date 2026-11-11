@@ -25,6 +25,8 @@ Reinsertion was observed by 16:45:39.838. The owner reported audible acceleratio
 
 The controller field mapping reuses prior vendor accessor analysis and validates independent fan identity/byte-order anchors on every dump. The running 26.1.2 driver was not independently hash matched, so these interpreted fields are not a validated write interface.
 
+**Later November 11 follow-up:** the [exact installed 26.1.2 package analysis](../fan-profile-research-20261111/README.md) now confirms these selected offsets. Raw dump callbacks also omit each 4 KiB block's final byte; all fields and identity anchors used here precede the first boundary and remain correctly positioned. This closes the cross-version offset limitation, not the missing write-interface semantics or a live module-memory integrity check.
+
 ## Restoration and other findings
 
 - Same NIM serial restored; IOMD ready, power on/present/OK, DM8147 DSP **UP**, firmware **66.1.0**, six signaling channels. Two FXS and four FXO ports are admin up, dormant/on-hook; **no DSP errors**. Actual calls and performance testing remain deferred to the owner.

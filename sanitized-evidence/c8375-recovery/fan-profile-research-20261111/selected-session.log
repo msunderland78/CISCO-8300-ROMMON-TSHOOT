@@ -1,0 +1,949 @@
+DERIVED COMMAND SELECTION; host timestamps America/New_York.
+Configuration bodies, raw controller dumps and full kernel log omitted.
+Carriage returns and line-erasure artifacts removed; originals remain private.
+
+[COMMAND 2026-11-11T16:55:46.974634-05:00] terminal length 0
+terminal length 0
+CAT8375-G2#
+[COMMAND 2026-11-11T16:55:47.426017-05:00] terminal width 200
+terminal width 200
+CAT8375-G2#
+[COMMAND 2026-11-11T16:55:47.888155-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 40 minutes
+Uptime for this control processor is 41 minutes
+System returned to ROM by PowerOn
+System restarted at 16:15:13 EST Wed Nov 11 2026
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+4 Voice FXO interfaces
+2 Voice FXS interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:56:02.025707-05:00] show inventory
+show inventory
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO: Please use "show license UDI" to get serial number for licensing.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NAME: "Chassis", DESCR: "Cisco C8375-E-G2 Chassis"
+PID: C8375-E-G2        , VID: V01  , SN: FDO2742M0FK
+
+NAME: "Power Supply Module 1", DESCR: "400W AC power supply for Cisco C8300 1RU"
+PID: PWR-CC1-400WAC    , VID: V01  , SN: LIT2727C7NE
+
+NAME: "Fan Tray", DESCR: "Cisco C8300 1RU Fan Assembly"
+PID: C8300-FAN-1R      , VID: V02  , SN:            
+
+NAME: "module 0", DESCR: "Cisco C8375-E-G2 Built-In NIM controller"
+PID: C8375-E-G2        , VID:      , SN:            
+
+NAME: "NIM subslot 0/1", DESCR: "NIM-2FXS/4FXOP Voice Analog Module"
+PID: NIM-2FXS/4FXOP    , VID: V01  , SN: FOC23152BE1
+
+NAME: "NIM subslot 0/0", DESCR: "4M-2xSFP+"
+PID: 4M-2xSFP+         , VID: V01  , SN:            
+
+NAME: "subslot 0/0 transceiver 4", DESCR: "SFP+ 10GBASE-SR"
+PID: SFP-10G-SR          , VID: V03  , SN: AVD24159TDX     
+
+NAME: "module 1", DESCR: "Cisco C8375-E-G2 Built-In SM controller"
+PID: C8375-E-G2        , VID:      , SN:            
+
+NAME: "module R0", DESCR: "Cisco C8375-E-G2 Route Processor"
+PID: C8375-E-G2        , VID: V01  , SN: FDO27380KFQ
+
+NAME: "module F0", DESCR: "Cisco C8375-E-G2 Forwarding Processor"
+PID: C8375-E-G2        , VID:      , SN:            
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:56:02.501180-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          36 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          48 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6144 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9420 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:56:03.478333-05:00] request platform software system ?
+request platform software system ?
+  shell  Request a system shell
+
+CAT8375-G2#request platform software system 
+[COMMAND 2026-11-11T16:56:03.955204-05:00] show platform software shell ?
+  command   Shell command infrastructure
+  manager   Shell Manager client
+  sessions  Display shell sessions
+
+CAT8375-G2#show platform software shell 
+[COMMAND 2026-11-11T16:56:04.426716-05:00] dir bootflash: | include 26.01.02|packages.conf
+41      -rw-             8406   Nov 7 2026 18:32:21 -05:00  packages.conf
+33      -rw-             8406   Nov 7 2026 18:30:21 -05:00  c8kg2be-universalk9.26.01.02.SPA.conf
+1044672  -rw-         68479592   Nov 7 2026 18:30:14 -05:00  c8kg2be-rpboot.26.01.02.SPA.pkg
+32      -rwx       1022725792   Nov 7 2026 18:29:25 -05:00  c8kg2be-universalk9.26.01.02.SPA.bin
+1044929  -rw-        943767552  Jul 31 2026 15:33:31 -04:00  c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+1044878  -rw-           139264  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+1044923  -rw-         13889536  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_sm_1t3e3.26.01.02.SPA.pkg
+1044928  -rw-           204800  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_sm_nim_adpt.26.01.02.SPA.pkg
+1044921  -rw-         10444800  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_prince.26.01.02.SPA.pkg
+1044919  -rw-          5677056  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_nim_xdsl.26.01.02.SPA.pkg
+1044922  -rw-            53248  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_pse_si3470a.26.01.02.SPA.pkg
+1044915  -rw-         13287424  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_nim_async.26.01.02.SPA.pkg
+1044874  -rw-          6807552  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_dsp_analogbri.26.01.02.SPA.pkg
+1044925  -rw-         14700544  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_sm_async.26.01.02.SPA.pkg
+1044880  -rw-         12017664  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_ngwic_t1e1.26.01.02.SPA.pkg
+1044916  -rw-         11923456  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_nim_shdsl.26.01.02.SPA.pkg
+1044926  -rw-          2600960  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_sm_dsp_sp2700.26.01.02.SPA.pkg
+CAT8375-G2#
+[COMMAND 2026-11-11T16:56:29.922910-05:00] request platform software system shell ?
+request platform software system shell ?
+  0     SM-Inter-Processor slot 0
+  1     SM-Inter-Processor slot 1
+  F0    Embedded-Service-Processor slot 0
+  FP    Embedded-Service-Processor
+  R0    Route-Processor slot 0
+  RP    Route-Processor
+  <cr>  <cr>
+
+CAT8375-G2#request platform software system shell 
+[COMMAND 2026-11-11T16:56:30.396328-05:00] show platform software shell sessions
+Diagnostic shell sessions:
+
+Terminal       User       Transport  Address
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:56:44.669411-05:00] terminal length 0
+terminal length 0
+CAT8375-G2#
+[COMMAND 2026-11-11T16:56:45.127466-05:00] terminal width 200
+terminal width 200
+CAT8375-G2#
+[COMMAND 2026-11-11T16:56:45.607099-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 41 minutes
+Uptime for this control processor is 42 minutes
+System returned to ROM by PowerOn
+System restarted at 16:15:13 EST Wed Nov 11 2026
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+4 Voice FXO interfaces
+2 Voice FXS interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:56:49.074786-05:00] request platform software system shell R0
+request platform software system shell R0
+% Please secure authentication via request consent-token
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:57:04.547767-05:00] configure terminal
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T16:57:05.011211-05:00] ip scp server enable
+ip scp server enable
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T16:57:05.483913-05:00] end
+end
+CAT8375-G2#
+[COMMAND 2026-11-11T16:57:05.965066-05:00] show running-config | include ip scp server
+show running-config | include ip scp server
+ip scp server enable
+CAT8375-G2#
+[COMMAND 2026-11-11T16:57:18.911883-05:00] show ip ssh
+show ip ssh
+SSH Enabled - version 2.0
+Authentication methods:publickey,keyboard-interactive,password
+Authentication Publickey Algorithms:ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-ed25519,x509v3-ecdsa-sha2-nistp256,x509v3-ecdsa-sha2-nistp384,x509v3-ecdsa-sha2-nistp521,rsa-sha2-256,rsa-sha2-512,x509v3-rsa2048-sha256,sk-ecdsa-sha2-nistp256@openssh.com,sk-ssh-ed25519@openssh.com
+Hostkey Algorithms:ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,rsa-sha2-512,rsa-sha2-256
+Encryption Algorithms:chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com,aes128-gcm,aes256-gcm,aes128-ctr,aes192-ctr,aes256-ctr
+MAC Algorithms:hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,hmac-sha2-256,hmac-sha2-512
+KEX Algorithms:curve25519-sha256,curve25519-sha256@libssh.org,ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512
+Authentication timeout: 120 secs; Authentication retries: 3
+Minimum expected Diffie Hellman key size : 2048 bits
+IOS Keys in SECSH format(ssh-rsa, base64 encoded): TP-self-signed-1897751160
+Modulus Size : 2048 bits
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDBkSvh+iqU3aVjAN4Wfn2YG7Asw9URIeJgo5V4f1ZJ
+gILtuXNFagqJ0qnAOihFv8kb/gGzsE6LjEtZpG1Abi2i1TWHsqFvD/41EWfcY2wlw0dQuAyhjp9fBNzf
+sNXADX9dpXN7ueDwA8xRZW+0r6iveoH/02VWkxs9ePrhRttI2ug0XW955iq9l8SdOgMJeLzkRARtNdlV
+Hx9Kep0BZaBSowmwu5HF8uAyLG+g5GJIvgw0GEzyozH7eGqZM+Rz+4Zty6iESbIAN2BSBB67Osb40SP3
+fi+1PME6PEnl8J0TMy8eei4ugkM0FL07ouGzYLFjOisXV2Me1SrkuRu0oC2L                    
+IOS Keys in SECSH format(ssh-ec, base64 encoded): NONE
+CAT8375-G2#
+[COMMAND 2026-11-11T16:57:19.353781-05:00] show privilege
+show privilege
+Current privilege level is 15
+CAT8375-G2#
+[COMMAND 2026-11-11T16:57:27.915448-05:00] verify /sha512 bootflash:c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+verify /sha512 bootflash:c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+.................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-mono-universalk9.26.01.02.SPA.pkg) = 6a49c5ff1ed7270814aa4792aab137018eb631b1fde7283c286ca9a5808bdc4020bc5fae6bc975f74ee93bb5937992a749c62cf8c0499e07acbc229ed7339af6
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T16:58:52.740867-05:00] configure terminal
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T16:58:53.194180-05:00] service internal
+service internal
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T16:58:53.685948-05:00] end
+end
+CAT8375-G2#
+[COMMAND 2026-11-11T16:58:54.161605-05:00] test platform hardware slot R0 fan ?
+test platform hardware slot R0 fan ?
+  fault  Generate a fan fault
+
+CAT8375-G2#test platform hardware slot R0 fan 
+[COMMAND 2026-11-11T16:58:54.639350-05:00] test platform hardware slot P2 fan ?
+  fault  Generate a fan fault
+
+CAT8375-G2#test platform hardware slot P2 fan 
+[COMMAND 2026-11-11T16:58:55.123659-05:00] test platform hardware slot R0 ?
+  alarms     Set alarm states
+  dram       CPU DRAM commands
+  ezman      EZchip Manager
+  fan        Fan related test commands
+  fault      Action to take on fault detection
+  frequency  Frequency commands
+  gnss       GNSS device test commands
+  oir        Perform OIR of a FRU using different actions
+  pfu        Power supply/fan module related test commands
+  plim       PLIM test commands
+  sensor     Sensor related test commands
+  usb        USB related test commands
+  voltage    Voltage commands
+  zlspidev   SETS Addr modify
+  zlspidpll  DPLL frequency offset test commands
+
+CAT8375-G2#test platform hardware slot R0 
+[COMMAND 2026-11-11T16:58:55.620661-05:00] test platform software chassis-manager ?
+  fault  Action to take on FRU fault detection
+  slot   Slot
+
+CAT8375-G2#test platform software chassis-manager 
+[COMMAND 2026-11-11T16:59:06.561241-05:00] configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T16:59:07.011865-05:00] no ip scp server enable
+no ip scp server enable
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T16:59:07.462070-05:00] end
+end
+CAT8375-G2#
+[COMMAND 2026-11-11T16:59:07.943281-05:00] show running-config | include service internal|ip scp server
+show running-config | include service internal|ip scp server
+service internal
+CAT8375-G2#
+[COMMAND 2026-11-11T16:59:13.355517-05:00] test platform hardware slot P2 pfu ?
+test platform hardware slot P2 pfu ?
+  insert  Software simulate a PFU insertion 
+  off     Software simulate a PFU switch off 
+  on      Software simulate a PFU switch on 
+  remove  Software simulate a PFU removal
+
+CAT8375-G2#test platform hardware slot P2 pfu 
+[COMMAND 2026-11-11T16:59:13.832781-05:00] test platform hardware slot R0 sensor ?
+  <0-4294967295>  Sensor id
+
+CAT8375-G2#test platform hardware slot R0 sensor 
+[COMMAND 2026-11-11T16:59:14.316268-05:00] test platform software chassis-manager slot R0 ?
+  init    Initialize
+  remove  Remove
+
+CAT8375-G2#test platform software chassis-manager slot R0 
+[COMMAND 2026-11-11T16:59:14.772356-05:00] show platform hardware slot R0 ?
+  alarms      Show alarm states
+  cman        Chassis manager
+  dram        CPU DRAM commands
+  eobc        Show EOBC
+  ezman       EZchip Manager
+  fpga        FPGA status
+  frequency   Frequency commands
+  led         LED-related commands
+  pcie        PCIE-related commands
+  sensor      Sensor information
+  soft-error  Soft Error commands
+  voltage     Voltage commands
+  xaui        XAUI details
+
+CAT8375-G2#show platform hardware slot R0 
+[COMMAND 2026-11-11T16:59:30.149898-05:00] test platform software shell ?
+  command  Shell command infrastructure
+  session  Test shell session commands
+
+CAT8375-G2#test platform software shell 
+[COMMAND 2026-11-11T16:59:30.620590-05:00] show platform hardware slot R0 sensor ?
+  consumer  Sensor information from the consumer process
+  producer  Sensor information from the producer process
+
+CAT8375-G2#show platform hardware slot R0 sensor 
+[COMMAND 2026-11-11T16:59:31.093383-05:00] test platform hardware slot R0 sensor 0 ?
+  cm-override   Turn override on/off for cman sensor.
+  override      Turn override on/off for sensor.
+  poll          Set sensor poll frequency
+  reinitialize  Reinitialize the device
+  reminder      Set sensor reminder period
+  state         Operations that act on a particular sensor state
+
+CAT8375-G2#test platform hardware slot R0 sensor 0 
+[COMMAND 2026-11-11T16:59:49.686927-05:00] test platform software shell command ?
+  connection      Shell command list
+  handler         Test shell command handler
+  infrastructure  Test command handling infrastructure
+  set             Shell command set
+
+CAT8375-G2#test platform software shell command 
+[COMMAND 2026-11-11T16:59:50.167736-05:00] show platform hardware slot R0 cman ?
+  device  CMAN specific devices
+
+CAT8375-G2#show platform hardware slot R0 cman 
+[COMMAND 2026-11-11T17:00:00.406383-05:00] test platform software shell command handler ?
+  automore  Test shell command handler and automore
+  basic     Test shell command handler - basic test
+  null      Test shell command handler - null test
+  output    Test shell command handler - output test
+  space     Test shell command handler - space test
+
+CAT8375-G2#test platform software shell command handler 
+[COMMAND 2026-11-11T17:00:00.870796-05:00] test platform software shell command set ?
+  delete  Delete the loaded dynamic command set
+  load    Request loading the dynamic command set
+  reload  Reload the command set
+
+CAT8375-G2#test platform software shell command set 
+[COMMAND 2026-11-11T17:00:01.364372-05:00] show platform hardware slot R0 cman device ?
+  WORD  Enter name of the device or type 'help'
+
+CAT8375-G2#show platform hardware slot R0 cman device 
+[COMMAND 2026-11-11T17:00:33.358253-05:00] test platform hardware slot P2 sensor 0 override ?
+  off    Turn sensor override off
+  value  Specify an override value
+
+CAT8375-G2#test platform hardware slot P2 sensor 0 override 
+[COMMAND 2026-11-11T17:00:33.845551-05:00] test platform hardware slot R0 sensor 0 cm-override ?
+  off    Turn sensor override off
+  value  Specify an override value
+
+CAT8375-G2#test platform hardware slot R0 sensor 0 cm-override 
+[COMMAND 2026-11-11T17:00:34.333730-05:00] configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:00:34.822020-05:00] no service internal
+no service internal
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:00:35.332378-05:00] end
+end
+CAT8375-G2#
+[COMMAND 2026-11-11T17:00:36.946761-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          995 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          795 mV
+ V: 0.8V_SYS             R0              Normal          851 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          36 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120001 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          48 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6144 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9480 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:01:55.162982-05:00] show platform hardware slot R0 cman device help
+show platform hardware slot R0 cman device help
+                                          ^
+% Invalid input detected at '^' marker.
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:01:55.648076-05:00] show platform software dmesg ?
+show platform software dmesg ?
+  slot  Slot information
+
+CAT8375-G2#show platform software dmesg 
+[COMMAND 2026-11-11T17:01:56.160618-05:00] configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:01:56.640765-05:00] platform hardware ?
+platform hardware ?
+% Unrecognized command
+CAT8375-G2(config)#platform hardware 
+[COMMAND 2026-11-11T17:01:57.127069-05:00] platform ?
+  async                 Async gloabl parameters
+  atm-cdvt              Configure platform atm cdvt
+  bfd                   Platform specific BFD commands
+  cce                   Platform specific cce configuration
+  cef                   Platform specific CEF commands
+  cfm                   Configure Multi-NNI CFM feature
+  cft                   Configure platform cft
+  cloudsec              Platform specific CloudSec commands
+  console               Direct IOS output to console
+  crft                  Crimson function tracking operations
+  dpss                  Platform specific DPSS commands
+  edpl_internal_shaper  EDPL shaper platform command
+  fnf                   Platform specific FNF configuration
+  hardware              Configure platform hardware
+  icmp                  Configure platform icmp
+  inspect               Platform specific inspect configuration
+  ip-ports              Configure Kernel IP ephemeral ports
+  ipreass               Platform specific IP reassembly commands
+  ipsec                 Platform specific ipsec command
+  l2vpn                 Configure platform l2vpn global configuration
+  macsec                Platform specific macsec command
+  memory                Configure platform memory options
+  mma                   Platform specific MMA configuration
+  multicast             Configure multicast
+  punt-intf             Configures punt interface
+  punt-keepalive        punt-keepalive messages
+  punt-policer          Configures punt policers
+  qfp                   Platform specific qfp commands
+  qos                   Platform specific qos configuration
+  reload                Platform specific reload command
+  resource              Select resource template
+  security              Platform security settings
+  security              no description
+  shell                 Control platform shell access command availability
+  stats-vmanage         enable stats generation in vmanage format with scp access 
+  subscriber            Platform specific subscriber configuration
+  tamper-detection      Configure tamper-detection feature
+  tcp                   Forwarding Plane TCP parameters
+  urpf                  Platform specific urpf commands
+  usb                   Configure USB device
+
+CAT8375-G2(config)#platform 
+[COMMAND 2026-11-11T17:01:57.627894-05:00] end
+CAT8375-G2#
+[COMMAND 2026-11-11T17:02:11.351696-05:00] configure terminal
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:02:11.835521-05:00] service internal
+service internal
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:02:12.340620-05:00] end
+end
+CAT8375-G2#
+[COMMAND 2026-11-11T17:02:12.848644-05:00] show platform hardware slot R0 cman device help
+show platform hardware slot R0 cman device help
+% Error: Unsupported command
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:02:49.658908-05:00] configure terminal
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:02:50.167142-05:00] platform hardware ?
+platform hardware ?
+% Unrecognized command
+CAT8375-G2(config)#platform hardware 
+[COMMAND 2026-11-11T17:02:50.705150-05:00] no service internal
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:02:51.207408-05:00] end
+end
+CAT8375-G2#
+[COMMAND 2026-11-11T17:02:52.864554-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          24 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          24 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3307 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1102 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          35 Watts
+ Temp: Temp 1            P1              Normal          27 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9480 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:02:53.369584-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:48:19      
+ 0/0      4M-2xSFP+           ok                    00:47:19      
+ 0/1      NIM-2FXS/4FXOP      ok                    00:17:39      
+1         C8375-E-G2          ok                    00:48:19      
+R0        C8375-E-G2          ok, active            00:48:19      
+F0        C8375-E-G2          ok, active            00:48:19      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:47:36      
+P2        C8300-FAN-1R        ok                    00:47:35      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:02:53.839529-05:00] show voice dsp group all
+show voice dsp group all
+DSP groups on slot 0/1 slot id 1
+dsp 1:
+  State: UP, firmware: 66.1.0
+  Max signal/voice channel: 8/8
+  Max credits: 120, Voice credits: 120, Video credits: 0
+  num_of_sig_chnls_allocated: 6
+  Transcoding channels allocated: 0
+  Group: FLEX_GROUP_VOICE, complexity: FLEX
+    Shared credits: 120, reserved credits: 0
+    Signaling channels allocated: 6
+    Voice channels allocated: 0
+    Credits used (rounded-up): 0
+  Slot: 0/1
+  Device idx: 0
+  Dsp Type: DM8147 
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:02:54.325510-05:00] show voice dsp error
+show voice dsp error
+No DSP errors logged
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:04:52.844031-05:00] show logging | include Marvell|ENVIRONMENT|FANFAIL
+show logging | include Marvell|ENVIRONMENT|FANFAIL
+*Nov 11 2026 16:16:43.212 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+Nov 11 2026 16:45:13.548 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+CAT8375-G2#
+[COMMAND 2026-11-11T17:04:53.322770-05:00] show users
+show users
+    Line       User       Host(s)              Idle       Location
+ 866 vty 0     admin      idle                 00:42:11 192.168.5.104
+*867 vty 1     matt       idle                 00:00:05 192.168.5.104
+
+  Interface    User               Mode         Idle     Peer Address
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:07.651252-05:00] terminal length 0
+terminal length 0
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:08.102859-05:00] terminal width 200
+terminal width 200
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:08.577777-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 55 minutes
+Uptime for this control processor is 57 minutes
+System returned to ROM by PowerOn
+System restarted at 16:15:13 EST Wed Nov 11 2026
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+4 Voice FXO interfaces
+2 Voice FXS interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:24.353626-05:00] show users
+show users
+    Line       User       Host(s)              Idle       Location
+ 866 vty 0     admin      idle                 00:48:42 192.168.5.104
+*867 vty 1     matt       idle                 00:00:04 192.168.5.104
+
+  Interface    User               Mode         Idle     Peer Address
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:29.896110-05:00] dir bootflash:c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+dir bootflash:c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+Directory of bootflash:/c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+
+1044878  -rw-           139264  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+
+20584546304 bytes total (9812680704 bytes free)
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:30.406214-05:00] verify /sha512 bootflash:c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+verify /sha512 bootflash:c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+...Done!
+verify /sha512 (bootflash:c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg) = 499277801fd2206ecf048adf407c515218ed35f10f791c8bddc008662d2c5d92a59689b996e0cd37c72f75c22993218db4a36703db9771b82c263b1d5bd6af8e
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:34.726046-05:00] configure terminal
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:11:35.194565-05:00] ip scp server enable
+ip scp server enable
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:11:35.664627-05:00] end
+end
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:44.018877-05:00] configure terminal
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:11:44.477889-05:00] no ip scp server enable
+no ip scp server enable
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:11:44.949001-05:00] end
+end
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:46.470141-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          23 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          23 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1100 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          882 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          36 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120501 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3300 mA
+ P: In power             P1              Normal          48 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9480 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:46.950313-05:00] show voice dsp group all
+show voice dsp group all
+DSP groups on slot 0/1 slot id 1
+dsp 1:
+  State: UP, firmware: 66.1.0
+  Max signal/voice channel: 8/8
+  Max credits: 120, Voice credits: 120, Video credits: 0
+  num_of_sig_chnls_allocated: 6
+  Transcoding channels allocated: 0
+  Group: FLEX_GROUP_VOICE, complexity: FLEX
+    Shared credits: 120, reserved credits: 0
+    Signaling channels allocated: 6
+    Voice channels allocated: 0
+    Credits used (rounded-up): 0
+  Slot: 0/1
+  Device idx: 0
+  Dsp Type: DM8147 
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:47.416307-05:00] show voice dsp error
+show voice dsp error
+No DSP errors logged
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:11:47.906036-05:00] show logging | include cgx|FAN|ENV
+show logging | include cgx|FAN|ENV
+*Jan  8 18:24:13.398: %IOSXE_RP_ALARM-2-PEM: ASSERT CRITICAL Power Supply Bay 0 Power Supply/FAN Module Missing 
+*Jan  8 18:24:09.883: %CMRP_PFU-6-FANASSY_INSERTED: R0/0: cmand: Fan Assembly is inserted.
+*Nov 11 2026 16:16:43.212 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+Nov 11 2026 16:45:13.548 EST: %IOSXE-3-PLATFORM: R0/0: kernel: Marvell-CGX-RPM 0000:01:10.0: cgx port 0:2 cmd 11 timeout
+CAT8375-G2#

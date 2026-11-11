@@ -1,6 +1,31 @@
 C8375-E-G2 / CRESTONE RECOVERY CONTEXT
 Current handoff updated 2026-11-11, America/New_York; historical October23 summary retained
 
+NOVEMBER 11, 17:11 EST -- EXACT DRIVER CONTROL PATH, NO QUIETER PROFILE YET
+Same C8375-A/FDO2742M0FK, P1 400 W and installed P-suffix NIM; no physical work.
+Installed 26.1.2 mono/MCU copies match independent router SHA512. Current
+nios_v2 offsets confirm earlier first-chunk fan mapping; 12 named fan control
+nodes per driver are read-only. Separate ioctl accepts an 18-byte caller
+message, unlike the selected 17.15.6 fixed type-6/zero-length handler.
+Native caller found is MCU updater ENV mode change, not a fan command.
+Current MCU package contains SEQ_MCU_STYX only, no Crestone ENVMCU image.
+Legacy nios_set_fan_level resolves to unsuitable register mapping on Crestone.
+Internal help offers fault/sensor simulation; system shell requires consent
+token authentication. No fault, token, provisioning or controller write.
+Temporary SCP/internal mode removed; five running and five startup config
+bodies match. No save/reboot/firmware/fan-policy change. Final CPU 34 C,
+all sensors Normal, fans 9660/9540/9480 RPM; DSP UP/66.1.0/six channels,
+no DSP errors. Only two previously recorded CGX timeouts in filtered log.
+Three owned SSH sessions closed; only owner SecureCRT remains connected.
+Raw FPGA dump callbacks return 4096 bytes and cause bad-count warnings;
+8190-byte concatenation omits each block's last byte. Fan fields/anchors
+are all before first boundary and remain valid. Further raw polling stopped.
+Not shown impossible, not solved: decode controller fan transaction/handshake,
+acknowledgement/rollback/thermal escalation before lower-profile trial.
+Owner accepts undocumented reversible options; no further NIM removal needed.
+Calls/performance owner-deferred. Evidence:
+c8375-recovery/fan-profile-research-20261111/README.md and results.json.
+
 NOVEMBER 11, 16:49 EST -- NIM PRESENCE/FAN COMPARISON, CARD RESTORED
 Same C8375-A/FDO2742M0FK, P1 400 W PSU LIT2727C7NE and IOS 26.1.2.
 Owner authorizes stop and performs removal/blank fitting/reinsertion.

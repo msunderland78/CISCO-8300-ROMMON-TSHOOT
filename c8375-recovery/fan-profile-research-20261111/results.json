@@ -1,0 +1,1191 @@
+{
+  "task_ids": [
+    "C8375-05"
+  ],
+  "date": "2026-11-11",
+  "timezone": "America/New_York",
+  "assembled_at": "2026-11-11T17:13:05.525231-05:00",
+  "first_command": "2026-11-11T16:55:46.974634-05:00",
+  "last_command": "2026-11-11T17:11:47.906036-05:00",
+  "chassis": {
+    "id": "C8375-A",
+    "pid": "C8375-E-G2",
+    "serial": "FDO2742M0FK"
+  },
+  "power": {
+    "slot": "P1",
+    "pid": "PWR-CC1-400WAC",
+    "serial": "LIT2727C7NE"
+  },
+  "nim": {
+    "slot": "0/1",
+    "pid": "NIM-2FXS/4FXOP",
+    "serial": "FOC23152BE1",
+    "present_throughout": true
+  },
+  "access": {
+    "endpoint": "192.168.4.62:22",
+    "method": "Three separate SSH VTY sessions; no serial access",
+    "confirmation": "Same-session owner confirmation retained: assembled, cover fitted, normal PSU power, no programmer; fresh identity before each session. Battery and telephone-line state not individually supplied. No physical work in this investigation.",
+    "close": {
+      "timestamp": "2026-11-11T17:12:12.239986-05:00",
+      "agent_sessions_closed": 3,
+      "lsof_output": "COMMAND     PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME\nSecureCRT 65904 games   21u  IPv4 0x749fdbada9950ff2      0t0  TCP 192.168.5.104:49790->192.168.4.62:22 (ESTABLISHED)\n",
+      "lsof_exit": 0,
+      "observation": "Only owner SecureCRT remains; three agent SSH sessions exited normally."
+    }
+  },
+  "outcome": "No quieter profile applied. Exact installed driver exposes a generic outbound message path; fan-specific transaction, rollback and retained thermal response remain unresolved. Not a proof of impossibility.",
+  "installed_software": {
+    "ios": "26.1.2",
+    "state": "committed",
+    "boot": "bootflash:packages.conf",
+    "rommon": "SDK112308-UEFI-ROMMON-SoC2-v9.2.1",
+    "cpld": "2408272B"
+  },
+  "package_copy": {
+    "source": "192.168.4.62:bootflash:/c8kg2be-mono-universalk9.26.01.02.SPA.pkg",
+    "copied_bytes": 943767552,
+    "hashes": {
+      "sha256": "998f672401d91f855c12f3456842b3cd1eeb757ac5df670a9ba9c39986260cc0",
+      "sha512": "6a49c5ff1ed7270814aa4792aab137018eb631b1fde7283c286ca9a5808bdc4020bc5fae6bc975f74ee93bb5937992a749c62cf8c0499e07acbc229ed7339af6"
+    },
+    "router_sha512": [
+      "6a49c5ff1ed7270814aa4792aab137018eb631b1fde7283c286ca9a5808bdc4020bc5fae6bc975f74ee93bb5937992a749c62cf8c0499e07acbc229ed7339af6"
+    ],
+    "router_sha512_matches": true,
+    "verify_command_time": "2026-11-11T16:57:27.915448-05:00",
+    "local_verified_at": "2026-11-11T16:59:07.461403-05:00",
+    "scp_result": "Transfer completed (exit 0 branch reached); original hash postprocessing failed because system Python lacks hashlib.file_digest. Streaming hashes recovered offline without retransferring or overwriting package."
+  },
+  "mcu_package_copy": {
+    "started": "2026-11-11T17:11:38.267696-05:00",
+    "finished": "2026-11-11T17:11:39.038253-05:00",
+    "returncode": 0,
+    "bytes": 139264,
+    "source": "192.168.4.62:bootflash:/c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg",
+    "sha512": "499277801fd2206ecf048adf407c515218ed35f10f791c8bddc008662d2c5d92a59689b996e0cd37c72f75c22993218db4a36703db9771b82c263b1d5bd6af8e",
+    "sha256": "84cb94ff2a6526f948511c3c0535946e216ac2ebd7d9c4ba5c5cd7ead0e7139c",
+    "router_sha512": "499277801fd2206ecf048adf407c515218ed35f10f791c8bddc008662d2c5d92a59689b996e0cd37c72f75c22993218db4a36703db9771b82c263b1d5bd6af8e",
+    "router_sha512_matches": true,
+    "listing": "drwxr-xr-x root/wheel               47 2026-07-31 15:23 squashfs-root\n-rw-r--r-- root/wheel              620 2026-07-31 15:23 squashfs-root/.pkginfo\ndrwxr-xr-x root/wheel               95 2026-07-31 15:23 squashfs-root/firmware\n-rw-r--r-- root/wheel           262144 2026-07-31 14:32 squashfs-root/firmware/SEQ_MCU_STYX.bin\n-rw-r--r-- root/wheel               33 2026-07-31 14:32 squashfs-root/firmware/SEQ_MCU_STYX.bin.md5\n-rw-r--r-- root/wheel                7 2026-07-31 14:32 squashfs-root/firmware/SEQ_MCU_STYX.bin.ver\n",
+    "payloads": [
+      {
+        "member": "firmware/SEQ_MCU_STYX.bin",
+        "bytes": 262144,
+        "sha256": "09a62a10aeaa89aae5709f6bfc4806d3ad16cf9993cb42070138470f305ca9f1",
+        "md5": "dae78da4e4133476fccfc4ffd538830d"
+      },
+      {
+        "member": "firmware/SEQ_MCU_STYX.bin.ver",
+        "bytes": 7,
+        "sha256": "c1a1f6fdbe8172206d11a008fbdb1b72037319529ae270683ff76e78a7934109",
+        "text": "0x0010"
+      },
+      {
+        "member": "firmware/SEQ_MCU_STYX.bin.md5",
+        "bytes": 33,
+        "sha256": "628727432282716499a82c1149df524e6a57a0eafc5822683fdfdd4f5885b862",
+        "text": "dae78da4e4133476fccfc4ffd538830d"
+      }
+    ],
+    "conclusion": "The complete installed 26.1.2 MCU package listing has SEQ_MCU_STYX only; no Crestone ENVMCU image/profile. No payload executed or programmed."
+  },
+  "extracted_members": {
+    "source": ".git/recovery-private/c8375-fan-profile-20261111/c8kg2be-mono-universalk9.26.01.02.SPA.pkg",
+    "squashfs_offset": 4096,
+    "method": "Offline unsquashfs -cat; vendor code never executed or loaded",
+    "files": [
+      {
+        "member": "usr/binos/lib64/libcpa.so",
+        "bytes": 4098664,
+        "sha256": "7997c9eda0088c69eb5556282f8c89bb6a98f29645a0915cc897a71410158fe4"
+      },
+      {
+        "member": "usr/binos/lib64/libcpa_core_sb_com.so",
+        "bytes": 341392,
+        "sha256": "97d684ecd8a62fb00395661d8a115eefb2f74919fa799cd1274be9a64249abd3"
+      },
+      {
+        "member": "usr/binos/lib64/libcpa_core_sb_mirabile_common.so",
+        "bytes": 410864,
+        "sha256": "2d518730bd9176470bc5b010bed023ece10ed061c95c7278a1d49734ddb12ce6"
+      },
+      {
+        "member": "usr/binos/lib64/libcpa_sb_ft_fan_1ru_data_mirabile.so",
+        "bytes": 68400,
+        "sha256": "6c2a6e2a6c394aa38f5d6c9226d414a9eb0d59146be14fdaad46174303fe7a6e"
+      },
+      {
+        "member": "usr/binos/lib64/libcpa_sb_chassis_data_crestone.so",
+        "bytes": 68456,
+        "sha256": "329d238cc132df49c52df63717b91b06bba01492df482ca02295c49995c62f40"
+      },
+      {
+        "member": "usr/binos/lib64/libcpa_sb_rp_base_data_crestone.so",
+        "bytes": 68360,
+        "sha256": "b21084126078988232fbf98edfbe3f728b59d63a5cd6025af8edded8a441c2b7"
+      },
+      {
+        "member": "usr/binos/lib64/libdash_fpga_api.so",
+        "bytes": 137776,
+        "sha256": "e70c4d21434c34f48c5414bf20d66a9e063dbce9e36b66d0db3b75278dea4bae"
+      },
+      {
+        "member": "usr/binos/lib64/libcpld_driver.so",
+        "bytes": 137600,
+        "sha256": "d9d3867fd83e7cc131d119e2863400dc6af33c29506d55080a9405686b4af8fa"
+      },
+      {
+        "member": "usr/binos/lib64/libcm_env_monitor.so",
+        "bytes": 814672,
+        "sha256": "e1900bed326decc916a9b5cbef36aee3992bfbc9e6703fae5029dbf20b15043d"
+      },
+      {
+        "member": "usr/binos/lib64/libcia_core.so",
+        "bytes": 350472,
+        "sha256": "841eada78d2e0869b3f37db54ff8ae336cb6d6ccaec3d4633e2a4c2b16d61675"
+      },
+      {
+        "member": "usr/lib/modules/5.15.199/extra/nios/v2/nios_v2.ko",
+        "bytes": 198350,
+        "sha256": "08bc9483b256e55637cf581898cf16054ff4468c9038c70596f8c6b93b3aa713"
+      },
+      {
+        "member": "usr/lib/modules/5.15.199/extra/nios/v2/iocomp/nios_v2_iocomp.ko",
+        "bytes": 420174,
+        "sha256": "02aee24a95ce0dd2cca29342552ab0ad22a660d52e6fb0c8df41bdb4f8a6d8cd"
+      },
+      {
+        "member": "usr/lib/modules/5.15.199/extra/dash_fpga/core/dash_fpga.ko",
+        "bytes": 345654,
+        "sha256": "78b967728aadfa733d7d0b09d926ddf1ccac32c767c4eb84314240ee63514f55"
+      },
+      {
+        "member": "usr/lib/modules/5.15.199/extra/dash_fpga/core/iocomp/dash_fpga_iocomp.ko",
+        "bytes": 406846,
+        "sha256": "fd0f7c3abffd41cd825cc5d7acc9290043f700fb22e7b517207aba9b9c4baccc"
+      },
+      {
+        "member": "usr/lib/modules/5.15.199/extra/cpld/cpld_mirabile/cpldmirabile.ko",
+        "bytes": 249462,
+        "sha256": "38a496b84a6064a4a49be34f878a7a7150fe1127d6721e985136b36ae80ff0e0"
+      },
+      {
+        "member": "usr/binos/conf/mcu_config_CRESTONE.json",
+        "bytes": 738,
+        "sha256": "fff5e81eedd96d0641d3a41951f4973fe15690ff2a2c94653cd30c7e4dda75bf"
+      },
+      {
+        "member": "usr/binos/conf/mcp_fpga_status_cmd.sh",
+        "bytes": 650,
+        "sha256": "8a63d448b57ac072d311b9ece44bb9c5f1503f8eacc218855442682eac40661f"
+      },
+      {
+        "member": "usr/binos/bin/mcu_img_upgrade",
+        "bytes": 69616,
+        "sha256": "9fbe0c756948763a8ac14e26e6d5a850832fd769a57089fb4507e22358dc8e66"
+      }
+    ]
+  },
+  "runtime_matching_limit": "Package copies match independently computed router SHA512. Live kernel log identifies nios_v2 and matching July 31 2026 build date. No independent hash of loaded module memory; static findings apply to the exact installed package.",
+  "fan_attributes": {
+    "nios_v2.ko": [
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_fan_barom_level",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_barom_level",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_fan_table",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_table",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_fan_temp_level",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_temp_level",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_fan_tray_status",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_tray_status",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_override",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_override",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_status",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_status",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_fan_barom_level",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_barom_level",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_fan_table",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_table",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_fan_temp_level",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_temp_level",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_fan_tray_status",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_tray_status",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_override",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_override",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_status",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_status",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      }
+    ],
+    "nios_v2_iocomp.ko": [
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_fan_barom_level",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_barom_level",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_fan_table",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_table",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_fan_temp_level",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_temp_level",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_fan_tray_status",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_fan_tray_status",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_override",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_override",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_h2n_fan_ctrl_status",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_h2n_structs_fan_ctrl_status",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_fan_barom_level",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_barom_level",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_fan_table",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_table",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_fan_temp_level",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_temp_level",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_fan_tray_status",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_fan_tray_status",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_override",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_override",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      },
+      {
+        "attribute": "dev_attr_n2h_fan_ctrl_status",
+        "object_bytes": 32,
+        "mode_octal": "0o444",
+        "show_callback": "show_reg_n2h_structs_fan_ctrl_status",
+        "store_callback": null,
+        "raw_store_pointer": 0
+      }
+    ]
+  },
+  "field_offsets": {
+    "fans_u16_le": [
+      "0x260",
+      "0x262",
+      "0x264"
+    ],
+    "n2h_table": "0x2b2",
+    "n2h_temperature_level": "0x2b3",
+    "n2h_override": "0x305",
+    "h2n_table": "0xa62",
+    "h2n_override": "0xab5"
+  },
+  "field_mapping": "Exact installed nios_v2.ko accessors confirm all selected offsets, within the first 4095-byte chunk. Earlier NIM comparison retains valid first-chunk field positions; this does not validate a write transaction.",
+  "controller_samples": [
+    {
+      "timestamp": "2026-11-11T16:56:02.956804-05:00",
+      "capture_bytes": 8190,
+      "identity_anchors": "passed",
+      "fans_rpm": [
+        9600,
+        9540,
+        9420
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0
+    },
+    {
+      "timestamp": "2026-11-11T17:00:37.399209-05:00",
+      "capture_bytes": 8190,
+      "identity_anchors": "passed",
+      "fans_rpm": [
+        9600,
+        9480,
+        9420
+      ],
+      "n2h_table": 1,
+      "n2h_temperature_level": 0,
+      "n2h_override": 0,
+      "h2n_table": 0,
+      "h2n_override": 0
+    }
+  ],
+  "ioctl_analysis": {
+    "method": "Offline ARM64 disassembly with relocations; no ioctl invoked",
+    "handler": "nios_ioctl.isra.0 at 0x4b34",
+    "request": "0x40124e02",
+    "copy_bytes": 18,
+    "copy_call": "0x4e14 __arch_copy_from_user",
+    "message_layout_inferred": "Byte 0 type, byte 1 payload length, bytes 2..17 payload; current handler forwards the header and length-selected bytes to an outbound queue.",
+    "prior_scope_correction": "The October 31 selected 17.15.6 handler forced type 6/length 0. That finding does not describe current 26.1.2; read-only sysfs attributes do not exclude this separate control route.",
+    "known_caller": "mcu_img_upgrade: open /dev/nios; header type 0/length 1 and a mode byte; ioctl at 0x46c8. This is an ENV mode-change path used during MCU upgrades, not an identified fan-speed command.",
+    "scan": {
+      "scanned_members": 5085,
+      "missing_or_size_mismatches": [],
+      "scope": "Regular files under usr/binos/bin and lib64; static AArch64 MOVZ/MOVK construction of ioctl 0x40124e02 within 128 bytes, same register. Computed/indirect construction and other paths not excluded. Vendor code not executed.",
+      "hits": [
+        {
+          "member": "usr/binos/bin/mcu_img_upgrade",
+          "sha256": "9fbe0c756948763a8ac14e26e6d5a850832fd769a57089fb4507e22358dc8e66",
+          "matches": [
+            {
+              "movz_file_offset": 18092,
+              "movk_file_offset": 18104,
+              "register": 1
+            }
+          ]
+        }
+      ]
+    },
+    "outstanding": "Fan message identifier, payload semantics, bounds, controller acknowledgement, exact execution endpoint, rollback and continued thermal escalation. No guesses transmitted."
+  },
+  "other_paths": {
+    "libenv": "nios_set_fan_level at 0x37ef8 calls syshw_write_device with index 82. Crestone initialization selects the Neptune map at 0x67170 with 24-byte entries; index 82 is n2h_psu0_env_out_12v_pwr, not a fan control. Legacy name is not a valid Crestone actuator.",
+    "libsyshw": "Generic writes open/write registered sysfs files; they do not supply missing store callbacks on read-only NIOS fan attributes.",
+    "fan_data": "Current 1RU fan data contains RPM/power sensor paths, no named PWM output path identified.",
+    "dash": "dash_mmap maps a bounded physical device region, while dash_fpga_read_nios_mem_block is a read API. Raw mapping is not an understood fan override and was not used.",
+    "uefi_reference": {
+      "path": "experimental-recovery/soc2-uefi-expanded.bin",
+      "sha256": "87965c508fccf17ed321cbe190aa0c17845f74ce9fd345c5d279286eea826a72",
+      "bytes": 7086992,
+      "embedded_version": "v17.18(3r).s2.cp",
+      "scope": "Exploratory existing artifact, not installed development ROMMON. ASCII/UTF16 strings include fan inventory/RPM and generic CPLD read/write, not an identified fan-profile command. No execution, patch or flash. Full derivation provenance not reconstructed."
+    }
+  },
+  "live_cli": {
+    "internal_help": "Temporarily enabled service internal. Fan test still offers fault only. Sensor override is reported-value simulation, not a validated fan actuator; PFU tests simulate insert/off/on/remove. No fault or sensor override used.",
+    "shell": "request platform software system shell R0 requires request consent-token authentication. No shell obtained, token requested, provisioning/security change or bypass attempted.",
+    "temporary_config": "ip scp server enable used for two package-copy windows; service internal used for two help-inspection windows. All removed; no write memory.",
+    "config_actions": [
+      {
+        "timestamp": "2026-11-11T16:57:05.011211-05:00",
+        "command": "ip scp server enable"
+      },
+      {
+        "timestamp": "2026-11-11T16:58:53.194180-05:00",
+        "command": "service internal"
+      },
+      {
+        "timestamp": "2026-11-11T16:59:07.011865-05:00",
+        "command": "no ip scp server enable"
+      },
+      {
+        "timestamp": "2026-11-11T17:00:34.822020-05:00",
+        "command": "no service internal"
+      },
+      {
+        "timestamp": "2026-11-11T17:02:11.835521-05:00",
+        "command": "service internal"
+      },
+      {
+        "timestamp": "2026-11-11T17:02:50.705150-05:00",
+        "command": "no service internal"
+      },
+      {
+        "timestamp": "2026-11-11T17:11:35.194565-05:00",
+        "command": "ip scp server enable"
+      },
+      {
+        "timestamp": "2026-11-11T17:11:44.477889-05:00",
+        "command": "no ip scp server enable"
+      }
+    ]
+  },
+  "configuration": {
+    "show running-config": {
+      "capture_count": 5,
+      "content_identical": true
+    },
+    "show startup-config": {
+      "capture_count": 5,
+      "content_identical": true
+    }
+  },
+  "kernel_diagnostic": {
+    "warning_lines": 88,
+    "observed_at": "2026-11-11T17:02:10.460895-05:00",
+    "finding": "Raw FPGA display uses sm_env_dump_0/1 sysfs callbacks, each returning 4096 bytes. Kernel reports bad count for both callbacks and its read layer. Two concatenated reads yield 8190 bytes.",
+    "inference": "Consistent with Linux 5.15 sysfs clamping each PAGE_SIZE return to PAGE_SIZE-1. Do not interpret the concatenation as contiguous 8192-byte memory: the last byte of each 4096-byte block is omitted.",
+    "impact": "All currently decoded fan fields and independent anchors lie in the first chunk, so their positions are unaffected. Warning is a diagnostic callback issue, not proven cooling failure. Further raw polling stopped; normal environmental CLI used.",
+    "references": [
+      "https://raw.githubusercontent.com/torvalds/linux/v5.15/drivers/base/core.c",
+      "https://raw.githubusercontent.com/torvalds/linux/v5.15/fs/sysfs/file.c"
+    ]
+  },
+  "final_state": {
+    "cpu_celsius": 34,
+    "inlet_celsius": [
+      23,
+      24
+    ],
+    "chassis_fans_rpm": [
+      9660,
+      9540,
+      9480
+    ],
+    "psu_fan_rpm": 6112,
+    "sensors": "All displayed states Normal",
+    "dsp": "UP/66.1.0, six signaling channels; no DSP errors",
+    "cgx": "Only the two previously recorded timeouts at 16:16:43.212 and 16:45:13.548 in the last filtered log",
+    "fan_override_applied": false,
+    "firmware_changed": false,
+    "chassis_reboot": false,
+    "configuration_saved": false
+  },
+  "commands": [
+    {
+      "timestamp": "2026-11-11T16:55:46.974634-05:00",
+      "command": "terminal length 0",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:55:47.426017-05:00",
+      "command": "terminal width 200",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:55:47.888155-05:00",
+      "command": "show version",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:02.025707-05:00",
+      "command": "show inventory",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:02.501180-05:00",
+      "command": "show environment all",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:02.956804-05:00",
+      "command": "show platform hardware slot R0 fpga",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:03.478333-05:00",
+      "command": "request platform software system ?",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:03.955204-05:00",
+      "command": "show platform software shell ?",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:04.426716-05:00",
+      "command": "dir bootflash: | include 26.01.02|packages.conf",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:05.643326-05:00",
+      "command": "show running-config",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:06.238623-05:00",
+      "command": "show startup-config",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:29.922910-05:00",
+      "command": "request platform software system shell ?",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:30.396328-05:00",
+      "command": "show platform software shell sessions",
+      "source": "20261111-165545-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:44.669411-05:00",
+      "command": "terminal length 0",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:45.127466-05:00",
+      "command": "terminal width 200",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:45.607099-05:00",
+      "command": "show version",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:56:49.074786-05:00",
+      "command": "request platform software system shell R0",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:57:04.547767-05:00",
+      "command": "configure terminal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:57:05.011211-05:00",
+      "command": "ip scp server enable",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:57:05.483913-05:00",
+      "command": "end",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:57:05.965066-05:00",
+      "command": "show running-config | include ip scp server",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:57:18.911883-05:00",
+      "command": "show ip ssh",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:57:19.353781-05:00",
+      "command": "show privilege",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:57:27.915448-05:00",
+      "command": "verify /sha512 bootflash:c8kg2be-mono-universalk9.26.01.02.SPA.pkg",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:58:52.740867-05:00",
+      "command": "configure terminal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:58:53.194180-05:00",
+      "command": "service internal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:58:53.685948-05:00",
+      "command": "end",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:58:54.161605-05:00",
+      "command": "test platform hardware slot R0 fan ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:58:54.639350-05:00",
+      "command": "test platform hardware slot P2 fan ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:58:55.123659-05:00",
+      "command": "test platform hardware slot R0 ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:58:55.620661-05:00",
+      "command": "test platform software chassis-manager ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:06.561241-05:00",
+      "command": "configure terminal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:07.011865-05:00",
+      "command": "no ip scp server enable",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:07.462070-05:00",
+      "command": "end",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:07.943281-05:00",
+      "command": "show running-config | include service internal|ip scp server",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:13.355517-05:00",
+      "command": "test platform hardware slot P2 pfu ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:13.832781-05:00",
+      "command": "test platform hardware slot R0 sensor ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:14.316268-05:00",
+      "command": "test platform software chassis-manager slot R0 ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:14.772356-05:00",
+      "command": "show platform hardware slot R0 ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:30.149898-05:00",
+      "command": "test platform software shell ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:30.620590-05:00",
+      "command": "show platform hardware slot R0 sensor ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:31.093383-05:00",
+      "command": "test platform hardware slot R0 sensor 0 ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:49.686927-05:00",
+      "command": "test platform software shell command ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T16:59:50.167736-05:00",
+      "command": "show platform hardware slot R0 cman ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:00.406383-05:00",
+      "command": "test platform software shell command handler ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:00.870796-05:00",
+      "command": "test platform software shell command set ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:01.364372-05:00",
+      "command": "show platform hardware slot R0 cman device ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:33.358253-05:00",
+      "command": "test platform hardware slot P2 sensor 0 override ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:33.845551-05:00",
+      "command": "test platform hardware slot R0 sensor 0 cm-override ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:34.333730-05:00",
+      "command": "configure terminal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:34.822020-05:00",
+      "command": "no service internal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:35.332378-05:00",
+      "command": "end",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:35.816301-05:00",
+      "command": "show running-config",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:36.425707-05:00",
+      "command": "show startup-config",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:36.946761-05:00",
+      "command": "show environment all",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:00:37.399209-05:00",
+      "command": "show platform hardware slot R0 fpga",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:01:55.162982-05:00",
+      "command": "show platform hardware slot R0 cman device help",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:01:55.648076-05:00",
+      "command": "show platform software dmesg ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:01:56.160618-05:00",
+      "command": "configure terminal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:01:56.640765-05:00",
+      "command": "platform hardware ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:01:57.127069-05:00",
+      "command": "platform ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:01:57.627894-05:00",
+      "command": "end",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:10.460895-05:00",
+      "command": "show platform software dmesg slot R0",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:11.351696-05:00",
+      "command": "configure terminal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:11.835521-05:00",
+      "command": "service internal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:12.340620-05:00",
+      "command": "end",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:12.848644-05:00",
+      "command": "show platform hardware slot R0 cman device help",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:49.658908-05:00",
+      "command": "configure terminal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:50.167142-05:00",
+      "command": "platform hardware ?",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:50.705150-05:00",
+      "command": "no service internal",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:51.207408-05:00",
+      "command": "end",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:51.722231-05:00",
+      "command": "show running-config",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:52.322553-05:00",
+      "command": "show startup-config",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:52.864554-05:00",
+      "command": "show environment all",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:53.369584-05:00",
+      "command": "show platform",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:53.839529-05:00",
+      "command": "show voice dsp group all",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:54.325510-05:00",
+      "command": "show voice dsp error",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:04:52.844031-05:00",
+      "command": "show logging | include Marvell|ENVIRONMENT|FANFAIL",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:04:53.322770-05:00",
+      "command": "show users",
+      "source": "20261111-165643-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:07.651252-05:00",
+      "command": "terminal length 0",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:08.102859-05:00",
+      "command": "terminal width 200",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:08.577777-05:00",
+      "command": "show version",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:24.353626-05:00",
+      "command": "show users",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:28.824028-05:00",
+      "command": "show running-config",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:29.413105-05:00",
+      "command": "show startup-config",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:29.896110-05:00",
+      "command": "dir bootflash:c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:30.406214-05:00",
+      "command": "verify /sha512 bootflash:c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:34.726046-05:00",
+      "command": "configure terminal",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:35.194565-05:00",
+      "command": "ip scp server enable",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:35.664627-05:00",
+      "command": "end",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:44.018877-05:00",
+      "command": "configure terminal",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:44.477889-05:00",
+      "command": "no ip scp server enable",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:44.949001-05:00",
+      "command": "end",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:45.426879-05:00",
+      "command": "show running-config",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:45.995394-05:00",
+      "command": "show startup-config",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:46.470141-05:00",
+      "command": "show environment all",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:46.950313-05:00",
+      "command": "show voice dsp group all",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:47.416307-05:00",
+      "command": "show voice dsp error",
+      "source": "20261111-171106-ssh.raw"
+    },
+    {
+      "timestamp": "2026-11-11T17:11:47.906036-05:00",
+      "command": "show logging | include cgx|FAN|ENV",
+      "source": "20261111-171106-ssh.raw"
+    }
+  ],
+  "unsuccessful_commands": [
+    {
+      "timestamp": "2026-11-11T16:56:49.074786-05:00",
+      "command": "request platform software system shell R0"
+    },
+    {
+      "timestamp": "2026-11-11T17:01:55.162982-05:00",
+      "command": "show platform hardware slot R0 cman device help"
+    },
+    {
+      "timestamp": "2026-11-11T17:02:12.848644-05:00",
+      "command": "show platform hardware slot R0 cman device help"
+    }
+  ],
+  "sources": [
+    {
+      "name": "20261111-165545-ssh.raw",
+      "bytes": 34514,
+      "sha256": "84cf45cbf031ea3fab07d4b5f3644adb058ad1f3442536b178b11bf2ac28f289"
+    },
+    {
+      "name": "20261111-165643-ssh.raw",
+      "bytes": 351631,
+      "sha256": "e05454a682365ddabd4941ca2bec8ce915267aef19062423ea4d2e5dee99fe89"
+    },
+    {
+      "name": "20261111-171106-ssh.raw",
+      "bytes": 33632,
+      "sha256": "0d3cc0f4ae9bdd22f4eec7b307e962b2c69585b0b1fb48434912c18a34645a1a"
+    },
+    {
+      "name": "nios-selected-2612.txt",
+      "bytes": 24851,
+      "sha256": "f816c27ce2b8bc5dadfc7a758e87ecc8474a511da54683a253c4b44b9f43c626"
+    },
+    {
+      "name": "nios-field-map-2612.txt",
+      "bytes": 13274,
+      "sha256": "bfcce74e27d402ba83462701720b1e2c38040c99dd6cde64361eea84055264f7"
+    },
+    {
+      "name": "mcu-upgrader-2612.txt",
+      "bytes": 382139,
+      "sha256": "0f93936edda5fcabdca1ef97c4260d83ff08c00c1f42a617e33b11b1e91f5350"
+    },
+    {
+      "name": "libenv-nios-2612.txt",
+      "bytes": 16899,
+      "sha256": "0dace062941733bcf94328cbc8a1d2678750ecd68cd8a5397c12074cac908bce"
+    },
+    {
+      "name": "syshw-neptune-2612.txt",
+      "bytes": 11146,
+      "sha256": "e1f3ce39b9c0977dfee9bc5158bfa24171cbfeb8494c6659da478eacf2422c06"
+    },
+    {
+      "name": "syshw-neptune-register-map.json",
+      "bytes": 29823,
+      "sha256": "2680d36823fd93f56832f996e522204c709d65028e4be553bd13e4a97c9a6407"
+    },
+    {
+      "name": "syshw-write-2612.txt",
+      "bytes": 15941,
+      "sha256": "3d6ba849d72249d5db1480a823cea20714017ed399ea146e62c1ac01ffdc0ab5"
+    },
+    {
+      "name": "dash-mmap-2612.txt",
+      "bytes": 4927,
+      "sha256": "ed6e35b60b28c6716ee691f5ff2be737ab0f517df2c2881b917ae60d700b5579"
+    },
+    {
+      "name": "crestone-fan-data-strings.json",
+      "bytes": 1018,
+      "sha256": "c777ab1091d9f1214d3c866e59399a17bf5d5da33da35a79be030d9b9cf0a217"
+    },
+    {
+      "name": "expanded-uefi-strings.json",
+      "bytes": 19685,
+      "sha256": "2c194e101c0901778227aefbb8b7ca767e162b5de7da516300902ac7d819d84e"
+    },
+    {
+      "name": "expanded-uefi-wide-strings.json",
+      "bytes": 8956,
+      "sha256": "3cec5829ad1dc150f0d5e1fff3a600502eabb0c5129dabe051663714870b8a2d"
+    },
+    {
+      "name": "host-control-string-hits.json",
+      "bytes": 1770,
+      "sha256": "c5f58befb6eb59db68d617229a14f6e81e8b165c1a21c80ff57e607b85b6455b"
+    },
+    {
+      "name": "ioctl-caller-scan.json",
+      "bytes": 610,
+      "sha256": "4a6f4df4c67ccd799dc9026c9da30ae5d412eb29018855aa14c8ff8c21d03c85"
+    },
+    {
+      "name": "installed-extraction.json",
+      "bytes": 3533,
+      "sha256": "e1f6657f3f62f4909f981378aa5314769c6f3d6fb542cd9b922f9a1f4de2cd6e"
+    }
+  ],
+  "helpers": [
+    {
+      "name": "session.py",
+      "bytes": 4972,
+      "sha256": "e703e48e38c38fb0c51210138251ecf3b0658eec5c940c502bfe320af37808b0"
+    },
+    {
+      "name": "download_mono.py",
+      "bytes": 1855,
+      "sha256": "75e190d9dc56d6842e791623d5a8b23485715c5dbf991ae62b1b3094bb47f217"
+    },
+    {
+      "name": "download_mcu.py",
+      "bytes": 2038,
+      "sha256": "cc22d8e8fc9438c1a293515e4c7bcdd4613fb759e82457478a296564975daa74"
+    },
+    {
+      "name": "build_evidence.py",
+      "bytes": 13720,
+      "sha256": "5be86d91db682b4bb370709b4a8281a67f0d560bbe21443a90f3190b963aede9"
+    }
+  ],
+  "provenance": "AI-assisted original capture/copy/collation helpers retained privately; existing offline ELF inspector and controller parser reused. Vendor files only extracted and disassembled, never imported/executed. Full mono, MCU package, host tree, raw logs and configs remain private/ignored.",
+  "failures": [
+    "Initial SCP source lacking slash rejected filename check; corrected bootflash:/ source succeeded without disabling filename/host checks.",
+    "Mono helper transfer succeeded, then hashlib.file_digest failed on Python 3.9; streaming hashes recovered offline. MCU helper uses corrected streaming implementation.",
+    "Broad host extraction returned 2 for Linux SELinux xattrs unavailable on macOS. All 5085 regular members were independently present with expected sizes; 52 symlinks also extracted.",
+    "Initial disassembly requested an old nonexistent symbol; repeated using current nios_ioctl.isra.0."
+  ],
+  "next_step": "Obtain/decode the Crestone environmental-controller command protocol or matching controller firmware/native control implementation. Establish an actuator and rollback before a short monitored lower-profile trial with NIM retained.",
+  "limits": [
+    "No demonstrated fan-speed reduction with NIM installed.",
+    "No voice calls, forwarding/performance or extended thermal qualification; owner deferred functional testing.",
+    "Static opcode/string scans do not exhaust computed/indirect interfaces or prove controller behavior.",
+    "Known-value and pattern scans cannot prove absence of every unknown secret."
+  ]
+}
