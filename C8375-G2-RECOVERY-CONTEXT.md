@@ -7,6 +7,14 @@ Original recovery session: **2026-10-23**; latest handoff: **2026-11-11**, Ameri
 
 ## 1. Current state — start here
 
+### November 11, 17:40 EST — candidate curves; maintenance reads and restoration (C8375-05)
+
+Eighteen saved frames expose identical 75-byte candidate fan-curve arrays in N2H/H2N blocks. Groups 1 and 2 differ only at the first value, **34 versus 26**; selector 1→2→1 follows NIM presence. Units, dimensions and application handshake remain unverified; no fan write.
+
+Owner confirms USB-to-RJ45-only console and had authorized shutdown tests. Exact installed rpboot hash matched. Temporary maintenance boot identifies PCI FPGA1137:01ec/BAR0 and NIOS3f. First shell setup ended in an unexplained reset; a quoted-space boot form was rejected before kernel entry. Revised unsaved single-CPU/EDAC-blacklisted entry worked. A /dev/mem read returned zero bytes/Bad address; a mailbox sysfs read immediately preceded a second soft reset. Exact callback performs32-bit loads with2-byte advances, a likely alignment cause without a captured exception trace. **Do not repeat cpu_nios_mlbx_msg_512b_blk2 or generic bulk MMIO reads.** Native NIOS copy uses aligned32-bit accesses.
+
+Normal saved16-CPU/EDAC-blacklisted26.1.2 boot restored automatically, confreg1822/packages.conf/committed. Final CPU33°C/allNormal, fans9600/9600/9540RPM, NIMDSPUP/66.1.0/six channels/no errors; management/SSH/NTP recovered. Startup unchanged; running omits two explicit defaults on auto-created Service-Engine0/1/0 after reboot. No config save, firmware/security/controller write. Agent SSH/serial closed, aliases free. **Quieter profile still unresolved; aligned-reader preparation is next.** [Evidence, failures and restoration](c8375-recovery/controller-protocol-20261111/README.md).
+
 ### November 11, 17:11 EST — exact 26.1.2 controller path investigated; quieter profile unresolved (C8375-05)
 
 The installed mono and MCU package copies independently match router SHA-512. Offline inspection of the exact 26.1.2 `nios_v2` driver confirms the selected fan field offsets and read-only diagnostic attributes, **but also reveals a caller-supplied outbound message ioctl**. This corrects applying October 31's selected 17.15.6 fixed type-6/zero-length handler to current software. A native MCU-updater caller sends ENV mode changes, not an identified fan command. The current MCU package contains only SEQ_MCU_STYX, no Crestone ENVMCU profile/image. The legacy `nios_set_fan_level` name resolves to an unsuitable register mapping on Crestone; generic wrappers and raw DASH mapping do not establish a usable actuator.

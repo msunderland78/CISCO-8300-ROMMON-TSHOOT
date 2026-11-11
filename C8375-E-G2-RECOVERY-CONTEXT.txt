@@ -1,6 +1,22 @@
 C8375-E-G2 / CRESTONE RECOVERY CONTEXT
 Current handoff updated 2026-11-11, America/New_York; historical October23 summary retained
 
+NOVEMBER 11, 17:40 EST -- CANDIDATE CURVES; NORMAL IOS RESTORED
+Same C8375-A/FDO2742M0FK. Eighteen saved frames show three candidate25-value
+fan groups; groups1/2 differ only34 versus26 at first entry. Units/handshake
+unverified; no fan setting applied. Owner confirms RJ45-only console and had
+authorized shutdown tests. Exact rpboot hash verified. Maintenance access
+identifies FPGA1137:01ec/BAR0, NIOS3f. Two diagnostic boots reset; first cause
+unknown, second follows mailbox sysfs read whose callback uses32-bit loads
+with2-byte advances. Do not repeat that mailbox display or bulk MMIO reads.
+Normal saved16CPU/EDAC-blacklisted26.1.2/packages.conf/confreg1822 restored.
+CPU33C/allNormal/fans9600/9600/9540; DSPUP/66.1.0/sixchannels/no errors.
+SSH/management/NTP recovered. Startup identical; running omits two explicit
+defaults on auto-created Service-Engine0/1/0. No config save/firmware/security
+or fan-control write. AgentSSH/serial closed, bothaliases free.
+Next: prepare aligned reader using native NIOS access pattern; still unresolved.
+See c8375-recovery/controller-protocol-20261111/README.md and results.json.
+
 NOVEMBER 11, 17:11 EST -- EXACT DRIVER CONTROL PATH, NO QUIETER PROFILE YET
 Same C8375-A/FDO2742M0FK, P1 400 W and installed P-suffix NIM; no physical work.
 Installed 26.1.2 mono/MCU copies match independent router SHA512. Current

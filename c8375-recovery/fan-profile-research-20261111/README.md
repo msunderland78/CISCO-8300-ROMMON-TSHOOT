@@ -7,6 +7,8 @@ Live commands: **16:55–17:11 EST**; offline analysis follows.
 
 The [preceding NIM comparison](../fan-nim-comparison-20261111/README.md) remains the operational evidence: table 1 and roughly 9,500 RPM with the NIM physically present, including software power-off; table 2 and 5,220–5,460 RPM when removed with a blank. The owner accepts a slower profile for a lightly loaded home lab. Undocumented reversible methods remain within the investigation's scope.
 
+**Later follow-up:** [17:40 candidate curves, temporary maintenance reads, failures and normal-boot restoration](../controller-protocol-20261111/README.md).
+
 ## Exact software and controller path
 
 Fresh SSH identity checks matched **C8375-A / C8375-E-G2 / FDO2742M0FK**, committed IOS **26.1.2**, P1 **PWR-CC1-400WAC / LIT2727C7NE**, NIM **NIM-2FXS/4FXOP / FOC23152BE1**. The assembled/covered/no-programmer confirmation remains from this session. No physical work or serial access occurred here; battery and telephone-line state were not individually supplied.

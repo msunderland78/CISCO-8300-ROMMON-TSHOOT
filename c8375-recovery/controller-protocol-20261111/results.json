@@ -1,0 +1,359 @@
+{
+  "task": "C8375-05",
+  "date": "2026-11-11",
+  "timezone": "America/New_York",
+  "checkpoint": "17:40 EST",
+  "target": {
+    "label": "C8375-A",
+    "pid": "C8375-E-G2",
+    "serial": "FDO2742M0FK",
+    "psu": "P1 PWR-CC1-400WAC LIT2727C7NE",
+    "nim": "NIM-2FXS/4FXOP FOC23152BE1"
+  },
+  "status": "Normal IOS restored; no fan-policy write or quieter-profile success. Further aligned-reader preparation planned.",
+  "authorization": "Owner accepts undocumented reversible slower home-lab profile and shutdown tests; current USB-to-RJ45-only physical console mapping confirmed.",
+  "curve_evidence": {
+    "saved_frames": 18,
+    "n2h_block_offset": "0x2b0",
+    "h2n_block_offset": "0xa60",
+    "block_bytes": 86,
+    "candidate_arrays_offsets": [
+      "0x2b6",
+      "0xa66"
+    ],
+    "candidate_groups": [
+      [
+        42,
+        50,
+        59,
+        70,
+        100,
+        48,
+        57,
+        68,
+        100,
+        100,
+        58,
+        68,
+        100,
+        100,
+        100,
+        69,
+        78,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      [
+        34,
+        42,
+        51,
+        62,
+        100,
+        40,
+        49,
+        60,
+        82,
+        100,
+        50,
+        60,
+        79,
+        100,
+        100,
+        61,
+        70,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      [
+        26,
+        42,
+        51,
+        62,
+        100,
+        40,
+        49,
+        60,
+        82,
+        100,
+        50,
+        60,
+        79,
+        100,
+        100,
+        61,
+        70,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ]
+    ],
+    "n2h_distinct_blocks": 2,
+    "n2h_only_differing_byte": "0x2b2 (table selector 1 or 2)",
+    "h2n_distinct_blocks": 1,
+    "group1_group2_difference": "Only first value,34 versus26",
+    "interpretation": "Candidate fan curves; dimensions/units, application handshake and thermal response unverified."
+  },
+  "boot_package": {
+    "started": "2026-11-11T17:23:29.626569-05:00",
+    "finished": "2026-11-11T17:23:36.082724-05:00",
+    "returncode": 0,
+    "bytes": 68479592,
+    "source": "192.168.4.62:bootflash:/c8kg2be-rpboot.26.01.02.SPA.pkg",
+    "sha512": "52004d49d62f8f9fde59be4895a59a73263921f68b1663a389665c78307a854a53aff15c0227b6b14abf9f86522b13d824c042d7f1771c7d5f516a3ae051de50",
+    "sha256": "414a0c5e33a6884b88d505af201ca461a101ca893d69cd38c01f8c3e3c588d2b"
+  },
+  "boot_package_router_sha512_matched": true,
+  "live_sequence": [
+    {
+      "time": "17:22-17:24",
+      "result": "Exclusive RJ45 verified at115200/8N1/no flow; SSH identity and configs captured. SCP temporary enable/copy/disable; two preboot running and startup bodies each identical."
+    },
+    {
+      "time": "17:25:05",
+      "result": "Authorized reload, declined config save. Manual0x1820 used, then0x1822 restored and synced with original USER_BOOT_PARAM before any unsaved diagnostic parameter."
+    },
+    {
+      "time": "17:29:32-17:30",
+      "result": "Previously verified maxcpus1 maintenance entry opened shell. Initial proc/sys mount setup lacked directories. Subsequent reset; ROMMON ResetRequest. Exact cause unproven; no fan access/write. Original saved boot parameters verified after reset."
+    },
+    {
+      "time": "17:32:05",
+      "result": "Quoted-space shortened entry accepted by ROMMON but rejected by EFI loader: Invalid flag or flag value /x; no kernel boot from this attempt."
+    },
+    {
+      "time": "17:33:20",
+      "result": "127-byte unsynced command accepted: nosmp + EDAC blacklist + relative bin/sh + RAM tty node204:64. Kernel explicitly blacklists octeontx_edac_init. Shell verified at17:33:45; mounts created; UART changed9600 to115200."
+    },
+    {
+      "time": "17:34:04",
+      "result": "Native dash_fpga loaded. PCI0003:03:00.0 vendor1137:01ec; BAR0 0x882001000000..0x8820010fffff; hw_board_rev07000011. NIOSversion3f, env_fan_status701 read. No firmware update."
+    },
+    {
+      "time": "17:34:36",
+      "result": "Read-only /dev/mem attempt atBAR0+0x34000 for4096bytes returned Bad address,0bytes. No valid new controller snapshot."
+    },
+    {
+      "time": "17:34:45",
+      "result": "Reading cpu_nios_mlbx_msg_512b_blk2 followed by immediate soft reset. Callback reads32bits then advances2bytes; misaligned access is a leading explanation, not verified fault trace. Do not repeat this diagnostic."
+    },
+    {
+      "time": "17:35-17:39",
+      "result": "Saved normal boot automatically restores16CPU/EDAC blacklist, IOS26.1.2 committed/packages.conf/confreg1822. Management/SSH and NTP restored. NIMDSPUP/66.1.0/six channels/noDSPerrors. LastenvironmentCPU33C, fans9600/9600/9540RPM, allNormal. No new core payload observed."
+    }
+  ],
+  "configuration_comparison": {
+    "show running-config": {
+      "captures": 3,
+      "all_identical": false
+    },
+    "show startup-config": {
+      "captures": 3,
+      "all_identical": true
+    }
+  },
+  "running_difference": "Only explicit no ip address / ip proxy-arp lines under auto-created Service-Engine0/1/0 omitted after reboot. Startup unchanged; no user network/credential settings changed or saved.",
+  "access_closed": "Agent SSH and RJ45 closed; lsof finds no holder on either serial alias and no TCP22 connection to router at checkpoint.",
+  "limits": [
+    "No fan control transaction or heat/load/call test performed.",
+    "First reset cause unknown; second reset causation inferred from event timing and exact callback alignment, no captured exception trace.",
+    "Raw captures, config snapshots, packages and vendor extraction stay local. Pattern/known-value scanning does not prove every unknown binary secret absent."
+  ],
+  "private_evidence": [
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/20261111-172226-console.raw",
+      "bytes": 62,
+      "sha256": "1ebb2bdc5ce08e6e90b3ede72a8ef315e3e1bced3a3c458f69b6d7eeff9e4f3a"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/20261111-172229-console.raw",
+      "bytes": 110,
+      "sha256": "d96e140bcccfddea92b020e34cb79202e983ec6ee0c71acd9dc5acf1c27e0c8e"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/20261111-172251-ssh.raw",
+      "bytes": 46666,
+      "sha256": "c5cc0d9b57bf488ef913fd25ff38a0840547c27ee21a1b80f7a16680627cb8d1"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/20261111-172307-console.raw",
+      "bytes": 30473,
+      "sha256": "f4a9d0b254f2d4166a0702eb507236383ea67efbb3a8159bda0776cb66d84219"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/20261111-173045-console.raw",
+      "bytes": 88681,
+      "sha256": "ffc5ec93ea8c04c9b6583d1b4102e8db65d4e64dbb172f8370874227900031ee"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/20261111-173715-ssh.raw",
+      "bytes": 64,
+      "sha256": "adf4d9cdb17cf8e06086b97ea8aa2f48b1a0aeb05da976ae12c486926d1e53c8"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/20261111-173758-ssh.raw",
+      "bytes": 64,
+      "sha256": "adf4d9cdb17cf8e06086b97ea8aa2f48b1a0aeb05da976ae12c486926d1e53c8"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/20261111-173842-ssh.raw",
+      "bytes": 303298,
+      "sha256": "2dabc97ed3334d667cf706847797d8c7f7236cb2c3a4312b8eff419adeb14ff9"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/boot-plan.txt",
+      "bytes": 1039,
+      "sha256": "505d727fa55e33e4c71338cfe78c9ad31439c86b0f398d18a4df43cc3bbe8019"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/build_checkpoint.py",
+      "bytes": 7267,
+      "sha256": "862c4ec9b0dc42cc233f6a4a632ea48ca232f6fcb3504270ab7cee85369be4b4"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/console-v2.py",
+      "bytes": 4792,
+      "sha256": "205276a08879dc087f5f4992e3a4e4f109a2586ae119f9108f8564dcd699ed33"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/console.py",
+      "bytes": 4590,
+      "sha256": "cb904a2ee95de1e3be4afb7165c9aa5756c209915b281a35440c50375dc8f23b"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/ctypes-2612.so",
+      "bytes": 144320,
+      "sha256": "8aff7e11ea74b099aa8ee6372b48d82fc8ce71027ff11cd63ab8f09955933ec8"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/dash-mailbox-read.txt",
+      "bytes": 19834,
+      "sha256": "143f73714ae46f09f974866e026a564b4035649a363697c724130b074673008b"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/dash-platform-copy.txt",
+      "bytes": 7736,
+      "sha256": "3f3a688d6316c44d10015669c9606b329d9df968e97a3311091a96c06ede479a"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/dash-probe.txt",
+      "bytes": 23251,
+      "sha256": "9af767cb222ca4cf2e9cac64cd50dedeecc8f377ae36f39d5c8e4f770f49b60a"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/download_rpboot.py",
+      "bytes": 2007,
+      "sha256": "d4eecd9f5747371c488206f4f50dd0b7dc3b77ef76da050114da3bb45f4a5221"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/fan-control-block-comparison.json",
+      "bytes": 45417,
+      "sha256": "d73b90fffe3c8206ba0c2bfb25b88dc68dfc2d671b200d387f5d780c876108ee"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/host-curve-byte-scan.json",
+      "bytes": 86,
+      "sha256": "3a3c2da9b0d472bf7ef2faa7a8f14ad8556936f056bcbcca89abbcb2c7c1bb6b"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/initramfs-list.json",
+      "bytes": 120520,
+      "sha256": "b8413cd017df794349caa4e92383625eed8d2573e5846fefbdefa2bcd73dea95"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/mailbox-alignment-finding.txt",
+      "bytes": 454,
+      "sha256": "9bf75d1e9b32858b11b7c38ba141ca58427eaf9ccfab7ce62af1bf75289d05b7"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/nios-copy.txt",
+      "bytes": 2522,
+      "sha256": "43c567cc554002112c0820f5487bf7cdc0996883521b9ab6abd807a006ede662"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/nios-event-handling.txt",
+      "bytes": 59250,
+      "sha256": "d2d064f67613d3d26baf6052b39ea3c5bba8031cf1dbac93abbd4fbcf61d1ad6"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/nios-init-module.txt",
+      "bytes": 11128,
+      "sha256": "80d6ec62dafbc88ccdb3b8ff2d5f44a30a6a81853f40e7e351d9e8d1a1923e88"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/nios-init.txt",
+      "bytes": 3765,
+      "sha256": "2ff96dc450d77fb56fbd8a6cd7ef976651eb7f2582b8eb67222c323cb04535e7"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/nios-temperature-offsets.txt",
+      "bytes": 4490,
+      "sha256": "a0936b38c23ab02fa542e52cc7e140c9330591d1a80c9c1b888dc727147e527b"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/preboot-config-comparison.json",
+      "bytes": 143,
+      "sha256": "500b46bd1b6dbeacc503db580ea3f358455075c29edd940720bffab6e934416e"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/restored-config-comparison.json",
+      "bytes": 150,
+      "sha256": "dfade59adc8f1dbc152ed31f15a9fe143cacffca7e404eda48485a032b9f7184"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/rpboot-package-copy.json",
+      "bytes": 437,
+      "sha256": "9e5340d7eda88e9c7ac4d1801e4787809b74b563dcfcd8a7b9f953cc01690f89"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/rpboot-scp-output.raw",
+      "bytes": 51,
+      "sha256": "18fffda4d1e3dc3ebd4319acc5db0c57aa944b582adf5a6395a59022d8123ac2"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/session.py",
+      "bytes": 4016,
+      "sha256": "9f2400f551d3b33d6b282f28764687d9fdd260537865726e75d3684839724823"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/soc2-curve-byte-scan.json",
+      "bytes": 3571,
+      "sha256": "8c33738f975d1d37e73d5d4979be0e90b17d1829dd44120345e1acff9eca3b22"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/temporary-boot-parameter-v2.txt",
+      "bytes": 97,
+      "sha256": "d96f30b8107cfcecc39969c2d0431b542fe3d37461c368419382933bd0140ec1"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/temporary-boot-parameter-v3.txt",
+      "bytes": 106,
+      "sha256": "bb46575348b0a14bb403f6ad043a006fc2b48b13b0946140137561da221002f0"
+    },
+    {
+      "path": ".git/recovery-private/c8375-controller-protocol-20261111/temporary-boot-parameter.txt",
+      "bytes": 123,
+      "sha256": "25ac4f0ec5c244c2187a2d828e117b95cdb6d6738bc060dc8e77f0138cda3e2c"
+    }
+  ],
+  "sources": [
+    "https://raw.githubusercontent.com/torvalds/linux/v5.15/drivers/tty/serial/amba-pl011.c",
+    "https://raw.githubusercontent.com/torvalds/linux/v5.15/kernel/printk/printk.c"
+  ]
+}

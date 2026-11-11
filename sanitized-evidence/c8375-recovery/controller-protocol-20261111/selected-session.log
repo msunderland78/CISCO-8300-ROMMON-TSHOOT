@@ -1,0 +1,771 @@
+DERIVED SSH COMMAND SELECTION; host dates America/New_York. Configuration bodies and full kernel log omitted.
+
+[COMMAND 2026-11-11T17:22:52.706741-05:00] terminal length 0
+terminal length 0
+CAT8375-G2#
+[COMMAND 2026-11-11T17:22:53.168598-05:00] terminal width 200
+terminal width 200
+CAT8375-G2#
+[COMMAND 2026-11-11T17:22:53.615357-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 1 hour, 7 minutes
+Uptime for this control processor is 1 hour, 9 minutes
+System returned to ROM by PowerOn
+System restarted at 16:15:13 EST Wed Nov 11 2026
+System image file is "bootflash:packages.conf"
+Last reload reason: PowerOn
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+4 Voice FXO interfaces
+2 Voice FXS interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:23:01.884989-05:00] show line con 0
+show line con 0
+   Tty Line Typ     Tx/Rx    A Modem  Roty AccO AccI  Uses  Noise Overruns  Int
+      0    0 CTY              -    -      -    -    -     0      1    0/0      -
+
+Line 0, Location: "", Type: ""
+Length: 24 lines, Width: 80 columns
+Baud rate (TX/RX) is 115200/115200, no parity, 1 stopbits, 8 databits
+Status: Ready
+Capabilities: none
+Modem state: Ready
+Group codes:    0
+Special Chars: Escape  Hold  Stop  Start  Disconnect  Activation
+                ^^x    none   -     -       none         
+Timeouts:      Idle EXEC    Idle Session   Modem Answer  Session   Dispatch
+                never         never                        none     not set
+                            Idle Session Disconnect Warning
+                              never 
+                            Login-sequence User Response
+                             00:00:30
+                            Autoselect Initial Wait
+                              not set 
+Modem type is unknown.
+Session limit is not set.
+Time since activation: never
+Editing is enabled.
+History is enabled, history size is 10.
+DNS resolution in show commands is enabled
+Full user help is disabled
+Allowed input transports are none.
+Allowed output transports are lat pad telnet rlogin mop nasi ssh.
+Preferred transport is lat.
+Shell: enabled
+Shell trace: off
+No output characters are padded
+No special data dispatching characters
+CAT8375-G2#
+[COMMAND 2026-11-11T17:23:02.346541-05:00] show bootvar
+show bootvar
+BOOT variable = bootflash:packages.conf,12;
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x1822
+
+Standby not ready to show bootvar
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:23:09.008256-05:00] more bootflash:packages.conf
+more bootflash:packages.conf
+#! /usr/binos/bin/packages_conf.sh
+
+sha1sum: 8726aa211084837c0bdf162e26c15f058dface44
+
+sha256sum: aed4215f48a03505e6b60d6f83ef1ed0738eac59ed38337ef452ae51da83b65f
+
+# sha1sum above - used to verify that this file is not corrupted.
+
+#
+# package.conf: provisioned software file for build 2026-07-31_19.21
+#
+
+# NOTE: Editing this file by hand is not recommended. It is generated
+#       as part of the build process, and is subject to boot-time
+#       consistency checks. Automatically-produced package files are
+#       guaranteed to pass those checks. Manually-maintained ones are
+#       not. Because "nfs" and "mount" directives are processed first,
+#       regardless of their position in the file, the recommended
+#       approach is to keep a separate file containing JUST your
+#       personal "nfs" and "mount" directives, and to append it to the
+#       automatically-generated file.
+#
+#     Note further that when SHA-1 checksum verification is enabled,
+#     you will NOT be able to alter this file without updating the
+#     SHA-1 sum.
+
+#
+# This file can contain three types of entries:
+#
+
+#
+# NFS directives (optional)
+#     notes:    NFS directives are processed before all others (mount, iso).
+#               Multiple NFS directives may appear so long as they do not
+#               conflict -- that is, specify the same source or mountpoint.
+#     syntax:   nfs <IP ADDRESS>:<REMOTE_PATH> <LOCAL_MOUNTPOINT>
+#     example:  nfs 127.0.0.1:/auto/some/nfs/path /auto/some/nfs/path
+#
+
+#
+# mount directives (optional)
+#     notes:    mount directives are processed after 'nfs' and before 'iso'.
+#               One mount directive may appear for each F/S/B/P tuple
+#     syntax:   mount FRU SLOT BAY   PACKAGE_NAME   NFS_PATH
+#     example:  mount rp 0 0 rp_base /auto/some/nfs/path/abs_soft/rp_base.ppc
+#
+#               The specified NFS_PATH must
+#               reference the NFS mounts created earlier.
+#
+#               Mount directives cause the package-specific mount link to
+#               be set to the specified path instead of to the mountpoint
+#               in sw for the corresponding ISO.
+#
+
+#
+# iso directives (mandatory)
+#     notes:    iso directives are processed last: any package for which
+#               a 'mount' directive does not appear will be mounted.
+#               One iso directive may appear for each F/S/B/P tuple.
+#     syntax:   iso FRU SLOT BAY   PACKAGE_NAME  PACKAGE_FILE.bin
+#     example:  iso rp 0 0 rp_base rp_base.ppc.bin
+#
+#               PACKAGE_FILE.bin is a path relative to the packages.conf
+#               file.  Although it supports sub-directories for development
+#               purposes, in deployment the files will always be managed
+#               as in the same directory as packages.conf so as to
+#               guarantee that name collisions cannot occur.
+#
+# Note that the RP 0/1 distinction is a convenience for development
+# and testing as it allows us to have a packages.conf describe a
+# SW load that varies depending on whether the RP finds itself in
+# slot 0 or 1.
+#
+# The ISSU process *must* update *both* RP slots simultaneously so that
+# the RP will behave predictably whichever slot it finds itself on [e.g.,
+# if package X is upgraded, and the RP is ejected and put into either
+# slot of a new chassis, we expect to see the upgraded X without regard
+# to slot].
+#
+
+boot   rp 0 0   rp_boot c8kg2be-rpboot.26.01.02.SPA.pkg
+
+iso   rp 0 0   rp_base c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   rp 0 1   rp_base c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+
+iso   rp 0 0   rp_daemons c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   rp 0 1   rp_daemons c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+
+iso   rp 0 0   rp_iosd c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   rp 0 1   rp_iosd c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+
+iso   rp 0 0   rp_security c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   rp 0 1   rp_security c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+
+iso   rp 0 0   rp_webui c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   rp 0 1   rp_webui c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+
+iso   fp 0 0   fp c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   fp 0 1   fp c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+
+iso   cc 0 0   cc c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 0 1   cc c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+
+iso   cc 0 0   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 0 1   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 0 2   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 0 3   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 0 4   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 0 5   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+
+iso   cc 1 0   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 1 1   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 1 2   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 1 3   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 2 0   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 2 1   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 2 2   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 2 3   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 3 0   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 3 1   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 3 2   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+iso   cc 3 3   cc_spa c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_mirabile_mcu c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_mirabile_mcu c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_nim_shdsl c8kg2be-firmware_nim_shdsl.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_nim_shdsl c8kg2be-firmware_nim_shdsl.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_sm_async c8kg2be-firmware_sm_async.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_sm_async c8kg2be-firmware_sm_async.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_ngwic_t1e1 c8kg2be-firmware_ngwic_t1e1.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_ngwic_t1e1 c8kg2be-firmware_ngwic_t1e1.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_prince c8kg2be-firmware_prince.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_prince c8kg2be-firmware_prince.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_sm_1t3e3 c8kg2be-firmware_sm_1t3e3.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_sm_1t3e3 c8kg2be-firmware_sm_1t3e3.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_nim_async c8kg2be-firmware_nim_async.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_nim_async c8kg2be-firmware_nim_async.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_nim_xdsl c8kg2be-firmware_nim_xdsl.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_nim_xdsl c8kg2be-firmware_nim_xdsl.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_sm_nim_adpt c8kg2be-firmware_sm_nim_adpt.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_sm_nim_adpt c8kg2be-firmware_sm_nim_adpt.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_pse_si3470a c8kg2be-firmware_pse_si3470a.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_pse_si3470a c8kg2be-firmware_pse_si3470a.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_sm_dsp_sp2700 c8kg2be-firmware_sm_dsp_sp2700.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_sm_dsp_sp2700 c8kg2be-firmware_sm_dsp_sp2700.26.01.02.SPA.pkg
+
+iso   rp 0 0   firmware_dsp_analogbri c8kg2be-firmware_dsp_analogbri.26.01.02.SPA.pkg
+iso   rp 0 1   firmware_dsp_analogbri c8kg2be-firmware_dsp_analogbri.26.01.02.SPA.pkg
+
+
+#
+# -start- superpackage .pkginfo
+#
+# pkginfo: Name: rp_super
+# pkginfo: BuildTime: 2026-07-31_19.21
+# pkginfo: ReleaseDate: Fri-31-Jul-26-18:34
+# pkginfo: .BuildArch: arm64
+# pkginfo: BootArchitecture: arm64
+# pkginfo: .BootArch: arm64
+# pkginfo: RouteProcessor: mirabile
+# pkginfo: Platform: C8KG2BE
+# pkginfo: User: mcpre
+# pkginfo: PackageName: universalk9
+# pkginfo: Build: 26.01.02
+# pkginfo: .SupportedBoards: mirabile
+# pkginfo: .InstallModel: 
+# pkginfo: .PackageRole: rp_super
+# pkginfo: .RestartRole: rp_super
+# pkginfo: CardTypes: 
+# pkginfo: .CardTypes: 
+# pkginfo: .BuildPath: /nobackup/mcpre/s2c-build-ws/binos/linkfarm/mirabile_universalk9-stage/img/rp_super_universalk9
+# pkginfo: .Version: 26.01.02.0.3639.1785525696..IOSXE
+# pkginfo: .ControllerVersion: 26.1
+# pkginfo: .InstallVersion: 1.0.0
+# pkginfo: .InstallCapCommitSupport: yes
+# pkginfo: .PKGUID: ecce7bf0f4195216a4952281a463f9e3ead2abbb
+# pkginfo: .SW_DESCRIPTION: V261_2_FC1-0-g9f1f3f9224521
+#
+# -end- superpackage .pkginfo
+#
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:23:09.506362-05:00] dir bootflash: | include rpboot|26.01.02|26.02.01|USER
+dir bootflash: | include rpboot|26.01.02|26.02.01|USER
+33      -rw-             8406   Nov 7 2026 18:30:21 -05:00  c8kg2be-universalk9.26.01.02.SPA.conf
+1044672  -rw-         68479592   Nov 7 2026 18:30:14 -05:00  c8kg2be-rpboot.26.01.02.SPA.pkg
+32      -rwx       1022725792   Nov 7 2026 18:29:25 -05:00  c8kg2be-universalk9.26.01.02.SPA.bin
+25      -rw-             8405   Nov 7 2026 17:51:30 -05:00  c8kg2be-universalk9.26.02.01.SPA.conf
+1044637  -rw-         74019996   Nov 7 2026 17:51:23 -05:00  c8kg2be-rpboot.26.02.01.SPA.pkg
+11      -rwx       1048008916   Nov 7 2026 17:50:32 -05:00  c8kg2be-universalk9.26.02.01.SPA.bin
+1044490  -rw-         60003040  Oct 31 2026 14:28:18 -04:00  c8kg2be-rpboot.17.15.06.SPA.pkg
+1044779  -rw-        962338816  Sep 22 2026 16:17:42 -04:00  c8kg2be-mono-universalk9.26.02.01.SPA.pkg
+1044774  -rw-            53248  Sep 22 2026 16:16:31 -04:00  c8kg2be-firmware_pse_si3470a.26.02.01.SPA.pkg
+1044768  -rw-           139264  Sep 22 2026 16:16:31 -04:00  c8kg2be-firmware_mirabile_mcu.26.02.01.SPA.pkg
+1044773  -rw-         10444800  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_prince.26.02.01.SPA.pkg
+1044778  -rw-           204800  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_sm_nim_adpt.26.02.01.SPA.pkg
+1044775  -rw-         13889536  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_sm_1t3e3.26.02.01.SPA.pkg
+1044772  -rw-          5677056  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_nim_xdsl.26.02.01.SPA.pkg
+1044776  -rw-         14700544  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_sm_async.26.02.01.SPA.pkg
+1044769  -rw-         12017664  Sep 22 2026 16:16:30 -04:00  c8kg2be-firmware_ngwic_t1e1.26.02.01.SPA.pkg
+1044771  -rw-         11923456  Sep 22 2026 16:16:29 -04:00  c8kg2be-firmware_nim_shdsl.26.02.01.SPA.pkg
+1044734  -rw-          6807552  Sep 22 2026 16:16:29 -04:00  c8kg2be-firmware_dsp_analogbri.26.02.01.SPA.pkg
+1044777  -rw-          2600960  Sep 22 2026 16:16:29 -04:00  c8kg2be-firmware_sm_dsp_sp2700.26.02.01.SPA.pkg
+1044770  -rw-         13287424  Sep 22 2026 16:16:29 -04:00  c8kg2be-firmware_nim_async.26.02.01.SPA.pkg
+1044929  -rw-        943767552  Jul 31 2026 15:33:31 -04:00  c8kg2be-mono-universalk9.26.01.02.SPA.pkg
+1044878  -rw-           139264  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_mirabile_mcu.26.01.02.SPA.pkg
+1044923  -rw-         13889536  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_sm_1t3e3.26.01.02.SPA.pkg
+1044928  -rw-           204800  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_sm_nim_adpt.26.01.02.SPA.pkg
+1044921  -rw-         10444800  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_prince.26.01.02.SPA.pkg
+1044919  -rw-          5677056  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_nim_xdsl.26.01.02.SPA.pkg
+1044922  -rw-            53248  Jul 31 2026 15:32:11 -04:00  c8kg2be-firmware_pse_si3470a.26.01.02.SPA.pkg
+1044915  -rw-         13287424  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_nim_async.26.01.02.SPA.pkg
+1044874  -rw-          6807552  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_dsp_analogbri.26.01.02.SPA.pkg
+1044925  -rw-         14700544  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_sm_async.26.01.02.SPA.pkg
+1044880  -rw-         12017664  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_ngwic_t1e1.26.01.02.SPA.pkg
+1044916  -rw-         11923456  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_nim_shdsl.26.01.02.SPA.pkg
+1044926  -rw-          2600960  Jul 31 2026 15:32:10 -04:00  c8kg2be-firmware_sm_dsp_sp2700.26.01.02.SPA.pkg
+CAT8375-G2#
+[COMMAND 2026-11-11T17:23:10.600106-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          23 Celsius
+ Temp: Inlet 2           R0              Normal          24 Celsius
+ Temp: Outlet 1          R0              Normal          25 Celsius
+ Temp: Outlet 2          R0              Normal          28 Celsius
+ Temp: CPU               R0              Normal          34 Celsius
+ Temp: Working           R0              Normal          23 Celsius
+ V: 12V                  R0              Normal          11972 mV
+ V: 5V                   R0              Normal          4989 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2498 mV
+ V: 1.8V                 R0              Normal          1799 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          832 mV
+ V: 0.8V_SW              R0              Normal          793 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          36 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          30 Celsius
+ Temp: Temp 3            P1              Normal          32 Celsius
+ V: PEM In               P1              Normal          120001 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6112 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9540 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:23:17.150322-05:00] verify /sha512 bootflash:c8kg2be-rpboot.26.01.02.SPA.pkg
+verify /sha512 bootflash:c8kg2be-rpboot.26.01.02.SPA.pkg
+.....................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................Done!
+verify /sha512 (bootflash:c8kg2be-rpboot.26.01.02.SPA.pkg) = 52004d49d62f8f9fde59be4895a59a73263921f68b1663a389665c78307a854a53aff15c0227b6b14abf9f86522b13d824c042d7f1771c7d5f516a3ae051de50
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:23:24.122184-05:00] configure terminal
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:23:24.594978-05:00] ip scp server enable
+ip scp server enable
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:23:25.077264-05:00] end
+end
+CAT8375-G2#
+[COMMAND 2026-11-11T17:23:43.334010-05:00] configure terminal
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:23:43.807960-05:00] no ip scp server enable
+no ip scp server enable
+CAT8375-G2(config)#
+[COMMAND 2026-11-11T17:23:44.286939-05:00] end
+end
+CAT8375-G2#
+[COMMAND 2026-11-11T17:38:43.319179-05:00] terminal length 0
+terminal length 0
+CAT8375-G2#
+[COMMAND 2026-11-11T17:38:43.779996-05:00] terminal width 200
+terminal width 200
+CAT8375-G2#
+[COMMAND 2026-11-11T17:38:44.263399-05:00] show version
+show version
+Cisco IOS XE Software, Version 26.01.02
+Cisco IOS Software [IOSXE], c8kg2be Software (ARMV8EL_LINUX_IOSD-UNIVERSALK9-M), Version 26.01.2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2026 by Cisco Systems, Inc.
+Compiled Fri 31-Jul-26 19:06 by mcpre
+
+
+Cisco IOS-XE software, Copyright (c) 2005-2026 by cisco Systems, Inc.
+All rights reserved.  Certain components of Cisco IOS-XE software are
+licensed under the GNU General Public License ("GPL") Version 2.0.  The
+software code licensed under GPL Version 2.0 is free software that comes
+with ABSOLUTELY NO WARRANTY.  You can redistribute and/or modify such
+GPL code under the terms of GPL Version 2.0.  For more details, see the
+documentation or "License Notice" file accompanying the IOS-XE software,
+or the applicable URL provided on the flyer accompanying the IOS-XE
+software.
+
+
+ROM: IOS-XE ROMMON
+
+CAT8375-G2 uptime is 1 minute
+Uptime for this control processor is 2 minutes
+System returned to ROM by LocalSoftADR at 17:25:05 EST Wed Nov 11 2026
+System restarted at 17:37:19 EST Wed Nov 11 2026
+System image file is "bootflash:packages.conf"
+Last reload reason: Reload Command
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology     Type         Technology-package Technology-package
+                            Current            Next Reboot       
+-----------------------------------------------------------------
+Smart License  Subscription advantage          advantage         
+
+The current crypto throughput level is unthrottled 
+
+
+Smart Licensing Status: Smart Licensing Using Policy
+
+cisco C8375-E-G2 (1RU) processor with 3696649K/6147K bytes of memory.
+Processor board ID FDO2742M0FK
+Router operating mode: Autonomous
+4 2.5 Gigabit Ethernet interfaces
+2 Ten Gigabit Ethernet interfaces
+4 Voice FXO interfaces
+2 Voice FXS interfaces
+32768K bytes of non-volatile configuration memory.
+8388608K bytes of physical memory.
+20601855K bytes of flash memory at bootflash:.
+
+Configuration register is 0x1822
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:38:50.973305-05:00] show platform
+show platform
+Chassis type: C8375-E-G2
+
+Slot      Type                State                 Insert time (ago) 
+--------- ------------------- --------------------- ----------------- 
+0         C8375-E-G2          ok                    00:02:12      
+ 0/0      4M-2xSFP+           ok                    00:01:11      
+ 0/1      NIM-2FXS/4FXOP      ok                    00:01:02      
+1         C8375-E-G2          ok                    00:02:12      
+R0        C8375-E-G2          ok, active            00:02:12      
+F0        C8375-E-G2          ok, active            00:02:12      
+P0        Unknown             empty                 never         
+P1        PWR-CC1-400WAC      ok                    00:01:28      
+P2        C8300-FAN-1R        ok                    00:01:28      
+
+Slot      CPLD Version        Firmware Version                        
+--------- ------------------- --------------------------------------- 
+0         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+1         2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+R0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+F0        2408272B            SDK112308-UEFI-ROMMON-SoC2-v9.2.1-Re...
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:38:51.442699-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          22 Celsius
+ Temp: Inlet 2           R0              Normal          23 Celsius
+ Temp: Outlet 1          R0              Normal          24 Celsius
+ Temp: Outlet 2          R0              Normal          26 Celsius
+ Temp: CPU               R0              Normal          32 Celsius
+ Temp: Working           R0              Normal          22 Celsius
+ V: 12V                  R0              Normal          11965 mV
+ V: 5V                   R0              Normal          4993 mV
+ V: 3.3V_STBY            R0              Normal          3343 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3312 mV
+ V: 2.5V                 R0              Normal          2500 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1197 mV
+ V: 1.2V                 R0              Normal          1209 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          997 mV
+ V: 0.85V_DDR            R0              Normal          833 mV
+ V: 0.8V_SW              R0              Normal          795 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          881 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          748 mV
+ P: Power                R0              Normal          35 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          28 Celsius
+ Temp: Temp 3            P1              Normal          31 Celsius
+ V: PEM In               P1              Normal          120001 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3200 mA
+ P: In power             P1              Normal          47 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6080 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9660 RPM
+ RPM: fan1               P2              Normal          9600 RPM
+ RPM: fan2               P2              Normal          9480 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:38:51.956200-05:00] show voice dsp group all
+show voice dsp group all
+DSP groups on slot 0/1 slot id 1
+dsp 1:
+  State: UP, firmware: 66.1.0
+  Max signal/voice channel: 8/8
+  Max credits: 120, Voice credits: 120, Video credits: 0
+  num_of_sig_chnls_allocated: 6
+  Transcoding channels allocated: 0
+  Group: FLEX_GROUP_VOICE, complexity: FLEX
+    Shared credits: 120, reserved credits: 0
+    Signaling channels allocated: 6
+    Voice channels allocated: 0
+    Credits used (rounded-up): 0
+  Slot: 0/1
+  Device idx: 0
+  Dsp Type: DM8147 
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:38:52.449197-05:00] show bootvar
+show bootvar
+BOOT variable = bootflash:packages.conf,12;
+CONFIG_FILE variable does not exist
+BOOTLDR variable does not exist
+Configuration register is 0x1822
+
+Standby not ready to show bootvar
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:38:54.077668-05:00] dir bootflash:core/
+dir bootflash:core/
+Directory of bootflash:core/
+
+783392  -rw-                1  Nov 11 2026 17:15:26 -05:00  .callhome
+783420  -rw-           409600  May 29 2025 14:52:00 -04:00  Router_RP_0_cpp_cp_svr_23990_20250529-185134-UTC.core.gz
+783419  -rw-             4096  May 29 2025 14:52:00 -04:00  Router_RP_0_cpp_cp_svr_23990_20250529-185134-UTC.core.gz.coregen.dbg
+783417  -rw-            74667  May 29 2025 14:51:34 -04:00  Router_RP_0_qfp-ucode-mirabile_21736_20250529-185048-UTC.core.gz.coregen.dbg
+783418  -rw-         16231871  May 29 2025 14:51:34 -04:00  Router_RP_0_qfp-ucode-mirabile_21736_20250529-185048-UTC.core.gz
+783366  drwx             4096  Sep 19 2024 11:23:03 -04:00  modules
+783414  -rw-           529263  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3025_20240525-120021-UTC.core.gz
+783416  -rw-           516195  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3026_20240525-120021-UTC.core.gz
+783413  -rw-           105786  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3025_20240525-120021-UTC.core.gz.coregen.dbg
+783415  -rw-           103310  May 25 2024 08:00:22 -04:00  Router_RP_0_btman_rotate_immediate_3026_20240525-120021-UTC.core.gz.coregen.dbg
+783412  -rw-           133308  May 25 2024 08:00:20 -04:00  Router_RP_0_ngiolite_24650_20240525-120020-UTC.core.gz.coregen.dbg
+783411  -rw-             7989  May 25 2024 08:00:19 -04:00  Router_RP_0-system-report_20240525-120015-UTC-info.txt
+783410  -rw-         34004393  May 25 2024 08:00:16 -04:00  Router_RP_0-system-report_20240525-120015-UTC.tar.gz
+783409  -rw-           516217  May 25 2024 07:38:01 -04:00  Router_RP_0_btman_rotate_immediate_3561_20240525-113801-UTC.core.gz
+783408  -rw-           103310  May 25 2024 07:38:01 -04:00  Router_RP_0_btman_rotate_immediate_3561_20240525-113801-UTC.core.gz.coregen.dbg
+783407  -rw-           529470  May 25 2024 07:38:00 -04:00  Router_RP_0_btman_rotate_immediate_3347_20240525-113800-UTC.core.gz
+783406  -rw-           105911  May 25 2024 07:38:00 -04:00  Router_RP_0_btman_rotate_immediate_3347_20240525-113800-UTC.core.gz.coregen.dbg
+783405  -rw-           133434  May 25 2024 07:37:59 -04:00  Router_RP_0_ngiolite_24783_20240525-113758-UTC.core.gz.coregen.dbg
+783404  -rw-            16525  May 25 2024 07:37:58 -04:00  Router_RP_0-system-report_20240525-113752-UTC-info.txt
+783403  -rw-         48579397  May 25 2024 07:37:54 -04:00  Router_RP_0-system-report_20240525-113752-UTC.tar.gz
+783402  -rw-           516271  May 21 2024 10:12:16 -04:00  Router_RP_0_btman_rotate_immediate_28841_20240521-141216-UTC.core.gz
+783401  -rw-           103595  May 21 2024 10:12:16 -04:00  Router_RP_0_btman_rotate_immediate_28841_20240521-141216-UTC.core.gz.coregen.dbg
+783400  -rw-           529651  May 21 2024 10:12:14 -04:00  Router_RP_0_btman_rotate_immediate_28286_20240521-141214-UTC.core.gz
+783399  -rw-           106327  May 21 2024 10:12:14 -04:00  Router_RP_0_btman_rotate_immediate_28286_20240521-141214-UTC.core.gz.coregen.dbg
+783398  -rw-            12312  May 21 2024 10:12:13 -04:00  Router_RP_0-system-report_20240521-141209-UTC-info.txt
+783397  -rw-         38671753  May 21 2024 10:12:09 -04:00  Router_RP_0-system-report_20240521-141209-UTC.tar.gz
+783396  -rw-           156947  May 20 2024 13:16:43 -04:00  Router_RP_0_pman_26176_20240520-171643-UTC.core.gz
+783395  -rw-            35321  May 20 2024 13:16:43 -04:00  Router_RP_0_pman_26176_20240520-171643-UTC.core.gz.coregen.dbg
+783364  -rw-           529603  May 20 2024 13:16:42 -04:00  Router_RP_0_btman_rotate_immediate_10457_20240520-171642-UTC.core.gz
+783363  -rw-           106325  May 20 2024 13:16:42 -04:00  Router_RP_0_btman_rotate_immediate_10457_20240520-171642-UTC.core.gz.coregen.dbg
+783361  -rw-            47672  May 20 2024 13:16:40 -04:00  Router_RP_0-system-report_20240520-171632-UTC-info.txt
+783362  -rw-         59047015  May 20 2024 13:16:35 -04:00  Router_RP_0-system-report_20240520-171632-UTC.tar.gz
+783424  -rw-       2325885324  Dec 31 1969 19:02:53 -05:00  kernel.rp_RP-MIRABILE_0_19700101000007.core.gz
+783422  -rw-       1749903459  Dec 31 1969 19:02:47 -05:00  kernel.rp_RP-MIRABILE_0_19700101000010.core.gz
+783421  -rw-           304544  Dec 31 1969 19:00:10 -05:00  kernel.rp_RP-MIRABILE_0_19700101000010.txt
+783423  -rw-           296360  Dec 31 1969 19:00:07 -05:00  kernel.rp_RP-MIRABILE_0_19700101000007.txt
+
+20584546304 bytes total (9809817600 bytes free)
+CAT8375-G2#
+[COMMAND 2026-11-11T17:38:55.442414-05:00] show voice dsp error
+show voice dsp error
+No DSP errors logged
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:39:02.381805-05:00] show voice dsp group all
+show voice dsp group all
+DSP groups on slot 0/1 slot id 1
+dsp 1:
+  State: UP, firmware: 66.1.0
+  Max signal/voice channel: 8/8
+  Max credits: 120, Voice credits: 120, Video credits: 0
+  num_of_sig_chnls_allocated: 6
+  Transcoding channels allocated: 0
+  Group: FLEX_GROUP_VOICE, complexity: FLEX
+    Shared credits: 120, reserved credits: 0
+    Signaling channels allocated: 6
+    Voice channels allocated: 0
+    Credits used (rounded-up): 0
+  Slot: 0/1
+  Device idx: 0
+  Dsp Type: DM8147 
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:39:02.886090-05:00] show ntp status
+show ntp status
+Clock is synchronized, stratum 3, reference is 192.168.3.10   
+nominal freq is 250.0000 Hz, actual freq is 249.9994 Hz, precision is 2**10
+ntp uptime is 9500 (1/100 of seconds), resolution is 4016
+reference time is EE9F6CEC.88B43AD0 (17:38:36.534 EST Wed Nov 11 2026)
+clock offset is 0.4599 msec, root delay is 14.18 msec
+root dispersion is 7980.99 msec, peer dispersion is 188.52 msec
+loopfilter state is 'CTRL' (Normal Controlled Loop), drift is 0.000002213 s/s
+system poll interval is 64, last update was 26 sec ago.
+CAT8375-G2#
+[COMMAND 2026-11-11T17:39:03.426087-05:00] show install summary
+show install summary
+[ R0 ] Installed Package(s) Information:
+State (St): I - Inactive, U - Activated & Uncommitted,
+            C - Activated & Committed, D - Deactivated & Uncommitted
+--------------------------------------------------------------------------------
+Type  St   Filename/Version
+--------------------------------------------------------------------------------
+IMG   C    26.01.02.0.3639
+
+--------------------------------------------------------------------------------
+Auto abort timer: inactive
+--------------------------------------------------------------------------------
+
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:39:03.932422-05:00] show logging | include CGX|panic|CRASH|Error|Traceback
+show logging | include CGX|panic|CRASH|Error|Traceback
+CAT8375-G2#
+[COMMAND 2026-11-11T17:39:16.680535-05:00] show interfaces Service-Engine0/1/0 | include line protocol
+show interfaces Service-Engine0/1/0 | include line protocol
+Service-Engine0/1/0 is up, line protocol is up 
+CAT8375-G2#
+[COMMAND 2026-11-11T17:39:17.195179-05:00] show running-config interface Service-Engine0/1/0
+show running-config interface Service-Engine0/1/0
+Building configuration...
+
+Current configuration : 37 bytes
+!
+interface Service-Engine0/1/0
+end
+
+CAT8375-G2#
+[COMMAND 2026-11-11T17:39:17.699145-05:00] show environment all
+show environment all
+Sensor List:  Environmental Monitoring 
+ Sensor                  Location        State           Reading         
+ Temp: Inlet 1           R0              Normal          22 Celsius
+ Temp: Inlet 2           R0              Normal          23 Celsius
+ Temp: Outlet 1          R0              Normal          24 Celsius
+ Temp: Outlet 2          R0              Normal          26 Celsius
+ Temp: CPU               R0              Normal          33 Celsius
+ Temp: Working           R0              Normal          22 Celsius
+ V: 12V                  R0              Normal          11961 mV
+ V: 5V                   R0              Normal          4991 mV
+ V: 3.3V_STBY            R0              Normal          3341 mV
+ V: 3.3V                 R0              Normal          3308 mV
+ V: 3.3V_USB             R0              Normal          3311 mV
+ V: 2.5V                 R0              Normal          2500 mV
+ V: 1.8V                 R0              Normal          1798 mV
+ V: 1.2V_CPU             R0              Normal          1198 mV
+ V: 1.2V                 R0              Normal          1208 mV
+ V: 1.1V                 R0              Normal          1101 mV
+ V: 1.0V                 R0              Normal          996 mV
+ V: 0.85V_DDR            R0              Normal          833 mV
+ V: 0.8V_SW              R0              Normal          796 mV
+ V: 0.8V_SYS             R0              Normal          850 mV
+ V: 0.8V_CORE            R0              Normal          883 mV
+ V: 0.8V_PHY             R0              Normal          798 mV
+ V: 0.75V                R0              Normal          749 mV
+ P: Power                R0              Normal          36 Watts
+ Temp: Temp 1            P1              Normal          26 Celsius
+ Temp: Temp 2            P1              Normal          29 Celsius
+ Temp: Temp 3            P1              Normal          31 Celsius
+ V: PEM In               P1              Normal          120001 mV
+ V: PEM Out              P1              Normal          12000 mV
+ I: PEM In               P1              Normal          429 mA
+ I: PEM Out              P1              Normal          3300 mA
+ P: In power             P1              Normal          48 Watts
+ P: Out power            P1              Normal          38 Watts
+ RPM: fan0               P1              Normal          6144 RPM
+ P: Power                P2              Normal          2 Watts
+ RPM: fan0               P2              Normal          9600 RPM
+ RPM: fan1               P2              Normal          9600 RPM
+ RPM: fan2               P2              Normal          9540 RPM
+ P: pwr: Pwr             0/1             Normal          6 Watts
+
+
+CAT8375-G2#
